@@ -1,0 +1,7 @@
+This page allows you to moderate join requests for your custom groups.  Select a custom group from the menu at the top and click the "Go" button to view that group's join requests.  Next select an action to take for each join request (accept, deny, or ignore).<br /><br />
+
+Accepting a join request removes the request from this moderation queue and adds the user to the selected group. Denying a join request does exactly that. Ignoring a join request leaves it in this moderation queue so you can handle it another time.<br /><br />
+
+If you want to accept, deny, or ignore all join requests then you can click the appropriate button at the top which sets all actions appropriately.<br /><br />
+
+Usergroup leaders can also moderate these join requests from the <a href="../profile.php?do=editusergroups" target="_blank">Group Memberships</a> section of their User CP.

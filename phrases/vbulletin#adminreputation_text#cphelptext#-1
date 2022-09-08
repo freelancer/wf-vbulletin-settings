@@ -1,0 +1,8 @@
+<b>User Reputations:</b><br />
+vBulletin's user reputation system provides a way of rating users based on the quality of their posts.  Users on your forums can add or subtract reputation points from other users by clicking the reputation link in their posts.  You can set restrictions on the giving and taking away of reputation points by users in your <a href="options.php?dogroup=reputation&amp;do=options" target="_blank">vBulletin options</a>.<br /><br />
+
+User reputations allow the users in your community to tell vBulletin which users are quality and which users are not.  And in response to user feedback, vBulletin has the ability to label and reward users for the quality of their posts, as is indicated by their reputation.<br /><br />
+
+You can label quality users by defining reputation levels in the <a href="adminreputation.php?do=modify" target="_blank">User Reputation Manager</a>.  User reputation levels work very similar to user titles and user ranks in that they are an indicator of status that are displayed next to names in posts.<br /><br />
+
+You can reward quality users by creating promotions on the <a href="usergroup.php?do=modifypromotion" target="_blank">Promotions</a> page.  Promotions are used to change a user's group memberships when they meet certain conditions, one of which can be their reputation level.  Because forum permissions can be controlled with group memberships, a user's reputation in conjunction with promotions can be used to control a user's forum permissions.  And so by using a combination of user reputations, promotions, and group permissions, you can enable your community to reward and punish good and bad posters on your forums.

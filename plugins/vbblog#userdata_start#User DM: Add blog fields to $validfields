@@ -1,0 +1,2 @@
+$this->validfields['bloggroupreqcount'] = array(TYPE_UINT, REQ_NO);
+$this->validfields['showblogcss'] = array(TYPE_UINT, REQ_NO);

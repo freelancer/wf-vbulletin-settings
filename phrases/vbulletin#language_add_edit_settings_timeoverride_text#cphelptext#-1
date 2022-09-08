@@ -1,0 +1,7 @@
+This setting will override the time format that is specified in your vBulletin options, <a href="options.php?dogroup=datetime&amp;do=options" target="_blank">here</a>.  Leave blank to use the format that is set in your vBulletin options.<br /><br />
+
+Consult <a href="http://www.php.net/manual-lookup.php?function=strftime" target="_blank">this page</a> for a list of time variables.  You can use these variables in combination with other characters to define a format.<br /><br />
+
+For example, AM/PM Time Format (eg, 11:15 PM): %I:%M %p<br /><br />
+
+If you have defined a locale for this language then you can use %X to let the locale decide what format to use.

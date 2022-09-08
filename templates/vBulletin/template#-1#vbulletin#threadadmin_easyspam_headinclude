@@ -1,0 +1,9 @@
+<style type="text/css" id="vbulletin_threadadmin_easyspam_css">
+<!--
+ul.spamoptions, #userlist, #iplist, ul.inlinelist { list-style-type:none; margin:0px; padding:0px; }
+ul.spamoptions li, #userlist li, #iplist li { margin-top:$stylevar[cellpadding]px; }
+#userlist li div.userinfo { white-space:nowrap; }
+td.leftcell { padding-$stylevar[right]:$stylevar[cellpadding]px; }
+td.rightcell { padding-$stylevar[left]:$stylevar[cellpadding]px; }
+-->
+</style>

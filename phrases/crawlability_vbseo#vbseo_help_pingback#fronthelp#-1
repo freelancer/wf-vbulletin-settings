@@ -1,0 +1,14 @@
+
+<p><img src="vbseo/resources/images/forum/pingback.gif" alt="Pingback" width="347" height="110" style="float:right" />A Pingback is also a signal (ping) sent from Site A to Site B. However, it's also a link. When Site B receives the notification signal, it automatically goes back to Site A checking for the existance of a live incoming link, if it exists, the Pingback is recorded successfully. This makes Pingbacks less prone to SPAM than Trackbacks.</p>
+<p>Both sites must be Pingback enabled in order to establish this communication. If a site is Pingback enabled, each time you link-out you will be &quot;pinging&quot; external sites. Pingback requires for Site A to phisically link to Site B.</p>
+<p><strong><a onclick="return   toggle_collapse('pforum')" href="#">Pingback our Forums from another Site</a></strong></p>
+<div id="collapseobj_pforum" style="display:none">
+<p>A Pingback will be registered in our forums by simply linking back to a thread or post from a Pingback enabled website.</p>
+<p>Note: If the forum administrator requires moderation for Incoming Pingbacks, a link-back to the site originating the Pingback will be published only after the Pingback has been manually approved by a moderator.</p>
+<p>Once a Pingback has been published, an automated notification email will be sent to the thread contributors.</p>
+</div>
+<p><strong><a onclick="return toggle_collapse('psite')" href="#">Pingback other Sites from our Forums</a></strong></p>
+<div id="collapseobj_psite" style="display:none">
+<p>Pingback other sites from our forums by simply including an outgoing link to a Pingback enabled site within your post.</p>
+<p>Note: If the Pingback recipient site requires moderation for Pingbacks, a link-back to the thread originating the Pingback will be published only after the Pingback has been manually approved by the recipient's site administrator.</p>
+</div>

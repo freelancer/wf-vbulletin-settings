@@ -1,0 +1,35 @@
+<div style="margin-top:$stylevar[cellpadding]px" id="block_archive_div">
+	<table class="tborder" cellpadding="4" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+	<thead>
+	<tr>
+		<th class="thead" colspan="7" style="padding:$stylevar[cellpadding]px" align="$stylevar[left]" <if condition="$show['moveable']">id="block_archive_handle"</if>>
+				<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('blog_calendar')"><img id="collapseimg_blog_calendar" src="$stylevar[imgdir_button]/collapse_generic$vbcollapse[collapseimg_blog_calendar].gif" alt="" border="0" /></a>
+				$vbphrase[archive]
+		</th>
+	</tr>
+	</thead>
+	<tbody style="$vbcollapse[collapseobj_blog_calendar]" id="collapseobj_blog_calendar">
+	<tr>
+		<th class="tcat smallfont" colspan="7" align="center">
+			<div style="float:$stylevar[left]" id="vb_blogcalendar_prevmonth">&nbsp;<a href="blog.php?$session[sessionurl]<if condition="$userid">u=$userid<else />do=list</if>&amp;m=$prevmonth&amp;y=$prevyear">&lt;</a>&nbsp;</div>
+			<if condition="$show['nextmonth']">
+				<div style="float:$stylevar[right]" id="vb_blogcalendar_nextmonth">&nbsp;<a href="blog.php?$session[sessionurl]<if condition="$userid">u=$userid<else />do=list</if>&amp;m=$nextmonth&amp;y=$nextyear">&gt;</a>&nbsp;</div>
+			<else />
+				<div style="float:$stylevar[right]">&nbsp;&nbsp;&nbsp;</div>
+			</if>
+			<div><a href="blog.php?$session[sessionurl]<if condition="$userid">u=$userid<else />do=list</if>&amp;m=$month&amp;y=$year">$monthname $year</a></div>
+		</th>
+	</tr>
+	<tr align="center">
+		<th class="tcat smallfont">$day1</th>
+		<th class="tcat smallfont">$day2</th>
+		<th class="tcat smallfont">$day3</th>
+		<th class="tcat smallfont">$day4</th>
+		<th class="tcat smallfont">$day5</th>
+		<th class="tcat smallfont">$day6</th>
+		<th class="tcat smallfont">$day7</th>
+	</tr>
+	$calendarrows
+	</tbody>
+	</table>
+</div>

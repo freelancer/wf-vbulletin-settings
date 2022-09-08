@@ -1,0 +1,1 @@
+If this is set to Yes, every time the scheduled task runs, a log will be made indicating that the task was run, and in certain cases, additional information will be provided (e.g. for the Birthday Email task, the usernames who were sent birthday wishes will be noted).

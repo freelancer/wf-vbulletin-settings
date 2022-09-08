@@ -1,0 +1,1 @@
+<div><label for="rb_subj$index"><input type="radio" name="subject" id="rb_subj$index" value="$index" $checked />$title</label></div>

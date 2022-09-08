@@ -1,0 +1,4 @@
+If you would like to prevent vBulletin from sending email to the $config['Database']['technicalemail'] address you specified in config.php, set this value to 'Yes'.<ol>
+<li class="smallfont">Error reports about database connection errors will still be sent.</li>
+<li class="smallfont">It is not recommended that you set this value to 'Yes' unless you are logging database errors to a file. (see above)</li>
+</ol>

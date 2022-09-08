@@ -1,0 +1,2 @@
+eval('$template_hook[inlinemod_thread_bottom] .= " ' . fetch_template('forumdisplay_changethreadsowner_link') . '";');
+			eval('$template_hook[inlinemod_post_bottom] .= " ' . fetch_template('showthread_changepostsowner_link') . '";');

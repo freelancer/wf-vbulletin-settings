@@ -1,0 +1,13 @@
+<fieldset class="statistics_group">
+	<legend>$vbphrase[blog]<if condition="$userinfo['blog_title'] != $userinfo['username']"> - $userinfo[blog_title]</if></legend>
+	<ul class="list_no_decoration">
+		<li><span class="shade">$vbphrase[total_blog_entries]</span>: $userinfo[entries]</li>
+		<if condition="$show['lastentry']">
+			<li><span class="shade">$vbphrase[last_blog_entry]</span>:
+			<if condition="$userinfo['lastblogtitle']"><a href="blog.php?$session[sessionurl]b=$userinfo[lastblogid]">$userinfo[lastblogtitle]</a></if>
+				$userinfo[lastblogdate] <span class="time">$userinfo[lastblogtime]</span>
+			</if>
+			</li>
+			<li><a href="blog.php?$session[sessionurl]u=$userinfo[userid]"><phrase 1="$userinfo[username]">$vbphrase[view_all_blog_entries_by_user]</phrase></a></li>
+	</ul>
+</fieldset>

@@ -1,0 +1,4 @@
+$globaltemplates  = array_merge($globaltemplates, array('FORUMDISPLAY_Separate'));
+
+$globaltemplates  = array_merge($globaltemplates, array('FORUMDISPLAY_Separate2'));
+					$globaltemplates  = array_merge($globaltemplates, array('FORUMDISPLAY_Separate_top'));

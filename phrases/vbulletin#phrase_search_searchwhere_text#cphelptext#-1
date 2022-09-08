@@ -1,0 +1,1 @@
+If you only want to search the actual text of the phrase, select 'Phrase text only'. If you only want to search the variable name (e.g. in $vbphrase[august], august is the variable name) select 'Variable name only'. If you want to search in both places, select 'Phrase text and variable name'.

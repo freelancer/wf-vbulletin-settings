@@ -1,0 +1,1 @@
+This is how many results should appear per page. A lower number means less overhead during the process. Balance this number between your server load, size of posts table and how busy your site is.

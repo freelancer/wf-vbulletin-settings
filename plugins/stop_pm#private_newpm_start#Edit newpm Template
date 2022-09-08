@@ -1,0 +1,7 @@
+
+  			 
+				$find = '<legend>$vbphrase[recipients]</legend>';
+				$replace = '$pm_stopm';
+				$vbulletin->templatecache['pm_newpm'] = str_replace($find, $replace . $find,  $vbulletin->templatecache['pm_newpm']);
+  			 
+			

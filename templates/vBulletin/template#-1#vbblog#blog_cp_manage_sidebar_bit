@@ -1,0 +1,16 @@
+<tr>
+	<td class="alt1">
+		<if condition="$show['customblock']">
+			<span style="float:$stylevar[right]">
+				<a href="blog_usercp.php?$session[sessionurl]do=modifyblock&amp;customblockid=$customblockid"><img src="$stylevar[imgdir_misc]/blog/block_edit.gif" alt="$vbphrase[edit_custom_block]" class="inlineimg" border="0" /></a>
+			</span>
+		</if>
+		<if condition="$show['disableblock']"><span style="text-decoration: line-through">$blockname</span><else />$blockname</if>
+	</td>
+	<td class="alt2" nowrap="nowrap"<if condition="$show['alignright']"> align="$stylevar[right]"</if>>
+		<if condition="$show['moveup']"><a href="blog_usercp.php?$session[sessionurl]do=moveblock&amp;dir=up&amp;block=$block&amp;hash=$bbuserinfo[logouthash]"><img src="$stylevar[imgdir_button]/sortdesc.gif" class="inlineimg" border="0" alt="$vbphrase[move_block_up]" /></a></if>
+		<input type="text" name="position[$block]" value="$position" size="3" class="bginput" />
+		<if condition="$show['movedown']"><a href="blog_usercp.php?$session[sessionurl]do=moveblock&amp;dir=down&amp;block=$block&amp;hash=$bbuserinfo[logouthash]"><img src="$stylevar[imgdir_button]/sortasc.gif" class="inlineimg" border="0" alt="$vbphrase[move_block_down]" /></a></if>
+	</td>
+	<td class="alt1" align="center"><input type="checkbox" name="block[$block]" value="1" $blockchecked[$block] /></td>
+</tr>

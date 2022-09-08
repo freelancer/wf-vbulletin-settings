@@ -1,0 +1,1 @@
+This is the current action that you are adding help for. Examples are add, edit, modify. You can tell the current action by placing the forums in debug mode and looking at the browser's status bar. It will say $_REQUEST[do]='XXXX'. The XXXX is the action.

@@ -1,0 +1,7 @@
+Required variables have gone missing and execution can not continue. Please try again.<br />
+<br />
+This error can sometimes occur as a result of Suhosin / Hardened PHP being installed on your server. If you know that you have Suhosin running and you have access to the PHP configuration, try increasing the value of the following variables:
+<ul>
+<li>php_value suhosin.post.max_vars</li>
+<li>php_value suhosin.request.max_vars</li>
+</ul>

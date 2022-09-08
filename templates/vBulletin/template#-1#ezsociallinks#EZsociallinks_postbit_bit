@@ -1,0 +1,20 @@
+
+<fieldset class="fieldset" style="margin-top: 3px;width:115px;"><legend>Social Networking</legend>
+<if condition="$ezmyspace">
+<a href="http://www.myspace.com/$ezmyspace" target="_blank"><img src="$stylevar[imgdir_misc]/myspace.gif" border="0" alt="View Member&#39;s Myspace Profile" /></a>&nbsp;</if>
+
+<if condition="$ezfacebook">
+<a href="http://www.facebook.com/profile.php?id=$ezfacebook" target="_blank"><img src="$stylevar[imgdir_misc]/facebook.gif" border="0" alt="View Member&#39;s FaceBook Profile" /></a>&nbsp;
+</if>
+
+<if condition="$eztwitter">
+<a href="http://twitter.com/$eztwitter" target="_blank"><img src="$stylevar[imgdir_misc]/twitter.gif" border="0" alt="View Member&#39;s Twitter Profile" /></a>&nbsp;
+</if>
+
+<if condition="$ezyoutube">
+<a href="http://youtube.com/user/$ezyoutube" target="_blank"><img src="$stylevar[imgdir_misc]/youtube.gif" border="0" alt="View Member&#39;s YouTube Profile" /></a>
+</if>
+</fieldset>
+
+
+		

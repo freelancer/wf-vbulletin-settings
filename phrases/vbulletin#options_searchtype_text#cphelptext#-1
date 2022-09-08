@@ -1,0 +1,1 @@
+Fulltext searching uses a search index that is constructed by MySQL itself, whereas vBulletin's own search feature uses its own index.

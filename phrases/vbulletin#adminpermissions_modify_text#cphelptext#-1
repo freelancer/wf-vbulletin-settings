@@ -1,0 +1,3 @@
+On this screen, all administrators you have are listed. (An administrator is defined as a user who is in a usergroup that has "can control panel" set to Yes.)<br /><br />
+
+From here you can link to the Admin Log for a particular user by clicking View Administrator Log, or edit their area permissions by clicking Edit Permissions. Click their username to edit the user's profile.

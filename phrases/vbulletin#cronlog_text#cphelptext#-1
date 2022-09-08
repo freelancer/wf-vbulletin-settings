@@ -1,0 +1,8 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=stats&amp;pageaction=&amp;option=">Statistics</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=adminlog&amp;pageaction=&amp;option=">Control Panel Log</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=modlog&amp;pageaction=&amp;option=">Moderator Log</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=cronlog&amp;pageaction=&amp;option=">Scheduled Task Log</a><br /><br />
+
+<b>Scheduled Task Log:</b><br />
+The scheduled task log contains log entries for every scheduled task that has been run since you last pruned the log.  This log is useful in confirming that your scheduled tasks are running at their proper times.  Log files can also be useful sources of information when you are tracking down a problem.

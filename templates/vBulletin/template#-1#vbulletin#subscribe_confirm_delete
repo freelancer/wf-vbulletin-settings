@@ -1,0 +1,22 @@
+<form action="subscription.php?do=doemptyfolder" method="post">
+	<input type="hidden" name="do" value="doemptyfolder" />
+	<input type="hidden" name="folderid" value="$folderid" />
+	<input type="hidden" name="s" value="$session[sessionhash]" />
+	<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+	<input type="hidden" name="url" value="subscription.php?do=viewsubscription&amp;folderid=$folderid" />
+	
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+		<tr>
+			<td class="tcat">$vbphrase[empty_current_folder]</td>
+		</tr>
+		<tr>
+			<td class="alt1" align="center">$vbphrase[are_you_sure_you_want_to_delete_these_subscriptions]</td>
+		</tr>
+		<tr>
+			<td class="tfoot" align="center">
+			<input class="button" type="submit" name="confirm" value="  $vbphrase[yes]  " />
+			<input class="button" type="submit" name="deny" value="  $vbphrase[no]  " />
+			</td>
+		</tr>
+	</table>
+</form>

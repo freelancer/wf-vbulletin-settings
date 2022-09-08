@@ -1,0 +1,6 @@
+
+				if ($table == 'angularadvertisement')
+				{
+					$idfield = 'adverid'; 
+				}
+			

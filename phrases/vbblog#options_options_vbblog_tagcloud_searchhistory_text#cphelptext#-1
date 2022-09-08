@@ -1,0 +1,3 @@
+The number of days that tag searching information should be stored for. This information is used to build the tag cloud.<br />
+<br />
+0 will keep data around permanently.

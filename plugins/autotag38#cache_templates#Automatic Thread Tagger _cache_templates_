@@ -1,0 +1,9 @@
+
+if (THIS_SCRIPT === newthread) {
+	if ($vbulletin->options['autotag_enabled_ajax'] AND $vbulletin->options['autotag_enabled_all'])
+	{
+		$globaltemplates = array_merge($globaltemplates, array(
+			'autotag_ajax'
+		));
+	}
+}

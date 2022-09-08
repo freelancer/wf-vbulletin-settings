@@ -1,0 +1,10 @@
+For example, if this is set to 2 and your forums are arranged like this:<br /><br />
+
+parent<br />
+--child<br />
+----child's child<br /><br />
+
+And you are currently viewing the "parent" forum then you will see the first two levels of the parent forum's subforums on the forumdisplay page:<br /><br />
+
+--child<br />
+----child's child

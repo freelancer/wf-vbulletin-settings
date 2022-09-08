@@ -1,0 +1,11 @@
+On this screen, all of your forums are listed. Beneath each forum, all of your usergroups are listed.<br /><br />
+
+The color of each usergroup is significant. If the usergroup text is in white, it is using the default permissions for the group. If the usergroup text is in red, it is using permissions customized for that forum. If it is in yellow, it is using custom permissions from a parent forum. If you are using Internet Explorer 4+ or Netscape 6+, the circle next to each usergroup name is also significant. A hollow circle means the usergroup cannot view the forum, while a full circle means they can.<br /><br />
+
+To edit the permissions for any group, or to revert them to default, click Edit next to the appropriate group under the appropriate forum.<br /><br />
+
+The Permission Duplicator, accessible from the link at the top of this screen, allows you to quickly duplicate an existing permission set between usergroups or between forums. (see <a href="help.php?page=forumpermission&amp;pageaction=duplicate">Using the Permission Duplicator</a>)<br /><br />
+
+You can also access the Quick Editor from here. The Quick Editor allows you to quickly revert permissions to default. (see <a href="help.php?page=forumpermission&amp;pageaction=quickedit">Using the Quick Editor</a>)<br /><br />
+
+The last link at the top is Quick Forum Setup. You can use this to mass-apply permissions to multiple usergroups for a particular forum. (see <a href="help.php?page=forumpermission&amp;pageaction=quickforum">Using Quick Forum Setup</a>)

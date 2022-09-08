@@ -1,0 +1,22 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=admincalendar&amp;pageaction=&amp;option=">Calendars</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=calendarpermission&amp;pageaction=&amp;option=">Calendar Permissions</a><br /><br />
+
+<b>Calendars:</b><br />
+vBulletin's calendar system is very advanced. In addition to allowing both public and private events, it allows you to have multiple calendars with usergroup permissions for each.<br /><br />
+
+Calendar administration is relatively easy. vBulletin ships with a default calendar, with most options turned on. You can reach this calendar by clicking Calendar Manager under Calendars &amp; Moderators in the left navigation bar. (see <a href="help.php?do=answer&amp;page=admincalendar&amp;pageaction=modify">Modifying Calendars</a>)<br /><br />
+
+You can also assign moderators to each calendar. Follow the steps above to reach the calendar modification screen, then select 'Add' on the Moderator drop-down across from the appropriate calendar to start the process. (see <a href="help.php?do=answer&amp;page=admincalendar&amp;pageaction=addmod">Adding a Calendar Moderator</a>)<br /><br />
+
+Also on the Modify screen you can edit any existing moderators - simply select their name from the moderator drop-down and press Go. (see <a href="help.php?do=answer&amp;page=admincalendar&amp;pageaction=editmod">Editing a Calendar Moderator</a>)<br /><br />
+
+From the Modify screen, you can select to edit any calendar by choosing Edit from the Controls drop-down menu across from that calendar. (see <a href="help.php?do=answer&amp;page=admincalendar&amp;pageaction=edit">Editing a Calendar</a>)<br /><br />
+
+After you have modified the default calendar, you may wish to add more. Click Add New Calendar under Calendars &amp; Moderators in the left nav bar to add another calendar. (see <a href="help.php?do=answer&amp;page=admincalendar&amp;pageaction=add">Adding a Calendar</a>)<br /><br />
+
+After adding a calendar, you can add custom fields to facilitate easy entry of information that is particular to a given calendar. From the Modify screen, select Edit from the Controls drop-down across from the calendar you wish to add fields to, then select Add Field next to Custom Fields. (see <a href="help.php?do=answer&amp;page=admincalendar&amp;pageaction=addcustom">Adding/Editing Custom Calendar Fields</a>)<br /><br />
+
+Permissions are usually the last thing to be given to a calendar, since it obviously must exist before they can be added. Each usergroup has default calendar permissions that are assigned to it when a new calendar is created. You can change these by clicking Calendar Permissions under Calendars and Moderators in the left nav bar. (see <a href="help.php?do=answer&amp;page=calendarpermission&amp;pageaction=modify">Modifying Usergroup Calendar Permissions</a>)<br /><br />
+
+The Holiday Manager allows you to add or remove holidays from the calendar system. Each calendar can be set separately to show or hide holidays; the Holiday Manager is where you determine what holidays show when holidays are turned on for a  calendar. (see <a href="help.php?do=answer&amp;page=admincalendar&amp;pageaction=modifyholiday">Modifying Holidays</a>)

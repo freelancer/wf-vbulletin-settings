@@ -1,0 +1,40 @@
+<table cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="$_block_data[colspan]<if condition="$show['reverse']">5<else />4</if>">
+		<span style="float:$stylevar[right]" class="smallfont"><phrase 1="$userinfo[ipoints]">$vbphrase[x_points_total]</phrase></span>
+		<if condition="$show['giveinfraction']">
+			<a style="text-decoration: underline" href="infraction.php?$session[sessionurl]do=report&amp;u=$userinfo[userid]">$vbphrase[give_infraction]</a>
+		</if>
+	</td>
+</tr>
+<if condition="$block_data['infractionbits']">
+<tr>
+	<td class="thead">&nbsp;</td>
+	<td class="thead">$vbphrase[post] / $vbphrase[reason]</td>
+	<td class="thead">$vbphrase[date] / $vbphrase[posted_by]</td>
+	<td class="thead">$vbphrase[points] / $vbphrase[expires]</td>
+	<if condition="$show['reverse']"><td class="thead">$vbphrase[view]</td></if>
+</tr>
+<!--<tr>
+	<td class="thead">&nbsp;</td>
+	<td class="thead">$vbphrase[post]</td>
+	<td class="thead">$vbphrase[date]</td>
+	<td class="thead">$vbphrase[expires]</td>
+	<td class="thead">$vbphrase[points]</td>
+	<td class="thead">$vbphrase[reason]</td>
+	<td class="thead" nowrap="nowrap">$vbphrase[posted_by]</td>
+	<if condition="$show['reverse']"><td class="thead">$vbphrase[details]</td></if>
+</tr>-->
+$block_data[infractionbits]
+</if>
+</table>
+
+<if condition="$block_data[pagenav]">
+<div class="alt2 block_row" id="visitor_message_tab_footer">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="smallfont" align="$stylevar[right]">$block_data[pagenav]</td>
+	</tr>
+	</table>
+</div>
+</if>

@@ -1,0 +1,2 @@
+This is how many rows high the input should be on the forms. It is recommend that you set this to at least 2 for user sanity reasons.<br />
+<i>This only applies to Textarea type fields</i>

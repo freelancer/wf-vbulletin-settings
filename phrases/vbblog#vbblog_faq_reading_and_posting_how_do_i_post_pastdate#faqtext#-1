@@ -1,0 +1,5 @@
+<p>You may also post entries that have a time stamp in the past. This is useful for those entries that you just forgot to post and they work best in chronological order.</p>
+
+<p>To past date an entry, create an entry as normal but before submitting the entry, find <span class="smallfont" style="font-weight:bold">Publish Status</span> in the <span class="smallfont" style="font-weight:bold">Miscellaneous Options</span> on the lower section of the entry creation page. This option defaults to <span class="smallfont" style="font-weight:bold">Publish Now</span>.</p>
+
+<p>Change <span class="smallfont" style="font-weight:bold">Publish Now</span> to <span class="smallfont" style="font-weight:bold">Publish On</span> and then choose the date and time that you wish for the entry to appear to have been posted.  If you select a date in the future, you will be creating a <span class="smallfont" style="font-weight:bold">Pending Entry</span>.</p>

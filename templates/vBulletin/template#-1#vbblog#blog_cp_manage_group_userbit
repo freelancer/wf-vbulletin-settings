@@ -1,0 +1,15 @@
+<li class="alt1" id="member$member[userid]">
+	<div class="username">
+			<input type="hidden" name="listbits[user_original][$member[userid]]" value="$member[userid]" />
+			<input type="checkbox" name="listbits[user][$member[userid]]" id="userlist_usercheck_$member[userid]" value="$member[userid]" checked="checked" />
+			<label class="avatar_label" for="userlist_usercheck_$member[userid]">
+				<img src="$member[avatarurl]"<if condition="$member['avatarwidth']"> width="$member[avatarwidth]"</if><if condition="$member['avatarheight']"> height="$member[avatarheight]"</if> id="userlist_avatar_$member[userid]" alt="<phrase 1="$member[username]">$vbphrase[xs_avatar]</phrase>" border="0" />
+			</label>
+			<a href="member.php?$session[sessionurl]u=$member[userid]" title="$vbphrase[view_profile]">$member[username]</a>
+			<a href="blog_usercp.php?$session[sessionurl]do=userperm&amp;userid=$member[userid]"><img src="$stylevar[imgdir_misc]/blog/cog.gif" title="$vbphrase[permissions]" alt="" border="0" class="inlineimg" /></a>
+			<div class="userstatus">
+				<if condition="$show['pending']">$vbphrase[pending]</if>
+			</div>
+	</div>
+	<hr />
+</li>

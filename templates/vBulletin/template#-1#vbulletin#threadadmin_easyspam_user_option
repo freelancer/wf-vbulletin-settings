@@ -1,0 +1,10 @@
+<li>
+<if condition="$show['userid_checkbox']">
+	<if condition="$show['prevent_userselection']">
+		*
+	<else />
+		<input type="checkbox" name="userid[]" value="$user[userid]" checked="checked" style="float:$stylevar[left]" />
+	</if>
+</if>
+<a href="member.php?$session[sessionurl]u=$user[userid]" target="spamuserinfo">$user[username]</a> <div class="userinfo"><phrase 1="$user[joindate_string]" 2="$user[post_count]">$vbphrase[registered_x_posts_y]</phrase></div>
+</li>

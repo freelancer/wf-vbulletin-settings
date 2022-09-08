@@ -1,0 +1,38 @@
+<div style="padding: 0px 0px $stylevar[cellpadding]px 0px" id="entry$blog[blogid]">
+<table class="tborder" id="blog$blog[blogid]" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr valign="top">
+	<td class="thead" align="center"<if condition="!$show['inlinemod']"> rowspan="2"</if>><img src="$stylevar[imgdir_statusicon]/post_$blog[statusicon].gif" alt="$blog[statustitle]" /></td>
+	<td class="alt1" style="padding:0px" width="100%">
+		<div id="td_blog_$blog[blogid]" style="padding:$stylevar[cellpadding]px">
+			<h2 class="smallfont" style="font-weight:normal; margin:0px">
+				<a href="blog.php?$session[sessionurl]b=$blog[blogid]">$blog[title]</a>
+				<!--<if condition="$show['status']">
+					<img class="inlineimg" src="$status[image]" alt="$status[phrase]" border="0" />
+				</if>-->
+			</h2>
+			<div class="smallfont" style="float:$stylevar[right]" id="view_entry$blog[blogid]"><img style="display: none" id="entry_progress_$blog[blogid]" src="$stylevar[imgdir_misc]/progress.gif" alt="$vbphrase[loading_content_please_wait]" /><a href="blog.php?b=$blog[blogid]"> $vbphrase[view_entry]</a></div>
+			<div class="smallfont shade" style="margin-bottom:10px">
+				<phrase 1="$blog[date]" 2="$blog[time]" 3="blog.php?$session[sessionurl]u=$blog[userid]" 4="$blog[username]">$vbphrase[posted_date_at_time_by_user]</phrase>
+			</div>
+			<div class="cleardiv" style="height:0; line-height:0; font-size:0"></div>
+		</div>
+	</td>
+</tr>
+<tr>
+	<if condition="$show['inlinemod']">
+		<td class="thead" style="padding:0px" align="center" valign="middle">
+			<input class="inlineimg" type="checkbox" name="bloglist[$blog[blogid]]" id="bloglist_$blog[blogid]" value="$blog[checkbox_value]" title="$vbphrase[select_this_item_for_inline_moderation]" style="margin:-2px" />
+		</td>
+	</if>
+	<td class="alt2 smallfont shade">
+		<phrase 1="$blog[username]" 2="$session[sessionurl]">$vbphrase[entry_is_hidden_x_y]</phrase>
+	</td>
+</tr>
+</table>
+<script type="text/javascript">
+<!--
+	vBulletin.register_control("vB_QuickLoad_Blog_Entry", "$blog[blogid]");
+//-->
+</script>
+</li>
+</div>

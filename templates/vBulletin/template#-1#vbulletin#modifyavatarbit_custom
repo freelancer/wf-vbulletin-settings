@@ -1,0 +1,3 @@
+<td class="smallfont">
+	<img src="$bbuserinfo[avatarurl]" alt="$vbphrase[custom_avatar]" border="0" />
+</td>

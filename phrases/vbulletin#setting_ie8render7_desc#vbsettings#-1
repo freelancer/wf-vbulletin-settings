@@ -1,0 +1,1 @@
+Sends an HTTP header that instructs Internet Explorer 8 to render pages as Internet Explorer 7 would do so, rather than enabling full standards-compliance mode, which may result in rendering problems for templates that have not been updated for IE8.

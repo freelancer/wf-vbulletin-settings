@@ -1,0 +1,2 @@
+global $globaltemplates;
+$globaltemplates[] = 'navbar_usercp_menu';

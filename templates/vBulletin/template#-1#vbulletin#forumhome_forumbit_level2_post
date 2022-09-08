@@ -1,0 +1,19 @@
+<tr align="center">
+	<td class="alt2"><img src="$stylevar[imgdir_statusicon]/$forum[imageprefix]forum_$forum[statusicon].gif" alt="" border="0" id="forum_statusicon_$forum[forumid]" /></td>
+	<td class="alt1Active" align="$stylevar[left]" id="f$forum[forumid]">
+		<div>
+			<a href="forumdisplay.php?$session[sessionurl]f=$forum[forumid]"><strong>$forum[title]</strong></a>
+			<if condition="$show['browsers']"><span class="smallfont">(<phrase 1="$forum[browsers]">$vbphrase[x_viewing]</phrase>)</span></if>
+		</div>
+		<if condition="$show['forumdescription']"><div class="smallfont">$forum[description]</div></if>
+		<if condition="$show['forumsubscription']"><div class="smallfont"><strong><a href="subscription.php?$session[sessionurl]do=removesubscription&amp;f=$forum[forumid]" rel="nofollow">$vbphrase[unsubscribe_from_this_forum]</a></strong></div></if>
+		<if condition="$show['subforums']"><div class="smallfont" style="margin-top:$stylevar[cellpadding]px"><strong>$vbphrase[subforums]</strong>: $forum[subforums]</div></if>
+	</td>
+	<td class="alt2">$forum[lastpostinfo]</td>
+	<td class="alt1">$forum[threadcount]</td>
+	<td class="alt2">$forum[replycount]</td>
+	<if condition="$vboptions['showmoderatorcolumn']">
+	<td class="alt1"><div class="smallfont">$forum[moderators]&nbsp;</div></td>
+	</if>
+</tr>
+$childforumbits

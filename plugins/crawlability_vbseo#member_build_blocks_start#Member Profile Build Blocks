@@ -1,0 +1,32 @@
+//$_GET['tab'] = 'likes_given';
+if((($lrcv = $_GET['tab']) == 'likes_received') ||
+		(($lgvn = $_GET['tab']) == 'likes_given')
+		)
+	{
+		global $vbseo_ltab;
+		$vbseo_ltab = $_GET['tab'];
+	   	vbseo_extra_inc('ui');
+	   	vbseo_extra_inc('ui_profile');
+		global $template_hook, $vbphrase;
+		$selected_tab = $vbseo_ltab;
+
+		$pagenumber =& $vbulletin->GPC['pagenumber'];
+		$blocklist[$vbseo_ltab] = array(
+			'class'         => 'vBSEOLikes',
+			'title'         => $vbphrase['vbseo_' . $vbseo_ltab],
+			//'hook_location' => 'profile_tabs_last',
+			'wrap'			=> false,
+    		'options' => array(
+    			'userid'      => $lgvn ? $userinfo['userid'] : 0,
+    			'duserid'     => $lgvn ? 0 : $userinfo['userid'],
+    			'pagenumber'  => $pagenumber,
+    			'perpage'     => 15,
+    			'tab'         => $vbseo_ltab,
+    		),
+		);
+
+		if($prepared['userid'] == $vbulletin->userinfo['userid'])
+		{
+			vBSEO_UI::like_counter_spec($prepared['userid'], 'vbseo_likes_unread', -$vbulletin->userinfo['vbseo_likes_unread']);
+		}
+	}

@@ -1,0 +1,3 @@
+Enter the username of the individual or individuals who will become moderators. Separate usernames using a semicolon.<br />
+<br />
+If you specify an invalid username, none of the moderators will be added.

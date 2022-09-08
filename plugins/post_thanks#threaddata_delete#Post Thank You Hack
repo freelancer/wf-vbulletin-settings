@@ -1,0 +1,16 @@
+if ($physicaldel)
+{
+	require_once(DIR . '/includes/functions_post_thanks.php');
+
+	$posts = $this->dbobject->query_read("
+		SELECT postid
+		FROM " . TABLE_PREFIX . "post AS post
+		WHERE threadid = $threadid
+	");
+
+	while ($post = $this->dbobject->fetch_array($posts))
+	{
+		$postinfo = fetch_postinfo($post['postid']); 
+		delete_all_thanks($postinfo, false);
+	}
+}

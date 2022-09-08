@@ -1,0 +1,3 @@
+This section allows you to manage the payment processors that you want to accept for your forum subscriptions.<br /><br />
+
+A payment processor is a company through which payments are handled.  For example, if you have a PayPal account and you enable that API on this page, then users can signup with PayPal and then use it to purchase a forum subscription.

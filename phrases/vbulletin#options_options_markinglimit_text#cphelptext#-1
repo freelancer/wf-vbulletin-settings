@@ -1,0 +1,3 @@
+With "database read marking", the unread markers on threads and forums are persistent across forum sessions.  If a user does not read a thread that is marked as unread, then that thread will remain unread every time the user visits the forum.<br /><br />
+
+This setting allows you to force unread markers to switch to "read" after a so many days.  This would be the amount of time after which the user probably has no interest in reading that thread and therefore does not need to know that it contains unread posts.

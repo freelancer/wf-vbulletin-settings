@@ -1,0 +1,2 @@
+$hook_query_fields .= ",blog_user.entries";
+$hook_query_joins .= "LEFT JOIN " . TABLE_PREFIX . "blog_user AS blog_user ON (blog_user.bloguserid = post.userid)";

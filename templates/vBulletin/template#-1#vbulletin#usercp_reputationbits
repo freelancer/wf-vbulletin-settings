@@ -1,0 +1,21 @@
+<tr>
+	<td class="alt2"><img src="$stylevar[imgdir_reputation]/reputation_$posneg.gif" border="0" alt="" /></td>
+	<td class="alt1Active" width="50%">
+		<if condition="$reputation['title']">
+		<a class="smallfont" href="showthread.php?$session[sessionurl]p=$reputation[postid]#post$reputation[postid]">$reputation[title]</a>
+		<else />
+		$vbphrase[n_a]
+		</if>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">$reputation[dateline] <span class="time">$reputation[timeline]</span></span></td>
+	<if condition="$vboptions['showuserraters']">
+	<td class="alt1" nowrap="nowrap">
+		<if condition="$reputation['username']">
+		<a class="smallfont" href="member.php?$session[sessionurl]u=$reputation[whoadded]">$reputation[username]</a>
+		<else />
+		$vbphrase[n_a]
+		</if>
+	</td>
+	</if>
+	<td class="$reputationbgclass" width="50%"><span class="smallfont">$reputation[reason]</span></td>
+</tr>

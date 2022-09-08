@@ -1,0 +1,3 @@
+This is the boundary value for post count that is used to determine if a user should be promoted.<br /><br />
+
+This value will only be used if "Posts" is included in the "Promotion Strategy" setting below.

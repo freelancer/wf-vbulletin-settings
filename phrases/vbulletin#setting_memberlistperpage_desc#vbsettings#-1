@@ -1,0 +1,3 @@
+The number of records per page that will be shown by default in the members list before the results are split over multiple pages.<br />
+<br />
+<b>Note: </b>This number must be at least 1.

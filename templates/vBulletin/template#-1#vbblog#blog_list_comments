@@ -1,0 +1,103 @@
+<if condition="$show['inlinemod']">
+	<form action="blog_inlinemod.php?b=$bloginfo[blogid]" method="post" id="commentform">
+</if>
+
+<if condition="$responsebits">
+	<if condition="$show['inlinemod']">
+		<div class="tborder" style="padding: $stylevar[cellspacing]px; border-bottom:0px">
+			<div class="thead" style="padding: $stylevar[cellpadding]px">
+				<a id="inlinemodsel"></a>
+			</div>
+		</div>
+	</if>
+	<div id="blog_entry_list">
+		<ol id="message_list" style="list-style-type:none; margin:0px; padding:0px;">
+			$responsebits
+		</ol>
+	</div>
+	<if condition="$show['quickedit']">
+		$vBeditTemplate[clientscript]
+		<script type="text/javascript" src="clientscript/blog_quick_edit.js?v=$vboptions[simpleversion]"></script>
+	</if>
+	<if condition="$show['quickload']">
+		<script type="text/javascript" src="clientscript/blog_quick_load.js?v=$vboptions[simpleversion]"></script>
+	</if>
+<else />
+	<div class="tborder" style="margin-bottom:$stylevar[cellpadding]px">
+		<div align="center" style="padding: 20px" class="alt1">$vbphrase[no_comments_found]</div>
+	</div>
+</if>
+
+<if condition="$pagenav">
+	<div style="margin-bottom:$stylevar[cellpadding]px">$pagenav</div>
+</if>
+
+<if condition="$show['inlinemod']">
+		<div style="float:$stylevar[right]" class="smallfont">
+			<label for="moderation_select" style="display:block">$vbphrase[moderation]</label>
+			<select name="do" id="moderation_select">
+				<optgroup label="$vbphrase[option]">
+					<if condition="$show['delete']">
+						<option value="deletecomment">$vbphrase[delete_comments]</option>
+					</if>
+					<if condition="$show['undelete']">
+						<option value="undeletecomment">$vbphrase[undelete_comments]</option>
+					</if>
+					<if condition="$show['approve']">
+						<option value="approvecomment">$vbphrase[approve_comments]</option>
+						<option value="unapprovecomment">$vbphrase[unapprove_comments]</option>
+					</if>
+				</optgroup>
+				<optgroup label="____________________">
+					<option value="clearcomment">$vbphrase[deselect_all_comments]</option>
+				</optgroup>
+			</select>
+			<input type="submit" class="button" id="comment_inlinego" value="$vbphrase[go]" />
+			<input type="hidden" name="s" value="$session[sessionhash]" />
+			<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+			<input type="hidden" name="url" value="$url" />
+			<script type="text/javascript">
+			<!--
+				inlineMod_comment = new vB_Inline_Mod_Blog('inlineMod_comment', 'comment', 'commentform', '$vbphrase[go_x]');
+			//-->
+			</script>
+		</div>
+	</form>
+	<!-- / inline moderation form -->
+	<script type="text/javascript">
+	<!--
+	vBmenu.register("inlinemodsel");
+	//-->
+	</script>
+
+	<!-- inline mod selection popup -->
+	<ul id="inlinemodsel_menu" class="vbmenu_popup" style="display:none; list-style-type:none; margin:0px; padding:0px;">
+		<li class="thead" style="padding: 4px; margin: 1px">$vbphrase[from_this_page]</li>
+		<li class="vbmenu_option" style="padding: 4px; margin: 1px" onclick="inlineMod_comment.check_all(true)">$vbphrase[select_all]</li>
+		<li class="vbmenu_option" style="padding: 4px; margin: 1px" onclick="inlineMod_comment.check_all(false)">$vbphrase[deselect_all]</li>
+		<li class="vbmenu_option" style="padding: 4px; margin: 1px" onclick="inlineMod_comment.check_all('invert')">$vbphrase[invert_selection]</li>
+		<if condition="$show['approve'] OR $show['undelete']"><li class="thead"><img src="$vboptions[cleargifurl]" alt="" width="1" height="1" /></li></if>
+		<if condition="$show['approve']"><li class="vbmenu_option" style="padding: 4px; margin: 1px" onclick="inlineMod_comment.check_all(true, 1)">$vbphrase[select_unapproved_entries]</li></if>
+		<if condition="$show['undelete']"><li class="vbmenu_option" style="padding: 4px; margin: 1px" onclick="inlineMod_comment.check_all(true, 2)">$vbphrase[select_deleted_entries]</li></if>
+	</ul>
+	<!-- / inline mod selection popup -->	
+</if>
+
+<if condition="$show['filter']">
+	<div class="smallfont">
+		<form action="blog.php?do=comments" method="get">
+			<label for="filter_select" style="display:block">$vbphrase[view_filter]</label>
+			<select name="type" onchange="this.form.submit()" id="filter_select">
+				<option value="" $selectedfilter[all]>$vbphrase[all_comments]</option>
+				<option value="deleted" $selectedfilter[deleted]>$vbphrase[deleted_comments]</option>
+				<if condition="$show['filter_moderation']">
+					<option value="moderated" $selectedfilter[moderated]>$vbphrase[moderated_comments]</option>
+				</if>
+			</select>
+			<input type="submit" class="button" value="$vbphrase[go]" />
+			<input type="hidden" name="do" value="comments" />
+			<if condition="$session['sessionhash']"><input type="hidden" name="s" value="$session[sessionhash]" /></if>
+			<if condition="$userinfo['userid']"><input type="hidden" name="u" value="$userinfo[userid]" /></if>
+		</form>
+	</div>
+</if>

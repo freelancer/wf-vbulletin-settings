@@ -1,0 +1,6 @@
+
+if ($vbulletin->options['calcrot'])
+if ($threadinfo['postuserid'] == $vbulletin->userinfo['userid'])
+{
+   eval(standard_error("$vbphrase[rate_own_thread]"));
+}

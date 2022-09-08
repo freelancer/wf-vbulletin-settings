@@ -1,0 +1,5 @@
+This permission allows members of this group to delete their own posts.  This group must have post editing permissions (see previous permission) if they are to delete a post.<br /><br />
+
+Be careful with allowing post deletion.  If you allow users to edit their posts indefinitely (see "Time Limit on Editing of Posts" setting <a href="options.php?dogroup=posting&amp;do=options" target="_blank">here</a>) as well as allow them to delete their posts, then they can go back into your forum history and delete <b>all</b> of their posts if they want.
+
+Note: Users can only soft-delete their own post. As staff you can undelete them again at any time.

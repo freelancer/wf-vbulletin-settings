@@ -1,0 +1,1 @@
+This will recalculate the albums to display in the Recently Updated Albums list, effectively removing any albums that are no longer accessible.  This may be the case if any users recently made album updates but have since had their album permissions revoked.

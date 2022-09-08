@@ -1,0 +1,1 @@
+<li class="smallfont"><a href="member.php?$session[sessionurl]u=$user[userid]">$user[musername]</a>$user[invisiblemark]$user[buddymark] </li>

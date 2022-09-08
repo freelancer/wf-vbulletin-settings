@@ -1,0 +1,1 @@
+PHP's <b>open_basedir</b> setting has been set to {1}. The uploaded file was stored outside of this directory and is not readable. You will need to contact your host and ask them to specify <b>upload_tmp_dir</b> with a directory inside {1}. Note that PHP must be able to read and write to this directory.

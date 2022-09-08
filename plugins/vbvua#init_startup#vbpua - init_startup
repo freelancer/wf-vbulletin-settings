@@ -1,0 +1,4 @@
+
+$vbpua_lasthook='init_startup';
+include(DIR.'/includes/vbvua_hooks.php');
+             

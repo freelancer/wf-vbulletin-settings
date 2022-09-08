@@ -1,0 +1,20 @@
+<div style="padding:$stylevar[cellpadding]px 0px 0px 0px">
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+		<tr valign="top">
+			<td class="alt2" width="175">
+				<if condition="$post['post_thanks_amount'] == 1">
+					<strong><phrase 1="$post[username]">$vbphrase[post_thanks_user_says]</phrase></strong>
+				<else />
+					<strong><phrase 1="$post[post_thanks_amount_formatted]" 2="$post[username]">$vbphrase[post_thanks_users_say]</phrase></strong>
+				</if>
+				<if condition="$bbuserinfo['usergroupid'] == 6">
+					<br /><a href="post_thanks.php?do=post_thanks_remove_all&amp;p=$post[postid]"<if condition="$vboptions[disable_ajax] != 2"> onclick="return post_thanks_remove_all($post[postid], <if condition="$vboptions['post_groan_integrate']">true<else />false</if>);"</if> rel="nofollow">$vbphrase[post_thanks_remove]</a>
+				</if>
+				<if condition="$post['show_thanks_remove_option']">
+				<br /><a href="post_thanks.php?do=post_thanks_remove_user&amp;p=$post[postid]"<if condition="$vboptions['disable_ajax'] != 2"> onclick="return post_thanks_remove_user($post[postid], <if condition="$vboptions['post_groan_integrate']">true<else />false</if>);"</if> rel="nofollow">$vbphrase[post_thanks_remove_user]</a>
+				</if>
+			</td>
+			<td class="alt1"><div>$post[post_thanks_bit]</div></td>
+		</tr>
+	</table>
+</div>

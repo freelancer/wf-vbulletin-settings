@@ -1,0 +1,3 @@
+Are you sure you want to delete the avatar category called: '{1}'?
+<br /><br />
+Delete all Avatars from this category? Yes<input type="radio" name="deleteitems" value="1" /> No<input type="radio" name="deleteitems" value="0" checked="checked" /><br /><br /> If you do not want to delete all Avatars from this category, they will all be moved to the category selected below.<br /><br /> Destination Category: <select name="destinationid">\n{2}\t\t</select>

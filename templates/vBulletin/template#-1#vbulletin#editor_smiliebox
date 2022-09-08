@@ -1,0 +1,15 @@
+<if condition="$show['smiliebox']">
+<fieldset id="{$editorid}_smiliebox" title="$vbphrase[smilies]">
+	<legend>$vbphrase[smilies]</legend>
+	<table cellpadding="4" cellspacing="0" border="0" align="center">
+	$smiliebits
+	<if condition="$show['moresmilieslink']">
+	<tr>
+		<td class="smallfont" colspan="$vboptions[smcolumns]">[<a href="#" onclick="vB_Editor['$editorid'].open_smilie_window(smiliewindow_x, smiliewindow_y); return false" title="<phrase 1="$vboptions[smtotal]" 2="$totalsmilies">$vbphrase[showing_x_smilies_of_y_total]</phrase>">$vbphrase[more]</a>]</td>
+	</tr>
+	</if>
+	</table>
+</fieldset>
+<else />
+<div id="smiliebox" style="display:none"></div>
+</if>

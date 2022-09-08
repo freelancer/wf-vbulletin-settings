@@ -1,0 +1,26 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+<tr align="$stylevar[left]">
+	<th class="tcat" colspan="4">
+		<span class="smallfont" style="float:$stylevar[right]">
+			<phrase 1="$first" 2="$last" 3="$search[resultcount]">$vbphrase[showing_results_x_to_y_of_z]</phrase>
+		</span>
+
+	$vbphrase[search]
+	</th>
+</tr>
+<tr align="center">
+	<th class="thead" align="$stylevar[left]" nowrap="nowrap" width="100%">$vbphrase[title]</th>
+	<th class="thead" width="5%" nowrap="nowrap">$vbphrase[comments]</th>
+	<th class="thead" width="5%" nowrap="nowrap">$vbphrase[trackbacks]</th>
+	<th class="thead" width="15%" nowrap="nowrap">$vbphrase[last_blog_entry]</th>
+</tr>
+</thead>
+<tbody>
+$resultbits
+</tbody>
+</table>
+
+<if condition="$pagenav">
+	<div style="margin-top:$stylevar[cellpadding]px">$pagenav</div>
+</if>

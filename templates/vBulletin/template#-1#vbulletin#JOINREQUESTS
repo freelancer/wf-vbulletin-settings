@@ -1,0 +1,78 @@
+<script type="text/javascript">
+<!--
+function radioCheck(formname, option)
+{
+	formlength = formname.elements.length;
+	for (i=0; i<formlength; i++)
+	{
+		e = formname.elements[i];
+		if (e.type=='radio')
+		{
+			e.checked = false;
+			if (option == e.value)
+			{
+				e.checked = true;
+			}
+		}
+	}
+}
+//-->
+</script>
+
+<form action="joinrequests.php" method="get">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="pp" value="$perpage" />
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tr valign="bottom">
+	<td class="smallfont" nowrap="nowrap">
+		<strong>$vbphrase[requests_to_join_usergroup]</strong>:<br />
+		<select name="usergroupid" onchange="this.form.submit()">$usergroupbits</select>
+		$gobutton
+	</td>
+	<if condition="$show['pagenav']"><td align="$stylevar[right]">$pagenav</td></if>
+</tr>
+</table>
+
+</form>
+
+<form action="joinrequests.php?do=processjoinrequests&amp;usergroupid=$usergroupid" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="processjoinrequests" />
+<input type="hidden" name="usergroupid" value="$usergroupid" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="5">
+		$vbphrase[requests_to_join_usergroup]<span class="normal">: $usergroup[title]</span>
+	</td>
+</tr>
+<if condition="$show['joinrequests']">
+<tr>
+	<td class="thead">$vbphrase[username] / $vbphrase[date]</td>
+	<td class="thead">$vbphrase[request_reason]</td>
+	<td class="thead"><input type="button" class="button" value="$vbphrase[accept]" onclick="radioCheck(this.form, 1);" /></td>
+	<td class="thead"><input type="button" class="button" value="$vbphrase[deny]" onclick="radioCheck(this.form, 0);" /></td>
+	<td class="thead"><input type="button" class="button" value="$vbphrase[ignore]" onclick="radioCheck(this.form, -1);" /></td>
+</tr>
+$joinrequestbits
+<tr>
+	<td class="tfoot" colspan="5" align="$stylevar[right]"><input type="submit" class="button" value="$vbphrase[do_authorizations]" accesskey="s" /></td>
+</tr>
+<else />
+<tr>
+	<td class="alt1" colspan="5" align="center">$vbphrase[there_are_no_outstanding_requests_to_join_this_usergroup]</td>
+</tr>
+</if>
+</table>
+
+<if condition="$show['pagenav']">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:3px">
+<tr valign="top">
+	<td align="$stylevar[right]">$pagenav</td>
+</tr>
+</table>
+</if>
+
+</form>

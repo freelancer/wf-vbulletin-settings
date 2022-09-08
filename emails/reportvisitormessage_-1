@@ -1,0 +1,17 @@
+$reportinfo[rusername] ( mailto:$reportinfo[remail] ) has reported this visitor message:
+
+$reportinfo[messagetitle_html]
+$vboptions[bburl]/member.php?u=$reportinfo[userid]&tab=visitor_messaging&vmid=$reportinfo[vmid]#vmessage$reportinfo[vmid]
+
+This is part of this user's profile:
+$reportinfo[username]
+$vboptions[bburl]/member.php?u=$reportinfo[userid]
+
+This is the reason that the user gave:
+$reportinfo[reason]
+
+$reportinfo[discuss]
+
+This message has been sent to all moderators of this area, or all administrators if there are no moderators.
+
+Please respond to this post as applicable.

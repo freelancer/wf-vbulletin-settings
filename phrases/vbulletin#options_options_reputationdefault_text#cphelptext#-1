@@ -1,0 +1,3 @@
+This is the reputation level that each user is given when they register. You as the administrator must have a level that is at least equal to or less than this value.<br /><br />
+
+If you change this value then you may want to <a href="misc.php?do=chooser" target="_blank">rebuild your reputations</a> to give existing users to same base reputation level.

@@ -1,0 +1,3 @@
+The <a href="../archive/index.php"><i>Search-Friendly Archive</i></a> works only under the Apache web server with PHP compiled as a module.<br />
+<br />
+It provides a basic structure that search engines can spider to grab all the content on your site.

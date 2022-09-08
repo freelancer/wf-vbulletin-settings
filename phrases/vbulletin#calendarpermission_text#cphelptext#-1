@@ -1,0 +1,6 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=admincalendar&amp;pageaction=&amp;option=">Calendars</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=calendarpermission&amp;pageaction=&amp;option=">Calendar Permissions</a><br /><br />
+
+<b>Calendar Permissions:</b><br />
+By default, users will have the permissions for their usergroup (see the <a href="usergroup.php?do=modify" target="_blank">Usergroup Manager</a>) for each calendar.  However, you might not want users of a particular usergroup to have access to every calendar.  In that case, vBulletin allows you to create custom permissions for a specific calendar for a specific usergroup.  This is useful in restricting certain calendars for certain usergroups.

@@ -1,0 +1,16 @@
+Dear $thread[username],
+
+You are subscribed to the thread "$thread[prefix_plain]$thread[title]" by $thread[postusername], there have been $thread[newposts] post(s) to this thread, the last poster was $thread[lastposter].
+$vboptions[bburl]/showthread.php?t=$thread[threadid]
+
+These following posts were made to the thread:
+$postbits
+
+All the best,
+$vboptions[bbtitle]
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unsubscription information:
+
+To unsubscribe from this thread, please visit this page:
+$vboptions[bburl]/subscription.php?do=removesubscription&type=thread&subscriptionid=$thread[subscribethreadid]&auth=$thread[auth]

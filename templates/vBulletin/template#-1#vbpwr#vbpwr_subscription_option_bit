@@ -1,0 +1,7 @@
+
+			
+<label style="padding:10px;">
+	<input type="radio" name="subscriptionId" value="$subscriptionid" $checked /> $subscription[title] $cost $currency
+</label>
+			
+		

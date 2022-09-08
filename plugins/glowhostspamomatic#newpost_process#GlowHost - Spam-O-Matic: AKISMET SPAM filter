@@ -1,0 +1,23 @@
+
+
+				if ($this->registry->options['glowhostspamomatic_akismet_enabled'] == 1) {
+					if ($vbulletin->userinfo['permissions']['akvbghsfs_akismet_permissions']) {
+						if ($this->registry->userinfo['posts'] < $this->registry->options['glowhostspamomatic_akismet_postcount']) || ($this->registry->options['glowhostspamomatic_akismet_postcount'] == 0) { // check for postcount is lower than specified in settings
+							require_once('includes/functions_vbghsfs.php');
+							$key = $vbulletin->options['glowhostspamomatic_akismet_key'];
+							$vbghsfs_host = $key.'.rest.akismet.com';
+							$comment['user_ip'] = $_SERVER['REMOTE_ADDR'];
+							$comment['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
+							$comment['referrer'] = $_SERVER['HTTP_REFERER'];
+							$comment['blog'] = $vbulletin->options['bburl'];
+							$comment['comment_author'] = $vbulletin->userinfo['username'];
+							$comment['comment_content'] = $post['message'];
+
+							if (VBGHSFS_AkismetCheckComment($comment, $vbghsfs_host)) {
+								$dataman->set('visible', 0);
+								$post['visible'] = 0;
+							}
+						}
+					}
+				}
+			

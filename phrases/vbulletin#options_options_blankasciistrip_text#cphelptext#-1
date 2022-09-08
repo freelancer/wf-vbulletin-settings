@@ -1,0 +1,8 @@
+You may wish to prevent users from using certain characters in their posts, usernames, and more. These characters are usually only used to make words appear the same to a human but different to a computer. To prevent these characters from being used, enter their character codes (numbers) here, separated by spaces.<br />
+<br />
+You may enter character codes in two ways:
+<ol>
+<li>The character code number only. If this number is between 0 and 255, it is treated as a raw character code. Anytime a byte with that value appears, it will be changed. If this number is greater than 255, it is treated as if it was preceded by a "u".</li>
+<li>"u" followed by a character code, such as "u8204". This forces the character code to be treated as a Unicode code point. In this case, &amp;#8204; and the UTF-8 representation for this character will be stripped out.</li>
+</ol>
+Some double-byte character sets may have their display broken by using this setting. If this happens, you should remove the contents of this setting.

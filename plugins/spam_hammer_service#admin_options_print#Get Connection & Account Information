@@ -1,0 +1,23 @@
+if ($setting['optioncode'] == 'spam_hammer_service_statistics') {
+	if (!$vbulletin->options['vbresults_service_auth_token']) {
+		$statistics = $vbphrase['spam_hammer_service_auth_token_error'];
+	} else {
+		$response = vB_Forum_Results_Service::get('spamhammer', 'get');
+
+		if (!$response || is_array($response)) {
+			if (!is_array($response)) {
+				$statistics = sprintf('Connection: <b style="color: red;">%s</b>', 'NOT OK');
+			} else {
+				$statistics = $response['response'];
+			}
+		} else {
+			$statistics = $response;
+		}
+	}
+
+	print_label_row($description, $statistics);
+
+	Spam_Hammer_Service::setStatistics();
+
+	$handled = true;
+}

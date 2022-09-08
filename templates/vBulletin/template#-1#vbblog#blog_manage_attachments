@@ -1,0 +1,192 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vbphrase[manage_attachments] - $vboptions[bbtitle]</title>
+</head>
+<body style="margin:0px" onload="self.focus()">
+
+<script type="text/javascript">
+<!--
+
+	function verify_upload(formobj)
+	{
+		var haveupload = false;
+		for (var i=0; i < formobj.elements.length; i++)
+		{
+			var elm = formobj.elements[i];
+			if (elm.type == 'file' || elm.type == 'text')
+			{
+				if (elm.value != "")
+				{
+					haveupload = true;
+				}
+			}
+		}
+
+		if (haveupload)
+		{
+			obj = fetch_object("uploading");
+			obj.style.display = "";
+			return true;
+		}
+		else
+		{
+			alert("$vbphrase[select_a_file_to_attach]");
+			return false;
+		}
+	}
+
+<if condition="$show['updateparent']">
+	if (typeof window.opener.vB_Attachments != 'undefined')
+	{
+		window.opener.vB_Attachments.reset();
+		$new_attachlist_js
+	}
+</if>
+
+//-->
+</script>
+
+<div class="page">
+<form enctype="multipart/form-data" action="blog_newattachment.php?do=manageattach&amp;b=$blogid" name="newattachment" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="manageattach" />
+<input type="hidden" name="b" value="$blogid" />
+<input type="hidden" name="poststarttime" value="$poststarttime" />
+<input type="hidden" name="editentry" value="$editentry" />
+<input type="hidden" name="posthash" value="$posthash" />
+<input type="hidden" name="bloguserid" value="$bloguserid" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+<tr>
+	<td class="tcat">
+		<span class="smallfont" style="float:$stylevar[right]"><a href="#" onclick="self.close()">$vbphrase[close_this_window]</a></span>
+		$vbphrase[manage_attachments]
+	</td>
+</tr>
+<if condition="$show['errors']">
+<tr>
+	<td class="thead">$vbphrase[upload_errors]</td>
+</tr>
+$errorlist
+</if>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]">
+
+			<if condition="$show['attachmentlimits']">
+				<div class="fieldset">
+					<div style="padding:$stylevar[formspacer]px">
+						<phrase 1="$attach_username">$vbphrase[sum_of_attachments_owned_by_x]</phrase>:
+						$attachsum<br />
+						<table style="border:2px groove" cellpadding="0" cellspacing="1" border="0" width="100%">
+						<tr>
+							<if condition="$show['currentsize']"><td width="$attachsize" bgcolor="red" style="border:1px outset" class="smallfont" title="<phrase 1="$attachsum">$vbphrase[current_attachment_total_x]</phrase>">&nbsp;</td></if>
+							<if condition="$show['totalsize']"><td width="$totalsize" bgcolor="green" style="border:1px outset" class="smallfont" title="<phrase 1="$attachlimit">$vbphrase[maximum_attachment_storage_x]</phrase>">&nbsp;</td></if>
+						</tr>
+						</table>
+					</div>
+				</div>
+			</if>
+
+			<if condition="$show['attachoption']">
+			<if condition="$show['attachfile']">
+				<fieldset class="fieldset">
+					<legend>$vbphrase[upload_file_from_your_computer]</legend>
+					<table cellpadding="0" cellspacing="$stylevar[formspacer]" width="100%" border="0">
+					<tr valign="bottom">
+						<td>
+							<input type="hidden" name="MAX_FILE_SIZE" value="$inimaxattach" />
+							$attachinput
+						</td>
+						<td align="$stylevar[right]"><input type="submit" class="button" name="upload" value="$vbphrase[upload]" style="width:70px" onclick="return verify_upload(this.form);" /></td>
+					</tr>
+					</table>
+				</fieldset>
+			</if>
+			<if condition="$show['attachurl']">
+				<fieldset class="fieldset">
+					<legend>$vbphrase[upload_file_from_url]</legend>
+					<table cellpadding="0" cellspacing="$stylevar[formspacer]" width="100%" border="0">
+					<tr valign="bottom">
+						<td>
+							$attachurlinput
+						</td>
+						<td align="$stylevar[right]"><input type="submit" class="button" name="upload" value="$vbphrase[upload]" style="width:70px" onclick="return verify_upload(this.form);" /></td>
+					</tr>
+					</table>
+				</fieldset>
+			</if>
+			<else />
+			<fieldset class="fieldset">
+				<legend>$vbphrase[upload_file]</legend>
+				<if condition="$show['forumclosed']">
+					$vbphrase[this_forum_is_not_accepting_new_attachments]
+				<else />
+					<phrase 1="$vboptions[attachlimit]">$vbphrase[have_uploaded_maximum_x_files]</phrase>
+				</if>
+			</fieldset>
+			</if>
+
+			<if condition="$show['attachmentlist']">
+			<fieldset class="fieldset">
+				<legend>$vbphrase[current_attachments] ($totallimit)</legend>
+				<div style="padding:$stylevar[formspacer]px">
+					<table class="fieldset" cellpadding="0" cellspacing="1" border="0" width="100%">
+					$attachments
+					</table>
+				</div>
+			</fieldset>
+			</if>
+
+	<div align="center" id="uploading" style="display:none; margin-top:$stylevar[cellpadding]px">
+		<strong>$vbphrase[uploading_file]</strong>
+	</div>
+
+
+			<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+			<tr>
+				<td>
+					<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+					<thead>
+					<tr>
+						<td class="thead" colspan="4">
+							<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('attachkey')"><img id="collapseimg_attachkey" src="$stylevar[imgdir_button]/collapse_generic$vbcollapse[collapseimg_attachkey].gif" alt="" border="0" /></a>
+							<span class="fieldset">$vbphrase[attachment_key]</span>
+						</td>
+					</tr>
+					</thead>
+					<tbody id="collapseobj_attachkey" style="$vbcollapse[collapseobj_attachkey]">
+					<tr class="tcat">
+						<td class="smallfont"><strong>$vbphrase[filetype]</strong></td>
+						<td class="smallfont"><strong>$vbphrase[max_filesize]</strong></td>
+						<td class="smallfont"><strong>$vbphrase[max_width]</strong></td>
+						<td class="smallfont"><strong>$vbphrase[max_height]</strong></td>
+					</tr>
+					$attachkeybits
+					</tbody>
+					</table>
+				</td>
+			</tr>
+			</table>
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="button" class="button" value="$vbphrase[close_this_window]" onclick="window.close();" />
+	</div>
+
+	</td>
+</tr>
+</table>
+
+
+</form>
+</div>
+
+</body>
+</html>

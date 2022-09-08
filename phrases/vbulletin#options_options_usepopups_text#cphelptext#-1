@@ -1,0 +1,3 @@
+If this is enabled, certain page elements will be placed inside of popup menus.  For example, several of the navbar links will be placed inside of popup menus to save on space.  The same goes for the various thread option menus, forum option menus, etc.<br /><br />
+
+Not all browsers support popup menus.  vBulletin automatically detects the client browser and disables popup menus when appropriate.

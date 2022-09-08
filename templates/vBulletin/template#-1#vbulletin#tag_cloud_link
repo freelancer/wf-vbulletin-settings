@@ -1,0 +1,1 @@
+<a href="tags.php?$session[sessionurl]tag=$thistag[tagtext_url]" class="tagcloudlink level$thistag[level]">$thistag[tagtext]</a> 

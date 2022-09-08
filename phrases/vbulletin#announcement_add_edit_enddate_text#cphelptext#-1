@@ -1,0 +1,1 @@
+This determines when the announcement disappears from the end-users view. The announcement will <i>not</i> be deleted after the end date; rather it will simply be hidden from the end-user. You will still be able to view, edit, and/or reactivate the announcement from the Admin CP or Mod CP after the End Date.

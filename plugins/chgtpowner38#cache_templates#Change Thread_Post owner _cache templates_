@@ -1,0 +1,6 @@
+
+			$globaltemplates = array_merge($globaltemplates, array(
+	'forumdisplay_changethreadsowner',
+	'forumdisplay_changethreadsowner_link',
+	'showthread_changepostsowner_link'
+			));

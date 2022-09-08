@@ -1,0 +1,23 @@
+<li class="floatcontainer" id="like_$post[postid]">
+	<if condition="$post[avatarurl]">
+		<div class="fixed_width_avatar">
+			<a href="member.php?u=$post[l_from_userid]" class="avatarlink"><img class="alt2 avatar" border="0" src="$post[avatarurl]" alt="$post[l_from_username]" width="60px" height="60px" /></a>
+		</div>
+		<div class="visitor_message_avatar_margin">
+	</if>
+	<div class="tborder info_bar">
+		<div class="alt2 smallfont">
+			$post[l_from_username] $vbphrase[vbseo_liked] $post[ctype] $vbphrase[vbseo_by] <a href="member.php?u=$post[to_userid]">$post[to_username]</a> $vbphrase[on] $post[gtype] : <strong>$post[gtitle]</strong>
+		</div>
+	</div>	
+	<div class="visitor_message_body">
+		<a href="$post[url]">$post[pagetext]</a>
+		<div class="smallfont">
+			$vbphrase[vbseo_liked_on]: $post[likedate], <span class="time">$post[liketime]</span>
+			<br />$vbphrase[vbseo_posted_on]: $post[postdate], <span class="time">$post[posttime]</span>
+		</div>
+	</div>
+	<if condition="$message['avatarurl']">
+		</div>
+	</if>
+</li>

@@ -1,0 +1,20 @@
+<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+	<tr>
+		<td>$profilefield[description]</td>
+	</tr>
+	<tr>
+		<td>
+			<if condition="$show['optionspage']"><span style="float:$stylevar[right]"></if>
+
+			<select name="userfield[$profilefieldname]" id="csel_$profilefieldname">
+				<if condition="$show['noemptyoption']"><option value="0" $selected></option></if>
+				$selectbits
+			</select>
+
+			<if condition="$show['optionspage']"></span><label for="csel_$profilefieldname">$profilefield[title]:</label></if>
+
+		<input type="hidden" name="userfield[{$profilefieldname}_set]" value="1" />
+		</td>
+	</tr>
+	$optionalfield
+</table>

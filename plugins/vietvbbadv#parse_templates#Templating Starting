@@ -1,0 +1,20 @@
+if($vbulletin->options['enable_vietvbbadv'] AND in_array($vbulletin->userinfo['usergroupid'], explode(',', $vbulletin->options['vietvbbadv_ug'])))
+			{
+					switch($vbulletin->options['vietvbbadv_place'])
+				{
+					case 1:
+						$place = '$navbar';
+						$fechttemplate = 'FORUMHOME';
+						break;
+					case 2:
+						$place = '$ad_location[ad_navbar_below]';
+						$fechttemplate = 'navbar';
+						break;
+					default:
+						$place = '$navbar';
+						$fechttemplate = 'FORUMHOME';
+						break;
+				}
+			$vbulletin->templatecache[$fechttemplate] = str_replace($place, $place . '\n' . fetch_template('forumhome_vietvbb_com_adv'), $vbulletin->templatecache[$fechttemplate]);
+			}
+			

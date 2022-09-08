@@ -1,0 +1,2 @@
+Turning this option on will encase the embeded video output inside your open and close container HTML found in your settings.
+<p>Remember that because of vBulletins post cache, changes to this setting may not appear right away unless you rebuild posts</p>

@@ -1,0 +1,5 @@
+<p>Entries that you wish to create now but have them become publicly available at a later time are referred to as <em>Pending Entries</em>.  To create a pending entry, create an entry as normal but before submitting the entry, find <span class="smallfont" style="font-weight:bold">Publish Status</span> in the <span class="smallfont" style="font-weight:bold">Miscellaneous Options</span> on the lower section of the entry creation page. This option defaults to <span class="smallfont" style="font-weight:bold">Publish Now</span>.</p>
+
+<p>Change <span class="smallfont" style="font-weight:bold">Publish Now</span> to <span class="smallfont" style="font-weight:bold">Publish On</span> and then choose the date and time that you wish for the entry to go live. Due to the architecture, pending entries can appear a few minutes later than the time that you specify but they will have a time stamp that matches the date and time that you choose.</p>
+
+<p><span class="smallfont" style="font-weight:bold">Your Pending and Draft entries are only viewable by you until they are published.</span></p>

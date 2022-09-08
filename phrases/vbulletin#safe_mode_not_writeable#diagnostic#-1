@@ -1,0 +1,1 @@
+The "Safe Mode Temp Directory" you have specified ({1}) is not writeable by PHP. You will most likely need to make this directory world writeable. Correct this and attempt this test again.

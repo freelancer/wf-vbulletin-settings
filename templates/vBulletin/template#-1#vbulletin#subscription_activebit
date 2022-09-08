@@ -1,0 +1,5 @@
+<tr>
+	<td class="alt1">$subscription[title]</td>
+	<td class="alt2">$joindate</td>
+	<td class="alt1">$enddate</td>
+</tr>

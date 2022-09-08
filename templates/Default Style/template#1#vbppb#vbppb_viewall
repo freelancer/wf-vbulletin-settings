@@ -1,0 +1,12 @@
+			
+<style type="text/css">
+	td.nowrap {
+		white-space:nowrap;
+	}
+	.hideCredits .adcredits {
+		display:none;
+	}
+</style>
+<div class="uploadButton">
+	<a href="https://wso.warriorforum.com/add-banner">$vbphrase[vbppb_upload_new_banner]</a>
+</div>

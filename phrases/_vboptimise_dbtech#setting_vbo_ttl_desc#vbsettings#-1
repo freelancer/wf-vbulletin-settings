@@ -1,0 +1,7 @@
+On large sites, the data cached may begin to amount to a large size. To help maintain a limitation on this, vB Optimise can use the built-in TTL ("Time To Live") for your selected extension with the seconds specified here.
+<br /><br />
+This is helpful especially towards extensions which do not "delete" data when Flushed, but simply flag them as expired.
+<br />
+The default setting is <strong>3600</strong>, which equals <strong>one hour</strong>. To disable this setting simply enter 0.
+<br /><br />
+<strong>Note:</strong> This setting does not apply to Filecache.

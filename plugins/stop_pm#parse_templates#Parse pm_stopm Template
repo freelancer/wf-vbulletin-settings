@@ -1,0 +1,4 @@
+if(THIS_SCRIPT=='private')
+{
+	eval('$pm_stopm = "' . fetch_template('pm_stopm') . '";');
+}

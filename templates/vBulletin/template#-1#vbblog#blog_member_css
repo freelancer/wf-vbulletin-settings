@@ -1,0 +1,10 @@
+
+/**
+* Blog Tab
+*/
+#blog fieldset.blog_group {
+	margin-top:6px;
+}
+#blog fieldset.blog_group ul {
+	padding:6px;
+}

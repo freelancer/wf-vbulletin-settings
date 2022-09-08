@@ -1,0 +1,27 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center" style="margin:$stylevar[cellpadding]px 0px $stylevar[cellpadding]px 0px">
+<tr>
+	<td class="thead">
+		<if condition="$show['children']">
+		<span style="float:$stylevar[right]; font-weight:normal">
+			$vbphrase[child_posts]:
+			[<a href="#" onclick="return CheckChildren($post[postid], 1)"><strong>$vbphrase[select]</strong></a>]
+			[<a href="#" onclick="return CheckChildren($post[postid], 0)"><strong>$vbphrase[deselect]</strong></a>]
+		</span>
+		</if>
+		<label for="checkpost$post[postid]"><input type="checkbox" name="checkpost[$post[postid]]" value="yes" id="checkpost$post[postid]" checked="checked" <if condition="$post[isdeleted] == 1">disabled="disabled" </if>/><if condition="$show['deleteposts']">$vbphrase[delete]<else />$vbphrase[split]</if></label>
+	</td>
+</tr>
+<tr>
+	<td class="alt1">
+		<span style="float:$stylevar[right]" class="smallfont">
+			$post[postdate]<if condition="!$show['detailedtime']"><span class="time">, $post[posttime]</span></if>
+		</span>
+		<a href="member.php?$session[sessionurl]u=$post[userid]" target="_blank"><strong>$post[username]</strong></a>
+	</div></td>
+</tr>
+<tr>
+	<td class="alt2">
+		<div style="padding-$stylevar[left]: {$depth}em">$post[pagetext]</div>
+	</td>
+</tr>
+</table>

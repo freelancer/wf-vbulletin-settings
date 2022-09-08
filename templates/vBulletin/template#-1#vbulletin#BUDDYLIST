@@ -1,0 +1,78 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+	$headinclude
+	<title>$vbphrase[contacts] - $vboptions[bbtitle]</title>
+	<meta http-equiv="refresh" content="60; URL=misc.php?$session[sessionurl]do=buddylist&amp;buddies=$buddies" />
+	<script type="text/javascript">
+	<!--
+	function pm(tform)
+	{
+		var users = new Array();
+		var arrCount = 0;
+		for (i = 0; i < tform.elements.length; i++)
+		{
+			var element = tform.elements[i];
+			if ((element.name != "allbox") && (element.type == "checkbox") && (element.checked == true))
+			{
+				users[arrCount] = element.value;
+				arrCount++;
+			}
+		}
+		if (arrCount == 0)
+		{
+			alert("$vbphrase[no_users_selected]");
+		}
+		else
+		{
+			var querystring = "";
+			for (i = 0; i < users.length; i++)
+			{
+				querystring += "&userid[]=" + users[i];
+			}
+			if (opener && !opener.closed)
+			{ // parent window is still open
+				opener.location="private.php?$session[sessionurl]do=newpm" + querystring;
+			}
+			else
+			{ // parent window has closed or went to a different URL.
+				window.open("private.php?$session[sessionurl]do=newpm" + querystring, "pm");
+			}
+		}
+	}
+	// -->
+	</script>
+</head>
+
+<body style="margin:0px">
+
+<form action="private.php" method="post" target="_blank" name="vbform">
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+<tr>
+	<td class="tcat" colspan="3">$vbphrase[contacts]</td>
+</tr>
+<tr>
+	<td class="thead" align="center" colspan="3"><span class="smallfont">-- <strong>$vbphrase[online]</strong> --</span></td>
+</tr>
+$onlineusers
+<tr>
+	<td class="thead" align="center" colspan="3"><span class="smallfont">-- <strong>$vbphrase[offline]</strong> --</span></td>
+</tr>
+$offlineusers
+<tr>
+	<td class="tfoot" align="center" colspan="3">
+		<input type="button" class="button" value="$vbphrase[reload]" onclick="window.location = 'misc.php?$session[sessionurl]do=buddylist&amp;buddies=$buddies';" />
+		<input type="button" class="button" value="$vbphrase[pm_users]" onclick="pm(this.form);" title="$vbphrase[send_private_message_to_selected_users]" />
+	</td>
+</tr>
+</table>
+
+</form>
+
+<if condition="$show['playsound']">
+<!--<embed src="YourAlertSound.wav" hidden="True"> -->
+</if>
+
+</body>
+</html>

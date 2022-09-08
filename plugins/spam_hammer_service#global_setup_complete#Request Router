@@ -1,0 +1,22 @@
+if (version_compare(FILE_VERSION, '3.0.0', '>=') && version_compare(FILE_VERSION, '3.9.9', '<=')) {
+	if (in_array(THIS_SCRIPT, array('login', 'vbcms', 'index', 'blog', 'entry'))) {
+		if (isset($_GET['spam_hammer_cross_site_auth'])) {
+			require_once DIR . '/includes/adminfunctions.php';
+
+			$action = !isset($_GET['action']) ? 'reports' : $_GET['action'];
+
+			if (can_administer()) {
+				vB_Forum_Results_Service::get('spamhammer', 'cross_site_auth', array(
+					'session_hash' => $vbulletin->session->vars['dbsessionhash'],
+					'auth_token' => $vbulletin->options['vbresults_service_auth_token']
+				));
+
+				exec_header_redirect("http://{$vbulletin->options['vbresults_service_server']}/{$action}/?auth_hash={$vbulletin->session->vars['dbsessionhash']}");
+			} else {
+				print_no_permission();
+			}
+		}
+
+		Spam_Hammer_Service::accept();
+	}
+}

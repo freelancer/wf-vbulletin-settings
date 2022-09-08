@@ -1,0 +1,3 @@
+if ($foruminfo[forumid]==17) {
+$showtermsconditions = 1;
+}

@@ -1,0 +1,1 @@
+Your server has PHP's SAFE_MODE enabled. You cannot move attachments to files while SAFE_MODE is enabled. Please contact your host and ask them to consider disabling it if you wish to use the file system for attachments.

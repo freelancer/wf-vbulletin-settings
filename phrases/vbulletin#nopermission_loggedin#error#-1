@@ -1,0 +1,11 @@
+<p><strong>{1}</strong>, you do not have permission to access this page. This could be due to one of several reasons:</p>
+
+<ol>
+	<li>Your user account may not have sufficient privileges to access this page. Are you trying to edit someone else's post, access administrative features or some other privileged system?</li>
+	<li>If you are trying to post, the administrator may have disabled your account, or it may be awaiting activation.</li>
+</ol>
+
+<div align="{2}">
+	<a href="login.php?{3}do=logout&amp;logouthash={4}">Log Out</a>
+	<a href="{5}.php?{3}">Home</a>
+</div>

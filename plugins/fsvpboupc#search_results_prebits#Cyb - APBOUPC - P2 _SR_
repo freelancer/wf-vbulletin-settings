@@ -1,0 +1,23 @@
+
+		if ($vbulletin->options['apboupc_global_enable'] AND $vbulletin->options['apboupc_viewlinks'])
+		{
+			if (($forum[linkview_nb] !='0') AND ($forum[linkview_nb] > $vbulletin->userinfo[posts]) AND (!is_member_of($vbulletin->userinfo, split(',', $vbulletin->options['apboupc_viewlinks_excl_groups']))))
+			{
+				if ($search['showposts'])
+				{
+					if ($vbulletin->userinfo[userid])
+					{
+						$cyb_apboupc_viewlinks_userpostsnr = $vbulletin->userinfo['posts'];
+					}
+					else
+					{
+						$cyb_apboupc_viewlinks_userpostsnr = '0';
+					}
+					foreach ($itemids AS $postid => $post)
+					{
+						$cyb_apboupc_par1 = eregi_replace('(http|www)([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)', construct_phrase($vbphrase['error_postcount_too_low_viewlinks'], $forum[linkview_nb], $cyb_apboupc_viewlinks_userpostsnr), $post['pagetext']);
+						$itemids["$postid"]['pagetext'] = preg_replace("!\b[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,4}\b!i", construct_phrase($vbphrase['error_postcount_too_low_viewlinks'], $forum[linkview_nb], $cyb_apboupc_viewlinks_userpostsnr), $cyb_apboupc_par1);
+					}
+				}
+			}
+		}

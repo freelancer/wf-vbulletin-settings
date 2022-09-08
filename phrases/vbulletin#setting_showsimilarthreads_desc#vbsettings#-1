@@ -1,0 +1,3 @@
+Set this value to 'Yes' if you would like to see 'similar threads' displayed on the show thread page.<br />
+<br />
+Please note that this setting will only work if you have 'Automatic Similar Thread Search' enabled in the <a href="options.php?do=options&amp;dogroup=search">message searching options</a> section.

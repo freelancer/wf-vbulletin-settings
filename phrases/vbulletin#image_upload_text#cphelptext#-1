@@ -1,0 +1,1 @@
+On this screen, you can upload one image at a time through your browser for use on your forum. To do this, both your web server and PHP must have permission to write files to disk. If they do not, this will fail. The directory that you are trying to put the file in must be CHMODed 777 (consult your FTP program documentation for how to do this).

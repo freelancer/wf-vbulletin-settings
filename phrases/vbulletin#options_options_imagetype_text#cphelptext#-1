@@ -1,0 +1,5 @@
+vBulletin provides two options for manipulating attachment thumbnails, custom avatars, and profile pictures.<br /><br />
+
+The first is GD, which is bundled with PHP 4.3.0 and later and often available with earlier releases.  The GD v2+ library is preferable to the v1+ library so always choose v2 if you're given the opportunity by your host.  GD supports the following file types: GIF, JPEG,  and PNG.<br /><br />
+
+The second supported library is <a href="http://www.imagemagick.org" target="_blank">ImageMagick v6</a> by ImageMagick Studio LLC.  ImageMagick is an executable binary that must be installed at the server level to be called by PHP.  Only the <i>identify</i> and <i>convert</i> binaries from ImageMagick are required by vBulletin.  ImageMagick supports the following file types: GIF, JPEG, PNG, BMP, TIFF, and PSD. ImageMagick also has better support for handling animated GIF.

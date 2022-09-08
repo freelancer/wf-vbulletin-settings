@@ -1,0 +1,40 @@
+
+<style type="text/css">
+<!--
+#twitters {
+	overflow: auto;
+	margin:6px 0px 0px;
+}
+#twitters ul {
+	margin:0px;
+	padding:0px; 
+	list-style-type:none;
+}
+#twitters li {
+	margin-bottom:8px;
+}
+-->
+</style>
+
+<script src="clientscript/twitter.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+	getTwitters('twitters', { 
+		id: '$block_data[twitterid]', 
+		count: $block_data[tweets], 
+		enableLinks: $block_data[linkify],
+		ignoreReplies: $block_data[twitterreplies],
+		clearContents: true,
+		template: '<div class="smallfont">"%text%" <a href="http://twitter.com/%user_screen_name%/statuses/%id%">%time%</a></div>'
+	});
+</script>
+
+<div class="alt1 smallfont block_row">
+	<phrase 1="$userinfo[username]">$vbphrase[twitter_recent]</phrase>
+	<div id="twitters">
+		$vbphrase[twitter_loading] <img class="inlineimg" src="$stylevar[imgdir_misc]/13x13progress.gif" alt="" />
+	</div>
+</div>
+
+<div class="alt2 smallfont block_row block_footer">
+	<phrase 1="$block_data[twitterid]">$vbphrase[twitter_reply]</phrase>
+</div>

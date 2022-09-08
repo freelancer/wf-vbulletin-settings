@@ -1,0 +1,45 @@
+{
+  "1": {
+    "1": {
+      "0": {
+        "userselect": "1", 
+        "title": "Warrior 2014", 
+        "displayorder": "1", 
+        "parentid": "1", 
+        "styleid": "7"
+      }
+    }
+  }, 
+  "-1": {
+    "1": {
+      "0": {
+        "userselect": "1", 
+        "title": "Default Style", 
+        "displayorder": "1", 
+        "parentid": "-1", 
+        "styleid": "1"
+      }, 
+      "1": {
+        "userselect": "0", 
+        "title": "clean", 
+        "displayorder": "1", 
+        "parentid": "-1", 
+        "styleid": "4"
+      }, 
+      "2": {
+        "userselect": "0", 
+        "title": "Mobile API", 
+        "displayorder": "1", 
+        "parentid": "-1", 
+        "styleid": "-2"
+      }, 
+      "3": {
+        "userselect": "1", 
+        "title": "vB3 Mobile Skin", 
+        "displayorder": "1", 
+        "parentid": "-1", 
+        "styleid": "9"
+      }
+    }
+  }
+}

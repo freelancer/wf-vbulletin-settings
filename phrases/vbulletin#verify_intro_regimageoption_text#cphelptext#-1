@@ -1,0 +1,7 @@
+<p>When generating verification images, vBulletin allows you to control the complexity of the text shown in the images.</p>
+
+<p>The more of these options you enable, the more complex the text will appear. This will cause machines to have more of a problem in cracking the image, but will also cause visitors to have to look more closely and risks genuinely unreadable text.</p>
+
+<p>Experiment with different settings to achieve the balance that is right for your own board.</p>
+
+<p>Hint: Each time you change the options and save the page, when the page reloads the example images for the 'Image Verification Library' setting will reflect the choices you have made.</p>

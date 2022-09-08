@@ -1,0 +1,97 @@
+$ad_location[ad_footer_start]
+
+<br />
+<div class="smallfont" align="center">$vbphrase[all_times_are_gmt_x_time_now_is_y]</div>
+<br />
+
+$spacer_close
+<!-- /content area table -->
+
+<form action="$vboptions[forumhome].php" method="get" style="clear:$stylevar[left]">
+
+<table cellpadding="$stylevar[cellpadding]" cellspacing="0" border="0" width="$stylevar[outertablewidth]" class="page" align="center">
+<tr>
+	<if condition="$show['quickchooser']">
+		<td class="tfoot">
+			<select name="styleid" onchange="switch_id(this, 'style')">
+				<optgroup label="$vbphrase[quick_style_chooser]">
+					$quickchooserbits
+				</optgroup>
+			</select>
+		</td>
+	</if>
+	<if condition="$show['languagechooser']">
+		<td class="tfoot">
+			<select name="langid" onchange="switch_id(this, 'lang')">
+				<optgroup label="$vbphrase[quick_language_chooser]">
+					$languagechooserbits
+				</optgroup>
+			</select>
+		</td>
+	</if>
+	<td class="tfoot" align="$stylevar[right]" width="100%">
+		<div class="smallfont">
+			<strong>
+				<if condition="$show['contactus']"><a href="$vboptions[contactuslink]" rel="nofollow" accesskey="9">$vbphrase[contact_us]</a> -</if>
+				<if condition="$vboptions['hometitle']"><a href="$vboptions[homeurl]">$vboptions[hometitle]</a> -</if>
+				<if condition="$show['admincplink']"><a href="$admincpdir/index.php$session[sessionurl_q]">$vbphrase[admin]</a> -</if>
+				<if condition="$show['modcplink']"><a href="$modcpdir/index.php$session[sessionurl_q]">$vbphrase[mod]</a> -</if>
+				<if condition="$vboptions['archiveenabled']"><a href="archive/index.php">$vbphrase[archive]</a> -</if>
+				$template_hook[footer_links]
+				<if condition="$vboptions[privacyurl]"><a href="$vboptions[privacyurl]">$vbphrase[privacy_statement]</a> -</if>
+				<if condition="$vboptions[tosurl]"><a href="$vboptions[tosurl]">$vbphrase[terms_of_service]</a> -</if>
+				<a href="#top" onclick="self.scrollTo(0, 0); return false;">$vbphrase[top]</a>
+			</strong>
+		</div>
+	</td>
+</tr>
+</table>
+
+<br />
+
+<div align="center">
+	<div class="smallfont" align="center">
+	<!-- Do not remove this copyright notice -->
+	$vbphrase[powered_by_vbulletin]
+	<!-- Do not remove this copyright notice -->
+	</div>
+
+	<div class="smallfont" align="center">
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	$cronimage
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+
+	$vboptions[copyrighttext]
+	</div>
+</div>
+
+</form>
+
+$ad_location[ad_footer_end]
+
+<if condition="$show['dst_correction']">
+<!-- auto DST correction code -->
+<form action="profile.php?do=dst" method="post" name="dstform">
+	<input type="hidden" name="s" value="$session[sessionhash]" />
+	<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+	<input type="hidden" name="do" value="dst" />
+</form>
+<script type="text/javascript">
+<!--
+	var tzOffset = $bbuserinfo[timezoneoffset] + $bbuserinfo[dstonoff];
+	var utcOffset = new Date().getTimezoneOffset() / 60;
+	if (Math.abs(tzOffset + utcOffset) == 1)
+	{	// Dst offset is 1 so its changed
+		document.forms.dstform.submit();
+	}
+//-->
+</script>
+<!-- / auto DST correction code -->
+
+</if>
+<script type="text/javascript">
+<!--
+	// Main vBulletin Javascript Initialization
+	vBulletin_init();
+//-->
+</script>

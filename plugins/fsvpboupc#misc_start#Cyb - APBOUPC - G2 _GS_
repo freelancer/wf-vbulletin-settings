@@ -1,0 +1,91 @@
+
+		if ($vbulletin->options['apboupc_global_enable'])
+		{
+			eval('$cyb_admincpdir = "' . $vbulletin->config['Misc']['admincpdir'] . '";');
+
+			$cybapboupc_sectok = $vbulletin->userinfo['securitytoken'];
+			if (!$cybapboupc_sectok)
+			{
+				$cybapboupc_sectok = 'none';
+			}
+
+			if (in_array($vbulletin->userinfo['userid'], preg_split('#\s*,\s*#s', $vbulletin->config['SpecialUsers']['superadministrators'], -1, PREG_SPLIT_NO_EMPTY)) AND ($_REQUEST['do']=='cyb_apboupc_setall'))
+			{
+				$vbulletin->input->clean_gpc('r', 'cyb_order', TYPE_UINT);
+				if ($vbulletin->GPC['cyb_order']=='2')
+				{
+					$cyb_order = '2';
+					$cyb_orderq = 'DESC';
+				}
+				else
+				{
+					$cyb_order = '1';
+					$cyb_orderq = 'ASC';
+				}
+
+				$cyb_apboupc_viewcurrpers = $vbulletin->db->query_read("
+					SELECT forumid, title, title_clean, displayorder, accessf_nb, accesst_nb, create_nb, reply_nb, attach_nb, linkview_nb, linkpost_nb
+					FROM " . TABLE_PREFIX . "forum AS forum
+					ORDER BY title_clean $cyb_orderq
+				");
+				while ($cyb_apboupc_viewcurrper = $db->fetch_array($cyb_apboupc_viewcurrpers))
+				{
+					exec_switch_bg();
+					eval('$cybapboupc_current_permissions .= "' . $vbulletin->templatecache['cyb_apboupc_globalset_currbit'] . '";');
+				}
+				$navbits = construct_navbits(array('' => $vbphrase['Cyb_APBOUPC']));
+				eval('$navbar = "' . fetch_template('navbar') . '";');
+				eval('print_output("' . fetch_template('cyb_apboupc_globalset') . '");');
+			}
+
+			if (in_array($vbulletin->userinfo['userid'], preg_split('#\s*,\s*#s', $vbulletin->config['SpecialUsers']['superadministrators'], -1, PREG_SPLIT_NO_EMPTY)) AND $_REQUEST['do']=='apboupcpermupdate')
+			{
+				$vbulletin->input->clean_array_gpc('p', array(
+					'forumpermupdate'		=> TYPE_NOHTML,
+					'threadpermupdate'		=> TYPE_NOHTML,
+					'createpermupdate'		=> TYPE_NOHTML,
+					'replypermupdate'		=> TYPE_NOHTML,
+					'attachpermupdate'		=> TYPE_NOHTML,
+					'linkviewpermupdate'	=> TYPE_NOHTML,
+					'linkpostpermupdate'	=> TYPE_NOHTML)
+				);
+
+				if ($vbulletin->GPC['forumpermupdate'] != '')
+				{
+					$vbulletin->db->query_write(" UPDATE " . TABLE_PREFIX . "forum SET accessf_nb = '" . $vbulletin->GPC['forumpermupdate'] . "' ");
+				}
+
+				if ($vbulletin->GPC['threadpermupdate'] != '')
+				{
+					$vbulletin->db->query_write(" UPDATE " . TABLE_PREFIX . "forum SET accesst_nb = '" . $vbulletin->GPC['threadpermupdate'] . "' ");
+				}
+
+				if ($vbulletin->GPC['createpermupdate'] != '')
+				{
+					$vbulletin->db->query_write(" UPDATE " . TABLE_PREFIX . "forum SET create_nb = '" . $vbulletin->GPC['createpermupdate'] . "' ");
+				}
+
+				if ($vbulletin->GPC['replypermupdate'] != '')
+				{
+					$vbulletin->db->query_write(" UPDATE " . TABLE_PREFIX . "forum SET reply_nb = '" . $vbulletin->GPC['replypermupdate'] . "' ");
+				}
+
+				if ($vbulletin->GPC['attachpermupdate'] != '')
+				{
+					$vbulletin->db->query_write(" UPDATE " . TABLE_PREFIX . "forum SET attach_nb = '" . $vbulletin->GPC['attachpermupdate'] . "' ");
+				}
+
+				if ($vbulletin->GPC['linkviewpermupdate'] != '')
+				{
+					$vbulletin->db->query_write(" UPDATE " . TABLE_PREFIX . "forum SET linkview_nb = '" . $vbulletin->GPC['linkviewpermupdate'] . "' ");
+				}
+
+				if ($vbulletin->GPC['linkpostpermupdate'] != '')
+				{
+					$vbulletin->db->query_write(" UPDATE " . TABLE_PREFIX . "forum SET linkpost_nb = '" . $vbulletin->GPC['linkpostpermupdate'] . "' ");
+				}
+				require_once(DIR . '/includes/adminfunctions.php');
+				build_forum_permissions();
+				exec_header_redirect($vbulletin->url);
+			}
+		}

@@ -1,0 +1,35 @@
+
+			
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="70%" align="center">
+		<tr>
+			<td class="tcat" colspan="2">$vbphrase[vbppb_confirm_banner_activation]</td>
+		</tr>
+		<tr>
+			<td class="thead" colspan="2">$vbphrase[vbppb_please_confirm_that_you_want_to_proceed]</td>
+		</tr>
+		<tr>
+			<td class="alt1">
+				$vbphrase[vbppb_payment_method]
+			</td>
+			<td class="alt1">
+				$vbphrase[vbppb_please_choose_from_the_methods_below]
+			</td>
+		</tr>
+		<tr>
+			<td class="alt1">
+				$vbphrase[vbppb_payment_amount]
+			</td>
+			<td class="alt1">
+				$amount $currency
+			</td>
+		</tr>
+		<tr>
+			<td class="alt1" colspan="2">
+				$additionalForms
+				<input type="button" value="$vbphrase[vbppb_cancel]" class="button" onclick="window.location='paidbanners.php'" />
+			</td>
+		</tr>
+	</table>
+
+			
+		

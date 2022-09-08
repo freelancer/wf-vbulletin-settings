@@ -1,0 +1,1 @@
+Lock the registration form submit button until the registration timer elapses.  This protects humans against triggering Spam Hammer with 100% accuracy, and filters out bots with complete precision.

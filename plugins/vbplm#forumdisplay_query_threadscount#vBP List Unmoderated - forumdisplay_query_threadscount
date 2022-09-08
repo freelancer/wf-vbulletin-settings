@@ -1,0 +1,10 @@
+
+if($_REQUEST['unmoderated']=='true')
+{
+	if($visiblethreads == " AND visible IN (0,1,2)")
+	{
+		$visiblethreads = " AND visible = 0 ";
+	}
+}			
+			
+			

@@ -1,0 +1,4 @@
+<if condition="$show['ul']">
+	<ul class="list_no_decoration" style="margin-$stylevar[left]:0px; padding-$stylevar[left]:16px">
+</if>
+<li><label for="cb_$blogcategoryid"><input type="checkbox" id="cb_$blogcategoryid" value="$blogcategoryid" name="categories[]" $checked />$category[title]</label>

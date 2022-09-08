@@ -1,0 +1,11 @@
+<tr>
+	<td><a href="blog.php?$session[sessionurl]u=$blog[bloguserid]">$blog[title]</a><if condition="$show['username']"> ($blog[username])</if></td>
+	<td>$blog[jointime] $blog[joindate]</td>
+	<td align="$stylevar[right]">
+		<if condition="$show['pending']">
+			<a href="blog_usercp.php?$session[sessionurl]do=joinblog&amp;bloguserid=$blog[bloguserid]&amp;hash=$bbuserinfo[logouthash]">$vbphrase[accept_invite]</a> | <a href="blog_usercp.php?$session[sessionurl]do=leaveblog&amp;bloguserid=$blog[bloguserid]">$vbphrase[decline_invite]</a>
+		<else />
+			<a href="blog_usercp.php?$session[sessionurl]do=leaveblog&amp;bloguserid=$blog[bloguserid]">$vbphrase[leave_blog]</a>
+		</if>
+	</td>
+</tr>

@@ -1,0 +1,311 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+	$headinclude
+	<title>$vboptions[bbtitle] - $custompagetitle</title>
+	$socialgroups_css
+</head>
+<body>
+$header
+$navbar
+
+<if condition="$show['groupinfo']">
+	<div class="social_group tborder content_block">
+	<div class="tcat block_title">
+		<if condition="$groupoptions['join'] OR $groupoptions['leave']">
+		<span class="smallfont" style="float:$stylevar[right]">
+			<if condition="$groupoptions['join']">
+					<a href="group.php?$session[sessionurl]do=join&amp;groupid=$group[groupid]">$vbphrase[join_group]</a>
+			<else />
+				<if condition="!$group['membertype'] AND $group['type'] == 'inviteonly'">
+						$vbphrase[group_type_inviteonly]
+				</if>
+			</if>
+			<if condition="$groupoptions['join'] AND $groupoptions['leave']">
+				&nbsp;|&nbsp;
+			</if>
+				<if condition="$groupoptions['leave']"><a href="group.php?$session[sessionurl]do=leave&amp;groupid=$group[groupid]">$groupoptions[leavephrase]</a></if>
+		</span>
+		</if>
+		<if condition="$group[membermoderated]">$vbphrase[moderated_social_group]<else />$vbphrase[social_group]</if>
+	</div>
+
+	<!-- group info -->
+	<div class="alt1 block_row">
+		<if condition="$groupiconurl">
+		<img src="$groupiconurl" alt="" style="float:$stylevar[right]" class="sgicon" />
+		</if>
+		<h1 id="group_name">$group[name]</h1>
+		<div id="group_creator" class="smallfont"><phrase 1="$ownerlink" 2="$group[creatorusername]">$vbphrase[group_maintained_by_x]</phrase></div>
+		<if condition="$group['description']">
+			<p id="group_description">$group[description]</p>
+		</if>
+	</div>
+
+	<!-- members -->
+	<div class="thead block_row">
+		<a id="view_all_members_link" class="smallfont" href="group.php?$session[sessionurl]do=viewmembers&amp;groupid=$group[groupid]">$vbphrase[view_all_members]</a>
+		<phrase 1="$members_shown" 2="$group[members]">$vbphrase[showing_x_of_y_members]</phrase>
+	</div>
+
+	<div class="alt2 block_row">
+		<ul id="group_member_list">$short_member_list_bits</ul>
+	</div>
+
+	<!-- pictures -->
+	<if condition="$show['pictures_block']">
+	<div class="thead block_row">
+		<div id="picture_links" class="smallfont">
+			<a href="group.php?$session[sessionurl]do=grouppictures&amp;groupid=$group[groupid]">$vbphrase[view_pictures]</a>
+			<if condition="$show['add_pictures_link']">| <a href="group.php?$session[sessionurl]do=addpictures&amp;groupid=$group[groupid]">$vbphrase[add_pictures]</a></if>
+		</div>
+		<if condition="$pictures_shown">
+			<phrase 1="$pictures_shown" 2="$group[picturecount]">$vbphrase[showing_x_of_y_pictures]</phrase>
+		<else />
+			$vbphrase[group_pictures]
+		</if>
+	</div>
+	<div class="alt1 block_row">
+		<if condition="$picturebits">
+			$picturebits
+		<else />
+			$vbphrase[no_pictures_added_group_yet]
+			<if condition="$show['add_pictures_link']"><a href="group.php?$session[sessionurl]do=addpictures&amp;groupid=$group[groupid]">$vbphrase[add_pictures_to_this_group]</a></if>
+		</if>
+	</div>
+	</if>
+
+	</div><br />
+</if>
+
+
+<!-- Discussions -->
+<if condition="$show['groupdiscussions']">
+	<script type="text/javascript" src="clientscript/vbulletin_group_read_marker.js?v=$vboptions[simpleversion]"></script>
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" style="border-bottom-width:0px">
+	<tr>
+		<td class="tcat" width="100%" colspan="3">
+			<if condition="$messagebits OR $searchtext">
+				<div style="float:$stylevar[right]" class="normal">
+					<form action="group.php" method="post">
+						$vbphrase[search_discussions]
+						<input type="text" class="bginput" name="searchtext" value="$searchtext" style="font-size: 11px;" />&nbsp;<input type="submit" class="button" value="$vbphrase[go]" />
+						<input type="hidden" name="s" value="$session[sessionhash]" />
+						<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+						<input type="hidden" name="groupid" value="$group[groupid]" />
+						<input type="hidden" name="perpage" value="$perpage" />
+
+
+					</form>
+					</div>
+	</if>
+			<if condition="!$show['groupinfo']">
+				<phrase 1="$group[name]">$vbphrase[social_group_discussions_in_x]</phrase>
+			<else />
+				$vbphrase[social_group_discussions]
+			</if>
+		</td>
+		<td class="vbmenu_control" id="grouptools" nowrap="nowrap"><a href="$show[nojs_link]#goto_grouptools" rel="nofollow">$vbphrase[group_tools]</a> <script type="text/javascript"> vbmenu_register("grouptools"); </script></td>
+	</tr>
+	</table>
+
+	<if condition="$messagebits">
+	<if condition="$show['inlinemod']">
+		<form action="group_inlinemod.php?groupid=$group[groupid]" method="post" id="group_discussion_inlinemod_form">
+	</if>
+	<table class="tborder discussion_list" id="discussion_list" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+	<tr class="block_title">
+		$template_hook[group_discussionlist_start_col]
+		<td class="thead" width="100%">
+			<if condition="$messagetotal">
+				<span style="float:$stylevar[right]"><a href="$orderlinks[dateline]&amp;pp=$perpage&amp;page=$pagenumber">$vbphrase[group_created] $sortarrow[dateline]</a></span>
+				<if condition="$messagestart > 1">
+					<phrase 1="$messagestart" 2="$messageend" 3="$messagetotal">$vbphrase[showing_discussions_x_to_y_of_z]</phrase>
+				<else />
+					<phrase 1="$messageshown" 2="$messagetotal">$vbphrase[showing_discussions_x_of_y]</phrase>
+				</if>
+			</if>
+		</td>
+		<td class="thead" align="center" nowrap="nowrap">
+			<a href="$orderlinks[replies]&amp;pp=$perpage&amp;page=$pagenumber">$vbphrase[replies]</a> $sortarrow[replies]
+		</td>
+		<td class="thead" align="center" nowrap="nowrap">
+			<a href="$orderlinks[lastpost]&amp;pp=$perpage&amp;page=$pagenumber">$vbphrase[last_post]</a> $sortarrow[lastpost]
+		</td>
+
+		<if condition="$show['inlinemod']">
+			<td class="thead" align="center" nowrap="nowrap">
+				<a id="discussion_inlinemodsel"></a>
+			</td>
+		</if>
+		$template_hook[group_discussionlist_end_col]
+	</tr>
+		$messagebits
+	</table>
+
+	<if condition="$show['inlinemod'] OR $pagenav OR $show['postlink']">
+		<div class="floatcontainer">
+			<if condition="$pagenav">
+				<div id="discussion_pagenav">
+					$pagenav
+				</div>
+			</if>
+					<if condition="$show['inlinemod']">
+				<div id="discussion_moderation">
+					<div class="smallfont push_down"><label for="moderation_select_comments"><strong>$vbphrase[moderation]</strong></label></div>
+							<select id="moderation_select_comments" name="do">
+								<if condition="$show['delete'] OR $show['undelete'] OR $show['approve']">
+								<optgroup label="$vbphrase[option]" id="moderation_select_comments_optgroup">
+									<if condition="$show['delete']">
+								<option value="inlinedelete" id="inlinemod_comment_controls_delete">$vbphrase[delete_discussions]</option>
+									</if>
+									<if condition="$show['undelete']">
+								<option value="inlineundelete" id="inlinemod_comment_controls_undelete">$vbphrase[undelete_discussions]</option>
+									</if>
+									<if condition="$show['approve']">
+								<option value="inlineapprove" id="inlinemod_comment_controls_approve">$vbphrase[approve_discussions]</option>
+								<option value="inlineunapprove" id="inlinemod_comment_controls_unapprove">$vbphrase[unapprove_discussions]</option>
+									</if>
+								</optgroup>
+								</if>
+								<optgroup label="____________________">
+							<option value="clearmessage">$vbphrase[deselect_all_discussions]</option>
+								</optgroup>
+							</select>
+					<input type="submit" value="$vbphrase[go]" id="gdiscussion_inlinego" class="button" />
+							<input type="hidden" name="s" value="$session[sessionhash]" />
+							<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+				</div>
+					</if>
+			<if condition="$show['postlink']"><div class="action_links"><a href="group.php?$session[sessionurl]do=message&amp;groupid=$group[groupid]" rel="nofollow">$vbphrase[new_discussion]</a></div></if>
+				</div>
+			</if>
+
+		<if condition="$show['inlinemod']">
+		<if condition="$show[popups]">
+			<script type="text/javascript" src="clientscript/vbulletin_inlinemod.js?v=$vboptions[simpleversion]"></script>
+			<script type="text/javascript">
+			<!--
+			inlineMod_comment = new vB_Inline_Mod('inlineMod_comment', 'gdiscussion', 'group_discussion_inlinemod_form', '$vbphrase[go_x]', 'vbulletin_inline', 'thread');
+			vBmenu.register("discussion_inlinemodsel");
+			//-->
+			</script>
+
+			<!-- inline mod selection popup -->
+			<ul id="discussion_inlinemodsel_menu" class="vbmenu_popup list_no_decoration" style="display:none">
+				<li class="thead first">$vbphrase[from_this_page]</li>
+				<li class="vbmenu_option" onclick="inlineMod_comment.check_all(true)">$vbphrase[select_all]</li>
+				<li class="vbmenu_option" onclick="inlineMod_comment.check_all(false)">$vbphrase[deselect_all]</li>
+				<li class="vbmenu_option" onclick="inlineMod_comment.check_all('invert')">$vbphrase[invert_selection]</li>
+				<li class="thead"><img src="$vboptions[cleargifurl]" alt="" width="1" height="1" /></li>
+				<li class="vbmenu_option" onclick="inlineMod_comment.check_all(true, 1)">$vbphrase[select_unapproved_posts]</li>
+				<li class="vbmenu_option" onclick="inlineMod_comment.check_all(true, 2)">$vbphrase[select_deleted_posts]</li>
+			</ul>
+			<!-- / inline mod selection popup -->
+		</if>
+
+		<input type="hidden" name="inline_discussion" value="1" />
+		</form>
+		<!-- / inline moderation form -->
+	</if>
+<else />
+	<div class="tborder social_group">
+		<div class="alt2 block_row">
+			<if condition="$searchtext">
+				$vbphrase[no_discussions_found]
+			<else />
+				$vbphrase[group_has_no_discussions]
+			</if>
+		</div>
+	</div>
+	<if condition="$show['postlink']"><div class="action_links"><a href="group.php?$session[sessionurl]do=message&amp;groupid=$group[groupid]" rel="nofollow">$vbphrase[new_discussion]</a></div></if>
+</if>
+
+<if condition="$show[popups]">
+<!-- group tools popup -->
+<ul id="grouptools_menu" class="vbmenu_popup list_no_decoration" style="display:none">
+	<li class="thead first">$vbphrase[group_tools]</li>
+	<li class="vbmenu_option"><a href="#" rel="nofollow" onclick="return mark_group_read($group[groupid]);">$vbphrase[mark_this_group_read]</a></li>
+
+	<if condition="$show[subscribe]">
+		<if condition="!$group[subscribed]">
+			<li class="vbmenu_option"><a href="group.php?$session[sessionurl]do=subscribe&amp;groupid=$group[groupid]" rel="nofollow">$vbphrase[subscribe_to_this_group]</a></li>
+		<else />
+			<li class="vbmenu_option"><a href="group.php?$session[sessionurl]do=unsubscribe&amp;groupid=$group[groupid]" rel="nofollow">$vbphrase[unsubscribe_from_this_group]</a></li>
+		</if>
+	</if>
+</ul>
+<!-- / group tools popup -->
+<else />
+<!-- group tools -->
+<br />
+<div class="tborder social_group smallfont">
+	<a name="goto_grouptools"></a>
+	<div class="thead">$vbphrase[group_tools]</div>
+	<div class="alt1 block_row">
+		<img class="inlineimg" src="$stylevar[imgdir_button]/subscribe.gif" alt="$vbphrase[mark_this_group_read]" vspace="1" /> <a href="group.php?$session[sessionurl]do=markread&amp;groupid=$group[groupid]" rel="nofollow">$vbphrase[mark_this_group_read]</a>
+	</div>
+	<if condition="$show[subscribe]">
+		<if condition="!$group[subscribed]">
+			<div class="alt2 block_row"><img class="inlineimg" src="$stylevar[imgdir_button]/subscribe.gif" alt="$vbphrase[subscribe_to_this_group]" vspace="1" /> <a href="group.php?$session[sessionurl]do=subscribe&amp;groupid=$group[groupid]" rel="nofollow">$vbphrase[subscribe_to_this_group]</a></div>
+		<else />
+			<div class="alt2 block_row"><img class="inlineimg" src="$stylevar[imgdir_button]/subscribe.gif" alt="$vbphrase[unsubscribe_from_this_group]" vspace="1" /> <a href="group.php?$session[sessionurl]do=unsubscribe&amp;groupid=$group[groupid]" rel="nofollow">$vbphrase[unsubscribe_from_this_group]</a></div>
+		</if>
+	</if>
+</div>
+</if>
+<!-- / group tools -->
+
+</if>
+
+<if condition="!$group['canviewcontent']">
+	<div id="join_to_view" class="tborder social_group">
+		<div class="alt2 block_row">
+			$vbphrase[must_join_to_view]
+		</div>
+	</div>
+</if>
+
+	<if condition="$show['groupoptions']">
+
+	<br />
+	<div id="discussion_foot" class="social_group tborder content_block">
+		<div class="tfoot block_title">
+		<ul id="group_footer_links">
+			<if condition="$groupoptions['join']">
+				<li class="smallfont">
+					<a href="group.php?$session[sessionurl]do=join&amp;groupid=$group[groupid]">$vbphrase[join_group]</a>
+				</li>
+			<else />
+				<if condition="$group['membertype'] != 'member' AND $group['type'] == 'inviteonly'">
+					<li class="smallfont">
+						$vbphrase[group_type_inviteonly]
+					</li>
+				</if>
+			</if>
+			<if condition="$groupoptions['leave']"><li class="smallfont"><a href="group.php?$session[sessionurl]do=leave&amp;groupid=$group[groupid]">$groupoptions[leavephrase]</a></li></if>
+			<if condition="$groupoptions['edit']"><li class="smallfont"><a href="group.php?$session[sessionurl]do=edit&amp;groupid=$group[groupid]">$vbphrase[edit_group]</a></li></if>
+			<if condition="$groupoptions['delete']"><li class="smallfont"><a href="group.php?$session[sessionurl]do=delete&amp;groupid=$group[groupid]">$vbphrase[delete_group]</a></li></if>
+			<if condition="$groupoptions['manage']">
+				<li class="smallfont">
+					<a href="group.php?$session[sessionurl]do=manage&amp;groupid=$group[groupid]">$vbphrase[pending_and_invited_members]</a>
+				</li>
+			</if>
+			<if condition="$groupoptions['managemembers']">
+				<li class="smallfont">
+					<a href="group.php?$session[sessionurl]do=managemembers&amp;groupid=$group[groupid]">$vbphrase[manage_members]</a>
+				</li>
+			</if>
+			<if condition="$groupoptions['transfergroup']">
+			<li class="smallfont">
+				<a href="group.php?$session[sessionurl]do=transfer&amp;groupid=$group[groupid]">$vbphrase[transfer_group]</a>
+			</li>
+			</if>
+		</ul>
+	</div>
+	</div>
+	</if>
+
+$footer
+</body>
+</html>

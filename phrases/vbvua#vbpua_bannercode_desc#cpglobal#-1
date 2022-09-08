@@ -1,0 +1,3 @@
+Use this field to enter HTML or PHP code that you would like to be shown.
+<br /><br />If you choose Image as Banner Type, this code will be used to wrap the image in any HTML code. <br />{image} will be replaced with image code.
+<br />May be left empty for no wrapper.

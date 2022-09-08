@@ -1,0 +1,4 @@
+<li><div class="sgicon" style="float:$stylevar[left];width:86px;overflow:hidden;padding:0 12px 12px;text-align:center;height:112px">
+		<a href="group.php?$session[sessionurl]groupid=$socialgroup[groupid]"><img class="sgicon" src="$socialgroup[iconurl]" alt="$socialgroup[shortdescription]" style="border:solid 1px gray;margin-bottom:$stylevar[cellspacing]px" /></a>
+		<div class="smallfont" style="width:92px;margin-left:-6px;margin-right:-6px"><a href="group.php?$session[sessionurl]groupid=$socialgroup[groupid]" style="text-decoration:none">$socialgroup[name]</a></div>
+</div></li>

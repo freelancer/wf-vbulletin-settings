@@ -1,0 +1,5 @@
+In order to prevent tags in private forums for modifying the data in the tag cloud, you may force the tag cloud to be built with the permissions of a particular usergroup. Tags will be only be counted for forums where that user can view all threads.<br />
+<br />
+Choosing 'Live Permission Check' will prevent the tag cloud from being cached, but it will respect the permissions of the browsing user.<br />
+<br />
+'No Permission Check' will skip the permission checking entirely. This is equivalent to picking a usergroup that has permissions to view all forums.

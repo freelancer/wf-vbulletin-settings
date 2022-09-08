@@ -1,0 +1,1 @@
+<a href="#{$selectorname}_{$this_property}" onclick="return goto_css_error('$selectorname', '$this_property');">$error_link_phrase</a>

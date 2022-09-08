@@ -1,0 +1,1 @@
+The user's registration date is normally shown with their posts. This determines the format of the date that will be shown and follows PHP's <a href="http://www.php.net/date" target="_blank">date function formatting options</a>. (Usually you only want to show the month, day, and year, or even just month and year.)

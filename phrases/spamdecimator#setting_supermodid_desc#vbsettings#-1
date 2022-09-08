@@ -1,0 +1,1 @@
+Your super moderator group ids. The default is 5 (vBulletin's default), but you can add additional groups at this permission level by separating values with commas (i.e 5,8)

@@ -1,0 +1,3 @@
+<div class="navbar_notice" id="navbar_notice_$_noticeid">
+	<if condition="$show[dismiss_link]"><input type="image" onclick="return dismiss_notice($_noticeid);" name="dismiss_noticeid_$_noticeid" src="$stylevar[imgdir_misc]/cross.png" alt="$vbphrase[dismiss]" style="float:$stylevar[right];" /></if>$notice_html
+</div>

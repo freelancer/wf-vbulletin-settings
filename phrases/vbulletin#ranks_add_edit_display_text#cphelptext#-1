@@ -1,0 +1,2 @@
+<strong>Always</strong>: This rank will always be displayed if a member has this rank's usergroup as their primary or one of their secondary groups.<br /><br />
+<strong>If Displaygroup = This Group</strong>: This rank will only be displayed if a member's displaygroup is equal to this rank's usergroup.

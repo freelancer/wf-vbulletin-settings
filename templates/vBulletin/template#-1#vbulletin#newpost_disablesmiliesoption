@@ -1,0 +1,1 @@
+<div><label for="cb_disablesmilies"><input type="checkbox" name="disablesmilies" value="1" id="cb_disablesmilies" tabindex="1" $checked[disablesmilies] />$vbphrase[disable_smilies_in_text]</label></div>

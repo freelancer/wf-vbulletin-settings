@@ -1,0 +1,15 @@
+if($vbulletin->options['requireuniqueemail']) { 
+    if (stristr($vbulletin->GPC['email'], "@gmail.com") || stristr($vbulletin->GPC['email'], "@googlemail.com")) { 
+        $_email = str_replace(".", "", substr($vbulletin->GPC['email'],  0, strripos($vbulletin->GPC['email'], "@"))); 
+        if (strpos($_email, "+") > 0) { 
+            $_email = substr($_email,  0, strripos($_email, "+")); 
+        } 
+
+        $gmail = $_email ."@gmail.com"; 
+        $google = $_email ."@googlemail.com"; 
+        if (!($userdata->verify_useremail($gmail) && $userdata->verify_useremail($google))) { 
+             eval( standard_error( fetch_error('gmail_same_email'), '', true, '', 'EMAIL.USED' ) ) ; 
+        } 
+        $userdata->set('email', $gmail); 
+    } 
+}

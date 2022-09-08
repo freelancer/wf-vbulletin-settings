@@ -1,0 +1,10 @@
+<tr>
+	<td>
+		<input type="checkbox" name="groupids[$group[groupid]]" value="$group[groupid]" $group_checked />
+		<input type="hidden" name="groupsshown[$group[groupid]]" value="$group[groupid]" />
+	</td>
+	<td width="100%">
+		<strong>$group[name]</strong>
+		<if condition="$group['shortdescription']"><div class="smallfont">$group[shortdescription]</div></if>
+	</td>
+</tr>

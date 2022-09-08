@@ -1,0 +1,3 @@
+You may wish to prevent users from using certain characters in their posts, usernames, and more. These characters are usually only used to make words appear the same to a human but different to a computer. To prevent these characters from being used, enter their character codes (numbers) here, separated by spaces. You may prefix a character code with a 'u' to denote it is a Unicode value; click the '?' icon on the right for more information.<br />
+<br />
+Please note that stripping characters with this setting may break some double-byte character sets. If you are unsure or having problems with certain characters not displaying properly, remove the contents of this setting.

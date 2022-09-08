@@ -1,0 +1,6 @@
+<form action="edit_thread.php" method="post">
+<input class="btn thread-subscription-button" type="submit" value="Launch">
+<input type="hidden" name="threadid" value="$threadinfo[threadid]">
+<input type="hidden" name="do" value="set_visible">
+<input type="hidden" name="securitytoken" value="$security_token">
+</form>

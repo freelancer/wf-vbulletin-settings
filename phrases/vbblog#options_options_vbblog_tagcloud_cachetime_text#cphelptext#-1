@@ -1,0 +1,1 @@
+Time, in minutes, to keep the tag cloud data cached for. A value of 0 will disable the caching.

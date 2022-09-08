@@ -1,0 +1,1 @@
+Extract destination data<dfn>This setting may be overridden by the global setting. It is required in order to fetch embedded text for some providers (i.e. yahoo and dailymotion). It is also required if you want to show the title of the page</dfn>

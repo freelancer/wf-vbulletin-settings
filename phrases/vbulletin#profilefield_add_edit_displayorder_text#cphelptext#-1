@@ -1,0 +1,1 @@
+This sets the order in which fields are displayed. The default is to add it to the end of your current fields. Display order starts at 1 and can be any whole positive number (e.g. don't use decimals or fractions).

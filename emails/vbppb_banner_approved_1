@@ -1,0 +1,11 @@
+Dear $userinfo[username],
+
+Your banner request at $vboptions[bbtitle] is approved.
+
+Please follow the link below to complete the payment and to activate the banner:
+
+$vboptions[bburl]/paidbanners.php?do=activate&amp;bannerid=$bannerInfo[bannerid]
+
+Please note that banner slots are limited and you should activate your banner as soon as possible. If you would like to advertise for longer than 1 day please email advertising@warriorforum.com.
+
+Thank you!

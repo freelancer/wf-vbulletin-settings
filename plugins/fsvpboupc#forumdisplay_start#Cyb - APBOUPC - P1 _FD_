@@ -1,0 +1,9 @@
+
+		if ($vbulletin->options['apboupc_global_enable'] AND $vbulletin->options['apboupc_forum'])
+		{
+			$forumperms = fetch_permissions($foruminfo['forumid']);
+			if (($forumperms & $vbulletin->bf_ugp_forumpermissions['canview']) AND ($foruminfo[accessf_nb] !='0') AND ($foruminfo[accessf_nb] > $vbulletin->userinfo[posts]) AND (!is_member_of($vbulletin->userinfo, split(',', $vbulletin->options['apboupc_forum_excludedgroups']))))
+			{
+				eval(standard_error(fetch_error('error_postcount_too_low_forum', intval($foruminfo['accessf_nb']), intval($vbulletin->userinfo['posts']))));
+			}
+		}

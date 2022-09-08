@@ -1,0 +1,3 @@
+Thread tagging is a system that allows user to apply their own keywords (tags) to threads. See <a href="http://en.wikipedia.org/wiki/Tag_%28metadata%29" target="_blank">Wikipedia</a> for more information on the ideas behind tagging.<br />
+<br />
+This option is a global switch. If you choose no, tagging will be disabled globally. Existing tag information will not be displayed. If you choose yes, you may choose who can tag threads in the usergroup permissions section.

@@ -1,0 +1,27 @@
+<fieldset class="fieldset">
+	<legend>$vbphrase[attach_files]</legend>
+	<div style="padding:$stylevar[formspacer]px">
+		<div style="margin-bottom:$stylevar[formspacer]px">
+			<div>$vbphrase[valid_file_extensions]: $bbuserinfo[attachmentextensions]</div>
+		</div>
+		<div style="margin-bottom:$stylevar[formspacer]px" id="attachlist">
+			<if condition="$show['attachmentlist']">
+				$attachments
+			</if>
+		</div>
+		<div>
+			<script type="text/javascript" src="clientscript/vbulletin_attachment.js?v=$vboptions[simpleversion]"></script>
+			<script type="text/javascript">
+			<!--
+			var newpost_attachmentbit = '$newpost_attachmentbit';
+			vB_Attachments = new vB_Attachment('attachlist', '$editorid');
+			$attachment_js
+			document.write('<input type="button" id="manage_attachments_button" class="button" tabindex="1" style="font-weight:normal" value="$vbphrase[manage_attachments]" title="$vbphrase[add_edit_files_attached]" onclick="vB_Attachments.open_window(\'newattachment.php?$session[sessionurl]$attachurl&amp;poststarttime=$poststarttime&amp;posthash=$posthash\', 480, 480, \'$postid\')" />');
+			//-->
+			</script>
+			<noscript>
+			<a href="newattachment.php?$session[sessionurl]$attachurl&amp;poststarttime=$poststarttime&amp;posthash=$posthash" target="manageattach" title="$vbphrase[add_edit_files_attached]" tabindex="1"><strong>$vbphrase[manage_attachments]</strong></a>
+			</noscript>
+		</div>
+	</div>
+</fieldset>

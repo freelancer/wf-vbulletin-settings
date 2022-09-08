@@ -1,0 +1,505 @@
+$ad_location[ad_blog_entry_before]
+
+<div class="tborder" style="padding:$stylevar[cellspacing]px">
+	<if condition="$show['privateentry']"><div class="thead" style="margin:$stylevar[cellspacing]px; align:center">$vbphrase[private_entry] <img src="$stylevar[imgdir_misc]/blog/key.gif" class="inlineimg" title="$vbphrase[private_entry]" /></div></if>
+	<div class="alt1" style="padding:$stylevar[cellpadding]px" id="entry$bloginfo[blogid]">
+		<div style="clear:both; margin-top:10px"></div>
+
+		<if condition="$show['blograting']">
+			<div class="smallfont" id="blograting" style="float:$stylevar[right]">
+				<if condition="$show['popups']">
+					<if condition="$show['rating']">
+						<a href="$show[nojs_link]" id="blograting_current"><img class="inlineimg" src="$stylevar[imgdir_rating]/rating_$bloginfo[rating].gif" alt="<phrase 1="$bloginfo[ratingnum]" 2="$bloginfo[ratingavg]">$vbphrase[rating_x_votes_y_average]</phrase>" border="0" /></a>
+					<else />
+						<a href="$show[nojs_link]" id="blograting_current">$vbphrase[rate_this_blog_entry]</a>
+					</if>
+					<script type="text/javascript"> vbmenu_register("blograting"); </script>
+				<else />
+					<!-- Non JS Stuff -->
+					<if condition="$show['rating']">
+						<img class="inlineimg" src="$stylevar[imgdir_rating]/rating_$bloginfo[rating].gif" alt="<phrase 1="$bloginfo[ratingnum]" 2="$bloginfo[ratingavg]">$vbphrase[rating_x_votes_y_average]</phrase>" border="0" />
+					<else />
+						$vbphrase[rate_this_blog_entry]
+					</if>
+					<a name="goto_blograting"></a>
+					<form action="blog.php?do=rate&amp;b=$bloginfo[blogid]" method="post" style="display:inline">
+						<input type="hidden" name="s" value="$session[dbsessionhash]" />
+						<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+						<input type="hidden" name="do" value="rate" />
+						<input type="hidden" name="b" value="$bloginfo[blogid]" />
+						<select name="vote" onchange="this.form.submit()" style="width:175px">
+							<optgroup label="$vbphrase[choose_a_rating]">
+								<option value="5" $voteselected[5]>5 : $vbphrase[excellent]</option>
+								<option value="4" $voteselected[4]>4 : $vbphrase[good]</option>
+								<option value="3" $voteselected[3]>3 : $vbphrase[average]</option>
+								<option value="2" $voteselected[2]>2 : $vbphrase[bad]</option>
+								<option value="1" $voteselected[1]>1 : $vbphrase[terrible]</option>
+							</optgroup>
+						</select>$gobutton
+					</form>
+				</if>
+			</div>
+		</if>
+
+		<h1 id="blog_title" style="font-size:14pt; font-weight:normal; margin:0px">
+			$bloginfo[title]
+			<if condition="$show['status']">
+				<img class="inlineimg" src="$status[image]" alt="$status[phrase]" border="0" />
+			</if>
+		</h1>
+		
+		<if condition="$bookmarksites">
+			<div style="float:$stylevar[right]">$bookmarksites</div>
+		</if>
+		
+		<div class="smallfont shade">
+			<phrase 1="$blog[date]" 2="$blog[time]" 3="blog.php?$session[sessionurl]u=$blog[postedby_userid]" 4="$blog[postedby_username]">$vbphrase[posted_date_at_time_by_user]</phrase>
+			<if condition="$show['entryedited']">
+				<br />
+				<phrase 1="$blog[edit_date]" 2="$blog[edit_time]" 3="blog.php?$session[sessionurl]u=$blog[edit_userid]" 4="$blog[edit_username]">$vbphrase[updated_date_at_time_by_user]</phrase>
+				<if condition="$blog['edit_reason']"><span class="shade">($blog[edit_reason])</span></if>
+			</if>
+		</div>
+
+		<if condition="$show['tags']">
+			<script type="text/javascript" src="clientscript/blog_ajax_tag.js?v=$vboptions[simpleversion]"></script>
+			<div class="smallfont" id="blogtagcontainer_$bloginfo[blogid]" <if condition="$show['notags']">style="display:none"</if>>
+				<span class="shade">$vbphrase[tags]</span> <span id="blogtaglist_$bloginfo[blogid]">$blog[tag_list]</span>
+			</div>
+		</if>
+		<div style="clear:both; margin-top:4px"></div>
+		<hr size="1" style="color:$stylevar[tborder_bgcolor]; background-color:$stylevar[tborder_bgcolor]; margin-bottom:10px" />
+
+		<!-- ads could go here -->
+		<div id="blog_message" style="margin-bottom:10px">$blog[message]</div>
+
+		<if condition="$show['attachments']">
+		<!-- attachments -->
+			<div style="margin-top:10px" id="attachmentlist">
+
+				<if condition="$show['thumbnailattachment']">
+					<fieldset class="fieldset">
+						<legend>$vbphrase[attached_thumbnails]</legend>
+						<div style="padding:$stylevar[formspacer]px">
+						$blog[thumbnailattachments]
+						</div>
+					</fieldset>
+				</if>
+				<if condition="$show['imageattachment']">
+					<fieldset class="fieldset">
+						<legend>$vbphrase[attached_images]</legend>
+						<div style="padding:$stylevar[formspacer]px">
+						$blog[imageattachments]
+						</div>
+					</fieldset>
+				</if>
+				<if condition="$show['imageattachmentlink']">
+					<fieldset class="fieldset">
+						<legend>$vbphrase[attached_images]</legend>
+						<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+						$blog[imageattachmentlinks]
+						</table>
+						</fieldset>
+				</if>
+				<if condition="$show['otherattachment']">
+					<fieldset class="fieldset">
+						<legend>$vbphrase[attached_files]</legend>
+						<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+						$blog[otherattachments]
+						</table>
+					</fieldset>
+				</if>
+
+			</div>
+		<!-- / attachments -->
+		</if>
+
+	</div>
+	<div class="alt2 smallfont" style="text-align:$stylevar[right]; padding:$stylevar[cellpadding]px; margin-top:$stylevar[cellspacing]px">
+		<if condition="$blog['categorybits']">
+			<div style="float:$stylevar[left]"><span class="shade">$vbphrase[posted_in]</span> $blog[categorybits]</div>
+		</if>
+		<span class="shade">$vbphrase[views]</span> $bloginfo[views]
+		<span class="shade"><a href="#comments" class="shade">$vbphrase[comments]</a></span> <span id="commentcount1">$bloginfo[comments_visible]</span>
+		<if condition="$show['trackback'] OR $show['pingback']">
+			<a href="#trackbacks" class="shade">$vbphrase[trackbacks]</a> $bloginfo[trackback_visible]
+		</if>
+
+		<if condition="$show['editentry']">
+			<img style="display: none" id="entry_progress_$bloginfo[blogid]" src="$stylevar[imgdir_misc]/progress.gif" alt="$vbphrase[loading_editor_please_wait]" />
+			<a href="blog_post.php?$session[sessionurl]do=editblog&amp;b=$bloginfo[blogid]"><img src="$stylevar[imgdir_misc]/blog/edit.gif" border="0" class="inlineimg" alt="$vbphrase[edit_blog_entry]" id="entry_edit_$bloginfo[blogid]" /></a>
+		</if>
+		<if condition="$show['tag_edit']">
+			<span id="blogtagmenu_$bloginfo[blogid]"><a href="blog_tag.php?$session[sessionurl]do=tagedit&amp;blogid=$bloginfo[blogid]"><img src="$stylevar[imgdir_misc]/blog/tag_edit.gif" border="0" class="inlineimg" id="blogtag_$bloginfo[blogid]" alt="$vbphrase[edit_tags]" /></a></span>
+		</if>
+		<if condition="$show['emailentry']">
+			<a href="blog.php?$session[sessionurl]do=sendtofriend&amp;b=$bloginfo[blogid]"><img src="$stylevar[imgdir_misc]/blog/email_go.gif" border="0" class="inlineimg" alt="$vbphrase[email_blog_entry]" /></a>
+		</if>
+		<if condition="$show['reportlink']">
+			<a href="blog_report.php?$session[sessionurl]b=$bloginfo[blogid]"><img src="$stylevar[imgdir_misc]/blog/report.gif" border="0" class="inlineimg" alt="$vbphrase[report_blog_entry]" /></a>
+		</if>
+		<if condition="$blog['blogipaddress']">
+			<a href="blog.php?do=viewip&amp;b=$bloginfo[blogid]"><img src="$stylevar[imgdir_misc]/blog/computer.gif" alt="$vbphrase[ip_address]: $blog[blogipaddress]" border="0" class="inlineimg" /></a>
+		</if>
+		<if condition="$show['member']">
+			<if condition="$show['entrysubscribed']">
+				<a href="blog_subscription.php?$session[sessionurl]do=unsubscribe&amp;b=$bloginfo[blogid]"><img src="$stylevar[imgdir_misc]/blog/newspaper_delete.gif" class="inlineimg" border="0" alt="$vbphrase[unsubscribe_from_this_blog_entry]" /></a>
+			<else />
+				<a href="blog_subscription.php?$session[sessionurl]do=subscribe&amp;b=$bloginfo[blogid]"><img src="$stylevar[imgdir_misc]/blog/newspaper_add.gif" border="0" class="inlineimg" alt="$vbphrase[subscribe_to_blog_entry]" /></a>
+			</if>
+		</if>
+	</div>
+</div>
+
+<div class="tborder" style="padding:$stylevar[cellspacing]px; border-top:0px">
+	<div class="tfoot smallfont" style="padding:$stylevar[cellpadding]px; text-align:center">
+			<!-- top navlinks -->
+				<if condition="$show['nextprevtitle']">
+					<if condition="$show['prevtitle']">
+						&laquo; <a href="blog.php?$session[sessionurl]b=$prev[blogid]">$prev[title]</a>
+						&nbsp;&nbsp;&nbsp;
+					</if>
+				<else />
+					&laquo; <a href="blog.php?$session[sessionurl]b=$bloginfo[blogid]&amp;goto=prev">$vbphrase[prev]</a>
+					&nbsp;&nbsp;&nbsp;
+				</if>
+				<a href="blog.php?$session[sessionurl]u=$bloginfo[userid]">$vbphrase[main]</a>
+				<if condition="$show['nextprevtitle']">
+					<if condition="$show['nexttitle']">
+						&nbsp;&nbsp;&nbsp;
+						<a href="blog.php?$session[sessionurl]b=$next[blogid]">$next[title]</a> &raquo;
+					</if>
+				<else />
+					&nbsp;&nbsp;&nbsp;
+					<a href="blog.php?$session[sessionurl]b=$bloginfo[blogid]&amp;goto=next">$vbphrase[next]</a> &raquo;
+				</if>
+			<!-- end top navlinks -->		
+	</div>
+</div>
+
+$ad_location[ad_blog_entry_after]
+
+<if condition="$show['lightbox']">
+<!-- lightbox scripts -->
+	<script type="text/javascript" src="clientscript/vbulletin_lightbox.js?v=$vboptions[simpleversion]"></script>
+	<script type="text/javascript">
+	<!--
+	vBulletin.register_control("vB_Lightbox_Container", "entry$bloginfo[blogid]", $vboptions[lightboxenabled]);
+	//-->
+	</script>
+<!-- / lightbox scripts -->
+</if>
+
+<if condition="$show['ajax_js']">
+	$vBeditTemplate[clientscript]
+</if>
+
+<if condition="!$show['entryonly']">
+
+	<if condition="$show['inlinemod']">
+		<form action="blog_inlinemod.php?b=$bloginfo[blogid]" method="post" id="commentform" style="display:block; margin:0px">
+	</if>
+
+	<div class="cleardiv" style="margin-top:24px"></div>
+	<if condition="!$show['inlinemod']">
+		<div style="float:$stylevar[right]" class="smallfont"><span class="shade">$vbphrase[total_comments]</span> <span id="commentcount2">$bloginfo[comments_visible]</span></div>
+	<else />
+		<if condition="$pagenav">
+			<div style="margin-bottom:$stylevar[cellpadding]px; float:$stylevar[right]">$pagenav</div>
+		</if>
+	</if>
+	<h2 id="comments_heading" style="margin-bottom:$stylevar[cellpadding]px; font-size:12pt"><a name="comments"></a>$vbphrase[comments]</h2>
+
+	<if condition="$pagenav AND !$show['inlinemod']">
+		<div style="margin-bottom:$stylevar[cellpadding]px; float:$stylevar[right]">$pagenav</div>
+	</if>
+
+	<if condition="$show['inlinemod']">
+		<div class="cleardiv" style="margin-top:10px"></div>
+		<div class="tborder" style="padding:$stylevar[cellspacing]px; border-bottom:0px">
+			<div class="thead smallfont" align="$stylevar[right]" style="padding:$stylevar[cellpadding]px">
+				<div style="float:$stylevar[left]"><a id="inlinemodsel"></a></div>
+				<span class="shade">$vbphrase[total_comments]</span> <span id="commentcount2">$bloginfo[comments_visible]</span>
+			</div>
+		</div>
+	</if>
+
+	<if condition="$responsebits">
+	<ol id="message_list" class="list_no_decoration">
+		$responsebits
+	</ol>
+	</if>
+
+	<table cellpadding="1" cellspacing="0" border="0" width="100%">
+	<tr valign="top">
+		<td class="smallfont">
+			<if condition="$show['postcomment']">
+				<a href="blog_post.php?$session[sessionurl]do=comment&amp;b=$bloginfo[blogid]"><img src="$stylevar[imgdir_misc]/blog/pencil_add.gif" alt="$vbphrase[post_a_comment]" border="0" class="inlineimg" /></a>
+				<a href="blog_post.php?$session[sessionurl]do=comment&amp;b=$bloginfo[blogid]">$vbphrase[post_a_comment]</a>
+			<else />
+				&nbsp;
+			</if>
+		</td>
+		<if condition="$show['inlinemod'] OR $pagenav">
+			<td class="smallfont" align="$stylevar[right]">
+				<if condition="$pagenav">
+					<div style="margin-bottom:$stylevar[cellpadding]px">$pagenav</div>
+				</if>
+				<if condition="$show['inlinemod']">
+					<table cellpadding="0" cellspacing="0" id="inlinemod_comment_controls">
+					<tr>
+						<td align="$stylevar[left]">
+							<div class="smallfont"><label for="moderation_select_comments">$vbphrase[moderation]</label></div>
+							<select name="do" id="moderation_select_comments">
+								<optgroup id="moderation_select_comments_optgroup" label="$vbphrase[option]">
+									<if condition="$show['delete']">
+										<option id="inlinemod_comment_controls_delete" value="deletecomment">$vbphrase[delete_comments]</option>
+									</if>
+									<if condition="$show['undelete']">
+										<option id="inlinemod_comment_controls_undelete" value="undeletecomment">$vbphrase[undelete_comments]</option>
+									</if>
+									<if condition="$show['approve']">
+										<option id="inlinemod_comment_controls_approve" value="approvecomment">$vbphrase[approve_comments]</option>
+										<option id="inlinemod_comment_controls_unapprove" value="unapprovecomment">$vbphrase[unapprove_comments]</option>
+									</if>
+								</optgroup>
+								<optgroup label="____________________">
+									<option value="clearcomment">$vbphrase[deselect_all_comments]</option>
+								</optgroup>
+							</select>
+							<input type="submit" class="button" id="comment_inlinego" value="$vbphrase[go]" />
+							<input type="hidden" name="s" value="$session[sessionhash]" />
+							<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+							<input type="hidden" name="b" value="$bloginfo[blogid]" />
+							<input type="hidden" name="bt" value="$blogtextinfo[blogtextid]" />
+							<input type="hidden" name="url" value="$url" />
+							<input type="hidden" name="userid" value="$bloginfo[userid]" />
+						</td>
+					</tr>
+					</table>
+				</if>
+			</td>
+		</if>
+	</tr>
+	</table>
+
+	<if condition="$show['inlinemod']">
+		<script type="text/javascript">
+		<!--
+			inlineMod_comment = new vB_Inline_Mod_Blog('inlineMod_comment', 'comment', 'commentform', '$vbphrase[go_x]');
+		//-->
+		</script>
+		</form>
+		<!-- / inline moderation form -->
+		
+		<script type="text/javascript">
+		<!--
+		vBmenu.register("inlinemodsel");
+		//-->
+		</script>
+
+		<!-- inline mod selection popup -->
+		<ul id="inlinemodsel_menu" class="vbmenu_popup" style="display:none; list-style-type:none; margin:0px; padding:0px;">
+			<li class="thead" style="padding: 4px; margin: 1px">$vbphrase[from_this_page]</li>
+			<li class="vbmenu_option" style="padding: 4px; margin: 1px" onclick="inlineMod_comment.check_all(true)">$vbphrase[select_all]</li>
+			<li class="vbmenu_option" style="padding: 4px; margin: 1px" onclick="inlineMod_comment.check_all(false)">$vbphrase[deselect_all]</li>
+			<li class="vbmenu_option" style="padding: 4px; margin: 1px" onclick="inlineMod_comment.check_all('invert')">$vbphrase[invert_selection]</li>
+			<if condition="$show['approve'] OR $show['undelete']"><li class="thead"><img src="$vboptions[cleargifurl]" alt="" width="1" height="1" /></li></if>
+			<if condition="$show['approve']"><li class="vbmenu_option" style="padding: 4px; margin: 1px" onclick="inlineMod_comment.check_all(true, 1)">$vbphrase[select_unapproved_comments]</li></if>
+			<if condition="$show['undelete']"><li class="vbmenu_option" style="padding: 4px; margin: 1px" onclick="inlineMod_comment.check_all(true, 2)">$vbphrase[select_deleted_comments]</li></if>
+		</ul>
+		<!-- / inline mod selection popup -->
+	</if>
+
+	<if condition="$show['quickcomment']">
+		<!-- quick comment -->
+
+		<!--<div class="cleardiv"></div>-->
+		<form action="blog_post.php?$session[sessionurl]do=postcomment" method="post" name="vbform" id="qc_form" style="display:block; margin:0px; padding-top:24px; clear:both">
+
+			<div class="tborder">
+				<div class="thead" style="margin:$stylevar[cellspacing]px">$vbphrase[post_a_comment]</div>
+
+				<div style="display:none" id="qc_error_div">
+					<div class="thead" style="margin:$stylevar[cellspacing]px">
+						$vbphrase[errors_occured_when_submitted]
+					</div>
+					<div class="alt1" id="qc_error_list" style="padding:$stylevar[cellpadding]px; margin:$stylevar[cellspacing]px; margin-top:0px">
+						&nbsp;
+					</div>
+					<div class="tfoot" style="padding:$stylevar[cellpadding]px; margin:$stylevar[cellspacing]px; margin-top:0px" align="center">
+						<input type="button" class="button" value="$vbphrase[okay]" id="qc_hide_errors" />
+					</div>
+				</div>
+
+				<div class="panelsurround" style="padding:$stylevar[cellpadding]px; margin:$stylevar[cellspacing]px; margin-top:0px" align="center">
+					<div class="panel">
+						<div align="$stylevar[left]" style="max-width:$stylevar[formwidth_blog]; width:auto !important; width:$stylevar[formwidth_blog]">
+							<div id="$editorid" class="vBulletin_editor">$messagearea</div>
+						</div>
+					</div>
+					<div style="margin-top:$stylevar[cellpadding]px" align="center">
+						<input type="hidden" name="fromquickcomment" value="1" />
+						<input type="hidden" name="s" value="$session[sessionhash]" />
+						<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+						<input type="hidden" name="do" value="postcomment" />
+						<input type="hidden" name="b" value="$bloginfo[blogid]" />
+						<input type="hidden" name="loggedinuser" value="$bbuserinfo[userid]" />
+						<input type="hidden" name="parseurl" value="1" />
+						<input type="hidden" name="allow_ajax_qc" value="$allow_ajax_qc" />
+						<input type="hidden" name="lastcomment" value="$effective_lastcomment" />
+
+						<input type="submit" class="button" value="$vbphrase[post_now]" accesskey="s" title="(Alt + S)" name="sbutton" tabindex="2" id="qr_submit" onclick="clickedelm = this.value" />
+						<input type="submit" class="button" value="$vbphrase[go_advanced]" accesskey="x" title="(Alt + X)" name="preview" tabindex="3" id="qr_preview" onclick="clickedelm = this.value" />
+					</div>
+					<div align="center" id="qc_posting_msg" style="display:none; margin-top:$stylevar[cellpadding]px">
+
+
+						<img class="inlineimg" src="$stylevar[imgdir_misc]/progress.gif" alt="$vbphrase[posting_comment] - $vbphrase[please_wait]" />
+						<strong>$vbphrase[posting_comment] - $vbphrase[please_wait]</strong>
+					</div>
+				</div>
+			</div>
+		</form>
+		<div class="cleardiv"></div>
+		<script type="text/javascript" src="clientscript/vbulletin_quick_comment.js?v=$vboptions[simpleversion]"></script>
+		<!--<script type="text/javascript" src="clientscript/vbulletin_quick_comment_blog.js?v=$vboptions[simpleversion]"></script>-->
+		<script type="text/javascript">
+		<!--
+		var quick_comment = new vB_QuickComment("qc_form", $vboptions[postminchars], "DESC");
+		//-->
+		</script>
+	</if>
+</if>
+
+<if condition="$show['quickedit']">
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" style="display:none; position:absolute" id="ajax_post_errors">
+	<tr>
+		<td class="thead">
+			<span style="float:$stylevar[right]"><input type="button" class="button" value=" X "  id="quick_edit_errors_hide" /></span>
+			$vbphrase[vbulletin_message]
+		</td>
+	</tr>
+	<tr>
+		<td class="alt2" colspan="2" id="ajax_post_errors_message">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="tfoot" colspan="2" align="center"><a href="#" id="quick_edit_errors_cancel">$vbphrase[cancel_changes]</a></td>
+	</tr>
+	</table>
+	<script type="text/javascript" src="clientscript/blog_quick_edit.js?v=$vboptions[simpleversion]"></script>
+</if>
+<if condition="$show['quickload']">
+	<script type="text/javascript" src="clientscript/blog_quick_load.js?v=$vboptions[simpleversion]"></script>
+</if>
+
+<if condition="($show['trackbackrdf'] OR $show['pingbacklink']) AND $show['trackbacks']">
+	<if condition="$show['inlinemod_trackback']">
+		<form action="blog_inlinemod.php?b=$bloginfo[blogid]" method="post" id="trackbackform" style="display:block; margin:0px">
+	</if>
+
+	<div style="clear:both; margin-top:24px"></div>
+	<div style="float:$stylevar[right]" class="smallfont">
+		<span class="shade">$vbphrase[total_trackbacks]</span> $bloginfo[trackback_visible]
+	</div>
+	<h2 id="trackbacks_heading" style="margin:0px; font-size:12pt"><a name="trackbacks"></a>$vbphrase[trackbacks]</h2>
+
+	<if condition="$trackbackbits">
+		$trackbackbits
+	<else />
+		<div class="shade" style="margin-top:$stylevar[cellpadding]px">
+			<a href="$vboptions[bburl]/blog_callback.php?b=$bloginfo[blogid]" title="$vbphrase[trackback_link]" class="shade">$vbphrase[no_blogs_reference_this_entry]</a>
+		</div>
+	</if>
+
+	<div class="smallfont" style="margin-top:$stylevar[cellpadding]px">
+		<if condition="$show['inlinemod_trackback']">
+			<div id="inlinemod_trackback_controls" style="float:$stylevar[right]">
+				<label for="moderation_select_trackbacks" style="display:block">$vbphrase[moderation]</label>
+				<select name="do" id="moderation_select_trackbacks">
+					<optgroup label="$vbphrase[option]">
+						<if condition="$show['delete_trackback']">
+								<option value="deletetrackback">$vbphrase[delete_trackback]</option>
+						</if>
+						<if condition="$show['approve_trackback']">
+							<option value="approvetrackback">$vbphrase[approve_trackback]</option>
+							<option value="unapprovetrackback">$vbphrase[unapprove_trackback]</option>
+						</if>
+					</optgroup>
+					<optgroup label="____________________">
+						<option value="cleartrackback">$vbphrase[deselect_all_trackbacks]</option>
+					</optgroup>
+				</select>
+				<input type="submit" class="button" id="trackback_inlinego" value="$vbphrase[go]" />
+				<input type="hidden" name="s" value="$session[sessionhash]" />
+				<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+				<input type="hidden" name="b" value="$bloginfo[blogid]" />
+				<input type="hidden" name="url" value="$url" />
+				<input type="hidden" name="userid" value="$bloginfo[userid]" />
+			</div>
+		</if>
+		<if condition="$show['trackbackrdf']">
+			<a id="block_trackbacklink" href="$vboptions[bburl]/blog_callback.php?b=$bloginfo[blogid]">$vbphrase[trackback_link]</a>
+		<else />
+			&nbsp;
+		</if>
+	</div>
+
+	<if condition="$show['inlinemod_trackback']">
+		<script type="text/javascript">
+		<!--
+			inlineMod_trackback = new vB_Inline_Mod_Blog('inlineMod_trackback', 'trackback', 'trackbackform', '$vbphrase[go_x]');
+		//-->
+		</script>
+		</form>
+	</if>
+</if>
+
+<if condition="$show['popups']">
+	<if condition="$show['blograting']">
+		<!-- blog rating menu -->
+		<div class="vbmenu_popup" id="blograting_menu" style="display:none">
+		<form action="blog.php?do=rate&amp;b=$bloginfo[blogid]" method="post" id="blog_blograte_form">
+			<div class="thead" style="margin:1px; white-space: nowrap">$vbphrase[rate_this_blog_entry]<a name="goto_blograting"></a></div>
+			<if condition="$show['rateblog']">
+				<div id="rating_ratedno">
+					<ul class="vbmenu_option list_no_decoration" id="blograting_options" style="padding:4px; margin:1px; margin-top:0px">
+						<li class="smallfont"><label for="vote5"><img class="inlineimg" src="$stylevar[imgdir_rating]/rating_5.gif" alt="$vbphrase[excellent]" /><input type="radio" name="vote" id="vote5" value="5" $votechecked[5] />$vbphrase[excellent]</label></li>
+						<li class="smallfont"><label for="vote4"><img class="inlineimg" src="$stylevar[imgdir_rating]/rating_4.gif" alt="$vbphrase[good]" /><input type="radio" name="vote" id="vote4" value="4" $votechecked[4] />$vbphrase[good]</label></li>
+						<li class="smallfont"><label for="vote3"><img class="inlineimg" src="$stylevar[imgdir_rating]/rating_3.gif" alt="$vbphrase[average]" /><input type="radio" name="vote" id="vote3" value="3" $votechecked[3] />$vbphrase[average]</label></li>
+						<li class="smallfont"><label for="vote2"><img class="inlineimg" src="$stylevar[imgdir_rating]/rating_2.gif" alt="$vbphrase[bad]" /><input type="radio" name="vote" id="vote2" value="2" $votechecked[2] />$vbphrase[bad]</label></li>
+						<li class="smallfont"><label for="vote1"><img class="inlineimg" src="$stylevar[imgdir_rating]/rating_1.gif" alt="$vbphrase[terrible]" /><input type="radio" name="vote" id="vote1" value="1" $votechecked[1] />$vbphrase[terrible]</label></li>
+					</ul>
+					<div id="blograting_submit" class="vbmenu_option" align="center" style="padding:4px; margin:1px; margin-top:0px">
+						<input type="hidden" name="s" value="$session[dbsessionhash]" />
+						<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+						<input type="hidden" name="do" value="rate" />
+						<input type="hidden" name="b" value="$bloginfo[blogid]" />
+						<input type="submit" class="button" value="$vbphrase[vote_now]" />
+					</div>
+				</div>
+				<if condition="!$vbulletin->options['votechange']">
+					<div id="rating_ratedyes" class="vbmenu_option" style="display:none; padding:4px; margin:1px; margin-top:0px">$vbphrase[already_rated_this_blog]</div>
+				</if>
+			<else />
+				<div class="vbmenu_option" style="padding:4px; margin:1px; margin-top:0px">$vbphrase[already_rated_this_blog]</div>
+			</if>
+		</form>
+		</div>
+		<!-- / blog rating menu -->
+	
+		<script type="text/javascript" src="clientscript/blog_ajax_rate.js?v=$vboptions[simpleversion]"></script>
+		<script type="text/javascript">
+		<!--
+		vB_AJAX_BlogRate_Init('blog_blograte_form');
+		var blogid = $bloginfo[blogid];
+		//-->
+		</script>
+	</if>
+</if>
+
+<script type="text/javascript">
+<!--
+	vBulletin.register_control("vB_Blog_Tag", "$bloginfo[blogid]");
+//-->
+</script>

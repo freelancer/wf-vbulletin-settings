@@ -1,0 +1,5 @@
+
+		if ($vbulletin->options['cybsfa_enable'] AND (THIS_SCRIPT=='index' OR THIS_SCRIPT=='forumdisplay'))
+		{
+			$globaltemplates = array_merge($globaltemplates, array('cyb_subforummanager'));
+		}

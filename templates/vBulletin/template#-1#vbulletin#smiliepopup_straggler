@@ -1,0 +1,2 @@
+<td class="$bgclass">$smiliehtml</td>
+<td class="$bgclass" colspan="3">$smilie[text]</td>

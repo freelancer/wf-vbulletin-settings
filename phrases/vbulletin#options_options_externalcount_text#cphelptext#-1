@@ -1,0 +1,3 @@
+This option limits the maximum amount of records that can be returned by the external data provider. By default 15 records will be returned. This option allows the user to tackon &amp;count=X to their RSS feed to retrieve more records.<br />
+<br />
+Changing this value will not increase or decrease the amount of records that are returned by default. This option simply gives your users the ability to request more records if they desire by adding &amp;tackon=X to their RSS feeds.

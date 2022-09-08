@@ -1,0 +1,7 @@
+if (THIS_SCRIPT == "group")
+{
+global $globaltemplates;
+$globaltemplates[] = 'ap_groupmessage_bit';
+$globaltemplates[] = 'ap_groupmessage_ak_bit';
+$globaltemplates[] = 'ap_groupmessage_pop_bit';
+}

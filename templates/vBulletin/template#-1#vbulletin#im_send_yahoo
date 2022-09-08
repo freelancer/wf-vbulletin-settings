@@ -1,0 +1,27 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<span class="smallfont" style="float:$stylevar[right]"><a href="#" onclick="self.close()">$vbphrase[close_this_window]</a></span>
+		$vbphrase[yahoo]
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]">
+
+		<div class="fieldset">
+			<span style="float:$stylevar[right]"><img src="http://opi.yahoo.com/online?u=$userinfo[yahoo_link]&amp;m=g&amp;t=2" alt="$vbphrase[online_status]" border="0" /></span>
+			<img src="$stylevar[imgdir_misc]/im_yahoo.gif" alt="" />
+			<phrase 1="member.php?$session[sessionurl]u=$userinfo[userid]" 2="$userinfo[username]">$vbphrase[send_message_via_yahoo_to_x_link]</phrase> (<strong dir="ltr">$userinfo[yahoo]</strong>)
+		</div>
+
+		<div class="fieldset"><a href="http://profiles.yahoo.com/$userinfo[yahoo_link]" target="_blank" onclick="window.close(); return true;"><phrase 1="$userinfo[yahoo]">$vbphrase[view_the_profile_of_x]</phrase></a></div>
+
+		<div class="fieldset"><a href="http://edit.yahoo.com/config/send_webmesg?.target=$userinfo[yahoo_link]&amp;.src=pg" target="_blank" onclick="window.close(); return true;"><phrase 1="$userinfo[yahoo]">$vbphrase[send_x_a_message]</phrase></a></div>
+
+		</div>
+	</div>
+	</td>
+</tr>
+</table>

@@ -1,0 +1,7 @@
+
+			
+<a rel="nofollow" href="pay.php?do=pay&amp;t=$threadinfo[threadid]&amp;action=promote">
+	<img border="0" alt="$vbphrase[vbppt_promote]" src="$stylevar[imgdir_button]/bump.png" title="$vbphrase[vbppt_promote]"/>
+</a>
+			
+		

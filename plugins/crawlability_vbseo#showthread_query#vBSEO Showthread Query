@@ -1,0 +1,10 @@
+if(defined('VBSEO_ENABLED') && VBSEO_ENABLED)
+{
+
+    if (VBSEO_LIKE_POST)
+	{
+        vbseo_extra_inc('ui');
+    	vBSEO_UI::extract_likes_page(VBSEO_UI_THREAD, $thread['threadid'], $ids);
+    }
+
+}

@@ -1,0 +1,92 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $pagetitle</title>
+</head>
+<body>
+$header
+$navbar
+
+<form action="group_inlinemod.php?gmids=$gmids" method="post" name="vbform">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="groupid" value="$group[groupid]" />
+<input type="hidden" name="messageids" value="$messageids" />
+<input type="hidden" name="do" value="doinlinedelete" />
+<input type="hidden" name="url" value="$url"  />
+<input type="hidden" name="inline_discussion" value="$inline_discussion"  />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<if condition="$inline_discussion">
+			$vbphrase[delete_discussions]
+		<else />
+			$vbphrase[delete_messages]
+		</if>
+	</td>
+	
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]">
+
+		<fieldset class="fieldset">
+			<legend>$vbphrase[deletion_options]</legend>
+			<div style="padding:$stylevar[formspacer]px">
+				<if condition="$canremovemessages AND $candeletemessages">
+					<div class="fieldset">$vbphrase[how_would_you_like_to_delete]</div>
+				</if>
+				<if condition="$candeletemessages">
+					<div class="fieldset">
+						<label for="deletetype_1"><input type="radio" name="deletetype" value="1" id="deletetype_1" $checked[delete] />$vbphrase[soft_delete_leave_deleted_message]</label>
+					</div>
+				</if>
+
+				<if condition="$canremovemessages">
+					<div class="fieldset">
+						<label for="deletetype_2"><input type="radio" name="deletetype" value="2" id="deletetype_2" $checked[remove] />
+							$vbphrase[physically_remove]
+						</label>
+					</div>
+				</if>
+
+				<if condition="$candeletemessages">
+					<div class="fieldset">
+						<label for="deletereason">$vbphrase[reason_for_deletion]
+							<input type="text" class="bginput" name="deletereason" id="deletereason" value="" size="50" maxlength="125" style="display:block" />
+						</label>
+					</div>
+				</if>
+			</div>
+		</fieldset>
+
+		<if condition="$inline_discussion">
+			<div class="fieldset shade"><phrase 1="$discussioncount" 2="$groupcount">$vbphrase[deleting_x_discussions_from_y_social_groups]</phrase></div>
+		<else />
+			<div class="fieldset shade"><phrase 1="$messagecount" 2="$discussioncount" 3="$groupcount">$vbphrase[deleting_x_messages_in_y_discussions_from_z_social_groups]</phrase></div>
+		</if>
+		<if condition="$discussion_selected AND !$inline_discussion">
+			<div class="fieldset shade">$vbphrase[deleting_the_first_message]</div>
+		</if>
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" value="$vbphrase[delete]" accesskey="s" />
+		<input type="button" class="button" value="$vbphrase[cancel]" accesskey="c" onclick="history.back(1)" />
+	</div>
+	</td>
+</tr>
+</table>
+
+</form>
+
+<br />
+
+$footer
+
+</body>
+</html>

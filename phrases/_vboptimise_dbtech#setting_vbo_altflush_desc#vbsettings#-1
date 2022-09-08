@@ -1,0 +1,5 @@
+You may find vB Optimise is unable to flush data because your extension is configured with Admin Restrictions. While vB Optimise can overcome these if you assign XCache Authentification or eAceelerator allowed scripts, you may enable this option to activate an alternate flushing method
+<br /><br />
+This works by flagging cached items with a timestamp, and using a global timestamp to determine when items were last flushed. There is no impact on performance however it is recommended you use the native flush, so this option should be used as a temporary measure until vB Optimise is configured correctly to natively flush your data.
+<br /><br />
+<strong>Note:</strong> You can test native flushing by disabling this option, then running a System Test found under the vB Optimise settings.

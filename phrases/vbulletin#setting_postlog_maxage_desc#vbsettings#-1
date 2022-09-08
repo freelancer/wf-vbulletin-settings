@@ -1,0 +1,3 @@
+Whenever a post is made, extra anti-spam data is stored. This allows details about false positives and false negatives to be submitted to the chosen anti-spam system to improve it.<br />
+<br />
+This value controls the length of time (in days) for which this data is stored.

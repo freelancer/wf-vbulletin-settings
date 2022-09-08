@@ -1,0 +1,161 @@
+<if condition="$show['inlinemod']">
+	<form action="blog_inlinemod.php" method="post" id="blogform" style="display:block; margin:0px">
+</if>
+
+<if condition="$show['category_description']">
+	<div class="tborder" style="padding: $stylevar[cellspacing]px; margin-bottom: $stylevar[cellpadding]px">
+		<div class="alt1" style="padding: $stylevar[cellpadding]px">
+			<strong>$categoryinfo[title]</strong> <span class="smallfont">$categoryinfo[description]</span>
+		</div>
+	</div>
+</if>
+
+<if condition="$show['inlinemod']">
+	<div class="tborder" style="padding: $stylevar[cellspacing]px; border-bottom:0px">
+		<div class="thead" style="padding: $stylevar[cellpadding]px">
+			<a id="inlinemodsel"></a>
+		</div>
+	</div>
+</if>
+<if condition="$blogbits">
+	<div id="blogentries">$blogbits</div>
+
+	<if condition="$show['lightbox']">
+	<!-- lightbox scripts -->
+		<script type="text/javascript" src="clientscript/vbulletin_lightbox.js?v=$vboptions[simpleversion]"></script>
+		<script type="text/javascript">
+		<!--
+		vBulletin.register_control("vB_Lightbox_Container", "blogentries", $vboptions[lightboxenabled]);
+		//-->
+		</script>
+	<!-- / lightbox scripts -->
+	</if>
+	<if condition="$show['tageditor']">
+		<script type="text/javascript" src="clientscript/blog_ajax_tag.js?v=$vboptions[simpleversion]"></script>
+		<script type="text/javascript" src="clientscript/vbulletin_ajax_tagsugg.js?v=$vboptions[simpleversion]"></script>
+		<script type="text/javascript" src="clientscript/blog_ajax_tagsugg.js?v=$vboptions[simpleversion]"></script>
+	</if>
+
+<else />
+	<div class="tborder" style="margin-bottom:$stylevar[cellpadding]px">
+		<div align="center" style="padding:20px" class="alt1">
+			<if condition="$userinfo">
+				<phrase 1="$userinfo[username]">$vbphrase[user_has_no_blog_entries]</phrase>
+			<else />
+				$vbphrase[there_are_no_blog_entries_for_this_date]
+			</if>
+		</div>
+	</div>
+</if>
+
+<if condition="$pagenav">
+	<div style="margin-bottom:$stylevar[cellpadding]px">$pagenav</div>
+</if>
+
+<if condition="$show['inlinemod']">
+		<div style="float:$stylevar[right]" class="smallfont">
+			<label for="moderation_select" style="display:block">$vbphrase[moderation]</label>
+			<select name="do" id="moderation_select">
+				<optgroup label="$vbphrase[option]">
+					<if condition="$show['delete']">
+							<option value="deleteentry">$vbphrase[delete_blog_entry]</option>
+					</if>
+					<if condition="$show['undelete']">
+							<option value="undeleteentry">$vbphrase[undelete_blog_entry]</option>
+					</if>
+					<if condition="$show['approve']">
+						<option value="approveentry">$vbphrase[approve_blog_entry]</option>
+						<option value="unapproveentry">$vbphrase[unapprove_blog_entry]</option>
+					</if>
+				</optgroup>
+				<optgroup label="____________________">
+					<option value="clearentry">$vbphrase[deselect_all_blog_entries]</option>
+				</optgroup>
+			</select>
+			<input type="submit" class="button" id="blog_inlinego" value="$vbphrase[go]" />
+			<input type="hidden" name="s" value="$session[sessionhash]" />
+			<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+			<input type="hidden" name="url" value="$url" />
+			<script type="text/javascript">
+			<!--
+				inlineMod_comment = new vB_Inline_Mod_Blog('inlineMod_comment', 'blog', 'blogform', '$vbphrase[go_x]');
+			//-->
+			</script>
+		</div>		
+	</form>
+	<!-- / inline moderation form -->
+		
+	<script type="text/javascript">
+	<!--
+		vBmenu.register("inlinemodsel");
+	//-->
+	</script>
+
+	<!-- inline mod selection popup -->
+	<ul id="inlinemodsel_menu" class="vbmenu_popup list_no_decoration" style="display:none">
+		<li class="thead" style="padding: 4px; margin: 1px">$vbphrase[from_this_page]</li>
+		<li class="vbmenu_option" style="padding: 4px; margin: 1px" onclick="inlineMod_comment.check_all(true)">$vbphrase[select_all]</li>
+		<li class="vbmenu_option" style="padding: 4px; margin: 1px" onclick="inlineMod_comment.check_all(false)">$vbphrase[deselect_all]</li>
+		<li class="vbmenu_option" style="padding: 4px; margin: 1px" onclick="inlineMod_comment.check_all('invert')">$vbphrase[invert_selection]</li>
+
+
+		<if condition="$show['approve'] OR $show['undelete']"><li class="thead"><img src="$vboptions[cleargifurl]" alt="" width="1" height="1" /></li></if>
+		<if condition="$show['approve']"><li class="vbmenu_option" style="padding: 4px; margin: 1px" onclick="inlineMod_comment.check_all(true, 1)">$vbphrase[select_unapproved_entries]</li></if>
+		<if condition="$show['undelete']"><li class="vbmenu_option" style="padding: 4px; margin: 1px" onclick="inlineMod_comment.check_all(true, 2)">$vbphrase[select_deleted_entries]</li></if>
+	</ul>
+	<!-- / inline mod selection popup -->	
+</if>
+
+<if condition="$show['filter']">
+	<div class="smallfont">
+		<form action="blog.php?do=list" method="get">
+			<label for="filter_select" style="display:block">$vbphrase[view_filter]</label>
+			<select name="type" onchange="this.form.submit()" id="filter_select">
+				<option value="" $selectedfilter[all]>$vbphrase[all_blog_entries]</option>
+				<option value="visible" $selectedfilter[visible]>$vbphrase[visible_blog_entries]</option>
+				<option value="deleted" $selectedfilter[deleted]>$vbphrase[deleted_blog_entries]</option>
+				<if condition="$show['filter_moderation']">
+					<option value="moderated" $selectedfilter[moderated]>$vbphrase[moderated_blog_entries]</option>
+				</if>
+				<if condition="$show['filter_owner']">
+					<option value="draft" $selectedfilter[draft]>$vbphrase[draft_blog_entries]</option>
+					<option value="pending" $selectedfilter[pending]>$vbphrase[pending_blog_entries]</option>
+				</if>
+			</select>
+			<input type="submit" class="button" value="$vbphrase[go]" />
+			<input type="hidden" name="do" value="list" />
+			<if condition="$session['sessionhash']"><input type="hidden" name="s" value="$session[sessionhash]" /></if>
+			<if condition="$url"><input type="hidden" name="url" value="$url" /></if>
+			<if condition="$month"><input type="hidden" name="m" value="$month" /></if>
+			<if condition="$year"><input type="hidden" name="y" value="$year" /></if>
+			<if condition="$day"><input type="hidden" name="d" value="$day" /></if>
+			<if condition="$userinfo['userid']"><input type="hidden" name="u" value="$userinfo[userid]" /></if>
+			<if condition="$blogcategoryid"><input type="hidden" name="blogcategoryid" value="$blogcategoryid" /></if>
+			<if condition="$blogtype"><input type="hidden" name="blogtype" value="$blogtype" /></if>
+		</form>
+	</div>
+</if>
+
+<if condition="$show['quickedit']">
+	$vBeditTemplate[clientscript]
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" style="display:none; position:absolute" id="ajax_post_errors">
+	<tr>
+		<td class="thead">
+			<span style="float:$stylevar[right]"><input type="button" class="button" value=" X "  id="quick_edit_errors_hide" /></span>
+			$vbphrase[vbulletin_message]
+		</td>
+	</tr>
+	<tr>
+		<td class="alt2" colspan="2" id="ajax_post_errors_message">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="tfoot" colspan="2" align="center"><a href="#" id="quick_edit_errors_cancel">$vbphrase[cancel_changes]</a></td>
+	</tr>
+	</table>
+	<script type="text/javascript" src="clientscript/blog_quick_edit.js?v=$vboptions[simpleversion]"></script>
+	<script type="text/javascript" src="clientscript/blog_quick_edit_entry.js?v=$vboptions[simpleversion]"></script>
+</if>
+<if condition="$show['quickload']">
+	<script type="text/javascript" src="clientscript/blog_quick_load.js?v=$vboptions[simpleversion]"></script>
+	<script type="text/javascript" src="clientscript/blog_quick_load_entry.js?v=$vboptions[simpleversion]"></script>
+</if>

@@ -1,0 +1,112 @@
+
+<form action="inlinemod.php" method="post" name="vbform">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+
+<if condition="$_POST['do']=='changethreadsowner'">
+<input type="hidden" name="threadids" value="$threadids" />
+<input type="hidden" name="do" value="dochangethreadsowner" />
+</if>
+
+<if condition="$_POST['do']=='changepostsowner'">
+<input type="hidden" name="postids" value="$postids" />
+<input type="hidden" name="do" value="dochangepostsowner" />
+</if>
+
+<input type="hidden" name="url" value="$url"  />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[changethreadsowner_title]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+	
+		<!-- newthreadowner field -->
+		<fieldset class="fieldset">
+			<legend>$vbphrase[changethreadsowner_name_legend]</legend>
+				<div>$vbphrase[changethreadsowner_name]:</div>
+				<div id="changethreadowner"><input accesskey="t" type="text" id="changethreadowner_txt" name="newthreadowner" cols="50" tabindex="1"/></div>
+				$vbphrase[changethreadsowner_note]
+				<if condition="$show['popups']">
+					<div class="vbmenu_popup" id="changethreadowner_menu" style="display:none; z-index:50"></div>
+					<script type="text/javascript" src="clientscript/vbulletin_ajax_namesugg.js"></script>
+					<script type="text/javascript">
+					<!--
+					vbmenu_register('changethreadowner', true);
+					recip_sugg = new vB_AJAX_NameSuggest('recip_sugg', 'changethreadowner_txt', 'changethreadowner');
+					recip_sugg.allow_multiple = false;
+					//-->
+					</script>
+				</if>
+		</fieldset>
+		<!-- / newthreadowner field -->
+		
+<fieldset class="fieldset">
+			<legend>$vbphrase[changethreadsowner_unregistered_legend]</legend>
+			<div style="padding:$stylevar[formspacer]px">
+				<div class="fieldset">
+					<input class="bginput" type="checkbox" name="setunregistered" />	$vbphrase[changethreadsowner_unregistered]
+				</div>
+			</div>
+		</fieldset>
+				
+<script type="text/javascript">
+<!--
+function toggleme(status)
+{
+	fetch_object("date_day").disabled = (status ? false : true);
+	fetch_object("date_month").disabled = (status ? false : true);
+	fetch_object("date_year").disabled = (status ? false : true);
+	fetch_object("date_hour").disabled = (status ? false : true);
+	fetch_object("date_minute").disabled = (status ? false : true);
+	fetch_object("date_second").disabled = (status ? false : true);
+}
+
+function toggle_disabled(status, objid)
+{
+	obj = fetch_object(objid);
+	if (obj)
+	{
+		obj.disabled = (status ? false : true);
+	}
+}
+
+//-->
+</script>
+
+		<fieldset class="fieldset">
+			<legend>$vbphrase[date]</legend>
+			<div style="padding:$stylevar[formspacer]px">
+				<div class="fieldset">
+					<input class="bginput" type="checkbox" name="date[change]" onclick="toggleme(this.checked)" />	$vbphrase[changethreadsowner_change_date]
+				</div>
+				<div class="fieldset">
+				Date
+				<input class="bginput" type="text" id="date_day" name="date[day]" value="$mydate[day]" size="2" maxlength="2" disabled="disabled" />
+				<input class="bginput" type="text" id="date_month" name="date[month]" value="$mydate[month]" size="2" maxlength="2" disabled="disabled" />
+				<input class="bginput" type="text" id="date_year" name="date[year]" value="$mydate[year]" size="4" maxlength="4" disabled="disabled" />
+				</div>
+				<div class="fieldset">
+				Time 
+				<input class="bginput" type="text" id="date_hour" name="date[hour]" value="$mydate[hour]" size="2" maxlength="2" disabled="disabled" />
+				<input class="bginput" type="text" id="date_minute" name="date[minute]" value="$mydate[minute]" size="2" maxlength="2" disabled="disabled" />
+				<input class="bginput" type="text" id="date_second" name="date[second]" value="$mydate[second]" size="2" maxlength="2" disabled="disabled" />				
+				</div>
+			</div>
+		</fieldset>
+		
+		</div>
+	</div>
+	
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" value="$vbphrase[submit]" accesskey="s" />
+		<input type="reset" class="button" value="$vbphrase[reset_fields]" accesskey="r" />
+	</div>
+	</td>
+</tr>
+</table>
+
+</form>

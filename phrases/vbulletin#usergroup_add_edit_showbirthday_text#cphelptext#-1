@@ -1,0 +1,3 @@
+For birthdays to be displayed on a calendar the "Show Birthdays on this Calendar" option needs to be enabled for that calendar.  See your <a href="admincalendar.php?do=modify" target="_blank">Calendar Mananger</a>.<br /><br />
+
+For birthdays to be displayed on the forumhome page you need to have the "Display Today's Birthdays" option enabled in your <a href="options.php?dogroup=forumhome&amp;do=options" target="_blank">vBulletin options</a>.

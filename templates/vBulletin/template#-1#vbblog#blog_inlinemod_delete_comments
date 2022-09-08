@@ -1,0 +1,60 @@
+<form action="blog_inlinemod.php?b=$bloginfo[blogid]&amp;blogtextids=$blogtextids" method="post" name="vbform">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="b" value="$bloginfo[blogid]" />
+<input type="hidden" name="bt" value="$blogtextinfo[blogtextid]" />
+<input type="hidden" name="blogtextids" value="$blogtextids" />
+<input type="hidden" name="do" value="dodeletecomment" />
+<input type="hidden" name="url" value="$url"  />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[delete_comments]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]">
+
+		<fieldset class="fieldset">
+			<legend>$vbphrase[deletion_options]</legend>
+			<div style="padding:$stylevar[formspacer]px">
+				<if condition="$show['deleteoption']">
+					<div class="fieldset">$vbphrase[how_would_you_like_to_delete]</div>
+				</if>
+				<if condition="$show['deletecomments']">
+					<div class="fieldset">
+						<label for="rb_soft_delete"><input type="radio" name="deletetype" id="rb_soft_delete" value="1" $checked[delete] />$vbphrase[soft_delete_leave_deleted_message]</label>
+					</div>
+				</if>
+
+				<if condition="$show['removecomments']">
+					<div class="fieldset">
+						<label for="rb_hard_delete"><input type="radio" name="deletetype" id="rb_hard_delete" value="2" $checked[remove] />$vbphrase[physically_remove]</label>
+					</div>
+				</if>
+
+				<if condition="$show['deletecomments']">
+					<div class="fieldset">
+						<label for="input_deletereason">$vbphrase[reason_for_deletion]
+							<input type="text" class="bginput" name="deletereason" id="input_deletereason" value="" size="50" maxlength="125" style="display:block" required/>
+						</label>
+					</div>
+				</if>
+			</div>
+		</fieldset>
+
+		<div class="fieldset shade"><phrase 1="$commentcount" 2="$blogcount">$vbphrase[deleting_x_comments_from_y_blog_entries]</phrase></div>
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" value="$vbphrase[delete]" accesskey="s" />
+		<input type="button" class="button" value="$vbphrase[cancel]" accesskey="c" onclick="history.back(1)" />
+	</div>
+	</td>
+</tr>
+</table>
+
+</form>

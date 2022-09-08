@@ -1,0 +1,19 @@
+
+
+<if condition="$ezmyspace">
+<li>Visit $userinfo[username]&#39;s MySpace Page: <a href="http://www.myspace.com/$ezmyspace" target="_blank"><img src="$stylevar[imgdir_misc]/myspace.gif" border="0" alt="View Members Myspace Profile" /></a></li>
+</if>
+
+<if condition="$ezfacebook">
+<li>Visit $userinfo[username]&#39;s FaceBook Page: <a href="http://www.facebook.com/profile.php?id=$ezfacebook " target="_blank"><img src="$stylevar[imgdir_misc]/facebook.gif" border="0" alt="View Member's FaceBook Profile" /></a></li>
+</if>
+
+<if condition="$eztwitter">
+<li>Visit $userinfo[username]&#39;s Twitter Page:<a href="http://twitter.com/$eztwitter" target="_blank"><img src="$stylevar[imgdir_misc]/twitter.gif" border="0" alt="View Member's Twitter Profile" /></a></li>
+</if>
+
+<if condition="$ezyoutube">
+<li>Visit $userinfo[username]&#39;s YouTube Page: <a href="http://youtube.com/user/$ezyoutube" target="_blank"><img src="$stylevar[imgdir_misc]/youtube.gif" border="0" alt="View Member's YouTube Profile" /></a></li>
+</if>
+
+		

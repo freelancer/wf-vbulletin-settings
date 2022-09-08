@@ -1,0 +1,1 @@
+The email address you entered is already in use. You may search for any users using this email address <a href="user.php?{1}do=find&amp;user[email]={2}" target="_blank">here</a>.

@@ -1,0 +1,12 @@
+<if condition="$show['profile_category_title']">
+	<li class="profilefield_category">$category[title]
+		<if condition="$category['description']"><div class="smallfont">$category[description]</div></if>
+		<dl class="list_no_decoration profilefield_list">
+			$category[fields]
+		</dl>
+	</li>
+<else />
+	<dl class="list_no_decoration alt1 block_row profilefield_list">
+		$category[fields]
+	</dl>
+</if>

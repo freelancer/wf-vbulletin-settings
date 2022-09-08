@@ -1,0 +1,5 @@
+<div class="smallfont" style="margin-bottom:$stylevar[cellpadding]px; padding-bottom:2px; border-bottom:1px dotted">
+	<img class="inlineimg" src="$stylevar[imgdir_misc]/birthday_small.gif" alt="" />
+	<a href="member.php?$session[sessionurl]u=$userid"><!--<phrase 1="$username">$vbphrase[x_birthday]</phrase>-->$username</a>
+	$age
+</div>

@@ -1,0 +1,3 @@
+<tr>
+	<td><label for="opt$option[number]"><phrase 1="$option[number]">$vbphrase[option_x]</phrase>:<br /><input type="text" class="bginput" name="options[$option[number]]" value="$option[question]" size="50" id="opt$option[number]" tabindex="1" /></label></td>
+</tr>

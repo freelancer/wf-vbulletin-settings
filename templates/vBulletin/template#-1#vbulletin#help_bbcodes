@@ -1,0 +1,761 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $vbphrase[bbcode_list]</title>
+</head>
+<body>
+$header
+$navbar
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="2">$vbphrase[bb_code]</td>
+</tr>
+<tr>
+	<td class="alt1" colspan="2">
+		$vbphrase[bb_code_based_on_html]
+	</td>
+</tr>
+<tr>
+	<td class="thead" colspan="2">$vbphrase[bbcode_list]</td>
+</tr>
+<if condition="$show['bbcodebasic']">
+	<tr align="center">
+		<td class="alt2"><a href="#basic">[b]</a>, <a href="#basic">[i]</a>, <a href="#basic">[u]</a></td>
+		<td class="alt1">$vbphrase[bold] / $vbphrase[italic] / $vbphrase[underline]</td>
+	</tr>
+</if>
+<if condition="$show['bbcodecolor']">
+	<tr align="center">
+		<td class="alt2"><a href="#color">[color]</a></td>
+		<td class="alt1">$vbphrase[color]</td>
+	</tr>
+</if>
+<if condition="$show['bbcodesize']">
+	<tr align="center">
+		<td class="alt2"><a href="#size">[size]</a></td>
+		<td class="alt1">$vbphrase[size]</td>
+	</tr>
+</if>
+<if condition="$show['bbcodefont']">
+	<tr align="center">
+		<td class="alt2"><a href="#font">[font]</a></td>
+		<td class="alt1">$vbphrase[font]</td>
+	</tr>
+</if>
+<tr align="center">
+	<td class="alt2"><a href="#highlight">[highlight]</a></td>
+	<td class="alt1">$vbphrase[highlight]</td>
+</tr>
+<if condition="$show['bbcodealign']">
+	<tr align="center">
+		<td class="alt2"><a href="#align">[left]</a>, <a href="#align">[right]</a>, <a href="#align">[center]</a></td>
+		<td class="alt1">$vbphrase[left] / $vbphrase[right] / $vbphrase[center]</td>
+	</tr>
+	<tr align="center">
+		<td class="alt2"><a href="#indent">[indent]</a></td>
+		<td class="alt1">$vbphrase[indent]</td>
+	</tr>
+</if>
+<if condition="$show['bbcodeurl']">
+	<tr align="center">
+		<td class="alt2"><a href="#email">[email]</a></td>
+		<td class="alt1">$vbphrase[email_linking]</td>
+	</tr>
+	<tr align="center">
+		<td class="alt2"><a href="#url">[url]</a></td>
+		<td class="alt1">$vbphrase[url_hyperlinking]</td>
+	</tr>
+	<tr align="center">
+		<td class="alt2"><a href="#thread">[thread]</a></td>
+		<td class="alt1">$vbphrase[thread_linking]</td>
+	</tr>
+	<tr align="center">
+		<td class="alt2"><a href="#post">[post]</a></td>
+		<td class="alt1">$vbphrase[post_linking]</td>
+	</tr>
+</if>
+<if condition="$show['bbcodelist']">
+	<tr align="center">
+		<td class="alt2"><a href="#list">[list]</a></td>
+		<td class="alt1">$vbphrase[bulleted_lists] / $vbphrase[advanced_lists]</td>
+	</tr>
+</if>
+<tr align="center">
+	<td class="alt2"><a href="#imgcode">[img]</a></td>
+	<td class="alt1">$vbphrase[images]</td>
+</tr>
+<if condition="$show['bbcodecode']">
+	<tr align="center">
+		<td class="alt2"><a href="#code">[code]</a></td>
+		<td class="alt1">$vbphrase[code]</td>
+	</tr>
+</if>
+<if condition="$show['bbcodephp']">
+	<tr align="center">
+		<td class="alt2"><a href="#php">[php]</a></td>
+		<td class="alt1">$vbphrase[php_code]</td>
+	</tr>
+</if>
+<if condition="$show['bbcodehtml']">
+	<tr align="center">
+		<td class="alt2"><a href="#html">[html]</a></td>
+		<td class="alt1">$vbphrase[html_code]</td>
+	</tr>
+</if>
+<tr align="center">
+	<td class="alt2"><a href="#quote">[quote]</a></td>
+	<td class="alt1">$vbphrase[quote]</td>
+</tr>
+<tr align="center">
+	<td class="alt2"><a href="#noparse">[noparse]</a></td>
+	<td class="alt1">$vbphrase[stop_bbcode_parsing]</td>
+</tr>
+<tr align="center">
+	<td class="alt2"><a href="#attach">[attach]</a></td>
+	<td class="alt1">$vbphrase[attachment]</td>
+</tr>
+<if condition="$show['bbcodesigpic']">
+	<tr align="center">
+		<td class="alt2"><a href="#sigpic">[sigpic]</a></td>
+		<td class="alt1">$vbphrase[signature_picture]</td>
+	</tr>
+</if>
+$template[bbcodelinks]
+<tr>
+	<td class="alt1" colspan="2">
+		$vbphrase[incorrect_bb_code_usage]
+	</td>
+</tr>
+</table>
+
+<br />
+
+<!-- BEGIN vB CODE LIST -->
+
+<!-- Begin Allow Basic BBcode Conditional -->
+<if condition="$show['bbcodebasic']">
+
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat" colspan="2">$vbphrase[bold] / $vbphrase[italic] / $vbphrase[underline]<a name="basic"></a></td>
+	</tr>
+	<tr>
+		<td class="thead" colspan="2" style="font-weight:normal">$vbphrase[b_i_and_u_tags_allow]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[usage]</strong></td>
+		<td class="alt1">
+			[b]<span class="highlight">$vbphrase[value]</span>[/b]<br />
+			[i]<span class="highlight">$vbphrase[value]</span>[/i]<br />
+			[u]<span class="highlight">$vbphrase[value]</span>[/u]
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt2" width="20%"><strong>$vbphrase[example_usage]</strong></td>
+		<td class="alt2">
+			[b]$vbphrase[this_text_is_bold][/b]<br />
+			[i]$vbphrase[this_text_is_italic][/i]<br />
+			[u]$vbphrase[this_text_is_underlined][/u]
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[example_output]</strong></td>
+		<td class="alt1">
+			<b>$vbphrase[this_text_is_bold]</b><br />
+			<i>$vbphrase[this_text_is_italic]</i><br />
+			<u>$vbphrase[this_text_is_underlined]</u>
+		</td>
+	</tr>
+	</table>
+	<br />
+
+</if>
+<!-- End Allow Basic BBcode Conditional -->
+
+<if condition="$show['bbcodecolor']">
+
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat" colspan="2">$vbphrase[color]<a name="color"></a></td>
+	</tr>
+	<tr>
+		<td class="thead" colspan="2" style="font-weight:normal">$vbphrase[color_tag_allows]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[usage]</strong></td>
+		<td class="alt1">[color=<span class="highlight">$vbphrase[option]</span>]<span class="highlight">$vbphrase[value]</span>[/color]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt2" width="20%"><strong>$vbphrase[example_usage]</strong></td>
+		<td class="alt2">[color=blue]$vbphrase[this_text_is_blue][/color]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[example_output]</strong></td>
+		<td class="alt1"><font color="blue">$vbphrase[this_text_is_blue]</font></td>
+	</tr>
+	</table>
+	<br />
+
+</if>
+
+<if condition="$show['bbcodesize']">
+
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat" colspan="2">$vbphrase[size]<a name="size"></a></td>
+	</tr>
+	<tr>
+		<td class="thead" colspan="2" style="font-weight:normal">$vbphrase[size_tag_allows]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[usage]</strong></td>
+		<td class="alt1">[size=<span class="highlight">$vbphrase[option]</span>]<span class="highlight">$vbphrase[value]</span>[/size]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt2" width="20%"><strong>$vbphrase[example_usage]</strong></td>
+		<td class="alt2">[size=+2]$vbphrase[text_two_sizes_larger_than_normal][/size]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[example_output]</strong></td>
+		<td class="alt1"><font size="+2">$vbphrase[text_two_sizes_larger_than_normal]</font></td>
+	</tr>
+	</table>
+	<br />
+
+</if>
+
+<if condition="$show['bbcodefont']">
+
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat" colspan="2">$vbphrase[font]<a name="font"></a></td>
+	</tr>
+	<tr>
+		<td class="thead" colspan="2" style="font-weight:normal">$vbphrase[font_tag_allows]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[usage]</strong></td>
+		<td class="alt1">[font=<span class="highlight">$vbphrase[option]</span>]<span class="highlight">$vbphrase[value]</span>[/font]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt2" width="20%"><strong>$vbphrase[example_usage]</strong></td>
+		<td class="alt2">[font=courier]$vbphrase[this_text_is_courier_font][/font]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[example_output]</strong></td>
+		<td class="alt1"><font face="courier">$vbphrase[this_text_is_courier_font]</font></td>
+	</tr>
+	</table>
+	<br />
+
+</if>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="2">$vbphrase[highlight]<a name="highlight"></a></td>
+</tr>
+<tr>
+	<td class="thead" colspan="2" style="font-weight:normal">$vbphrase[highlight_tag_allows]</td>
+</tr>
+<tr valign="top">
+	<td class="alt1" width="20%"><strong>$vbphrase[usage]</strong></td>
+	<td class="alt1">[highlight]<span class="highlight">$vbphrase[value]</span>[/highlight]</td>
+</tr>
+<tr valign="top">
+	<td class="alt2" width="20%"><strong>$vbphrase[example_usage]</strong></td>
+	<td class="alt2">[highlight]$vbphrase[this_text_is_highlighted][/highlight]</td>
+</tr>
+<tr valign="top">
+	<td class="alt1" width="20%"><strong>$vbphrase[example_output]</strong></td>
+	<td class="alt1"><span class="highlight">$vbphrase[this_text_is_highlighted]</span></td>
+</tr>
+</table>
+<br />
+
+<if condition="$show['bbcodealign']">
+
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat" colspan="2">$vbphrase[left] / $vbphrase[right] / $vbphrase[center]<a name="align"></a></td>
+	</tr>
+	<tr>
+		<td class="thead" colspan="2" style="font-weight:normal">$vbphrase[left_right_and_center_tags_allow]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[usage]</strong></td>
+		<td class="alt1">
+			[left]<span class="highlight">$vbphrase[value]</span>[/left]<br />
+			[center]<span class="highlight">$vbphrase[value]</span>[/center]<br />
+			[right]<span class="highlight">$vbphrase[value]</span>[/right]
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt2" width="20%"><strong>$vbphrase[example_usage]</strong></td>
+		<td class="alt2">
+			[left]$vbphrase[this_text_is_left_aligned][/left]<br />
+			[center]$vbphrase[this_text_is_center_aligned][/center]<br />
+			[right]$vbphrase[this_text_is_right_aligned][/right]
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[example_output]</strong></td>
+		<td class="alt1">
+			<div align="left">$vbphrase[this_text_is_left_aligned]</div>
+			<div align="center">$vbphrase[this_text_is_center_aligned]</div>
+			<div align="right">$vbphrase[this_text_is_right_aligned]</div>
+		</td>
+	</tr>
+	</table>
+	<br />
+
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat" colspan="2">$vbphrase[indent]<a name="indent"></a></td>
+	</tr>
+	<tr>
+		<td class="thead" colspan="2" style="font-weight:normal">$vbphrase[indent_tag_allows]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[usage]</strong></td>
+		<td class="alt1">[indent]<span class="highlight">$vbphrase[value]</span>[/indent]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt2" width="20%"><strong>$vbphrase[example_usage]</strong></td>
+		<td class="alt2">[indent]$vbphrase[this_text_is_indented][/indent]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[example_output]</strong></td>
+		<td class="alt1"><blockquote><div>$vbphrase[this_text_is_indented]</div></blockquote></td>
+	</tr>
+	</table>
+	<br />
+
+</if>
+
+<if condition="$show['bbcodeurl']">
+
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat" colspan="2">$vbphrase[email_linking]<a name="email"></a></td>
+	</tr>
+	<tr>
+		<td class="thead" colspan="2" style="font-weight:normal">$vbphrase[email_tag_allows]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[usage]</strong></td>
+		<td class="alt1">
+			[email]<span class="highlight">$vbphrase[value]</span>[/email]<br />
+			[email=<span class="highlight">$vbphrase[option]</span>]<span class="highlight">$vbphrase[value]</span>[/email]
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt2" width="20%"><strong>$vbphrase[example_usage]</strong></td>
+		<td class="alt2">
+			[email]j.doe@example.com[/email]<br />
+			[email=j.doe@example.com]$vbphrase[click_here_to_email_me][/email]
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[example_output]</strong></td>
+		<td class="alt1">
+			<a href="mailto:j.doe@example.com">j.doe@example.com</a><br />
+			<a href="mailto:j.doe@example.com">$vbphrase[click_here_to_email_me]</a>
+		</td>
+	</tr>
+	</table>
+	<br />
+
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat" colspan="2">$vbphrase[url_hyperlinking]<a name="url"></a></td>
+	</tr>
+	<tr>
+		<td class="thead" colspan="2" style="font-weight:normal">$vbphrase[url_tag_allows]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[usage]</strong></td>
+		<td class="alt1">
+			[url]<span class="highlight">$vbphrase[value]</span>[/url]<br />
+			[url=<span class="highlight">$vbphrase[option]</span>]<span class="highlight">$vbphrase[value]</span>[/url]
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt2" width="20%"><strong>$vbphrase[example_usage]</strong></td>
+		<td class="alt2">
+			[url]$vboptions[bburl][/url]<br />
+			[url=$vboptions[bburl]]$vboptions[bbtitle][/url]
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[example_output]</strong></td>
+		<td class="alt1">
+			<a href="$vboptions[bburl]" target="_blank">$vboptions[bburl]</a><br />
+			<a href="$vboptions[bburl]" target="_blank">$vboptions[bbtitle]</a>
+		</td>
+	</tr>
+	</table>
+	<br />
+
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat" colspan="2">$vbphrase[thread_linking]<a name="thread"></a></td>
+	</tr>
+	<tr>
+		<td class="thead" colspan="2" style="font-weight:normal">$vbphrase[thread_tag_allows]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[usage]</strong></td>
+		<td class="alt1">
+			[thread]<span class="highlight">$vbphrase[threadid]</span>[/thread]<br />
+			[thread=<span class="highlight">$vbphrase[threadid]</span>]<span class="highlight">$vbphrase[value]</span>[/thread]
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt2" width="20%"><strong>$vbphrase[example_usage]</strong></td>
+		<td class="alt2">
+			[thread]42918[/thread]<br />
+			[thread=42918]$vbphrase[click_me][/thread]
+			<br /><span class="smallfont">$vbphrase[note_the_id_is_just_an_example]</span>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[example_output]</strong></td>
+		<td class="alt1">
+			<a href="$vboptions[bburl]/showthread.php?t=42918" target="_blank">$vboptions[bburl]/showthread.php?t=42918</a><br />
+			<a href="$vboptions[bburl]/showthread.php?t=42918" target="_blank" title="<phrase 1="$vboptions[bbtitle]">$vbphrase[vbulletin_forums_thread_42918]</phrase>">$vbphrase[click_me]</a>
+		</td>
+	</tr>
+	</table>
+	<br />
+
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat" colspan="2">$vbphrase[post_linking]<a name="post"></a></td>
+	</tr>
+	<tr>
+		<td class="thead" colspan="2" style="font-weight:normal">$vbphrase[post_tag_allows]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[usage]</strong></td>
+		<td class="alt1">
+			[post]<span class="highlight">$vbphrase[postid]</span>[/post]<br />
+			[post=<span class="highlight">$vbphrase[postid]</span>]<span class="highlight">$vbphrase[value]</span>[/post]
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt2" width="20%"><strong>$vbphrase[example_usage]</strong></td>
+		<td class="alt2">
+			[post]269302[/post]<br />
+			[post=269302]$vbphrase[click_me][/post]
+			<br /><span class="smallfont">$vbphrase[note_the_id_is_just_an_example]</span>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[example_output]</strong></td>
+		<td class="alt1">
+			<a href="$vboptions[bburl]/showthread.php?p=269302#post269302" target="_blank">$vboptions[bburl]/showthread.php?p=269302#post269302</a><br />
+			<a href="$vboptions[bburl]/showthread.php?p=269302#post269302" target="_blank" title="<phrase 1="$vboptions[bbtitle]">$vbphrase[vbulletin_forums_post_269302]</phrase>">$vbphrase[click_me]</a>
+		</td>
+	</tr>
+	</table>
+	<br />
+
+</if>
+
+<if condition="$show['bbcodelist']">
+
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat" colspan="2">$vbphrase[bulleted_lists]<a name="list"></a></td>
+	</tr>
+	<tr>
+		<td class="thead" colspan="2" style="font-weight:normal">$vbphrase[list_tag_allows]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[usage]</strong></td>
+		<td class="alt1">[list]<span class="highlight">$vbphrase[value]</span>[/list]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt2" width="20%"><strong>$vbphrase[example_usage]</strong></td>
+		<td class="alt2">[list]<br />[*]$vbphrase[list_item_1]<br />[*]$vbphrase[list_item_2]<br />[/list]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[example_output]</strong></td>
+		<td class="alt1"><ul><li>$vbphrase[list_item_1]</li><li>$vbphrase[list_item_2]</li></ul></td>
+	</tr>
+	</table>
+	<br />
+
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat" colspan="2">$vbphrase[advanced_lists]</td>
+	</tr>
+	<tr>
+		<td class="thead" colspan="2" style="font-weight:normal">$vbphrase[list_tag_allows_advanced]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[usage]</strong></td>
+		<td class="alt1">[list=<span class="highlight">$vbphrase[option]</span>]<span class="highlight">$vbphrase[value]</span>[/list]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt2" width="20%"><strong>$vbphrase[example_usage]</strong></td>
+		<td class="alt2">[list=1]<br />[*]$vbphrase[list_item_1]<br />[*]$vbphrase[list_item_2]<br />[/list]<br /><br />[list=a]<br />[*]$vbphrase[list_item_1]<br />[*]$vbphrase[list_item_2]<br />[/list]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[example_output]</strong></td>
+		<td class="alt1"><ol type="1"><li>$vbphrase[list_item_1]</li><li>$vbphrase[list_item_2]</li></ol><ol type="a"><li>$vbphrase[list_item_1]</li><li>$vbphrase[list_item_2]</li></ol></td>
+	</tr>
+	</table>
+	<br />
+
+</if>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="2">$vbphrase[images]<a name="imgcode"></a></td>
+</tr>
+<tr>
+	<td class="thead" colspan="2" style="font-weight:normal">$vbphrase[img_tag_allows]</td>
+</tr>
+<tr valign="top">
+	<td class="alt1" width="20%"><strong>$vbphrase[usage]</strong></td>
+	<td class="alt1">[img]<span class="highlight">$vbphrase[value]</span>[/img]</td>
+</tr>
+<tr valign="top">
+	<td class="alt2" width="20%"><strong>$vbphrase[example_usage]</strong></td>
+	<td class="alt2">
+		[img]$statusicon_dir/forum_new.gif[/img] ($vbphrase[not_linked])<br />
+		<br />
+		[url=http://www.example.com] [img]$statusicon_dir/forum_new.gif[/img] [/url] ($vbphrase[linked])
+	</td>
+</tr>
+<tr valign="top">
+	<td class="alt1" width="20%"><strong>$vbphrase[example_output]</strong></td>
+	<td class="alt1">
+		<img class="inlineimg" src="$stylevar[imgdir_statusicon]/forum_new.gif" alt="" border="0" /> ($vbphrase[not_linked])<br />
+		<br />
+		<a href="http://www.example.com" target="_blank"><img class="inlineimg" src="$stylevar[imgdir_statusicon]/forum_new.gif" alt="" border="0" /></a> ($vbphrase[linked])
+	</td>
+</tr>
+</table>
+<br />
+
+<if condition="$show['bbcodecode']">
+
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat" colspan="2">$vbphrase[code]<a name="code"></a></td>
+	</tr>
+	<tr>
+		<td class="thead" colspan="2" style="font-weight:normal">$vbphrase[code_tag_switches]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[usage]</strong></td>
+		<td class="alt1">[code]<span class="highlight">$vbphrase[value]</span>[/code]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt2" width="20%"><strong>$vbphrase[example_usage]</strong></td>
+		<td class="alt2">[code]<br />
+		&lt;script type=&quot;text/javascript&quot;&gt;<br />
+		&lt;!--<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;alert(&quot;Hello world!&quot;);<br />
+		//--&gt;<br />
+		&lt;/script&gt;<br />
+		[/code]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[example_output]</strong></td>
+		<td class="alt1">$specialbbcode[code]</td>
+	</tr>
+	</table>
+	<br />
+
+</if>
+
+<if condition="$show['bbcodephp']">
+
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat" colspan="2">$vbphrase[php_code]<a name="php"></a></td>
+	</tr>
+	<tr>
+		<td class="thead" colspan="2" style="font-weight:normal">$vbphrase[php_tag_performs]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[usage]</strong></td>
+		<td class="alt1">[php]<span class="highlight">$vbphrase[value]</span>[/php]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt2" width="20%"><strong>$vbphrase[example_usage]</strong></td>
+		<td class="alt2">[php]<br />
+		\$myvar = 'Hello World!';<br />
+		for ($<i></i>i = 0; \$i &lt; 10; \$i++)<br />
+		{<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;echo \$myvar . &quot;\n&quot;;<br />
+		}<br />
+		[/php]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[example_output]</strong></td>
+		<td class="alt1">$specialbbcode[php]</td>
+	</tr>
+	</table>
+	<br />
+
+</if>
+
+<if condition="$show['bbcodehtml']">
+
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat" colspan="2">$vbphrase[html_code]<a name="html"></a></td>
+	</tr>
+	<tr>
+		<td class="thead" colspan="2" style="font-weight:normal">$vbphrase[html_tag_allows]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[usage]</strong></td>
+		<td class="alt1">[html]<span class="highlight">$vbphrase[value]</span>[/html]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt2" width="20%"><strong>$vbphrase[example_usage]</strong></td>
+		<td class="alt2">[html]<br />&lt;img src=&quot;image.gif&quot; alt=&quot;image&quot; /&gt;<br />&lt;a href=&quot;testing.html&quot; target=&quot;_blank&quot;&gt;Testing&lt;/a&gt;<br />[/html]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[example_output]</strong></td>
+		<td class="alt1">$specialbbcode[html]</td>
+	</tr>
+	</table>
+	<br />
+
+</if>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="2">$vbphrase[quote]<a name="quote"></a></td>
+</tr>
+<tr>
+	<td class="thead" colspan="2" style="font-weight:normal">$vbphrase[quote_tag_allows]</td>
+</tr>
+<tr valign="top">
+	<td class="alt1" width="20%"><strong>$vbphrase[usage]</strong></td>
+	<td class="alt1">
+		[quote]<span class="highlight">$vbphrase[quote]</span>[/quote]<br />
+		[quote=<span class="highlight">$vbphrase[username]</span>]<span class="highlight">$vbphrase[value]</span>[/quote]
+	</td>
+</tr>
+<tr valign="top">
+	<td class="alt2" width="20%"><strong>$vbphrase[example_usage]</strong></td>
+	<td class="alt2">
+		[quote]Lorem ipsum dolor sit amet[/quote]<br />
+		[quote=John Doe]Lorem ipsum dolor sit amet[/quote]<br />
+		[quote=John Doe;{$max_post[maxpostid]}]Lorem ipsum dolor sit amet[/quote]
+	</td>
+</tr>
+<tr valign="top">
+	<td class="alt1" width="20%"><strong>$vbphrase[example_output]</strong></td>
+	<td class="alt1">
+		$specialbbcode[quote1]
+		$specialbbcode[quote2]
+		$specialbbcode[quote3]
+	</td>
+</tr>
+</table>
+<br />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="2">$vbphrase[stop_bbcode_parsing]<a name="noparse"></a></td>
+</tr>
+<tr>
+	<td class="thead" colspan="2" style="font-weight:normal">$vbphrase[noparse_tag_allows]</td>
+</tr>
+<tr valign="top">
+	<td class="alt1" width="20%"><strong>$vbphrase[usage]</strong></td>
+	<td class="alt1">
+		[noparse]<span class="highlight">[b]$vbphrase[value][/b]</span>[/noparse]
+	</td>
+</tr>
+<tr valign="top">
+	<td class="alt2" width="20%"><strong>$vbphrase[example_usage]</strong></td>
+	<td class="alt2">
+		[noparse][b]Lorem ipsum dolor sit amet[/b][/noparse]
+	</td>
+</tr>
+<tr valign="top">
+	<td class="alt1" width="20%"><strong>$vbphrase[example_output]</strong></td>
+	<td class="alt1">
+		[b]Lorem ipsum dolor sit amet[/b]
+	</td>
+</tr>
+</table>
+<br />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="2">$vbphrase[attachment]<a name="attach"></a></td>
+</tr>
+<tr>
+	<td class="thead" colspan="2" style="font-weight:normal">$vbphrase[attach_tag_allows]</td>
+</tr>
+<tr valign="top">
+	<td class="alt1" width="20%"><strong>$vbphrase[usage]</strong></td>
+	<td class="alt1">
+		[attach]<span class="highlight">$vbphrase[attachmentid]</span>[/attach]
+	</td>
+</tr>
+<tr valign="top">
+	<td class="alt2" width="20%"><strong>$vbphrase[example_usage]</strong></td>
+	<td class="alt2">
+		[attach]12345[/attach]
+	</td>
+</tr>
+<tr valign="top">
+	<td class="alt1" width="20%"><strong>$vbphrase[example_output]</strong></td>
+	<td class="alt1">
+
+	</td>
+</tr>
+</table>
+<br />
+
+<if condition="$show['bbcodesigpic']">
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat" colspan="2">$vbphrase[signature_picture]<a name="sigpic"></a></td>
+	</tr>
+	<tr>
+		<td class="thead" colspan="2" style="font-weight:normal">$vbphrase[sigpic_tag_allows]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[usage]</strong></td>
+		<td class="alt1">
+			[sigpic]<span class="highlight">$vbphrase[signature_picture_description]</span>[/sigpic]
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt2" width="20%"><strong>$vbphrase[example_usage]</strong></td>
+		<td class="alt2">
+			[sigpic][/sigpic]
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="20%"><strong>$vbphrase[example_output]</strong></td>
+		<td class="alt1">
+
+		</td>
+	</tr>
+	</table>
+	<br />
+</if>
+
+$template[bbcodebits]
+
+<!-- END vB CODE LIST -->
+
+$footer
+
+</body>
+</html>

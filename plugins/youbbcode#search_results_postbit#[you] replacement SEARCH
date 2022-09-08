@@ -1,0 +1,6 @@
+$post['posttitle'] = str_replace("[YOU]", $vbulletin->userinfo[username], $post['posttitle']);
+$post['posttitle'] = str_replace("[you]", $vbulletin->userinfo[username], $post['posttitle']);
+$post['pagetext'] = str_replace("[YOU]", $vbulletin->userinfo[username], $post['pagetext']);
+$post['pagetext'] = str_replace("[you]", $vbulletin->userinfo[username], $post['pagetext']);
+$post['threadtitle'] = str_replace("[YOU]", $vbulletin->userinfo[username], $post['threadtitle']);
+$post['threadtitle'] = str_replace("[you]", $vbulletin->userinfo[username], $post['threadtitle']);

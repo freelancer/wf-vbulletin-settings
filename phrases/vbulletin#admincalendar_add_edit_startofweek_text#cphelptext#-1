@@ -1,0 +1,1 @@
+This sets the default first day of the week for this calendar. If the user is logged in and has selected a different day in their User CP, it will override this setting.

@@ -1,0 +1,2 @@
+if(defined('VBSEO_ENABLED'))
+vbseo_complete_sec('prefix_fetch_array');

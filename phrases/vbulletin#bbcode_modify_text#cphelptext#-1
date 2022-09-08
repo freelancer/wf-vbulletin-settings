@@ -1,0 +1,9 @@
+This screen displays all of your current BB codes, along with an example of each.<br /><br />
+
+Across, the columns are:<br />
+<b>Title</b>: The title of the BB code.<br />
+<b>BB Code</b>: The actual code that is used for the BB code.<br />
+<b>HTML</b>: The BB code example parsed into HTML.<br />
+<b>Replacement</b>: The results of displaying the HTML.<br />
+<b>Button Image</b>: If you specified an image for this to appear on the toolbar it will be displayed here.<br />
+<b>Controls</b>: Edit or Delete BB codes from here.

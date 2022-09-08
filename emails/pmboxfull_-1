@@ -1,0 +1,7 @@
+Dear $touserinfo[username],
+
+$fromusername has just tried to send you a private message. However, your private messages box on $vboptions[bbtitle] has reached the specified quota. In order to receive further private messages, you must delete some messages. Please visit this page to do so:
+$vboptions[bburl]/private.php
+
+All the best,
+$vboptions[bbtitle]

@@ -1,0 +1,3 @@
+This setting allows you to set the width of forms in the User CP.  A good example of a page with forms which this setting affects is the <a href="../profile.php?do=editprofile" target="_blank">Edit Profile</a> page.<br /><br />
+
+Enter a number of pixels followed by a "px" (e.g., <b>480px</b>).

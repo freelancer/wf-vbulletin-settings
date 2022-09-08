@@ -1,0 +1,3 @@
+This setting allows you to give a higher relevance score to search results that contain more of the words in a multi-word search string.<br /><br />
+
+For example, if your search string consists of two words then posts that contain both words will be given higher relevance than posts that only contain one of the two words.

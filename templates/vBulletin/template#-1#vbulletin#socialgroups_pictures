@@ -1,0 +1,36 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+	$headinclude
+	<title>$vboptions[bbtitle] - $custompagetitle</title>
+</head>
+<body>
+$header
+$navbar
+
+<if condition="$pagenav"><div style="margin-bottom:3px">$pagenav</div></if>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<if condition="$show['add_pictures_link']"><a class="smallfont" style="float: $stylevar[right]" href="group.php?$session[sessionurl]do=addpictures&amp;groupid=$group[groupid]">$vbphrase[add_pictures]</a></if>
+		<phrase 1="$group[name]">$vbphrase[pictures_from_group_x]</phrase>
+	</td>
+</tr>
+<tr>
+	<td class="alt1 floatcontainer" id="picturebits">
+		<if condition="$picturebits">
+			$picturebits
+		<else />
+			$vbphrase[no_pictures_added_group_yet]
+			<if condition="$show['add_pictures_link']"><a href="group.php?$session[sessionurl]do=addpictures&amp;groupid=$group[groupid]">$vbphrase[add_pictures_to_this_group]</a></if>
+		</if>
+	</td>
+</tr>
+</table>
+
+<if condition="$pagenav"><div style="margin-top:3px">$pagenav</div></if>
+
+$footer
+</body>
+</html>

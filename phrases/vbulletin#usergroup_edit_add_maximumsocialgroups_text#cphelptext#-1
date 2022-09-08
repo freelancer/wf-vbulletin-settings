@@ -1,0 +1,2 @@
+This setting allows you to specify how many concurrent groups a user can have at any one time.  If the user has reached the limit, they can delete a group in order to create a new one. <br /><br />
+Setting this to 0 will remove any limits on the number of Social Groups the user may create.

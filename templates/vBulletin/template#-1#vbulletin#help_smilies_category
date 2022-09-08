@@ -1,0 +1,8 @@
+<tr>
+	<td class="tcat" colspan="3" align="center">$smilie[category]</td>
+</tr>
+<tr align="center">
+	<td class="thead">$vbphrase[what_to_type]</td>
+	<td class="thead">$vbphrase[resulting_graphic]</td>
+	<td class="thead">$vbphrase[meaning]</td>
+</tr>

@@ -1,0 +1,1 @@
+<if condition="$tag_list">$tag_list<else /><i>$vbphrase[none]</i></if> <img src="$stylevar[imgdir_misc]/11x11progress.gif" id="tag_form_progress" class="inlineimg" style="display:none" alt="" />

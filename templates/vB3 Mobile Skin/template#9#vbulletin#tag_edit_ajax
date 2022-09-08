@@ -1,0 +1,46 @@
+<form action="threadtag.php?do=managetags&amp;t=$threadinfo[threadid]" id="tag_edit_form" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="t" value="$threadinfo[threadid]" />
+<input type="hidden" name="do" value="managetags" />
+
+<div align="center"><div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+<fieldset class="fieldset">
+	<legend>$vbphrase[tags]</legend>
+	<div style="padding:$stylevar[formspacer]px">
+		<if condition="$tag_manage_options">
+			<div style="padding-bottom:$stylevar[formspacer]px">$vbphrase[uncheck_tag_remove_bold_you]</div>
+			<ul class="floatcontainer" id="tag_edit_list">
+				$tag_manage_options
+			</ul>
+			<hr size="1" style="color:$stylevar[tborder_bgcolor]; background-color:$stylevar[tborder_bgcolor]" />
+		</if>
+
+
+		<div style="float: $stylevar[right]">
+			<if condition="$show['add_option']"><div style="visibility:hidden">text</div></if>
+			<img src="$stylevar[imgdir_misc]/progress.gif" id="tag_edit_progress" class="inlineimg" style="display:none" alt="" />
+			<input type="submit" name="tagsubmit" class="button" value="$vbphrase[save_changes]" accesskey="s" tabindex="302" />
+			<input type="button" class="button" value="$vbphrase[cancel]" id="tag_edit_cancel" accesskey="c" tabindex="303" />
+		</div>
+
+		<if condition="$show['add_option']">
+			<div>$vbphrase[add_tags] <span class="shade">($vbphrase[separate_tags_using_comma])</span></div>
+			<div id="tag_add_wrapper"><input type="text" class="bginput" name="taglist" id="tag_add_input" size="25" tabindex="301" /></div>
+			<if condition="$show['tag_limit_phrase']">
+				<if condition="!$tags_remain">
+					$vbphrase[cannot_add_tags_remove_first]
+				<else />
+					<phrase 1="$tags_remain">$vbphrase[you_may_add_x_tags_to_thread]</phrase>
+				</if>
+				$vbphrase[tags_visible_all_users]
+			</if>
+		</if>
+		</div>
+</fieldset>
+</div></div>
+</form>
+
+<if condition="$show['popups']">
+	<div id="tag_add_wrapper_menu" class="vbmenu_popup" style="display:none"></div>
+</if>

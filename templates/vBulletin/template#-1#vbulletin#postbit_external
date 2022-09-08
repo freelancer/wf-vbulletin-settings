@@ -1,0 +1,44 @@
+<div>$post[message]</div>
+
+<if condition="$show['attachments']">
+	<br />
+	<div style="padding:$stylevar[cellpadding]px">
+
+	<if condition="$show['thumbnailattachment']">
+		<fieldset class="fieldset">
+			<legend>$vbphrase[attached_thumbnails]</legend>
+			<div style="padding:$stylevar[formspacer]px">
+			$post[thumbnailattachments]
+			</div>
+		</fieldset>
+	</if>
+
+	<if condition="$show['imageattachment']">
+		<fieldset class="fieldset">
+			<legend>$vbphrase[attached_images]</legend>
+			<div style="padding:$stylevar[formspacer]px">
+			$post[imageattachments]
+			</div>
+		</fieldset>
+	</if>
+
+	<if condition="$show['imageattachmentlink']">
+		<fieldset class="fieldset">
+			<legend>$vbphrase[attached_images]</legend>
+			<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+			$post[imageattachmentlinks]
+			</table>
+			</fieldset>
+	</if>
+
+	<if condition="$show['otherattachment']">
+		<fieldset class="fieldset">
+			<legend>$vbphrase[attached_files]</legend>
+			<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+			$post[otherattachments]
+			</table>
+		</fieldset>
+	</if>
+
+	</div>
+</if>

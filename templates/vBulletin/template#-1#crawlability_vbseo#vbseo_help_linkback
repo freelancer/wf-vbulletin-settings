@@ -1,0 +1,68 @@
+
+$stylevar[htmldoctype]
+<html dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $vbphrase[vbseo_linkbacks]</title>
+</head>
+<body>
+$header
+$navbar
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="alt1">
+		<phrase 1="$stylevar[imagesfolder]">$vbphrase[vbseo_help_linkback]</phrase>
+	</td>
+</tr>
+</table>
+
+<br />
+
+<a name="trackbacks"></a>
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[vbseo_trackback]</td>
+</tr>
+<tr>
+	<td class="alt1">
+		<phrase 1="$stylevar[imagesfolder]">$vbphrase[vbseo_help_trackback]</phrase>
+	</td>
+</tr>
+</table>
+
+<br />
+
+<a name="pingbacks"></a>
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[vbseo_pingback]</td>
+</tr>
+<tr>
+	<td class="alt1">
+		<phrase 1="$stylevar[imagesfolder]">$vbphrase[vbseo_help_pingback]</phrase>
+	</td>
+</tr>
+</table>
+
+<br />
+
+<a name="refbacks"></a>
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[vbseo_refback]</td>
+</tr>
+<tr>
+	<td class="alt1">
+		<phrase 1="$stylevar[imagesfolder]">$vbphrase[vbseo_help_refback]</phrase>
+	</td>
+</tr>
+</table>
+
+<br />
+
+
+$footer
+
+</body>
+</html>

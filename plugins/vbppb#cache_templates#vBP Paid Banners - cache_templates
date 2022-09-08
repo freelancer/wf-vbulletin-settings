@@ -1,0 +1,4 @@
+
+$globaltemplates=array_merge($globaltemplates, array('vbppb_textad_container'));
+			
+			

@@ -1,0 +1,14 @@
+
+						
+		
+<tr>
+	<td class="vbmenu_option">
+<if condition="$show['list_unmoderated']==true">
+	<a href="forumdisplay.php?f=$foruminfo[forumid]&unmoderated=true">$vbphrase[vbplm_list_unmoderated]</a>	
+<else />
+	<a href="forumdisplay.php?f=$foruminfo[forumid]">$vbphrase[vbplm_list_all]</a>
+</if>
+	</td>
+</tr>
+			
+		

@@ -1,0 +1,27 @@
+Dear $username,
+
+Since you have recently changed your email, we require that you verify your new email address. You will only need to visit the URL once to have your account updated.
+
+To complete reverification, please visit this URL:
+$vboptions[bburl]/register.php?a=act&u=$userid&i=$activateid
+
+<a href="$vboptions[bburl]/register.php?a=act&u=$userid&i=$activateid">America Online Users Please Visit Here to be Activated</a>
+
+**** Does The Above URL Not Work? ****
+If the above URL does not work, please use your Web browser to go to:
+$vboptions[bburl]/register.php?a=ver
+
+Please to be sure not to add extra spaces. You will need to type in your username and activation number on the page that appears when you visit the url.
+
+Your Username is: $username
+Your Activation ID is: $activateid
+
+If you are still having problems verifying please contact a member of our support staff at $vboptions[webmasteremail]
+
+All the best,
+$vboptions[bbtitle]
+
+
+--------------------
+To stop receiving this email, please visit this URL:
+$vboptions[bburl]/register.php?do=deleteactivation&u=$userid&i=$activateid

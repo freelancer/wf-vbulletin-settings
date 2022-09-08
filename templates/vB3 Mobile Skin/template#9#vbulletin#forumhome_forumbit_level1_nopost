@@ -1,0 +1,22 @@
+<if condition="!$show['collapsable_forums']">
+<tbody>
+</if>
+	<tr>
+		<td class="tcat afclink" colspan="<if condition="$vboptions[showmoderatorcolumn]">6<else />5</if>">
+			
+			$forum[title]
+			
+		</td>
+	</tr>
+<if condition="!$show['collapsable_forums']">
+</tbody>
+</if>
+<if condition="$childforumbits">
+<if condition="!$show['collapsable_forums']">
+<tbody id="collapseobj_forumbit_$forumid" style="{$collapseobj_forumid}">
+</if>
+$childforumbits
+<if condition="!$show['collapsable_forums']">
+</tbody>
+</if>
+</if>

@@ -1,0 +1,10 @@
+This is the message to be sent to your users. Within the message, you may use the following special words, or variables, that will be replaced with the correct information for each user when the email is sent.<br />
+<b>$userid</b>: This is the user's userid. Normally this won't mean much to a user, but if you are, for example, sending an email telling users what their referrer link is, you would need to include the userid like this:<br />
+www.mysite.com/myvb/index.php?referrerid=$userid<br />
+which would then give the user credit if another user follows that link and registers.<br />
+<b>$activateid</b> and <b>$activatelink</b> are only applicable if you have Email Verification turned on and the user has not verified their address yet. $activatelink is the link that the user needs to visit to activate their account. $activateid would be used if you are manually typing out that link, otherwise it is of no use.<br />
+<b>$username</b>: If you want to personalize the email, or remind the user what their username is, use this variable.<br />
+<b>$email</b>: This is the email address on file for the user. It is useful if you wish to include a line to the effect of<br />
+This email was sent to $emailaddress which was used to register an account at the vBulletin Community Forums.<br />
+Please note you <b>can not</b> send passwords in emails because they are now encrypted in the database. You can, if you wish, direct users to the Lost Password page which is located at<br />
+http://www.yoursite.com/yourvb/login.php?do=lostpw

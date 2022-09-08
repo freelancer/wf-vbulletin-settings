@@ -1,0 +1,3 @@
+Enter positive integer number.  Thumbnails will be constrained to a height and width no larger than this number.<br /><br />
+
+If you are changing this value and have existing image attachments on your forums, you will need to <a href="misc.php?do=chooser" target="_blank">rebuild your thumbnails</a> to update those existing attachments.

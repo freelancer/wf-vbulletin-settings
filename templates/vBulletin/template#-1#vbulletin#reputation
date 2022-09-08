@@ -1,0 +1,22 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $vbphrase[reputation]</title>
+</head>
+<body>
+$header
+$navbar
+
+<form action="reputation.php?do=addreputation&amp;p=$postid" method="post">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[reputation]</td>
+</tr>
+$reputationbit
+</table>
+</form>
+
+$footer
+</body>
+</html>

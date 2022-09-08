@@ -1,0 +1,1 @@
+<tr><td class="$ap_p_class"><span style="float: right">$ap_pop_grup[members]</span><a href="group.php?groupid=$ap_pop_grup[groupid]">$ap_pop_grup[name]</a><br /> $vbphrase[group_created]: <a href="member.php?u=$ap_pop_grup[userid]">$ap_pop_grupmarkupuye</a></td></tr>

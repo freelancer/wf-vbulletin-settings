@@ -1,0 +1,1 @@
+Setting this to no will disable the system that prevents a user (with a specific IP address) from logging into an account after entering an incorrect password 5 times.

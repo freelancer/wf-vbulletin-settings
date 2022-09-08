@@ -1,0 +1,5 @@
+
+$vbp_helper_hook='init_startup';
+include DIR.'/includes/vbp_helper.php';
+			
+			

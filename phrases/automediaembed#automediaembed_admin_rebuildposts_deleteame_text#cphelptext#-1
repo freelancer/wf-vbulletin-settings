@@ -1,0 +1,1 @@
+Setting this option to yes will cause the system to search for those posts that have [ame] tags in them. The system will then attempt to work through to change those to [url] tags.<p>This option is designed to revert tags that you may have deleted or if you plan on uninstalling the system as the uninstaller will not automatically revert your [ame] codes</p>

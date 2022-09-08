@@ -1,0 +1,51 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+	<title>$vboptions[bbtitle] - $vbphrase[announcements_in_forum] : $foruminfo[title_clean]</title>
+</head>
+<body>
+$header
+$navbar
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center" style="border-bottom-width: 0px">
+<tr>
+	<td class="tcat">
+		<if condition="$show['viewall']">
+			<span class="smallfont" style="float:$stylevar[right]">
+				<a href="announcement.php?$session[sessionurl]f=$foruminfo[forumid]">$vbphrase[view_all_announcements]</a> ($anncount[total])
+			</span>
+		</if>
+
+		<if condition="$show['global']">
+		$vbphrase[global_announcement]
+		<else />
+		$vbphrase[announcements_in_forum]<span class="normal"> : <a href="forumdisplay.php?$session[sessionurl]f=$foruminfo[forumid]">$foruminfo[title]</a></span>
+		</if>
+	</td>
+</tr>
+</table>
+
+<!-- end content table -->
+$spacer_close
+<!-- / end content table -->
+
+<div id="posts">$announcebits</div>
+
+<!-- start content table -->
+$spacer_open
+<!-- / start content table -->
+
+<br />
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr>
+	<td width="100%">&nbsp;</td>
+	<td>$forumjump</td>
+</tr>
+</table>
+
+$footer
+
+</body>
+</html>

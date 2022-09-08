@@ -1,0 +1,109 @@
+<!-- blog_bloglistbit -->
+<div style="padding: 0px 0px $stylevar[cellpadding]px 0px">
+<table class="tborder" id="blog$blog[blogid]" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr valign="top">
+	<td class="thead" align="center" width="12" rowspan="2"><img src="$stylevar[imgdir_statusicon]/post_old.gif" alt="" /></td>
+	<td class="alt1" id="td_blog_$blog[blogid]">
+
+		<div style="float:$stylevar[right]">
+			<img class="inlineimg" src="$stylevar[imgdir_rating]/rating_$blog[rating].gif" alt="<phrase 1="$blog[ratingnum]" 2="$blog[ratingavg]">$vbphrase[rating_x_votes_y_average]</phrase>" border="0" />
+		</div>
+
+		<h2 style="font-size:14pt; font-weight:normal; margin:0px">
+			<a href="blog.php?$session[sessionurl]u=$blog[userid]">$blog[title]</a>
+			<if condition="$show['status']">
+				<img class="inlineimg" src="$status[image]" alt="$status[phrase]" border="0" />
+			</if>
+		</h2>
+
+		<div class="smallfont" style="margin-top:10px">
+			<if condition="$show['lastentry']">
+				<div>
+					<span class="shade">$vbphrase[last_blog_entry]</span>
+					<a href="blog.php?$session[sessionurl]b=$blog[lastblogid]">$blog[lastblogtitle]</a>, $blog[lastentrydate]<if condition="!$show['detailedtime']">, $blog[lastentrytime]</if>
+				</div>
+			</if>
+
+			<if condition="$show['lastcomment']">
+				<div>
+					<span class="shade">$vbphrase[last_comment]</span>
+					<a href="member.php?$session[sessionurl]username=$blog[lastcommenter]">$blog[lastcommenter]</a>, <a href="blog.php?$session[sessionurl]bt=$blog[lastblogtextid]">$blog[commentexcerpt]</a>, $blog[commentdate]<if condition="!$show['detailedtime']">, $blog[commenttime]</if>
+				</div>
+			</if>
+		</div>
+
+		<if condition="$show['subscribelink']">
+			<div style="clear:both; margin-top:$stylevar[cellpadding]px"></div>
+			<div class="smallfont">
+				<if condition="$show['blogsubscribed']">
+					<a href="blog_subscription.php?$session[sessionurl]do=unsubscribe&amp;u=$blog[userid]">$vbphrase[unsubscribe_from_this_blog]</a>
+				<else />
+					<a href="blog_subscription.php?$session[sessionurl]do=subscribe&amp;u=$blog[userid]">$vbphrase[subscribe_to_this_blog]</a>
+				</if>
+			</div>
+		</if>
+
+	</td>
+	<td class="alt2" width="100" align="center">
+		<if condition="$show['avatar']">
+			<div style="margin-bottom:$stylevar[cellpadding]px">
+				<a href="blog.php?$session[sessionurl]u=$blog[userid]"><img src="$blog[avatarurl]" $blog[avwidth] $blog[avheight] alt="<phrase 1="$blog[username]">$vbphrase[xs_avatar]</phrase>" border="0" /></a>
+			</div>
+		</if>
+		<div id="blogusermenu$blog[blogid]">
+			<a href="blog.php?$session[sessionurl]u=$blog[userid]" id="blog_entry_username_$blog[blogid]">$blog[musername]</a>
+		</div>
+		<script type="text/javascript"> vBmenu.register("blogusermenu$blog[blogid]", true); </script>
+		<div class="smallfont">$blog[usertitle]</div>
+	</td>
+</tr>
+<tr>
+	<td class="alt2 smallfont" colspan="2">
+		<div style="float:$stylevar[right]">
+			<a href="blog.php?$session[sessionurl]u=$blog[userid]" class="shade">$vbphrase[blog_entries]</a> $blog[entries]
+			<span class="shade">$vbphrase[comments]</span> $blog[comments]
+			<if condition="$blog['userid']">
+				<if condition="$blog['onlinestatus'] == 0">
+					<img class="inlineimg" src="$stylevar[imgdir_misc]/blog/status_offline.gif" alt="<phrase 1="$blog[username]">$vbphrase[x_is_offline]</phrase>" border="0" />
+				<else />
+					<if condition="$blog['onlinestatus'] == 1">
+						<img class="inlineimg" src="$stylevar[imgdir_misc]/blog/status_online.gif" alt="<phrase 1="$blog[username]">$vbphrase[x_is_online_now]</phrase>" border="0" />
+					<else />
+						<if condition="$blog['onlinestatus'] == 2"><img class="inlineimg" src="$stylevar[imgdir_misc]/blog/status_invisible.gif" alt="<phrase 1="$blog[username]">$vbphrase[x_is_invisible]</phrase>" border="0" /></if>
+					</if>
+				</if>
+			</if>
+		</div>
+	</td>
+</tr>
+</table>
+</div>
+
+<!-- blog $blog[blogid] popup menu -->
+<div class="vbmenu_popup" id="blogusermenu$blog[blogid]_menu" style="display:none;">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">$blog[username]</td>
+	</tr>
+	<if condition="$blog['userid']">
+		<tr><td class="vbmenu_option"><a href="member.php?$session[sessionurl]u=$blog[userid]">$vbphrase[view_public_profile]</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="blog.php?$session[sessionurl]u=$blog[userid]"><phrase 1="$blog[username]">$vbphrase[view_all_blog_entries_by_user]</phrase></a></td></tr>
+	</if>
+	<if condition="$show['pmlink']">
+		<tr><td class="vbmenu_option"><a href="private.php?$session[sessionurl]do=newpm&amp;u=$blog[userid]" rel="nofollow"><phrase 1="$blog[username]">$vbphrase[send_private_message_to_x]</phrase></a></td></tr>
+	</if>
+	<if condition="$show['emaillink']">
+		<tr><td class="vbmenu_option"><a href="sendmessage.php?$session[sessionurl]do=mailmember&amp;u=$blog[userid]" rel="nofollow"><phrase 1="$blog[username]">$vbphrase[send_email_to_x]</phrase></a></td></tr>
+	</if>
+	<if condition="$show['homepage']">
+		<tr><td class="vbmenu_option"><a href="$blog[homepage]"><phrase 1="$blog[username]">$vbphrase[visit_xs_homepage]</phrase></a></td></tr>
+	</if>
+	<if condition="$blog['userid']">
+		<tr><td class="vbmenu_option"><a href="search.php?$session[sessionurl]do=finduser&amp;u=$blog[userid]" rel="nofollow"><phrase 1="$blog[username]">$vbphrase[find_all_posts_by_x]</phrase></a></td></tr>
+	</if>
+	<if condition="$blog['userid'] AND $show['member']">
+	<tr><td class="vbmenu_option"><a href="profile.php?$session[sessionurl]do=addlist&amp;userlist=buddy&amp;u=$blog[userid]"><phrase 1="$blog[username]">$vbphrase[add_x_to_contacts]</phrase></a></td></tr>
+	</if>
+	</table>
+</div>
+<!-- / blog $blog[blogid] popup menu -->

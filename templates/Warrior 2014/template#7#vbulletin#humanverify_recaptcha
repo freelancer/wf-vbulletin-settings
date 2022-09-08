@@ -1,0 +1,6 @@
+<fieldset class="fieldset">
+    <input id="hash" type="hidden" name="${var_prefix}[hash]" value="$humanverify[hash]" />
+    <div dir="ltr">
+        <div vc-recaptcha name="captcha"></div>
+    </div>
+</fieldset>

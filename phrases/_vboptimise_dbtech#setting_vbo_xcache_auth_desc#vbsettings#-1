@@ -1,0 +1,3 @@
+If your XCache installation has admin authentification vB Optimise will be unable to automatically flush without being provided credentials. Simply turn this setting to "Yes" and modify the following file to enter your XCache authentification: /vboptimise/config.php
+<br /><br />
+<strong>Note:</strong> If you are unsure leave this setting alone.

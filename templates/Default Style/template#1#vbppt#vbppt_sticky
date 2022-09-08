@@ -1,0 +1,6 @@
+			
+<a rel="nofollow" href="pay.php?do=pay&amp;t=$threadinfo[threadid]&amp;action=sticky">
+	<img border="0" alt="$vbphrase[vbppt_sticky]" src="$stylevar[imgdir_button]/pay-to-sticky.png" title="$vbphrase[vbppt_sticky]"/>
+</a>
+			
+		

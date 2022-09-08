@@ -1,0 +1,270 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+	<title>$vboptions[bbtitle] - $custompagetitle</title>
+	$socialgroups_css
+	<script type="text/javascript" src="clientscript/vbulletin_quick_edit_generic.js?v=$vboptions[simpleversion]"></script>
+	<script type="text/javascript" src="clientscript/vbulletin_quick_edit_groupmessage.js?v=$vboptions[simpleversion]"></script>
+</head>
+<body>
+$header
+$navbar
+
+$template_hook[group_discuss_before_messages]
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+<tr>
+	<td class="tcat" width="100%" valign="top">
+		<span class="smallfont" style="float:$stylevar[right];padding:$stylevar[cellspacing]px $stylevar[cellpadding]px">
+		<if condition="$groupoptions['join']">
+			<a href="group.php?$session[sessionurl]do=join&amp;groupid=$group[groupid]">$vbphrase[join_group]</a>
+		<else />
+			<if condition="!$group['membertype'] AND $group['type'] == 'inviteonly'">
+			$vbphrase[group_type_inviteonly]
+			</if>
+		</if>
+		</span>
+		$discussion[title]
+	</td>
+	<td class="vbmenu_control" id="discussiontools" nowrap="nowrap"><a href="$show[nojs_link]#goto_discussiontools" rel="nofollow">$vbphrase[discussion_tools]</a> <script type="text/javascript"> vbmenu_register("discussiontools"); </script></td>
+	<if condition="$show['inlinemod'] AND $show['popups']">
+		<td class="vbmenu_control"><a id="inlinemodsel"></a></td>
+	</if>
+</tr>
+</table>
+
+<!-- inline moderation form -->
+<form action="group_inlinemod.php?groupid=$group[groupid]&amp;discussionid=$discussion[discussionid]" method="post" id="group_message_inlinemod_form">
+
+<!-- messages -->
+<div class="list_no_decoration block_row" id="message_list">
+	$messagebits
+</div>
+
+$template_hook[group_discuss_after_messages]
+
+<if condition="$show['inlinemod'] OR $pagenav OR $show['postlink']">
+	<div class="floatcontainer">
+		<if condition="$pagenav">
+			<div id="discussion_pagenav">
+				$pagenav
+			</div>
+		</if>
+		<if condition="$show['inlinemod']">
+			<div id="discussion_moderation">
+				<div class="smallfont push_down"><label for="moderation_select_comments"><strong>$vbphrase[moderation]</strong></label></div>
+				<select id="moderation_select_comments" name="do">
+					<if condition="$show['delete'] OR $show['undelete'] OR $show['approve']">
+						<optgroup label="$vbphrase[option]" id="moderation_select_comments_optgroup">
+							<if condition="$show['delete']">
+								<option value="inlinedelete" id="inlinemod_comment_controls_delete">$vbphrase[delete_messages]</option>
+							</if>
+							<if condition="$show['undelete']">
+								<option value="inlineundelete" id="inlinemod_comment_controls_undelete">$vbphrase[undelete_messages]</option>
+							</if>
+							<if condition="$show['approve']">
+								<option value="inlineapprove" id="inlinemod_comment_controls_approve">$vbphrase[approve_messages]</option>
+								<option value="inlineunapprove" id="inlinemod_comment_controls_unapprove">$vbphrase[unapprove_messages]</option>
+							</if>
+						</optgroup>
+					</if>
+					<optgroup label="____________________">
+						<option value="clearmessage">$vbphrase[deselect_all_messages]</option>
+					</optgroup>
+				</select>
+				<input type="submit" value="$vbphrase[go]" id="gmessage_inlinego" class="button" />
+				<input type="hidden" name="s" value="$session[sessionhash]" />
+				<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+			</div>
+		</if>
+		<if condition="$show['postlink']"><div class="action_links"><a href="group.php?$session[sessionurl]do=message&amp;discussionid=$discussion[discussionid]" rel="nofollow"><img src="$stylevar[imgdir_button]/reply.gif" alt="$vbphrase[reply]" border="0" /></a></div></if>
+	</div>
+</if>
+
+
+<if condition="$show['inlinemod']">
+	<script type="text/javascript" src="clientscript/vbulletin_inlinemod.js?v=$vboptions[simpleversion]"></script>
+
+	<if condition="$show[popups]">
+		<script type="text/javascript">
+			<!--
+			inlineMod_comment = new vB_Inline_Mod('inlineMod_comment', 'gmessage', 'group_message_inlinemod_form', '$vbphrase[go_x]', 'vbulletin_inline', 'message');
+			vBmenu.register("inlinemodsel");
+			//-->
+		</script>
+
+		<!-- inline mod selection popup -->
+		<ul id="inlinemodsel_menu" class="vbmenu_popup list_no_decoration" style="display:none">
+			<li class="thead first">$vbphrase[from_this_page]</li>
+			<li class="vbmenu_option" onclick="inlineMod_comment.check_all(true)">$vbphrase[select_all]</li>
+			<li class="vbmenu_option" onclick="inlineMod_comment.check_all(false)">$vbphrase[deselect_all]</li>
+			<li class="vbmenu_option" onclick="inlineMod_comment.check_all('invert')">$vbphrase[invert_selection]</li>
+			<li class="thead"><img src="$vboptions[cleargifurl]" alt="" width="1" height="1" /></li>
+			<li class="vbmenu_option" onclick="inlineMod_comment.check_all(true, 1)">$vbphrase[select_unapproved_posts]</li>
+			<li class="vbmenu_option" onclick="inlineMod_comment.check_all(true, 2)">$vbphrase[select_deleted_posts]</li>
+		</ul>
+		<!-- / inline mod selection popup -->
+	</if>
+</if>
+
+</form>
+<!-- / inline moderation form -->
+
+<!-- discussion tools popup -->
+<ul id="discussiontools_menu" class="vbmenu_popup list_no_decoration" style="display:none">
+	<li class="thead first">$vbphrase[discussion_tools]</li>
+	<li class="vbmenu_option"><a href="group.php?$session[sessionurl]do=markread&amp;groupid=$group[groupid]&amp;discussionid=$discussion[discussionid]" rel="nofollow">$vbphrase[mark_this_discussion_read]</a></li>
+	<if condition="$show[subscribe]">
+		<if condition="!$discussion[subscribed]">
+			<li class="vbmenu_option"><a href="group.php?$session[sessionurl]do=subscribe&amp;groupid=$group[groupid]&amp;discussionid=$discussion[discussionid]" rel="nofollow">$vbphrase[subscribe_to_this_discussion]</a></li>
+		<else />
+			<li class="vbmenu_option"><a href="group.php?$session[sessionurl]do=unsubscribe&amp;groupid=$group[groupid]&amp;discussionid=$discussion[discussionid]" rel="nofollow">$vbphrase[unsubscribe_from_this_discussion]</a></li>
+		</if>
+	</if>
+</ul>
+<!-- / discussion tools popup -->
+
+$template_hook[group_discuss_after_action_links]
+
+<if condition="$bookmarksites">
+<!-- social bookmarking links -->
+<br />
+<div class="tborder social_group">
+	<div class="thead">
+		$vbphrase[bookmarks]
+	</div>
+	<div class="alt2 block_row" style="padding-top:0px">
+		<ul style="list-style-type:none; margin:0px; padding:0px">$bookmarksites</ul>
+	</div>
+</div>
+<!-- / social bookmarking links -->
+</if>
+
+<br />
+
+$template_hook[group_discuss_after_bookmarks]
+
+<if condition="$show['quickcomment']">
+	<div class="social_group tborder panelsurround">
+		<div class="tcat block_title">
+			<if condition="$groupoptions['join'] OR $groupoptions['leave']">
+			<span class="smallfont" style="float:$stylevar[right]">
+				<if condition="$groupoptions['join']">
+						<a href="group.php?$session[sessionurl]do=join&amp;groupid=$group[groupid]">$vbphrase[join_group]</a>
+				<else />
+					<if condition="!$group['membertype'] AND $group['type'] == 'inviteonly'">
+							$vbphrase[group_type_inviteonly]
+					</if>
+				</if>
+				<if condition="$groupoptions['join'] AND $groupoptions['leave']">
+					&nbsp;|&nbsp;
+				</if>
+				<if condition="$groupoptions['leave']"><a href="group.php?$session[sessionurl]do=leave&amp;groupid=$group[groupid]">$groupoptions[leavephrase]</a></if>
+			</span>
+			</if>
+			$vbphrase[quick_reply]
+		</div>
+
+			$vBeditTemplate[clientscript]
+
+			<form action="group.php?$session[sessionurl]do=message" method="post" id="message_form">
+				<div class="panel">
+					<div align="center">
+						<div style="max-width:$stylevar[formwidth]; width:auto !important; width:$stylevar[formwidth_usercp]">
+
+							<div style="display:none" id="qc_error_div" class="tborder">
+								<div class="alt1 block_title">
+									<div id="qc_error_header">$vbphrase[errors_occured_when_submitted]</div>
+									<div id="qc_error_list">&nbsp;</div>
+									<div id="qc_error_okay"><input type="button" class="button" value="$vbphrase[okay]" id="qc_hide_errors" /></div>
+								</div>
+							</div>
+
+							<div class="smallfont messagetext">$vbphrase[message]: <if condition="$show['auto_moderation']"><span class="shade">$vbphrase[this_post_will_be_automatically_moderated]</span></if></div>
+							<div id="$editorid" class="vBulletin_editor">$messagearea</div>
+							<if condition="$allowed_bbcode"><div class="allowed_bbcode">$allowed_bbcode</div></if>
+							<div class="submit_button">
+								<input type="hidden" name="fromquickcomment" value="1" />
+								<input type="hidden" name="s" value="$session[sessionhash]" />
+								<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+								<input type="hidden" name="do" value="message" />
+								<input type="hidden" name="discussionid" value="$discussion[discussionid]" />
+								<input type="hidden" name="loggedinuser" value="$bbuserinfo[userid]" />
+								<input type="hidden" name="parseurl" value="1" />
+								<input type="hidden" name="lastcomment" value="$lastcomment" />
+								<input type="hidden" name="allow_ajax_qc" value="$show[allow_ajax_qc]" />
+							</div>
+						</div>
+					</div>
+
+					<div align="center" id="qc_posting_msg" style="display:none; margin-top:$stylevar[cellpadding]px">
+						<img class="inlineimg" src="$stylevar[imgdir_misc]/progress.gif" alt="$vbphrase[posting_comment] - $vbphrase[please_wait]" />
+						<strong>$vbphrase[posting_message_please_wait]</strong>
+					</div>
+
+				<script type="text/javascript" src="clientscript/vbulletin_quick_comment.js?v=$vboptions[simpleversion]"></script>
+							<script type="text/javascript">
+							<!--
+							var quick_comment = new vB_QuickComment("message_form", $vboptions[postminchars], 'DESC');
+							//-->
+				</script>
+				</div>
+
+				<div class="floatcontainer quick_reply_controls">
+					<input type="submit" id="qr_submit" value="$vbphrase[post_message]" name="sbutton" class="button" accesskey="s" onclick="clickedelm = this.value" />
+					<input type="submit" id="qr_preview" value="$vbphrase[go_advanced]" name="preview" class="button" accesskey="x" onclick="clickedelm = this.value" />
+				</div>
+			</form>
+	</if>
+</div><br />
+
+<if condition="$show['edit'] AND $show['popups']">
+<!-- ajax errors table -->
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" style="display:none; position:absolute" id="ajax_post_errors">
+	<tr>
+		<td class="thead">
+			<span style="float:$stylevar[right]"><input type="button" class="button" value=" X " onclick="vB_QuickEditor_Watcher.hide_errors()" id="ajax_post_errors_closebtn" /></span>
+			$vbphrase[vbulletin_message]
+		</td>
+	</tr>
+	<tr>
+		<td class="alt2" colspan="2" id="ajax_post_errors_message">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="tfoot" colspan="2" align="center"><a href="#" onclick="vB_QuickEditor_Watcher.close_all(); return false;">$vbphrase[cancel_changes]</a></td>
+	</tr>
+	</table>
+<!-- / ajax errors table -->
+</if>
+
+<if condition="!$show[popups]">
+<!-- discussion tools -->
+	<br />
+	<div class="tborder social_group smallfont">
+		<a name="goto_discussiontools"></a>
+		<div class="thead">$vbphrase[discussion_tools]</div>
+		<div class="alt1 block_row">
+			<img class="inlineimg" src="$stylevar[imgdir_button]/subscribe.gif" alt="$vbphrase[mark_this_discussion_read]" vspace="1" /> <a href="group.php?$session[sessionurl]do=markread&amp;groupid=$group[groupid]&amp;discussionid=$discussion[discussionid]" rel="nofollow">$vbphrase[mark_this_discussion_read]</a>
+		</div>
+
+		<if condition="$show[subscribe]">
+			<if condition="!$discussion[subscribed]">
+				<div class="alt1 block_row">
+					<img class="inlineimg" src="$stylevar[imgdir_button]/subscribe.gif" alt="$vbphrase[subscribe_to_this_discussion]" vspace="1" /> <a href="group.php?$session[sessionurl]do=subscribe&amp;groupid=$group[groupid]&amp;discussionid=$discussion[discussionid]" rel="nofollow">$vbphrase[subscribe_to_this_discussion]</a>
+				</div>
+			<else />
+				<div class="alt1 block_row">
+					<img class="inlineimg" src="$stylevar[imgdir_button]/subscribe.gif" alt="$vbphrase[unsubscribe_from_this_discussion]" vspace="1" /> <a href="group.php?$session[sessionurl]do=unsubscribe&amp;groupid=$group[groupid]&amp;discussionid=$discussion[discussionid]" rel="nofollow">$vbphrase[unsubscribe_from_this_discussion]</a>
+				</div>
+			</if>
+		</if>
+	</div>
+<!-- / discussion tools -->
+</if>
+
+$template_hook[group_discuss_after_quick_reply]
+
+$footer
+</body>
+</html>

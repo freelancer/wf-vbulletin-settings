@@ -1,0 +1,49 @@
+<form action="poll.php?do=pollvote&amp;pollid=$pollinfo[pollid]" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="pollvote" />
+<input type="hidden" name="pollid" value="$pollinfo[pollid]" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<if condition="$show['editpoll']"><span class="smallfont" style="float:$stylevar[right]"><a href="poll.php?$session[sessionurl]do=polledit&amp;pollid=$pollinfo[pollid]">$vbphrase[edit_poll]</a></span></if>
+		$vbphrase[poll]<span class="normal">: $pollinfo[question]</span>
+	</td>
+</tr>
+<if condition="$show['pollenddate']">
+<tr>
+	<td class="thead" align="center" style="font-weight:normal"><phrase 1="$pollenddate" 2="$pollendtime">$vbphrase[this_poll_will_close_on_x_at_y]</phrase></td>
+</tr>
+</if>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+			<if condition="$show['publicwarning']">
+			<div class="fieldset">$vbphrase[public_poll_users_see_choices]</div>
+			</if>
+
+			<fieldset class="fieldset">
+				<legend>$vbphrase[poll_options]</legend>
+				<div style="padding:$stylevar[formspacer]px">
+					<div style="margin-bottom:$stylevar[formspacer]px"><strong>$pollinfo[question]</strong></div>
+					$pollbits
+				</div>
+			</fieldset>
+
+			<div>
+				<span style="float:$stylevar[right]"><a href="poll.php?$session[sessionurl]do=showresults&amp;pollid=$pollinfo[pollid]">$vbphrase[view_poll_results]</a></span>
+				<input type="submit" class="button" value="$vbphrase[vote_now]" />
+			</div>
+
+		</div>
+	</div>
+	</td>
+</tr>
+</table>
+
+</form>
+
+<br />

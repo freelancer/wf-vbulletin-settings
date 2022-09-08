@@ -1,0 +1,79 @@
+if (defined('VBBLOG_PERMS'))
+{
+	$hook_joins = array(
+		"LEFT JOIN " . TABLE_PREFIX . "blog_user AS bu ON (bu.bloguserid = user.userid)",
+	);
+
+	if (defined('STYLEID') AND defined('LANGUAGEID'))
+	{
+		$styleidsql = intval(STYLEID);
+		$hook_joins[] = "LEFT JOIN " . TABLE_PREFIX . "blog_custom_block_parsed AS blockparsed ON (blockparsed.userid = user.userid AND blockparsed.styleid = " . intval(STYLEID) . " AND blockparsed.languageid = " . intval(LANGUAGEID) . ")";
+	}
+	else
+	{
+		// Attempt to guess the correct style - this could be wrong and will be invalidated later if so
+		if (defined('VBBLOG_STYLE') AND $vbulletin->options['vbblog_style'])
+		{
+			$styleidsql = $vbulletin->options['vbblog_style'];
+		}
+		else if ($vbulletin->options['allowchangestyles'] == 1 OR ($vbulletin->userinfo['permissions']['adminpermissions'] & $vbulletin->bf_ugp_adminpermissions['cancontrolpanel']))
+		{
+			$styleidsql = "IF(user.styleid > 0, user.styleid, " . $vbulletin->options['styleid'] . ")";
+		}
+		else
+		{
+			$styleidsql = $vbulletin->options['styleid'];
+		}
+		$hook_joins[] = "LEFT JOIN " . TABLE_PREFIX . "blog_custom_block_parsed AS blockparsed ON
+			 (blockparsed.userid = user.userid AND blockparsed.styleid = $styleidsql AND blockparsed.languageid = " . (!empty($languageid) ? $languageid : "IF(user.languageid = 0, " . intval($vbulletin->options['languageid']) . ", user.languageid)") . ")";
+	}
+
+	$hook_fields = array(
+		"bu.bloguserid, bu.entries, bu.options AS blog_options, bu.subscribeown AS blog_subscribeown, bu.memberids, bu.memberblogids,
+		bu.subscribeothers AS blog_subscribeothers, bu.title AS blog_title, bu.description AS blog_description, bu.allowsmilie AS blog_allowsmilie",
+		"bu.draft AS blog_draft, bu.pending AS blog_pending, bu.options_member, bu.options_guest, bu.options_buddy, bu.options_ignore, bu.uncatentries",
+		"bu.moderation AS blog_moderation, bu.deleted AS blog_deleted, bu.akismet_key AS blog_akismet_key, isblogmoderator, bu.comments_moderation AS blog_comments_moderation",
+		"bu.lastblog, bu.lastblogid, bu.lastblogtitle, bu.categorycache, bu.tagcloud, bu.sidebar, bu.custompages",
+		"bu.customblocks, blockparsed.blocktext, $styleidsql AS blogstyleid",
+		"blog_usercsscache.csscolors AS blog_csscolors, blog_usercsscache.cachedcss AS blog_cachedcss, IF(blog_usercsscache.cachedcss IS NULL, 0, 1) AS blog_hascachedcss, blog_usercsscache.buildpermissions AS blog_cssbuildpermissions",
+	);
+
+	if ($vbulletin->userinfo['userid'] AND $vbulletin->userinfo['userid'] != $userid)
+	{
+		$hook_fields[] = 	"gm.permissions AS grouppermissions, ignored.relationid AS ignoredid, buddy.relationid AS buddyid";
+		$hook_joins[] = "LEFT JOIN " . TABLE_PREFIX . "userlist AS ignored ON (ignored.userid = user.userid AND ignored.relationid = " . $vbulletin->userinfo['userid'] . " AND ignored.type = 'ignore')";
+		$hook_joins[] = "LEFT JOIN " . TABLE_PREFIX . "userlist AS buddy ON (buddy.userid = user.userid AND buddy.relationid = " . $vbulletin->userinfo['userid'] . " AND buddy.type = 'buddy')";
+		if ($option === 'flipgmperms')
+		{
+			$hook_joins[] = "LEFT JOIN " . TABLE_PREFIX . "blog_groupmembership AS gm ON (user.userid = gm.userid AND gm.bloguserid = " . $vbulletin->userinfo['userid'] . ")";
+		}
+		else
+		{
+			$hook_joins[] = "LEFT JOIN " . TABLE_PREFIX . "blog_groupmembership AS gm ON (user.userid = gm.bloguserid AND gm.userid = " . $vbulletin->userinfo['userid'] . ")";
+		}
+		$hook_fields[] = "IF(blog_subscribeuser.blogsubscribeuserid, 1, 0) AS blogsubscribed";
+		$hook_joins[] = "LEFT JOIN " . TABLE_PREFIX . "blog_subscribeuser AS blog_subscribeuser ON (user.userid = blog_subscribeuser.bloguserid AND blog_subscribeuser.userid = " . $vbulletin->userinfo['userid'] . ")";		
+	}
+	else
+	{
+		$hook_fields[] = "IF(blog_subscribeuser.blogsubscribeuserid, 1, 0) AS blogsubscribed";
+		$hook_joins[] = "LEFT JOIN " . TABLE_PREFIX . "blog_subscribeuser AS blog_subscribeuser ON (user.userid = blog_subscribeuser.bloguserid AND blog_subscribeuser.userid = $userid)";	
+	}
+
+	$hook_joins[] = "LEFT JOIN " . TABLE_PREFIX . "blog_usercsscache AS blog_usercsscache ON (user.userid = blog_usercsscache.userid)";
+
+	if (!($option & 8))	// Magic Numbers, I'll EEK for Mike
+	{	// Get the profile picture if fetch_userinfo isn't already doing it.
+		$hook_fields[] = "customprofilepic.userid AS profilepic, customprofilepic.dateline AS profilepicdateline, customprofilepic.width AS ppwidth, customprofilepic.height AS ppheight";
+		$hook_joins[] = "LEFT JOIN " . TABLE_PREFIX . "customprofilepic AS customprofilepic ON (user.userid = customprofilepic.userid)";
+	}
+
+	$hook_query_fields .= ', ' . implode(', ', $hook_fields);
+	$hook_query_joins .= "\r\n" . implode("\r\n", $hook_joins);
+}
+
+if ($option & 4)
+
+{
+	require_once(DIR . '/includes/blog_functions_online.php');
+}

@@ -1,0 +1,5 @@
+
+$this->validfields['vbseo_enable_likes'] = array(TYPE_INT, REQ_NO);
+$this->validfields['vbseo_moderatepingbacks'] = array(TYPE_INT, REQ_NO);
+$this->validfields['vbseo_moderatetrackbacks'] = array(TYPE_INT, REQ_NO);
+$this->validfields['vbseo_moderaterefbacks'] = array(TYPE_INT, REQ_NO);

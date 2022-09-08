@@ -1,0 +1,3 @@
+If you enable this option, the User Referrer system will be enabled, by which each user can refer other people to the system by giving them a link containing<br />
+referrerid=XXX<br />
+on the end (where XXX is the userid of the referring user) and if a person registers after following such a link, the user will be credited with a referral.

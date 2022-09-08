@@ -1,0 +1,8 @@
+In order for a browser to properly recognize a file's type, a content-type header must be sent before the file is. vBulletin will send the header for you automatically, but you must provide the correct MIME type so the header that is sent is correct.<br /><br />
+
+The correct format for this field is<br />
+<b>Content-type: type/subtype</b><br />
+For example, for JPEG images:<br />
+<b>Content-type: image/jpeg</b><br /><br />
+
+You can find a list of types and subtypes <a href="http://www.iana.org/assignments/media-types/" target="_blank">here</a>.

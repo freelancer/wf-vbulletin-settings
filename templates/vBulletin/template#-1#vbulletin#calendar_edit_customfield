@@ -1,0 +1,20 @@
+<fieldset class="fieldset">
+	<legend>$custom[title]</legend>
+	<div style="padding:$stylevar[formspacer]px">
+		<if condition="$show['customdescription']">
+			<div style="margin-bottom:$stylevar[formspacer]px">$custom[description]</div>
+		</if>
+		<div>
+			<if condition="$show['customoptions']">
+				<select name="$customfieldname" tabindex="1">
+					<option value="0" $selected></option>
+					$selectbits
+				</select>
+			</if>
+			<if condition="$show['customoptionalinput']">
+				<if condition="$show['customoptions']">$vbphrase[or]:</if>
+				<input type="text" class="bginput" name="$customfieldname_opt" value="$custom[optional]" size="25" tabindex="1" maxlength="$custom[length]"  />
+			</if>
+		</div>
+	</div>
+</fieldset>

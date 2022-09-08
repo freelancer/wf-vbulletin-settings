@@ -1,0 +1,14 @@
+<tr>
+	<td class="alt1" width="100%">
+		<span style="float:$stylevar[right]">
+			<a href="blog_usercp.php?$session[sessionurl]do=modifyblock&amp;customblockid=$page[customblockid]"><img src="$stylevar[imgdir_misc]/blog/block_edit.gif" title="$vbphrase[edit_custom_page]" class="inlineimg" border="0" /></a>
+		</span>
+		<a href="blog.php?$session[sessionurl]cp=$page[customblockid]">$page[title]</a>
+	</td>
+	<td class="alt2" nowrap="nowrap">
+		$page[location_phrase]
+	</td>
+	<td class="alt1" align="center">
+		<input type="text" name="position[$page[customblockid]]" value="$page[displayorder]" size="3" class="bginput" />
+	</td>
+</tr>

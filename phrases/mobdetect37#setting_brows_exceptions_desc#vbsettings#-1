@@ -1,0 +1,3 @@
+A comma seperated list of user agent strings to NOT parse as mobile or pda devices. Be careful! eg: iPhone,IEMobile<br />
+<br />
+Devices matching user egents strinsg listed here will not be detected as a mobile device and will be assigned the same style as standard PC users.

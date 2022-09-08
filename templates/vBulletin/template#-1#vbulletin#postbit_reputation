@@ -1,0 +1,1 @@
+<img class="inlineimg" src="$stylevar[imgdir_reputation]/reputation_$posneg.gif" alt="$post[username] $post[level]" border="0" />

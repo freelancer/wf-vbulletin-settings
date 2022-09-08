@@ -1,0 +1,8 @@
+<div class="fieldset">
+	$profilefield[title]:<br />
+	<select name="$profilefieldname" id="csel_$profilefieldname">
+		<if condition="$profilefield['def']!=2"><option value="0" $selected></option></if>
+		$selectbits
+	</select>
+	$optionalfield
+</div>

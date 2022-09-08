@@ -1,0 +1,5 @@
+
+				$vbpwr_lasthook='register_addmember_complete';
+				include(DIR.'/includes/vbpwr_hooks.php');
+			
+			

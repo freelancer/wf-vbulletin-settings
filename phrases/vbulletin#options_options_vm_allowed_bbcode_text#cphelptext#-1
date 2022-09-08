@@ -1,0 +1,3 @@
+Use this option to specify which (if any) BB code tags your visitors may use when composing visitor messages.<br />
+<br />
+By default, Basic (B, I, U), Color and Link (URL, EMAIL, THREAD, POST) tags are enabled.

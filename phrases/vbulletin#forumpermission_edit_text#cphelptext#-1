@@ -1,0 +1,7 @@
+This screen allows you to edit the permissions of the selected usergroup for the selected forum.<br /><br />
+
+If you have edited permissions for this group and forum before, you will need to select "Use Custom Settings" to make your settings save. If you attempt to change a setting before selecting Use Custom Settings, you will be reminded to do so by clicking OK. If you click cancel on the popup, the setting will change but when you attempt to save your changes they will not be saved.<br /><br />
+
+Settings on this page will override a usergroup's default permissions. If there are subforums of the selected forum, these settings will be inherited by any subforums unless the subforum has custom settings explicitly set for it already.<br /><br />
+
+If you want to revert the permissions for this group, select "Use Usergroup Default" and press Save Changes. If any subforums of this forum are currently inheriting these settings, they will also be reverted to the default.

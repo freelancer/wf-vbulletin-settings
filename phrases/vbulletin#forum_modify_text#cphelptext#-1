@@ -1,0 +1,20 @@
+On the Modify Forums screen you will see a list of every forum you have, including any which are hidden from end-users. On this screen, you can set the Display Order (make sure to click Update Display Order to save your changes).<br /><br />
+
+Under the Forum Controls, across from each forum title, are the following options:<br />
+<b>Edit</b>: Lets you modify forum settings. (see <a href="help.php?do=answer&amp;page=forum.php&amp;pageaction=edit">Editing Forums</a>)<br /><br />
+
+<b>Remove</b>: Deletes the forum, any subforums, and posts in the forum and any subforums. This action <b>cannot</b> be undone, so it is <i>highly</i> recommended that you make a backup of your database before doing this.<br /><br />
+
+<b>Add Sub-forum</b>: This allows you to add a forum that will be a child of the forum you select this for. (see <a href="help.php?do=answer&amp;page=forum.php&amp;pageaction=add">Adding Forums</a>)<br /><br />
+
+<b>Add Moderator</b>: Lets you add a moderator to this forum. Moderators moderate the selected forum and any subforums of that forum. (see <a href="help.php?do=answer&amp;page=moderator.php&amp;pageaction=add">Adding Moderators</a>)<br /><br />
+
+<b>Add Announcement</b>: Allows you to add an announcement to this forum. (see <a href="help.php?do=answer&amp;page=announcement.php&amp;pageaction=add">Adding Announcements</a>)<br /><br />
+
+<b>Move Contents</b>: You can quickly move all the posts from the selected forum into another forum.<br /><br />
+
+<b>Empty Forum</b>: Selecting this will (after confirmation) remove all the threads in a forum.<br /><br />
+
+In the next column is Display Order. This determines what order forums are displayed in anyplace they are shown, including in the Admin CP. Setting this to 0 for a forum will make the forum not show anywhere to the end-user, but it can still be accessed if the user types in the direct URL to the forum. Be sure to select Update Display Order if you have changed any of them.<br /><br />
+
+The last dropdown shows how many moderators you already have in each forum. If you have any, they will be listed. You can modify a moderator's permissions by selecting their name from this drop-down and pressing Go.

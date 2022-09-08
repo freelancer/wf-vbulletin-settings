@@ -1,0 +1,1 @@
+This determines the order in which entries for a particular set are displayed. If you use 0, this FAQ entry will not be displayed, though entries within will still be accessible if their URL is known.

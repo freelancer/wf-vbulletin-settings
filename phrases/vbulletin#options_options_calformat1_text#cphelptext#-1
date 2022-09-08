@@ -1,0 +1,1 @@
+When a user provides their birth date, including year, it will be shown in their profile. This is the format of the date that will be shown. It follows PHP's <a href="http://www.php.net/date" target="_blank">date function formatting options</a>. You should not enter any time formatting options.

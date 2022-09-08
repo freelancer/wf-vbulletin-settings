@@ -1,0 +1,21 @@
+$reportinfo[rusername] ( mailto:$reportinfo[remail] ) has reported this post:
+
+$reportinfo[messagetitle]
+$vboptions[bburl]/group.php?gmid=$reportinfo[gmid]#gmessage$reportinfo[gmid]
+
+This is part of the social group:
+$reportinfo[groupname]
+$vboptions[bburl]/group.php?groupid=$reportinfo[groupid]
+
+In the discussion:
+$reportinfo[discussiontitle]
+$vboptions[bburl]/group.php?discussionid=$reportinfo[discussionid]
+
+This is the reason that the user gave:
+$reportinfo[reason]
+
+$reportinfo[discuss]
+
+This message has been sent to all moderators of this area, or all administrators if there are no moderators.
+
+Please respond to this post as applicable.

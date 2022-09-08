@@ -1,0 +1,40 @@
+
+<style type="text/css">	
+/* Angular Advertisement */
+<if condition="!is_browser('ie', '6')">
+.angular_advertisement {
+	position: fixed;
+}
+.angadver_left {
+	left: 0;
+}			
+.angadver_right {
+	right: 0;
+}
+.angadver_top {
+	top: 0;
+}
+.angadver_bottom {
+	bottom: 0;
+}
+<else />.angular_advertisement {
+	position: absolute;
+}
+.angadver_left {
+	left: 0;
+}			
+.angadver_right {
+	right: 0;
+}
+.angadver_top {
+	top: expression(
+		(document.documentElement.scrollTop || document.body.scrollTop) + (this.offsetHeight - this.offsetHeight)
+	);
+}
+.angadver_bottom {
+	top: expression(
+		((document.documentElement.scrollTop || document.body.scrollTop) + (this.offsetHeight - this.offsetHeight))+((document.documentElement.clientHeight || document.body.clientHeight) - this.offsetHeight)
+	);
+}
+</if>
+</style>

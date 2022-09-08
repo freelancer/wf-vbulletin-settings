@@ -1,0 +1,6 @@
+<li class="memberinfo_tiny">
+<if condition="$user['avatarurl']">
+	<a href="member.php?$session[sessionurl]u=$user[userid]"><img src="$user[avatarurl]" alt="$user[username]"<if condition="$user['avatarwidth']"> width="$user[avatarwidth]"</if><if condition="$user['avatarheight']"> height="$user[avatarheight]"</if> border="0" class="alt2" /></a>
+</if>
+	<div class="smallfont" title="$user[username]"><a href="member.php?$session[sessionurl]u=$user[userid]">$user[musername]</a></div>
+</li>

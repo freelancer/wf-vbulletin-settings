@@ -1,0 +1,2 @@
+Allows you to specify a function to operate on the number of views of a thread.<br />
+Works like: = func($thread[views]) * $viewscore

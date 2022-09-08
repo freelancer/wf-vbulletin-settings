@@ -1,0 +1,3 @@
+This setting controls the width of most of vBulletin's forms.  Examples of forms that are affected by this setting include poll voting forms and the form in the "Additional Options" table on posting pages.<br /><br />
+
+Enter a number of pixels followed by a "px" (e.g., <b>640px</b>).

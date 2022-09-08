@@ -1,0 +1,8 @@
+[url=$vboptions[bburl]/member.php?u=$reportinfo[ruserid]]$reportinfo[rusername][/url] has reported a group picture.
+
+Reason:[quote]$reportinfo[reason][/quote]
+Picture: [url]$vboptions[bburl]/group.php?do=picture&groupid=$reportinfo[groupid]&pictureid=$reportinfo[pictureid][/url]
+Group: [url=$vboptions[bburl]/group.php?groupid=$reportinfo[groupid]]$reportinfo[groupname][/url]
+Assigned Moderators: $reportinfo[modlist]
+
+Posted by: [url=$vboptions[bburl]/member.php?u=$reportinfo[puserid]]$reportinfo[pusername][/url]

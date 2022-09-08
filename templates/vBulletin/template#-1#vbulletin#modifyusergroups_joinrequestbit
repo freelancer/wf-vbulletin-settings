@@ -1,0 +1,5 @@
+<tr>
+	<td class="$bgclass">$joinrequest[opentag]$joinrequest[title]$joinrequest[closetag]</td>
+	<td class="$bgclass">$joinrequest[requests] <if condition="$joinrequest['requests']"><span class="smallfont"><a href="joinrequests.php?$session[sessionurl]usergroupid=$joinrequest[usergroupid]">$vbphrase[review_join_requests]</a></span></if></td>
+	<td class="$bgclass"><span class="smallfont"><a href="memberlist.php?$session[sessionurl]usergroupid=$joinrequest[usergroupid]">$vbphrase[list_members]</a></span></td>
+</tr>

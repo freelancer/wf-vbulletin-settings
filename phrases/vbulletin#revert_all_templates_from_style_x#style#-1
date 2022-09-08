@@ -1,0 +1,7 @@
+Are you sure you want to revert all templates from the style called '{1}'?<br />
+<br />
+This will cause all templates in this style to revert to their default or inherited status. Custom templates that do not exist in this style's parent will not be affected.<br />
+<br />
+The following templates will be reverted:
+<ul>{2}</ul>
+This action cannot be undone.

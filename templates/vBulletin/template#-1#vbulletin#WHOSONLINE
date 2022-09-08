@@ -1,0 +1,179 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<if condition="$show['refresh']">
+	<if condition="is_browser('mozilla')">
+		<script type="text/javascript">
+		<!--
+			var myvar = "";
+			var timeout = $refreshtime;
+	
+			function exec_refresh()
+			{
+				var timerID = setTimeout("exec_refresh();", 100);
+				if (timeout > 0)
+				{
+					timeout -= 1;
+				}
+				else
+				{
+					clearTimeout(timerID);
+					window.location="online.php?$session[sessionurl_js]order=$sortorder&sort=$sortfield&pp=$perpage&page=$pagenumber$refreshargs_js";
+				}
+			}
+			exec_refresh();
+		//-->
+		</script>
+	<else />
+		<meta http-equiv="refresh" content="$vboptions[WOLrefresh];url=online.php?$session[sessionurl]order=$sortorder&amp;sort=$sortfield&amp;pp=$perpage&amp;page=$pagenumber$refreshargs" />
+	</if>
+</if>
+<title>$vboptions[bbtitle] - $vbphrase[whos_online]</title>
+</head>
+<body>
+$header
+$navbar
+
+<if condition="$pagenav">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tr valign="bottom">
+	<td align="$stylevar[right]">$pagenav</td>
+</tr>
+</table>
+</if>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center" id="woltable">
+<tr>
+	<td class="tcat" colspan="$colspan"><div class="smallfont">
+		<span style="float:$stylevar[right]">
+			<a href="$reloadurl"><strong>$vbphrase[reload_this_page]</strong></a>
+		</span>
+		<strong><phrase 1="$numbervisible" 2="$numberguests">$vbphrase[x_members_and_y_guests]</phrase></strong><br /><phrase 1="$recordusers" 2="$recorddate" 3="$recordtime">$vbphrase[most_users_ever_online_was_x_y_at_z]</phrase>
+	</div></td>
+</tr>
+<tr>
+	<td class="thead">
+		<span style="float:$stylevar[right]">
+			<a href="$sorturl<if condition="!$show['sorturlnoargs']">&amp;</if>order=desc&amp;sort=time&amp;pp=$perpage&amp;page=$pagenumber">$vbphrase[last_activity]</a> $sortarrow[time]
+		</span>
+		<a href="$sorturl<if condition="!$show['sorturlnoargs']">&amp;</if>order=asc&amp;sort=username&amp;pp=$perpage&amp;page=$pagenumber">$vbphrase[username]</a> $sortarrow[username]
+	</td>
+	<td class="thead"><a href="$sorturl<if condition="!$show['sorturlnoargs']">&amp;</if>order=asc&amp;sort=location&amp;pp=$perpage&amp;page=$pagenumber">$vbphrase[location_temp]</a> $sortarrow[location]</td>
+	<if condition="$show['ip']"><td class="thead">$vbphrase[ip_address]</td></if>
+	<if condition="$vboptions['showimicons']"><td class="thead" align="center">$vbphrase[instant_messaging]</td></if>
+</tr>
+$onlinebits
+</table>
+
+<if condition="$show['ajax_resolve']">
+	<script type="text/javascript" src="clientscript/vbulletin_ajax_wolresolve.js?v=$vboptions[simpleversion]"></script>
+	<script type="text/javascript">
+	<!--
+	vB_AJAX_WolResolve_Init('woltable');
+	//-->
+	</script>
+</if>
+
+<br />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="alt1" align="center">
+
+		<form action="online.php" method="get">
+		<input type="hidden" name="s" value="$session[sessionhash]" />
+		<input type="hidden" name="sortfield" value="$sortfield" />
+		<input type="hidden" name="sortorder" value="$sortorder" />
+		<div class="fieldset" style="margin:0px">
+
+			<if condition="$vboptions['WOLguests']">
+				$vbphrase[display]:
+				<select name="who">
+					<option value="all" $whoselected[0]>$vbphrase[all]</option>
+					<option value="members" $whoselected[1]>$vbphrase[members]</option>
+					<option value="guests" $whoselected[2]>$vbphrase[guests]</option>
+					<if condition="$vboptions['enablespiders']">
+						<option value="spiders" $whoselected[3]>$vbphrase[search_bots]</option>
+					</if>
+				</select>
+				&nbsp; &nbsp;
+			</if>
+
+			<if condition="$show['ip']">
+				$vbphrase[user_agent]:
+				<select name="ua">
+					<option value="1" $uaselected[1]>$vbphrase[yes]</option>
+					<option value="0" $uaselected[0]>$vbphrase[no]</option>
+				</select>
+				&nbsp; &nbsp;
+			</if>
+
+			$vbphrase[per_page]:
+			<input type="text" class="bginput" style="font-size:11px" name="pp" value="$perpage" size="2" />
+			&nbsp; &nbsp;
+
+
+
+			<input type="submit" class="button" value="$vbphrase[display]" accesskey="s" />
+
+		</div>
+		</form>
+
+	</td>
+</tr>
+</table>
+
+<if condition="$pagenav">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:3px">
+<tr valign="top">
+	<td align="$stylevar[right]">$pagenav</td>
+</tr>
+</table>
+</if>
+
+<br />
+
+<!-- icons and forum jump -->
+<table cellpadding="0" cellspacing="2" border="0" width="100%">
+<tr valign="bottom">
+	<td width="100%">
+		<table cellpadding="2" cellspacing="0" border="0">
+		<col align="center"></col>
+		<tr>
+			<td><strong>+</strong></td>
+			<td class="smallfont">&nbsp; $vbphrase[user_is_on_your_contact_list]</td>
+		</tr>
+		<if condition="$show['hidden']">
+		<tr>
+			<td><strong>*</strong></td>
+			<td class="smallfont">&nbsp; $vbphrase[user_is_invisible_to_others]</td>
+		</tr>
+		</if>
+		<if condition="$show['badlocation']">
+			<tr>
+				<td><img src="$stylevar[imgdir_statusicon]/wol_lockedout.gif" alt="$vbphrase[viewing_forum_closed]" /></td>
+				<td class="smallfont">&nbsp; $vbphrase[viewing_forum_closed]</td>
+			</tr>
+			<tr>
+				<td><img src="$stylevar[imgdir_statusicon]/wol_nopermission.gif" alt="$vbphrase[viewing_no_permission_message]" /></td>
+				<td class="smallfont">&nbsp; $vbphrase[viewing_no_permission_message]</td>
+			</tr>
+			<tr>
+				<td><img src="$stylevar[imgdir_statusicon]/wol_error.gif" alt="$vbphrase[viewing_error_message]" /></td>
+				<td class="smallfont">&nbsp; $vbphrase[viewing_error_message]</td>
+			</tr>
+		</if>
+		</table>
+	</td>
+	<td>
+		$forumjump
+	</td>
+</tr>
+</table>
+<!-- / icons and forum jump -->
+
+$footer
+
+</body>
+</html>

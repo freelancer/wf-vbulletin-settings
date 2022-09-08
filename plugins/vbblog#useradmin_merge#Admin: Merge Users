@@ -1,0 +1,1 @@
+require_once(DIR . '/includes/blog_plugin_usermerge.php');

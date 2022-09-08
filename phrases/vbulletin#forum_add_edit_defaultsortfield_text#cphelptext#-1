@@ -1,0 +1,3 @@
+This controls the field that threads are sorted using by default. Users may still selectively override this setting and resort using the controls at the bottom of the thread list.<br />
+<br />
+Note that to select sorting by thread rating, ratings must be enabled for this forum. If they are not, the forum will be sorted by last post.

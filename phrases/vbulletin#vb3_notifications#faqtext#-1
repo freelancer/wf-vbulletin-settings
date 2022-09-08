@@ -1,0 +1,18 @@
+<p><b>What are Your Notifications?</b></p>
+
+<p>When you have logged into the board, a link to 'Your Notifications' may be displayed in the 'Welcome' box near the top of the forum. 'Your Notifications' will show if you have any one of the following:</p>
+
+<ul>
+<li>Unread Private Messages <a href="faq.php?$session[sessionurl]faq=vb3_user_profile#faq_vb3_private_messages">(?)</a></li>
+<li>Unread Profile Visitor Messages <a href="faq.php?$session[sessionurl]faq=vb3_user_profile#faq_vb3_public_profile">(?)</a></li>
+<li>Profile Visitor Messages Awaiting Approval</li>
+<li>Incoming Friend Requests  <a href="faq.php?$session[sessionurl]faq=vb3_user_profile#faq_vb3_friends_contacts">(?)</a></li>
+<li>Requests to Join Your Social Groups  <a href="faq.php?$session[sessionurl]faq=vb3_user_profile#faq_vb3_social_groups">(?)</a></li>
+<li>Invitations to Join Social Groups</li>
+<li>Unread Picture Comments  <a href="faq.php?$session[sessionurl]faq=vb3_user_profile#faq_vb3_albums">(?)</a></li>
+<li>Picture Comments Awaiting Approval</li>
+</ul>
+
+<p>By clicking on the 'Your Notifications' link, you will be able to quickly see how many of each type you have received. Clicking on any of the links in the menu will take you to the relevant page within the <a href="usercp.php$session[sessionurl_q]">User Control Panel</a> or elsewhere in the system.</p>
+
+<p>If there are no notifications, then this link will be replaced by a link to 'Private Messages' <a href="faq.php?$session[sessionurl]faq=vb3_user_profile#faq_vb3_private_messages">(?)</a>.</p>

@@ -1,0 +1,28 @@
+<li id="picture$picture[pictureid]">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" id="picture$picture[pictureid]_container">
+	<tr valign="top">
+		<td class="picture_thumbnail" width="$vboptions[album_thumbsize]">
+			<if condition="$pictureinfo['thumburl']">
+				<a href="album.php?$session[sessionurl]albumid=$pictureinfo[albumid]&amp;pictureid=$pictureinfo[pictureid]"><img src="$pictureinfo[thumburl]" alt="$pictureinfo[caption_preview]" border="0" $pictureinfo[dimensions] /></a>
+			<else />
+				<a href="album.php?$session[sessionurl]albumid=$pictureinfo[albumid]&amp;pictureid=$pictureinfo[pictureid]"><if condition="$pictureinfo['caption_preview']">$pictureinfo[caption_preview]<else />$vbphrase[picture]</if></a>
+			</if>
+		</td>
+		<td>
+			<div class="tborder info_bar">
+				<div class="alt2 smallfont">
+					<if condition="$show['inlinemod']"><input type="checkbox" class="inlinemod_checkbox" name="picturelist[$picture[pictureid]]" id="picturelist_$picture[pictureid]" value="$picture[checkbox_value]" title="$vbphrase[select_this_item_for_inline_moderation]"  /></if>
+					<div class="message_date">$picture[date]<if condition="!$show['detailedtime']"> <span class="time">$picture[time]</span></if></div>
+					<a href="member.php?$session[sessionurl]u=$picture[userid]" class="smallfont username">$picture[musername]</a>
+				</div>
+			</div>
+			<div class="smallfont">
+				<if condition="$show['moderation']"><div class="shade">$vbphrase[this_message_is_moderated]</div></if>
+				<div>$vbphrase[caption]: $pictureinfo[caption_preview]</div>
+				<div>$vbphrase[album]: $picture[albumtitle]</div>				
+				<div>$vbphrase[date]: $pictureinfo[date]<if condition="!$show['detailedtime']"> <span class="time">$pictureinfo[time]</span></if></div>
+			</div>
+		</td>
+	</tr>
+	</table>
+</li>

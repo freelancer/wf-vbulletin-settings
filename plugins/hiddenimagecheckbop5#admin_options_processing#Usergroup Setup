@@ -1,0 +1,9 @@
+if (is_array($settings['bop5hic_groups']))
+{
+  $settings['bop5hic_groups'] = implode(',', $settings['bop5hic_groups']);
+}
+
+if (is_array($settings['bop5hic_nogroups']))
+{
+  $settings['bop5hic_nogroups'] = implode(',', $settings['bop5hic_nogroups']);
+}

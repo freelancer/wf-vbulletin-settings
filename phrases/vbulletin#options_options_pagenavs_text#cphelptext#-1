@@ -1,0 +1,3 @@
+On thread and forum pages, as well as private messaging lists and other places, if there are multiple page number links to be displayed, this option selects what pages can be jumped to relative to the current one. For example, by adding 10 to the list, links will appear for current page -10 and current page +10.
+
+Separate each number with a space.

@@ -1,0 +1,1 @@
+Enable this option to have the <em>Next</em> and <em>Previous</em> entry titles (by date) shown next to the current entry's title when viewing an entry. This feature will add two queries to the page. By default only "Next" and "Prev" are displayed whether or not there may be an actual "Next" or "Prev" entry to view.

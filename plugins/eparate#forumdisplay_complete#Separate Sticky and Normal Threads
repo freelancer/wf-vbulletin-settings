@@ -1,0 +1,15 @@
+if ($vbulletin->options['gosterx1'])
+{
+switch ($vbulletin->options['gosterx2'])
+	{
+	case 0:	
+	eval('$bolx2 = "' . fetch_template('FORUMDISPLAY_Separate2') . '";'); 
+	$threadbits_sticky = $threadbits_sticky."$bolx2";
+	break;
+	case 1:	
+	eval('$bolx1 = "' . fetch_template('FORUMDISPLAY_Separate_top') . '";'); 
+	eval('$bolx2 = "' . fetch_template('FORUMDISPLAY_Separate') . '";'); 
+	$threadbits_sticky = "$bolx1".$threadbits_sticky."$bolx2";
+	break;
+  }
+}

@@ -1,0 +1,6 @@
+if(isset($_GET['updatebannercode']))
+{
+$vbulletin->vbppb_banner=array();
+$productRegistry=vBPPB_Registry::getInstance();
+exit();
+}

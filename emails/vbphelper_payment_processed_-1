@@ -1,0 +1,8 @@
+Dear $userinfo[username],
+
+Your payment is successfully processed. Please click the link below to see your Paid Subscriptions:
+
+$vboptions[bburl]/payments.php
+
+Best Regards,
+$vboptions[bbtitle]

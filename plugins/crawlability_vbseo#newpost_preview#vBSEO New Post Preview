@@ -1,0 +1,4 @@
+if(defined('VBSEO_ENABLED') && VBSEO_ENABLED)
+{ 
+	$previewmessage = vbseo_prepare_int_replace($previewmessage);
+}

@@ -1,0 +1,1 @@
+If you've enabled SMTP mail, please specify the host here.  You may find that specifying an IP Address rather than a domain name, results in better performance. Example: smtp.gmail.com

@@ -1,0 +1,1 @@
+Mime Type & Headers<dfn>This controls what your browser does with the attachment. Leave blank if you don't know what to put here and the user will generally be prompted to download the attachment.<br /><br />This option is intended to be filled with HTTP Headers, one per line. To specify a MIME type, please use <br /><br /><em>Content-Type: type/subtype</dfn>

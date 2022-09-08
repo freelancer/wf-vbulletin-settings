@@ -1,0 +1,1 @@
+This is an optional setting for pages where the URL alone isn't enough information to embed the video (i.e. yahoo vidoes). This regexp pattern will extract the embed URL from the destination page when the title is resolved. Note that this option only works if Resolve Titles setting is on and working.

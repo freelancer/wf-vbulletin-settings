@@ -1,0 +1,22 @@
+if (empty($modlogactions[114]))
+{
+	$blogmodlogactions = array(
+		100 => 'blogentry_removed',
+		101 => 'blogentry_softdeleted',
+		102 => 'blogentry_undeleted',
+		103 => 'blogentry_approved',
+		104 => 'blogentry_unapproved',
+		105 => 'blogentry_title_x_changed_to_y',
+		106 => 'blogentry_x_edited',
+		107 => 'comment_x_by_y_removed',
+		108 => 'comment_x_by_y_softdeleted',
+		109 => 'comment_x_by_y_undeleted',
+		110 => 'comment_merged_from_multiple_comments',
+		111 => 'comments_copied_to_x',
+		112 => 'trackback_approved',
+		113 => 'trackback_unapproved',
+		114 => 'trackback_x_edited',
+	);
+
+	$modlogactions += $blogmodlogactions;
+}

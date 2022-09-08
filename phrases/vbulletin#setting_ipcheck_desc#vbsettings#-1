@@ -1,0 +1,5 @@
+Select the subnet mask which reflects the level of checking you wish to run against IP addresses when a session is being fetched.
+<br /><br />
+This is useful if you have a large number of users who are behind transparent proxies and have an IP address that can change randomly between request such as AOL.
+<br /><br />
+The more this is decreased the greater the security risk from session hijacking.

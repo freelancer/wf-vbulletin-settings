@@ -1,0 +1,59 @@
+
+<SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript">
+	function UpdateTitle(forumid, userid, tags_remain)
+	{
+		vBAjax_ATT = createXMLHttpRequest();
+		vBAjax_ATT.onreadystatechange = m_State_ATT;
+		getstring = './autotagger_ajax.php?do=gettags&tags_remain='+ tags_remain + '&forumid=' + forumid + '&userid=' + userid + '&title=' + fetch_object('subjecttitle').value + '&existing=' + fetch_object('tag_add_input').value
+		if (fetch_object('prefixid') != null)
+		{
+			if (fetch_object('prefixid').selectedIndex > 0)
+			{
+				getstring += '&prefix=' + fetch_object('prefixid')[fetch_object('prefixid').selectedIndex].text
+			}
+		}
+
+		vBAjax_ATT.open('get', getstring);
+  	vBAjax_ATT.send(null);
+	}
+		
+	function m_State_ATT()
+	{
+		if (vBAjax_ATT.readyState == 4)
+		{
+			if (vBAjax_ATT.responseText != "")
+			{
+				fetch_object('tag_add_input').value = vBAjax_ATT.responseText;
+			}
+		}
+	}
+	
+	
+function createXMLHttpRequest()
+{
+ 
+	var XMLReq;
+	 
+	if (window.XMLHttpRequest)
+	{
+    try
+    {
+      XMLReq = new XMLHttpRequest();
+    } catch(e) {
+      XMLReq = false;
+    }
+	}
+	else if (window.ActiveXObject)
+	{
+    try
+    {
+      XMLReq = new ActiveXObject("Microsoft.XMLHTTP");
+    } catch(e) {
+      XMLReq = false;
+    }
+	 }
+	 
+return XMLReq;
+
+}	
+</script>	

@@ -1,0 +1,1 @@
+You have chosen to not finalize the attachment move to the filesystem.  Your attachments are still in the database, from which they will be read from.  You probably have left orphans files and directories in the path you specified to receive the attachments.  You will need to manually clear these files if you wish to free up that space.

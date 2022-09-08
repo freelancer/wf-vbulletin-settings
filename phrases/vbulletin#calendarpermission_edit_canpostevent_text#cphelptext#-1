@@ -1,0 +1,3 @@
+If this is set to No, this usergroup will not be able to post new events on this calendar.<br /><br />
+
+Please note, the way events work has been changed from vBulletin 2.2.x. The idea of "public" and "private" events has been changed to a single event type; therefore, there is now only one option regarding posting events. Whether or not events are "public" is determined by the setting Can View Others' Events, below. (see <a href="help.php?do=answer&amp;page=calendarpermission&amp;pageaction=edit&amp;option=canviewothersevent">Can View Others' Events</a>)

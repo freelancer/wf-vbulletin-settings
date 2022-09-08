@@ -1,0 +1,15 @@
+
+		
+			<if condition="$show[modtools_basic] OR $show[modtools_adv]">
+				<if condition="$show[modtools_ban]">
+				<if condition="$post[usergroupid]=='8'"><!-- if user is banned -->
+					<tr><td class="vbmenu_option">
+					<a href="modlink/banning.php?do=liftban&u=$post[userid]"><strong>$vbphrase[modtools_liftban]</strong></a>
+				<else /><!-- user is not banned -->
+					<tr><td class="vbmenu_option">
+					<a href="modlink/banning.php?$session[sessionurl]do=banuser&amp;u=$post[userid]"><strong>$vbphrase[modtools_ban]</strong></a></td></tr></if></if>
+					<if condition="$show[modtools_editsig]"><tr><td class="vbmenu_option"><a href="modlink/user.php?do=editsig&u=$post[userid]"><strong>$vbphrase[modtools_censorsig]</strong></a></td></tr></if>
+					<if condition="$show[modtools_edit2]"><tr><td class="vbmenu_option"><a href="moderator.php?do=useroptions&u=$post[userid]"><strong>$vbphrase[modtools_edit2]</strong></a></td></tr></if>
+			</if> 
+		
+		

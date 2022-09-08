@@ -1,0 +1,5 @@
+<tr align="center">
+	<td class="$bgclass">$smilie[smilietext]</td>
+	<td class="$bgclass"><img src="$smilie[smiliepath]" border="0" alt="$smilie[title]" /></td>
+	<td class="$bgclass">$smilie[title]</td>
+</tr>

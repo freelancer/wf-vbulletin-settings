@@ -1,0 +1,1 @@
+This is the time in minutes after the post was posted.  If a user posted a post at 1:00 PM and this setting is set to 5, then that user will not be able to edit that post after 1:05 PM.

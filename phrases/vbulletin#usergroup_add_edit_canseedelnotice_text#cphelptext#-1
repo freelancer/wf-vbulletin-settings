@@ -1,0 +1,1 @@
+When an admin or mod deletes a thread they are given the option to "soft delete" or "physically delete."  When a thread is "soft deleted" a deletion notice is left in its place in the forum thread listing.  This permission determines whether or not members of this group can see those deletion notices.

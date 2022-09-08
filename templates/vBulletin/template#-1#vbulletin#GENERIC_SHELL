@@ -1,0 +1,15 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]" id="vbulletin_html">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $pagetitle</title>
+</head>
+<body>
+$header
+$navbar
+
+$HTML
+
+$footer
+</body>
+</html>

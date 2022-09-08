@@ -1,0 +1,5 @@
+$post_cachable = (
+	$vbulletin->options['cachemaxage'] > 0 AND
+	(TIMENOW - ($vbulletin->options['cachemaxage'] * 60 * 60 * 24)) <= $thread['lastpost'] AND
+	$vbulletin->session->vars['sessionurl'] == '' AND !VB_API
+);

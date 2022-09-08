@@ -1,0 +1,3 @@
+When listing multiple albums on one page, this controls how many will be displayed before pagination occurs.<br />
+<br />
+<b>Note: </b>This number must be at least 1.

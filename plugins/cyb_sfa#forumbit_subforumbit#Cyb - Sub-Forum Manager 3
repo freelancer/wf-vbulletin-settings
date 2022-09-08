@@ -1,0 +1,14 @@
+
+		if ($vbulletin->options['cybsfa_enable'])
+		{
+			eval('$cybsfa_exclfrms2 = in_array($forum[parentid], array(' . $vbulletin->options['cybsfa_excludedforums'] . '));');
+			eval('$cybsfa_countsexclfrms = in_array($forum[forumid], array(' . $vbulletin->options['cybsfa_counts_exclforums'] . '));');
+			eval('$cybsfa_blanklinesub = in_array($forum[forumid], array(' . $vbulletin->options['cybsfa_blankline_subs'] . '));');
+
+			switch ($vbulletin->options['cybsfa_tr_counts'])
+			{
+				case 1: $cybsfmp = ' ('.$forum['threadcount'].')'; $cybsfmt = $vbphrase['threads']; break;
+				case 2: $cybsfmp = ' ('.$forum['replycount'].')'; $cybsfmt = $vbphrase['posts']; break;
+				case 3: $cybsfmp = ' ('.$forum['threadcount'].'/'.$forum['replycount'].')'; $cybsfmt = $vbphrase['threads'].'/'.$vbphrase['posts']; break;
+			}
+		}

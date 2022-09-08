@@ -1,0 +1,8 @@
+if ($vbulletin->GPC['parsetype'] == 'blog_user' OR $vbulletin->GPC['parsetype'] == 'blog_entry')
+{
+	$dohtml = ($vbulletin->userinfo['permissions']['vbblog_entry_permissions'] & $vbulletin->bf_ugp_vbblog_entry_permissions['blog_allowhtml']);
+}
+else if ($vbulletin->GPC['parsetype']== 'blog_comment')
+{
+	$dohtml = ($vbulletin->userinfo['permissions']['vbblog_entry_permissions'] & $vbulletin->bf_ugp_vbblog_comment_permissions['blog_allowhtml']);
+}

@@ -1,0 +1,3 @@
+Time limit (in minutes) to impose on editing of messages. After this time limit only moderators will be able edit or delete the message. 1 day is 1440 minutes.<br />
+<br />
+Set the value to 0 to allow users to edit their posts indefinitely.

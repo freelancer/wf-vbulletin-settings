@@ -1,0 +1,1 @@
+Setting this value to 'Yes' will enable anyone to view your <i>phpinfo()</i> page by adding '&amp;do=phpinfo' to the URL.

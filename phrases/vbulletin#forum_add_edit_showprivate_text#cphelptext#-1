@@ -1,0 +1,5 @@
+Select 'No' here will hide this forum from users who are not allowed to access it. Users who do have permission to access them will have to log in before they can see these forums too.<br />
+<br />
+Either of the yes options will allow users to see this forum if they don't have access to it. The ability to see the forum's post count is controlled by the two yes options. If the forum is passworded, it is treated as a private forum until the user enters the valid password.<br />
+<br />
+Setting this option to 'Use Default' will use the setting in Forum Display Listings Options for this forum.

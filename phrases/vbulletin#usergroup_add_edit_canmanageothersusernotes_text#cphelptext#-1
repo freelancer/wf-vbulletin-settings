@@ -1,0 +1,3 @@
+This permission allows members of this group to manage (edit / delete) user notes for other users.  You should only grant this permission to users you trust.<br /><br />
+
+User notes can be managed on the screen that lists a user's notes - click the <i>User Notes: [View]</i> link when viewing a user's profile page on the frontend.

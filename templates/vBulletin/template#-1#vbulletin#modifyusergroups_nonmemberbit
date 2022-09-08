@@ -1,0 +1,21 @@
+<tr>
+	<td class="$bgclass">
+		$usergroup[opentag]$usergroup[title]$usergroup[closetag]
+		<div class="smallfont">$usergroup[description]</div>
+	</td>
+	<td class="$bgclass"><span class="smallfont">
+	<if condition="$ismoderated">
+		$vbphrase[requests_approved_by_leader]<br />$vbphrase[group_leaders]: $groupleaders
+	<else />
+		$vbphrase[anyone_free_to_join_group]
+	</if>
+	</span></td>
+	<td class="$bgclass"><span class="smallfont">
+	<if condition="$joinrequested">
+		<phrase 1="$joinrequest[date]" 2="$joinrequest[time]">$vbphrase[requested_to_join_x_at_y]</phrase>
+		<if condition="$joinrequest[reason]"><br /><strong>$vbphrase[request_reason]</strong>: <em>$joinrequest[reason]</em></if>
+	<else />
+		<label for="rb_join_$usergroup[usergroupid]"><input type="radio" name="usergroupid" id="rb_join_$usergroup[usergroupid]" value="$usergroup[usergroupid]" />$vbphrase[join_group]</label>
+	</if>
+	</span></td>
+</tr>

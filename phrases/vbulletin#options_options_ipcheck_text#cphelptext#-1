@@ -1,0 +1,1 @@
+This is used to specify to what length the session IP should be verified to, the most secure version is when an IP address is fully checked against the session stored IP though this can cause problems with certain ISP's. The security risk is however minimal as it involves being within a 254 range of the same connection.

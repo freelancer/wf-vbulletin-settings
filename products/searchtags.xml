@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<product productid="searchtags" active="1">
+    <title><![CDATA[Add searchtags]]></title>
+    <description>add searchtags</description>
+    <version>1.0.0</version>
+    <dependencies>
+    </dependencies>
+    <codes>
+        <code version="*">
+            <installcode><![CDATA[if (!file_exists(DIR . '/adminXwar/searchtags.php'))
+            {
+                print_dots_stop();
+                print_cp_message('Please upload searchtags.php before continuing!');
+            }]]></installcode>
+            <uninstallcode />
+        </code>
+    </codes>
+    <templates>
+        <template name="searchtagbit" templatetype="template"><![CDATA[<a href="/search/$searchtag[query_text]">$searchtag[name]</a>]]></template>
+
+        <template name="forum_searchtags" templatetype="template"><![CDATA[<div style="margin: 17px 0px">See more: $searchtagbit</div>]]></template>
+    </templates>
+    <phrases>
+        <phrasetype name="vBulletin Settings" fieldname="vbsettings">
+            <phrase name="setting_forumsearchtag_ver_desc" date="1236636631" username="!Unreal" version="1.0.0"><![CDATA[Forum Search Tag Link Version]]></phrase>
+            <phrase name="setting_forumsearchtag_ver_title" date="1236636631" username="!Unreal" version="1.0.0"><![CDATA[Forum SearchTag Link Version]]></phrase>
+            <phrase name="setting_searchtag_ver_desc" date="1236636631" username="!Unreal" version="1.0.0"><![CDATA[Search Tag Link Version]]></phrase>
+            <phrase name="setting_searchtag_ver_title" date="1236636631" username="!Unreal" version="1.0.0"><![CDATA[Search Tag Link Version]]></phrase>
+            <phrase name="settinggroup_searchtags" date="1236636101" username="!Unreal" version="1.0.0"><![CDATA[Search Tag Link Versions]]></phrase>
+        </phrasetype>
+    </phrases>
+    <options>
+        <settinggroup name="searchtags" displayorder="1620">
+            <setting varname="forumsearchtag_ver" displayorder="1">
+                <datatype>integer</datatype>
+                <defaultvalue>0</defaultvalue>
+            </setting>
+        </settinggroup>
+    </options>
+    <helptopics>
+    </helptopics>
+    <cronentries>
+    </cronentries>
+    <faqentries>
+    </faqentries>
+</product>

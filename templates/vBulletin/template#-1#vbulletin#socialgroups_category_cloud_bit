@@ -1,0 +1,1 @@
+<a href="group.php?$session[sessionurl]do=grouplist&amp;cat=$category[categoryid]" class="sg_catcloudlink sg_catlevel$category[level]">$category[title]</a> 

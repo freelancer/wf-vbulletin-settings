@@ -1,0 +1,3 @@
+On this screen you can modify the minimum amount required for each reputation level. Make sure you press Update Minimum Levels to save your changes. You cannot set the same minimum amount to more than one level.<br /><br />
+
+From this screen you can also choose to edit or remove any single level. Click the Edit link to modify the Level description (see <a href="help.php?do=answer&amp;page=adminreputation&amp;pageaction=edit">Editing a Reputation Level</a>) or click Remove to delete a level. If you remove a level or modify the minimum reputation needed to be at a level, all users will be updated to reflect their new level if necessary.

@@ -1,0 +1,3 @@
+This option specifies if you would like vB Optimise to cache Dismissed Notices.
+<br /><br />
+When using the vBulletin notices on your forum, any that can be dismissed will generate a query by vBulletin to check the users notices that have been dismissed. The result of this is a query everyhere notices are displayed. vB Optimise can cache this data to stop the query from executing.

@@ -1,0 +1,8 @@
+Dear $user[username],
+
+Someone has tried to log into your account on $vboptions[bbtitle] with an incorrect password at least 5 times. This person has been prevented from attempting to login to your account for the next 15 minutes.
+
+The person trying to log into your account had the following IP address: $ip
+
+All the best,
+$vboptions[bbtitle]

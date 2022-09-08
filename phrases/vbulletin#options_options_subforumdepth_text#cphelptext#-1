@@ -1,0 +1,14 @@
+Use this option to display deep subforums as text links in the parent's forum description area.<br /><br />
+
+For example, if your forums are setup like this:<br /><br />
+
+parent<br />
+--child<br />
+----child's child<br /><br />
+
+And your forum depth is set to 2 and this setting is set to 3 then you will see the first two forums displayed "fully" on the forum homepage while the level 3 "child's child" forum will appear within the "child" forum's description:<br /><br />
+
+parent<br />
+--child<br />
+&nbsp;&nbsp;<i>child forum's description.</i><br />
+&nbsp;&nbsp;<b>Sub-Forums:</b> child's child

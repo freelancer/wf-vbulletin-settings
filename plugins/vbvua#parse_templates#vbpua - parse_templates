@@ -1,0 +1,4 @@
+
+$vbpua_lasthook='parse_templates';
+include(DIR.'/includes/vbvua_hooks.php');
+             

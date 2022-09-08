@@ -1,0 +1,133 @@
+<div id="blog_sidebar_generic">
+
+	$ad_location[ad_blog_sidebar_start]
+
+	<div class="tborder" style="padding:$stylevar[cellspacing]px">
+		<div class="thead" style="padding:$stylevar[cellpadding]px">$vbphrase[blog_statistics]</div>
+		<div class="alt1" style="padding:$stylevar[cellpadding]px; margin-top:$stylevar[cellspacing]px">
+			<table width="100%">
+			<tr>
+				<th class="shade smallfont" align="$stylevar[left]"><a href="blog.php?$session[sessionurl]do=bloglist">$vbphrase[total_blogs]</a></th>
+				<td class="smallfont" align="$stylevar[right]">$blogstats[total_blog_users]</td>
+			</tr>
+			<tr>
+				<th class="shade smallfont" align="$stylevar[left]"><a href="blog.php?$session[sessionurl]do=list">$vbphrase[total_blog_entries]</a></th>
+				<td class="smallfont" align="$stylevar[right]">$blogstats[total_blog_entries]</td>
+			</tr>
+			<tr>
+				<th class="shade smallfont" align="$stylevar[left]"><a href="blog.php?$session[sessionurl]do=list&amp;span=24">$vbphrase[entries_in_last_24_hours]</a></th>
+				<td class="smallfont" align="$stylevar[right]">$blogstats[entries_in_24hours]</td>
+			</tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="tborder" style="margin-top:$stylevar[cellpadding]px; padding:$stylevar[cellspacing]px">
+		<div class="thead" style="padding:$stylevar[cellpadding]px">$vbphrase[options]</div>
+		<div class="alt1 smallfont" style="padding:$stylevar[cellpadding]px; margin-top:$stylevar[cellspacing]px">
+			<if condition="$show['gotoblog']">
+			<div style="margin-top:2px">
+				<img src="$stylevar[imgdir_misc]/blog/user_comment.gif" border="0" class="inlineimg" alt="" />
+				<a href="blog.php?$session[sessionurl]u=$bbuserinfo[userid]">$vbphrase[your_blog]</a>
+			</div>
+			</if>
+			<if condition="$show['postblog']">
+			<div style="margin-top:2px">
+				<img src="$stylevar[imgdir_misc]/blog/page_white_edit.gif" border="0" class="inlineimg" alt="" />
+				<a href="blog_post.php?$session[sessionurl]do=newblog" rel="nofollow">$vbphrase[post_to_your_blog]</a>
+			</div>
+			</if>
+			<div style="margin-top:2px">
+				<img src="$stylevar[imgdir_misc]/blog/lightning.gif" border="0" class="inlineimg" alt="" />
+				<a href="blog.php?$session[sessionurl]do=random">$vbphrase[view_random_blog_entry]</a>
+			</div>
+			<if condition="$show['rssfeed']">
+			<div style="margin-top:2px">
+				<img src="$stylevar[imgdir_misc]/blog/feed-icon.gif" border="0" class="inlineimg" alt="" />
+				<a href="blog_external.php">$vbphrase[view_rss_feed]</a>
+			</div>
+			</if>
+			<if condition="$show['member']">
+			<div style="margin-top:2px">
+				<img src="$stylevar[imgdir_misc]/blog/cog.gif" border="0" class="inlineimg" alt="" />
+				<a href="blog_usercp.php$session[sessionurl_q]">$vbphrase[blog_control_panel]</a>
+			</div>
+			</if>
+		</div>
+	</div>
+
+	$ad_location[ad_blog_sidebar_middle]
+
+	<form action="blog_search.php?do=dosearch" method="post" style="display:block; margin:0px">
+	<input type="hidden" name="quicksearch" value="1" />
+	<div class="tborder" style="margin-top:$stylevar[cellpadding]px; padding:$stylevar[cellspacing]px">
+		<div class="thead" style="padding:$stylevar[cellpadding]px">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('blog_search')"><img id="collapseimg_blog_search" src="$stylevar[imgdir_button]/collapse_generic$vbcollapse[collapseimg_blog_search].gif" alt="" border="0" /></a>
+			$vbphrase[find_blog_entries]
+		</div>
+		<div style="$vbcollapse[collapseobj_blog_search]" id="collapseobj_blog_search">
+			<div class="alt1 smallfont" style="padding:$stylevar[cellpadding]px; margin:$stylevar[cellspacing]px 0px $stylevar[cellspacing]px 0px">
+				<label for="quicksearch_blog_text" class="smallfont" style="display:block; margin-top:$stylevar[cellpadding]px">$vbphrase[containing_text]</label>
+				<input type="text" class="bginput" style="width:95%" tabindex="51" name="text" id="quicksearch_blog_text" />
+				<label class="smallfont" style="display:block; margin-top:$stylevar[cellpadding]px" for="cb_titleonly"><input class="inlineimg" type="checkbox" tabindex="52" name="titleonly" id="cb_titleonly" value="1" />$vbphrase[search_titles_only]</label>
+			</div>
+			<div class="alt2 smallfont" style="padding:$stylevar[cellpadding]px">
+				<input type="submit" class="button" style="font-size:10px; float:$stylevar[right]" value="$vbphrase[search]" tabindex="53" />
+				<a href="blog_search.php?$session[sessionurl]do=search">$vbphrase[advanced_search]</a>
+			</div>
+		</div>
+	</div>
+	<input type="hidden" name="s" value="$session[sessionhash]" />
+	<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+	<input type="hidden" name="do" value="dosearch" />
+	</form>
+
+	<if condition="$sidebar['categorybits']">
+		<div class="tborder" style="margin-top:$stylevar[cellpadding]px; padding:$stylevar[cellspacing]px">
+			<div class="thead" style="padding:$stylevar[cellpadding]px">
+				<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('blog_categories')"><img id="collapseimg_blog_categories" src="$stylevar[imgdir_button]/collapse_generic$vbcollapse[collapseimg_blog_categories].gif" alt="" border="0" /></a>
+				$vbphrase[blog_categories]
+			</div>
+			<div class="alt1 smallfont" style="padding:$stylevar[cellpadding]px; margin-top:$stylevar[cellspacing]px; $vbcollapse[collapseobj_blog_categories]" id="collapseobj_blog_categories">
+				<div class="block_category_list">
+					<ul class="list_no_decoration">
+						$sidebar[categorybits]
+					</ul>
+				</div>
+			</div>
+		</div>
+	</if>
+
+	<div id="vb_blogcalendar">
+	$calendar
+	</div>
+
+	<script type="text/javascript" src="clientscript/blog_ajax_calendar.js?v=$vboptions[simpleversion]"></script>
+	<script type="text/javascript">
+	<!--
+		blogCalendar = new vB_AJAX_BlogCalendar('blogCalendar', 'vb_blogcalendar', $month, $year);
+	//-->
+	</script>
+
+	<if condition="$tag_cloud">
+		<div class="tborder" style="margin-top:$stylevar[cellpadding]px; padding:$stylevar[cellspacing]px">
+			<div class="thead" style="padding:$stylevar[cellpadding]px">
+				<a style="float:$stylevar[right]; padding-$stylevar[left]:$stylevar[cellspacing]px" href="#top" onclick="return toggle_collapse('global_blog_cloud')"><img id="collapseimg_global_blog_cloud" src="$stylevar[imgdir_button]/collapse_generic$vbcollapse[collapseimg_blog_cloud].gif" alt="" border="0" /></a>
+				$vbphrase[global_tag_cloud]
+			</div>
+			<div style="$vbcollapse[collapseobj_global_blog_cloud]" id="collapseobj_global_blog_cloud">
+				<div class="alt1 smallfont" style="padding:$stylevar[cellpadding]px; margin:$stylevar[cellspacing]px 0px $stylevar[cellspacing]px 0px">
+					<div id="tags_cloud_list" style="overflow:hidden">
+						$tag_cloud
+					</div>
+				</div>
+				<div class="alt2 smallfont" style="padding:$stylevar[cellpadding]px">
+					<a href="blog_tag.php$session[sessionurl_q]">$vbphrase[search_by_tag]</a>
+				</div>
+			</div>
+		</div>
+	</if>
+
+	$ad_location[ad_blog_sidebar_end]
+
+</div>

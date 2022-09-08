@@ -1,0 +1,66 @@
+<if condition="$show['featured']">
+	<div class="tborder" style="padding-bottom:1px">
+		<div class="tcat" style="padding:$stylevar[cellpadding]px; margin:$stylevar[cellspacing]px">
+			<phrase 1="$vboptions[bbtitle]">$vbphrase[blogs_from_the_members_of_boardname]</phrase>
+		</div>
+		<div id="blogentries">$featured_blogbits</div>
+	</div>
+	<if condition="$show['lightbox']">
+		<!-- lightbox scripts -->
+			<script type="text/javascript" src="clientscript/vbulletin_lightbox.js?v=$vboptions[simpleversion]"></script>
+			<script type="text/javascript">
+			<!--
+			vBulletin.register_control("vB_Lightbox_Container", "blogentries", $vboptions[lightboxenabled]);
+			//-->
+			</script>
+		<!-- / lightbox scripts -->
+	</if>
+	<div class="tborder" style="margin-top:10px">
+<else />
+	<div class="tborder">
+		<div class="tcat" style="padding:$stylevar[cellpadding]px; margin:$stylevar[cellspacing]px $stylevar[cellspacing]px 0"><phrase 1="$vboptions[bbtitle]">
+			$vbphrase[blogs_from_the_members_of_boardname]</phrase>
+		</div>
+</if>
+
+	<table cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+	<tr>
+		<td class="thead" valign="top">
+			<div style="padding-$stylevar[right]: 5px; float:$stylevar[left]; <if condition="$display['latest']">display:$display[latest]</if>" id="vb_bloglatest_latest">$vbphrase[recent_blog_entries]</div>
+			<div style="padding-$stylevar[right]: 5px; float:$stylevar[left]; <if condition="$display['latest_link']">display:$display[latest_link]</if>" id="vb_bloglatest_latest_link"><a href="blog.php?$session[sessionurl]do=list&amp;blogtype=latest">$vbphrase[recent_blog_entries]</a></div>
+			<div style="padding-$stylevar[right]: 5px; float:$stylevar[left]; <if condition="$display['rating']">display:$display[rating]</if>" id="vb_bloglatest_rating">$vbphrase[best_blog_entries]</div>
+			<div style="padding-$stylevar[right]: 5px; float:$stylevar[left]; <if condition="$display['rating_link']">display:$display[rating_link]</if>" id="vb_bloglatest_rating_link"><a href="blog.php?$session[sessionurl]do=list&amp;blogtype=best">$vbphrase[best_blog_entries]</a></div>
+			<div style="padding-$stylevar[right]: 5px; float:$stylevar[left]; <if condition="$display['blograting']">display:$display[blograting]</if>" id="vb_bloglatest_blograting">$vbphrase[best_blogs]</div>
+			<div style="padding-$stylevar[right]: 5px; float:$stylevar[left]; <if condition="$display['blograting_link']">display:$display[blograting_link]</if>" id="vb_bloglatest_blograting_link"><a href="blog.php?$session[sessionurl]do=bloglist&amp;blogtype=best">$vbphrase[best_blogs]</a></div>
+		</td>
+		<td class="thead" valign="top">$vbphrase[recent_comments]</td>
+	</tr>
+	<tr valign="top">
+		<td class="alt1" width="50%">
+			<ol class="list_no_decoration" id="latestblogs">$recentblogbits</ol>
+		</td>
+		<td class="alt1" width="50%">
+			<ol class="list_no_decoration" id="latestcomments">$recentcommentbits</ol>
+		</td>
+	</tr>
+	<tr>
+		<td class="alt2 smallfont">
+			<div style="float:$stylevar[right]">
+				<span id="vb_bloglatest_latest_findmore"><a href="blog.php?$session[sessionurl]do=list">$vbphrase[find_more]</a></span>
+				<span id="vb_bloglatest_rating_findmore" style="display:none"><a href="blog.php?$session[sessionurl]do=list&amp;blogtype=best">$vbphrase[find_more]</a></span>
+				<span id="vb_bloglatest_blograting_findmore" style="display:none"><a href="blog.php?$session[sessionurl]do=bloglist&amp;blogtype=best">$vbphrase[find_more]</a></span>
+			</div>
+			<img class="inlineimg" style="display:none" id="progress_latest" src="$stylevar[imgdir_misc]/13x13progress.gif" alt="" />
+		</td>
+		<td class="alt2 smallfont" align="$stylevar[right]"><a href="blog.php?$session[sessionurl]do=comments">$vbphrase[find_more]</a></td>
+	</tr>
+	</table>
+</div>
+
+
+<script type="text/javascript" src="clientscript/blog_ajax_latest.js?v=$vboptions[simpleversion]"></script>
+<script type="text/javascript">
+<!--
+	blogLatest = new vB_AJAX_BlogLatest('blogLatest');
+//-->
+</script>

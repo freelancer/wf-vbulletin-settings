@@ -1,0 +1,1 @@
+This option will save a cookie onto the user's computer if an age  under 13 is entered.  Subsequent registration attempts will be failed, no matter what age is entered.<br /><br />This will stop users from trying to register with an age older than 13.  Users can still circumvent this check by manually removing the cookie.

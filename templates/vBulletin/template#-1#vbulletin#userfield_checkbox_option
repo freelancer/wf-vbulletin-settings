@@ -1,0 +1,1 @@
+<td valign="top"><label for="cb_cpf_{$profilefieldname}_$key"><input type="checkbox" name="userfield[$profilefieldname][]" value="$key" id="cb_cpf_{$profilefieldname}_$key" $checked />$val</label></td>

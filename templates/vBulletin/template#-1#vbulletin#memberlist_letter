@@ -1,0 +1,5 @@
+<if condition="$show['selectedletter']">
+<td class="alt1" width="3%">[<strong>$currentletter</strong>]</td>
+<else />
+<td class="alt2" width="3%"><a href="memberlist.php?$session[sessionurl]ltr=$linkletter&amp;pp=$perpage&amp;sort=$sortfield&amp;order=$sortorder$usergrouplink$ltrurl">$currentletter</a></td>
+</if>

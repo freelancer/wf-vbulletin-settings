@@ -1,0 +1,30 @@
+<fieldset class="fieldset">
+	<legend>$vbphrase[image_verification]</legend>
+	<input id="hash" type="hidden" name="${var_prefix}[hash]" value="$humanverify[hash]" />
+	<script type="text/javascript">
+		var RecaptchaOptions = {
+			theme : '$humanverify[theme]'
+			<if condition="$humanverify['langcode']">,lang : '$humanverify[langcode]'</if>
+		};
+	</script>
+	<div dir="ltr">
+	<if condition="$show['recaptcha_ssl']">
+		<script type="text/javascript" src="https://api-secure.recaptcha.net/challenge?k=$humanverify[publickey]">
+	<else />
+		<script type="text/javascript" src="http://api.recaptcha.net/challenge?k=$humanverify[publickey]">
+	</if>
+	</script>
+	</div>
+
+	<noscript>
+		<if condition="$show['recaptcha_ssl']">
+			<iframe src="https://api-secure.recaptcha.net/noscript?k=$humanverify[publickey]" height="300" width="400" frameborder="0"></iframe>
+		<else />
+			<iframe src="http://api.recaptcha.net/noscript?k=$humanverify[publickey]" height="300" width="400" frameborder="0"></iframe>
+	  </if>
+	   <br />
+	   <textarea name="recaptcha_challenge_field" rows="3" cols="40">
+	   </textarea>
+	   <input type="hidden" name="recaptcha_response_field" value="manual_challenge" />
+	</noscript>
+</fieldset>

@@ -1,0 +1,7 @@
+This page may display two version numbers.<br />
+<br />
+<strong>Product Version</strong><br />
+This is the current version of your product. It is important to increment this when you make changes to your product so install codes can be managed properly and your users will know when there is a newer version out.<br />
+<br />
+<strong>Install/Uninstall Code Version</strong><br />
+This is the version the install/uninstall code is associated with. When you release a product that requires code to be run during installation or uninstallation, you should associate it with the first version of the product that requires the code.

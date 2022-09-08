@@ -1,0 +1,1 @@
+<a href="forumdisplay.php?$session[sessionurl]f=$forum[forumid]">$forum[title]</a>

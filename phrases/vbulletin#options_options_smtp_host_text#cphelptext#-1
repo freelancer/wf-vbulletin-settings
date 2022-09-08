@@ -1,0 +1,3 @@
+The host address needs to be a fully qualified domain name (e.g. smtp.yoursite.com), an IP address (e.g. 65.123.200.5), or some other identifying address.<br /><br />
+
+Use "localhost" (no quotes) if the mail server is on the local machine.

@@ -1,0 +1,3 @@
+When disabled, bbcode is stripped, links are replaced with the <strong>[link]</strong> placeholder and attachments are not displayed.
+<br /><br />
+Enabling full parsing of bbcode and attachments displays the featured entry as it does when opened.  When using a fixed width style, the parsing of bbcode and attachment may stretch the entry so that it flows out of the style.

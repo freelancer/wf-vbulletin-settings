@@ -1,0 +1,13 @@
+Dear $username,
+
+$notes
+
+<a href="$vboptions[bburl]/showthread.php?$threadinfo[threadid]">$threadinfo[title]</a>
+
+Please review our WSO marketplace rules <a href="http://www.warriorforum.com/warrior-special-offers/announcements.html">by clicking here.</a>
+
+If you have any issues please contact our helpdesk - <a href="http://www.warriorforumsupport.com">http://www.warriorforumsupport.com</a>
+
+Best Regards,
+
+$vboptions[bbtitle]

@@ -1,0 +1,14 @@
+<!-- post #$post[postid] -->
+<if condition="$show['spacer']">
+	$spacer_open
+	<div id="edit$post[postid]" style="padding:0px 0px $stylevar[cellpadding]px 0px">
+	<if condition="!$post['islastshown']"><!-- this is not the last post shown on the page --></if>
+</if>
+
+$postbit
+
+<if condition="$show['spacer']">
+	</div>
+	$spacer_close
+</if>
+<!-- / post #$post[postid] -->

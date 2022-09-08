@@ -1,0 +1,4 @@
+if (THIS_SCRIPT == 'usercp')
+{
+   $globaltemplates[] = 'personal_notepad';
+}

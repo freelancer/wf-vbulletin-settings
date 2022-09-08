@@ -1,0 +1,11 @@
+Dear $userinfo[username],
+
+Your WSO "Pay to Sticky" as now expired. Pay to Sticky your WSO again to ensure you get maximum exposure.
+
+We only have 4 sticky spots so make sure you upgrade now to guarantee your spot. Once the 4 slots are sold there will be no more available. Get in quick and sticky your WSO!
+
+
+<a href="$vboptions[bburl]/payment.php?do=pay&t=$threadinfo[threadid]&action=sticky&utm_source=sticky_renew&utm_medium=private_message&utm_campaign=upgrades">Sticky my WSO again</a>
+
+Best Regards,
+$vboptions[bbtitle]

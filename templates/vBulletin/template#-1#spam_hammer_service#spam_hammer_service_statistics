@@ -1,0 +1,12 @@
+<div id="wgo_spam_hammer" class="wgo_subblock section">
+	<h3 class="blocksubhead"><img src="{vb:stylevar imgdir_misc}/forum_stats.png" /><a href="http://vbresults.com/spam-hammer" target="_blank" style="text-decoration: underline;">{vb:rawphrase spam_hammer_service_statistics}</a></h3>
+	<div style="font-size: 1.5em; margin-bottom: 5px;">
+		{vb:rawphrase spam_hammer_service_statistics_attack_preventions, {vb:raw statistics.blocks}}
+	</div>
+	<div>
+		<dl>
+			<dt>{vb:rawphrase spam_hammer_service_statistics_virgins} {vb:rawphrase today}</dt>
+			<dd>{vb:raw statistics.virgins.day}, {vb:rawphrase week}: {vb:raw statistics.virgins.week}, {vb:rawphrase month}: {vb:raw statistics.virgins.month}, {vb:rawphrase year}: {vb:raw statistics.virgins.year}</dd>
+		</dl>
+	</div>
+</div>

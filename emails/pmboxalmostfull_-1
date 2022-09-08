@@ -1,0 +1,7 @@
+Dear $touserinfo[username],
+
+Your private messages box on $vboptions[bbtitle] has reached 90% of your allowed quota. To ensure that you do not reach 100% of your allowed messages, you should consider archiving or deleting some of your messages. Please visit this page to do so:
+$vboptions[bburl]/private.php
+
+All the best,
+$vboptions[bbtitle]

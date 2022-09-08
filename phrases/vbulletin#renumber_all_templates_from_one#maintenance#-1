@@ -1,0 +1,1 @@
+Renumber all templates from 1 <dfn><b>Note:</b> this option requires that your MySQL account has ALTER, CREATE and DROP privileges.<br />If you are not sure, do not use this option!</dfn>

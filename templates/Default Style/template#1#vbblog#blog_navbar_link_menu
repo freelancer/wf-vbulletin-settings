@@ -1,0 +1,34 @@
+<div class="vbmenu_popup" id="vbbloglinks_menu" style="display:none;margin-top:3px" align="$stylevar[left]">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead"><a href="blog.php$session[sessionurl_q]">$vbphrase[blogs]</a></td>
+	</tr>
+	<if condition="$show['canpostitems']">
+	<tr>
+		<td class="vbmenu_option"><a href="blog.php?$session[sessionurl]u=$bbuserinfo[userid]">$vbphrase[your_blog]</a></td>
+	</tr>
+	</if>
+	<tr>
+
+<tr>
+<td class="vbmenu_option"><a href="blog_post.php?$session[sessionurl]do=newblog">Post to Your Blog</a></td>
+</tr>
+
+		<td class="vbmenu_option"><a href="blog.php?$session[sessionurl]do=list">$vbphrase[recent_entries]</a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><a href="blog.php?$session[sessionurl]do=list&amp;blogtype=best">$vbphrase[best_blog_entries]</a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><a href="blog.php?$session[sessionurl]do=bloglist&amp;blogtype=best">$vbphrase[best_blogs]</a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><a href="blog.php?$session[sessionurl]do=bloglist">$vbphrase[blog_list]</a></td>
+	</tr>
+	<if condition="$show['blog_search']">
+	<tr>
+		<td class="vbmenu_option"><a href="blog_search.php?$session[sessionurl]do=search">$vbphrase[search_blogs]</a></td>
+	</tr>
+	</if>
+	</table>
+</div>

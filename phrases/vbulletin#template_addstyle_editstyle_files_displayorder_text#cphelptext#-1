@@ -1,0 +1,10 @@
+This display order is used to order the listing of styles at this level of styles in the Style Manager in the Admin CP and in the Quick Style Chooser at the bottom left of your forums.<br /><br />
+
+For example, a style tree like this would have the display orders that are listed below:<br /><br />
+
+MASTER STYLE - 1<br />
+--Child Style - 1<br />
+--Another Child - 2<br />
+----Baby Style - 1<br />
+----Another Baby - 2<br />
+--Yet Another - 3

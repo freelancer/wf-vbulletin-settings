@@ -1,0 +1,6 @@
+require_once(DIR . '/includes/class_profileblock_blog.php');
+$blocklist['blog'] = array(
+	'class' => 'Blog',
+	'title' => $vbphrase['blog'],
+);
+eval('$template_hook[\'memberinfo_css\'] .= "' . fetch_template('blog_member_css') . '";');

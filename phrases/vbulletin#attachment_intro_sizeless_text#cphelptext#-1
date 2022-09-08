@@ -1,0 +1,1 @@
+Enter the size, in bytes, that the attachment must be smaller than. Remember this is in bytes, <i>not</i> KiloBytes! Note that if you are using both Filesize Greater Than and Filesize Less Than, Filesize Greater Than must be less than Filesize Less Than or there will be no range to search!

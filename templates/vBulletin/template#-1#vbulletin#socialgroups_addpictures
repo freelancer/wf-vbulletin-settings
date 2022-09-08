@@ -1,0 +1,43 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+	$headinclude
+	<title>$vboptions[bbtitle] - $custompagetitle</title>
+</head>
+<body>
+$header
+$navbar
+
+$messages
+
+<form action="group.php?do=insertpictures&amp;groupid=$group[groupid]" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="insertpictures" />
+<input type="hidden" name="groupid" value="$group[groupid]" />
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[add_pictures_to_group]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+		<div class="panel">
+			<div class="smallfont" align="$stylevar[left]" style="width:$stylevar[formwidth]">
+				<phrase 1="album.php?$session[sessionurl]u=$bbuserinfo[userid]">$vbphrase[may_add_pictures_group_paste_url]</phrase>
+				<hr size="1" style="color:$stylevar[tborder_bgcolor]; background-color:$stylevar[tborder_bgcolor]" />
+				$vbphrase[picture_urls]: <span class="shade">$vbphrase[one_url_per_line_paren]</span>
+				<div><textarea class="bginput" name="pictureurls" cols="50" rows="5" tabindex="1" style="width: 98%"></textarea></div>
+			</div>
+		</div>
+
+		<div style="margin-top:$stylevar[cellpadding]px">
+			<input type="submit" value="$vbphrase[add_pictures]" class="button" accesskey="s" tabindex="1" />
+		</div>
+	</td>
+</tr>
+</table>
+</form>
+
+$footer
+</body>
+</html>

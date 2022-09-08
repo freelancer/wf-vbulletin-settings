@@ -1,0 +1,23 @@
+<fieldset class="statistics_group">
+	<legend>$vbphrase[post_thanks_total_thanks]</legend>
+	<ul class="list_no_decoration">
+		<li><span class="shade">$vbphrase[post_thanks_total_thanks]:</span> $userinfo[post_thanks_user_amount_formatted]</li>
+		<li><span class="shade">
+			<if condition="$userinfo[post_thanks_thanked_times] == 1">
+				$vbphrase[post_thanks_time_post]
+			<else />
+				<if condition="$userinfo[post_thanks_thanked_posts] == 1">
+					<phrase 1="$userinfo[post_thanks_thanked_times_formatted]">$vbphrase[post_thanks_times_post]</phrase>
+				<else />
+					<phrase 1="$userinfo[post_thanks_thanked_times_formatted]" 2="$userinfo[post_thanks_thanked_posts_formatted]">$vbphrase[post_thanks_times_posts]</phrase>
+				</if>
+			</if>
+		</span></li>
+		<li>
+			<a rel="nofollow" href="post_thanks.php?do=findthanks&amp;u=$userinfo[userid]"><phrase 1="$userinfo[username]">$vbphrase[post_thanks_search_user]</phrase></a>
+		</li>
+		<li>
+			<a rel="nofollow" href="post_thanks.php?do=findthanks_user_gave&amp;u=$userinfo[userid]"><phrase 1="$userinfo[username]">$vbphrase[post_thanks_search_user_gave]</phrase></a>
+		</li>
+	</ul>
+</fieldset>

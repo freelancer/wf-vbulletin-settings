@@ -1,0 +1,8 @@
+<!-- open content container -->
+<if condition="$show['old_explorer']">
+	<table cellpadding="0" cellspacing="0" border="0" width="$stylevar[outertablewidth]" align="center"><tr><td class="page" style="padding:0px $stylevar[spacersize]px 0px $stylevar[spacersize]px">
+<else />
+<div align="center">
+	<div class="page" style="width:$stylevar[outerdivwidth]; text-align:$stylevar[left]">
+		<div style="padding:0px $stylevar[spacersize]px 0px $stylevar[spacersize]px" align="$stylevar[left]">
+</if>

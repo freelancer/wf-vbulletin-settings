@@ -1,0 +1,9 @@
+From this screen you can view, and if you have permission, prune, your admin log.<br /><br />
+
+Under Viewing, you have four options to limit your log search. These are explained below.<br /><br />
+
+Once you have made your selection, press View Logs.<br /><br />
+
+If you wish to prune your log, the pruning selector is very similar. The options are also described below.<br /><br />
+
+Keep in mind that these options are cumulative. If you select JoeBlow for option #2 and enter 40 for option #3, you will remove all entries by JoeBlow that are more than 40 days old.

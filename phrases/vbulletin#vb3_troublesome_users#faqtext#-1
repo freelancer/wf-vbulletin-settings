@@ -1,0 +1,9 @@
+<p><b>Can I block posts, emails and messages from specific users?</b></p>
+
+<p>If there are particular members that bother you and you do not want to see their posts or receive Private Messages and Emails from them, then you can add these members to your 'Ignore List'. There are several ways to do this:</p>
+
+<p>Through your User Control Panel: <a href="usercp.php$session[sessionurl_q]">User CP</a>, Settings &amp; Options, <a href="profile.php?$session[sessionurl]do=ignorelist">Edit Ignore List</a>.  Then, type their name into the empty text box and click 'Okay'.</p>
+
+<p><b>What if I see something offensive?</b></p>
+
+<p>You will find 'Report' links in many places throughout the board. These links allow you to alert the board staff to anything which you find to be offensive, objectionable or illegal.</p>

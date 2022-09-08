@@ -1,0 +1,1 @@
+$headinclude .= '<script type="text/javascript" src="clientscript/quick_delete_posts.js"></script>';

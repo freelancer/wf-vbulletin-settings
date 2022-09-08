@@ -1,0 +1,19 @@
+<div style="margin-bottom:$stylevar[cellpadding]px">
+	<if condition="$show['holiday']">
+		<a href="calendar.php?$session[sessionurl]do=getinfo&amp;day=$weekyear-$month-$weekday&amp;c=$calendarid" title="$value[preview]"><strong>$eventtitle</strong></a>
+	<else />
+		<if condition="$show['time']">
+			<div class="smallfont"><span class="time">
+				<if condition="$allday">
+					$vbphrase[all_day]
+				<else />
+					$fromtime - $totime
+				</if>
+			</span></div>
+		</if>
+		<div>
+			<if condition="$issubscribed"><img class="inlineimg" src="$stylevar[imgdir_misc]/subscribed_event.gif" alt="$vbphrase[event_notification]" /></if>
+			<a href="calendar.php?$session[sessionurl]do=getinfo&amp;e=$eventid&amp;day=$year-$month-$day&amp;c=$calendarid" title="$value[preview]">$eventtitle</a>
+		</div>
+	</if>
+</div>

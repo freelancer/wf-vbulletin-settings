@@ -1,0 +1,4 @@
+if (VB_API === true)
+{
+	$threadedmode = 0;
+}

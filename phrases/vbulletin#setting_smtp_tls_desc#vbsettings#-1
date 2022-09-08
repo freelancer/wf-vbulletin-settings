@@ -1,0 +1,1 @@
+If you've enabled SMTP mail and your server requires a secure connection, please set the appropriate setting. This requires OpenSSL support to be compiled into PHP.

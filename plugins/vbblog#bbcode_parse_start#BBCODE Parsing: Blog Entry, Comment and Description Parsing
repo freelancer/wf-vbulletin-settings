@@ -1,0 +1,19 @@
+if (!empty($this->parse_userinfo['permissions']))
+{
+	switch($forumid)
+	{
+		case 'blog_entry':
+		case 'blog_user':
+			$dohtml = ($this->parse_userinfo['permissions']['vbblog_entry_permissions'] & $this->registry->bf_ugp_vbblog_entry_permissions['blog_allowhtml']);
+			$dobbcode = ($this->parse_userinfo['permissions']['vbblog_entry_permissions'] & $this->registry->bf_ugp_vbblog_entry_permissions['blog_allowbbcode']);
+			$dobbimagecode = ($this->parse_userinfo['permissions']['vbblog_entry_permissions'] & $this->registry->bf_ugp_vbblog_entry_permissions['blog_allowimages']);
+			$dosmilies = ($allowsmilie AND ($this->parse_userinfo['permissions']['vbblog_entry_permissions'] & $this->registry->bf_ugp_vbblog_entry_permissions['blog_allowsmilies']));
+			break;
+		case 'blog_comment':
+			$dohtml = ($this->parse_userinfo['permissions']['vbblog_comment_permissions'] & $this->registry->bf_ugp_vbblog_comment_permissions['blog_allowhtml']);
+			$dobbcode = ($this->parse_userinfo['permissions']['vbblog_comment_permissions'] & $this->registry->bf_ugp_vbblog_comment_permissions['blog_allowbbcode']);
+			$dobbimagecode = ($this->parse_userinfo['permissions']['vbblog_comment_permissions'] & $this->registry->bf_ugp_vbblog_comment_permissions['blog_allowimages']);
+			$dosmilies = ($allowsmilie AND ($this->parse_userinfo['permissions']['vbblog_comment_permissions'] & $this->registry->bf_ugp_vbblog_comment_permissions['blog_allowsmilies']));
+			break;
+	}
+}

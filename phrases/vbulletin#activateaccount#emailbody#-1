@@ -1,0 +1,29 @@
+Dear $username,
+
+Thank you for registering at the $vboptions[bbtitle]. Before we can activate your account one last step must be taken to complete your registration.
+
+Please note - you must complete this last step to become a registered member. You will only need to visit this URL once to activate your account.
+
+To complete your registration, please visit this URL:
+$vboptions[bburl]/register.php?a=act&u=$userid&i=$activateid
+
+<a href="$vboptions[bburl]/register.php?a=act&u=$userid&i=$activateid">America Online Users Please Visit Here to be Activated</a>
+
+**** Does The Above URL Not Work? ****
+If the above URL does not work, please use your Web browser to go to:
+$vboptions[bburl]/register.php?a=ver
+
+Please be sure not to add extra spaces. You will need to type in your username and activation number on the page that appears when you visit the URL.
+
+Your Username is: $username
+Your Activation ID is: $activateid
+
+If you are still having problems signing up please contact a member of our support staff at $vboptions[webmasteremail]
+
+All the best,
+$vboptions[bbtitle]
+
+
+--------------------
+To stop receiving this email, please visit this URL:
+$vboptions[bburl]/register.php?do=deleteactivation&u=$userid&i=$activateid 

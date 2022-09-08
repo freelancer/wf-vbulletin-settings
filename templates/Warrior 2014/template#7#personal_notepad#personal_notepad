@@ -1,0 +1,54 @@
+<form name="personalnotepad" method="post" action="usercp.php$session[sessionurl_q]">
+<table class="tborder" width="100%" cellspacing="$stylevar[cellspacing]" cellpadding="$stylevar[cellpadding]" align="center">
+<thead>
+<tr>
+<td class="tcat"><a style="float:$stylevar[right];" href="#top" onclick="return toggle_collapse('notepad');"><img id="collapseimg_notepad" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_notepad].gif" alt="" border="0"></a> $vbphrase[personal_notepad]</td>
+</tr>
+</thead>
+<tbody id="collapseobj_notepad" style="$vbcollapse[collapseobj_notepad]">
+<tr>
+<td class="panelsurround" align="center">
+<div class="panel">
+<textarea name="notepad" id="notepad" rows="7" cols="$vboptions[personal_notepad_cols]" ng-non-bindable <if condition="$vbulletin->options['personal_notepad_liquid']"> style="width:95%"</if>><if condition="$vbulletin->userinfo['notepad']">{$vbulletin->userinfo['notepad']}<else />$vbphrase[personal_notepad_explanation]</if></textarea>
+<div class="smallfont" style="<if condition="$vbulletin->options['personal_notepad_liquid']">text-align:left;</if>width:95%;margin:auto"><if condition="$vbulletin->options['personal_notepad_liquid']"><span style="float:$stylevar[right]"><phrase 1="$notepadlength" 2="$vboptions[personal_notepad_maxlength]">$vbphrase[you_have_used_x_y_characters]</phrase></span></if> <a href="#" onclick="return resize_notepad(true)">$vbphrase[increase_size]</a> <a href="#" onclick="return resize_notepad(false)">$vbphrase[decrease_size]</a><if condition="!$vbulletin->options['personal_notepad_liquid']"><br /><phrase 1="$notepadlength" 2="$vboptions[personal_notepad_maxlength]">$vbphrase[you_have_used_x_y_characters]</phrase></if>
+</div>
+</div>
+<div style="margin-top:$stylevar[cellpadding]px">
+<input type="hidden" name="do" value="savenotepad" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="submit" value="$vbphrase[save_notepad]" />
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+<script type="text/javascript">
+var notepad = fetch_object('notepad');
+var counter = fetch_object('notepad_charcounter');
+
+function checklength() {
+   if (notepad.value.length > {$vbulletin->options['personal_notepad_maxlength']}) {
+      counter.className = "highlight";
+   }
+   else {
+      counter.className = "";
+   }
+   counter.innerHTML = notepad.value.length;
+}
+
+function resize_notepad (add) {
+   if (add) {
+      notepad.rows += 5;
+   }
+   else {
+      notepad.rows -= 5;
+   }
+   return false;
+}
+
+notepad.onkeyup = checklength;
+<if condition="!$vbulletin->userinfo['notepad']">notepad.onfocus = function() { notepad.innerHTML = ""; notepad.onfocus = ""; };</if>
+checklength();
+</script>
+<br />

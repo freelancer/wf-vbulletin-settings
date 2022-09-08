@@ -1,0 +1,10 @@
+<tr>
+	<td class="alt1" align="$stylevar[left]">
+		<if condition="$simthread['issubscribed']"><img class="inlineimg" src="$stylevar[imgdir_misc]/subscribed.gif" alt="" title="$vbphrase[you_are_subscribed_to_this_thread]" /></if>
+		<span class="smallfont">$simthread[prefix_rich] <a href="showthread.php?$session[sessionurl]t=$simthread[threadid]" title="$simthread[preview]">$simthread[title]</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">$simthread[postusername]</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">$simthread[forumtitle]</span></td>
+	<td class="alt2" align="center"><span class="smallfont">$simthread[replycount]</span></td>
+	<td class="alt1" align="$stylevar[right]"><span class="smallfont">$simthread[lastreplydate] <span class="time">$simthread[lastreplytime]</span></span></td>
+</tr>

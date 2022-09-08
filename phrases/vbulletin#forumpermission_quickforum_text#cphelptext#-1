@@ -1,0 +1,7 @@
+On this screen, you can quickly apply basic permissions to multiple forums and multiple groups at the same time. Not all available permissions are shown on this screen, but these cover the basic functions, such as viewing, posting, and downloading attachments.<br /><br />
+
+Start by selecting the forum to which these permissions should apply. Note that this will also apply (though inheritance) to any subforums of the selected forum, unless such forums already have custom permissions set for them. Existing permissions for the selected forum <i>will</i> be overwritten.<br /><br />
+
+Next select which usergroup(s) these permissions should apply to. You can select any number that you wish.<br /><br />
+
+Finally, set the actual permissions. You can use the All Yes or All No buttons to quickly change all of the radio buttons. Click Save Changes to apply the new permissions.

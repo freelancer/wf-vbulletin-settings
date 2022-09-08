@@ -1,0 +1,6 @@
+This option controls how threads and forums are marked as read.
+<ol>
+<li class="smallfont"><i>Inactivity/Cookie Based</i> - once a user has been inactive for a certain amount of time (the value of the session timeout option) all threads and forums are considered read. Individual threads are marked as read within a session via cookies.<br /><br />This option is how all versions of vBulletin before 3.5 functioned.<br /><br /></li>
+<li class="smallfont"><i>Database (no automatic forum marking)</i> - this option uses the database to store thread and forum read times. This allows accurate read markers to be kept indefinitely. However, in order for a forum to be marked read when all threads are read, the user must view the list of threads for that forum.<br /><br />This option is more space and processor intensive than inactivity-based marking.<br /><br /></li>
+<li class="smallfont"><i>Database (automatic forum marking)</i> - this option is the same as a previous option, but forums are automatically marked as read when the last new thread is read. <br /><br />This is the most usable option for end users, but most processor intensive.</li>
+</ol>

@@ -1,0 +1,5 @@
+If you display your WOL ("Who's Online") on your forum homepage, you may be aware that it can create additional load if you have a lot of users online. Large forums usually have this feature disabled to save the load completely. vB Optimise can cache this data for X minutes so you're able to display this data without adding load on your forum.
+<br /><br />
+Simply enter the number of <strong>minutes</strong> you want to cache the Forum Home WOL for, by default this setting is set to 4.
+<br /><br />
+<strong>Note:</strong> To disable this setting, enter 0. Additionally, this setting will be ignored if your Forum Home WOL is disabled.

@@ -1,0 +1,3 @@
+<tr>
+	<td class="thead" colspan="$vboptions[numavatarswide]"><phrase 1="$avatar[category]" 2="$avatar[minimumposts]">$vbphrase[x_requiring_at_least_y_posts]</phrase></td>
+</tr>

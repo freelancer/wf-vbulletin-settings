@@ -1,0 +1,20 @@
+<div style="margin:20px; margin-top:5px; <if condition="$show['iewidthfix']">width: 100%;</if>">
+	<div class="smallfont" style="margin-bottom:2px">$vbphrase[quote]:</div>
+	<table cellpadding="$stylevar[cellpadding]" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="alt2">
+			<hr />
+			<if condition="$show['username']">
+				<div>
+					<phrase 1="$username">$vbphrase[originally_posted_by_x]</phrase>
+					<if condition="$postid"><phrase 1="$postid">($vbphrase[post_x])</phrase></if>
+				</div>
+				<div style="font-style:italic">$message</div>
+			<else />
+				$message
+			</if>
+			<hr />
+		</td>
+	</tr>
+	</table>
+</div>

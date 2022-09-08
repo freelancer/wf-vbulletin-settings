@@ -1,0 +1,5 @@
+By default YUI (Yahoo! User Interface Library) script files are hosted locally on your server, you may however have them on a Content Distribution Network saving you some bandwidth and potentially decreasing load times.<br /><br />
+
+These services are available for free from both Yahoo! and Google. If enabled the files will be served from their servers.<br /><br />
+
+Only the Google service supports SSL hosting.

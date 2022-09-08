@@ -1,0 +1,13 @@
+<if condition="$sidebar['commentbits']">
+<li id="block_comments">
+		<div class="tborder" style="margin-top:$stylevar[cellpadding]px; padding:$stylevar[cellspacing]px" id="block_comments_div">
+			<div class="thead" style="padding:$stylevar[cellpadding]px"<if condition="$show['moveable']"> id="block_comments_handle"</if>>
+				<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('blog_comments')"><img id="collapseimg_blog_comments" src="$stylevar[imgdir_button]/collapse_generic$vbcollapse[collapseimg_blog_comments].gif" alt="" border="0" /></a>
+				<a href="blog.php?$session[sessionurl]do=comments&amp;u=$userinfo[userid]">$vbphrase[recent_comments]</a>
+			</div>
+			<div class="alt1" style="padding:$stylevar[cellpadding]px; margin-top:$stylevar[cellspacing]px; $vbcollapse[collapseobj_blog_comments]" id="collapseobj_blog_comments">
+				<ul style="list-style:none; padding:0px; margin:0px">$sidebar[commentbits]</ul>
+			</div>
+		</div>
+</li>
+</if>

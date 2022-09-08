@@ -1,0 +1,4 @@
+<tr>
+	<td class="vbmenu_option"><a href="$notification[link]"<if condition="$notification['total'] > 0"> style="font-weight:bold"</if>>$notification[phrase]</a></td>
+	<td class="vbmenu_option" align="$stylevar[right]"><a href="$notification[link]"<if condition="$notification['total'] > 0"> style="font-weight:bold"</if>>$notification[total]</a></td>
+</tr>

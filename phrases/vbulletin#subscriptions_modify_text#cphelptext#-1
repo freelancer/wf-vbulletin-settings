@@ -1,0 +1,11 @@
+Below is a list of existing subscriptions (if any).  The "Title" column contains the name of the corresponding subscription.  The title is used to identify a subscription for users on your forums and for you in this subscription manager.<br /><br />
+
+The "Cost" column contains the cost of the corresponding subscription for each of the available currencies.<br /><br />
+
+The "Active" column tells you how many active subscriptions there are for the corresponding subscription.  An active subscription is one that was purchased not longer ago than the length of the subscription.<br /><br />
+
+The "Completed" column shows the number of subscriptions that are inactive for the corresponding subscription.  An inactive subscription is one that was purchased longer ago than the length of the subscription.<br /><br />
+
+The "Total" column shows the sum of active and inactive subscriptions for the corresponding subscription.<br /><br />
+
+The "Controls" column contains a menu of options for each subscription.  The "Edit" option allows you to edit the settings for the subscription including the: title, description, cost, group memberships, and access masks.  The "Delete" option does exactly that.  The "View Users" option shows you all users that have purchased this subscription, whether their subscription is active or inactive.  And finally, the "Add User" option allows you to manually subscribe a user to the corresponding subscription.

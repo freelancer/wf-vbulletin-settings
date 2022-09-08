@@ -1,0 +1,20 @@
+
+			<tr>
+	<td class="$altclass">
+		$payment[subscription]
+	</td>
+	<td class="$altclass">
+		<a href="member.php?u=$payment[username]">$payment[username]</a>
+	</td>
+	<td class="$altclass">
+		<if condition="$payment[type]==2">Reversed</if> $payment[cost]
+	</td>
+	<td class="$altclass">
+		$payment[length] $payment[units] <if condition="$payment[recurring]">*</if>
+	</td>
+	<td class="$altclass">
+		$payment[dateline]
+	</td>
+</tr>
+			
+		

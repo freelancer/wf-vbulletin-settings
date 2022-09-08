@@ -1,0 +1,1 @@
+This controls whether HTML is allowed in the signatures of users in this group. <strong>Allowing HTML is a security risk!</strong> Do not set this value to "Yes" unless the users in this group are trusted.

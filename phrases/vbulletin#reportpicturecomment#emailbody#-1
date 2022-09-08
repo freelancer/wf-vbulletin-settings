@@ -1,0 +1,16 @@
+$reportinfo[rusername] ( mailto:$reportinfo[remail] ) has reported this picture comment:
+
+$vboptions[bburl]/$reportinfo[commenturl]
+
+This comment was posted by:
+$reportinfo[pusername]
+$vboptions[bburl]/member.php?u=$reportinfo[puserid]
+
+This is the reason that the user gave:
+$reportinfo[reason]
+
+$reportinfo[discuss]
+
+This message has been sent to all moderators of this area, or all administrators if there are no moderators.
+
+Please respond to this post as applicable.

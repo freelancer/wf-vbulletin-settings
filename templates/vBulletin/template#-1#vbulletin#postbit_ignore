@@ -1,0 +1,33 @@
+<table id="post$post[postid]" class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr title="<phrase 1="$post[postid]">$vbphrase[post_x]</phrase>">
+	<td class="thead" style="font-weight:normal" $post[scrolltothis]>
+		<if condition="$show['inlinemod']">
+			<input type="checkbox" name="plist[$postid]" id="plist_$postid" style="float:$stylevar[right]; vertical-align:middle; padding:0px; margin:0px 0px 0px 5px" value="$post[checkbox_value]" onclick="inlineMod.toggle(this)" />
+		</if>
+		<a style="float:$stylevar[right]" href="showpost.php?$session[sessionurl]p=$post[postid]" target="_blank" rel="nofollow" onclick="return display_post($post[postid]);">$vbphrase[view_post]</a>
+		<a name="post$post[postid]"><img class="inlineimg" src="$stylevar[imgdir_statusicon]/post_$post[statusicon].gif" alt="$post[statustitle]" border="0" /></a>
+		$post[postdate]<if condition="!$show['detailedtime']">, $post[posttime]</if> $post[firstnewinsert]
+	</td>
+</tr>
+<tr>
+	<td class="alt2">
+		<div class="smallfont" style="float:$stylevar[right]"><a href="profile.php?$session[sessionurl]userlist=ignore&amp;do=removelist&amp;u=$post[userid]">$vbphrase[remove_user_from_ignore_list]</a></div>
+		<a href="member.php?$session[sessionurl]u=$post[userid]">$post[musername]</a>
+	</td>
+</tr>
+<tr>
+	<td class="alt1">
+		<if condition="$show['moderated']">
+			<div style="float:$stylevar[right]"><img src="$stylevar[imgdir_misc]/moderated.gif" alt="$vbphrase[moderated_post]" border="0" /></div>
+		</if>
+		<if condition="$show['deletedpost']">
+			<div style="float:$stylevar[right]"><img src="$stylevar[imgdir_misc]/trashcan.gif" alt="$vbphrase[deleted_post]" border="0" /></div>
+		</if>
+		<div class="smallfont">
+			<phrase 1="$post[username]" 2="profile.php?$session[sessionurl]do=ignorelist">$vbphrase[message_hidden_x_on_ignore_list]</phrase>
+		</div>
+
+	</td>
+</tr>
+<!-- / main bar -->
+</table>

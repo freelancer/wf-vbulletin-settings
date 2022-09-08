@@ -1,0 +1,3 @@
+Message Throttling.  Select the maximum number of private messages the user can send within the Throttle Check Period.<br />
+The Throttle Check Period is defined in the global options.<br />
+Set this to 0 to disable throttling for this usergroup.

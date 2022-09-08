@@ -1,0 +1,555 @@
+<script type="text/javascript">
+<!--
+function toggle_disabled(status, objid)
+{
+	obj = fetch_object(objid);
+	if (obj)
+	{
+		obj.disabled = (status ? false : true);
+	}
+}
+//-->
+</script>
+
+<form action="profile.php?do=updateoptions" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="updateoptions" />
+
+$template_hook[usercp_options_start]
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+<tr>
+	<td class="tcat">$vbphrase[edit_options]<span class="normal">: $bbuserinfo[username]</span></td>
+</tr>
+<tr>
+	<td class="thead">
+		<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('uopt_login')"><img id="collapseimg_uopt_login" src="$stylevar[imgdir_button]/collapse_thead$vbcollapse[collapseimg_uopt_login].gif" alt="" border="0" /></a>
+		$vbphrase[login_privacy]
+	</td>
+</tr>
+</thead>
+<tbody id="collapseobj_uopt_login" style="$vbcollapse[collapseobj_uopt_login]">
+	<tr>
+		<td class="panelsurround" align="center">
+		<div class="panel">
+			<div style="width:$stylevar[formwidth_usercp]" align="$stylevar[left]">
+
+				<if condition="$show['invisibleoption']">
+				<fieldset class="fieldset">
+					<legend><label for="cb_invisible">$vbphrase[use_invisible_mode]</label></legend>
+					<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+					<tr>
+						<td>$vbphrase[invisible_mode_allows]</td>
+					</tr>
+					<tr>
+						<td><label for="cb_invisible"><input type="checkbox" name="options[invisible]" value="1" id="cb_invisible" $checked[invisible] />$vbphrase[use_invisible_mode]</label><input type="hidden" name="set_options[invisible]" value="1" /></td>
+					</tr>
+					</table>
+				</fieldset>
+				</if>
+
+				<if condition="$show['reputationoption']">
+				<fieldset class="fieldset">
+					<legend><label for="cb_showreputation">$vbphrase[show_your_reputation_level]</label></legend>
+					<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+					<tr>
+						<td>
+							<phrase 1="$bbuserinfo[reputation]">$vbphrase[current_reputation_level_is_displayed]</phrase>
+						</td>
+					</tr>
+					<tr>
+						<td><label for="cb_showreputation"><input type="checkbox" name="options[showreputation]" value="1" id="cb_showreputation" $checked[showreputation] />$vbphrase[show_your_reputation_level]</label><input type="hidden" name="set_options[showreputation]" value="1" /></td>
+					</tr>
+					</table>
+				</fieldset>
+				</if>
+
+				<fieldset class="fieldset">
+					<legend><label for="cb_showvcard">$vbphrase[allow_vcard_download]</label></legend>
+					<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+					<tr>
+						<td>
+							$vbphrase[may_allow_users_tdownload_vcard]
+						</td>
+					</tr>
+					<tr>
+						<td><label for="cb_showvcard"><input type="checkbox" name="options[showvcard]" value="1" id="cb_showvcard" $checked[showvcard] />$vbphrase[allow_vcard_download]</label><input type="hidden" name="set_options[showvcard]" value="1" /></td>
+					</tr>
+					</table>
+				</fieldset>
+
+				$template_hook[usercp_options_privacy]
+
+				$customfields[login]
+
+			</div>
+		</div>
+		</td>
+	</tr>
+</tbody>
+</table>
+
+<br />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+<tr>
+	<td class="thead">
+		<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('uopt_msg')"><img id="collapseimg_uopt_msg" src="$stylevar[imgdir_button]/collapse_thead$vbcollapse[collapseimg_uopt_msg].gif" alt="" border="0" /></a>
+		$vbphrase[messaging_notification]
+	</td>
+</tr>
+</thead>
+<tbody id="collapseobj_uopt_msg" style="$vbcollapse[collapseobj_uopt_msg]">
+	<tr>
+		<td class="panelsurround" align="center">
+		<div class="panel">
+			<div style="width:$stylevar[formwidth_usercp]" align="$stylevar[left]">
+
+				<fieldset class="fieldset">
+					<legend>$vbphrase[receive_email]</legend>
+					<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+					<tr>
+						<td>
+							$vbphrase[administrators_may_send_email]
+						</td>
+					</tr>
+					<tr>
+						<td><label for="cb_adminemail"><input type="checkbox" name="options[adminemail]" value="1" id="cb_adminemail" $checked[adminemail] />$vbphrase[receive_email_from_bulletin_board_staff]</label><input type="hidden" name="set_options[adminemail]" value="1" /></td>
+					</tr>
+					<if condition="$show['receiveemail']">
+					<tr>
+						<td><br />$vbphrase[allow_members_send_you_email]</td>
+					</tr>
+					<tr>
+						<td><label for="cb_showemail"><input type="checkbox" name="options[showemail]" value="1" id="cb_showemail" $checked[showemail] />$vbphrase[receive_email_from_other_members]</label><input type="hidden" name="set_options[showemail]" value="1" /></td>
+					</tr>
+					</if>
+					<if condition="$show[friend_email_request]">
+					<tr>
+						<td><br />$vbphrase[receive_email_for_friendship_request]</td>
+					</tr>
+					<tr>
+						<td><label for="cb_receivefriendemailrequest"><input type="checkbox" name="options[receivefriendemailrequest]" value="1" id="cb_receivefriendemailrequest" $checked[receivefriendemailrequest] />$vbphrase[receive_friendship_req_email]</label><input type="hidden" name="set_options[receivefriendemailrequest]" value="1" /></td>
+					</tr>
+					</if>
+					</table>
+				</fieldset>
+				<if condition="!$vboptions['enableemail']">
+				<input type="hidden" name="options[showemail]" value="$bbuserinfo[showemail]" />
+				</if>
+
+				<fieldset class="fieldset">
+					<legend><label for="sel_autosubscribe">$vbphrase[default_thread_subscription_mode]</label></legend>
+					<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+					<tr>
+						<td><phrase 1="subscription.php$session[sessionurl_q]" rel="nofollow">$vbphrase[can_automatically_subscribe]</phrase></td>
+					</tr>
+					<tr>
+						<td>
+							<span style="float:$stylevar[right]">
+							<select name="autosubscribe" id="sel_autosubscribe">
+								<option value="-1" $emailchecked[9999]>$vbphrase[do_not_subscribe]</option>
+								<option value="0" $emailchecked[0]>$vbphrase[no_email_notification]</option>
+								<option value="1" $emailchecked[1]>$vbphrase[instant_email_notification]</option>
+								<option value="2" $emailchecked[2]>$vbphrase[daily_email_notification]</option>
+								<option value="3" $emailchecked[3]>$vbphrase[weekly_email_notification]</option>
+							</select>
+							</span>
+							<label for="sel_autosubscribe">$vbphrase[default_thread_subscription_mode]:</label>
+						</td>
+					</tr>
+					</table>
+				</fieldset>
+
+				<if condition="$show['pmoptions']">
+				<fieldset class="fieldset">
+					<legend><label for="cb_receivepm">$vbphrase[private_messaging]</label></legend>
+					<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+					<tbody>
+					<tr>
+						<td>
+							<phrase 1="private.php$session[sessionurl_q]">$vbphrase[features_private_messaging_system]</phrase>
+						</td>
+					</tr>
+					<tr>
+						<td><label for="cb_receivepm"><input type="checkbox" name="options[receivepm]" value="1" id="cb_receivepm" onclick="toggle_disabled(this.checked, 'pmoptions')" $checked[receivepm] />$vbphrase[enable_private_messaging]</label><input type="hidden" name="set_options[receivepm]" value="1" /></td>
+					</tr>
+					</tbody>
+					<tbody id="pmoptions"<if condition="!$bbuserinfo[receivepm]"> disabled="disabled"</if>>
+						<tr>
+							<td><br />$vbphrase[accept_pm_only_from_contacts]</td>
+						</tr>
+						<tr>
+							<td><label for="cb_receivepmbuddies"><input type="checkbox" name="options[receivepmbuddies]" value="1" id="cb_receivepmbuddies" $checked[receivepmbuddies] />$vbphrase[pm_from_contacts_only]</label><input type="hidden" name="set_options[receivepmbuddies]" value="1" /></td>
+						</tr>
+						<tr>
+							<td><br />$vbphrase[can_email_when_sends_you_pm]</td>
+						</tr>
+						<tr>
+							<td><label for="cb_emailonpm"><input type="checkbox" name="options[emailonpm]" value="1" id="cb_emailonpm" $checked[emailonpm] />$vbphrase[receive_email_notification_pm]</label><input type="hidden" name="set_options[emailonpm]" value="1" /></td>
+						</tr>
+						<tr>
+							<td><br />$vbphrase[browsing_when_receive_pm_popup]</td>
+						</tr>
+						<tr>
+							<td><label for="cb_pmpopup"><input type="checkbox" name="pmpopup" value="1" id="cb_pmpopup" $checked[pmpopup] />$vbphrase[show_pm_popup]</label></td>
+						</tr>
+						<tr>
+							<td><br />$vbphrase[save_pm_copy_by_default]</td>
+						</tr>
+						<tr>
+							<td><label for="cb_pmdefaultsavecopy"><input type="checkbox" name="options[pmdefaultsavecopy]" value="1" id="cb_pmdefaultsavecopy" $checked[pmdefaultsavecopy] /><phrase 1="private.php?$session[sessionurl_q]folderid=-1">$vbphrase[save_pm_copy_default]</phrase></label><input type="hidden" name="set_options[pmdefaultsavecopy]" value="1" /></td>
+						</tr>
+					</tbody>
+					</table>
+				</fieldset>
+				<else />
+				<input type="hidden" name="options[receivepm]" value="$bbuserinfo[receivepm]" />
+				<input type="hidden" name="options[emailonpm]" value="$bbuserinfo[emailonpm]" />
+				<input type="hidden" name="pmpopup" value="$bbuserinfo[pmpopup]" />
+				</if>
+
+				<if condition="$show['vmoptions']">
+				<fieldset class="fieldset">
+					<legend><label for="cb_vm_enable">$vbphrase[visitor_messaging]</label></legend>
+					<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+					<tbody>
+					<tr>
+						<td>
+							<phrase 1="member.php?$session[sessionurl]u=$bbuserinfo[userid]">$vbphrase[features_visitor_messaging_system]</phrase>
+						</td>
+					</tr>
+					<tr>
+						<td><label for="cb_vm_enable"><input type="checkbox" name="options[vm_enable]" value="1" id="cb_vm_enable" onclick="toggle_disabled(this.checked, 'vmoptions')" $checked[vm_enable] />$vbphrase[enable_visitor_messaging]</label><input type="hidden" name="set_options[vm_enable]" value="1" /></td>
+					</tr>
+					</tbody>
+					<tbody id="vmoptions"<if condition="!$bbuserinfo[vm_enable]"> disabled="disabled"</if>>
+						<tr>
+							<td><br /><phrase 1="profile.php?$session[sessionurl]do=buddylist">$vbphrase[usage_vm_only_from_contacts]</phrase></td>
+						</tr>
+						<tr>
+							<td><label for="cb_vm_contactonly"><input type="checkbox" name="options[vm_contactonly]" value="1" id="cb_vm_contactonly" $checked[vm_contactonly] />$vbphrase[limit_vm_to_contacts_only]</label><input type="hidden" name="set_options[vm_contactonly]" value="1" /></td>
+						</tr>
+					</tbody>
+					</table>
+				</fieldset>
+				<else />
+				<input type="hidden" name="options[vm_enable]" value="$bbuserinfo[vm_enable]" />
+				<input type="hidden" name="options[vm_contactonly]" value="$bbuserinfo[vm_contactonly]" />
+				</if>
+
+				$template_hook[usercp_options_messaging]
+
+				$customfields[messaging]
+
+			</div>
+		</div>
+		</td>
+	</tr>
+</tbody>
+</table>
+
+<br />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="thead">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('uopt_thrd')"><img id="collapseimg_uopt_thrd" src="$stylevar[imgdir_button]/collapse_thead$vbcollapse[collapseimg_uopt_thrd].gif" alt="" border="0" /></a>
+			$vbphrase[thread_display_options]
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_uopt_thrd" style="$vbcollapse[collapseobj_uopt_thrd]">
+	<tr>
+		<td class="panelsurround" align="center">
+		<div class="panel">
+			<div style="width:$stylevar[formwidth_usercp]" align="$stylevar[left]">
+
+				<fieldset class="fieldset">
+					<legend>$vbphrase[visible_post_elements]</legend>
+					<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+					<tr>
+						<td>$vbphrase[option_to_hide_elements]</td>
+					</tr>
+					<tr>
+						<td>
+							<div><label for="cb_showsignatures"><input type="checkbox" name="options[showsignatures]" value="1" id="cb_showsignatures" $checked[showsignatures] />$vbphrase[show_signatures]</label><input type="hidden" name="set_options[showsignatures]" value="1" /></div>
+							<div><label for="cb_showavatars"><input type="checkbox" name="options[showavatars]" value="1" id="cb_showavatars" $checked[showavatars] />$vbphrase[show_avatars]</label><input type="hidden" name="set_options[showavatars]" value="1" /></div>
+							<div><label for="cb_showimages"><input type="checkbox" name="options[showimages]" value="1" id="cb_showimages" $checked[showimages] />$vbphrase[show_images] ($vbphrase[including_attached_and_img_code])</label><input type="hidden" name="set_options[showimages]" value="1" /></div>
+						</td>
+					</tr>
+					</table>
+				</fieldset>
+
+				<fieldset class="fieldset">
+					<legend><label for="sel_threadedmode">$vbphrase[thread_display_mode]</label></legend>
+					<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+					<tr>
+						<td><phrase 1="faq.php?$session[sessionurl]faq=vb3_board_usage#faq_vb3_thread_display">$vbphrase[choose_thread_display_mode]</phrase></td>
+					</tr>
+					<tr>
+						<td>
+							<span style="float:$stylevar[right]">
+							<select name="threadedmode" id="sel_threadedmode">
+								<option value="0" $threaddisplaymode[0]>$vbphrase[linear] - $vbphrase[oldest_first]</option>
+								<option value="3" $threaddisplaymode[3]>$vbphrase[linear] - $vbphrase[newest_first]</option>
+								<if condition="$vboptions['allowthreadedmode']">
+								<option value="1" $threaddisplaymode[1]>$vbphrase[threaded]</option>
+								<option value="2" $threaddisplaymode[2]>$vbphrase[hybrid]</option>
+								</if>
+							</select>
+							</span>
+							<label for="sel_threadedmode">$vbphrase[thread_display_mode]:</label>
+						</td>
+					</tr>
+					</table>
+				</fieldset>
+
+				<if condition="$show['maxpostsoptions']">
+				<fieldset class="fieldset">
+					<legend><label for="sel_umaxposts">$vbphrase[posts_to_show_per_page]</label></legend>
+					<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+					<tr>
+						<td>$vbphrase[use_set_posts_before_splitting]</td>
+					</tr>
+					<tr>
+						<td>
+							<span style="float:$stylevar[right]">
+							<select name="umaxposts" id="sel_umaxposts">
+								<option value="-1" $postsdefaultselected>$vbphrase[use_forum_default]</option>
+								$maxpostsoptions
+							</select>
+							</span>
+							<label for="sel_umaxposts">$vbphrase[posts_to_show_per_page]:</label>
+						</td>
+					</tr>
+					</table>
+				</fieldset>
+				<else />
+				<input type="hidden" name="umaxposts" value="$bbuserinfo[maxposts]" />
+				</if>
+
+				<fieldset class="fieldset">
+					<legend><label for="sel_prunedays">$vbphrase[default_thread_age_cut_off]</label></legend>
+					<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+					<tr>
+						<td>$vbphrase[time_period_to_display_threads]</td>
+					</tr>
+					<tr>
+						<td>
+							<span style="float:$stylevar[right]">
+							<select name="prunedays" id="sel_prunedays">
+								<option value="0" $daysdefaultselected>$vbphrase[use_forum_default]</option>
+								<option value="1" $days1selected>$vbphrase[show_threads_from_last_day]</option>
+								<option value="2" $days2selected><phrase 1="2">$vbphrase[show_threads_from_last_x_days]</phrase></option>
+								<option value="7" $days7selected>$vbphrase[show_threads_from_last_week]</option>
+								<option value="10" $days10selected><phrase 1="10">$vbphrase[show_threads_from_last_x_days]</phrase></option>
+								<option value="14" $days14selected><phrase 1="2">$vbphrase[show_threads_from_last_x_weeks]</phrase></option>
+								<option value="30" $days30selected>$vbphrase[show_threads_from_last_month]</option>
+								<option value="45" $days45selected><phrase 1="45">$vbphrase[show_threads_from_last_x_days]</phrase></option>
+								<option value="60" $days60selected><phrase 1="2">$vbphrase[show_threads_from_last_x_months]</phrase></option>
+								<option value="75" $days75selected><phrase 1="75">$vbphrase[show_threads_from_last_x_days]</phrase></option>
+								<option value="100" $days100selected><phrase 1="100">$vbphrase[show_threads_from_last_x_days]</phrase></option>
+								<option value="365" $days365selected>$vbphrase[show_threads_from_last_year]</option>
+								<option value="-1" $daysallselected>$vbphrase[show_all_threads]</option>
+							</select>
+							</span>
+							<label for="sel_prunedays">$vbphrase[default_thread_age_cut_off]:</label>
+						</td>
+					</tr>
+					</table>
+				</fieldset>
+
+				$template_hook[usercp_options_threadview]
+
+				$customfields[threadview]
+
+			</div>
+		</div>
+		</td>
+	</tr>
+</tbody>
+</table>
+
+<br />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="thead">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('uopt_date')"><img id="collapseimg_uopt_date" src="$stylevar[imgdir_button]/collapse_thead$vbcollapse[collapseimg_uopt_date].gif" alt="" border="0" /></a>
+			$vbphrase[date_time_options]
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_uopt_date" style="$vbcollapse[collapseobj_uopt_date]">
+	<tr>
+		<td class="panelsurround" align="center">
+		<div class="panel">
+			<div style="width:$stylevar[formwidth_usercp]" align="$stylevar[left]">
+
+				$timezoneoptions
+
+				<fieldset class="fieldset">
+					<legend><label for="sel_startofweek">$vbphrase[start_of_the_week]</label></legend>
+					<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+					<tr>
+						<td>$vbphrase[parts_use_different_start_of_week]</td>
+					</tr>
+					<tr>
+						<td>
+							<span style="float:$stylevar[right]">
+							<select name="startofweek" id="sel_startofweek">
+								<option value="1" $day1selected>$vbphrase[sunday]</option>
+								<option value="2" $day2selected>$vbphrase[monday]</option>
+								<option value="3" $day3selected>$vbphrase[tuesday]</option>
+								<option value="4" $day4selected>$vbphrase[wednesday]</option>
+								<option value="5" $day5selected>$vbphrase[thursday]</option>
+								<option value="6" $day6selected>$vbphrase[friday]</option>
+								<option value="7" $day7selected>$vbphrase[saturday]</option>
+							</select>
+							</span>
+							<label for="sel_startofweek">$vbphrase[start_of_the_week]:</label>
+						</td>
+					</tr>
+					</table>
+				</fieldset>
+
+				$template_hook[usercp_options_datetime]
+
+				$customfields[datetime]
+
+			</div>
+		</div>
+		</td>
+	</tr>
+</tbody>
+</table>
+
+<br />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="thead">
+		<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('uopt_misc')"><img id="collapseimg_uopt_misc" src="$stylevar[imgdir_button]/collapse_thead$vbcollapse[collapseimg_uopt_misc].gif" alt="" border="0" /></a>
+		$vbphrase[miscellaneous_options]
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel" id="collapseobj_uopt_misc" style="$vbcollapse[collapseobj_uopt_misc]">
+		<div style="width:$stylevar[formwidth_usercp]" align="$stylevar[left]">
+
+			<if condition="$show['editormode_picker']">
+			<fieldset class="fieldset">
+				<legend><label for="sel_showvbcode">$vbphrase[message_editor_interface]</label></legend>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+				<tr>
+					<td>$vbphrase[entering_message_three_interface]</td>
+				</tr>
+				<tr>
+					<td>
+						<span style="float:$stylevar[right]">
+						<select name="showvbcode" id="sel_showvbcode">
+							<option value="0" $selectvbcode[0]>$vbphrase[basic_editor_simple_text_box]</option>
+							<option value="1" $selectvbcode[1]>$vbphrase[standard_editor_extra_formatting]</option>
+							<if condition="$show['editormode_wysiwyg']">
+							<option value="2" $selectvbcode[2]>$vbphrase[enhanced_interface_wysiwyg]</option>
+							</if>
+						</select>
+						</span>
+						<label for="sel_showvbcode">$vbphrase[message_editor_interface]:</label>
+					</td>
+				</tr>
+				</table>
+			</fieldset>
+			<else />
+				<input type="hidden" name="showvbcode" value="$bbuserinfo[showvbcode]" />
+			</if>
+
+			<if condition="$show['styleoption']">
+			<fieldset class="fieldset">
+				<legend><label for="sel_newstyleset">$vbphrase[board_skin]</label></legend>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+				<tr>
+					<td>
+						$vbphrase[switch_skin_select]
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span style="float:$stylevar[right]">
+						<select name="newstyleset" id="sel_newstyleset">
+							$stylesetlist
+						</select>
+						</span>
+						<label for="sel_newstyleset">$vbphrase[board_skin]:</label>
+					</td>
+				</tr>
+				</table>
+			</fieldset>
+			</if>
+
+			<if condition="$show['usercssoption']">
+			<fieldset class="fieldset">
+
+				<legend><label for="sel_newstyleset">$vbphrase[user_customizations]</label></legend>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+				<tr>
+					<td>
+						$vbphrase[use_can_make_customizations]
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="cb_showusercss"><input type="checkbox" name="options[showusercss]" value="1" id="cb_showusercss" $checked[showusercss] />$vbphrase[show_user_customizations]</label><input type="hidden" name="set_options[showusercss]" value="1" />
+					</td>
+				</tr>
+				</table>
+			</fieldset>
+			</if>
+
+			<if condition="$show['languageoption']">
+			<fieldset class="fieldset">
+				<legend><label for="sel_languageid">$vbphrase[board_language]</label></legend>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+				<tr>
+					<td>$vbphrase[board_can_be_shown_any_language]</td>
+				</tr>
+				<tr>
+					<td>
+						<span style="float:$stylevar[right]">
+						<select name="languageid" id="sel_languageid">
+							<option value="0">$vbphrase[use_forum_default]</option>
+							$languagelist
+						</select>
+						</span>
+						<label for="sel_languageid">$vbphrase[board_language]:</label>
+					</td>
+				</tr>
+				</table>
+			</fieldset>
+			</if>
+
+			$template_hook[usercp_options_other]
+
+			$customfields[other]
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" value="$vbphrase[save_changes]" accesskey="s" />
+		<input type="reset" class="button" value="$vbphrase[reset_fields]" accesskey="r" />
+	</div>
+	</td>
+</tr>
+</table>
+
+$template_hook[usercp_options_end]
+
+</form>

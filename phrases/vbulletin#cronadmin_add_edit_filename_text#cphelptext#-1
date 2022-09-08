@@ -1,0 +1,5 @@
+This is the most crucial setting. Enter the path to, and filename of, the file to be run. This is in relation to your main forums directory. The default scheduled tasks are located in the directory<br />
+./includes/cron/<br />
+Note the . at the beginning - this indicates that the following is an absolute path from the current directory, not from the root of the server (as /includes/cron would indicate). You could also write the above as<br />
+includes/cron<br />
+The file to be run should not echo anything or send output to screen.

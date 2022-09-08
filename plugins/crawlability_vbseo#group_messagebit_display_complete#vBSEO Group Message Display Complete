@@ -1,0 +1,5 @@
+if(defined('VBSEO_ENABLED') && VBSEO_ENABLED)
+{
+$message['message'] = vbseo_prepare_int_replace($message['message']);
+$message['message'] = vbseo_process_content_area($message['message']);
+}

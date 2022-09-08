@@ -1,0 +1,24 @@
+foreach (vBulletinHook::fetch_hookusage() AS $hook_name => $has_code)
+{
+       if ($has_code) {
+               $key = "hook_usage." . $hook_name . "." . date("Y-m-d");
+               $data = vBP_Cache::getInstance()->getCache($key);
+               if (!$data) {
+                       $data = 1;
+               } else {
+                       $data += 1;
+
+               }
+               vBP_Cache::getInstance()->setCache($data, $key, array(), 86400);
+
+               if ($data == 2 || floor(log($data, 2)) == log($data, 2)) {
+                       /*insert query */
+                       $vbulletin->db->query_write("
+                               REPLACE INTO `auditlog`.`_plugin_usage`
+                                       (hookname, date, numcalls)
+                               VALUES
+                                       ('" . $vbulletin->db->escape_string(trim($hook_name)) . "', '" . $vbulletin->db->escape_string(date("Y-m-d")) . "', " . intval($data) . ")
+                       ");
+               }
+       }
+}

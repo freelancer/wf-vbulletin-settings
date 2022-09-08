@@ -1,0 +1,1 @@
+<if condition="$show['comma_leader']">, </if>$stylevar[dirmark]<a href="member.php?$session[sessionurl]u=$loggedin[userid]">$loggedin[musername]</a>$loggedin[invisiblemark]$loggedin[buddymark]

@@ -1,0 +1,1 @@
+This function recalculates user reputation using the value that you specify below then adds the total reputation the user has received so far.  This will remove any custom reputation that has been given to the user through the user editor.

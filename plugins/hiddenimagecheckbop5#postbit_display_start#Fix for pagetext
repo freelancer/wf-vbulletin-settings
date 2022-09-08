@@ -1,0 +1,6 @@
+global $vbulletin;
+
+if ($vbulletin->options['bop5hic_en'])
+{
+   $post['bop5hic'] = $post['pagetext']; 
+}

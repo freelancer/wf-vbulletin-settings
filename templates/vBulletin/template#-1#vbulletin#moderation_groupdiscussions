@@ -1,0 +1,109 @@
+<if condition="$messagetotal">
+	<form action="group_inlinemod.php?groupid=$group[groupid]" method="post" id="group_discussion_inlinemod_form">
+</if>
+		<table class="tborder discussion_list" id="discussion_list" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+	<tr>
+		<td class="tcat" colspan="4">
+			$messagephrase
+		</td>
+	</tr>
+	<if condition="!$messagetotal">
+		<tr colspan="4">
+			<td class="alt1" align="center" style="padding:16px">
+				<strong>$vbphrase[no_posts_found]</strong><br />
+				<span class="smallfont">$vbphrase[try_controls_below_for_older_posts]</span>
+			</td>
+		</tr>
+		</table>
+	<else />
+		<tr class="block_title">
+			<td class="thead" width="100%">
+				<if condition="$messagetotal">
+					<span style="float: $stylevar[left]">$vbphrase[discussion]</span>
+					<span style="float:$stylevar[right]">$vbphrase[group_created]</span>
+				</if>
+			</td>
+			<td class="thead" align="center" nowrap="nowrap">
+				$vbphrase[messages]
+			</td>
+			<td class="thead" align="center" nowrap="nowrap">
+				$vbphrase[last_post]
+			</td>
+
+			<if condition="$show['inlinemod']">
+				<td class="thead" align="center" nowrap="nowrap">
+					<a id="discussion_inlinemodsel"></a>
+				</td>
+			</if>
+		</tr>
+		$messagebits
+		</table>
+
+		<if condition="$show['inlinemod'] OR $pagenav">
+			<div class="floatcontainer">
+				<if condition="$pagenav">
+					<div id="discussion_pagenav">
+						$pagenav
+					</div>
+				</if>
+				<if condition="$show['inlinemod']">
+					<div id="discussion_moderation" class="<if condition="!$show['pagenav']">push_down</if>">
+						<div class="smallfont"><label for="moderation_select_comments"><strong>$vbphrase[moderation]</strong></label></div>
+						<select id="moderation_select_comments" name="do">
+							<if condition="$show['delete'] OR $show['undelete'] OR $show['approve'] OR $show['unapprove']">
+							<optgroup label="$vbphrase[option]" id="moderation_select_comments_optgroup">
+								<if condition="$show['delete']">
+									<option value="inlinedelete" id="inlinemod_comment_controls_delete">$vbphrase[delete_discussions]</option>
+								</if>
+								<if condition="$show['undelete']">
+									<option value="inlineundelete" id="inlinemod_comment_controls_undelete">$vbphrase[undelete_discussions]</option>
+								</if>
+								<if condition="$show['approve']">
+									<option value="inlineapprove" id="inlinemod_comment_controls_approve">$vbphrase[approve_discussions]</option>
+								</if>
+								<if condition="$show['unapprove']">
+									<option value="inlineunapprove" id="inlinemod_comment_controls_unapprove">$vbphrase[unapprove_discussions]</option>
+								</if>
+							</optgroup>
+							</if>
+							<optgroup label="____________________">
+								<option value="clearmessage">$vbphrase[deselect_all_discussions]</option>
+							</optgroup>
+						</select>
+						<input type="submit" value="$vbphrase[go]" id="gdiscussion_inlinego" class="button" />
+						<input type="hidden" name="s" value="$session[sessionhash]" />
+						<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+					</div>
+				</if>
+				<if condition="$show['postlink']"><div class="action_links"><a href="group.php?$session[sessionurl]do=message&amp;groupid=$group[groupid]" rel="nofollow">$vbphrase[new_discussion]</a></div></if>
+			</div>
+		</if>
+
+		<if condition="$show['inlinemod']">
+<script type="text/javascript" src="clientscript/vbulletin_inlinemod.js?v=$vboptions[simpleversion]"></script>
+			<script type="text/javascript">
+			<!--
+			inlineMod_comment = new vB_Inline_Mod('inlineMod_comment', 'gdiscussion', 'group_discussion_inlinemod_form', '$vbphrase[go_x]', 'vbulletin_inline', 'thread');
+			vBmenu.register("discussion_inlinemodsel");
+			//-->
+			</script>
+
+			<!-- inline mod selection popup -->
+			<ul id="discussion_inlinemodsel_menu" class="vbmenu_popup list_no_decoration" style="display:none">
+				<li class="thead first">$vbphrase[from_this_page]</li>
+				<li class="vbmenu_option" onclick="inlineMod_comment.check_all(true)">$vbphrase[select_all]</li>
+				<li class="vbmenu_option" onclick="inlineMod_comment.check_all(false)">$vbphrase[deselect_all]</li>
+				<li class="vbmenu_option" onclick="inlineMod_comment.check_all('invert')">$vbphrase[invert_selection]</li>
+			</ul>
+			<!-- / inline mod selection popup -->
+		</if>
+
+		<input type="hidden" name="inline_discussion" value="1" />
+
+	</form>
+	<!-- / inline moderation form -->
+</if>
+
+<br />
+
+$moderation_filter

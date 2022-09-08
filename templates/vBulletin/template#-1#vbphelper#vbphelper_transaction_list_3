@@ -1,0 +1,32 @@
+
+<script type="text/javascript" src="clientscript/vbphelper/confirm.js"></script>
+<table class="tborder" width="100%" border="0" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]">
+	<tr>
+		<td class="tcat" colspan="6">
+			Payment Moderation
+		</td>
+	</tr>
+	<tr>
+		<td class="thead">
+			Payment Method
+		</td>
+		<td class="thead">
+			Date
+		</td>
+		<td class="thead">
+			Amount
+		</td>
+		<td class="thead">
+			Comment
+		</td>
+		<td class="thead">
+			Billing Info
+		</td>
+		<td class="thead">
+			Status
+		</td>
+	</tr>
+	$transactionBits
+</table>
+		
+		

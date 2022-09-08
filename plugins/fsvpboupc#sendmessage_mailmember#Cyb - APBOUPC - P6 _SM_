@@ -1,0 +1,16 @@
+
+		if ($vbulletin->options['apboupc_global_enable'] AND ($vbulletin->options['apboupc_email_amount']>0))
+		{
+			if ($vbulletin->userinfo[userid])
+			{
+				$vbulletin->userinfo[posts] = $vbulletin->userinfo[posts];
+			}
+			else
+			{
+				$vbulletin->userinfo[posts] = '0';
+			}
+			if (($vbulletin->userinfo['permissions']['genericpermissions'] & $vbulletin->bf_ugp_genericpermissions['canemailmember']) AND ($vbulletin->options['apboupc_email_amount'] !='0') AND ($vbulletin->userinfo[posts] < $vbulletin->options['apboupc_email_amount']) AND (!is_member_of($vbulletin->userinfo, split(',', $vbulletin->options['apboupc_email_excludedgroups']))))
+			{
+				standard_error(fetch_error('error_postcount_too_low_mail', $vbulletin->options['apboupc_email_amount'], $vbulletin->userinfo[posts]));
+			}
+		}

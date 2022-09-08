@@ -1,0 +1,14 @@
+Setting this option will make any BB code tags within this BB code tag display as plain text.<br /><br />
+
+For example
+<blockquote>[tag][b]some text here[/b][/tag]</blockquote>
+
+Will show as 
+
+<blockquote>[b]some text here[/b]</blockquote>
+
+If set, and
+
+<blockquote><b>some text here</b></blockquote>
+
+If not set

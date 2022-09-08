@@ -1,0 +1,10 @@
+<tr>
+	<td class="thead" colspan="2">$postdate $posttime</td>
+</tr>
+<tr title="<phrase 1="$post[postid]">$vbphrase[post_x]</phrase>" valign="top">
+	<td class="alt2" width="125" align="center">$username</td>
+	<td class="alt1">
+		<if condition="$reviewtitle"><div class="smallfont"><b>$reviewtitle</b></div><hr size="1" style="color:$stylevar[tborder_bgcolor]; background-color:$stylevar[tborder_bgcolor]" /></if>
+		$reviewmessage
+	</td>
+</tr>

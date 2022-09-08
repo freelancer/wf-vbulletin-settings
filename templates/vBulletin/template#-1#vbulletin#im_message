@@ -1,0 +1,12 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title><phrase 1="$typetext" 2="$userinfo[username]">$vbphrase[send_message_via_x_to_y]</phrase> - $vboptions[bbtitle]</title>
+</head>
+<body style="margin:0px" onload="self.focus()">
+
+$imtext
+
+</body>
+</html>

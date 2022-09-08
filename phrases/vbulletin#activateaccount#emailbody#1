@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Email Campaign</title>
+<style type="text/css">
+@media only screen and (max-width: 690px) {
+	table {
+		width: 100% !important;
+	}
+	tr[class=header-row] {
+		display: table-cell;
+	}
+	td[class=header-cell] {
+		display: table;
+		width: 100% !important;
+		text-align: center;
+	}
+	td[class=header-title] {
+		padding: 20px 20px 0;
+		width: 100% !important;
+		text-align: center;
+	}
+	td[class=cell-edge] {
+		width: 0;
+		height: 0;
+	}
+	tr[class=footer-row] {
+		padding: 0 20px;
+	}
+	td[class=footer-cell] {
+		display: table;
+		width: auto;
+		margin: 0 auto;
+		padding: 0 10px;
+		text-align: center;
+	}
+	div[class=footer-logo] {
+		padding: 20px 0 0;
+		text-align: center !important;
+	}
+}
+html {
+	font-size: 100%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+body {
+	margin: 0;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 18px;
+	color: #222222;
+	background-color: #ffffff;
+}
+a {
+	color: #f0494f;
+	text-decoration: none;
+	border: 0;
+}
+a:hover {
+	color: #b4373b;
+	text-decoration: underline;
+}
+p {color: #222222;}
+img {border: none;}
+</style>
+</head>
+<body style="font-family: Helvetica, Arial, sans-serif;"><img src="http://t.freelancer.com/1px.gif?username=<!-- name -->&en=email_open_warrior&campaign=newsletterwf_20140515"/>
+	<table align="center" height="100%" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#e7e7e7">
+		<tr><td class="cell-edge" colspan="3" height="40"></td>
+		</tr>
+		<tr>
+			<td class="cell-edge" width="30"></td>
+			<td>
+				<!-- HEADER -->
+				<table width="690" align="center" border="0" cellspacing="0" cellpadding="0" bgcolor="#f5f5f5">
+					<!-- line break --><tr><td colspan="4" height="40"></td></tr>
+					<tr class="header-row">
+						<td width="30"></td>
+						<td class="header-cell" width="210" align="left" valign="middle" style="padding: 0; margin: 0; line-height: 0;">
+							<a href="http://www.warriorforum.com" style="display: block;"><img src="http://d3l4lc0nmmgc8a.cloudfront.net/static/fmkt/2014-12-05/wf-header.png" alt="Warrior Forum" width="168" height="55" title="Warrior Forum"></a>
+						</td>
+						<td class="header-title">
+							<h2 style="color: #222222; font-size: 22px; font-weight: bold; line-height: 26px; padding: 0; margin: 0;">Activate your Warrior Forum account</h2>
+						</td>
+						<td width="30"></td>
+					</tr>
+					<!-- line break --><tr><td colspan="4" height="40"></td></tr>
+				</table>
+				<!-- /END HEADER -->
+				<!-- BODY -->
+				<table width="690" align="center" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+					<!-- line break --><tr><td colspan="3" height="40"></td></tr>
+					<tr>
+						<td width="30"></td>
+						<td>
+							<table width="630" align="center" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td colspan="3">
+										<div style="color: #222222; font-size: 16px; line-height: 24px; padding: 0; margin: 0;">
+										$username, thank you for registering an account on Warrior Forum. You're one step away from being part of the #1 Internet marketing community.
+										</div>
+										<div style="color: #222222; font-size: 16px; line-height: 24px; padding: 0; margin: 0;">
+										&nbsp;
+										</div>
+									</td>
+								</tr>
+								<!-- padding around button --><tr><td colspan="3" height="5"></td></tr>
+								<tr>
+									<td>
+										<table align="center" cellpadding="0" cellspacing="0">
+											<tbody>
+												<tr>
+													<td align="center" style="margin: 0; line-height: 22px; font-size:22px; text-align: center;">
+														<a href="$vboptions[bburl]/register.php?a=act&u=$userid&i=$activateid" style="display: block; background: #f0494f; font-size: 18px; line-height: 22px; text-decoration: none; color: #ffffff; font-weight: 700; padding: 16px 24px; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; border: none; border-bottom: 4px solid #b4373b; -webkit-font-smoothing: antialiased">Activate your account now</a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+								</tr>
+								<!-- padding around button --><tr><td colspan="3" height="5"></td></tr>
+								<tr>
+									<td>
+										<div style="color: #222222; font-size: 16px; line-height: 24px; padding: 0; margin: 0;">
+										&nbsp;
+										</div>
+										<div style="color: #222222; font-size: 16px; line-height: 24px; padding: 0; margin: 0;">
+										Need help? <a style="color: #f0494f" href="mailto:support@warriorforum.com">Contact us here.</a>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<td width="30"></td>
+					</tr>
+					<!-- line break --><tr><td colspan="3" height="40"></td></tr>
+				</table>
+				<!-- /END BODY -->
+				<!-- FOOTER -->
+				<table width="690" align="center" border="0" cellspacing="0" cellpadding="0" bgcolor="#333333">
+					<!-- line break --><tr><td colspan="4" height="20"></td></tr>
+					<tr class="footer-row">
+						<td width="30"></td>
+						<td class="footer-cell">
+							<div style="color:#ffffff; font-size: 14px; line-height: 18px; font-weight: bold; padding: 0; margin: 0;">Warrior Forum Team</div>
+							<div style="color:#ffffff; font-size: 14px; line-height: 18px; font-weight: normal; padding: 0; margin: 0;"><a style="color: #fff;" href="http://www.warriorforum.com">http://www.warriorforum.com</a></div>
+							<div style="color: #a3a3a3; font-size: 5px; line-height: 5px; padding: 0; margin: 0;">&nbsp;</div>
+							<div style="color: #a3a3a3; font-size: 5px; line-height: 5px; padding: 0; margin: 0;">&nbsp;</div>
+							<div style="color: #a3a3a3; font-size: 12px; line-height: 12px; padding: 0; margin: 0;">&copy; 2015 Warrior Technology Pty Limited. All Rights Reserved.</div>
+							<div style="color: #a3a3a3; font-size: 5px; line-height: 5px; padding: 0; margin: 0;">&nbsp;</div>
+							<div style="color: #a3a3a3; font-size: 12px; line-height: 12px; padding: 0; margin: 0;">Level 20, 680 George Street, Sydney, NSW 2000, Australia.</div>
+						</td>
+						<td class="footer-cell"><div class="footer-logo" style="text-align: right"><img src="http://d3l4lc0nmmgc8a.cloudfront.net/static/fmkt/2014-12-05/wf-footer.png" alt="Warrior Forum logo"></div></td>
+						<td width="30"></td>
+					</tr>
+					<!-- line break --><tr><td colspan="4" height="20"></td></tr>
+				</table>
+				<!-- /END FOOTER -->
+			</td>
+			<td class="cell-edge" width="30"></td>
+		</tr>
+		<tr><td class="cell-edge" colspan="3" height="40"></td>
+		</tr>
+	</table>
+</body>
+</html>

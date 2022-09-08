@@ -1,0 +1,1 @@
+$this->validfields['strikes'] = array(TYPE_UINT, REQ_NO);

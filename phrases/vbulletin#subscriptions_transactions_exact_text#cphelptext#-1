@@ -1,0 +1,1 @@
+Set this to 'Yes' to search for transaction IDs that are an exact match.  Set this to 'No' to do a partial match, e.g. 'x123' would match 'ABCx123DEF'.

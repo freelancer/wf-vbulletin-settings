@@ -1,0 +1,8 @@
+
+		 if (($vbulletin->options['apboupc_visitormessages_postmessages']>0) AND !is_member_of($vbulletin->userinfo, split(',', $vbulletin->options['apboupc_visitormessages_excl_groups'])))
+		 {
+			if ($vbulletin->userinfo[posts] < $vbulletin->options['apboupc_visitormessages_postmessages'])
+			{
+				eval(standard_error(fetch_error('error_postcount_too_low_post_vm', intval($vbulletin->options['apboupc_visitormessages_postmessages']), intval($vbulletin->userinfo['posts']))));
+			}
+		 }

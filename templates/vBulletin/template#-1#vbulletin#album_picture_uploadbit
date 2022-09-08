@@ -1,0 +1,1 @@
+<div style="margin-top:$stylevar[formspacer]px"><input type="file" class="bginput" name="pictures[]" size="50" tabindex="1" /></div>

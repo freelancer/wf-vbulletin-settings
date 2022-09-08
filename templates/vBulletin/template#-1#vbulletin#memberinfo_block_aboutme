@@ -1,0 +1,17 @@
+<div class="alt1 block_row">
+<if condition="$show['simple_link']">
+	<div id="simple_aboutme_link"><a class="smallfont" href="member.php?$session[sessionurl]u=$bbuserinfo[userid]&amp;tab=aboutme&amp;simple=1">$vbphrase[view_your_about_me]</a></div>
+</if>
+<if condition="$show['edit_link']">
+	<div id="simple_aboutme_link"><a class="smallfont" href="member.php?$session[sessionurl]u=$bbuserinfo[userid]&amp;tab=aboutme">$vbphrase[edit_your_about_me]</a></div>
+</if>
+<ul class="list_no_decoration">
+	$block_data[fields]
+	<if condition="$prepared['signature']">
+		<li class="profilefield_category">
+			$vbphrase[signature]
+			<dl class="list_no_decoration profilefield_list"><dd id="signature">$prepared[signature]</dd></dl>
+		</li>
+	</if>
+</ul>
+</div>

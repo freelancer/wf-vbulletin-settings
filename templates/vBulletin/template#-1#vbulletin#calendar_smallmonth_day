@@ -1,0 +1,8 @@
+<!-- a single day on the small calendars -->
+<td class="<if condition="$show['highlightweek']">alt1<else />alt2</if>"<if condition="$show['highlighttoday']"> style="border:1px solid red; font-weight:bold" title="$vbphrase[today]"</if>>
+	<if condition="$show['daylink']">
+		<a href="calendar.php?$session[sessionurl]do=getinfo&amp;day=$year-$month-$day&amp;c=$calendarid" title="$eventdesc">$day</a>
+	<else />
+		$day
+	</if>
+</td>

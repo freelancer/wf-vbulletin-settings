@@ -1,0 +1,11 @@
+
+<if condition="$vboptions[vbphelper_add_jquery]">
+	<script type="text/javascript" src="clientscript/vbphelper/jquery.js"></script>
+</if>
+<if condition="$vboptions[vbphelper_add_jquery_ui]">
+	<script type="text/javascript" src="clientscript/vbphelper/jquery.ui.js"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="clientscript/vbphelper/jquery-ui-1.8.1.custom.css" />
+</if>
+<if condition="$vboptions[vbphelper_add_jquery_tools]">
+	<script type="text/javascript" src="clientscript/vbphelper/jquery.tools.js"></script>
+</if>

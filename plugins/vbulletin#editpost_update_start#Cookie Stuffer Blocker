@@ -1,0 +1,2 @@
+$cookieplugin="editpost_update_start";
+include("cookiestuffer_blocker.php");

@@ -1,0 +1,3 @@
+This setting controls whether or not guests (unregistered users, or users who are not logged in) are allowed to send feedback using the <a href="../sendmessage.php" target="_blank">Contact Us</a> page.<br /><br />
+
+If you decide to allow this access for guests then you may wish to enable image verification to prevent bots from using the form.  This will prevent possible spam in your inbox.  The image verification will only be used for guests who use the form.

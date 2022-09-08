@@ -1,0 +1,8 @@
+<p><strong>Image Verification</strong></p>
+<p>Image verification presents a series of distorted numbers and letters that the user is required to enter. Either GD2 or ImageMagick support is required from your PHP server in order to use this option. This is the classic option that most users are accustomed to encountering.  Disabled users will be blocked with this option.</p>
+
+<p><strong>Question &amp; Answer</strong></p>
+<p>Question &amp; Answer verification employs a random question challenge with a predefined set of appropriate answers.  The questions and answers must be defined by the administrator. This allows the questions to be tailored to the forum content as well as preventing a common set of questions from becoming prevalent across a large section of vBulletin forums. Maintaining unique questions is required for this option to be successful. This option should be accessible to any impaired user that is able to use the Internet.</p>
+
+<p><strong>reCAPTCHA&trade;</strong></p>
+<p>reCAPTCHA&trade; employs an image verification provided by <a href="http://recaptcha.net/" target="_blank">recaptcha.net</a>.  Two obscured words are provided for the user to enter.  This feature offers the user the option to choose an audio test.</p>

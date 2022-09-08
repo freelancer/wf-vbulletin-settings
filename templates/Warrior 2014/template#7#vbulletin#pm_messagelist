@@ -1,0 +1,215 @@
+<script type="text/javascript">
+<!--
+function check_all_group(checkobj, value)
+{
+    formobj = checkobj.form;
+    for (var i = 0; i < formobj.elements.length; i++)
+    {
+        elm = formobj.elements[i];
+        if (elm.type == "checkbox" && elm.value == value)
+        {
+            elm.checked = checkobj.checked;
+        }
+    }
+}
+//-->
+</script>
+
+<form action="private.php" method="get">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="pp" value="$perpage" />
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+    <tr>
+        <td class="tcat">
+            <a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('pmlistinfo')"><img id="collapseimg_pmlistinfo" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_pmlistinfo].gif" alt="" border="0" /></a>
+            $vbphrase[private_messages_in_folder]<span class="normal">: <span id="nav_pmfolders.listinfo">$foldername<script type="text/javascript"> vbmenu_register("nav_pmfolders.listinfo"); </script></span></span>
+        </td>
+    </tr>
+</thead>
+<tbody id="collapseobj_pmlistinfo" style="$vbcollapse[collapseobj_pmlistinfo]">
+    <tr>
+        <td class="panelsurround" align="center">
+        <div class="panel">
+            <div style="width:$stylevar[formwidth_usercp]" align="$stylevar[left]">
+                <fieldset class="fieldset">
+                    <legend>$vbphrase[folder_controls]</legend>
+                    <table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+                    <tr>
+                        <td><phrase 1="$foldername" 2="$totalmessages" 3="$pmtotal" 4="$pmquota">$vbphrase[x_contains_y_z_messages_of_xx]</phrase> (<a href="private.php?do=emptyfolder&amp;folderid=$folderid"><em>$vbphrase[empty_folder]</em></a>)</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table style="border:2px groove" cellpadding="0" cellspacing="1" border="0" width="100%">
+                            <tr>
+                                <if condition="$show['thisfoldertotal']"><td width="$tdwidth[folder]" style="background-color:red; font-size:10px" title="<phrase 1="$totalmessages">$vbphrase[messages_stored_in_folder_x]</phrase>">&nbsp;</td></if>
+                                <if condition="$show['allfolderstotal']"><td width="$tdwidth[total]" style="background-color:orange; font-size:10px" title="<phrase 1="$bbuserinfo[pmtotal]">$vbphrase[total_messages_in_all_folders_x]</phrase>">&nbsp;</td></if>
+                                <if condition="$tdwidth[quota] > 0"><td width="$tdwidth[quota]" style="background-color:green; font-size:10px" title="<phrase 1="$permissions[pmquota]">$vbphrase[maximum_allowed_messages_x]</phrase>">&nbsp;</td></if>
+                            </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            $vbphrase[jump_to_folder]:<br />
+                            <select name="folderid" onchange="this.form.submit();" ng-non-bindable>
+                            $folderjump
+                            </select>$gobutton
+                        </td>
+                    </tr>
+                    <if condition="$receipts['unconfirmed'] OR $receipts['confirmed']"><tr>
+                        <td><a href="private.php?$session[sessionurl]do=trackpm"><phrase 1="$receipts[confirmed]" 2="$receipts[unconfirmed]">$vbphrase[you_have_x_and_y_receipts]</phrase></a></td>
+                    </tr></if>
+                    </table>
+                </fieldset>
+            </div>
+        </div>
+        </td>
+    </tr>
+</tbody>
+</table>
+</form>
+
+<br />
+
+<if condition="$show['messagelist']">
+
+<form id="pmform" action="private.php?do=managepm&amp;folderid=$folderid" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="managepm" />
+<input type="hidden" name="folderid" value="$folderid" />
+
+<if condition="$show['pagenav']">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tr valign="bottom">
+    <if condition="$pagenav"><td align="$stylevar[right]">$pagenav</td></if>
+</tr>
+</table>
+</if>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+    <tr>
+        <td class="tcat" colspan="4" style="padding:$stylevar[cellpadding]px; padding-$stylevar[right]:0px">
+            <span class="smallfont" style="float:$stylevar[right]">
+                <label for="checkall_all">
+                $vbphrase[messages]: <strong>$totalmessages</strong>
+                <input type="checkbox" name="allbox" id="checkall_all" title="$vbphrase[check_uncheck_all]" onclick="inlineMod_pms.check_all(this.checked)" />
+                </label>
+            </span>
+            $vbphrase[private_messages_in_folder]<span class="normal">: <span id="nav_pmfolders.messagelist">$foldername<script type="text/javascript"> vbmenu_register("nav_pmfolders.messagelist"); </script></span></span>
+        </td>
+    </tr>
+</thead>
+<if condition="$totalmessages">
+<tbody>
+<tr class="block_title">
+    <td class="thead" <if condition="$show['pmicons']">colspan="2"</if>></td>
+    <td class="thead">
+        <div style="float:$stylevar[right]">
+            <a href="$orderlinks[date]&amp;pp=$perpage&amp;page=$pagenumber">$vbphrase[date]</a> $sortarrow[date]
+        </div>
+        <div>
+            <a href="$orderlinks[title]&amp;pp=$perpage&amp;page=$pagenumber">$vbphrase[title]</a> $sortarrow[title] /
+            <a href="$orderlinks[sender]&amp;pp=$perpage&amp;page=$pagenumber">$vbphrase[sender]</a> $sortarrow[sender]
+        </div>
+    </td>
+    <if condition="$show['pmcheckbox']">
+    <td class="thead"></td>
+    </if>
+</tr>
+</tbody>
+$messagelist_periodgroups
+<else />
+<tbody>
+    <tr>
+        <td class="alt1" colspan="4" style="text-align:center">
+            $vbphrase[no_messages_to_display]
+        </td>
+    </tr>
+</tbody>
+</if>
+<tbody>
+    <tr>
+        <td class="tfoot" align="$stylevar[right]" colspan="4">
+            <div class="smallfont">
+                $vbphrase[selected_messages]:
+                <select name="dowhat">
+                    <if condition="$show['movetofolder']"><option value="move">$vbphrase[move_to_folder]...</option></if>
+                    <option value="delete">$vbphrase[delete]</option>
+                    <option value="read">$vbphrase[mark_as_read]</option>
+                    <option value="unread">$vbphrase[mark_as_unread]</option>
+                    <option value="xml">$vbphrase[download_as_xml]</option>
+                    <option value="csv">$vbphrase[download_as_csv]</option>
+                    <option value="txt">$vbphrase[download_as_text]</option>
+                    <optgroup label="____________________">
+                        <option value="clear">$vbphrase[deselect_all_messages]</option>
+                    </optgroup>
+                </select>
+                <input type="submit" class="button" value="$vbphrase[go]" id="pm_inlinego" />
+            </div>
+        </td>
+    </tr>
+</tbody>
+</table>
+
+<script type="text/javascript" src="clientscript/vbulletin_inlinemod.js?v=$vboptions[simpleversion]"></script>
+<script type="text/javascript">
+    <!--
+    inlineMod_pms = new vB_Inline_Mod('inlineMod_pms', 'pm', 'pmform', '$vbphrase[go_x]', 'vbulletin_inline', 'thread');
+    //-->
+</script>
+</form>
+
+<if condition="$show['pagenav']">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:3px">
+<tr valign="top">
+    <if condition="$pagenav"><td align="$stylevar[right]">$pagenav</td></if>
+</tr>
+</table>
+</if>
+
+</if>
+
+<br />
+
+$sortfilter
+
+<br />
+
+<!-- forumjump -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tr valign="top">
+    <td width="100%" rowspan="2">
+        <table cellpadding="2" cellspacing="0" border="0">
+        <tr>
+            <td><img src="$stylevar[imgdir_statusicon]/pm_new.gif" alt="$vbphrase[unread_message]" border="0" /></td>
+            <td class="smallfont">&nbsp; $vbphrase[unread_message]</td>
+        </tr>
+        <tr>
+            <td><img src="$stylevar[imgdir_statusicon]/pm_old.gif" alt="$vbphrase[read_message]" border="0" /></td>
+            <td class="smallfont">&nbsp; $vbphrase[read_message]</td>
+        </tr>
+        <tr>
+            <td><img src="$stylevar[imgdir_statusicon]/pm_replied.gif" alt="$vbphrase[repliedto_message]" border="0" /></td>
+            <td class="smallfont">&nbsp; $vbphrase[repliedto_message]</td>
+        </tr>
+        <tr>
+            <td><img src="$stylevar[imgdir_statusicon]/pm_forwarded.gif" alt="$vbphrase[forwarded_message]" border="0" /></td>
+            <td class="smallfont">&nbsp; $vbphrase[forwarded_message]</td>
+        </tr>
+        </table>
+    </td>
+    <td class="smallfont" nowrap="nowrap">
+        <strong>$vbphrase[download_all_private_messages_as]</strong>:<br />
+        <a href="private.php?$session[sessionurl]do=downloadpm&amp;dowhat=xml">$vbphrase[xml]</a> |
+        <a href="private.php?$session[sessionurl]do=downloadpm&amp;dowhat=csv">$vbphrase[csv]</a> |
+        <a href="private.php?$session[sessionurl]do=downloadpm&amp;dowhat=txt">$vbphrase[text]</a>
+    </td>
+</tr>
+<tr>
+    <td valign="bottom">$forumjump</td>
+</tr>
+</table>
+<!-- / forumjump -->

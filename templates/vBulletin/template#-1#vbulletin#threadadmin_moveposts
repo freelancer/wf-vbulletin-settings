@@ -1,0 +1,70 @@
+<form action="inlinemod.php?do=domoveposts&amp;t=$threadid&amp;postids=$postids" method="post" name="vbform">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="postids" value="$postids" />
+<input type="hidden" name="t" value="$threadid" />
+<input type="hidden" name="do" value="domoveposts" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[move_posts]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+			<fieldset class="fieldset">
+				<legend>$vbphrase[move_posts_to_new_thread]</legend>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+				<tr valign="top">
+					<td><input type="radio" name="type" value="0" checked="checked" /></td>
+					<td class="fieldset">
+						<div><label for="destforumid">$vbphrase[destination_forum]
+							<select name="destforumid" id="destforumid" style="display:block">
+								$moveforumbits
+							</select>
+						</label></div>
+						<div style="margin-top:$stylevar[formspacer]px"><label for="title_textbox">$vbphrase[title]
+							<input type="text" class="bginput" name="title" id="title_textbox" value="$post[title]" size="50" maxlength="$vboptions[titlemaxchars]" style="display:block" />
+						</label></div>
+					</td>
+				</tr>
+				</table>
+			</fieldset>
+
+			<fieldset class="fieldset">
+				<legend>$vbphrase[move_posts_to_existing_thread]</legend>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+				<tr valign="top">
+					<td><input type="radio" name="type" value="1" /></td>
+					<td class="fieldset">
+						<div>$vbphrase[move_posts_note]</div>
+						<div style="margin-top:$stylevar[formspacer]px"><label for="mergethreadurl">$vbphrase[url_of_thread_to_be_merged]
+							<input type="text" class="bginput" name="mergethreadurl" id="mergethreadurl" value="" size="50" style="display:block" />
+						</label></div>
+					</td>
+				</tr>
+				</table>
+			</fieldset>
+
+			<fieldset class="fieldset">
+				<legend>$vbphrase[notes]</legend>
+				<div class="fieldset" style="padding:$stylevar[formspacer]px">
+					<div><phrase 1="$postcount" 2="$threadcount" 3="$forumcount">$vbphrase[moving_x_posts_from_y_threads_in_z_forums]</phrase></div>
+					<div style="margin-top:$stylevar[formspacer]px">$vbphrase[you_must_have_the_required_permission]</div>
+				</div>
+			</fieldset>
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" value="$vbphrase[move_posts]" accesskey="s" />
+		<input type="reset" class="button" value="$vbphrase[reset_fields]" accesskey="r" />
+	</div>
+	</td>
+</tr>
+</table>
+
+</form>

@@ -1,0 +1,11 @@
+A paid subscription has just been purchased by $username at  $vboptions[bbtitle]
+
+To view their profile, go here:
+
+$vboptions[bburl]/member.php?u=$userid
+
+Username : $username
+Subscription : $subscription
+Amount: $amount
+Processor: $processor
+Transaction ID: $transactionid

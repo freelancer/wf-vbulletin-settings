@@ -1,0 +1,5 @@
+
+				$vbppfo_lasthook='cache_templates';
+				include(DIR.'/includes/vbppfo_hooks.php');
+			
+			

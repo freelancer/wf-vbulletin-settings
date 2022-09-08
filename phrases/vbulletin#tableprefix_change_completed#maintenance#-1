@@ -1,0 +1,5 @@
+<p>This script has now completed.<br />
+Your table prefix has been changed from '<b>{1}</b>' to '<b>{2}</b>'.</p>
+<p>You must now edit your <i>includes/config.php</i> file to include the line:</p>
+<pre>$config['Database']['tableprefix'] = '{2}';</pre>
+<p><b><u>Your vBulletin installation will not function until you do this.</u></b></p>

@@ -1,0 +1,1 @@
+vBulletin offers you the ability to store albums as files, instead of the database. It is highly recommended you do this as albums can lead to slowing your database down and increased load.

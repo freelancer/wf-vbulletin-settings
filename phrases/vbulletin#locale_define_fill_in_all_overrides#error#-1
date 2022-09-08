@@ -1,0 +1,1 @@
+You have defined a locale for this language but did not define all of the date/time override fields.  You must define each of these fields using the formatting style that is listed.  Note that this style differs from the formatting you would use in the vboptions for the normal date/time fields.

@@ -1,0 +1,1 @@
+Allow users to use a star (*) in searches to match partial words? (Eg: 'bu*' matches '<b>bu</b>g' and '*bu*' matches 'v<b>Bu</b>lletin').

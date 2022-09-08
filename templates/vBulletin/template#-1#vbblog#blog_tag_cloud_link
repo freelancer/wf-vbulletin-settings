@@ -1,0 +1,1 @@
+<a href="blog.php?$session[sessionurl]tag=$thistag[tagtext_url]<if condition="$show['userlink']">&amp;u=$userinfo[userid]</if>" class="tagcloudlink level$thistag[level]" title="$thistag[tagtext]">$thistag[tagtext]</a> 

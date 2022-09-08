@@ -1,0 +1,6 @@
+global $usercache;
+
+$usercache[$moderator['userid']] = array(
+'userid'=>$moderator['userid'],
+'username'=>$moderator['username']
+);

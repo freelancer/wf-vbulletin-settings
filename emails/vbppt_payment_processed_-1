@@ -1,0 +1,8 @@
+Dear $userinfo[username],
+
+Your payment is successfully processed. Please click the link below to visit your thread:
+
+$vboptions[bburl]/showthread.php?t=$threadinfo[threadid]
+
+Best Regards,
+$vboptions[bbtitle]

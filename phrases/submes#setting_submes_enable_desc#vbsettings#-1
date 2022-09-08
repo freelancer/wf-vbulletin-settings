@@ -1,0 +1,20 @@
+E-mail users when they purchase a new subscription or they are manually added to a subscription.
+<p>You can change the content of the subject and body of this e-mail by editing these phrases:</p>
+<p class="smallfont">
+Edit title: <a href="phrase.php?do=edit&e[emailsubject][submes_subscription_user]" target="_blank">E-mail Title</a><br />
+Edit body: <a href="phrase.php?do=edit&e[emailbody][submes_subscription_user]" target="_blank">E-mail Body</a>
+</p>
+<p class="smallfont">
+Available variables you can use in phrases are:<br /><br />
+$sitetitle: Your homepage name (from vBulletin Options)<br />
+$bbtitle: Your forum name (from vBulletin Options)<br />
+$siteurl: Your homepage url (from vBulletin Options)<br />
+$bburl: Your forum url (from vBulletin Options)<br />
+$subscriber[username]: User name of the subscriber<br />
+$subscriber[userid]: User id of the subscriber<br />
+$subscription[title]: Title of the subscription<br />
+$subscription[description]: Description of the subscription<br />
+$subscription[startdate]: Start of subscription period<br />
+$subscription[enddate]: End of subscription period<br />
+$subscription[date]: Current date
+</p>

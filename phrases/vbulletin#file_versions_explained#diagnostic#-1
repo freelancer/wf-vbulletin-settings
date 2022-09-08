@@ -1,0 +1,3 @@
+This function will list each of your vBulletin files that is tagged with a different version than your forum is currently at, which is <b>{1}</b>.<br />
+<br />
+This tool is intended to verify the integrity of your vBulletin files and only scans files with a limited number of extensions.

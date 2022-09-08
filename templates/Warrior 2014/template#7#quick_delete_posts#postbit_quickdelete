@@ -1,0 +1,1 @@
+<if condition="$show['softdelete']"><span id="quick_delete_delete_$post[postid]" style=""><a href="editpost.php?do=editpost&p=$post[postid]"><img src="images/buttons/quickdelete_delete.gif" border="0" /></a></span></if>

@@ -1,0 +1,3 @@
+The plugin/hook systems allows for insertion of arbitrary code into specific locations in the PHP files without having to edit the files.  This can be used to extend the functionality of vBulletin without hacking.<br /><br />
+
+For troubleshooting purposes, you can turn off the plugin/hook system with this setting so you can eliminate your code as a possible cause.

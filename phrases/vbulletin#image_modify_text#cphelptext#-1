@@ -1,0 +1,19 @@
+You can manage your images here.  Images can be arranged in categories and their access restricted by post count and usergroup.  Usergroup restrictions are set at the category level while post count restrictions are set at the image level.<br /><br />
+
+At the bottom of this page you can click the [Add New Category] link to create a new category for images to go into.  Click the [Show All] link to view all images for all categories.<br /><br />
+
+Below is a list of your image categories.  The "Title" column tells you the name of each category.  You can click on the category name to view its images.<br /><br />
+
+The "Contains" column tells you how many images are in the corresponding category.<br /><br />
+
+The "Display Order" column tells you the display order of each image category.  The display order is used to order the image category listing in this Image Manager as well as on your forums.  You can update the display orders shown on this page by changing the number values and clicking the "Save Display Order" button.<br /><br />
+
+On the right side you will find several options for each image category.  The [Mass Move] link takes you to a page where you can select a new category for each image in the corresponding category and submit the changes all at once.<br /><br />
+
+The [View] link does the same thing as clicking on the category name to the left, it takes you to a page where you can view all images in the corresponding category.<br /><br />
+
+The [Edit] link allows you to edit the title and display order of the corresponding category.<br /><br />
+
+The [Delete] link takes you to a page where you can delete the corresponding category and all of its images or mass move the categories images to another category and then delete the original category.<br /><br />
+
+The [Permissions] link takes you to a page where you can specify which usergroups can use the images in the corresponding category.

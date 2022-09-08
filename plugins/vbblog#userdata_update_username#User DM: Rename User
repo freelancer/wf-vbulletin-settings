@@ -1,0 +1,47 @@
+// blog 'username'
+$this->dbobject->query_write("
+	UPDATE " . TABLE_PREFIX . "blog
+	SET username = '" . $this->dbobject->escape_string($username) . "'
+	WHERE userid = $userid
+");
+
+$this->dbobject->query_write("
+	UPDATE " . TABLE_PREFIX . "blog
+	SET postedby_username = '" . $this->dbobject->escape_string($username) . "'
+	WHERE postedby_userid = $userid
+");
+
+// blogtext 'username'
+$this->dbobject->query_write("
+	UPDATE " . TABLE_PREFIX . "blog_text
+	SET username = '" . $this->dbobject->escape_string($username) . "'
+	WHERE userid = $userid
+");
+
+// user last commenter 'username'
+$this->dbobject->query_write("
+	UPDATE " . TABLE_PREFIX . "blog_user
+	SET lastcommenter = '" . $this->dbobject->escape_string($username) . "'
+	WHERE lastcommenter = '" . $this->dbobject->escape_string($this->existing['username']) . "'
+");
+
+// blog last commenter 'username'
+$this->dbobject->query_write("
+	UPDATE " . TABLE_PREFIX . "blog
+	SET lastcommenter = '" . $this->dbobject->escape_string($username) . "'
+	WHERE lastcommenter = '" . $this->dbobject->escape_string($this->existing['username']) . "'
+");
+
+// deletionlog 'username'
+$this->dbobject->query_write("
+	UPDATE " . TABLE_PREFIX . "blog_deletionlog
+	SET username = '" . $this->dbobject->escape_string($username) . "'
+	WHERE userid = $userid
+");
+
+// editlog 'username'
+$this->dbobject->query_write("
+	UPDATE " . TABLE_PREFIX . "blog_editlog
+	SET username = '" . $this->dbobject->escape_string($username) . "'
+	WHERE userid = $userid
+");

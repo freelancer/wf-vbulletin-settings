@@ -1,0 +1,1 @@
+If you enable the User Referrer system, then a user who visits your forum through a link that contains 'referrerid=XXX' will give referral credit to the owner of the referrerid when they register (where XXX is the userid of the referring user).

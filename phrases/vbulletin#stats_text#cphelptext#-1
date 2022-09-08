@@ -1,0 +1,10 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=stats&amp;pageaction=&amp;option=">Statistics</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=adminlog&amp;pageaction=&amp;option=">Control Panel Log</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=modlog&amp;pageaction=&amp;option=">Moderator Log</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=cronlog&amp;pageaction=&amp;option=">Scheduled Task Log</a><br /><br />
+
+<b>Statistics:</b><br />
+vBulletin's statistics page contains various stats for your forums.  The stats on this page include "top" stats (newest member, top poster, most users online, etc) and various forum activity stats.<br /><br />
+
+You can run reports for a specific stat over a specific time period to view patterns of activity on your forums.  Patterns of forum activity can be used for many different things.  For example, if you run an advertising campaign for your site and want to check its effectiveness in terms of new forum registrations then you can run reports showing new registrations from before and during the campaign.

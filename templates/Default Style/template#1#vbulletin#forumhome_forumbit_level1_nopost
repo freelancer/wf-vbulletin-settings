@@ -1,0 +1,25 @@
+<if condition="!$show['collapsable_forums']">
+<tbody>
+</if>
+	<tr>
+		<td class="tcat" colspan="<if condition="$vboptions[showmoderatorcolumn]">6<else />5</if>">
+			<if condition="$childforumbits">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('forumbit_$forumid')"><img id="collapseimg_forumbit_$forumid" src="$stylevar[imgdir_button]/collapse_tcat{$collapseimg_forumid}.gif" alt="" border="0" /></a>
+			</if>
+			<a href="forumdisplay.php?$session[sessionurl]f=$forum[forumid]">$forum[title]</a>
+			<if condition="$show['forumdescription']"><div class="smallfont">$forum[description]</div></if>
+			<if condition="$show['subforums'] AND $forum[forumid] != 34"><div class="smallfont"><strong>$vbphrase[subforums]</strong>: $forum[subforums]</div></if>
+		</td>
+	</tr>
+<if condition="!$show['collapsable_forums']">
+</tbody>
+</if>
+<if condition="$childforumbits">
+<if condition="!$show['collapsable_forums']">
+<tbody id="collapseobj_forumbit_$forumid" style="{$collapseobj_forumid}">
+</if>
+$childforumbits
+<if condition="!$show['collapsable_forums']">
+</tbody>
+</if>
+</if>

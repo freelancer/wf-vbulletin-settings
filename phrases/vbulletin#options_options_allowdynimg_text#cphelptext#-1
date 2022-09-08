@@ -1,0 +1,1 @@
+If you enable this setting, users will be able to use dynamic URLs (those containing ? and &amp; among other special characters) in the [IMG] tag. This may post a slight risk of malicious use depending on what the "image" on the other end of the URL does. It could possibly read or set cookies or do a number of other things. Typically this setting should be disabled.

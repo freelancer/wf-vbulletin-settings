@@ -1,0 +1,3 @@
+The Anti-Spam API key is used to enable the scanning service for user generated data. The data will sent to the specified service for identification.<br />
+<br />
+If the data is identified as spam, it will be marked for moderation to allow for verification by moderators. You should give your moderators the 'Can Moderate' permission to allow for this.

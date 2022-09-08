@@ -1,0 +1,14 @@
+if($vbulletin->userinfo['userid'] <= 0)
+{
+//vbsetcookie('imloggedin', '', false, true, true);
+vbsetcookie('imloggedin', '', 1);
+//setcookie('bbimloggedin', '', time() - 3600);
+//vbsetcookie('tester', 'guest');
+}
+else
+{
+
+//vbsetcookie('tester', '', 1);
+vbsetcookie('imloggedin', 'yes', false, true, true);
+//print_r($vbulletin->userinfo);
+}

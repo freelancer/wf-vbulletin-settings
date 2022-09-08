@@ -1,0 +1,7 @@
+<li id="user$user[userid]">
+	<div class="username">
+		<input type="checkbox" name="ids[$user[userid]]" id="{$container}_usercheck_$user[userid]" value="$user[userid]"$user[checked]
+		       /><a href="member.php?$session[sessionurl]u=$user[userid]" title="$vbphrase[view_profile]">$user[username]</a>
+	</div>
+	<hr />
+</li>

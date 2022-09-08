@@ -1,0 +1,11 @@
+
+Dear $username,
+	
+Thanks you for subscribing with us. 
+
+Now you can access the private area.
+
+Best Regards
+
+<a href="$vboptions[bburl]">$vboptions[bbtitle]</a>
+			

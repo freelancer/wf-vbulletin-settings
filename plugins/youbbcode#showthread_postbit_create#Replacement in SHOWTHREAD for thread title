@@ -1,0 +1,6 @@
+if (!$gjgfkjdgf)
+{
+$thread['title'] = str_replace("[you]", $vbulletin->userinfo[username], $thread['title']);
+$thread['title'] = str_replace("[YOU]", $vbulletin->userinfo[username], $thread['title']);
+$gjgfkjdgf = 1;
+}

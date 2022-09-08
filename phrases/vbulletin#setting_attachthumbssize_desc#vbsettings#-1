@@ -1,0 +1,1 @@
+Maximum width and height that the thumbnail can have. The image will be proportionately resized so that the longest side is no larger than this setting.   If you change this setting, you will need to go to <b>Maintenance</b> -> <b>Update Counters</b> -> <b>Rebuild Attachment Thumbnails</b>.

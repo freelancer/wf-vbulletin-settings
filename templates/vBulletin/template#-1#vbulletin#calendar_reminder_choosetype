@@ -1,0 +1,54 @@
+<form action="calendar.php?do=doaddreminder&amp;eventid=$eventinfo[eventid]" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="doaddreminder" />
+<input type="hidden" name="eventid" value="$eventinfo[eventid]" />
+<input type="hidden" name="url" value="$url"  />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		$vbphrase[add_reminder]<span class="normal">: $eventinfo[title]</span>
+	</td>
+</tr>
+<tr valign="top">
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth_usercp]" align="$stylevar[left]">
+
+			<table class="fieldset" cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" align="center">
+			<tr>
+				<td>
+					$vbphrase[when_to_send_reminder_before_event] :
+					<select name="reminder">
+						<option value="3600">$vbphrase[one_hour]</option>
+						<option value="7200">$vbphrase[two_hours]</option>
+						<option value="10800">$vbphrase[three_hours]</option>
+						<option value="14400">$vbphrase[four_hours]</option>
+						<option value="21600">$vbphrase[six_hours]</option>
+						<option value="28800">$vbphrase[eight_hours]</option>
+						<option value="43200">$vbphrase[twelve_hours]</option>
+						<option value="64800">$vbphrase[eighteen_hours]</option>
+						<option value="86400">$vbphrase[one_day]</option>
+						<option value="172800">$vbphrase[two_days]</option>
+						<option value="259200">$vbphrase[three_days]</option>
+					</select>
+					<br /><br />
+					<div>
+					<em>$vbphrase[reminder_emails_can_be_early_or_late]</em>
+					</div>
+				</td>
+			</tr>
+			</table>
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" value="$vbphrase[add_reminder]" accesskey="s" />
+	</div>
+	</td>
+</tr>
+</table>
+
+</form>

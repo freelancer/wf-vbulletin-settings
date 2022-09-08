@@ -1,0 +1,35 @@
+$errors
+
+<form action="blog_post.php?do=notify" name="vbform" method="post">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[send_pingback_trackback_notification]</td>
+</tr>
+<tr valign="top">
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]">
+
+			<fieldset class="fieldset">
+				<legend>$vbphrase[notification_urls]</legend>
+				<div style="padding:$stylevar[formspacer]px">
+					<div style="margin-bottom:$stylevar[cellpadding]px">$vbphrase[links_were_found_within_your_blog_entry]</div>
+					<ul class="list_no_decoration">$urlbits</ul>
+					<if condition="$show['urllimit']"><div class="shade" style="margin-top:$stylevar[cellpadding]px"><phrase 1="$vboptions[vbblog_notifylinks]">$vbphrase[you_may_send_up_to_x_notifications]</phrase></div></if>
+				</div>
+			</fieldset>
+
+			</div>
+		</div>
+
+		<div style="margin-top:$stylevar[cellpadding]px">
+			<input type="submit" class="button" name="sbutton" value="$vbphrase[send_notification]" accesskey="s" tabindex="1" />
+			<input type="hidden" name="b" value="$bloginfo[blogid]" />
+			<input type="hidden" name="do" value="donotify" />
+			<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+		</div>
+	</td>
+</tr>
+</table>
+
+</form>

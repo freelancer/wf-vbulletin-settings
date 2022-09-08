@@ -1,0 +1,10 @@
+<div style="float:{1}; padding: 3px">
+	<div><img class="inlineimg" src="{2}/rating_5.gif" alt="" /></div>
+	<div><img class="inlineimg" src="{2}/rating_4.gif" alt="" /></div>
+	<div><img class="inlineimg" src="{2}/rating_3.gif" alt="" /></div>
+	<div><img class="inlineimg" src="{2}/rating_2.gif" alt="" /></div>
+	<div><img class="inlineimg" src="{2}/rating_1.gif" alt="" /></div>
+</div>
+<div class="smallfont">
+	There are not any entries with enough ratings to display. Start rating the blogs that you visit by clicking on 'Rating' in the upper right corner of the entry.  In no time at all, your ratings will help establish this list.
+</div>

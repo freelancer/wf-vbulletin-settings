@@ -1,0 +1,25 @@
+<p>You will see a '<a href="calendar.php$session[sessionurl_q]">Calendar</a>' link near the top of the forums (if this option is enabled by the administrator). By default, the forums will have one Calendar that can be viewed and used by all members.</p>
+
+<p>Members can add upcoming events that might interest the community. You can also sign up to get email alerts about upcoming events.</p>
+
+<p>In addition, the administrator could create additional private calendars for individual members or for specific user groups.</p>
+
+<p><b>How do I add an event to the Calendar?</b></p>
+
+<p>If you have the appropriate permissions, there will be a box on the Calendar labelled 'Add New Event'. The administrator may have enabled registered members to post public events, but usually this is not the case. It's more likely that you can only post your own private events that can only be seen by you.</p>
+
+<p>There are three types of event that can be added to a calendar:</p>
+
+<ul>
+<li><b>Single, All Day Event</b> - an event that takes place for the whole of a day.</li>
+<li><b>Ranged Event</b> - events that have a defined start time and end time, not necessarily both on the same day.</li>
+<li><b>Recurring Event</b> - repeat over a set period of time based on certain criteria. Examples would be an event that occurs on the first Monday of every month and an event that occurs every Monday and Wednesday.</li>
+</ul>
+
+<p>Just choose the appropriate option for the event you are adding, fill in the required information, then save the event. It will now appear on the Calendar.</p>
+
+<p><b>Where do birthdays show?</b></p>
+
+<p>Birthdays may be shown on the calendar if the administrator has enabled this feature. Your birthday will automatically be shown on the calendar if you have entered the date of your birthday in your profile. Note: if you do not enter the year of your birth when you edit your profile, your age will not be shown on the calendar.</p>
+
+<p>If you enter your birthday, your name will also appear on the <a href="$vboptions[forumhome].php$session[sessionurl_q]">main forum page</a> when it is your birthday.</p>

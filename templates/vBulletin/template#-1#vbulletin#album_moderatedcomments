@@ -1,0 +1,74 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+$usercss
+$picturecomment_css
+<title>$vboptions[bbtitle] - $vbphrase[picture_comments_awaiting_approval]</title>
+</head>
+<body>
+$header
+$navbar
+
+<div id="usercss">
+
+<form action="picture_inlinemod.php?pictureid=$pictureinfo[pictureid]" method="post" id="picture_comment_inlinemod_form">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[picture_comments_awaiting_approval]</td>
+</tr>
+<tr>
+	<td class="alt1">
+		<ol class="list_no_decoration" id="message_list">
+			$picturecommentbits
+		</ol>
+	</td>
+</tr>
+
+<if condition="$show['inlinemod']">
+<tr>
+	<td class="alt2 smallfont" id="inlinemod_comment_controls">
+		<div><label for="moderation_select_comments">$vbphrase[moderation]</label></div>
+		<select id="moderation_select_comments" name="do">
+			<if condition="$show['delete'] OR $show['undelete'] OR $show['approve']">
+			<optgroup label="$vbphrase[option]" id="moderation_select_comments_optgroup">
+				<if condition="$show['delete']">
+					<option value="inlinedelete" id="inlinemod_comment_controls_delete">$vbphrase[delete_messages]</option>
+				</if>
+				<if condition="$show['undelete']">
+					<option value="inlineundelete" id="inlinemod_comment_controls_undelete">$vbphrase[undelete_messages]</option>
+				</if>
+				<if condition="$show['approve']">
+					<option value="inlineapprove" id="inlinemod_comment_controls_approve">$vbphrase[approve_messages]</option>
+					<option value="inlineunapprove" id="inlinemod_comment_controls_unapprove">$vbphrase[unapprove_messages]</option>
+				</if>
+			</optgroup>
+			</if>
+			<optgroup label="____________________">
+				<option value="clearmessage">$vbphrase[deselect_all_messages]</option>
+			</optgroup>
+		</select>
+		<input type="submit" value="$vbphrase[go]" id="picturecomment_inlinego" class="button" />
+		<input type="hidden" name="s" value="$session[sessionhash]" />
+		<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+	</td>
+</tr>
+</if>
+
+</table>
+</form>
+
+<if condition="$show['inlinemod']">
+	<script type="text/javascript" src="clientscript/vbulletin_inlinemod.js?v=$vboptions[simpleversion]"></script>
+	<script type="text/javascript">
+	<!--
+	inlineMod_comment = new vB_Inline_Mod('inlineMod_comment', 'picturecomment', 'picture_comment_inlinemod_form', '$vbphrase[go_x]', 'vbulletin_inline', 'message');
+	//-->
+	</script>
+</if>
+
+</div>
+
+$footer
+</body>
+</html>

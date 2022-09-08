@@ -1,0 +1,5 @@
+
+				$vbpwr_lasthook='cron_script_cleanup_hourly';
+				include(DIR.'/includes/vbpwr_hooks.php');
+			
+			

@@ -1,0 +1,5 @@
+<b>Maximum Input (Input, Textarea only)</b><br />
+This setting is how many characters a user is allowed to enter into this field.<br />
+<br />
+<b>Maximum Input (for Optional Field, Select, Radio only)</b><br />
+This setting is how many characters a user may enter into the optional field.

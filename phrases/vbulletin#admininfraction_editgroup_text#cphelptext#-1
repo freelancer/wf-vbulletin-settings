@@ -1,0 +1,5 @@
+On this screen, you add a new infraction group or modify an existing infraction group.
+
+Infraction groups are awarded based on a user's cumulative infraction points. Infraction groups only apply to a user if the group's primary usergroup matches the user's primary usergroup or if the group's primary usergroup is set to <em>-- All Usergroups --</em>.
+
+Every infraction group that pertains to a user's primary usergroup will be added to a user's infraction groups when the user's infraction points are greater than or equal to the infraction group's points.

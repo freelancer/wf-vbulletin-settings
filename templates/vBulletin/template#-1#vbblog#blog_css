@@ -1,0 +1,73 @@
+<style type="text/css" id="vbulletin_blog_css">
+.cleardiv {
+	clear:both;
+}
+.entryposter {
+	background:#CCFFFF;
+}
+#content_container {
+	width:100%;
+	float:$stylevar[right];
+	margin-$stylevar[left]:-206px;
+}
+#content {
+	margin-$stylevar[left]:206px;
+}
+#sidebar_container {
+	width:200px;
+	float:$stylevar[left];
+}
+#blog_description {
+	margin-bottom:12px;
+}
+div.block_category_list {
+	overflow:hidden;
+	white-space:nowrap;
+}
+div.sidebar_custom_block {
+	overflow:hidden
+}
+img.blog_home_list_image {
+	max-width:30px;
+	max-height:30px;
+	height:auto !important;
+	width:auto !important;
+	width:30px;
+	height:30px;
+}
+.nobullets, .list_no_decoration {
+	list-style:none;
+	margin:0px;
+	padding:0px;
+}
+ul.recent_visitors_list li {
+	display:inline;
+	margin-$stylevar[right]:3px;
+}
+<if condition="$show['tagcloud_css']">
+	a.tagcloudlink:link, a.tagcloudlink:visited { text-decoration:none; }
+	a.tagcloudlink:hover, a.tagcloudlink:active { text-decoration:underline; }
+	a.taglistlink:link, a.taglistlink:visited { text-decoration:none; display: block; }
+	a.taglistlink:hover, a.taglistlink:active { text-decoration:underline; display: block; }
+	a.level1 { font-size: xx-small; }
+	a.level2 { font-size: small; }
+	a.level3 { font-size: medium; }
+	a.level4 { font-size: large; }
+	a.level5 { font-size: xx-large; }
+</if>
+<if condition="$show['tags']">
+#tag_edit_list {
+	list-style:none;
+	margin:0px;
+	padding:0px;
+}
+#tag_edit_list li {
+	float:$stylevar[left];
+	display:block;
+	<if condition="$show['tagwidth']">width:200px; </if>
+}
+#tag_edit_list li.mine {
+	font-weight:bold;
+}
+</if>
+</style>

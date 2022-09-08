@@ -1,0 +1,51 @@
+if ($_REQUEST['do'] == 'bump')
+{
+	$handeled_do = true;
+
+	if (!$foruminfo['forumid'])
+	{
+		eval(standard_error(fetch_error('invalidid', $vbphrase['forum'], $vbulletin->options['contactuslink'])));
+	}
+
+	if (!$threadinfo['threadid'])
+	{
+		eval(standard_error(fetch_error('invalidid', $vbphrase['thread'], $vbulletin->options['contactuslink'])));
+	}
+			
+	$ugroups = explode(',',$vbulletin->options['skm_threadbump_displaygroups']); 
+
+	if (is_member_of($vbulletin->userinfo,$ugroups) OR $ugroups[0] == 0) 
+	{
+		$sortfield = $foruminfo['defaultsortfield'];
+
+		switch ($sortfield)
+		{
+			case 'lastpost':
+				$vbulletin->db->query_write("
+					UPDATE " . TABLE_PREFIX . "thread SET 
+						lastpost = " . TIMENOW . "      
+					WHERE threadid = $threadinfo[threadid]
+				");
+
+				$vbulletin->url = "forumdisplay.php?" . $vbulletin->session->vars['sessionurl'] . "f=" . $foruminfo['forumid'];
+				eval(print_standard_redirect('redirect_bump'));
+			
+			case 'dateline':
+				$vbulletin->db->query_write("
+					UPDATE " . TABLE_PREFIX . "thread SET 
+						dateline = " . TIMENOW . "      
+					WHERE threadid = $threadinfo[threadid]
+				");
+
+				$vbulletin->url = "forumdisplay.php?" . $vbulletin->session->vars['sessionurl'] . "f=" . $foruminfo['forumid'];
+				eval(print_standard_redirect('redirect_bump'));
+			
+			default:
+				eval(standard_error('Sorry, the options used for thread display won\'t ever properly show a thread as bumped.   Please change the sort options of this forum to either last post or thread start'));
+		}
+	}
+
+	else {
+		print_no_permission();
+	}
+}

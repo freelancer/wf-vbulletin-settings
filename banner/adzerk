@@ -1,0 +1,36 @@
+<?php
+if(class_exists('vBPPB_Registry') && vBPPB_Registry::getInstance()->displayForumBanner()) {
+?>
+<script type="text/javascript">
+  var z = document.createElement("script");
+  z.type = "text/javascript";
+  z.async = true;
+  z.src = "https://www.googletagservices.com/tag/js/gpt.js";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(z, s);
+
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/21642049421/Top_Banner', [728, 90], 'adspot-top').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+    googletag.display('adspot-top');
+  });
+</script>
+
+<?php
+if ($show['navbar_adspot_top']) {
+?>
+<div id="adspot-top" class="banner_ad-781x90"></div>
+<div class="adcredits" style="font-size:10px; text-align:right;padding:2px;clear:both; margin-bottom: 10px;">
+    <a href="https://payments.warriorforum.com/add-banner" style="text-decoration:none;color:black;">Advertise with Us</a>
+</div>
+<?php
+}
+?>
+
+<?php
+}
+?>

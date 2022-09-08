@@ -1,0 +1,180 @@
+<script type="text/javascript" src="clientscript/vbulletin_inlinemod.js?v=$vboptions[simpleversion]"></script>
+
+<!-- topic table -->
+<form action="inlinemod.php" method="post" id="inlinemodform">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="url" value="$url" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center" id="threadslist">
+<tr>
+	<td class="tcat">
+		<if condition="$show['haveposts']"><input name="allbox" style="margin: 0px 0px 0px 5px; padding: 0px; float: $stylevar[right]; vertical-align: middle;" id="checkall_all" title="$vbphrase[check_uncheck_all]" onclick="inlineMod.check_all();" type="checkbox" /></if><span class="smallfont" style="float:$stylevar[right]"><strong>$vbphrase[posts]</strong>: $totalposts</span>
+		<if condition="$show['deleted']">$vbphrase[deleted_posts]<else />$vbphrase[moderated_posts]</if>
+	</td>
+</tr>
+
+<if condition="$show['haveposts']">
+	</table>
+
+	$postbits
+
+<else />
+	<!-- show no posts message -->
+	<tr>
+		<td class="alt1"  align="center">
+			<div style="padding: 16px">
+				<strong>$vbphrase[no_posts_found]</strong><br />
+				<span class="smallfont">$vbphrase[try_controls_below_for_older_posts]</span>
+			</div>
+		</td>
+	</tr>
+	<!-- end show no posts message -->
+	</table>
+</if>
+
+<if condition="$show['haveposts']">
+
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:3px">
+	<tr valign="top">
+		<td align="$stylevar[right]">$pagenav
+			<div class="smallfont" style="text-align:$stylevar[left]; white-space:nowrap; float:$stylevar[right]">
+			<if condition="$show['pagenav']"><br /></if><strong>$vbphrase[moderation]</strong><br />
+				<select name="do">
+					<optgroup label="$vbphrase[option]">
+						<option value="mergeposts">$vbphrase[merge_posts]</option>
+						<option value="moveposts">$vbphrase[move_posts]</option>
+						<if condition="$show['delete']">
+						<option value="deleteposts">$vbphrase[delete_posts]</option>
+						<option value="spampost">$vbphrase[delete_posts_as_spam]</option>
+						</if>
+						<if condition="$show['undelete']">
+						<option value="undeleteposts">$vbphrase[undelete_posts]</option>
+						</if>
+						<option value="approveposts">$vbphrase[approve_posts]</option>
+						<option value="unapproveposts">$vbphrase[unapprove_posts]</option>
+						<option value="approveattachments">$vbphrase[approve_attachments]</option>
+						<option value="unapproveattachments">$vbphrase[unapprove_attachments]</option>
+					</optgroup>
+					<optgroup label="____________________">
+						<option value="viewpost">$vbphrase[view_selected_posts]</option>
+						<option value="clearpost">$vbphrase[clear_post_list]</option>
+					</optgroup>
+				</select><input type="submit" class="button" id="inlinego" value="$vbphrase[go]" />
+				<script type="text/javascript">
+				<!--
+				inlineMod = new vB_Inline_Mod('inlineMod', 'post', 'inlinemodform', '$vbphrase[go_x]');
+				//-->
+				</script>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+	<if condition="$show['popups']">
+		<div class="vbmenu_popup" id="imod_menu" style="display:none" align="$stylevar[left]">
+			$threadadmin_imod_menu
+		</div>
+	</if>
+</if>
+
+</form>
+<!-- / topic table -->
+
+<br />
+
+<form action="moderation.php?do=viewposts&amp;type=$type" method="get">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="page" value="$pagenumber" />
+<input type="hidden" name="pp" value="$perpage" />
+<input type="hidden" name="type" value="$type" />
+<input type="hidden" name="do" value="viewposts" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[display_options]</td>
+</tr>
+<if condition="$totalposts">
+<tr>
+	<td class="thead"><phrase 1="$limitlower" 2="$limitupper" 3="$totalposts">$vbphrase[showing_results_x_to_y_of_z]</phrase></td>
+</tr>
+</if>
+<tr valign="top">
+	<td class="alt1">
+		<table cellpadding="0" cellspacing="1" border="0" width="100%">
+		<tr valign="bottom">
+			<td class="smallfont">
+				<label for="select_sort">$vbphrase[sorted_by]</label>
+				<select name="sort" id="select_sort" style="display:block">
+					<option value="title" $sort[title]>$vbphrase[title]</option>
+					<option value="dateline" $sort[dateline]>$vbphrase[date]</option>
+					<option value="username" $sort[username]>$vbphrase[posted_by]</option>
+				</select>
+			</td>
+			<td class="smallfont">
+				<label for="select_order">$vbphrase[sort_order]</label>
+				<select name="order" id="select_order" style="display:block">
+					<option value="asc" $order[asc]>$vbphrase[ascending]</option>
+					<option value="desc" $order[desc]>$vbphrase[descending]</option>
+				</select>
+			</td>
+			<td class="smallfont">
+				<label for="select_daysprune"><if condition="$show['deleted']">$vbphrase[deleted_within]<else />$vbphrase[moderated_within]</if></label>
+				<select name="daysprune" id="select_daysprune" style="display:block">
+					<option value="1" $daysprunesel[1]>$vbphrase[last_day]</option>
+					<option value="2" $daysprunesel[2]>$vbphrase[last_2_days]</option>
+					<option value="7" $daysprunesel[7]>$vbphrase[last_week]</option>
+					<option value="10" $daysprunesel[10]>$vbphrase[last_10_days]</option>
+					<option value="14" $daysprunesel[14]>$vbphrase[last_2_weeks]</option>
+					<option value="30" $daysprunesel[30]>$vbphrase[last_month]</option>
+					<option value="45" $daysprunesel[45]>$vbphrase[last_45_days]</option>
+					<option value="60" $daysprunesel[60]>$vbphrase[last_2_months]</option>
+					<option value="75" $daysprunesel[75]>$vbphrase[last_75_days]</option>
+					<option value="100" $daysprunesel[100]>$vbphrase[last_100_days]</option>
+					<option value="365" $daysprunesel[365]>$vbphrase[last_year]</option>
+					<option value="-1" $daysprunesel[all]>$vbphrase[beginning]</option>
+				</select>
+			</td>
+			<td>&nbsp;</td>	
+		</tr>
+		<tr valign="bottom">
+			<td class="smallfont" colspan="3">
+				<label for="select_f">$vbphrase[forum]</label>
+				<select name="f" id="select_f" style="display:block">
+					<option value="0">$vbphrase[all_forums]</option>
+					$forumjumpbits
+				</select>
+			</td>
+			<td align="$stylevar[right]"><input type="submit" class="button" value="$vbphrase[show_posts]" /></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+</form>
+
+<br />
+
+<!-- icon key and forum jump -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tr valign="bottom">
+	<td width="100%">
+		<!-- icon key -->
+		<table cellpadding="2" cellspacing="0" border="0">
+		<tr align="$stylevar[left]">
+			<td><img src="$stylevar[imgdir_statusicon]/thread_new.gif" alt="$vbphrase[new_posts]" border="0" /></td>
+			<td class="smallfont">$vbphrase[new_posts]</td>
+		</tr>
+		<tr>
+			<td><img src="$stylevar[imgdir_statusicon]/thread.gif" alt="$vbphrase[no_new_posts]" border="0" /></td>
+			<td class="smallfont">$vbphrase[no_new_posts]</td>
+		</tr>
+		</table>
+		<!-- / icon key -->
+	</td>
+
+	<td>$forumjump</td>
+</tr>
+</table>
+<!-- / icon key and forum jump -->

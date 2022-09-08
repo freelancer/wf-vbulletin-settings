@@ -1,0 +1,10 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=forum&amp;pageaction=&amp;option=">Forums</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=forumpermission&amp;pageaction=&amp;option=">Forum Permissions</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=moderator&amp;pageaction=&amp;option=">Moderators</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=resources&amp;pageaction=&amp;option=">Viewing Permissions</a><br /><br />
+
+<b>Viewing Permissions:</b><br />
+vBulletin's permission system is very powerful and flexible, but it can be complex to work with if you are inexperienced with vBulletin.  Sometimes it is hard to know if you have permissions setup correctly.  This page allows you to confirm correct permissions for a forum for a usergroup.<br /><br />
+
+For a detailed explanation about usergroups and forum permissions, see the general help topic for <a href="help.php?s=&amp;do=answer&amp;page=usergroup&amp;pageaction=&amp;option=">Usergroups</a>.

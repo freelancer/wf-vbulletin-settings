@@ -1,0 +1,5 @@
+global $permissions;
+if ($permissions['allowhtmlpermissions'] & $vbulletin->bf_ugp_allowhtmlpermissions['canposthtml'])
+	{
+		$htmlcodeon = $vbphrase['on'];
+	}

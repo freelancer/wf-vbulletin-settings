@@ -1,0 +1,1 @@
+This option will allow any group owner to delete a Social Group if they are the only member of that group (even if they lack the "Can Delete Own Social Groups" permission)

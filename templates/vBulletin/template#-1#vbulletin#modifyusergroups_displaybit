@@ -1,0 +1,10 @@
+<tr>
+	<td class="$bgclass">
+		$usergroup[opentag]$usergroup[title]$usergroup[closetag]
+		<div class="smallfont">$usergroup[description]</div>
+	</td>
+	<td class="$bgclass">$usergroup[usertitle]</td>
+	<td class="$bgclass"><span class="smallfont">
+		<label for="rb_identify_$usergroupid"><input type="radio" name="usergroupid" value="$usergroupid" id="rb_identify_$usergroupid" $checked[$usergroupid] />$vbphrase[identify_as_member_of_group]</label>
+	</span></td>
+</tr>

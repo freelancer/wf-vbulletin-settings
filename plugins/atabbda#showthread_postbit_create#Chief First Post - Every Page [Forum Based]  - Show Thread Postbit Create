@@ -1,0 +1,12 @@
+if ($forum['ada_forum'] AND $vbulletin->GPC['pagenumber'] > 1)
+{
+    if ($post['postid'] == $thread['firstpostid'])
+    {
+        $counter--;
+        $post['postcount'] = '';
+    }
+    else
+    {
+        $post['postcount']--;
+    }
+}

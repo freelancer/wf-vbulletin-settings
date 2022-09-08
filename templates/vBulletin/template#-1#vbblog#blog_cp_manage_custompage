@@ -1,0 +1,27 @@
+<form action="blog_usercp.php?do=updatesidebar" method="post" name="form">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="updatesidebar" />
+<input type="hidden" name="type" value="page" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="3">$vbphrase[blog_custom_pages]</td>
+</tr>
+<tr>
+	<td class="thead"><span style="float:$stylevar[right]">$vbphrase[edit]</span>$vbphrase[page]</td>
+	<td class="thead" nowrap="nowrap">$vbphrase[display_location]</td>
+	<td class="thead" nowrap="nowrap">$vbphrase[display_order]</td>
+</tr>
+$pagebits
+<tr>
+	<td class="tfoot" colspan="3">
+		<if condition="$show['updateorder']"><div class="smallfont" style="float:$stylevar[right]">
+			<input type="submit" class="button" value="$vbphrase[update_page_order]" />
+		</div></if>
+		<if condition="$show['addblock']"><input type="submit" class="button" name="addblock" value="$vbphrase[add_custom_page]" /></if>
+	</td>
+</tr>
+</table>
+
+</form>

@@ -1,0 +1,1 @@
+When this option is enabled any HTML found within the RSS feed item will be converted to BB code prior to posting, it is not retroactive so when enabled only new posts will have this conversion.

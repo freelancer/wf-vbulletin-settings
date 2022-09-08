@@ -1,0 +1,26 @@
+if (!$show['member'] && $vbulletin->options['spam_hammer_service_contact_us']) {
+	$fallback = Spam_Hammer_Fallback::html();
+
+	if ($vbulletin->options['vbresults_service_auth_token']) {
+		$markup = vB_Forum_Results_Service::get('spamhammer', 'register_form_complete', array(
+			'type' => 'contact',
+			'time' => TIMENOW,
+			'ip_address' => $_SERVER['REMOTE_ADDR'],
+			'session_hash' => $vbulletin->session->vars['sessionhash'],
+			'countdown' => 15,
+			'protect' => true
+		));
+	} else {
+		$markup = '';
+	}
+
+	if (!$markup || is_array($markup)) {
+		$markup = $fallback;
+	}
+
+	if (version_compare(FILE_VERSION, '3.7.0', '>=')) {
+		$human_verify .= isset($markup) ? $markup : $fallback;
+	} else {
+		$imagereg .= isset($markup) ? $markup : $fallback;
+	}
+}

@@ -1,0 +1,63 @@
+<form action="blog_usercp.php?do=addcat" method="post">
+<input type="hidden" name="s" value="$session[dbsessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="addcat" />
+<input type="hidden" name="u" value="$userinfo[userid]" />
+
+<if condition="$categoryinfo['blogcategoryid']">
+	<input type="hidden" name="blogcategoryid" value="$categoryinfo[blogcategoryid]" />
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat">$vbphrase[delete_blog_category]</td>
+	</tr>
+	<tr>
+		<td class="alt1">
+			<span style="float:$stylevar[right]"><input type="submit" name="dbutton" value="$vbphrase[delete]" class="button" /></span>
+			<label class="smallfont" for="db"><input type="checkbox" value="1" name="delete" id="db" />$vbphrase[to_delete_blog_category_description]</label>
+		</td>
+	</tr>
+	</table>
+	<br />
+</if>
+
+$errorlist
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat"><if condition="$categoryinfo['blogcategoryid']">$vbphrase[edit_blog_category] <span class="normal">$categoryinfo[realtitle]</span><else />$vbphrase[add_new_blog_category]</if></td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth_blog]" align="$stylevar[left]">
+			<div class="fieldset">
+				<label for="input_title">$vbphrase[title] <input type="text" class="bginput" name="title" id="input_title" value="$categoryinfo[title]" size="50" style="display:block" /></label>
+			</div>
+
+			<div class="fieldset">
+				<label for="input_description">$vbphrase[category_description] <textarea name="description" id="input_description" rows="4" cols="50" wrap="virtual" style="display:block">$categoryinfo[description]</textarea></label>
+			</div>
+
+			<div class="fieldset">
+				<label for="input_parentid">$vbphrase[parent_category]
+				<select name="parentid" id="input_parentid" style="display:block">
+					<option value="0">$vbphrase[no_parent_category]</option>
+					$selectbits
+				</select></label>
+			</div>
+
+			<div class="fieldset">
+				<label for="input_displayorder">$vbphrase[display_order] <input type="text" class="bginput" name="displayorder" id="input_displayorder" value="$categoryinfo[displayorder]" size="2" maxlength="3" style="display:block" /></label>
+			</div>
+		</div>
+	</div>
+
+		<div style="margin-top:$stylevar[cellpadding]px">
+			<input type="submit" class="button" value="$vbphrase[save_changes]" accesskey="s" />
+			<input type="reset" class="button" value="$vbphrase[reset_fields]" accesskey="r" />
+		</div>
+	</td>
+</tr>
+</table>
+
+</form>

@@ -1,0 +1,83 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - <if condition="$show['coppa']">$vbphrase[coppa_rules]<else />$vbphrase[forum_rules]</if></title>
+</head>
+<body>
+$header
+
+<br />
+<br />
+
+<form action="register.php?do=register" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="register" />
+<input type="hidden" name="url" value="$url" />
+<input type="hidden" name="month" value="$month" />
+<input type="hidden" name="day" value="$day" />
+<input type="hidden" name="year" value="$year" />
+<if condition="$show['coppa']">
+<input type="hidden" name="who" value="coppa" />
+<else />
+<input type="hidden" name="who" value="adult" />
+</if>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat"><phrase 1="$vboptions[bbtitle]">$vbphrase[x_rules]</phrase></td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+			<fieldset class="fieldset">
+				<legend>$vbphrase[forum_rules]</legend>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+				<tr>
+					<td>$vbphrase[to_proceed_must_agree]</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="page" style="border:thin inset; padding:$stylevar[cellpadding]px;<if condition="!is_browser('konqueror')"> height:175px; overflow:auto</if>">
+
+							<if condition="$show['coppa']">
+							<!-- coppa regulations -->
+							<p><strong>$vbphrase[coppa_policy]</strong></p>
+
+							<phrase 1="$vboptions[bbtitle]" 2="$vboptions[forumhome].php$session[sessionurl_q]" 3="register.php?$session[sessionurl]do=coppaform" 4="$vboptions[webmasteremail]">$vbphrase[coppa_rules_description]</phrase>
+							<!-- / coppa regulations -->
+							</if>
+
+							<!-- regular forum rules -->
+							<phrase 1="$vboptions[forumhome].php$session[sessionurl_q]" 2="$vboptions[bbtitle]">$vbphrase[forum_rules_registration]</phrase>
+							<phrase 1="$vboptions[forumhome].php$session[sessionurl_q]" 2="$vboptions[bbtitle]">$vbphrase[forum_rules_description]</phrase>
+							<!-- regular forum rules -->
+
+						</div>
+						<div><label for="cb_rules_agree"><input type="checkbox" name="agree" id="cb_rules_agree" value="1" /><strong><phrase 1="$vboptions[bbtitle]">$vbphrase[read_agree_abide_by_rules]</phrase></strong></label></div>
+					</td>
+				</tr>
+				</table>
+			</fieldset>
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" value="$vbphrase[register]" accesskey="s" />
+	</div>
+	</td>
+</tr>
+</table>
+
+</form>
+
+<br />
+<br />
+
+$footer
+
+</body>
+</html>

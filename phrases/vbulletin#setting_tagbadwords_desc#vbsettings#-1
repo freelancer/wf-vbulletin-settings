@@ -1,0 +1,5 @@
+These words will be checked in addition to those listed in includes/searchwords.php to form a list of words whose use is banned in tagging.<br />
+<br />
+Separate each word with a space or carriage return.<br />
+<br />
+This will not affect existing tags. You will need to delete those tags via the <a href="thread.php?do=tags">tag manager</a>.

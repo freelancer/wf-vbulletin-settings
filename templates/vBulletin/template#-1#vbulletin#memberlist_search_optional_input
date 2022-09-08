@@ -1,0 +1,1 @@
+$vbphrase[or]: <input type="text" name="$optionalname" value="$optional" size="$profilefield[size]" maxlength="$profilefield[maxlength]" $tabindex />

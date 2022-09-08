@@ -1,0 +1,4 @@
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">$vbphrase[html_code]:</div>
+	<hr /><code style="margin:0px" dir="ltr" style="text-align:left">$code</code><hr />
+</div>

@@ -1,0 +1,112 @@
+{
+  "12": {
+    "smilietext": ";)", 
+    "importsmilieid": "0", 
+    "title": "Wink", 
+    "smilieid": "12", 
+    "smiliepath": "images/smilies/smilies_wink.png", 
+    "smilielen": "2", 
+    "imagecategoryid": "1", 
+    "displayorder": "1"
+  }, 
+  "13": {
+    "smilietext": ":mad:", 
+    "importsmilieid": "0", 
+    "title": "Angry", 
+    "smilieid": "13", 
+    "smiliepath": "images/smilies/smilies_angry.png", 
+    "smilielen": "5", 
+    "imagecategoryid": "1", 
+    "displayorder": "1"
+  }, 
+  "14": {
+    "smilietext": ":smilies_confused:", 
+    "importsmilieid": "0", 
+    "title": "Confused", 
+    "smilieid": "14", 
+    "smiliepath": "images/smilies/smilies_confused.png", 
+    "smilielen": "18", 
+    "imagecategoryid": "1", 
+    "displayorder": "1"
+  }, 
+  "15": {
+    "smilietext": ":cool:", 
+    "importsmilieid": "0", 
+    "title": "Cool", 
+    "smilieid": "15", 
+    "smiliepath": "images/smilies/smilies_cool.png", 
+    "smilielen": "6", 
+    "imagecategoryid": "1", 
+    "displayorder": "1"
+  }, 
+  "16": {
+    "smilietext": ":o", 
+    "importsmilieid": "0", 
+    "title": "Embarrassed", 
+    "smilieid": "16", 
+    "smiliepath": "images/smilies/smilies_embarrassed.png", 
+    "smilielen": "2", 
+    "imagecategoryid": "1", 
+    "displayorder": "1"
+  }, 
+  "17": {
+    "smilietext": ":D", 
+    "importsmilieid": "0", 
+    "title": "Grin", 
+    "smilieid": "17", 
+    "smiliepath": "images/smilies/smilies_grin.png", 
+    "smilielen": "2", 
+    "imagecategoryid": "1", 
+    "displayorder": "1"
+  }, 
+  "18": {
+    "smilietext": ":smilies_rolleyes:", 
+    "importsmilieid": "0", 
+    "title": "Rolleyes", 
+    "smilieid": "18", 
+    "smiliepath": "images/smilies/smilies_rolleyes.png", 
+    "smilielen": "18", 
+    "imagecategoryid": "1", 
+    "displayorder": "1"
+  }, 
+  "19": {
+    "smilietext": ":(", 
+    "importsmilieid": "0", 
+    "title": "Sad", 
+    "smilieid": "19", 
+    "smiliepath": "images/smilies/smilies_sad.png", 
+    "smilielen": "2", 
+    "imagecategoryid": "1", 
+    "displayorder": "1"
+  }, 
+  "20": {
+    "smilietext": ":)", 
+    "importsmilieid": "0", 
+    "title": "Smile", 
+    "smilieid": "20", 
+    "smiliepath": "images/smilies/smilies_smile.png", 
+    "smilielen": "2", 
+    "imagecategoryid": "1", 
+    "displayorder": "1"
+  }, 
+  "21": {
+    "smilietext": ":eek:", 
+    "importsmilieid": "0", 
+    "title": "Shocked", 
+    "smilieid": "21", 
+    "smiliepath": "images/smilies/smilies_socked.png", 
+    "smilielen": "5", 
+    "imagecategoryid": "1", 
+    "displayorder": "1"
+  }, 
+  "22": {
+    "smilietext": ":P", 
+    "importsmilieid": "0", 
+    "title": "Tongue", 
+    "smilieid": "22", 
+    "smiliepath": "images/smilies/smilies_tongue.png", 
+    "smilielen": "2", 
+    "imagecategoryid": "1", 
+    "displayorder": "1"
+  }
+}

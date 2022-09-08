@@ -1,0 +1,1 @@
+This controls whether [img] tag may be used in signatures by users of this group. If they attempt to use this tag and this setting is set to "No", the image will be linked to instead; no error will be issued.

@@ -1,0 +1,1 @@
+Fields containing either the field separator (comma by default) or whitespace must be enclosed by the quote character which is the double quotes ("") by default.

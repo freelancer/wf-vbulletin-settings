@@ -1,0 +1,87 @@
+{
+  "zip": {
+    "width": "0", 
+    "newwindow": "0", 
+    "height": "0", 
+    "thumbnail": "0", 
+    "size": "1500000"
+  }, 
+  "doc": {
+    "width": "0", 
+    "newwindow": "0", 
+    "height": "0", 
+    "thumbnail": "0", 
+    "size": "300000"
+  }, 
+  "jpe": {
+    "width": "620", 
+    "newwindow": "0", 
+    "height": "280", 
+    "thumbnail": "1", 
+    "size": "100000"
+  }, 
+  "jpg": {
+    "custom": {
+      "6": {
+        "width": "2000", 
+        "permissions": "1", 
+        "height": "20000", 
+        "size": "500000"
+      }
+    }, 
+    "newwindow": "0", 
+    "width": "0", 
+    "height": "0", 
+    "thumbnail": "1", 
+    "size": "100000"
+  }, 
+  "gif": {
+    "width": "620", 
+    "newwindow": "0", 
+    "height": "280", 
+    "thumbnail": "1", 
+    "size": "100000"
+  }, 
+  "bmp": {
+    "width": "620", 
+    "newwindow": "0", 
+    "height": "280", 
+    "thumbnail": "0", 
+    "size": "100000"
+  }, 
+  "jpeg": {
+    "width": "620", 
+    "newwindow": "0", 
+    "height": "280", 
+    "thumbnail": "1", 
+    "size": "100000"
+  }, 
+  "pdf": {
+    "width": "0", 
+    "newwindow": "0", 
+    "height": "0", 
+    "thumbnail": "1", 
+    "size": "1500000"
+  }, 
+  "txt": {
+    "width": "0", 
+    "newwindow": "0", 
+    "height": "0", 
+    "thumbnail": "0", 
+    "size": "1100000"
+  }, 
+  "psd": {
+    "width": "0", 
+    "newwindow": "0", 
+    "height": "0", 
+    "thumbnail": "1", 
+    "size": "100000"
+  }, 
+  "png": {
+    "width": "620", 
+    "newwindow": "0", 
+    "height": "280", 
+    "thumbnail": "1", 
+    "size": "100000"
+  }
+}

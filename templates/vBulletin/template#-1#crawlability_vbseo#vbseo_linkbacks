@@ -1,0 +1,42 @@
+
+<script type="text/javascript" src="vbseo/resources/scripts/vbseo_ajax.js"></script>
+<script type="text/javascript">
+<!--
+vbphrase['vbseo_mod_approve'] = "$vbphrase[vbseo_mod_approve]";
+vbphrase['vbseo_mod_unapprove'] = "$vbphrase[vbseo_mod_unapprove]";
+vbphrase['vbseo_mod_delete'] = "$vbphrase[vbseo_mod_delete]";
+
+dblhandled = false
+//-->
+</script>
+<a name="linkbacks"></a>
+<if condition="$vbseolinkbackbits">
+<if condition="$pagenav">$pagenav <br/></if>
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat" width="100%" colspan="5">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('linkbacks')"><img id="collapseimg_linkbacks" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_linkbacks].gif" alt="" border="0" /></a>
+<if condition="THIS_SCRIPT=='moderation'">
+$vbphrase[vbseo_moderated_linkbacks]
+<else />		$vbphrase[vbseo_linkbacks] (<a href="misc.php?$session[sessionurl]do=linkbacks" title="$vbphrase[vbseo_link_from_elsewhere_to_this_discussion]">?</a>)
+<div class="smallfont">$vbphrase[vbseo_linkback_here]: $vbseo_linkback_uri</div>
+</if>
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_linkbacks" style="$vbcollapse[collapseobj_linkbacks]">
+<tr class="thead" align="center">
+	<td class="thead">$vbphrase[posted_by]</td>
+	<td class="thead">$vbphrase[vbseo_for]</td>
+	<td class="thead">$vbphrase[vbseo_type]</td>
+	<td class="thead">$vbphrase[date]</td>
+<if condition="$vbseo_showhits">
+<td class="thead">$vbphrase[vbseo_hits]</span></td>
+</if>
+</tr>
+$vbseolinkbackbits
+</tbody>
+</table>
+<if condition="$pagenav"><br/>$pagenav</if>
+</if>

@@ -1,0 +1,5 @@
+<input type="hidden" name="desc" value="$item" />
+<input type="hidden" name="cost" value="$cost" />
+<input type="hidden" name="currency" value="$currency" />
+<input type="hidden" name="instId" value="$settings[worldpay_instid]" />
+<input type="hidden" name="cartId" value="<phrase 1="$title">$vbphrase[x_subscription]</phrase>" />

@@ -1,0 +1,7 @@
+Optional, advanced additional URL configuration. This setting should remain blank for most installations. Specify additional domains of your forum:<br />
+<br />
+Examples:<br />
+http://www.example2.com<br />
+http://www.example.com<br />
+<br />
+Note: do not add a trailing slash. ('/')

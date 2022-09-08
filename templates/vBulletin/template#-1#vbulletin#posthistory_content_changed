@@ -1,0 +1,12 @@
+<if condition="$compare_show[olddata]">
+<tr valign="top" class="diffold">
+	<td width="20">-</td>
+	<td width="100%">$compare_show[olddata]</td>
+</tr>
+</if>
+<if condition="$compare_show[newdata]">
+<tr valign="top" class="diffnew">
+	<td width="20">+</td>
+	<td width="100%">$compare_show[newdata]</td>
+</tr>
+</if>

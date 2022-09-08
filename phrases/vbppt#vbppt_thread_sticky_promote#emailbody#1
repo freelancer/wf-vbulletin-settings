@@ -1,0 +1,12 @@
+Dear $userinfo[username],
+
+Your WSO has dropped off the first page in the Warrior Special Offer forum. For only $200 you can "Pay to Sticky" your WSO to get maximum exposure, attract more visits and increase your chances of getting sales. 
+
+This will pin your WSO to the top of the Warrior Special Offer forum for 24 hours. We have limited it to only 4 spots to maximize your exposure. Once the 4 slots are sold there will be no more available for that day. Get in quick and sticky your WSO now!
+
+<a href="$vboptions[bburl]/payment.php?do=pay&t=$threadinfo[threadid]&action=sticky&utm_source=sticky_page_one&utm_medium=private_message&utm_campaign=upgrades">Sticky my WSO and get more sales now</a>
+
+The "Pay to Sticky" button will only appear if there are spots available.
+
+Best Regards,
+$vboptions[bbtitle]

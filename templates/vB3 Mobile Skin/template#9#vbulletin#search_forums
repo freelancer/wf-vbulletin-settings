@@ -1,0 +1,161 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - <if condition="$show['searchthread']">$vbphrase[search_thread]<else />$vbphrase[search_forums]</if></title>
+$tag_cloud_headinclude
+</head>
+
+<body>
+$header
+$navbar
+
+<if condition="$show['errors']">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+			$vbphrase[errors_occured_with_search]:
+	</td>
+</tr>
+<tr>
+	<td class="alt1">
+			<ol>$errorlist</ol>
+	</td>
+</tr>
+</table>
+
+<br />
+</if>
+
+<form action="search.php?do=process" method="post" name="vbform" id="searchform" style="display:block; margin:0px">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="process" />
+<input type="hidden" name="searchthreadid" value="$searchthreadid" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<if condition="$show['searchthread']">$vbphrase[search_thread] - <a href="showthread.php?$session[sessionurl]t=$threadinfo[threadid]">$threadinfo[title]</a><else />$vbphrase[search_forums]</if>
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+
+	<table class="panel" cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+	<tr>
+		<td align="$stylevar[left]" valign="top" width="50%">
+			<fieldset class="fieldset" style="margin:0px">
+				<legend>$vbphrase[search_by_key_word]</legend>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+				<tr>
+					<td colspan="2">
+						<div>$vbphrase[key_words]:</div>
+						<div><input type="text" class="bginput" name="query" size="35" value="$query" style="width:250px" ng-non-bindable/></div>
+					</td>
+				</tr>
+				<if condition="!$show['searchthread']">
+				<tr>
+					<td>
+						<select name="titleonly">
+							<option value="0" $titleonlyselected[0]>$vbphrase[search_entire_posts]</option>
+							<option value="1" $titleonlyselected[1]>$vbphrase[search_titles_only]</option>
+						</select><if condition="$show['nocache']"> <label for="cb_nocache"><input type="checkbox" name="nocache" value="1" id="cb_nocache" />$vbphrase[do_not_use_cached_results]</label></if>
+					</td>
+				</tr>
+				</if>
+				</table>
+			</fieldset>
+		</td>
+        </tr>
+        <tr>
+		<td align="$stylevar[left]" valign="top" width="50%">
+			<fieldset class="fieldset" style="margin:0px">
+				<legend>$vbphrase[search_by_user_name]</legend>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+				<tr>
+					<td colspan="2">
+						<div>$vbphrase[username]:</div>
+						<div id="userfield">
+							<input type="text" class="bginput" name="searchuser" id="userfield_txt" size="35"  value="$searchuser" style="width:250px" ng-non-bindable/>
+						</div>
+						<if condition="$show['searchthread']">
+							<div>
+								<label for="cb_exactname"><input type="checkbox" name="exactname" value="1" id="cb_exactname" $exactnamechecked[1] />$vbphrase[exact_name]</label>
+							</div>
+						</if>
+						<if condition="$show['popups']">
+							<div id="userfield_menu" class="vbmenu_popup" style="display:none"></div>
+							<script type="text/javascript" src="clientscript/vbulletin_ajax_namesugg.js?v=$vboptions[simpleversion]"></script>
+							<script type="text/javascript">
+							<!--
+							vbmenu_register('userfield', true);
+							snc = new vB_AJAX_NameSuggest('snc', 'userfield_txt', 'userfield');
+							//-->
+							</script>
+						</if>
+					</td>
+				</tr>
+				<if condition="!$show['searchthread']">
+				<tr>
+					<td>
+						<select name="starteronly">
+							<option value="0" $starteronlyselected[0]>$vbphrase[find_posts_by_user]</option>
+							<option value="1" $starteronlyselected[1]>$vbphrase[find_threads_started_by_user]</option>
+						</select>
+					</td>
+					<td><label for="cb_exactname"><input type="checkbox" name="exactname" value="1" id="cb_exactname" $exactnamechecked[1] />$vbphrase[exact_name]</label></td>
+				</tr>
+				</if>
+				</table>
+			</fieldset>
+
+		</td>
+	</tr>
+	<if condition="$human_verify">
+	<tr>
+		<td align="$stylevar[left]" valign="top" colspan="1">$human_verify</td>
+	</tr>
+	</if>
+	</table>
+
+	<div align="$stylevar[left]">
+
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" name="dosearch" value="$vbphrase[search_now]" accesskey="s" />
+		<input type="reset" class="button" value="$vbphrase[reset_fields]" accesskey="r" onclick="window.location='search.php?$session[sessionurl]type=advanced';" />
+	</div>
+	</td>
+</tr>
+</table>
+
+<if condition="$show['member']">
+	<div align="center" style="margin-top:20px">
+		<select name="saveprefs">
+			<option value="1" selected="selected">$vbphrase[save_search_preferences]</option>
+			<option value="0">$vbphrase[clear_search_preferences]</option>
+		</select>
+		<input type="submit" class="button" name="doprefs" value="$vbphrase[go]" id="save_searchprefs" />
+		<input type="image" src="$vboptions[cleargifurl]" style="width: 1px; height: 1px;" />
+		<script type="text/javascript" src="clientscript/vbulletin_ajax_search.js?v=$vboptions[simpleversion]"></script>
+		<script type="text/javascript">
+
+		<!--
+		vB_AJAX_SearchPrefs_Init('save_searchprefs');
+		//-->
+
+		</script>
+	</div>
+</if>
+
+</form>
+
+<if condition="$tag_cloud">
+	<div style="margin-top:20px">$tag_cloud</div>
+</if>
+
+$footer
+
+</body>
+</html>

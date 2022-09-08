@@ -1,0 +1,22 @@
+<tr>
+	<td class="thead">$vbphrase[search_blogs]</td>
+</tr>
+<tr>
+	<td class="vbmenu_option" title="nohilite">
+		<form action="blog_search.php?$session[sessionurl]do=dosearch" method="post">
+			<input type="hidden" name="s" value="$session[sessionhash]" />
+			<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+			<input type="hidden" name="do" value="dosearch" />
+			<input type="hidden" name="quicksearch" value="1" />
+			<div><input type="text" class="bginput" name="text" size="25" tabindex="2003" /><input type="submit" class="button" value="$vbphrase[go]" tabindex="2004" /></div>
+		</form>
+	</td>
+</tr>
+<if condition="$vboptions[vbblog_tagging]">
+<tr>
+	<td class="vbmenu_option"><a href="blog_tag.php$session[sessionurl_q]" rel="nofollow">$vbphrase[tag_search]</a></td>
+</tr>
+</if>
+<tr>
+	<td class="vbmenu_option"><a href="blog_search.php?$session[sessionhash]do=search">$vbphrase[advanced_search]</a></td>
+</tr>

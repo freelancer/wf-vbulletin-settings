@@ -1,0 +1,10 @@
+<tr>
+	<td class="$bgclass">
+		<if condition="$show['memberlink']">
+			<a href="member.php?$session[sessionurl]u=$post[userid]" target="_blank">$post[username]</a>
+		<else />
+			$post[username]
+		</if>
+	</td>
+	<td class="$bgclass"><if condition="$post['userid']"><a href="search.php?$session[sessionurl]do=finduser&amp;userid=$post[userid]&amp;searchthreadid=$threadinfo[threadid]" onclick="opener.location=('search.php?$session[sessionurl]do=finduser&amp;userid=$post[userid]&amp;searchthreadid=$threadinfo[threadid]'); self.close();">$post[posts]</a><else />$post[posts]</if></td>
+</tr>

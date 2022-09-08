@@ -1,0 +1,1 @@
+<img class="inlineimg" src="$stylevar[imgdir_statusicon]/subforum_$forum[statusicon].gif" alt="" border="0" id="forum_statusicon_$forum[forumid]" /> <a href="forumdisplay.php?$session[sessionurl]f=$forum[forumid]">$forum[title]</a>

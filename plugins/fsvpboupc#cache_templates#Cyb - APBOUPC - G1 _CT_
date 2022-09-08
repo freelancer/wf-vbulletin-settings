@@ -1,0 +1,5 @@
+
+		if ($vbulletin->options['apboupc_global_enable'] AND (THIS_SCRIPT=='misc'))
+		{
+			$globaltemplates = array_merge($globaltemplates, array('cyb_apboupc_globalset', 'cyb_apboupc_globalset_currbit'));
+		}

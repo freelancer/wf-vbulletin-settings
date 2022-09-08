@@ -1,0 +1,1 @@
+Conversions<dfn>A list of codes to convert to with a \1 where the contents of the tag should go.<br />For instance, the conversion for <strong>[youtube]xyzrsdasds[/youtube]</strong> whould be: <i>http://www.youtube.com/watch?v=<strong>\1</strong></i><br />Seperate multiple entries with a comma.

@@ -1,0 +1,3 @@
+After upgrading to vBulletin 3.7, you <strong>must</strong> rebuild thread information and then forum information on <a href="misc.php?do=chooser">this page</a>.<br />
+<br />
+Click "Address" to rebuild thread information now. Once this has completed, you should still rebuild forum information!

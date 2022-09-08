@@ -1,0 +1,70 @@
+$memberinfo_css
+$socialgroups_css
+
+<script type="text/javascript" src="clientscript/vbulletin_inlinemod.js?v=$vboptions[simpleversion]"></script>
+
+<if condition="$messagetotal">
+	<form action="group_inlinemod.php" method="post" id="messageform">
+	<input type="hidden" name="s" value="$session[sessionhash]" />
+	<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+	<input type="hidden" name="url" value="$url" />
+</if>
+
+<div class="tborder content_block">
+	<div class="tcat block_title" style="padding: 6px">
+		<if condition="$messagetotal">
+			<input name="allbox" style="margin: 0px 0px 0px 5px; padding: 0px; float: $stylevar[right]; vertical-align: middle;" id="checkall_all" title="$vbphrase[check_uncheck_all]" onclick="inlineMod_comment.check_all();" type="checkbox" />
+		</if>
+		<span class="smallfont" style="float:$stylevar[right]"><strong>$vbphrase[messages]</strong>: $messagetotal</span>
+		$messagephrase
+	</div>
+
+	<if condition="!$messagetotal">
+		<div class="alt1 block_row" align="center" style="padding:16px">
+			<strong>$vbphrase[no_posts_found]</strong><br />
+			<span class="smallfont">$vbphrase[try_controls_below_for_older_posts]</span>
+		</div>
+	<else />
+		<ol class="alt1 list_no_decoration block_row" id="message_list">
+			$messagebits
+		</ol>
+
+		<div class="alt2 block_row">
+			<table cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr valign="bottom">
+				<td class="smallfont">
+					<div><label for="moderation_select_comments">$vbphrase[moderation]</label></div>
+					<select name="do" id="moderation_select_comments">
+						<optgroup label="$vbphrase[option]">
+							<option value="inlinedelete">$vbphrase[delete_messages]</option>
+							<option value="inlineundelete">$vbphrase[undelete_messages]</option>
+							<option value="inlineapprove">$vbphrase[approve_messages]</option>
+							<option value="inlineunapprove">$vbphrase[unapprove_messages]</option>
+						</optgroup>
+						<optgroup label="____________________">
+							<option value="clearmessage">$vbphrase[deselect_all_messages]</option>
+						</optgroup>
+					</select><input type="submit" class="button" id="gmessage_inlinego" value="$vbphrase[go]" />
+					<script type="text/javascript">
+					<!--
+						inlineMod_comment = new vB_Inline_Mod('inlineMod_comment', 'gmessage', 'messageform', '$vbphrase[go_x]', 'vbulletin_inline', 'message');
+					//-->
+					</script>
+				</td>
+				<if condition="$pagenav">
+					<td class="smallfont" align="$stylevar[right]">
+						$pagenav
+					</td>
+				</if>
+			</tr></table>
+		</div>
+	</if>
+</div>
+
+<if condition="$messagetotal">
+	</form>
+</if>
+
+<br />
+
+$moderation_filter

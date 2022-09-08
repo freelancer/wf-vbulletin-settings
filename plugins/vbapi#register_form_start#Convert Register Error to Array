@@ -1,0 +1,7 @@
+if (defined('VB_API') AND VB_API === true)
+{
+	if ($show['errors'])
+	{
+		$errorlist = $userdata->errors;
+	}
+}

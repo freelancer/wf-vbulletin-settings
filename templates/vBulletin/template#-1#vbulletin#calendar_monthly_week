@@ -1,0 +1,4 @@
+<tr valign="top">
+	<td class="thead" width="$linkwidth" align="center" valign="middle"><a href="calendar.php?$session[sessionurl]c=$calendarid&amp;week=$firstweek&amp;do=displayweek&amp;month=$month" title="$vbphrase[view_this_week_in_detail]" style="font-family:arial,sans-serif; text-decoration:none">&gt;<br />&gt;<br />&gt;</a></td>
+	$calendardaybits
+</tr>

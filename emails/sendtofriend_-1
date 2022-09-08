@@ -1,0 +1,9 @@
+$sendtoname,
+
+This is a message from $bbuserinfo[username] ( mailto:$bbuserinfo[email] ) from the $vboptions[bbtitle] ( $vboptions[bburl]/ ).
+
+The message is as follows:
+
+$emailmessage
+
+$vboptions[bbtitle] takes no responsibility for messages sent through its system.

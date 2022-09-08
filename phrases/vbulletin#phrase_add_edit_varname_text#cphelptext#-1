@@ -1,0 +1,5 @@
+The variable name is how you will refer to your phrase from the templates. It should not contain any spaces or special characters - meaning, only use A-Z, a-z, 0-9, -, and _ (underscore) in the name.<br /><br />
+
+To call the phrase from the templates, use<br />
+$vbphrase[variablename]<br />
+where variablename is what you put in this box.

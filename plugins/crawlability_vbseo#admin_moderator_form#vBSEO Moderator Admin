@@ -1,0 +1,2 @@
+print_description_row($vbphrase['vbseo_options'], false, 2, 'thead');
+   	print_yes_no_row($vbphrase['vbseo_can_moderate_linkbacks'], 'modperms[vbseo_linkbacks]', $moderator['vbseo_linkbacks']);

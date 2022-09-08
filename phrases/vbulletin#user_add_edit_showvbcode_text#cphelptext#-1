@@ -1,0 +1,5 @@
+This option determines the editor toolbar that is present when this user is composing a post.  The editor toolbar provides shortcuts making it easy to add BB code elements to posts without knowing the codes themselves.
+<br /><br />
+The standard editor toolbar provides shortcuts to all BB code tags, inserting the final code directly into the post.
+<br /><br />
+The WYSIWYG editor toolbar provides the same functionality as the standard editor toolbar, plus it shows you what the post will look like instead of just showing you the final code... hence WYSIWYG (What You See Is What You Get).

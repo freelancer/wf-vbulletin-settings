@@ -1,0 +1,1 @@
+$stylevar[dirmark]<if condition="$show["cattitleonly"]">$category[title]<else /><a href="blog.php?$session[sessionurl]<if condition="$category['userid']">u=$category[userid]&amp;</if>blogcategoryid=$category[blogcategoryid]">$category[title]</a></if>

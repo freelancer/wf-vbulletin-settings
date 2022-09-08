@@ -1,0 +1,130 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<if condition="$show['editnote']">
+	<title>$vboptions[bbtitle] - $vbphrase[edit_user_note]</title>
+<else />
+	<title>$vboptions[bbtitle] - $vbphrase[new_user_note]</title>
+</if>
+</head>
+
+<body$onload>
+$header
+$navbar
+
+<if condition="$show['editnote']">
+<form action="usernote.php?do=deletenote&amp;u=$userinfo[userid]&amp;usernoteid=$noteinfo[usernoteid]" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="usernoteid" value="$noteinfo[usernoteid]" />
+<input type="hidden" name="do" value="deletenote" />
+<input type="hidden" name="u" value="$userinfo[userid]" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('editnote_delete')"><img id="collapseimg_editnote_delete" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_editnote_delete].gif" alt="" border="0" /></a>
+			$vbphrase[delete_user_note]
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_editnote_delete" style="$vbcollapse[collapseobj_editnote_delete]">
+	<tr>
+		<td class="panelsurround" align="center">
+		<div class="panel">
+			<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+			<fieldset class="fieldset">
+				<legend>$vbphrase[delete_user_note]</legend>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+				<tr>
+					<td colspan="2">$vbphrase[to_delete_user_note_check_box]</td>
+				</tr>
+				<tr>
+					<td><label for="cb_deletenotechecked"><input type="checkbox" name="deletenotechecked" value="yes" id="cb_deletenotechecked" />$vbphrase[delete_user_note]</label></td>
+					<td align="$stylevar[right]"><input type="submit" class="button" style="font-weight:normal" value="$vbphrase[delete]" accesskey="s" /></td>
+				</tr>
+				</table>
+			</fieldset>
+
+			</div>
+		</div>
+		</td>
+	</tr>
+</tbody>
+</table>
+
+</form>
+
+<br />
+</if>
+
+<form action="usernote.php?do=donote&amp;u=$userinfo[userid]&amp;usernoteid=$noteinfo[usernoteid]" method="post" name="vbform"<if condition="!is_browser('webtv')"> onsubmit="return vB_Editor['$editorid'].prepare_submit(0, $vboptions[postminchars])"</if>>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat"><if condition="$show['editnote']">$vbphrase[edit_user_note]<else />$vbphrase[post_new_user_note]</if></td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]" style="width:$stylevar[formwidth]">
+
+		$usernamecode
+
+		<!-- subject field -->
+		<div class="smallfont" style="margin-bottom:$stylevar[formspacer]px">
+			$vbphrase[title]:<br />
+			<input type="text" class="bginput" name="title" value="$noteinfo[title]" size="50" maxlength="85" tabindex="1" />
+		</div>
+		<!-- / subject field -->
+
+		<!-- message area -->
+		<div class="fieldset">$vbphrase[message]:</div>
+		$messagearea
+		<!-- / message area -->
+
+		<if condition="$show['misc_options']">
+		<fieldset class="fieldset" style="margin:$stylevar[formspacer]px 0px 0px 0px">
+			<legend>$vbphrase[miscellaneous_options]</legend>
+			<div style="padding:$stylevar[formspacer]px">
+				<if condition="$show['parseurl']"><div><label for="cb_parseurl"><input type="checkbox" name="parseurl" value="1" id="cb_parseurl" tabindex="1" $checked[parseurl] />$vbphrase[automatically_parse_links_in_text]</label></div></if>
+				$disablesmiliesoption
+			</div>
+		</fieldset>
+		</if>
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" name="sbutton" id="{$editorid}_save" value="$vbphrase[submit_note]" accesskey="s" tabindex="1" />
+	</div>
+	</td>
+</tr>
+</table>
+
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="u" value="$userinfo[userid]" />
+<input type="hidden" name="usernoteid" value="$noteinfo[usernoteid]" />
+<input type="hidden" name="do" value="donote" />
+</form>
+
+<br />
+
+<!-- forum jump and forum rules -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tr valign="bottom">
+	<td width="100%">$forumrules</td>
+	<td align="$stylevar[right]">$forumjump</td>
+</tr>
+</table>
+<!-- / forum jump and forum rules -->
+
+$footer
+
+</body>
+</html>

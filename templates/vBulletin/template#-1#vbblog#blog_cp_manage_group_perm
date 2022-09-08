@@ -1,0 +1,15 @@
+<form action="blog_usercp.php?do=updateuserperm&amp;u=$userinfo[userid]" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="updateuserperm" />
+<input type="hidden" name="u" value="$userinfo[userid]" />
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td colspan="2" class="tcat"><phrase 1="$userinfo[username]">$vbphrase[group_permissions_for_x_message]</phrase></td>
+</tr>
+$permbits
+<tr>
+	<td colspan="2" class="tfoot" align="center"><input type="submit" class="button" value="$vbphrase[save_changes]" /></td>
+</tr>
+</table>
+</form>

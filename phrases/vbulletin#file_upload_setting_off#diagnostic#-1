@@ -1,0 +1,1 @@
+File uploads have been turned off via PHP's file_uploads setting. This can only be handled by contacting your host and asking them to enable the file_upload setting.

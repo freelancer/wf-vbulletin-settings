@@ -1,0 +1,10 @@
+	If for whatever reason the UNIQUE indexes in your database
+	have been lost (usually this happens after importing an
+	incomplete or corrupt SQL dump) you may find strange behavior,
+	particularly when using the language and template systems.<br />
+	<br />
+	This system will attempt to correct the problem and rebuild your
+	UNIQUE indexes.<br />
+	<br />
+	Please ensure that the <em>mysql-schema.php</em> file is present
+	in the <em>install</em> folder on your web server before continuing.

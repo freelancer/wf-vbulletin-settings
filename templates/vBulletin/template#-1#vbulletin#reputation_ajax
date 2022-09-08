@@ -1,0 +1,6 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="300">
+<tr>
+	<td class="tcat">$vbphrase[reputation]</td>
+</tr>
+$reputationbit
+</table>

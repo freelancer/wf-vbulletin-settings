@@ -1,0 +1,1 @@
+This option limits the maximum amount of records that can be returned by the external data provider.  By default 15 records will be returned. This option allows the user to tack on &amp;count=X to their RSS feed to retrieve more records.

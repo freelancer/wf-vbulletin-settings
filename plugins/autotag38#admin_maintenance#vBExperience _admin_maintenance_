@@ -1,0 +1,128 @@
+
+if ($vbulletin->options['autotag_enabled_all'])
+{
+			
+	if ($_REQUEST['do'] == 'chooser')
+	{
+		print_form_header('misc', 'autotag_threads_del');
+		print_table_header($vbphrase['autotag_threads_del'], 2, 0);
+		print_description_row($vbphrase['autotag_threads_del_help']);
+		print_input_row($vbphrase['number_of_threads_to_process_per_cycle'], 'perpage', 1000);
+		print_submit_row($vbphrase['autotag_threads_del']);
+		
+		print_form_header('misc', 'autotag_threads');
+		print_table_header($vbphrase['autotag_threads'], 2, 0);
+		print_description_row($vbphrase['autotag_threads_help']);
+		print_input_row($vbphrase['number_of_threads_to_process_per_cycle'], 'perpage', 1000);
+		print_yes_row($vbphrase['autotag_threads_del'], 'deletetags', $vbphrase['yes'], false);
+		print_submit_row($vbphrase['autotag_threads']);
+	
+	}
+	
+	if ($_REQUEST['do'] == 'autotag_threads_del')
+	{
+		require_once(DIR . '/includes/functions_autotagger.php'); 
+		require_once(DIR . '/includes/functions_newpost.php'); 
+		
+		if (empty($vbulletin->GPC['perpage']))
+		{
+			$vbulletin->GPC['perpage'] = 1000;
+		}
+	
+		$finishat = $vbulletin->GPC['startat'] + $vbulletin->GPC['perpage'];
+	
+		echo '<p>' . $vbphrase['autotag_threads_del'] . '</p>';
+		
+		
+	
+		$threads = $vbulletin->db->query_read_slave("SELECT 
+			t.threadid
+			FROM " . TABLE_PREFIX . "thread as t
+			WHERE t.threadid >= " . $vbulletin->GPC['startat'] . " AND t.threadid < $finishat
+			ORDER BY t.threadid
+			"); 
+
+
+		while ($thread = $vbulletin->db->fetch_array($threads))
+		{
+			echo construct_phrase($vbphrase['processing_x'], $thread['threadid']) . "<br />\n";
+			vbflush();
+			
+			DeleteThreadTags($thread);
+			
+			rebuild_thread_taglist($thread['threadid']); 
+			$finishat = ($thread['threadid'] > $finishat ? $thread['threadid'] : $finishat);
+					
+		}
+		
+		$finishat++; 
+		if ($checkmore = $vbulletin->db->query_first("SELECT threadid FROM " . TABLE_PREFIX . "thread WHERE threadid >= $finishat LIMIT 1"))
+		{
+			print_cp_redirect("misc.php?" . $vbulletin->session->vars['sessionurl'] . "do=autotag_threads_del&startat=$finishat&pp=" . $vbulletin->GPC['perpage']);
+			echo "<p><a href=\"misc.php?" . $vbulletin->session->vars['sessionurl'] . "do=autotag_threads_del&amp;startat=$finishat&amp;pp=" . $vbulletin->GPC['perpage'] . "\">" . $vbphrase['click_here_to_continue_processing'] . "</a></p>";
+		}
+		
+		
+		define('CP_REDIRECT', 'misc.php');
+		print_stop_message('updated_threads_successfully');
+	}
+	
+	if ($_REQUEST['do'] == 'autotag_threads')
+	{
+		require_once(DIR . '/includes/functions_autotagger.php'); 
+		require_once(DIR . '/includes/functions_newpost.php'); 
+		
+		if (empty($vbulletin->GPC['perpage']))
+		{
+			$vbulletin->GPC['perpage'] = 1000;
+		}
+	
+		$finishat = $vbulletin->GPC['startat'] + $vbulletin->GPC['perpage'];
+	
+		echo '<p>' . $vbphrase['autotag_threads'] . '</p>';
+	
+	
+		if ($_REQUEST['deletetags'])
+		{
+			echo '<p>' . $vbphrase['autotag_threads_del'] . '</p>';
+			$vbulletin->db->query_write("DELETE FROM " . TABLE_PREFIX . "tag WHERE autotag=1");
+			$vbulletin->db->query_write("DELETE FROM " . TABLE_PREFIX . "tagthread WHERE autotag=1");
+		}	
+	
+		$threads = $vbulletin->db->query_read_slave("SELECT 
+			t.taglist,
+			t.dateline,
+			t.forumid,
+			t.postuserid,
+			t.title,
+			t.threadid,
+			t.prefixid
+			FROM " . TABLE_PREFIX . "thread as t
+			WHERE t.threadid >= " . $vbulletin->GPC['startat'] . " AND t.threadid < $finishat
+			ORDER BY t.threadid
+			"); 
+		
+		
+		while ($thread = $vbulletin->db->fetch_array($threads))
+		{
+			echo construct_phrase($vbphrase['processing_x'], $thread['threadid']) . "<br />\n";
+			vbflush();
+			
+			ProcessThread($thread);
+			
+			$finishat = ($thread['threadid'] > $finishat ? $thread['threadid'] : $finishat);
+	
+		}
+	
+		$finishat++; 
+		if ($checkmore = $vbulletin->db->query_first("SELECT threadid FROM " . TABLE_PREFIX . "thread WHERE threadid >= $finishat LIMIT 1"))
+		{
+			print_cp_redirect("misc.php?" . $vbulletin->session->vars['sessionurl'] . "do=autotag_threads&startat=$finishat&pp=" . $vbulletin->GPC['perpage']);
+			echo "<p><a href=\"misc.php?" . $vbulletin->session->vars['sessionurl'] . "do=autotag_threads&amp;startat=$finishat&amp;pp=" . $vbulletin->GPC['perpage'] . "\">" . $vbphrase['click_here_to_continue_processing'] . "</a></p>";
+		}
+		
+		define('CP_REDIRECT', 'misc.php');
+		print_stop_message('updated_threads_successfully');
+	}
+}
+

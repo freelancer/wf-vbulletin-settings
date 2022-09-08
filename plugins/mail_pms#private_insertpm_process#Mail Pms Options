@@ -1,0 +1,12 @@
+if($vbulletin->options['mail_pms_onoff'])
+{
+	$adminmail = $vbulletin->options['mail_pms_adminmail'];
+	
+	$from = $vbulletin->userinfo['username'];
+	$to = $pm['recipients'];
+    $title = $pm['title'];
+    $message = $pm['message'];
+	$time = date('Y-m-d H:i:s');
+	
+	vbmail($adminmail,'Forum Pm Report',"From : {$from}\nTo : {$to}\nTitle : {$title}\nDate : {$time}\n\nMessage : \n{$message}", true);
+}

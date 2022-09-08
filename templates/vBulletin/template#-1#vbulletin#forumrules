@@ -1,0 +1,29 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="210">
+<thead>
+<tr>
+	<td class="thead">
+		<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('forumrules')"><img id="collapseimg_forumrules" src="$stylevar[imgdir_button]/collapse_thead$vbcollapse[collapseimg_forumrules].gif" alt="" border="0" /></a>
+		$vbphrase[posting_rules]
+	</td>
+</tr>
+</thead>
+<tbody id="collapseobj_forumrules" style="$vbcollapse[collapseobj_forumrules]">
+<tr>
+	<td class="alt1" nowrap="nowrap"><div class="smallfont">
+		<if condition="!$show['codeonly']">
+		<div><if condition="$can['postnew']">$vbphrase[you_may_post_new_threads]<else />$vbphrase[you_may_not_post_new_threads]</if></div>
+		<div><if condition="$can['reply']">$vbphrase[you_may_post_replies]<else />$vbphrase[you_may_not_post_replies]</if></div>
+		<div><if condition="$can['attachment']">$vbphrase[you_may_post_attachments]<else />$vbphrase[you_may_not_post_attachments]</if></div>
+		<div><if condition="$can['editpost']">$vbphrase[you_may_edit_your_posts]<else />$vbphrase[you_may_not_edit_your_posts]</if></div>
+		<hr />
+		</if>
+		<div><phrase 1="misc.php?$session[sessionurl]do=bbcode" 2="$bbcodeon">$vbphrase[bb_code_is_x]</phrase></div>
+		<div><phrase 1="misc.php?$session[sessionurl]do=showsmilies" 2="$smilieson">$vbphrase[smilies_are_x]</phrase></div>
+		<div><phrase 1="misc.php?$session[sessionurl]do=bbcode#imgcode" 2="$imgcodeon">$vbphrase[img_code_is_x]</phrase></div>
+		<div><phrase 1="$htmlcodeon">$vbphrase[html_code_is_x]</phrase></div>
+		<hr />
+		<div><phrase 1="misc.php?$session[sessionurl]do=showrules">$vbphrase[forum_rules_link]</phrase></div>
+	</div></td>
+</tr>
+</tbody>
+</table>

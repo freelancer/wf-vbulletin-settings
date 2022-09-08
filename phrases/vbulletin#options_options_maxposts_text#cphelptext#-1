@@ -1,0 +1,3 @@
+If a thread has 40 posts and this is set to 10, then the posts will be split over 4 pages.  The user can set their own preference in their User CP if you give them the option (see "User-Settable Maximum Displayed Posts" below).<br />
+<br />
+<b>Note: </b>This number must be at least 1.

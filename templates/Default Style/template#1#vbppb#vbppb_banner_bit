@@ -1,0 +1,9 @@
+			<?php
+if(class_exists('vBPPB_Registry') && vBPPB_Registry::getInstance()->displayBanner($banner[bannerid]))
+{
+?><div align="center">			
+<if condition="$banner['url']"><a href="$banner[url]" target="_blank"></if>
+	<img src="$banner[image]" border="0" />
+<if condition="$banner['url']"></a></if>
+<div class="adcredits" style="font-size:10px;	text-align:right;padding:2px;clear:both;"><a href="$vboptions[bburl]/paidbanners.php" style="text-decoration:none;color:black;">Ads By Warrior Forum</a> (<a href="$vboptions[bburl]/paidbanners.php?do=viewall" style="text-decoration:none;color:black;">View All</a>)</div>
+</div><?php } ?>

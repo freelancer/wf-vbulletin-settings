@@ -1,0 +1,13 @@
+require_once(DIR . '/includes/functions_post_thanks.php');
+$thanks = $this->dbobject->query_read("
+	SELECT *
+	FROM " . TABLE_PREFIX . "post_thanks
+	WHERE userid = '".$this->existing['userid']."'
+	ORDER BY postid
+");
+
+while ($thank = $this->dbobject->fetch_array($thanks))
+{
+	$postinfo = fetch_postinfo($thank['postid']);
+	delete_thanks($postinfo, $this->existing['userid'], false);
+}

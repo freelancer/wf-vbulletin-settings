@@ -1,0 +1,1 @@
+Determines whether new attachments will require a moderator to approve them before being displayed. If you have this set to Yes and Moderator Queue set to No, until the attachment is approved the post will be displayed with a message indicating that the attachment has successfully been posted but requires moderation.

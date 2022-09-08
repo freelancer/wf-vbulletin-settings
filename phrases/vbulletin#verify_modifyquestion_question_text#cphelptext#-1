@@ -1,0 +1,1 @@
+A random question will be displayed to the user when a form requiring verification is displayed.  The user must provide an answer that matches an answer that has been associated with the question.  An incorrect answer will require the user to try again with a new randomly selected question.

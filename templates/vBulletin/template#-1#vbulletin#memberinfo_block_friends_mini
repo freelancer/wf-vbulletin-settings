@@ -1,0 +1,22 @@
+<div class="alt1 smallfont block_row">
+	<if condition="$block_data['friendbits']">
+		<div class="friends_counter"><phrase 1="$block_data[showtotal]" 2="$prepared[friendcount]">$vbphrase[showing_x_of_y_friends]</phrase></div>
+		<ul class="list_no_decoration" id="friends_list">$block_data[friendbits]</ul>
+	<else /><if condition="$prepared['myprofile']">
+		$vbphrase[your_friends_list_is_empty]
+	<else />
+		<phrase 1="$prepared[username]">$vbphrase[x_has_not_made_any_friends_yet]</phrase>
+	</if></if>
+</div>
+<div class="alt2 smallfont block_row block_footer">
+	<if condition="$prepared['myprofile']">
+		<a class="edit_friends_link" href="profile.php?$session[sessionurl]do=buddylist">$vbphrase[edit_your_friends_list]</a>
+	<else /><if condition="$prepared['canbefriend']">
+		<a class="edit_friends_link" href="profile.php?$session[sessionurl]do=addlist&amp;userlist=friend&amp;u=$prepared[userid]"><phrase 1="$prepared[username]">$vbphrase[befriend_x]</phrase></a>
+	</if></if>
+	<if condition="$block_data['friendbits']">
+		<a href="#friends" onclick="return vB_TabCtrls['profile_tabs'].switch_tab('friends');">$vbphrase[show_all_friends]</a>
+	<else />
+		&nbsp;
+	</if>
+</div>

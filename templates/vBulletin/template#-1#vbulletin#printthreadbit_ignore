@@ -1,0 +1,26 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="1" border="0" width="100%">
+<tr>
+	<td class="page">
+
+		<table cellpadding="0" cellspacing="0" border="0" width="100%">
+		<tr valign="bottom">
+			<td style="font-size:14pt">$post[username]</td>
+			<td class="smallfont" align="$stylevar[right]">$post[postdate] $post[posttime]</td>
+		</tr>
+		</table>
+
+		<hr />
+
+		<if condition="$show['adminignore']">
+			<div class="smallfont">
+				<phrase 1="$post[username]">$vbphrase[administrator_decided_x_quiet]</phrase>
+			</div>
+		<else />
+			<div class="smallfont">
+				<phrase 1="$post[username]" 2="profile.php?$session[sessionurl]do=ignorelist">$vbphrase[message_hidden_x_on_ignore_list]</phrase></span>
+			</div>
+		</if>
+	</td>
+</tr>
+</table>
+<br />

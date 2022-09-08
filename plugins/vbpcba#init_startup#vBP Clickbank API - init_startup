@@ -1,0 +1,5 @@
+
+				$vbpcba_lasthook='init_startup';
+				// include(DIR.'/includes/vbpcba_hooks.php');
+			
+			

@@ -1,0 +1,10 @@
+<img
+   wf-payment-choice 
+   <if condition="$redirecturl">redirect-url="$redirecturl" </if>
+   fixed-charge-item-id=2 
+   item-id=$threadinfo[threadid] 
+   item-class='thread' 
+   <if condition="$threadinfo[show_bump_auto]">auto-open=1 </if>
+   fl-analytics-section="wf-paymentbutton" fl-analytics="thread-page-show-bumpmodal" 
+   border="0" 
+   src="$stylevar[imgdir_button]/bump.png" style="cursor:pointer"/>

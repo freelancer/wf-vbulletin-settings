@@ -1,0 +1,36 @@
+<p>vBulletin offers two different Google AdSense packages. Each package will implement a different set of advertising units into the forum advertising templates. You may also control the type of ad that is delivered in each unit.</p>
+
+<p><b>Type of Ads to Show</b></p>
+
+<p>With this option, you may control the type of ads delivered by Google AdSense.</p>
+
+<ul><li>Text ads only: AdSense will only show ads consisting of text and links.</li></ul>
+
+<ul><li>Text and image ads: AdSense will only show advertistments that contain images if possible but fall back to text-only ads if necessary. This is the recommended option.</li></ul>
+
+<p><b>No Google AdSense Ads</b></p>
+
+<p>This option will remove all Google AdSense code from the vBulletin forum advertising templates.</p>
+
+<p><b>Low Package Ad Units</b></p>
+
+<p>The Low package adds two small advertising units to the main forum pages:</p>
+
+<ul><li>Below the header navigation bar: Horizontal link unit with 5 contextual links to related advertising. This unit is always text. Ad unit color same as background.</li></ul>
+
+<ul><li>Below the page content, above the footer: Small, horizontal advertising block. Ad unit color same as background.</li></ul>
+
+<p><b>High Package Ad Units</b></p>
+
+<ul><li>Below the header navigation bar: Medium, horizontal advertisting block. Ad unit color contrasts with background.</li></ul>
+
+<ul><li>Below the page content, above the footer:  Medium, horizontal text advertising block. Ad unit color same as background.</li></ul>
+
+<ul><li>First post, right hand side of content: Only visible for guests (or registered members who haven't logged in).  Nearly-square advertising block.</li></ul>
+
+<p><b>Further Information from Google</b></p>
+
+<p>For more information about the individual advertising units, or any other aspects of the Google AdSense product, please visit the following URL:<br>
+<a href="https://www.google.com/adsense/support/" target="_blank">https://www.google.com/adsense/support/</a></p>
+
+<p>vBulletin Solutions, Inc. cannot be held responsible for the content of external sites.</p>

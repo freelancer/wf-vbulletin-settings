@@ -1,0 +1,9 @@
+<div id="post$postid"> 
+	<div style="padding: $stylevar[cellpadding]px; margin-bottom: $stylevar[formspacer]px; text-align: $stylevar[left];" class="alt2 tborder"> 
+		<div style="float: $stylevar[right];"> 
+			<input type="button" value="X" class="button" onclick="document.getElementById('post$postid').style.display = 'none';" /> 
+		</div> 
+		<b>$post[username]</b><br/> 
+		$vbphrase[post_has_been_automoderated] 
+	</div> 
+</div>

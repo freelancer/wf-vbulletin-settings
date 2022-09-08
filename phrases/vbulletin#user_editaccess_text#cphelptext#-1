@@ -1,0 +1,3 @@
+Here you can edit this user's forum access at the user level (as opposed to the group level).
+<br /><br />
+Make sure access masks are enabled <a href="options.php?dogroup=general&amp;do=options" target="_blank"><b>here</b></a> or these user-level permissions will not work.

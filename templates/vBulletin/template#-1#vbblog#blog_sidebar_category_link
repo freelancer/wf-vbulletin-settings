@@ -1,0 +1,10 @@
+<if condition="$show['ul']">
+	<ul class="list_no_decoration" style="margin-$stylevar[left]:0px; padding-$stylevar[left]:16px">
+</if>
+<li class="smallfont" style="margin-bottom:2px">
+	<img src="$stylevar[imgdir_misc]/blog/folder.gif" class="inlineimg" alt="$category[title]" border="0" />
+	<if condition="$show['catlink']">
+		<a href="blog.php?$session[sessionurl]<if condition="$blog['userid']">u=$blog[userid]&amp;</if>blogcategoryid=$category[blogcategoryid]" title="$category[title]">$category[title]</a>
+	<else />
+		<strong><span title="$category[title]">$category[title]</span></strong>
+	</if>

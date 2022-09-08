@@ -1,0 +1,10 @@
+<b>BB Code:</b><br />
+BB code is a special coding system, similar to HTML, where you type in tags around your text and the text is formatted. For example, typing:<br /><br />
+
+[b]My Text[/b]<br /><br />
+
+...would produce:<br /><br />
+
+<b>My Text</b><br /><br />
+
+It is a safe and easy way to allow your users to format their posts. It does not have the security risks of allowing HTML, and users cannot mess up page layouts by accidentally leaving a tag open. You as the admin control what tags are available to your users.

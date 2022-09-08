@@ -1,0 +1,5 @@
+// Delete visits older than 30 days
+$vbulletin->db->query_write("
+	DELETE FROM " . TABLE_PREFIX . "blog_trackbacklog
+	WHERE dateline > " . (TIMENOW - 864000) . "
+");

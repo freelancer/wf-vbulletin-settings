@@ -1,0 +1,55 @@
+
+			
+<tr>
+	<td class="$banner[rowClass] nowrap $banner[titleClass]">
+		$banner[title]
+	</td>
+	<td class="$banner[rowClass]" align="center">
+		$banner[code_small]
+	</td>
+	<td class="$banner[rowClass] nowrap" align="center">
+		$banner[statustext]
+	</td>
+	<td class="$banner[rowClass] nowrap" align="center">
+		$banner[startdate]
+	</td>
+	<td class="$banner[rowClass] nowrap" align="center">
+		$banner[length]
+	</td>
+	<if condition="$options['username']">
+		<td class="$banner[rowClass] nowrap" align="center">
+			<a href="member.php?u=$banner[userid]">$banner[username]</a>
+		</td>
+	</if>
+	<if condition="$options['controls']">
+		<td class="$banner[rowClass] nowrap" align="center">
+			<if condition="/*$banner['status']=='pending' || $banner['status']=='inactive'*/true">
+				<if condition="/*!$banner['approved']*/true">
+				<div class="smallfont">
+					<a href="paidbanners.php?do=editbanner&bannerid=$banner[bannerid]">$vbphrase[vbppb_edit]</a>
+				</div>
+				</if>
+			</if>
+			<div class="smallfont">
+				<a href="paidbanners.php?do=deletebanner&bannerid=$banner[bannerid]">$vbphrase[vbppb_delete]</a>
+			</div>
+			<if condition="$banner['approveLink']">
+				<div class="smallfont">
+					<a href="paidbanners.php?do=approvebanner&bannerid=$banner[bannerid]">$vbphrase[vbppb_approve]</a>
+				</div>
+			</if>
+			<if condition="$banner['disapproveLink']">
+				<div class="smallfont">
+					<a href="paidbanners.php?do=disapprovebanner&bannerid=$banner[bannerid]">$vbphrase[vbppb_disapprove]</a>
+				</div>
+			</if>
+			<if condition="$banner['activateLink']">
+				<div class="smallfont">
+					<a href="paidbanners.php?do=activate&bannerid=$banner[bannerid]">$vbphrase[vbppb_activate_now]</a>
+				</div>
+			</if>
+		</td>
+	</if>
+</tr>
+			
+		

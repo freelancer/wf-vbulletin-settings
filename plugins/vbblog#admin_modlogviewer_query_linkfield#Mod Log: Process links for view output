@@ -1,0 +1,24 @@
+if ($log['product'] == 'vbblog')
+{
+	$handled = true;
+	switch($sqlfield)
+	{
+		case 'blog_title':
+			$celldata .= construct_link_code($log["$sqlfield"], "../blog.php?" . $vbulletin->session->vars['sessionurl'] . "u=$log[id1]", true);
+			break;
+		case 'blogentry_title':
+			$celldata .= construct_link_code($log["$sqlfield"], "../blog.php?" . $vbulletin->session->vars['sessionurl'] . "b=$log[id2]", true);
+			break;
+		case 'comment_title':
+			$celldata .= construct_link_code($log["$sqlfield"], "../blog.php?" . $vbulletin->session->vars['sessionurl'] . "b=$log[id2]#comment$log[id3]", true);
+			break;
+		case 'blogattachment_title':
+			$celldata .= construct_link_code(htmlspecialchars_uni($log["$sqlfield"]), "../blog_attachment.php?" . $vbulletin->session->vars['sessionurl'] . "attachmentid=$log[id4]&amp;nocache=" . vbrand(0,1000000), true);
+			break;
+		case 'trackback_title':
+			$celldata .= construct_link_code(htmlspecialchars_uni($log["$sqlfield"]), "../blog.php?" . $vbulletin->session->vars['sessionurl'] . "b=$log[id2]#trackback$log[id5]", true);
+			break;
+		default:
+			$handled = false;
+	}
+}

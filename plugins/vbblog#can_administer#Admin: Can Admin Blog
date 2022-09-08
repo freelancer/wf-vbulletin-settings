@@ -1,0 +1,13 @@
+$bits = array(
+	'canblog' => 1,
+	'canblogpermissions' => 2
+);
+
+foreach($do AS $field)
+{
+	if (isset($bits["$field"]) AND ($admin['blogpermissions'] & $bits["$field"]))
+	{
+		$return_value = true;
+		break;
+	}
+}

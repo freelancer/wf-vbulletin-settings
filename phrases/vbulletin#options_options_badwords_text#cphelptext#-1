@@ -1,0 +1,1 @@
+Several common words are already excluded from searches.  These "default bad words" can be seen in the <i>includes/searchwords.php</i> file.

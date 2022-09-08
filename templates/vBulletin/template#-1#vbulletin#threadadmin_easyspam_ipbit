@@ -1,0 +1,1 @@
+<li><a href="postings.php?$session[sessionurl]do=getip&amp;ip=$ip" target="ipinfo">$ip</a><input type="hidden" name="ip[]" value="$ip2long" /></li>

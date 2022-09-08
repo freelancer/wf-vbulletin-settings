@@ -1,0 +1,5 @@
+if (VB_API === true)
+{
+	$post['message_plain'] = build_message_plain($post['pagetext']);
+	$post['message_bbcode'] = $post['pagetext'];
+}

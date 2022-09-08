@@ -1,0 +1,1 @@
+$totalattachments = $db->num_rows($attachs);

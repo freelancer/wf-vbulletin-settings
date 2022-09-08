@@ -1,0 +1,7 @@
+This option determines the default format of posts in a thread when this user views a thread.
+<br /><br />
+Linear mode shows all posts on the page in a top-down expanded format so that you can view the posts without having to click their links.
+<br /><br />
+Threaded mode shows a tree of links to individual posts within the thread.  The tree shows the threading of the posts by indenting reply posts under the post they are in reply to.  Only one post is viewable at a time.
+<br /><br />
+Hybrid mode shows the threaded tree of post links as well as the linear expansion of those posts.

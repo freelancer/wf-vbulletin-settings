@@ -1,0 +1,4 @@
+if (defined('VBBLOG_CACHED_TEMPLATES'))
+{
+	eval('$template_hook[\'usercp_navbar_bottom\'] .= "' . fetch_template('blog_usercp_nav_link') . '";');
+}

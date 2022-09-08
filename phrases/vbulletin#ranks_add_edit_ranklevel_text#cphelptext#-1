@@ -1,0 +1,3 @@
+This is the number of times that this rank image or text will be repeated when it is displayed next to a user's name in their posts.<br /><br />
+
+For example, if you specify a rank text of "Captain" and this setting is set to 2, then the user's rank will be shown as "CaptainCaptain".

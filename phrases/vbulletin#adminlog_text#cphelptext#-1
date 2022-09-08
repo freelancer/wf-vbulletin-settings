@@ -1,0 +1,10 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=stats&amp;pageaction=&amp;option=">Statistics</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=adminlog&amp;pageaction=&amp;option=">Control Panel Log</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=modlog&amp;pageaction=&amp;option=">Moderator Log</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=cronlog&amp;pageaction=&amp;option=">Scheduled Task Log</a><br /><br />
+
+<b>Control Panel Log:</b><br />
+The Administrator's Log allows you to keep tabs on your co-admins, or have a record of IP address(es) and activity in case of a break-in. Each time an action is performed in the Administrator's Control Panel, it is logged. The information stored includes the username, their IP address, the script involved, the script section in use, and additional information which varies depending on the action being performed.<br /><br />
+
+You can restrict other administrators from viewing and/or pruning the Administrator's Log by modifying your includes/config.php file. (see <a href="help.php?do=answer&amp;page=adminlog&amp;pageaction=restrict">Restricting Access to the Admin Log</a>)

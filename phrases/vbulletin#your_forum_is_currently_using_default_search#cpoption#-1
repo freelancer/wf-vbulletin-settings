@@ -1,0 +1,8 @@
+Your forum is currently using the vBulletin search engine.
+<br /><br />
+To enable the MySQL Fulltext search, we will issue the following two queries. If for some reason this process is unsuccessful, you will need to perform these queries manually. Please be patient as this can take from 10 seconds to an hour depending on the number of posts on your forum.
+<br /><br />
+ALTER TABLE {1}post ADD FULLTEXT INDEX (title,pagetext)<br />
+ALTER TABLE {1}thread ADD FULLTEXT INDEX (title)<br />
+{2}
+{3}

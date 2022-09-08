@@ -1,0 +1,18 @@
+<li id="vmessage$message[vmid]" class="floatcontainer">
+	<div class="tborder info_bar">
+		<div class="alt2 smallfont">
+			<if condition="$show['inlinemod']"><input type="checkbox" class="inlinemod_checkbox" name="vmessagelist[$message[vmid]]" id="vmessagelist_$message[vmid]" value="$message[checkbox_value]" title="$vbphrase[select_this_item_for_inline_moderation]"  /></if>
+			<div class="visitor_message_date">$message[date]<if condition="!$show['detailedtime']"> <span class="time">$message[time]</span></if></div>
+			<a href="member.php?$session[sessionurl]u=$message[postuserid]" class="smallfont username">$message[musername]</a>
+
+			<if condition="$show['profile']">
+				<div><phrase 1="member.php?$session[sessionurl]u=$message[profileuserid]&amp;vmid=$message[vmid]#vmessage$message[vmid]" 2="$message[profileusername]">$vbphrase[profile_x]</phrase></div>
+			</if>
+		</div>
+	</div>
+	<div class="smallfont" style="float:$stylevar[right]; text-align: $stylevar[right]"><a href="member.php?$session[sessionurl]u=$userinfo[userid]&amp;vmid=$message[vmid]&amp;showignored=1#vmessage$message[vmid]">$vbphrase[show_message_text]</a></div>
+	<div class="smallfont deletedmessage">
+
+		<phrase 1="$message[username]" 2="profile.php?$session[sessionurl]do=ignorelist">$vbphrase[message_hidden_x_on_ignore_list]</phrase>
+	</div>
+</li>

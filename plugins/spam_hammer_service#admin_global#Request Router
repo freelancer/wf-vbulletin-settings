@@ -1,0 +1,51 @@
+if (array_key_exists('do', $_REQUEST) && $_REQUEST['do'] == 'spam_hammer_contact_us' && can_administer()) {
+	$errors = array();
+
+	$post = array_key_exists('do', $_POST) && $_POST['do'] == 'spam_hammer_contact_us';
+
+	if ($post) {
+		$vbulletin->input->clean_array_gpc('p', array(
+			'email' => TYPE_STR,
+			'subject' => TYPE_STR,
+			'message' => TYPE_STR
+		));
+
+		if (!is_valid_email($vbulletin->GPC['email'])) {
+			$errors[] = $vbphrase['spam_hammer_service_error_contact_email'];
+		}
+
+		if (strlen($vbulletin->GPC['subject']) < 3) {
+			$errors[] = $vbphrase['spam_hammer_service_error_contact_subject'];
+		}
+
+		if (strlen($vbulletin->GPC['message']) < 10) {
+			$errors[] = $vbphrase['spam_hammer_service_error_contact_message'];
+		}
+
+		if (!$errors) {
+			vbmail('administrator@vbresults.com', $vbulletin->GPC['subject'], $vbulletin->GPC['message'], true);
+			print_cp_message($vbphrase['spam_hammer_service_contact_sent']);
+		}
+	}
+
+	print_cp_header($vbphrase['spam_hammer_service']);
+	print_form_header('index', 'spam_hammer_contact_us');
+
+	if ($errors) {
+		print_table_header($vbphrase['errors'], 2, false, '', 'center');
+
+		foreach ($errors as $error) {
+			print_description_row($error, false, 2, '', 'center');
+		}
+
+		print_table_break();
+	}
+
+	print_table_header($vbphrase['spam_hammer_service_contact_us']);
+	print_input_row($vbphrase['spam_hammer_service_label_contact_email'], 'email', !$post ? $vbulletin->options['webmasteremail'] : $_POST['email']);
+	print_input_row($vbphrase['spam_hammer_service_label_contact_subject'], 'subject', !$post ? '' : $_POST['subject']);
+	print_textarea_row($vbphrase['spam_hammer_service_label_contact_message'], 'message', !$post ? '' : $_POST['message'], 8, 140);
+	print_submit_row();
+
+	print_cp_footer();
+}

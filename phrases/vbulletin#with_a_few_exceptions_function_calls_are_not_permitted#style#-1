@@ -1,0 +1,1 @@
+With a few exceptions, function calls are not permitted in template conditional expressions. Please go back and re-write this expression.<br /><br />The following functions are allowed in template conditional expressions:

@@ -1,0 +1,61 @@
+<form action="moderation.php?do=$messagetype&amp;type=$type" method="get">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="page" value="$pagenumber" />
+<input type="hidden" name="pp" value="$perpage" />
+<input type="hidden" name="type" value="$type" />
+<input type="hidden" name="do" value="$messagetype" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[display_options]</td>
+</tr>
+<if condition="$show[havemessages]">
+<tr>
+	<td class="thead"><phrase 1="$first" 2="$last" 3="$messagetotal">$vbphrase[showing_results_x_to_y_of_z]</phrase></td>
+</tr>
+</if>
+<tr valign="top">
+	<td class="alt1">
+	
+		<table cellpadding="0" cellspacing="1" border="0" width="100%">
+		<tr valign="bottom">
+			<td class="smallfont">
+				<label for="select_sort">$vbphrase[sorted_by]</label>
+				<select name="sort" id="select_sort" style="display:block">
+					<option value="dateline" $sort[dateline]>$vbphrase[date]</option>
+					<option value="username" $sort[username]>$vbphrase[posted_by]</option>
+				</select>
+			</td>
+			<td class="smallfont">
+				<label for="select_order">$vbphrase[sort_order]</label>
+				<select name="order" id="select_order" style="display:block">
+					<option value="asc" $order[asc]>$vbphrase[ascending]</option>
+					<option value="desc" $order[desc]>$vbphrase[descending]</option>
+				</select>
+			</td>
+			<td class="smallfont">
+				<label for="select_daysprune"><if condition="$show['deleted']">$vbphrase[deleted_within]<else />$vbphrase[moderated_within]</if></label>
+				<select name="daysprune" id="select_daysprune" style="display:block">
+					<option value="1" $daysprunesel[1]>$vbphrase[last_day]</option>
+					<option value="2" $daysprunesel[2]>$vbphrase[last_2_days]</option>
+					<option value="7" $daysprunesel[7]>$vbphrase[last_week]</option>
+					<option value="10" $daysprunesel[10]>$vbphrase[last_10_days]</option>
+					<option value="14" $daysprunesel[14]>$vbphrase[last_2_weeks]</option>
+					<option value="30" $daysprunesel[30]>$vbphrase[last_month]</option>
+					<option value="45" $daysprunesel[45]>$vbphrase[last_45_days]</option>
+					<option value="60" $daysprunesel[60]>$vbphrase[last_2_months]</option>
+					<option value="75" $daysprunesel[75]>$vbphrase[last_75_days]</option>
+					<option value="100" $daysprunesel[100]>$vbphrase[last_100_days]</option>
+					<option value="365" $daysprunesel[365]>$vbphrase[last_year]</option>
+					<option value="-1" $daysprunesel[all]>$vbphrase[beginning]</option>
+				</select>
+			</td>
+			<td align="$stylevar[right]"><input type="submit" class="button" value="$vbphrase[show_posts]" /></td>
+		</tr>
+		</table>
+
+	</td>
+</tr>
+</table>
+
+</form>

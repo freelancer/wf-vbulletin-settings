@@ -1,0 +1,6 @@
+You are going to delete the activation request.<br />
+This will effectively suspend your account and you will not receive further emails.<br />
+<br />
+If you instead want to activate your account, please click <a href="register.php?a=act&amp;i={1}&amp;u={2}">here</a>.<br />
+<br />
+<strong><a href="register.php?do=killactivation&amp;i={1}&amp;u={2}">Delete the activation request</a></strong>

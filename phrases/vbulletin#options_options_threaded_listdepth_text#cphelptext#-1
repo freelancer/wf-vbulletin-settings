@@ -1,0 +1,10 @@
+Posts have relative depth in threaded mode.  Take this threaded structure for example:<br /><br />
+
+firstpost<br />
+-reply1<br />
+--re: reply1<br />
+---re: re: reply1<br />
+-reply2<br />
+--re: reply2<br /><br />
+
+If you are viewing "firstpost" then both "reply1" and "reply2" are one level deep.  If you are viewing "reply1" then "re: reply1" is one level deep and "re: re: reply1" is 2 levels deep.

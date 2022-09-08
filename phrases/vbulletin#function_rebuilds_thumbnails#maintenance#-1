@@ -1,0 +1,1 @@
+This function rebuilds the attachment thumbnails. It is needed when you enable thumbnails,  change the thumbnail dimensions, or change the thumbnail JPG quality.

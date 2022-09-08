@@ -1,0 +1,1 @@
+<div><label for="cb_optionnumber_$option[number]"><input type="checkbox" name="optionnumber[$option[number]]" value="yes" id="cb_optionnumber_$option[number]" />$option[question]</label></div>

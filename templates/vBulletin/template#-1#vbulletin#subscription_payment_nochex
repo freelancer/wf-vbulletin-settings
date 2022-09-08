@@ -1,0 +1,5 @@
+<input type="hidden" name="merchant_id" value="$settings[ncxemail]" />
+<input type="hidden" name="amount" value="$cost" />
+<input type="hidden" name="order_id" value="$item" />
+<input type="hidden" name="success_url" value="$vboptions[bburl]" />
+<input type="hidden" name="responder_url" value="$vboptions[bburl]/payment_gateway.php?method=nochex" />

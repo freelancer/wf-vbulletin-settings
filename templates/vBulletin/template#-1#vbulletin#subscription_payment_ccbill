@@ -1,0 +1,10 @@
+<input type="hidden" name="clientAccnum" value="$settings[clientAccnum]" />
+<input type="hidden" name="clientSubacc" value="$settings[clientSubacc]" />
+<input type="hidden" name="formName" value="$settings[formName]" />
+<input type="hidden" name="subscriptionTypeId" value="$subinfo[ccbillsubid]" />
+<input type="hidden" name="allowedTypes" value="$subinfo[ccbillsubid]" />
+<input type="hidden" name="email" value="$settings[email]" />
+<input type="hidden" name="hash" value="$hash" />
+<input type="hidden" name="username" value="NOUSERNAME" />
+<input type="hidden" name="password" value="NOPASSWORD" />
+<input type="hidden" name="noCache" value="1" />

@@ -1,0 +1,8 @@
+if (THIS_SCRIPT == "showthread")
+{
+global $globaltemplates;
+$globaltemplates[] = 'ada_postbit_articles';
+$globaltemplates[] = 'ada_postbit_comment';
+$globaltemplates[] = 'ada_postbit_flipped';
+$globaltemplates[] = 'postbit_legacy';
+}

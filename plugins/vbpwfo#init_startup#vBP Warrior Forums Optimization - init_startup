@@ -1,0 +1,11 @@
+
+				if(is_array($datastore_fetch) && defined('VBP_OPTIMIZED'))
+				{
+					$key=array_search("'angadvercache'", $datastore_fetch);
+					if($key!==false)
+					{
+						unset($datastore_fetch[$key]);
+					}
+				}
+			
+			

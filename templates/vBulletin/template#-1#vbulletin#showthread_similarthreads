@@ -1,0 +1,22 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat" width="100%" colspan="5">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('similarthreads')"><img id="collapseimg_similarthreads" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_similarthreads].gif" alt="" border="0" /></a>
+			$vbphrase[similar_threads]<a name="similarthreads"></a>
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_similarthreads" style="$vbcollapse[collapseobj_similarthreads]">
+<tr class="thead" align="center">
+	<td class="thead" width="40%">$vbphrase[thread]</td>
+	<td class="thead" width="15%" nowrap="nowrap">$vbphrase[thread_starter]</td>
+	<td class="thead" width="20%">$vbphrase[forum]</td>
+	<td class="thead" width="5%">$vbphrase[replies]</td>
+	<td class="thead" width="20%">$vbphrase[last_post]</td>
+</tr>
+$similarthreadbits
+</tbody>
+</table>
+
+<br />

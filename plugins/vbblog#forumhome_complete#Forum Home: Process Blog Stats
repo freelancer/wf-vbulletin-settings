@@ -1,0 +1,44 @@
+if (is_array($vbulletin->blogstats) AND $vbulletin->userinfo['permissions']['vbblog_general_permissions'] & $vbulletin->bf_ugp_vbblog_general_permissions['blog_canviewothers'])
+{
+    if ($latestentry = $vbulletin->blogstats['lastentry'])
+    {
+        require_once(DIR . '/includes/blog_functions_shared.php');
+        prepare_blog_category_permissions($vbulletin->userinfo);
+
+        if ($vbulletin->userinfo['userid'] OR $latestentry['guestcanview'])
+        {
+            $entrycats = explode(',', $latestentry['categories']);
+            if (array_intersect($vbulletin->userinfo['blogcategorypermissions']['cantview'], $entrycats) AND $vbulletin->userinfo['userid'] != $latestentry['userid'])
+            {
+                $latestentry = fetch_latest_entry($vbulletin->userinfo);
+            }
+            else if ($vbulletin->userinfo['userid'] == $latestentry['userid'] AND !($vbulletin->userinfo['permissions']['vbblog_general_permissions'] & $vbulletin->bf_ugp_vbblog_general_permissions['blog_canviewown']))
+            {
+                $latestentry = fetch_latest_entry($vbulletin->userinfo);
+            }
+            else if (in_coventry($latestentry['userid']) AND $vbulletin->userinfo['userid'] != $latestentry['userid'])
+            {
+                $latestentry = fetch_latest_entry($vbulletin->userinfo);
+            }
+        }
+        else if ($latestentry = $vbulletin->blogstats['lastentry_guest'])
+        {
+            // oh do nothing, we just wanted the assignment ;)
+        }
+    }
+
+    if ($latestentry['userid'] != $latestentry['postedby_userid'] OR !empty($latestentry['blogtitle']))
+    {
+        $show['blogtitle'] = true;
+        if (empty($latestentry['blogtitle']))
+        {
+                $latestentry['blogtitle'] = $latestentry['username'];
+        }
+    }
+
+    $blogstats['total_blog_users'] = vb_number_format($vbulletin->blogstats['total_blog_users']);
+    $blogstats['total_blog_entries'] = vb_number_format($vbulletin->blogstats['total_blog_entries']);
+    $blogstats['entries_in_24hours'] = vb_number_format($vbulletin->blogstats['entries_in_24hours']);
+
+    eval('$template_hook[\'forumhome_wgo_stats\'] .= "' . fetch_template('blog_forumhome_stats') . '";');
+}

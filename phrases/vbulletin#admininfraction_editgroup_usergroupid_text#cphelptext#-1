@@ -1,0 +1,1 @@
+This is the usergroup for which this infraction group applies to.  Setting this to <em>-- All Usergroups--</em> will apply this infraction group to all users. Otherwise this infraction group will be added to a user's infraction groups when their Primary Usergroup matches this one and the user accumulates infraction points greater than or equal to the points given for this group.

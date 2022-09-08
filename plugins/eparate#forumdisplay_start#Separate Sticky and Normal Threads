@@ -1,0 +1,4 @@
+if ($vbulletin->options['gosterx3'])
+{
+   $vbphrase['sticky_thread_prefix'] = '';
+}

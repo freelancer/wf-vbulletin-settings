@@ -1,0 +1,39 @@
+<tr>
+	<td class="alt1" width="100%">
+		<if condition="$show['rating']">
+			<img style="float:$stylevar[right]" class="inlineimg" src="$stylevar[imgdir_rating]/rating_$post[rating].gif" alt="<phrase 1="$post[ratingnum]" 2="$post[ratingavg]">$vbphrase[rating_x_votes_y_average]</phrase>" border="0" />
+		</if>
+		<div>
+			<a href="blog.php?$session[sessionurl]b=$post[blogid]">$post[title]</a>
+			<span class="smallfont">(<a href="blog.php?$session[sessionurl]u=$post[userid]">$post[blogtitle]</a>)</span>
+		</div>
+
+		<div class="smallfont">
+			<span style="cursor:pointer" onclick="window.open('member.php?$session[sessionurl]u=$post[postedby_userid]', '_self')">$post[postedby_username]</span>
+			<if condition="$show['private']">
+				<img class="inlineimg" src="$stylevar[imgdir_misc]/blog/key.gif" alt="$vbphrase[private_entry]"  border="0" />
+			</if>
+		</div>
+	</td>
+
+	<td class="alt2">
+		<div class="smallfont" style="text-align:$stylevar[right]; white-space:nowrap">
+			<if condition="$show['datetime']">$post[lastpostdate] <if condition="!$show['detailedtime']"><span class="time">$post[lastposttime]</span></if><br /><phrase 1="member.php?$session[sessionurl]username=$post[lastcommenter_encoded]" 2="$post[lastcommenter]">$vbphrase[by_x]</phrase> <a href="blog.php?$session[sessionurl]b=$post[blogid]#comment$post[lastblogtextid]"><img class="inlineimg" src="$stylevar[imgdir_button]/lastpost.gif" alt="$vbphrase[go_to_last_comment]" border="0" /></a><else />$vbphrase[n_a]</if>
+		</div>
+	</td>
+
+	<if condition="$show['notificationtype']">
+		<td class="alt1"><div class="smallfont">
+			<label for="post$post[blogid]">$post[notification]</label>
+		</div></td>
+		<td class="alt2"><input type="checkbox" name="deletebox[$post[blogid]]" id="post$post[blogid]" value="yes" /></td>
+	<else />
+
+	</if>
+
+	<if condition="$show['inlinemod']">
+		<td class="alt1">
+			<input type="checkbox" name="postlist[$post[blogid]]" id="postlist_$post[blogid]" value="$thread[checkbox_value]" />
+		</td>
+	</if>
+</tr>

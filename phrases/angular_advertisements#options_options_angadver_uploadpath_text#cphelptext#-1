@@ -1,0 +1,1 @@
+This is a directory on your host (rather on forum directory) which angular advertisement images must be uploaded to it.<br /><br />Note that this directory must has 777 permission's (CHMOD 777) to be writeable by Angular Advertisements manager.

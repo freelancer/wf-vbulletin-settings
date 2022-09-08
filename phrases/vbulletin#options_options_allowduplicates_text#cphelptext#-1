@@ -1,0 +1,1 @@
+If this setting is set to "No" then vBulletin will not allow the same user to post the same attachment twice.  This can be used to prevent users from taking up unnecessary database space with identical attachments.

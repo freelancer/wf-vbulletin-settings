@@ -1,0 +1,21 @@
+<p><b>What is a social group?</b></p>
+
+<p>A social group is a group of people usually with a particular interest or something else in common. It provides a way of communicating between members as well as sharing photos or other images.</p>
+
+<p>You can get to the list through 'Group Memberships' section on your public profile <a href="faq.php?$session[sessionurl]faq=vb3_user_profile#faq_vb3_public_profile">(?)</a>.</p>
+
+<p>The Social Groups list page displays all groups that have been created. You can list the groups by the number of members, messages or pictures, the group name, when the group was created or by the date of the most recent message posted. You can use the controls provided to search for a group.</p>
+
+<p><b>How do I join a group?</b></p>
+
+<p>To join a group, click the group title then click 'Join Group'. When you have joined a group, its name will be shown in your public profile. You must be a logged-in, registered member to join groups.</p>
+
+<p><b>Can I create my own social group?</b></p>
+
+<p>As a registered member, you can create your own social group (providing the administrator allows this). Go to the groups page and click 'Create A New Group'. Complete the title and description for your group then select the type. There are three types of groups:</p>
+
+<ul>
+	<li><b>Public</b> - open to everyone. There is no restriction on who can join or who can post messages to it</li>
+	<li><b>Invite Only</b> - require an invitation to be sent to join them. Invitations can only be sent by the group creator or forum moderators and administrators. Invitations are sent by clicking 'Pending &amp; Invited Members' at the bottom of the page for that individual group</li>
+	<li><b>Moderated</b> - open to everyone to join but messages need to be moderated before they will appear. They are moderated by the group creator and the site moderators and administrators</li>
+</ul>

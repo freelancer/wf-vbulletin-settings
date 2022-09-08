@@ -1,0 +1,3 @@
+Set this value to 'Yes' if you would like users (who have not explicitly set a preference) to view threads in the threaded display mode.<br />
+<br />
+This setting will have no effect if 'Enable Threaded / Hybrid Mode' is set to 'No'.

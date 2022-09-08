@@ -1,0 +1,48 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $custompagetitle</title>
+$socialgroups_css
+</head>
+<body>
+$header
+$navbar
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" style="clear: both">
+<tr>
+	<td class="tcat" width="100%" colspan="6">
+		$vbphrase[social_group_categories]
+	</td>
+</tr>
+<tr>
+	$template_hook[group_categorylist_start_col]
+	<td class="thead" width="100%">
+		<a href="$titlesort">$vbphrase[category_name]</a> $sortarrow[title]
+	</td>
+	<td class="thead" align="center" nowrap="nowrap">
+		<a href="$groupsort">$vbphrase[groups]</a> $sortarrow[groups]
+	</td>
+	$template_hook[group_categorylist_end_col]
+</tr>
+$categorybits
+<tr>
+	<td colspan="6" align="center" class="tfoot smallfont">
+		<strong><a href="group.php?$session[sessionurl]do=search">$vbphrase[advanced_search]</a></strong>
+	</td>
+</tr>
+</table>
+
+<br />
+
+<div class="floatcontainer">
+	<if condition="$pagenav">
+	<div id="pagenav">
+		$pagenav
+	</div>
+	</if>
+</div>
+
+$footer
+</body>
+</html>

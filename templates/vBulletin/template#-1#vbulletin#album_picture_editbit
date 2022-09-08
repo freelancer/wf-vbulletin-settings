@@ -1,0 +1,45 @@
+<fieldset style="margin-top: $stylevar[cellpadding]px" class="fieldset">
+<table width="100%" border="0" cellspacing="0" cellpadding="$stylevar[cellpadding]">
+<tr>
+	<td class="smallfont" valign="top">
+		<div>
+			$vbphrase[caption]:
+			<div><textarea name="pictures[$picture[pictureid]][caption]" rows="5" cols="50" style="width: 98%" tabindex="1">$picture[caption]</textarea></div>
+		</div>
+
+		<if condition="$show['move_to_album']">
+		<div style="float:$stylevar[right];padding-$stylevar[right]:$stylevar[cellpadding]px">
+			<label for="cb_move_pic$picture[pictureid]">$vbphrase[move_to_album]: </label> <select name="pictures[$picture[pictureid]][album]" id="cb_move_pic$picture[pictureid]" tabindex="1" />$album_options</select>
+		</div>
+		</if>
+		<if condition="$show['delete_option']">
+		<div style="float:$stylevar[left]">
+			<input type="checkbox" name="pictures[$picture[pictureid]][delete]" id="cb_delete_pic$picture[pictureid]" value="1" tabindex="1" /><label for="cb_delete_pic$picture[pictureid]">$vbphrase[delete_this_picture]</label> <if condition="$picture['usedincss']"><span class="shade">($vbphrase[pictured_used_profile_styling])</span></if>
+		</div>
+		</if>
+		<if condition="$show['approve_option']">
+		<div style="float:$stylevar[left];clear:$stylevar[left]">
+			<input type="checkbox" name="pictures[$picture[pictureid]][approve]" id="cb_approve_pic$picture[pictureid]" value="1" tabindex="1" /><label for="cb_approve_pic$picture[pictureid]">$vbphrase[approve_this_picture]</label>
+		</div>		
+		</if>	
+	</td>
+	<td class="smallfont" valign="top" width="<if condition="$vboptions['album_thumbsize'] > 170">$vboptions[album_thumbsize]<else />170</if>">
+		<div style="white-space:nowrap">
+		<if condition="$picture['thumburl']">
+			<a href="album.php?$session[sessionurl]albumid=$albuminfo[albumid]&amp;pictureid=$picture[pictureid]"><img src="$picture[thumburl]" alt="$picture[caption_preview]" border="0" $picture[dimensions] /></a>
+		<else />
+			<a href="album.php?$session[sessionurl]albumid=$albuminfo[albumid]&amp;pictureid=$picture[pictureid]"><if condition="$picture['caption_preview']">$picture[caption_preview]<else />$vbphrase[picture]</if></a>
+		</if>
+		</div>
+
+		<if condition="$show['album_cover']">
+		<div>
+			<input type="radio" name="coverpictureid" id="rb_coverpictureid_pic$picture[pictureid]" value="$picture[pictureid]" tabindex="1" $cover_checked /><label for="rb_coverpictureid_pic$picture[pictureid]">$vbphrase[this_is_album_cover]</label>
+		</div>
+		<else /><if condition="$picture['state'] == 'moderation'">
+			<div class="shade">$vbphrase[picture_moderated]</div>
+		</if></if>
+	</td>
+</tr>
+</table>
+</fieldset>

@@ -1,0 +1,164 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $vbphrase[user_infraction]</title>
+</head>
+<body$onload>
+$header
+$navbar
+
+<if condition="$show['reverseoption']">
+<form action="infraction.php?do=reverse&amp;p=$postid&amp;infractionid=$infractioninfo[infractionid]" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="postid" value="$postinfo[postid]" />
+<input type="hidden" name="infractionid" value="$infractioninfo[infractionid]" />
+<input type="hidden" name="url" value="$url" />
+<input type="hidden" name="do" value="reverse" />
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('infraction_reverse')"><img id="collapseimg_infraction_reverse" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_infraction_reverse].gif" alt="" border="0" /></a>
+		<if condition="$show['warning']">$vbphrase[reverse_this_warning]<else />$vbphrase[reverse_this_infraction]</if>
+	</td>
+</tr>
+<tbody id="collapseobj_infraction_reverse" style="$vbcollapse[collapseobj_infraction_reverse]">
+	<tr>
+		<td class="panelsurround" align="center">
+		<div class="panel">
+			<div style="width:$stylevar[formwidth]" align="$stylevar[left]" class="smallfont">
+
+			<!-- reason field -->
+			<div class="fieldset">
+				<div class="smallfont">$vbphrase[reversal_reason]:</div>
+				<textarea name="reason" rows="2" cols="$textareacols"></textarea>
+			</div>
+			<!-- / reason field -->
+
+			<label for="cb_reverseinfraction"><input type="checkbox" name="reverseinfraction" value="1" id="cb_reverseinfraction" tabindex="1" />$vbphrase[to_reverse_this_infraction]</label>
+
+			<br /><br />
+			<fieldset class="fieldset">
+			<div style="padding:3px">
+				$vbphrase[removal_of_this_infraction]
+			</div>
+			</fieldset>
+
+			</div>
+		</div>
+
+		<div style="margin-top:$stylevar[cellpadding]px">
+			<input type="submit" class="button" value="<if condition="$show['warning']">$vbphrase[reverse_this_warning]<else />$vbphrase[reverse_this_infraction]</if>" tabindex="1" accesskey="d" />
+		</div>
+
+		</td>
+	</tr>
+</tbody>
+</table>
+</form>
+<br />
+</if>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<if condition="$show['postinfo']"><span class="smallfont" style="float:$stylevar[right]"><strong>$vbphrase[thread]</strong>: $threadinfo[prefix_plain_html] <a href="showthread.php?$session[sessionurl]t=$threadinfo[threadid]">$threadinfo[title]</a><br /><if condition="$postinfo['title']"><strong>$vbphrase[post]</strong>: <a href="showthread.php?$session[sessionurl]p=$postinfo[postid]#post$postinfo[postid]">$postinfo[title]</a><else /><a href="showthread.php?$session[sessionurl]p=$postinfo[postid]#post$postinfo[postid]">$vbphrase[view_post]</a></if></span></if>
+		$vbphrase[user_infraction]
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]" class="smallfont">
+
+		<fieldset class="fieldset">
+			<legend>$infractioninfo[status]</legend>
+			<div style="padding:3px">
+				$infractioninfo[title]
+			</div>
+		</fieldset>
+
+		<if condition="$show['expires']">
+		<fieldset class="fieldset">
+			<legend>$vbphrase[expires]</legend>
+			<div style="padding:3px">
+				<if condition="$show['never']">
+				$vbphrase[never]
+				<else />
+				$infractioninfo[expires_time] $infractioninfo[expires_date]
+				</if>
+			</div>
+		</fieldset>
+		</if>
+
+		<if condition="$infractioninfo['reason']">
+		<fieldset class="fieldset">
+			<legend>$vbphrase[reason]</legend>
+			<div style="padding:3px">
+				$infractioninfo[reason]
+			</div>
+		</fieldset>
+		</if>
+
+		<fieldset class="fieldset">
+			<legend>$vbphrase[left_by]</legend>
+			<div style="padding:3px">
+				<a href="member.php?$session[sessionurl]u=$infractioninfo[whoadded]">$infractioninfo[username]</a><br />
+				$infractioninfo[time] $infractioninfo[date]
+			</div>
+		</fieldset>
+
+		<if condition="$show['note']">
+		<fieldset class="fieldset">
+			<legend>$vbphrase[administrative_note]</legend>
+			<div style="padding:3px">
+				$infractioninfo[note]
+			</div>
+		</fieldset>
+		</if>
+
+		<if condition="$show['expired']">
+		<fieldset class="fieldset">
+			<legend>$vbphrase[expired]</legend>
+			<div style="padding:3px">
+				$infractioninfo[expired_time] $infractioninfo[expired_date]
+			</div>
+		</fieldset>
+		</if>
+
+		<if condition="$show['reversed']">
+		<fieldset class="fieldset">
+			<legend>$vbphrase[reversed]</legend>
+			<div style="padding:3px">
+				<a href="member.php?$session[sessionurl]u=$infractioninfo[actionuserid]">$infractioninfo[actionusername]</a><br />
+				<if condition="$infractioninfo[actionreason]">$infractioninfo[actionreason]<br /></if>
+				$infractioninfo[reversed_time] $infractioninfo[reversed_date]
+			</div>
+		</fieldset>
+		</if>
+
+		<if condition="$show['disthread']">
+		<fieldset class="fieldset">
+			<legend>$vbphrase[discussion_thread]</legend>
+			<div style="padding:3px">
+				<a href="showthread.php?$session[sessionurl]threadid=$disthreadinfo[threadid]">$disthreadinfo[title]</a>
+			</div>
+		</fieldset>
+		</if>
+
+		</div>
+	</div>
+	</td>
+</tr>
+</table>
+
+<br />
+
+$forumrules
+
+$footer
+
+</body>
+</html>

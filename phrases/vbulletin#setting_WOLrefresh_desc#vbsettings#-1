@@ -1,0 +1,3 @@
+Time period in seconds to refresh the Who's Online display.<br />
+<br />
+A value of 0 disables the auto-refresh.

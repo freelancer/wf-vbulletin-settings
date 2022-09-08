@@ -1,0 +1,1 @@
+<a href="#" onclick="imwindow('aim', '$userinfo[userid]', 400, 200); return false;"><img src="$stylevar[imgdir_misc]/im_aim.gif" alt="<phrase 1="$userinfo[username]">$vbphrase[send_message_via_aim_to_x]</phrase>" border="0" /></a>

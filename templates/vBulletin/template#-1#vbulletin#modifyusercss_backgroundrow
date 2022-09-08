@@ -1,0 +1,1 @@
+<div class="bgclass imagerow" id="usercss_background_container_$albumid"<if condition="$show['hidediv']"> style="display: none"</if>><ul>$picturebits</ul></div>

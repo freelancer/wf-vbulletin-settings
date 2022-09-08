@@ -1,0 +1,7 @@
+vBulletin provides two options for generating the <a href="http://en.wikipedia.org/wiki/Captcha" target="_blank">dynamic image verification</a> image.
+<br />
+<br />
+The first is GD, which is bundled with PHP 4.3.0. The GD v2+ library is required along with having PHP <a href="http://www.php.net/gd" target="_blank" title="--with-freetype-dir=[DIR]">compiled with freetype2 support</a>. Having PHP compiled with freetype1 will sometimes result in the font not displaying.
+<br />
+<br />
+The second supported library is <a href="http://www.imagemagick.org" target="_blank">ImageMagick v6</a> by ImageMagick Studio LLC. ImageMagick is an executable binary that must be installed at the server level to be called by PHP. Only the <i>identify</i> and <i>convert</i> binaries from ImageMagick are required by vBulletin. Imagemagick must be compiled with Freetype support in order to display the proper image verification.<br /><br />It is suggested that you provide your own background images and true type fonts to make your image verification unique.  Background images should be 201x61 pixels.  Fonts should be True Type fonts.  Place the files in the proper directory beneath the images/regimage folders.  The name of the files do not matter as long as images end in .jpg, .png, or .gif and fonts end in .ttf.

@@ -1,0 +1,18 @@
+<tr>
+	<td class="alt1" width="75%">
+		<if condition="$option['uservote']">
+			<em>$option[question]</em>
+		<else />
+			$option[question]
+		</if>
+		<if condition="$show['pollvoters']"><div class="alt2 smallfont" style="border:inset 1px; margin-top:$stylevar[cellpadding]px; padding:$stylevar[cellpadding]px">$names</div></if>
+	</td>
+	<td class="alt2" nowrap="nowrap">
+		<img src="$stylevar[imgdir_poll]/bar$option[graphicnumber]-$option[open].gif" alt="" width="3" height="10"
+		/><img src="$stylevar[imgdir_poll]/bar$option[graphicnumber].gif" alt="" width="$option[barnumber]" height="10"
+		/><img src="$stylevar[imgdir_poll]/bar$option[graphicnumber]-$option[close].gif" alt="" width="3" height="10"
+		/><img src="$vboptions[cleargifurl]" alt="" width="$option[remainder]" height="10" />
+	</td>
+	<td class="alt1" width="12%" align="center" title="$vbphrase[votes]" nowrap="nowrap"><strong>$option[votes]</strong></td>
+	<td class="alt2" width="13%" align="$stylevar[right]" nowrap="nowrap">$option[percent]%</td>
+</tr>

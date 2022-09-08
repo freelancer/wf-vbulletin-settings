@@ -1,0 +1,1 @@
+Check your mail server to ensure it is configured correctly to allow PHP to send mail from it. You should also check your mail server's error log for more diagnostic information.

@@ -1,0 +1,11 @@
+<if condition="$block_data['visitorcount']">
+<div class="alt1 smallfont block_row">
+	<phrase 1="$block_data[visitorcount]">$vbphrase[last_x_visitors]</phrase>
+	<ol class="list_no_decoration last_visitors_list">
+		$block_data[visitorbits]
+	</ol>
+</div>
+</if>
+<div class="<if condition="$block_data['visitorcount']">alt2<else />alt1</if> smallfont block_row block_footer">
+	<phrase 1="$prepared[profilevisits]">$vbphrase[this_page_has_x_visits]</phrase>
+</div>

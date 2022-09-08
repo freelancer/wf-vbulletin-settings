@@ -1,0 +1,1 @@
+Here you can specify the number of forums / users / threads / posts / attachments to be processed at a time.  This number may need to be set lower for extremely large forums because of time out concerns.

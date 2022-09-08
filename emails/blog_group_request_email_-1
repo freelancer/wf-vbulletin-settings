@@ -1,0 +1,8 @@
+Dear $userinfo[username],
+
+$fromuserinfo[username] has requested that you join his/her blog. You can approve or deny this request by visiting:
+
+$vboptions[bburl]/blog_usercp.php?do=groups
+
+All the best,
+$vboptions[bbtitle]

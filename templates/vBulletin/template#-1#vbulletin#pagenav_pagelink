@@ -1,0 +1,1 @@
+<td class="alt1"><a class="smallfont" href="$address$address2<if condition="$curpage != 1">&amp;page=$curpage</if><if condition="$anchor">#$anchor</if>" title="<phrase 1="$pagenumbers[first]" 2="$pagenumbers[last]" 3="$total">$vbphrase[show_results_x_to_y_of_z]</phrase>">$curpage</a></td>

@@ -1,0 +1,3 @@
+This setting allows you to set the width of code blocks in messages.  This should be set to a width that will not stretch your forum layout.  To see an example of a code block you can post a new thread on your forums and put this in the message: [code]test[/code].<br /><br />
+
+Enter a number of pixels followed by a "px" (e.g., <b>640px</b>).

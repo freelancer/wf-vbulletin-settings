@@ -1,0 +1,1 @@
+Random entries are cached for a set period of time to increase performance. This is the minimum amount of time that will pass between the selection of a new random entry.

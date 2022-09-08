@@ -1,0 +1,132 @@
+<form action="groupsubscription.php" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+
+<table class="tborder discussion_list" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+<thead>
+	<tr>
+		<td class="tcat" colspan="5">
+			$vbphrase[subscribed_discussions]
+		</td>
+	</tr>
+</thead>
+<tfoot>
+	<tr>
+		<td class="tfoot" colspan="5" align="$stylevar[right]">
+			<if condition="$totaldiscussions">
+			<div class="smallfont">
+				$vbphrase[selected_discussions]:
+				<select name="do">
+					<optgroup label="$vbphrase[move_delete_subscriptions]">
+						<option value="delete">$vbphrase[delete_subscription]</option>
+					</optgroup>
+					<optgroup label="$vbphrase[update_subscription_type]">
+						<option value="noemail">$vbphrase[no_email_notification]</option>
+						<option value="instantemail">$vbphrase[instant_email_notification]</option>
+					</optgroup>
+				</select>$gobutton
+			</div>
+			<else />
+				<br />
+			</if>
+		</td>
+	</tr>
+</tfoot>
+<tbody id="collapseobj_usercp_discussions" style="$vbcollapse[collapseobj_usercp_discussions]">
+<if condition="!$totaldiscussions">
+	<tr>
+		<td class="alt1" align="center" colspan="5">
+			<strong>$vbphrase[you_have_no_subscribed_discussions]</strong>
+		</td>
+	</tr>
+<else />
+	<tr class="block_title">
+		<td class="thead" width="100%">
+			<span style="float: $stylevar[left]">$vbphrase[discussion]</span>
+			<span style="float:$stylevar[right]"><a href="$orderlinks[dateline]&amp;pp=$perpage&amp;page=$pagenumber">$vbphrase[group_created]</a>  $sortarrow[dateline]</span>
+		</td>
+		<td class="thead" align="center" nowrap="nowrap">
+			<span><a href="$orderlinks[replies]&amp;pp=$perpage&amp;page=$pagenumber">$vbphrase[replies]</a>  $sortarrow[replies]</span>
+		</td>
+		<td class="thead" align="center" nowrap="nowrap">
+			<span><a href="$orderlinks[lastpost]&amp;pp=$perpage&amp;page=$pagenumber">$vbphrase[last_post]</a>  $sortarrow[lastpost]</span>
+		</td>
+		<td class="thead" nowrap="nowrap">
+			<span><a href="$orderlinks[subscription]&amp;pp=$perpage&amp;page=$pagenumber">$vbphrase[notification]</a> $sortarrow[subscription]</span>
+		</td>
+		<td class="thead">
+			<input name="allbox" type="checkbox" value="Check All" title="$vbphrase[check_uncheck_all]" onclick="checkall(this.form);" />
+		</td>
+	</tr>
+	$discussionbits
+	</tbody>
+</if>
+</table>
+</form>
+
+<if condition="$pagenav">
+<div class="floatcontainer">
+	<div id="discussion_pagenav">
+		$pagenav
+	</div>
+</div>
+</if>
+
+<if condition="$group_subscribe_list">
+<br />
+<form action="groupsubscription.php" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="updategroup" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+<thead>
+<tr>
+	<td class="tcat" colspan="4">
+		$vbphrase[subscribed_social_groups]
+	</td>
+</tr>
+</thead>
+
+<tfoot>
+<tr>
+	<td class="tfoot" colspan="4" align="$stylevar[right]">
+		<div class="smallfont">
+			$vbphrase[selected_groups]:
+			<select name="act">
+				<optgroup label="$vbphrase[move_delete_subscriptions]">
+					<option value="delete">$vbphrase[delete_subscription]</option>
+				</optgroup>
+				<optgroup label="$vbphrase[update_subscription_type]">
+					<option value="none">$vbphrase[no_email_notification]</option>
+					<option value="daily">$vbphrase[daily_email_notification]</option>
+					<option value="weekly">$vbphrase[weekly_email_notification]</option>
+				</optgroup>
+			</select>$gobutton
+		</div>
+	</td>
+</tr>
+</tfoot>
+
+<tbody id="collapseobj_usercp_socialgroups" style="$vbcollapse[collapseobj_usercp_socialgroups]">
+<tr>
+	<td class="thead" width="100%">
+		$vbphrase[group_name]
+	</td>
+	<td class="thead" align="center" nowrap="nowrap">
+		$vbphrase[last_post]
+	</td>
+	<td class="thead" nowrap="nowrap">
+		$vbphrase[notification]
+	</td>
+	<td class="thead">
+		<input name="allbox" type="checkbox" value="Check All" title="$vbphrase[check_uncheck_all]" onclick="checkall(this.form);" />
+	</td>
+</tr>
+$group_subscribe_list
+</tbody>
+
+</table>
+
+</form>
+</if>

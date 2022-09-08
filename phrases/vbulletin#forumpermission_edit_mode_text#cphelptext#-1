@@ -1,0 +1,3 @@
+To have any settings on this page save, you must select "Use custom permissions". If you already have custom settings and wish to set this usergroup back to default, select "Use usergroup default" and press Save Changes.
+
+Note that if you have custom settings for this group and remove them as described above, any subforums will also be reverted if they do not have custom settings explicitly set for themselves.

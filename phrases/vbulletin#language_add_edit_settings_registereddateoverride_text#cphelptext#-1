@@ -1,0 +1,3 @@
+This setting will override the registration date format that is specified in your vBulletin options, <a href="options.php?dogroup=datetime&amp;do=options" target="_blank">here</a>.  Leave blank to use the format that is set in your vBulletin options.<br /><br />
+
+Consult <a href="http://www.php.net/manual-lookup.php?function=strftime" target="_blank">this page</a> for a list of time variables.  You can use these variables in combination with other characters to define a format.  See the "Date Format Override" and "Time Format Override" settings above for examples.

@@ -1,0 +1,44 @@
+<!-- Editor Scripts -->
+<script type="text/javascript" src="clientscript/vbulletin_textedit.js?v=$vboptions[simpleversion]"></script>
+<script type="text/javascript">
+<!--
+var fontoptions = new Array($vBeditJs[font_options_array]);
+var sizeoptions = new Array($vBeditJs[size_options_array]);
+var smilieoptions = { $vBeditJs[smilie_options_array] };
+
+var istyles = { $vBeditJs[istyle_array] };
+var ltr = '$stylevar[left]';
+
+var smiliewindow_x = 240;
+var smiliewindow_y = 280;
+
+var ignorequotechars = $vboptions[ignorequotechars];
+var allowbasicbbcode = <if condition="$show['basic_bbcode']">true<else />false</if>;
+
+// vB Phrases
+vbphrase["wysiwyg_please_wait"]          = "$vbphrase[wysiwyg_please_wait]";
+vbphrase["wysiwyg_initialized"]          = "$vbphrase[wysiwyg_initialized]";
+vbphrase["wysiwyg_command_invalid"]      = "$vbphrase[wysiwyg_command_invalid]";
+vbphrase["moz_must_select_text"]         = "$vbphrase[moz_must_select_text]";
+vbphrase["moz_edit_config_file"]         = "$vbphrase[moz_edit_config_file]";
+vbphrase["enter_tag_option"]             = "$vbphrase[enter_tag_option]";
+vbphrase["must_select_text_to_use"]      = "$vbphrase[must_select_text_to_use]";
+vbphrase["browser_is_safari_no_wysiwyg"] = "$vbphrase[browser_is_safari_no_wysiwyg]";
+vbphrase["enter_option_x_tag"]           = "$vbphrase[enter_option_x_tag]";
+vbphrase["enter_text_to_be_formatted"]   = "$vbphrase[enter_text_to_be_formatted]";
+vbphrase["enter_link_text"]              = "$vbphrase[enter_link_text]";
+vbphrase["enter_list_type"]              = "$vbphrase[enter_list_type]";
+vbphrase["enter_list_item"]              = "$vbphrase[enter_list_item]";
+vbphrase["must_enter_subject"]           = "$vbphrase[must_enter_subject]";
+vbphrase["message_too_short"]            = "$vbphrase[message_too_short]";
+vbphrase["enter_link_url"]               = "$vbphrase[enter_link_url]";
+vbphrase["enter_image_url"]              = "$vbphrase[enter_image_url]";
+vbphrase["enter_email_link"]             = "$vbphrase[enter_email_link]";
+vbphrase["complete_image_verification"]  = "$vbphrase[complete_image_verification]";
+vbphrase["iespell_not_installed"]        = "$vbphrase[iespell_not_installed]";
+vbphrase["click_quick_reply_icon"]       = "$vbphrase[click_quick_reply_icon]";
+vbphrase["insert_all"]                   = "$vbphrase[insert_all]";
+
+//-->
+</script>
+<!-- / Editor Scripts -->

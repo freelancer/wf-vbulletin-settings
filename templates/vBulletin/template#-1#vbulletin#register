@@ -1,0 +1,294 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<style type="text/css">
+/* ***** red and green boxes for username verification used during registration ***** */
+.greenbox { border: 1px solid #337733; background: #bbffbb; color: #337733; padding: 3px; }
+.redbox { border:1px solid #773333; background: #ffbbbb; color: #773333; padding: 3px; }
+</style>
+<title>$vboptions[bbtitle] - <if condition="$show['coppa']">$vbphrase[coppa] </if>$vbphrase[registration]</title>
+</head>
+<body>
+
+$header
+
+<br />
+
+<if condition="$show['coppa']">
+	<div>$vbphrase[until_receive_signed_form]</div>
+</if>
+
+<if condition="$show['errors']">
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat">$vbphrase[errors_occurred_during_registration]</td>
+	</tr>
+	<tr>
+		<td class="alt1"><ul>$errorlist</ul></td>
+	</tr>
+	</table>
+	<br />
+</if>
+
+<script type="text/javascript" src="clientscript/vbulletin_md5.js?v=$vboptions[simpleversion]"></script>
+<script type="text/javascript">
+function verify_passwords(password1, password2)
+{
+	// do various checks, this will save people noticing mistakes on next page
+	if (password1.value == '' || password2.value == '')
+	{
+		alert('$vbphrase[fill_out_both_password_fields]');
+		return false;
+	}
+	else if (password1.value != password2.value)
+	{
+		alert('$vbphrase[entered_passwords_do_not_match]');
+		return false;
+	}
+	else
+	{
+		<if condition="$show['coppa']">
+		pass_copy = password1.value;
+		passconfirm_copy = password2.value;
+		</if>
+
+		var junk_output;
+
+		md5hash(password1, document.forms.register.password_md5, junk_output, $show[nopasswordempty]);
+		md5hash(password2, document.forms.register.passwordconfirm_md5, junk_output, $show[nopasswordempty]);
+
+		<if condition="$show['coppa']">
+		document.forms.register.password.value = pass_copy;
+		document.forms.register.passwordconfirm.value = passconfirm_copy;
+		</if>
+
+		return true;
+	}
+	return false;
+}
+</script>
+
+<form action="register.php?do=addmember" name="register" method="post" onsubmit="return verify_passwords(password, passwordconfirm);">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="addmember" />
+<input type="hidden" name="url" value="$url" />
+<input type="hidden" name="agree" value="$agree" />
+<input type="hidden" name="password_md5" />
+<input type="hidden" name="passwordconfirm_md5" />
+<if condition="!$show['birthday']">
+	<input type="hidden" name="day" value="$day" />
+	<input type="hidden" name="month" value="$month" />
+	<input type="hidden" name="year" value="$year" />
+</if>
+<if condition="$show['coppa']">
+	<input type="hidden" name="coppauser" value="1" />
+</if>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat"><phrase 1="$vboptions[bbtitle]">$vbphrase[register_at_x]</phrase></td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+			<div class="smallfont" style="margin-bottom:$stylevar[formspacer]px">
+				<phrase 1="$vboptions[bbtitle]">$vbphrase[to_post_must_first_register]</phrase>
+			</div>
+
+			<div class="smallfont" style="margin-bottom:$stylevar[formspacer]px">
+				<strong>$vbphrase[username]</strong>:<br />
+				<input class="bginput" id="regusername" type="text" name="username" size="50" maxlength="$vboptions[maxuserlength]" value="$username" /><img src="$vboptions[cleargifurl]" id="reg_verif_image" onclick="return toggle_collapse('dialog_box')" style="display:none;" alt="" />
+				<div id="collapseobj_dialog_box"><div id="reg_verif_div" style="display:none;"></div></div>
+				<script type="text/javascript" src="clientscript/vbulletin_ajax_nameverif.js?v=$vboptions[simpleversion]"></script>
+				<script type="text/javascript">
+				<!--
+				regname_verif = new vB_AJAX_NameVerify('regname_verif', 'regusername');
+				//-->
+				</script>
+			</div>
+
+			<fieldset class="fieldset">
+				<legend>$vbphrase[password]</legend>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="400">
+				<tr>
+					<td colspan="2">$vbphrase[enter_password_for_account]</td>
+				</tr>
+				<tr>
+					<td>
+						$vbphrase[password]:<br />
+						<input type="password" class="bginput" name="password" size="25" maxlength="50" value="$password" />
+					</td>
+					<td>
+						$vbphrase[confirm_password]:<br />
+						<input type="password" class="bginput" name="passwordconfirm" size="25" maxlength="50" value="$passwordconfirm" />
+					</td>
+				</tr>
+				</table>
+			</fieldset>
+
+			<fieldset class="fieldset">
+				<legend>$vbphrase[email_address]</legend>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="400">
+				<tr>
+					<td colspan="2">$vbphrase[enter_valid_email_address]</td>
+				</tr>
+				<tr>
+					<td>
+						$vbphrase[email_address]:<br />
+						<input type="text" class="bginput" name="email" size="25" maxlength="50" value="$email" dir="ltr" />
+					</td>
+					<td>
+						$vbphrase[confirm_email_address]:<br />
+						<input type="text" class="bginput" name="emailconfirm" size="25" maxlength="50" value="$emailconfirm" dir="ltr" />
+					</td>
+				</tr>
+				<if condition="$show['coppa']">
+				<tr>
+					<td>$vbphrase[if_under_13_provide_parent]</td>
+				</tr>
+				<tr>
+					<td>
+						$vbphrase[parent_guardian_email]:<br />
+						<input type="text" class="bginput" name="parentemail" size="25" maxlength="50" value="$parentemail" dir="ltr" />
+					</td>
+				</tr>
+				</if>
+				</table>
+			</fieldset>
+
+			$human_verify
+
+		</div>
+	</div>
+	</td>
+</tr>
+</table>
+<br />
+
+<if condition="$show['customfields_profile']">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="thead">$vbphrase[additional_required_information_profile]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+			$customfields_profile
+
+			<if condition="$show['birthday']">$birthdayfields</if>
+
+		</div>
+	</div>
+	</td>
+</tr>
+</table>
+<br />
+</if>
+
+<if condition="$show['customfields_option']">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="thead">$vbphrase[additional_required_information_option]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+			$customfields_option
+
+		</div>
+	</div>
+	</td>
+</tr>
+</table>
+<br />
+</if>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="thead">$vbphrase[additional_information]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+			<if condition="$show['referrer']">
+			<fieldset class="fieldset">
+				<legend>$vbphrase[referrer]</legend>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+				<tr>
+					<td><phrase 1="$vboptions[bbtitle]">$vbphrase[if_referred_enter_name]</phrase></td>
+				</tr>
+				<tr>
+					<td>
+						$vbphrase[referrer]:<br />
+						<div id="referrerfield"><input id="referrerfield_txt" type="text" class="bginput" name="referrername" value="$referrername" size="50" maxlength="$vboptions[maxuserlength]" /></div>
+						<if condition="$show['popups']">
+							<div id="referrerfield_menu" class="vbmenu_popup" style="display:none; z-index:50"></div>
+							<script type="text/javascript" src="clientscript/vbulletin_ajax_namesugg.js?v=$vboptions[simpleversion]"></script>
+							<script type="text/javascript">
+							<!--
+								vbmenu_register('referrerfield', true);
+								rnc = new vB_AJAX_NameSuggest('rnc', 'referrerfield_txt', 'referrerfield');
+								rnc.allow_multiple = false;
+							//-->
+							</script>
+						</if>
+					</td>
+				</tr>
+				</table>
+			</fieldset>
+			</if>
+
+			$timezoneoptions
+
+			<fieldset class="fieldset">
+				<legend>$vbphrase[receive_email]</legend>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+				<tr>
+					<td>
+						$vbphrase[administrators_may_send_email]
+					</td>
+				</tr>
+				<tr>
+					<td><label for="cb_adminemail"><input type="checkbox" name="options[adminemail]" value="1" id="cb_adminemail" $checkedoff[adminemail] />$vbphrase[receive_email_from_bulletin_board_staff]</label></td>
+				</tr>
+				<if condition="$show['email']">
+				<tr>
+					<td>$vbphrase[allow_members_send_you_email]</td>
+				</tr>
+				<tr>
+					<td><label for="cb_showemail"><input type="checkbox" name="options[showemail]" value="1" id="cb_showemail" $checkedoff[showemail] />$vbphrase[receive_email_from_other_members]</label></td>
+				</tr>
+				</if>
+				</table>
+			</fieldset>
+
+
+			$customfields_other
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" value="$vbphrase[complete_registration]" accesskey="s" />
+		<input type="reset" class="button" name="Reset" value="$vbphrase[reset_fields]" />
+	</div>
+	</td>
+</tr>
+</table>
+
+</form>
+
+$footer
+
+</body>
+</html>

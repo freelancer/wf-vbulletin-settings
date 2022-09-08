@@ -1,0 +1,86 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<if condition="$show['notifysent']">
+			$vbphrase[blog_message]
+		<else />
+			$vbphrase[preview]
+		</if>
+	</td>
+</tr>
+<tr>
+	<td class="alt1">
+		<if condition="$show['notifysent']">
+			<!--POSTERROR do not remove this comment-->
+			<ol><li>$vbphrase[notification_sent_to_remote_server]</li></ol>
+			<!--/POSTERROR do not remove this comment-->
+		<else />
+
+			<if condition="$blog['title']">
+				<!-- icon and title -->
+				<div class="smallfont">
+					<strong>$blog[title]</strong>
+				</div>
+				<hr size="1" style="color:$stylevar[tborder_bgcolor]" />
+				<!-- / icon and title -->
+			</if>
+			$previewmessage
+
+			<if condition="$show['attachments']">
+			<!-- attachments -->
+				<div style="padding:$stylevar[cellpadding]px">
+
+				<if condition="$show['thumbnailattachment']">
+					<fieldset class="fieldset">
+						<legend>$vbphrase[attached_thumbnails]</legend>
+						<div style="padding:$stylevar[formspacer]px">
+						$blog[thumbnailattachments]
+						</div>
+					</fieldset>
+				</if>
+
+				<if condition="$show['imageattachment']">
+					<fieldset class="fieldset">
+						<legend>$vbphrase[attached_images]</legend>
+						<div style="padding:$stylevar[formspacer]px">
+						$blog[imageattachments]
+						</div>
+					</fieldset>
+				</if>
+
+				<if condition="$show['imageattachmentlink']">
+					<fieldset class="fieldset">
+						<legend>$vbphrase[attached_images]</legend>
+						<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+						$blog[imageattachmentlinks]
+						</table>
+						</fieldset>
+				</if>
+
+				<if condition="$show['otherattachment']">
+					<fieldset class="fieldset">
+						<legend>$vbphrase[attached_files]</legend>
+						<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+						$blog[otherattachments]
+						</table>
+					</fieldset>
+				</if>
+
+				<if condition="$show['moderatedattachment']">
+					<fieldset class="fieldset">
+						<legend>$vbphrase[attachments_pending_approval]</legend>
+						<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+						$blog[moderatedattachments]
+						</table>
+					</fieldset>
+				</if>
+
+				</div>
+			<!-- / attachments -->
+			</if>
+		</if>
+	</td>
+</tr>
+</table>
+
+<br />

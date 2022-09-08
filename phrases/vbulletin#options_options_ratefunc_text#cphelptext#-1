@@ -1,0 +1,1 @@
+This setting allows you to perform a PHP function on the $ratingscore of a search result.  An example would be to return the log() (Natural logarithm) value of the $ratingscore.  You would do this by entering 'safelog' as the function name.

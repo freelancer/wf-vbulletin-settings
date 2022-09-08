@@ -1,0 +1,15 @@
+$reportinfo[rusername] ( mailto:$reportinfo[remail] ) has reported this private message:
+
+From: $reportinfo[pusername]
+$reportinfo[pmtitle]
+
+$reportinfo[message]
+
+
+You can view the sender's profile and optionally apply infractions or bans by following the link below
+$vboptions[bburl]/member.php?u=$reportinfo[puserid]
+
+This is the reason that the recipient gave for reporting the message:
+$reportinfo[reason]
+
+This message has been sent to all moderators of this area, or all administrators if there are no moderators.

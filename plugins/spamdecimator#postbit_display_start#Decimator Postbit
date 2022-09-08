@@ -1,0 +1,35 @@
+global $candecimate;
+global $vbulletin;
+if($vbulletin->options['sd_enabled'])
+{
+	$candecimate = false;
+	$modgroups = explode(",", $vbulletin->options['modgroupid']);
+	$supergroups = explode(",", $vbulletin->options['supermodid']);
+	$admingroups = explode(",", $vbulletin->options['adminid']);
+	$decimators = array_merge($admingroups,$modgroups,$supergroups);
+	if(!in_array($post['usergroupid'], $decimators))
+	{
+	      if(in_array($vbulletin->userinfo['usergroupid'], $decimators))
+	      {
+	            if($vbulletin->options['sd_postmax'] > 0)
+				{
+					if($post['posts'] < $vbulletin->options['sd_postmax'])
+					{
+	             		$candecimate = true;
+					}
+				}
+				else
+				{
+					$candecimate = true;
+				}
+	      }
+	}
+}
+else
+{
+	$candecimate = false;
+}
+if($candecimate)
+{
+	$template_hook['postbit_controls'] .= "<a href=\"#\" onclick=\"window.open('http://www.warriorforum.com/decimator.php?userid=$post[userid]&amp;threadid=$post[threadid]&amp;postid=$post[postid]','spam_decimator','statusbar=yes,menubar=yes,toolbar=yes,scrollbars=yes,resizable=yes,width=800,height=600'); return false;\"><img src=\"images/misc/spambutton.gif\" alt=\"Spam Decimator\" border=\"0\"></a>";
+}

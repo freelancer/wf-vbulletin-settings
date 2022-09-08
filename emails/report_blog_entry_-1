@@ -1,0 +1,17 @@
+$reportinfo[rusername] ( mailto:$bbuserinfo[email] ) has reported this blog entry:
+
+$reportinfo[entrytitle]
+$vboptions[bburl]/blog.php?b=$reportinfo[blogid]
+
+This is part of this blog:
+$reportinfo[blogtitle]
+$vboptions[bburl]/blog.php?u=$reportinfo[puserid]
+
+This is the reason that the user gave:
+$reportinfo[reason]
+
+$reportinfo[discuss]
+
+This message has been sent to all moderators of this blog, or all administrators if there are no moderators.
+
+Please respond to this entry as applicable.

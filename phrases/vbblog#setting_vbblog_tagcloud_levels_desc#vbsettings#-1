@@ -1,0 +1,5 @@
+The number of <em>levels</em> to be shown in the tag cloud.<br />
+<br />
+By default, there are 5 levels named level1 to level5, with the font size growing from its smallest size at level 1 to its largest at level 5.<br />
+<br />
+Increasing this value above 5 requires a template change.

@@ -1,0 +1,84 @@
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr valign="top">
+	<td align="$stylevar[left]">
+		<table class="tborder" cellpadding="2" cellspacing="$stylevar[cellspacing]" border="0" width="170" style="margin-bottom:$stylevar[cellpadding]px">$month1</table>
+	</td>
+	<td align="center">
+		<table class="tborder" cellpadding="2" cellspacing="$stylevar[cellspacing]" border="0" width="170" style="margin-bottom:$stylevar[cellpadding]px">$month2</table>
+	</td>
+	<td align="center">
+		<table class="tborder" cellpadding="2" cellspacing="$stylevar[cellspacing]" border="0" width="170" style="margin-bottom:$stylevar[cellpadding]px">$month3</table>
+	</td>
+	<td align="$stylevar[right]">
+		<table class="tborder" cellpadding="2" cellspacing="$stylevar[cellspacing]" border="0" width="170" style="margin-bottom:$stylevar[cellpadding]px">$month4</table>
+	</td>
+</tr>
+<tr valign="top">
+	<td align="$stylevar[left]">
+		<table class="tborder" cellpadding="2" cellspacing="$stylevar[cellspacing]" border="0" width="170" style="margin-bottom:$stylevar[cellpadding]px">$month5</table>
+	</td>
+	<td align="center">
+		<table class="tborder" cellpadding="2" cellspacing="$stylevar[cellspacing]" border="0" width="170" style="margin-bottom:$stylevar[cellpadding]px">$month6</table>
+	</td>
+	<td align="center">
+		<table class="tborder" cellpadding="2" cellspacing="$stylevar[cellspacing]" border="0" width="170" style="margin-bottom:$stylevar[cellpadding]px">$month7</table>
+	</td>
+	<td align="$stylevar[right]">
+		<table class="tborder" cellpadding="2" cellspacing="$stylevar[cellspacing]" border="0" width="170" style="margin-bottom:$stylevar[cellpadding]px">$month8</table>
+	</td>
+</tr>
+<tr valign="top">
+	<td align="$stylevar[left]">
+		<table class="tborder" cellpadding="2" cellspacing="$stylevar[cellspacing]" border="0" width="170" style="margin-bottom:$stylevar[cellpadding]px">$month9</table>
+	</td>
+	<td align="center">
+		<table class="tborder" cellpadding="2" cellspacing="$stylevar[cellspacing]" border="0" width="170" style="margin-bottom:$stylevar[cellpadding]px">$month10</table>
+	</td>
+	<td align="center">
+		<table class="tborder" cellpadding="2" cellspacing="$stylevar[cellspacing]" border="0" width="170" style="margin-bottom:$stylevar[cellpadding]px">$month11</table>
+	</td>
+	<td align="$stylevar[right]">
+		<table class="tborder" cellpadding="2" cellspacing="$stylevar[cellspacing]" border="0" width="170" style="margin-bottom:$stylevar[cellpadding]px">$month12</table>
+	</td>
+</tr>
+</table>
+
+<br />
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tr valign="bottom">
+	<td nowrap="nowrap">
+
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0">
+	<tr>
+		<td class="thead" colspan="3" nowrap="nowrap">$vbphrase[add_new_event]<a name="goto_newevent"></a></td>
+	</tr>
+	<tr>
+		<td class="alt1" nowrap="nowrap">
+			<div class="smallfont">
+				<div>
+					<img class="inlineimg" src="$stylevar[imgdir_misc]/calendar_icon.gif" alt="$vbphrase[single_all_day_event]" border="0" />
+					<a href="calendar.php?$session[sessionurl]do=add&amp;type=single&amp;c=$calendarinfo[calendarid]">$vbphrase[single_all_day_event]</a>
+				</div>
+				<div>
+					<img class="inlineimg" src="$stylevar[imgdir_misc]/calendar_icon.gif" alt="$vbphrase[ranged_event]" border="0" />
+					<a href="calendar.php?$session[sessionurl]do=add&amp;c=$calendarinfo[calendarid]">$vbphrase[ranged_event]</a>
+				</div>
+				<div>
+					<img class="inlineimg" src="$stylevar[imgdir_misc]/calendar_icon.gif" alt="$vbphrase[recurring_event]" border="0" />
+					<a href="calendar.php?$session[sessionurl]do=add&amp;type=recur&amp;c=$calendarinfo[calendarid]">$vbphrase[recurring_event]</a>
+				</div>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+	</td>
+	<td width="100%">&nbsp;</td>
+	<td nowrap="nowrap">
+
+	$calendarjump
+
+	</td>
+</tr>
+</table>

@@ -1,0 +1,20 @@
+if ($this->registry->userinfo['userid'] != 0 && !(defined('LOCATION_BYPASS')) && !(post_thanks_off($thread['forumid'], $post, $thread['firstpostid'], THIS_SCRIPT)))
+{
+	$display_thanks_image = 'none';
+
+	if (can_thank_this_post($post, $thread['isdeleted']) && !thanked_already($post))
+	{
+		$display_thanks_image = '';
+	}
+
+	eval('$template_hook[postbit_controls] .= " ' . fetch_template('post_thanks_button') . '";');
+}
+
+if ($this->registry->options['post_thanks_show_stats_postbit'])
+{
+	$post['post_thanks_user_amount_formatted'] = vb_number_format($post['post_thanks_user_amount']);
+	$post['post_thanks_thanked_times_formatted'] = vb_number_format($post['post_thanks_thanked_times']);
+	$post['post_thanks_thanked_posts_formatted'] = vb_number_format($post['post_thanks_thanked_posts']);
+
+	eval('$template_hook[postbit_userinfo_right_after_posts] .= " ' . fetch_template('post_thanks_postbit_info') . '";');
+}

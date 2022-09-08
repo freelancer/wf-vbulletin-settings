@@ -1,0 +1,6 @@
+There are three options for the display of the Forum Manager:<br />
+<ul>
+	<li><span class="smallfont"><i>Default</i> - Displays all of the forums on one page but may not work on all browsers, especially if you have a large number of forums.</span></li>
+	<li><span class="smallfont"><i>Collapsible</i> - Allows collapsing/expansion of certain forums within the forum manager.  This may reduce the ease of usability of the forum manager, but will prevent rendering problems with the dropdown menus with certain browsers/operating systems.</span></li>
+	<li><span class="smallfont"><i>Single</i> - Display a single dropdown from which you may choose the forum you wish to modify. This is most useful if you have a large number of forums.</span></li>
+</ul>

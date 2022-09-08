@@ -1,0 +1,10 @@
+if (($vbulletin->options['allowedbbcodes'] & ALLOW_BBCODE_URL) OR $force_all)
+{
+	if (defined('VB_API') AND VB_API === true)
+	{
+		$tag_list['no_option']['thread']['html'] = '<a href="vb:showthread/t=%1$s">' . $vbulletin->options['bburl'] . '/showthread.php?t=%1$s</a>';
+		$tag_list['option']['thread']['html'] = '<a href="vb:showthread/t=%2$s">%1$s</a>';
+		$tag_list['no_option']['post']['html'] = '<a href="vb:showthread/p=%1$s">' . $vbulletin->options['bburl'] . '/showthread.php?p=%1$s</a>';
+		$tag_list['option']['post']['html'] = '<a href="vb:showthread/p=%2$s">%1$s</a>';
+	}
+}

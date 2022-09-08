@@ -1,0 +1,6 @@
+<li class="smallfont" style="margin-bottom:$stylevar[cellpadding]px">
+	<if condition="$show['status']">
+		<img class="inlineimg" src="$status[image]" alt="$status[phrase]" border="0" />
+	</if>
+	<a href="blog.php?$session[sessionurl]b=$entry[blogid]">$entry[title]</a>
+</li>

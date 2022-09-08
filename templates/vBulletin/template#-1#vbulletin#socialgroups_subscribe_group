@@ -1,0 +1,57 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $pagetitle</title>
+</head>
+<body>
+$header
+$navbar
+				
+<form action="group.php?$session[sessionurl]" method="post" name="vbform">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="groupid" value="$group[groupid]" />
+<input type="hidden" name="do" value="subscribe" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		$vbphrase[subscribe_to_this_group]<span class="normal">: $group[name]</span>
+	</td>	
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]" style="width:$stylevar[formwidth]">
+			<fieldset class="fieldset">
+				<legend>$vbphrase[notification_type]</legend>
+				<div style="padding:$stylevar[formspacer]px">
+					<div class="fieldset">
+						<select name="emailupdate">
+							<option value="none">$vbphrase[no_email_notification]</option>
+							<option value="daily">$vbphrase[daily_email_notification]</option>
+							<option value="weekly">$vbphrase[weekly_email_notification]</option>
+						</select>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" value="$vbphrase[add_subscription]" accesskey="s" />
+		<input type="button" class="button" value="$vbphrase[cancel]" accesskey="c" onclick="history.back(1)" />
+	</div>
+	</td>
+</tr>
+</table>
+
+</form>
+
+<br />
+
+$footer
+
+</body>
+</html>

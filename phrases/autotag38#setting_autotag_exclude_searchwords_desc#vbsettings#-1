@@ -1,0 +1,1 @@
+If yes auto tags that appear in the search words list will be excluded.  Enabling this option excludes words such as "the, their, why" etc.<br/><br/>It is <strong>strongly</strong> recommended that you do not disable this option.  However if you choose to do so you can filter auto tags using the Exclude Words option below.

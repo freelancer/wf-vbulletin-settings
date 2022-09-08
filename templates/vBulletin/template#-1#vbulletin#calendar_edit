@@ -1,0 +1,201 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $pagetitle</title>
+</head>
+<body$onload>
+$header
+$navbar
+
+<if condition="$show['deleteoption']">
+<form action="calendar.php?do=update&amp;$eventinfo[eventid]" method="post">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[delete_event]</td>
+</tr>
+<tr>
+	<td class="alt2">
+		<div class="smallfont">
+			<span style="float:$stylevar[right]">
+				<input type="submit" class="button" value="$vbphrase[delete_event]" name="deletebutton" tabindex="1" />
+			</span>
+			<label for="cb_deletepost"><input type="checkbox" name="deletepost" value="yes" id="cb_deletepost" tabindex="1" />$vbphrase[to_delete_this_event]</label>
+		</div>
+	</td>
+</tr>
+</table>
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="c" value="$calendarinfo[calendarid]" />
+<input type="hidden" name="e" value="$eventinfo[eventid]" />
+<input type="hidden" name="type" value="$type" />
+<input type="hidden" name="do" value="update" />
+</form>
+<br />
+</if>
+
+<form action="calendar.php?do=update&amp;e=$eventinfo[eventid]" method="post" name="vbform"<if condition="!is_browser('webtv')"> onsubmit="return vB_Editor['$editorid'].prepare_submit(this.title.value, 0)"</if>>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<span class="smallfont" style="float:$stylevar[right]"><strong>$vbphrase[calendar]</strong> <a href="calendar.php?$session[sessionurl]c=$calendarinfo[calendarid]">$calendarinfo[title]</a></span>
+		$pagetitle
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+		$usernamecode
+
+		<!-- title field -->
+		<div class="fieldset">
+			<div style="padding:$stylevar[formspacer]px">
+				$vbphrase[title]<br />
+				<input type="text" class="bginput" name="title" value="$title" size="50" maxlength="80" tabindex="1" />
+			</div>
+		</div>
+		<!-- / title field -->
+
+		<!-- start / end date / time -->
+		<fieldset class="fieldset">
+			<legend>$vbphrase[event_date]</legend>
+			<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+			<tr>
+				<if condition="$show['todate']"><td>$vbphrase[start]</td></if>
+				<td>
+					<select name="fromdate[month]" title="$vbphrase[month]" tabindex="1">
+						<option value="1" $from_monthselected[1]>$vbphrase[january]</option>
+						<option value="2" $from_monthselected[2]>$vbphrase[february]</option>
+						<option value="3" $from_monthselected[3]>$vbphrase[march]</option>
+						<option value="4" $from_monthselected[4]>$vbphrase[april]</option>
+						<option value="5" $from_monthselected[5]>$vbphrase[may]</option>
+						<option value="6" $from_monthselected[6]>$vbphrase[june]</option>
+						<option value="7" $from_monthselected[7]>$vbphrase[july]</option>
+						<option value="8" $from_monthselected[8]>$vbphrase[august]</option>
+						<option value="9" $from_monthselected[9]>$vbphrase[september]</option>
+						<option value="10" $from_monthselected[10]>$vbphrase[october]</option>
+						<option value="11" $from_monthselected[11]>$vbphrase[november]</option>
+						<option value="12" $from_monthselected[12]>$vbphrase[december]</option>
+					</select>
+					<input type="text" class="bginput" style="font-size:11px" name="fromdate[day]" value="$from_day" size="3" maxlength="2" title="$vbphrase[day]" tabindex="1" />
+					<select name="fromdate[year]" title="$vbphrase[year]" tabindex="1">$from_yearbits</select>
+				</td>
+				<if condition="$show['todate']"><td align="$stylevar[right]">$vbphrase[choose_time] <select name="fromtime[defined]" title="$vbphrase[time]" tabindex="1">$fromtimeoptions</select></td></if>
+				<if condition="$show['todate']"><td>$vbphrase[or_set_time] <input type="text" class="bginput" name="fromtime[user]" value="$user_from_time" size="8" maxlength="8" tabindex="1" /></td></if>
+
+			</tr>
+			<if condition="$show['todate']">
+			<tr>
+				<td>$vbphrase[end]</td>
+				<td>
+					<select name="todate[month]" title="$vbphrase[month]" tabindex="1">
+						<option value="1" $to_monthselected[1]>$vbphrase[january]</option>
+						<option value="2" $to_monthselected[2]>$vbphrase[february]</option>
+						<option value="3" $to_monthselected[3]>$vbphrase[march]</option>
+						<option value="4" $to_monthselected[4]>$vbphrase[april]</option>
+						<option value="5" $to_monthselected[5]>$vbphrase[may]</option>
+						<option value="6" $to_monthselected[6]>$vbphrase[june]</option>
+						<option value="7" $to_monthselected[7]>$vbphrase[july]</option>
+						<option value="8" $to_monthselected[8]>$vbphrase[august]</option>
+						<option value="9" $to_monthselected[9]>$vbphrase[september]</option>
+						<option value="10" $to_monthselected[10]>$vbphrase[october]</option>
+						<option value="11" $to_monthselected[11]>$vbphrase[november]</option>
+						<option value="12" $to_monthselected[12]>$vbphrase[december]</option>
+					</select>
+					<input type="text" class="bginput" style="font-size:11px" name="todate[day]" value="$to_day" size="3" maxlength="2" title="$vbphrase[day]" tabindex="1" />
+					<select name="todate[year]" title="$vbphrase[year]" tabindex="1">$to_yearbits</select>
+				</td>
+				<td align="$stylevar[right]">&nbsp; &nbsp;$vbphrase[choose_time] <select name="totime[defined]" title="$vbphrase[time]" tabindex="1">$totimeoptions</select></td>
+				<td>$vbphrase[or_set_time] <input type="text" class="bginput" name="totime[user]" value="$user_to_time" size="8" maxlength="8" tabindex="1" /></td>
+			</tr>
+			<tr>
+				<td><label for="sel_timezoneoffset">$vbphrase[time_zone]</label></td>
+				<td colspan="3"><select name="timezoneoffset" id="sel_timezoneoffset" title="$vbphrase[time_zone]" tabindex="1">$timezoneoptions</select></td>
+			</tr>
+			<tr>
+				<td colspan="4"><label for="cb_dst"><input type="checkbox" name="dst" id="cb_dst" value="1" $dstchecked />$vbphrase[maintain_same_time]</label></td>
+			</tr>
+			</if>
+			</table>
+		</fieldset>
+		<!-- / start / end date / time -->
+
+		$recurrence
+
+		<if condition="$show['custom_required']">
+		$customfields_required
+		</if>
+
+		<!-- message area -->
+		<div class="smallfont">$vbphrase[event_information]</div>
+
+		$messagearea
+		<!-- / message area -->
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="hidden" name="s" value="$session[sessionhash]" />
+		<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+		<input type="hidden" name="c" value="$calendarinfo[calendarid]" />
+		<input type="hidden" name="e" value="$eventinfo[eventid]" />
+		<input type="hidden" name="type" value="$type" />
+		<input type="hidden" name="loggedinuser" value="$bbuserinfo[userid]" />
+		<input type="hidden" name="do" value="update" />
+		<input type="submit" class="button" value="$vbphrase[save_event]" accesskey="s" tabindex="1" />
+		<input type="reset" class="button" value="$vbphrase[reset_fields]" accesskey="r" tabindex="1" />
+	</div>
+	</td>
+</tr>
+</table>
+
+<if condition="$show['additional_options']">
+<br />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[additional_options]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center" colspan="2">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+		<if condition="$show['misc_options']">
+		<fieldset class="fieldset">
+			<legend>$vbphrase[miscellaneous_options]</legend>
+			<if condition="$show['parseurl']"><div><label for="cb_parseurl"><input type="checkbox" name="parseurl" value="1" id="cb_parseurl" tabindex="1" checked="checked" />$vbphrase[automatically_parse_links_in_text]</label></div></if>
+			$disablesmiliesoption
+		</fieldset>
+		</if>
+
+		<if condition="$show['custom_optional']">
+		$customfields_optional
+		</if>
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" value="$vbphrase[save_event]" accesskey="s" tabindex="1" />
+		<input type="reset" class="button" value="$vbphrase[reset_fields]" accesskey="r" tabindex="1" />
+	</div>
+	</td>
+</tr>
+</table>
+</if>
+
+</form>
+
+<br />
+
+$forumrules
+
+$footer
+</body>
+</html>

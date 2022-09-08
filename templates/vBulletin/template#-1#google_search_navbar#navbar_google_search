@@ -1,0 +1,5 @@
+<if condition="$vboptions[google_search_on]">
+		<tr>
+			<td class="vbmenu_option">$vboptions[google_search_main]</td>
+		</tr>
+		</if>

@@ -1,0 +1,5 @@
+If a user is inactive for this number of seconds, then their forum session will expire.<br /><br />
+
+If you use "Inactivity Based" read marking (see <a href="options.php?do=options&amp;dogroup=general" target="_blank">General Settings</a>), then an expired session also means that all unread markers will be turned off for posts made before the session expired.<br /><br />
+
+In any case, the user will be removed from the "Currently Active Users" list when their session expires.

@@ -1,0 +1,1 @@
+Security Alert!<br /><br /> tools.php still remains in the /{1}/ directory.<br /><br /> This poses a security risk, so please delete that file immediately. You cannot access the control panel until you do so.

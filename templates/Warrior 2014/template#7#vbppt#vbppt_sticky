@@ -1,0 +1,23 @@
+<if condition="$threadinfo[forumid] == 17">
+   <img border="0" alt="$vbphrase[vbppt_sticky]" src="$stylevar[imgdir_button]/pay-to-sticky.png" title="$vbphrase[vbppt_sticky]"
+       wf-payment-choice
+       <if condition="$redirecturl">redirect-url="$redirecturl" </if>
+       fixed-charge-item-id=2003
+       item-id=$threadinfo[threadid]
+       item-class='thread'
+       <if condition="$threadinfo[show_sticky_auto]">auto-open=1 </if>
+       style="cursor:pointer;"
+       fl-analytics-section="wf-paymentbutton" fl-analytics="thread-page-show-stickymodal"
+   />
+<else />
+   <img border="0" alt="$vbphrase[vbppt_sticky]" src="$stylevar[imgdir_button]/pay-to-sticky.png" title="$vbphrase[vbppt_sticky]"
+       wf-payment-choice
+       <if condition="$redirecturl">redirect-url="$redirecturl" </if>
+       fixed-charge-item-id=2004
+       item-id=$threadinfo[threadid]
+       item-class='thread'
+       <if condition="$threadinfo[show_sticky_auto]">auto-open=1 </if>
+       style="cursor:pointer;"
+       fl-analytics-section="wf-paymentbutton" fl-analytics="thread-page-show-stickymodal"
+   />
+</if>

@@ -1,0 +1,5 @@
+This page allows you to moderate attachments that are awaiting moderation.  Below are all attachments that are awaiting moderation (if any).  Select an action for each attachment (validate, delete, or ignore) and click the "Save" button to continue.<br /><br />
+
+Validating an attachment removes it from this moderation queue and makes it visible on the forums.  Deleting an attachment does exactly that.  Ignoring an attachment leaves it in this moderation queue so you can handle it another time.<br /><br />
+
+If you want to validate, delete, or ignore all attachments awaiting moderation then you can click the appropriate button at the top which sets all actions appropriately.

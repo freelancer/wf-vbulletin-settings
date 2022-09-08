@@ -1,0 +1,9 @@
+
+				if ($_REQUEST['do'] == 'chooser')
+				{
+					print_form_header('angadver', 'rebuild');
+					print_table_header($vbphrase['rebuild_angular_advertisement_cache']);
+					print_description_row($vbphrase['rebuild_angular_advertisement_cache_desc']);
+					print_submit_row($vbphrase['rebuild_angular_advertisement_cache']);					 
+				}
+			

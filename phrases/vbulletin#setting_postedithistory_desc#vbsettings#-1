@@ -1,0 +1,3 @@
+Enable this option to log the previous versions of posts when they are edited. Click the '?' for more information on specific cases where edits will not be logged.<br />
+<br />
+This will increase the amount of disk space used by vBulletin for database storage.

@@ -1,0 +1,4 @@
+For both vBulletin default search and Fulltext search, this option also limits the maximum size that of words that users can search for.  
+For example, if this is set to 15 then users can't search for 16 letter words.<br /><br />
+When using the vBulletin default search, this option limits the maximum size of indexed words. The larger this number is, the larger your search index, and conversely your database is going to be.
+You can reduce the size of your database by decreasing this number and re-indexing <a href="misc.php?do=chooser" target="_blank">here</a>.

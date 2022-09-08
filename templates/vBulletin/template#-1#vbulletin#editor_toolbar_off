@@ -1,0 +1,14 @@
+<!-- START NORMAL TEXT AREA -->
+$vBeditTemplate[clientscript]
+
+<div style="text-align:$stylevar[left]; padding-$stylevar[right]:8px">
+	<textarea name="message" id="{$editorid}_textarea" rows="10" cols="60" style="width:100%; height:{$editor_height}px" tabindex="1">$newpost[message]</textarea>
+	<!--width:$stylevar[messagewidth]-->
+</div>
+
+<script type="text/javascript">
+<!--
+vB_Editor['$editorid'] = new vB_Text_Editor('$editorid', $editortype, '$forumid', '$parsesmilie');
+//-->
+</script>
+<!-- END NORMAL TEXT AREA -->

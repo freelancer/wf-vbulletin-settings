@@ -1,0 +1,1 @@
+eval('print_output("' . fetch_template($templatename, 0, true, false, array('prepared.avatarurl')) . '");');

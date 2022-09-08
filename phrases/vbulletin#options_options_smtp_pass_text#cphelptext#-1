@@ -1,0 +1,1 @@
+If your SMTP server requires authentication, then you need to specify a username and password with which to authenticate.  This field contains the SMTP password.

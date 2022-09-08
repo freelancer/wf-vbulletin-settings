@@ -1,0 +1,1 @@
+Use this option to let sitemap generator "sleep"  for specified number of seconds after each sitemap is generated. Use it if you experience forums slowdown during sitemap generation.

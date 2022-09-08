@@ -1,0 +1,5 @@
+The Permission Duplicator is a quick way to copy forum permissions from one group to other(s) or from one forum to other(s).<br /><br />
+
+To use the Group-Based duplicator, select the group to copy permissions from. Then, use the checkboxes to select which groups the permissions should be copied to. Select which forum(s) permissions should be copied from in the drop-down. This will include any subforums of the forum you choose. Finally, select whether the incoming permissions should overwrite existing custom permissions, and whether they should apply to forums that are currently inheriting custom permissions from a parent forum. Click Duplicate Permissions to proceed.<br /><br />
+
+The Forum-Based duplicator works in a similar way. First, select the forum to copy permissions from. This will *not* include subforums. Next, select the forums that the permissions should be copied to. If you wish to overwrite existing custom permissions, select yes to Overwrite Duplicates. Overwrite Inherited set to Yes will overwrite permissions in forums that are being inherited from parents. Click Duplicate Permissions to proceed.

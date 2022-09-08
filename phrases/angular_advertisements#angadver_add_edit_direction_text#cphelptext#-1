@@ -1,0 +1,1 @@
+This option define place of screen that angular advertisement must be shown there.<br /><br />Note that if display place that selected for angular advertisement whereas with qualification of other angular advertisements was had conflict, the angular advertisement which had conflict with another will be ignored.<br /><br />Angular Advertisements will fetch by add time precedence.

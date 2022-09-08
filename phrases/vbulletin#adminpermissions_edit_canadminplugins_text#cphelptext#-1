@@ -1,0 +1,3 @@
+This setting determines whether or not an admin will be able to manage the plugins used by your forum.<br />
+<br />
+Enabling this allows an admin to run code directly on your server, please ensure you trust the admin prior to enabling this permission.

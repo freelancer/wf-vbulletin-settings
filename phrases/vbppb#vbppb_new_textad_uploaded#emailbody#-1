@@ -1,0 +1,11 @@
+New text ad uploaded at $vboptions[bbtitle].
+			
+Uploader: $bannerInfo[username]
+
+Current Status: $bannerInfo[statustext]			
+
+Go to $vboptions[bburl]/paidbanners.php?pageid=textads page to moderate the banner.
+
+Best Regards
+$vboptions[bbtitle]
+			

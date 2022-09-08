@@ -1,0 +1,68 @@
+
+		if ($vbulletin->options['cybsfa_enable'])
+		{
+			eval('$cybsfa_exclfrms = in_array($forum[forumid], array(' . $vbulletin->options['cybsfa_excludedforums'] . '));');
+
+			switch ($vbulletin->options['cybsfa_switch'])
+			{
+				case 1: $cybsfa_colnr = 2; $cybsfa_colw = "100%"; break;
+				case 2: $cybsfa_colnr = 3; $cybsfa_colw = "50%"; break;
+				case 3: $cybsfa_colnr = 4; $cybsfa_colw = "33%"; break;
+				case 4: $cybsfa_colnr = 5; $cybsfa_colw = "25%"; break;
+				case 5: $cybsfa_colnr = 6; $cybsfa_colw = "20%"; break;
+				case 6: $cybsfa_colnr = 7; $cybsfa_colw = "16%"; break;
+				case 7: $cybsfa_colnr = 8; $cybsfa_colw = "14%"; break;
+				default: $cybsfa_colnr = 2; $cybsfa_colw = "100%"; break;
+			}
+
+			if ($vbulletin->options['cybsfa_tableattribs']!='')
+			{
+				$cybsfa_tableattrib = 'style="text-transform:none;'.$vbulletin->options[cybsfa_tableattribs].'"';
+			}
+			if ($vbulletin->options['cybsfa_cellattribs']!='')
+			{
+				$cybsfa_cellattrib = 'style="text-transform:none;'.$vbulletin->options[cybsfa_cellattribs].'"';
+			}
+
+			$cybsfa_getsubs = explode('&nbsp;',$forum[subforums]);
+			$cybsfa_tbattr = '<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center" '.$cybsfa_tableattrib.'><tr valign="top">';
+
+			$cybsfa_cols = '0';
+			foreach ($cybsfa_getsubs as $cybsfa_subf)
+			{
+				$cybsfa_cols++;
+				if ($cybsfa_cols == $cybsfa_colnr)
+				{
+					$cybsfa_cols = '1';
+					$cybsfa_tbattr .=  '</tr><tr>';
+				}
+
+				$cybsfa_tbattr .= '<td '.$cybsfa_cellattrib.' width="'.$cybsfa_colw.'">'.$cybsfa_subf.'</td>';
+			}
+
+			if ($cybsfa_cols == '1')
+			{
+				$cybsfa_tbattr .= '<td '.$cybsfa_cellattrib.'>&nbsp;</td></tr></table>';
+			}
+			else
+			{
+				$cybsfa_tbattr .= '</tr></table>';
+			}
+
+			if (!in_array($forum['forumid'], array($cybsfa_exclfrms)))
+			{
+				$forum[subforums] = $cybsfa_tbattr;
+			}
+			else
+			{
+				if ($vbulletin->options['cybsfa_affectexclforums'])
+				{
+					$cybsfa_tbattr = '<table border="0" cellpadding="0" cellspacing="0" width="100%" '.$cybsfa_tableattrib.'><tr valign="top"><td '.$cybsfa_cellattrib.'>'.$forum[subforums].'</td></tr></table>';
+				}
+				else
+				{
+					$cybsfa_tbattr = $forum[subforums];
+				}
+				$forum[subforums] = $cybsfa_tbattr;
+			}
+		}

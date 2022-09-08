@@ -1,0 +1,1 @@
+<div>$vbphrase[blog_entries]: <a href="blog.php?$session[sessionurl]u=$post[userid]">$post[entries]</a></div>

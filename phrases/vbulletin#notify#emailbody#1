@@ -1,0 +1,24 @@
+Dear $touser[username],
+
+$bbuserinfo[username] has just replied to the thread $threadinfo[prefix_plain]$threadinfo[title] on Warrior Forum.
+
+"$pagetext"
+
+View your thread now
+$vboptions[bburl]/showthread.php?t=$threadinfo[threadid]&goto=newpost&utm_source=notificationthread&utm_medium=email&utm_campaign=notification
+
+Kind Regards,
+The Warrior Forum Team
+
+Note: There may also be other replies, but you will not receive any more notifications until you visit the forum again.
+
+
+--------------------------
+We sent you this email because you subscribed to this thread. 
+
+To unsubscribe from this thread, please visit this page:
+$vboptions[bburl]/subscription.php?do=removesubscription&type=thread&subscriptionid=$touser[subscribethreadid]&auth=$touser[auth]
+
+To manage all the threads you follow, visit your thread subscriptions
+$vboptions[bburl]/subscription.php?do=viewsubscription&folderid=all
+

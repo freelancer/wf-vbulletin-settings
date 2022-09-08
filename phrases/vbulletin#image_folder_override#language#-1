@@ -1,0 +1,3 @@
+Button Images Folder Override
+<dfn>Use this to override the button images folder associated with the style being used. By default, this folder is images/buttons.</dfn>
+<dfn>You may use &lt;#&gt; to represent the style ID the user is currently using.</dfn>

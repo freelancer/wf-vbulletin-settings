@@ -1,0 +1,45 @@
+
+
+if ($vbulletin->options['modtools_onoff'])
+{	
+	$basic=explode(',', $vbulletin->options['modtools_basic_groups']);
+	$advance=explode(',', $vbulletin->options['modtools_adv_groups']);
+	
+	
+	if ($vbulletin->options['modtools_ban'])
+	$show['modtools_ban']= true;
+	if ($vbulletin->options['modtools_editsig'])
+	$show['modtools_editsig']= true;
+	if ($vbulletin->options['modtools_edit'])
+	$show['modtools_edit']= true;
+	if ($vbulletin->options['modtools_edit2'])
+	$show['modtools_edit2']= true;
+	if ($vbulletin->options['modtools_pass'])
+	$show['modtools_pass']= true;
+	if ($vbulletin->options['modtools_deleteall'])
+	$show['modtools_deleteall']= true;
+
+	if (is_member_of($vbulletin->userinfo, $basic))
+	{
+		$show['modtools_basic'] = true;
+	}
+	if (is_member_of($vbulletin->userinfo, $advance))
+	{
+		$show['modtools_adv'] = true;
+	}	
+	if (THIS_SCRIPT == 'member')
+	{								
+		$ara = '$navbar';
+		$vbulletin->templatecache['MEMBERINFO'] = str_replace($ara,$ara.fetch_template('memberinfo_ModTools'),$vbulletin->templatecache['MEMBERINFO']);
+	}
+	if (THIS_SCRIPT == 'showthread')
+		{
+			$ara = '$template_hook[postbit_user_popup]';
+			$vbulletin->templatecache['postbit'] = str_replace($ara,$ara.fetch_template('postbit_modtools'),$vbulletin->templatecache['postbit']);
+			$vbulletin->templatecache['postbit_legacy'] = str_replace($ara,$ara.fetch_template('postbit_modtools'),$vbulletin->templatecache['postbit_legacy']);
+			$vbulletin->templatecache['postbit'] = str_replace("modlink",$vbulletin->config['Misc']['modcpdir'],$vbulletin->templatecache['postbit']);
+			$vbulletin->templatecache['postbit_legacy'] = str_replace("modlink",$vbulletin->config['Misc']['modcpdir'],$vbulletin->templatecache['postbit_legacy']);
+
+		}	
+}
+

@@ -1,0 +1,11 @@
+
+Dear $username,
+	
+Your thread was approved to be published. It will be published automatically once payment is complete.
+
+To pay go <a href="$vboptions[bburl]/payment.php?do=pay&t=$threadid">here</a>
+
+Best Regards
+
+<a href="$vboptions[bburl]">$vboptions[bbtitle]</a>
+			

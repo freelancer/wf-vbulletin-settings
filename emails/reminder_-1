@@ -1,0 +1,15 @@
+Dear $username,
+
+The following events are scheduled to begin soon at $vboptions[bbtitle].
+
+Upcoming events:
+$reminderbits
+
+All the best,
+$vboptions[bbtitle]
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unsubscription information:
+
+To unsubscribe from this email, please visit this page and delete any future reminders:
+$vboptions[bburl]/calendar.php?do=viewreminder

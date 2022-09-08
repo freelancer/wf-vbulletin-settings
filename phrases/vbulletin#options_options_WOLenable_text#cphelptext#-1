@@ -1,0 +1,3 @@
+Enable this option to allow viewing of the <a href="../online.php" target="_blank">online.php</a> page.  This page shows a detailed list of currently active users, their locations, etc. This option only applies to online.php, not the "Currently Active Users" list on the <a href="../{$vbulletin->options[forumhome]}.php" target="_blank">forumhome</a> page.<br /><br />
+
+Reported locations <b>do</b> take forum permissions into consideration.  For example, if a user in the online list is viewing a forum that the current logged in user doesn't have access to, then online.php will only report that they are viewing a forum and not give the name of the forum.

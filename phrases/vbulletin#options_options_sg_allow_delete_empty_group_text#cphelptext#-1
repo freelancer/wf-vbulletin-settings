@@ -1,0 +1,3 @@
+If this option is set to yes, the owner of a social group will always be able to delete the group if there are no other members. This is independent of the user group permission. If you set this to no, user group permissions will always be respected.<br />
+<br />
+Setting this to yes can allow users to clean up unpopular groups, but it can also create a loophole. An owner may be able to kick out all the members of a group and then delete it, thereby getting around the delete group permission.

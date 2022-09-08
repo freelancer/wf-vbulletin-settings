@@ -1,0 +1,11 @@
+if (VB_API === true)
+{
+	if ($album['pictureid'])
+	{
+		$album['pictureurl'] = create_full_url(fetch_picture_url($album, $album, true));
+	}
+	else
+	{
+		$album['pictureurl'] = '';
+	}
+}

@@ -1,0 +1,3 @@
+<li><phrase 1="album.php?$session[sessionurl]u=$bbuserinfo[userid]">$vbphrase[following_urls_invalid_picture_not_found]</phrase>
+<ul>$urlbits</ul>
+</li>

@@ -1,0 +1,3 @@
+vBulletin offers you the ability to store attachments as files, instead of the database. It is highly recommended you do this as attachments can lead to slowing your database down and increased load.
+<br /><br />
+In rare occurences, where the amount of attachments on a forum is reaching a few GB, it can cause MySQL to crash during certain operations like backup.

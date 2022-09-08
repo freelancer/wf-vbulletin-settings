@@ -1,0 +1,17 @@
+Dear $infraction[username],
+
+You have received an infraction at $vboptions[bbtitle].
+
+Reason: $infraction[reason]
+-------
+$infraction[message]
+-------
+
+This infraction is worth $infraction[points] point(s) and may result in restricted access until it expires.  Serious infractions will never expire.
+
+Original Post:
+$infraction[post]
+[quote]$infraction[pagetext][/quote]
+
+All the best,
+$vboptions[bbtitle]

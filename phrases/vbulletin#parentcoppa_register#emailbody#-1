@@ -1,0 +1,30 @@
+Dear Parent/Guardian of $username,
+
+$username has just signed up for an account at $vboptions[bbtitle]. This can be found at:
+
+$vboptions[bburl]/$vboptions[forumhome].php
+
+This email has been sent to you because $username has stated that they are younger than 13 years of age and $vboptions[bburl] is in compliance with the Children's Online Privacy Protection Act of 1998 (COPPA).
+
+To find out more about COPPA, please visit this page:
+http://www.ftc.gov/opa/1999/10/childfinal.htm
+
+Please read the $vboptions[bbtitle] Privacy Statement also:
+$vboptions[privacyurl]
+
+You must print out the permission form, fill it in and mail or fax it back to the webmaster. Details about how to return the form are on the form itself.
+
+The form can be accessed through this page:
+
+$vboptions[bburl]/profile.php?do=editprofile
+
+From that page, you can also view the profile and make any modification you wish. You will need these login details:
+
+Username: $username
+Password: $password
+(Note that the password is case sensitive)
+
+We thank you for helping us in keeping the privacy of children on the internet.
+
+All the best,
+$vboptions[bbtitle]

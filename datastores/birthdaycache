@@ -1,0 +1,418 @@
+{
+  "users2": {
+    "0": {
+      "username": "firstteam", 
+      "age": 59, 
+      "userid": "4667"
+    }, 
+    "1": {
+      "username": "edman", 
+      "age": 40, 
+      "userid": "6051"
+    }, 
+    "2": {
+      "username": "eBay_Mastery", 
+      "age": 59, 
+      "userid": "9696"
+    }, 
+    "3": {
+      "username": "terrencebanks", 
+      "age": 38, 
+      "userid": "17056"
+    }, 
+    "4": {
+      "username": "traderjoe", 
+      "age": null, 
+      "userid": "19178"
+    }, 
+    "5": {
+      "username": "RisingStar", 
+      "age": null, 
+      "userid": "21735"
+    }, 
+    "6": {
+      "username": "ADH0316", 
+      "age": 24, 
+      "userid": "42735"
+    }, 
+    "7": {
+      "username": "srwissler", 
+      "age": 60, 
+      "userid": "48225"
+    }, 
+    "8": {
+      "username": "amosoje", 
+      "age": null, 
+      "userid": "56272"
+    }, 
+    "9": {
+      "username": "georgescifo", 
+      "age": 35, 
+      "userid": "56416"
+    }, 
+    "10": {
+      "username": "mozillauk41", 
+      "age": 32, 
+      "userid": "79144"
+    }, 
+    "11": {
+      "username": "Opalinereverie", 
+      "age": 26, 
+      "userid": "79295"
+    }, 
+    "12": {
+      "username": "califmike2003", 
+      "age": 53, 
+      "userid": "86651"
+    }, 
+    "13": {
+      "username": "TheUltimateWarrior", 
+      "age": 36, 
+      "userid": "89102"
+    }, 
+    "14": {
+      "username": "shayk", 
+      "age": null, 
+      "userid": "125952"
+    }, 
+    "15": {
+      "username": "skizzel", 
+      "age": null, 
+      "userid": "135093"
+    }, 
+    "16": {
+      "username": "Irwan Rohaizad", 
+      "age": null, 
+      "userid": "180352"
+    }, 
+    "17": {
+      "username": "madaffiliatemoney", 
+      "age": null, 
+      "userid": "217979"
+    }, 
+    "18": {
+      "username": "rutherjamessmith", 
+      "age": 38, 
+      "userid": "223316"
+    }, 
+    "19": {
+      "username": "blastoff daily", 
+      "age": null, 
+      "userid": "226485"
+    }, 
+    "20": {
+      "username": "FuturePrinceofPrint", 
+      "age": 28, 
+      "userid": "278154"
+    }, 
+    "21": {
+      "username": "jameshavet367", 
+      "age": 29, 
+      "userid": "318925"
+    }, 
+    "22": {
+      "username": "Kyle@VentureNet", 
+      "age": null, 
+      "userid": "339189"
+    }, 
+    "23": {
+      "username": "donnabridge103", 
+      "age": 30, 
+      "userid": "370954"
+    }, 
+    "24": {
+      "username": "scottdevice44", 
+      "age": 37, 
+      "userid": "399139"
+    }, 
+    "25": {
+      "username": "ekwenchi", 
+      "age": null, 
+      "userid": "413449"
+    }, 
+    "26": {
+      "username": "nathan77", 
+      "age": 38, 
+      "userid": "454861"
+    }, 
+    "27": {
+      "username": "straightforward", 
+      "age": null, 
+      "userid": "478831"
+    }, 
+    "28": {
+      "username": "yankok", 
+      "age": 42, 
+      "userid": "488553"
+    }, 
+    "29": {
+      "username": "keithehansen", 
+      "age": null, 
+      "userid": "573262"
+    }, 
+    "30": {
+      "username": "audthom59", 
+      "age": null, 
+      "userid": "575344"
+    }, 
+    "31": {
+      "username": "emlakpost", 
+      "age": null, 
+      "userid": "1082887"
+    }, 
+    "32": {
+      "username": "Vance Harvey", 
+      "age": null, 
+      "userid": "1114995"
+    }, 
+    "33": {
+      "username": "ddooley", 
+      "age": 56, 
+      "userid": "1175422"
+    }, 
+    "34": {
+      "username": "ikpeni1", 
+      "age": null, 
+      "userid": "1210108"
+    }, 
+    "35": {
+      "username": "mondo karris", 
+      "age": null, 
+      "userid": "1286270"
+    }, 
+    "36": {
+      "username": "DominicWhite", 
+      "age": 27, 
+      "userid": "1291033"
+    }, 
+    "37": {
+      "username": "KentSValley", 
+      "age": 51, 
+      "userid": "1296690"
+    }, 
+    "38": {
+      "username": "chicagowindows", 
+      "age": 28, 
+      "userid": "1310291"
+    }, 
+    "39": {
+      "username": "HDPBumpas", 
+      "age": 19, 
+      "userid": "1314028"
+    }, 
+    "40": {
+      "username": "festuspalace1", 
+      "age": null, 
+      "userid": "1345597"
+    }, 
+    "41": {
+      "username": "aphill", 
+      "age": null, 
+      "userid": "1354859"
+    }, 
+    "42": {
+      "username": "deewhyboy", 
+      "age": null, 
+      "userid": "1367216"
+    }
+  }, 
+  "users1": {
+    "0": {
+      "username": "Yoon Ho Um", 
+      "age": null, 
+      "userid": "1616"
+    }, 
+    "1": {
+      "username": "bturner", 
+      "age": 40, 
+      "userid": "19023"
+    }, 
+    "2": {
+      "username": "Kevin Flask", 
+      "age": null, 
+      "userid": "58668"
+    }, 
+    "3": {
+      "username": "richgrad", 
+      "age": 34, 
+      "userid": "61374"
+    }, 
+    "4": {
+      "username": "Funny Money", 
+      "age": 45, 
+      "userid": "66211"
+    }, 
+    "5": {
+      "username": "tnewell", 
+      "age": null, 
+      "userid": "119981"
+    }, 
+    "6": {
+      "username": "janisonlinebuisnes", 
+      "age": 32, 
+      "userid": "139283"
+    }, 
+    "7": {
+      "username": "rpewitt", 
+      "age": null, 
+      "userid": "150739"
+    }, 
+    "8": {
+      "username": "benprince", 
+      "age": 35, 
+      "userid": "177100"
+    }, 
+    "9": {
+      "username": "bettybakebake", 
+      "age": 58, 
+      "userid": "185733"
+    }, 
+    "10": {
+      "username": "s3solutions", 
+      "age": null, 
+      "userid": "186042"
+    }, 
+    "11": {
+      "username": "lovemeaul", 
+      "age": null, 
+      "userid": "195133"
+    }, 
+    "12": {
+      "username": "Neil_Gerald", 
+      "age": null, 
+      "userid": "198261"
+    }, 
+    "13": {
+      "username": "TimHarris", 
+      "age": null, 
+      "userid": "221700"
+    }, 
+    "14": {
+      "username": "TheWealthySon", 
+      "age": null, 
+      "userid": "234030"
+    }, 
+    "15": {
+      "username": "gudrunsmith", 
+      "age": null, 
+      "userid": "309293"
+    }, 
+    "16": {
+      "username": "Debtkiller", 
+      "age": null, 
+      "userid": "318296"
+    }, 
+    "17": {
+      "username": "geoswanko", 
+      "age": null, 
+      "userid": "350035"
+    }, 
+    "18": {
+      "username": "weddingtuxedosforgroom", 
+      "age": 37, 
+      "userid": "372471"
+    }, 
+    "19": {
+      "username": "jguiss", 
+      "age": null, 
+      "userid": "377628"
+    }, 
+    "20": {
+      "username": "GeruGandalf", 
+      "age": null, 
+      "userid": "382595"
+    }, 
+    "21": {
+      "username": "Bob Sims", 
+      "age": 70, 
+      "userid": "446904"
+    }, 
+    "22": {
+      "username": "xxZeroDev", 
+      "age": null, 
+      "userid": "502542"
+    }, 
+    "23": {
+      "username": "edragonbiz", 
+      "age": 35, 
+      "userid": "512112"
+    }, 
+    "24": {
+      "username": "ZishanAhmed", 
+      "age": null, 
+      "userid": "537270"
+    }, 
+    "25": {
+      "username": "ScottStuart", 
+      "age": null, 
+      "userid": "550151"
+    }, 
+    "26": {
+      "username": "FreddieMixell", 
+      "age": 25, 
+      "userid": "1039498"
+    }, 
+    "27": {
+      "username": "frontrends", 
+      "age": null, 
+      "userid": "1114269"
+    }, 
+    "28": {
+      "username": "lockknload", 
+      "age": null, 
+      "userid": "1115108"
+    }, 
+    "29": {
+      "username": "ayshakamal", 
+      "age": 18, 
+      "userid": "1136456"
+    }, 
+    "30": {
+      "username": "nikunj13", 
+      "age": null, 
+      "userid": "1190958"
+    }, 
+    "31": {
+      "username": "abu24h", 
+      "age": null, 
+      "userid": "1192995"
+    }, 
+    "32": {
+      "username": "TaiJbq643l", 
+      "age": 26, 
+      "userid": "1201402"
+    }, 
+    "33": {
+      "username": "modestshirts", 
+      "age": null, 
+      "userid": "1214991"
+    }, 
+    "34": {
+      "username": "PeterDWilliams", 
+      "age": null, 
+      "userid": "1243244"
+    }, 
+    "35": {
+      "username": "klyne", 
+      "age": null, 
+      "userid": "1252200"
+    }, 
+    "36": {
+      "username": "Azadhaz", 
+      "age": 25, 
+      "userid": "1307151"
+    }, 
+    "37": {
+      "username": "Latif Ali", 
+      "age": 23, 
+      "userid": "1332457"
+    }, 
+    "38": {
+      "username": "PublisherWang", 
+      "age": 29, 
+      "userid": "1339776"
+    }
+  }, 
+  "day2": "2015-03-16", 
+  "day1": "2015-03-15"
+}

@@ -1,0 +1,13 @@
+This screen provides an overview of your scheduled tasks, including when they run, their next run time, and an option to run them right now.<br /><br />
+
+The columns across the top are:<br />
+<b>m</b>: (Minute) This is the minute that a task runs. If this is an asterisk it runs every minute.<br />
+<b>h</b>: (Hour) This is the hour of the day that a task runs. If this is an asterisk it runs every hour.<br />
+<b>D</b>: (Date) This is the day of the month (numerically) that a task runs. If this is an asterisk it runs every day.<br />
+<b>M</b>: (Month) This is the month of the year that a task runs. If this is an asterisk it runs every month.<br />
+<b>DoW</b>: (Day of Week) This is the day of the week that a task runs. If this is an asterisk, it defers to the Day setting.<br />
+<b>Title</b>: This is the title of the task.<br />
+<b>Next Time</b>: This is the next time the task is scheduled to run. You can run it immediately using the Run Now button at the far right.<br />
+<b>Controls</b>: This column contains a drop-down with Edit and Delete controls, and a Run Now button to run the task immediately.<br /><br />
+
+At the bottom of the screen you can use the Add New Scheduled Task button to add a task.

@@ -1,0 +1,5 @@
+$this->dbobject->query_write("
+	UPDATE " . TABLE_PREFIX . "post_thanks
+	SET username = '" . $this->dbobject->escape_string($username) . "'
+	WHERE userid = $userid
+");

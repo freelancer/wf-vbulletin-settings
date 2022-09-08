@@ -1,0 +1,22 @@
+<tr>
+	<td class="alt1" align="$stylevar[left]">
+		<div>
+			<strong><a href="blog.php?$session[sessionurl]b=$blog[blogid]">$blog[title]</a></strong>
+		</div>
+		<div class="smallfont">
+			<span style="cursor:pointer" onclick="window.open('member.php?$session[sessionurl]u=$blog[postedby_userid]', '_self')">$blog[postedby_username]</span> <if condition="$show['blogtitle']">(<a href="blog.php?$session[sessionurl]u=$blog[userid]">$blog[blogtitle]</a>)</if>
+		</div>
+	</td>
+	<td class="alt1 smallfont" align="$stylevar[right]" nowrap="nowrap">
+		$blog[comments_total]
+	</td>
+	<td class="alt1 smallfont" align="$stylevar[right]" nowrap="nowrap">
+		$blog[trackbacks_total]
+	</td>
+	<td class="alt1 smallfont" nowrap="nowrap" align="$stylevar[right]">
+		$blog[lastpostdate] <span class="time">$blog[lastposttime]</span>
+		<div>
+			<phrase 1="member.php?username=$blog[lastcommenter_encoded]" 2="$blog[lastcommenter]">$vbphrase[by_x]</phrase>
+		</div>
+	</td>
+</tr>

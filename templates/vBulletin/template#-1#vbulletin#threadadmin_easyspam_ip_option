@@ -1,0 +1,1 @@
+<li><input type="checkbox" name="ip[]" value="$ip" checked="checked" /><a href="postings.php?$session[sessionurl]do=getip&amp;p=$postid" target="ipinfo">$ip</a></li>

@@ -1,0 +1,3 @@
+Normally, vBulletin will stop users signing up for multiple names by checking for a cookie on the user's machine. If one exists, then the user may not sign up for additional names. <b>Note</b>: This does not stop users from logging out and then registering new accounts.<br />
+<br />
+If you wish to allow your users to sign up for multiple names, then select yes for this option, and they will not be blocked from registering additional usernames.

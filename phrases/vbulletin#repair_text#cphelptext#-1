@@ -1,0 +1,11 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=backup&amp;pageaction=&amp;option=">Database Backup</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=repair&amp;pageaction=&amp;option=">Repair / Optimize</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=misc&amp;pageaction=&amp;option=">Update Counters</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=diagnostic&amp;pageaction=&amp;option=">Diagnostics</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=queries&amp;pageaction=&amp;option=">Execute SQL Query</a><br /><br />
+
+<b>Repair / Optimize:</b><br />
+This script can be used to repair / optimize your database.  If you are getting database errors caused by corruption then running this script might fix them.  An alternative to repairing your database with this script is to run a <a href="http://www.mysql.com/doc/en/REPAIR_TABLE.html" target="_blank">REPAIR TABLE</a> query from the mysql prompt through a telnet / SSH connection to your server (if you have access).<br /><br />
+
+You can also use this script to optimize your tables.  You should optimize your database tables if you have recently pruned a large number of threads, posts, users, etc.  Optimizing helps you reclaim unused space which can reduce the size of your database.

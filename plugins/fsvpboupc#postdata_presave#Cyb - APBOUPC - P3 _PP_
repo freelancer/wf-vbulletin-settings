@@ -1,0 +1,16 @@
+
+		if ($this->registry->options['apboupc_global_enable'] AND $this->registry->options['apboupc_postlinks'])
+		{
+			global $vbulletin;
+			$foruminfo = $this->info['forum'];
+			$pagetext =& $this->fetch_field('pagetext', 'post');
+
+			if ($this->registry->userinfo['userid'] AND ($foruminfo[linkpost_nb] !='0') AND ($this->registry->userinfo[posts] < $foruminfo[linkpost_nb]) AND !is_member_of($this->registry->userinfo, split(',', $this->registry->options['apboupc_postlinks_excl_groups'])) AND (stristr($pagetext,'[url') OR stristr($pagetext,'[URL') OR stristr($pagetext,'www.') OR stristr($pagetext,'http://')))
+			{
+				$this->error('error_postcount_too_low_post_links', $foruminfo[linkpost_nb], $this->registry->userinfo[posts]);
+			}
+			if ($this->registry->userinfo['userid'] AND $this->registry->options['apboupc_postlinks_incmail'] AND ($foruminfo[linkpost_nb] !='0') AND ($this->registry->userinfo[posts] < $foruminfo[linkpost_nb]) AND !is_member_of($this->registry->userinfo, split(',', $this->registry->options['apboupc_postlinks_excl_groups'])) AND (stristr($pagetext,'[email') OR stristr($pagetext,'[EMAIL') OR stristr($pagetext,'[EMail') OR stristr($pagetext,'[Email')))
+			{
+				$this->error('error_postcount_too_low_post_emails', $foruminfo[linkpost_nb], $this->registry->userinfo[posts]);
+			}
+		}

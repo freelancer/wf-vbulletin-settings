@@ -1,0 +1,7 @@
+<if condition="$show['profile_category_title']">
+<ul class="alt1 list_no_decoration block_row">
+$block_data[fields]
+</ul>
+<else />
+$block_data[fields]
+</if>

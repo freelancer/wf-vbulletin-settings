@@ -1,0 +1,30 @@
+if (!function_exists('handle_bbcode_ame'))
+{
+
+        function handle_bbcode_ame(&$parser, $text, $option = '')
+        {
+                require_once(DIR . '/includes/ame_bbcode.php');
+                return ame_process_bbcode($parser, $text, $option);
+        }
+}
+
+$this->tag_list['option']['ame'] = array(
+    'callback' => 'handle_external',
+    'strip_empty' => true,
+    'stop_parse' => false,
+    'disable_smilies' => true,
+    'disable_wordwrap' => true,
+    'strip_space_after' => 1,
+    'parse_option'      => true,
+    'external_callback' => 'handle_bbcode_ame'
+);
+
+$this->tag_list['no_option']['ame'] = array(
+    'callback' => 'handle_external',
+    'strip_empty' => true,
+    'stop_parse' => true,
+    'disable_smilies' => true,
+    'disable_wordwrap' => true,
+    'strip_space_after' => 1,
+    'external_callback' => 'handle_bbcode_ame'
+);

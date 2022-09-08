@@ -1,0 +1,1 @@
+If you do not want to be notified about database errors by email then set this option to Yes.  It is recommended that you keep at least one of the error reporting features enabled, whether that is email notification or a log file.

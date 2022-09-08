@@ -1,0 +1,1 @@
+Enter the string that the user's homepage must contain. Users without a homepage URL entered will be automatically excluded from the results of this search. See <a href="help.php?do=answer&amp;page=email&amp;pageaction=genlist&amp;option=username">Username Contains</a> for information on the string matching used here.

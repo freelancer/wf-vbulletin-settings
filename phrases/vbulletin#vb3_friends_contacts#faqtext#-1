@@ -1,0 +1,29 @@
+<p><b>What is the difference between a friend and a contact?</b></p>
+
+<p>A friendship is a mutual, two-way relationship between two users. It is initiated by one user and accepted by the other.</p>
+
+<p>A contact is a one-way friendship. This could be where the other person does not accept the friendship, a friendship request is pending, or you do not wish to be friends at this time but want to show them as a contact only.</p>
+
+<p><b>Where is list of friends and contacts displayed?</b></p>
+
+<p>Your friends and contacts are displayed on the '<a href="profile.php?$session[sessionurl]do=buddylist">Contacts and Friends</a>' page in your <a href="usercp.php$session[sessionurl_q]">User CP</a>. Your friends are also displayed in your profile page.</p>
+
+<p><b>How can I request a friend, accept a friend or break a friendship?</b></p>
+
+<p>There are two ways to request a friendship with someone.</p>
+
+<p>The easiest way is to view the profile page of the person you want to become friends with and click the 'Befriend' link.</p>
+
+<p>The other way is to add the person to your contacts first. Then from your 'Contacts and Friends' page ask to be their friend by checking the box next to their name labelled 'Friend'. Next, save the page.</p>
+
+<p>If you know the username of the person you want to be friends with you can send a friend request using the box provided and clicking 'Add Friend'.</p>
+
+<p>To accept a friend, go to your 'Contacts and Friends' page. At the bottom of the page you will see a list of pending requests. Check the box for the requests you wish to accept then check the 'Accept' button and save the changes. If you do not wish to be friends then select 'Reject' instead.</p>
+
+<p>Breaking a friendship can be done in three ways.</p>
+
+<ul>
+<li>From your 'Contacts and Friends' page, uncheck the box for friend for the particular person and save the changes. If you no longer wish them to be a contact either, uncheck both boxes for that person.</li>
+<li>In your 'Profile Page', click 'Friends' and then click 'Break Friendship' next to the user's name.</li>
+<li>In the other person's profile, click 'Friends' then find your username and click 'Break Friendship'.</li>
+</ul>

@@ -1,0 +1,3 @@
+If you wish, vB Optimise can add a html comment to all pages served to guests which are cached before the <em>&lt;/body&gt;</em> tag.
+<br /><br />
+The format of this tag is as follows: <pre>&lt;!-- vB Optimise Guest Cached Page / Generated in [x.xxxxx] seconds with [y] queries and [z] queries saved vs uncached --&gt;</pre>

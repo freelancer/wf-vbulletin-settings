@@ -1,0 +1,8 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=image&amp;pageaction=&amp;option=">Avatars, Post Icons, and Smilies</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=avatar&amp;pageaction=&amp;option=">Avatar Storage</a><br /><br />
+
+<b>Avatars, Post Icons, and Smilies:</b><br />
+The same system is used to manage avatars, post icons, and smilies.  The help topics in this section apply to the Avatar Manager, Post Icon Manager, and Smilie Manager.  Avatars, post icons, and smilies are referred to as "images" in these help topics.<br /><br />
+
+vBulletin's image system is used to manage avatars, post icons, and smilies.  These images can be arranged into categories and their access restricted by post count and usergroup.  Usergroup restrictions are set at the category level while post count restrictions are set at the image level.  To have access to an image category the user must be a member of at least one group (either primary or secondary group membership) that has access, as is explained in the general help topic for <a href="help.php?s=&amp;do=answer&amp;page=usergroup&amp;pageaction=&amp;option=">Usergroups</a>.<br /><br />

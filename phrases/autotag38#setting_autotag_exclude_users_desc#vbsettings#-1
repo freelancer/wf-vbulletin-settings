@@ -1,0 +1,1 @@
+Enter the user IDs to exclude from the auto tagger.<br/><br/>These should be delimited with the | character. For example "3|4|8". Do not use quotes.

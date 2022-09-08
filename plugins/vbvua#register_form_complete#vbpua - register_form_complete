@@ -1,0 +1,5 @@
+
+$vbpua_lasthook='register_form_complete';
+include(DIR.'/includes/vbvua_hooks.php');
+			
+			

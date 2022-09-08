@@ -1,0 +1,6 @@
+global $vbseo_gcache;
+
+$vbseo_gcache['user'][$post['userid']] = array(
+'userid'=>$post['userid'],
+'username'=>$post['username']
+);

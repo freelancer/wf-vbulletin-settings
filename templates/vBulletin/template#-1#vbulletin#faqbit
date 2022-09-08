@@ -1,0 +1,19 @@
+<a name="faq_$faq[faqname]"></a>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat"><if condition="$show['faqsublinks']"><a href="faq.php?$session[sessionurl]faq=$faq[faqname]">$faq[title]</a><else />$faq[title]</if></td>
+</tr>
+<if condition="$show['faqtext']">
+<tr>
+	<td class="alt1">$faq[text]</td>
+</tr>
+</if>
+<if condition="$show['faqsublinks']">
+<tr>
+	<td class="alt2"><ul>$faqsublinks</ul></td>
+</tr>
+</if>
+</table>
+
+<br />

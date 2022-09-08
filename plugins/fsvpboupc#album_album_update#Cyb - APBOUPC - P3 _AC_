@@ -1,0 +1,8 @@
+
+		 if (($vbulletin->options['apboupc_pictures_createalbums']>0) AND !is_member_of($vbulletin->userinfo, split(',', $vbulletin->options['apboupc_pictures_excl_groups'])))
+		 {
+			if ($vbulletin->userinfo[posts] < $vbulletin->options['apboupc_pictures_createalbums'])
+			{
+				eval(standard_error(fetch_error('error_postcount_too_low_create_picalbums', intval($vbulletin->options['apboupc_pictures_createalbums']), intval($vbulletin->userinfo['posts']))));
+			}
+		 }

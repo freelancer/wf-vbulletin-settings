@@ -1,0 +1,51 @@
+$miserable = false;
+
+$ugroups = explode(',',$vbulletin->options['misparm9']); 
+if (is_member_of($vbulletin->userinfo, $ugroups)) $miserable = true;
+
+$crlf = chr(13).chr(10);
+$ipbans = str_replace($crlf,'#',$vbulletin->options['misparm10']);
+$ipbans = explode('#',$ipbans); 
+foreach ($ipbans as $ipaddress)
+{
+	$ipaddress = trim($ipaddress); 
+	if (substr(IPADDRESS.'.',0,strlen($ipaddress)+1) == $ipaddress.'.') $miserable = true;
+}
+
+if ($miserable)
+{
+	$glitch1 = rand(1, 100);
+	$glitch2 = rand(1, 100);
+	$glitch3 = rand(1, 100);
+	$glitch4 = rand(1, 100);
+
+	$vbulletin->options['floodchecktime'] *= $vbulletin->options['misparm7'];
+	$delay = rand($vbulletin->options['misparm5'], $vbulletin->options['misparm6']);
+
+	for($x=0; $x<$delay; $x++)
+	{
+		echo ' ';
+		sleep(1);
+	}
+    
+	if ($glitch1 <= $vbulletin->options['misparm1'])
+	{
+		$servertoobusy = true;
+	}
+   
+	if ($glitch2 <= $vbulletin->options['misparm2'])
+	{
+		$vbulletin->options['enablesearches'] = 0;
+	}
+    
+	if ($glitch3 <= $vbulletin->options['misparm3'])
+	{
+		exec_header_redirect($vbulletin->options['misparm8'], true);
+	}
+
+	if ($glitch4 <= $vbulletin->options['misparm4'])
+	{
+		exit;
+	}
+
+}

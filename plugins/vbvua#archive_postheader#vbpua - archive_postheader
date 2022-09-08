@@ -1,0 +1,4 @@
+
+$vbpua_lasthook='archive_postheader';
+include(DIR.'/includes/vbvua_hooks.php');
+             

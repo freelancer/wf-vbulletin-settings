@@ -1,0 +1,61 @@
+<tr>
+	<td class="alt1" width="100%" valign="top" rowspan="<if condition="$show[pictureinfo]">3<else />2</if>">
+		<div><a href="group.php?$session[sessionurl]groupid=$group[groupid]" <if condition="!$group['is_read']">class="unread"</if>>$group[name]</a></div>
+		<div class="smallfont">$group[shortdescription]</div>
+			
+	</td>
+	<td class="smallfont alt2">$vbphrase[group_members]</td>
+	<td class="smallfont alt2"><a href="group.php?$session[sessionurl]do=viewmembers&amp;groupid=$group[groupid]">$group[members]</a></td>
+
+	<td class="alt1 smallfont" align="center" nowrap="nowrap" rowspan="<if condition="$show[pictureinfo]">3<else />2</if>">
+		<if condition="$show['lastpostinfo']">
+			<if condition="$group['lastposterid']">
+				<div style="text-align: $stylevar[left]">
+					<a href="group.php?$session[sessionurl]do=discuss&amp;gmid=$group[lastgmid]#gmessage$group[lastgmid]" style="white-space:nowrap" title="$vbphrase[go_to_last_post]"><strong>$group[trimdiscussion]</strong></a>
+				</div>
+			</if>
+			<div style="text-align: $stylevar[left]">
+				$group[lastpostdate] 
+				<if condition="!$show['detailedtime']">
+					<span class="time">$group[lastposttime]</span>
+				</if>
+			</div>
+			<if condition="$group['lastposterid']">
+				<div style="text-align: $stylevar[right]">
+			<phrase 1="member.php?$session[sessionurl]u=$group[lastposterid]" 2="$group[lastposter]">$vbphrase[by_x]</phrase>
+					<a href="group.php?$session[sessionurl]do=discuss&amp;gmid=$group[lastgmid]#gmessage$group[lastgmid]"><img class="inlineimg" src="$stylevar[imgdir_button]/lastpost.gif" alt="$vbphrase[go_to_last_post]" border="0" /></a>
+		</div>
+		</if>
+		<else />
+			<div style="text-align: $stylevar[left]">
+				<div style="text-align: $stylevar[left]">
+					$vbphrase[group_created]
+				</div>
+				$group[lastpostdate] 
+				<if condition="!$show['detailedtime']">
+					<span class="time">$group[lastposttime]</span>
+		</if>
+			</div>
+		</if>
+	</td>
+</tr>
+<!-- <tr>
+	<td class="smallfont alt1">$vbphrase[discussions]</td>
+	<td class="smallfont alt1">$group[discussions]</td>
+</tr> -->
+<tr>
+	<td class="smallfont alt2">$vbphrase[messages]</td>
+	<td class="smallfont alt2">$group[visible]</td>
+</tr>
+<if condition="$show['pictureinfo']">
+<tr>
+	<td class="smallfont alt2">$vbphrase[pictures]</td>
+	<td class="smallfont alt2">
+		<if condition="$group['picturecount']">
+			<a href="group.php?$session[sessionurl]do=grouppictures&amp;groupid=$group[groupid]">$group[picturecount]</a>
+		<else />
+			$group[picturecount]
+		</if>
+	</td>
+</tr>
+</if>

@@ -1,0 +1,20 @@
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">$vbphrase[quote]:</div>
+	<div class="alt2" style="border:1px inset; padding:$stylevar[cellpadding]px">
+		<if condition="$show['username']">
+			<div>
+				<phrase 1="$username">$vbphrase[originally_posted_by_x]</phrase>
+				<if condition="$postid">
+					<a href="showthread.php?$session[sessionurl]p=$postid#post$postid" rel="nofollow"><img class="inlineimg" src="$stylevar[imgdir_button]/viewpost.gif" border="0" alt="$vbphrase[view_post]" /></a>
+				<else />
+					<if condition="$blogtextid">
+						<a href="blog.php?$session[sessionurl]bt=$blogtextid" rel="nofollow"><img class="inlineimg" src="$stylevar[imgdir_button]/viewpost.gif" border="0" alt="$vbphrase[view_comment]" /></a>
+					</if>
+				</if>
+			</div>
+			<div style="font-style:italic">$message</div>
+		<else />
+			$message
+		</if>
+	</div>
+</div>

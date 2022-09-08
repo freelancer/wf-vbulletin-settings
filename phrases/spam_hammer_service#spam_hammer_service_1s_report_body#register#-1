@@ -1,0 +1,6 @@
+Time Difference: $clock second(s)
+
+Username: $_POST[username]
+Email: $_POST[email]
+IP: $_SERVER[REMOTE_ADDR]
+User Agent: $_SERVER[HTTP_USER_AGENT]

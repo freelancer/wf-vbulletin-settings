@@ -1,0 +1,5 @@
+If set to 'Yes', load Skype&trade; icon from the SkypeWeb server in order to show users' online status, otherwise use local (static) graphic.<br />
+<br />
+If set to 'Language Specific', graphics in the language being used by the visiting user will be loaded.<br />
+<br />
+If the 'Language Specific' option does not work, switch it off and try again in a few weeks.

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<product productid="warrior_user_settings" active="1">
+    <title><![CDATA[Warrior User Settings]]></title>
+    <description>Add dynamic user settings</description>
+    <version>1.0.0</version>
+    <dependencies>
+    </dependencies>
+    <helptopics>
+    </helptopics>
+    <cronentries>
+    </cronentries>
+    <faqentries>
+    </faqentries>
+</product>

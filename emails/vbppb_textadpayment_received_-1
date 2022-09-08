@@ -1,0 +1,15 @@
+New text ad activated at $vboptions[bbtitle] by $username
+
+To view their profile, go here:
+
+$vboptions[bburl]/member.php?u=$userid
+
+Username : $username
+Amount: $amount
+Processor: $processor
+Transaction ID: $transactionid
+Banner ID: $bannerid
+
+Best Regards
+$vboptions[bbtitle]
+			

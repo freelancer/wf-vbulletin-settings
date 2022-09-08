@@ -1,0 +1,13 @@
+global $vbulletin;
+
+if ($vbulletin->options['bop5hic_en'])
+{
+  if (version_compare($vbulletin->versionnumber, "4.0.0", "ge")) //If VB4
+  { 
+    $cache[] = 'postbit_hiddenpics_bop5_vb4';
+  }
+  else  // Else VB 3.x
+  {
+    $globaltemplates[] = 'postbit_hiddenpics_bop5_vb3';
+  }
+}

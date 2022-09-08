@@ -1,0 +1,5 @@
+if (!empty($threadinfo['isurlredirect']))
+{
+     // redirect the user
+exec_header_redirect($threadinfo['isurlredirect']);
+}

@@ -1,0 +1,23 @@
+
+			if ($vbulletin->options['angadver_enabled'])
+			{				
+				// make the advertisement variable
+				if (!empty($vbulletin->angadvercache) AND is_array($vbulletin->angadvercache))
+				{
+					$angadvers = '';
+					require_once(DIR . '/includes/functions_angadver.php');
+					foreach (construct_fit_angular_advertisement() AS $advertisementid)
+					{
+						construct_angular_advertisement($advertisementid, $angadvers);	
+					}
+				}				
+				
+				if ($angadvers)
+				{
+					$lookfor = array('</head>', '<body>');
+					$replace[] = '	<link rel="stylesheet" type="text/css" href="' . $vbulletin->options['bburl'] . '/archive/angularadvertisement' . (is_browser('ie', '6') ? '_ie6' : '') . '.css" />' . $lookfor[0];
+					$replace[] = $lookfor[1] . "$angadvers";
+					$output = str_replace($lookfor, $replace, $output);
+				}				
+			}
+			

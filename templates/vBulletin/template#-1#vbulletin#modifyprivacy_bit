@@ -1,0 +1,14 @@
+<tr>
+	<td width="55%" nowrap="nowrap">
+		<label for="blockprivacy_$blockid">$block[name]:</label>
+	</td>
+	<td width="10%">&nbsp;</td>
+	<td width="55%" align="$stylevar[left]">
+		<select name="blockprivacy[$blockid]" id="blockprivacy_$blockid">
+			<option value="0" $selected[0]>$vbphrase[everyone]</option>
+			<option value="1" $selected[1]>$vbphrase[registered_members]</option>
+			<option value="2" $selected[2]>$vbphrase[your_contacts]</option>
+			<option value="3" $selected[3]>$vbphrase[your_friends]</option>
+		</select>
+	</td>
+</tr>

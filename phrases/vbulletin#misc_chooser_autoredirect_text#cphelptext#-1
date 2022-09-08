@@ -1,0 +1,1 @@
+If set to 'Yes', the script will automatically continue on to the next cycle when the current cycle is finished.  You should set this to 'Yes' unless you want to manually tell the script to continue at the end of each cycle.

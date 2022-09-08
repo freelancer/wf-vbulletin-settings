@@ -1,0 +1,1 @@
+Enter the string of characters the user's AIM handle, or screen name, must contain. Users without an AIM screen name are automatically excluded from the results of this search. See <a href="help.php?do=answer&amp;page=email&amp;pageaction=genlist&amp;option=username">Username Contains</a> for information on the string matching used here.

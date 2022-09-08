@@ -1,0 +1,3 @@
+If you enable this option, the redirection screens that are normally displayed after a post, a search, etc. will not be shown. These reassure the user that something is happening, but they also use bandwidth and could have a slight impact on server load since more pages are served.<br /><br />
+
+Some pages still require the redirect screens to avoid potential issues with cookies. These will be shown regardless of this setting.

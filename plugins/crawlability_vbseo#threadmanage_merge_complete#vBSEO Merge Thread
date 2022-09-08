@@ -1,0 +1,5 @@
+if(defined('VBSEO_ENABLED') && VBSEO_ENABLED && VBSEO_LIKE_POST)
+{
+	vbseo_extra_inc('ui');
+	vBSEO_UI::move_likes($mergethreadinfo['threadid'], $threadinfo['threadid'], VBSEO_UI_THREAD);
+}

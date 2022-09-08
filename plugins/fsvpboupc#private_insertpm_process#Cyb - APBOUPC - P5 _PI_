@@ -1,0 +1,29 @@
+
+		if ($vbulletin->options['apboupc_global_enable'] AND ($vbulletin->options['apboupc_pm_amount']>0))
+		{
+			if (!is_member_of($vbulletin->userinfo, split(',', $vbulletin->options['apboupc_pm_excludedgroups'])) AND ($vbulletin->options['apboupc_pm_amount'] !='0') AND ($vbulletin->userinfo[posts] < $vbulletin->options['apboupc_pm_amount']))
+			{
+				$db->hide_errors();
+				$apboupc_get_allowedrecs = $vbulletin->db->query_read("SELECT userid, username, usergroupid FROM `" . TABLE_PREFIX . "user` AS user WHERE `usergroupid` IN (".$vbulletin->options['apboupc_pm_allowed'].") ");
+				while ($apboupc_allowedrecs = $vbulletin->db->fetch_array($apboupc_get_allowedrecs))
+				{
+					$apboupc_allowedrec[] = $apboupc_allowedrecs['username'];
+					$allowed_recipients .= ', <a href="private.php?do=newpm&u='.$apboupc_allowedrecs['userid'].'">'.fetch_musername($apboupc_allowedrecs).'</a>';
+				}
+				$db->show_errors();
+				$allowed_recipients = substr($allowed_recipients, 1);
+
+				$apboupc_recipients = explode(';', $pm['recipients']);
+				foreach ($apboupc_recipients AS $recipient)
+				{
+					if (trim($recipient) == '')
+					{
+						continue;
+					}
+					if (!in_array(trim($recipient), $apboupc_allowedrec))
+					{
+						standard_error(fetch_error('error_postcount_too_low_pm', $vbulletin->options['apboupc_pm_amount'], $vbulletin->userinfo[posts], $allowed_recipients));
+					}
+				}
+			}
+		}

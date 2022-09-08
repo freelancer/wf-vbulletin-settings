@@ -1,0 +1,22 @@
+<if condition="$block_data['membergroupcount']">
+	<div class="alt1 smallfont block_row">
+		<span class="group_count">($block_data[membergroupcount])</span> $vbphrase[public_usergroups]:
+		<ul class="list_no_decoration group_list" id="public_usergroup_list">
+			$block_data[membergroupbits]
+		</ul>
+	</div>
+</if>
+<if condition="$block_data['socialgroupcount']">
+	<div class="alt1 smallfont block_row">
+					<span class="group_count">($block_data[socialgroupcount])</span> $vbphrase[user_created_social_groups]:
+		<ul class="list_no_decoration group_list" id="social_group_list">
+			$block_data[socialgroupbits]
+		</ul>
+	</div>
+</if>
+<if condition="!$block_data['membergroupcount'] AND !$block_data['socialgroupcount']">
+	<div class="alt1 smallfont block_row">$vbphrase[you_not_member_any_groups]</div>
+</if>
+<if condition="$block_data['show_join_link']">
+	<div class="alt2 smallfont block_row block_footer"><a href="group.php$session[sessionurl_q]">$vbphrase[join_social_groups]</a></div>
+</if>

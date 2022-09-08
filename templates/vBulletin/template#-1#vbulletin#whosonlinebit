@@ -1,0 +1,51 @@
+<tr>
+
+	<td class="alt1" width="35%">
+		<span class="smallfont" style="float:$stylevar[right]"><span class="time">$userinfo[time]</span></span>
+		<if condition="$show['loggedinuser']">
+			<a href="member.php?$session[sessionurl]u=$userinfo[userid]">$userinfo[musername]</a>$userinfo[hidden]<if condition="$show['buddy']">+</if>
+		<else />
+			<if condition="$show['spider']">$spidertype<else />$userinfo[musername]</if>
+		</if>
+	</td>
+
+	<td class="alt2" width="35%">
+		<div>
+			<span style="float:$stylevar[right]">
+				<if condition="$show['lockedout']"><img src="$stylevar[imgdir_statusicon]/wol_lockedout.gif" alt="$vbphrase[viewing_forum_closed]" /></if>
+				<if condition="$show['nopermission']"><img src="$stylevar[imgdir_statusicon]/wol_nopermission.gif" alt="$vbphrase[viewing_no_permission_message]" /></if>
+				<if condition="$show['errormessage']"><img src="$stylevar[imgdir_statusicon]/wol_error.gif" alt="$vbphrase[viewing_error_message]" /></if>
+				<if condition="$show['reallocation']"><img src="$stylevar[imgdir_misc]/question_icon.gif" alt="$userinfo[location]" /></if>
+			</span>
+			$userinfo[action]
+		</div>
+		<if condition="$show['where']">
+			<div class="smallfont" style="margin-top:1px">
+				<if condition="$show['subscribed']"><img class="inlineimg" src="$stylevar[imgdir_misc]/subscribed.gif" alt="$vbphrase[you_are_subscribed_to_this_thread]" /></if>
+				$userinfo[where]
+			</div>
+		</if>
+	</td>
+
+	<if condition="$show['ip']">
+		<td class="$ipclass"><div class="smallfont">
+			<if condition="$show['ajax_resolve']">
+				<a href="online.php?$session[sessionurl]do=resolveip&amp;ipaddress=$userinfo[host_encoded]" id="resolveip_$count" title="$vbphrase[resolve_ip_address]">$userinfo[host]</a>
+			<else />
+				$userinfo[host]
+			</if>
+			<if condition="$show['useragent']"><br />$userinfo[useragent]</if>
+		</div></td>
+	</if>
+
+	<if condition="$vboptions['showimicons']">
+		<td class="alt2" align="center" nowrap="nowrap">
+			$userinfo[aimicon]
+			$userinfo[icqicon]
+			$userinfo[msnicon]
+			$userinfo[yahooicon]
+			$userinfo[skypeicon]
+		</td>
+	</if>
+
+</tr>

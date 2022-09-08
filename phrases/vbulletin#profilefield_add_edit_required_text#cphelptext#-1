@@ -1,0 +1,7 @@
+<b>Yes, at registration and profile updating</b> - User will be required to complete this field at registration and when updating their profile.<br />
+<br />
+<b>Yes, always</b> - User will be required to complete this field at registration.  Enabling this setting will force all users to complete it before they can continue using your forum. This applies only if the field is shown on the "Edit Your Details" page.<br />
+<br />
+<b>No</b> - Completion of this field is optional.<br />
+<br />
+<b>No, but display at registration</b> - Completion of this field is optional but it will appear at registration.

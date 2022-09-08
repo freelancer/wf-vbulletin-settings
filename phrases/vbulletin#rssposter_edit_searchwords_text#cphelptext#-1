@@ -1,0 +1,5 @@
+You may specify a list of words and phrases here with which to search the items from an RSS feed.<br /><br />
+Separate each word or phrase with a space or a new line.<br /><br />
+Phrases that contain spaces may be used by surrounding them with double quotes.<br /><br />
+If any of the words or phrases listed here are contained within the title (or the title <strong>and</strong> description if 'Search Item Body' is checked) then the item will be posted. If not, the item will be ignored.<br /><br />
+If you select 'Match All Words' then only items that contain all of the terms and phrases will be posted.<br /><br />

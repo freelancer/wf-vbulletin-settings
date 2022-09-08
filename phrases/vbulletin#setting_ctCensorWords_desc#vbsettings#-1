@@ -1,0 +1,5 @@
+Type all words you want censored in the Usertitle in the field below. Do not use commas to separate words, just use spaces. For example, type 'dog cat boy', rather than 'dog, cat, boy.'<br />
+<br />
+If you type 'dog', all words containing the string 'dog' would be censored (dogma, for instance, would appear as '***ma'). To censor more accurately, you can require that censors occur only for exact words. You can do this by placing a censor word in curly braces, as in {dog}. Signifying 'dog' in the curly braces would mean that dogma would appear as dogma, but dog would appear as '***'. Thus your censor list may appear as: cat {dog} {barn} barn<br />
+<br />
+Do not use quotation marks and make sure you use curly braces, not parentheses, when specifying exact words.

@@ -1,0 +1,1 @@
+<td class="vbmenu_control"><a id="vbbloglinks" href="blog.php$session[sessionurl_q]">$vbphrase[blogs]</a><script type="text/javascript">vbmenu_register("vbbloglinks");</script></td>

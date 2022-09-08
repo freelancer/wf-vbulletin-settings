@@ -1,0 +1,6 @@
+This is the maximum file size that a profile picture can have for members of this group.  Enter a byte value.<br /><br />
+
+1024 bytes = 1 kilobyte<br />
+10240 bytes = 10 kilobytes<br />
+51200 bytes = 50 kilobytes<br />
+102400 bytes = 100 kilobytes

@@ -1,0 +1,11 @@
+Hello $subscriber[username]!
+
+The following subscription to $bbtitle has been activated successfully.
+
+Title: $subscription[title]
+Description: $subscription[description]
+Period: $subscription[startdate] / $subscription[enddate]
+Date: $subscription[date]
+ 
+Thank you!
+$bburl

@@ -1,0 +1,79 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+
+<style type="text/css">
+.diffold td { color:#BB0000; background-color:#FFDDDD; }
+.diffnew td { color:#00BB00; background-color:#DDFFDD; }
+.cellemu { padding:$stylevar[cellpadding]px; margin-bottom: $stylevar[cellspacing]px; }
+</style>
+
+<title>$vboptions[bbtitle] - $vbphrase[post_edit_history]</title>
+
+</head>
+<body>
+$header
+$navbar
+
+<form action="posthistory.php?do=$form_do&amp;p=$postinfo[postid]" method="post" name="postedithistorycompare">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="$form_do" />
+<input type="hidden" name="postid" value="$postinfo[postid]" />
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+<tr>
+	<td class="tcat" colspan="5">$vbphrase[post_edit_history]</td>
+</tr>
+<tr>
+	<td class="thead">$vbphrase[old]</td>
+	<td class="thead">$vbphrase[new]</td>
+	<td class="thead" width="50%">$vbphrase[reason_for_editing]</td>
+	<td class="thead" width="20%" nowrap="nowrap">$vbphrase[username]</td>
+	<td class="thead" width="30%" nowrap="nowrap">$vbphrase[time_of_edit]</td>
+</tr>
+$historybits
+<tr>
+	<td class="tcat" align="center" colspan="5">
+		<input type="submit" accesskey="s" class="button" value="$button_text" />
+	</td>
+</tr>
+</table>
+
+<if condition="$show['comparetable']">
+<br />
+<div class="tborder" style="padding:$stylevar[cellspacing]px">
+	<div class="tcat cellemu">$vbphrase[post_comparison]</div>
+
+	<if condition="$show['titlecompare']">
+		<div class="thead cellemu">$vbphrase[title_changes]</div>
+
+		<table cellpadding="$stylevar[cellpadding]" style="margin-bottom: $stylevar[cellspacing]px" cellspacing="0" border="0" width="100%">
+		<tr class="diffold">
+			<td width="20">-</td>
+			<td width="100%">$oldtitle</td>
+		</tr>
+		<tr class="diffnew">
+			<td width="20">+</td>
+			<td width="100%">$newtitle</td>
+		</tr>
+		</table>
+
+		<div class="thead cellemu">$vbphrase[text_changes]</div>
+	</if>
+
+	<table cellpadding="$stylevar[cellpadding]" cellspacing="0" border="0" width="100%">
+	<if condition="$comparebits">
+		$comparebits
+	<else />
+		<tr><td class="alt1">$vbphrase[must_select_two_version_comparison]</td></tr>
+	</if>
+	</table>
+</div>
+</if>
+</form>
+
+$footer
+
+</body>
+</html>

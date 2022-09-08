@@ -1,0 +1,3 @@
+The button images folder contains images like the "New Thread" and "Post Reply" images.  Because these images contain language-specific text you can override this setting in the language manager.<br /><br />
+
+Enter a directory path that is relative to your forum directory (e.g., <b>images/buttons</b>).

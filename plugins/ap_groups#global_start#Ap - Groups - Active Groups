@@ -1,0 +1,30 @@
+if (THIS_SCRIPT == "group")
+{
+
+$ap_ak_grup_limit = $vbulletin->options['ap_ak_grup_limit'];
+$ap_ak_grup_kes_limit = $vbulletin->options['ap_ak_grup_kes_limit'];
+
+$ap_ak_grup_sorgu = $db->query_read("SELECT s.groupid, s.name, s.lastposter, s.lastposterid, s.visible, s.lastgmid, s.lastpost, user.userid, user.username, user.usergroupid,
+     IF(displaygroupid=0, user.usergroupid, displaygroupid) AS displaygroupid 
+     FROM " . TABLE_PREFIX . "socialgroup AS s
+     LEFT JOIN " . TABLE_PREFIX . "user AS user ON(user.userid = s.lastposterid)
+     WHERE s.visible > '0'
+     ORDER BY s.visible DESC 
+     LIMIT 0, $ap_ak_grup_limit");
+
+while($ap_ak_grup = $db->fetch_array($ap_ak_grup_sorgu))
+{
+$ap_ak_grup['musername'] = fetch_musername($ap_ak_grup); 
+$ap_ak_grupmarkupuye = $ap_ak_grup['musername'];
+
+
+if(strlen($ap_ak_grup[name]) > $ap_ak_grup_kes_limit)  
+            {  
+                $ap_ak_grup[name] = substr($ap_ak_grup[name], 0, $ap_ak_grup_kes_limit) . '...';  
+            } 
+
+$i++; 
+if($i%2 == 0) { $ap_a_class = 'alt2'; } else { $ap_a_class = 'alt1'; } 
+eval("\$ap_ak_grupbit .= \"".fetch_template('ap_groupmessage_ak_bit')."\";");
+}
+}

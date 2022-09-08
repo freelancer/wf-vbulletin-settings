@@ -1,0 +1,8 @@
+global $threadcache;
+
+if ($thread['open'] != 10 && !isset($threadcache[$thread['threadid']]) && 
+isset($thread['forumid'])
+)
+{
+$threadcache[$thread['threadid']] = $thread;
+}

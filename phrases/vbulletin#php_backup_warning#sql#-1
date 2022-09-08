@@ -1,0 +1,1 @@
+Database backup via PHP is only recommended for those with small databases as timeouts may occur. Saving to the server or backup via command line is more reliable.

@@ -1,0 +1,5 @@
+
+				$vbpets_lasthook='userdata_postsave';
+				include(DIR.'/includes/vbpets_hooks.php');
+			
+			

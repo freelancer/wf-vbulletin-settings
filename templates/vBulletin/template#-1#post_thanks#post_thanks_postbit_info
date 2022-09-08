@@ -1,0 +1,14 @@
+<if condition="$post[userid]">
+	<div>$vbphrase[post_thanks_thanks]: $post[post_thanks_user_amount_formatted]</div>
+	<div>
+		<if condition="$post[post_thanks_thanked_times] == 1">
+			$vbphrase[post_thanks_time_post]
+		<else />
+			<if condition="$post[post_thanks_thanked_posts] == 1">
+				<phrase 1="$post[post_thanks_thanked_times_formatted]">$vbphrase[post_thanks_times_post]</phrase>
+			<else />
+				<phrase 1="$post[post_thanks_thanked_times_formatted]" 2="$post[post_thanks_thanked_posts_formatted]">$vbphrase[post_thanks_times_posts]</phrase>
+			</if>
+		</if>
+	</div>
+</if>

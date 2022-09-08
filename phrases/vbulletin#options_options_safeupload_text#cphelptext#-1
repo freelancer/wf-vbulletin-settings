@@ -1,0 +1,1 @@
+If your server has Safe Mode enabled, you should set this to Yes. You can determine if Safe Mode is enabled by viewing your <a href="index.php?do=phpinfo" target="_blank">phpinfo</a> page and searching for Safe Mode.

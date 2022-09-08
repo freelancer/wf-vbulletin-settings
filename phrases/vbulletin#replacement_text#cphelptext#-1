@@ -1,0 +1,17 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=template&amp;pageaction=&amp;option=">Styles &amp; Templates</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=css&amp;pageaction=&amp;option=">Common Templates, StyleVars, and CSS</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=replacement&amp;pageaction=&amp;option=">Replacement Variables</a><br /><br />
+
+<b>Replacement Variables:</b><br />
+Replacement variables are raw string replacements for your templates that are case-<b>in</b>sensitive.<br /><br />
+
+For example, if you create a replacement variable using the variable string "vbulletin" and the replacement string "is cool", then these template strings will be parsed into the following strings upon loading a forum page:<br /><br />
+
+Template string: <i>Powered by vBulletin</i><br />
+Parsed string: <i>Powered by is cool</i><br /><br />
+
+Template string: <i>vBULLetin3</i><br />
+Parsed string: <i>is cool3</i><br /><br />
+
+You can use replacement variables the same way vBulletin uses stylevars (see "Common Templates, StyleVars, and CSS" link above).  If you use the same string in several templates then you can create a replacement variable for it.  You can use the replacement variable in the templates and set its value in this Replacement Variable Manager.  If you need to change the value of the string then you can edit the replacement variable which will change its value in every template where the variable occurs.

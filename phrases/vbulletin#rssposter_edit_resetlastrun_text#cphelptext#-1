@@ -1,0 +1,1 @@
+If this box is checked when the feed is saved, the last run time will be set so that the feed <strong>will</strong> be checked the next time the RSS Poster scheduled task is run, regardless of the TTL setting for the feed.

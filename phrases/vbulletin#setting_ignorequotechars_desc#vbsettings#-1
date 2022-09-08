@@ -1,0 +1,3 @@
+Setting this option to 'YES' will cause the system to <b>not count</b> words in [QUOTE] tags towards the total number of characters posted.<br />
+<br />
+The primary use for this is to prevent users posting messages with enormous quotes and a single short word of their own.

@@ -1,0 +1,1 @@
+This is the number of points that are awarded for an infraction.  Every infraction level must award at least 1 point.  A users combined point score is used to determine which infraction groups to place him or her into.

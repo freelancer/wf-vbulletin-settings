@@ -1,0 +1,119 @@
+<style type="text/css" id="vbulletin_picturecomment_css">
+<!--
+.list_no_decoration {
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+}
+
+div.fixed_width_avatar {
+	text-align:center;
+	width:60px;
+}
+
+.content_block {
+	padding:$stylevar[cellspacing]px;
+}
+
+.block_row {
+	padding:$stylevar[cellpadding]px;
+	margin:$stylevar[cellspacing]px 0px 0px 0px;
+}
+
+.block_title, .first_row {
+	margin:0px;
+}
+
+#message_list {
+	border:none;
+}
+#message_list li {
+	margin-bottom:6px;
+}
+#message_list div.fixed_width_avatar {
+	margin-$stylevar[right]:6px;
+	float:$stylevar[left];
+}
+#message_list div.message_avatar_margin {
+	margin-$stylevar[left]:66px;
+}
+#message_list div.info_bar {
+	border-width:1px 0px 0px 0px;
+	margin-bottom:6px;
+}
+#message_list div.info_bar div.alt2 {
+	padding:6px;
+}
+#message_list div.info_bar a.username {
+	/*font-weight:bold;*/
+}
+#message_list .message_date {
+	float:$stylevar[right];
+}
+#message_list .inlinemod_checkbox {
+	float:$stylevar[right];
+}
+#message_list ul.controls {
+	margin-top:6px;
+	text-align:$stylevar[right];
+}
+#message_list ul.controls li {
+	display:inline;
+	margin-$stylevar[left]:6px;
+}
+#message_list ul.controls a:link, #message_list ul.controls a:visited {
+	text-decoration:none;
+}
+#message_list .deletedmessage{
+	float: $stylevar[left]
+}
+
+#qc_error_div {
+	text-align:$stylevar[left];
+	margin-bottom:6px;
+}
+#qc_error_header {
+	font-weight:bold;
+}
+#qc_error_okay {
+	text-align:$stylevar[right];
+}
+
+#message_form {
+	display:block;
+	margin:0px;
+}
+#message_form textarea {
+	width:98%;
+	height:50px;
+}
+#message_form div.messagetext {
+	text-align:$stylevar[left];
+}
+#message_form div.allowed_bbcode {
+	float:$stylevar[left];
+}
+#message_form div.submit_button {
+	text-align:$stylevar[right];
+}
+
+.picture_thumbnail {
+	padding-$stylevar[right]:6px;
+	width:$vboptions[album_thumbsize]px;
+	text-align:center;
+}
+
+ul.vbmenu_popup li {
+	padding:4px;
+	margin:0px 1px 1px 1px;
+	white-space:nowrap;
+}
+ul.vbmenu_popup li.first {
+	margin:1px;
+}
+
+#inlinemodsel {
+	float:$stylevar[right];
+}
+-->
+</style>

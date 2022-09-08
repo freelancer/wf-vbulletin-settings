@@ -1,0 +1,12 @@
+
+			<if condition="$form['rawCode']">
+	$form[rawCode]
+<else />
+	<form action="$form[action]" method="$form[method]" style="display:inline;">
+		$form[hidden]
+		<input type="submit" value="$formTitle" class="button" />
+	</form>
+</if>
+
+			
+		

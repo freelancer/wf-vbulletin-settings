@@ -1,0 +1,1 @@
+If you enable this option, a user's last post will be be shown on the user's profile page. This can increase table locking due to large table scans, as well as the load of your server. This option should only be enabled for smaller forums.

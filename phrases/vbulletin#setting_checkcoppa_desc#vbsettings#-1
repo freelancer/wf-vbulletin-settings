@@ -1,0 +1,1 @@
+This option will save a cookie onto the user's computer if an age  under 13 is entered.  Subsequent registration attempts will be failed, no matter what age is entered. This only applies if the previous option is set to either <em>Enable COPPA</em> or <em>Deny registration for users under 13 years</em>.

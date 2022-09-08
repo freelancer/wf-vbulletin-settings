@@ -1,0 +1,3 @@
+<li class="smallfont" style="margin-bottom:$stylevar[cellpadding]px">
+	<a href="blog.php?$session[sessionurl]cp=$page[i]">$page[t]</a>
+</li>

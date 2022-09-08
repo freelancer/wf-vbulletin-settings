@@ -1,0 +1,14 @@
+$reportinfo[rusername] ( mailto:$reportinfo[remail] ) has reported this picture:
+
+$vboptions[bburl]/group.php?do=picture&groupid=$reportinfo[groupid]&pictureid=$reportinfo[pictureid]
+
+This is part of the group:
+$reportinfo[groupname]
+$vboptions[bburl]/group.php?groupid=$reportinfo[groupid]
+
+This is the reason that the user gave:
+$reportinfo[reason]
+
+$reportinfo[discuss]
+
+This message has been sent to all moderators of this area, or all administrators if there are no moderators.

@@ -1,0 +1,5 @@
+// VB API modification
+if (VB_API === true)
+{
+	eval(print_standard_redirect('header_redirect', true, true));
+}

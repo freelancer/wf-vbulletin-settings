@@ -1,0 +1,4 @@
+<b>User Titles:</b><br />
+User titles are an indication of status on the forums and are displayed below names in posts.  vBulletin's user title system is fairly straight forward.  You can use the <a href="usertitle.php?do=modify" target="_blank">User Title Manager</a> to create a ladder of user titles based on post count.<br /><br />
+
+Note that if a user's usergroup has a "User Title" specified (see the <a href="usergroup.php?do=modify" target="_blank">Usergroup Manager</a>) then that user will have their usergroup's title instead of the ladder of titles in the <a href="usertitle.php?do=modify" target="_blank">User Title Manager</a>.

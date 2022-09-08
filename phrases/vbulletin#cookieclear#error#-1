@@ -1,0 +1,5 @@
+All cookies cleared!
+<ul>
+<li><a href="{1}">Return to the page you were previously viewing</a></li>
+<li><a href="{2}.php{3}">Go to forums index</a></li>
+</ul>

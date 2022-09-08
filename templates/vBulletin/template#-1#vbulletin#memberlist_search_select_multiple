@@ -1,0 +1,6 @@
+<div class="fieldset">
+	$profilefield[title]:<br />
+	<select name="{$profilefieldname}[]" id="csel_$profilefieldname" size="$profilefield[height]" multiple="multiple">
+	$selectbits
+	</select>
+</div>

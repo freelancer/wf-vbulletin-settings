@@ -1,0 +1,1 @@
+$only['post_thanks'] = $vbphrase['post_thank_you_hack'];

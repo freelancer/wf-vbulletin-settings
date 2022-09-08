@@ -1,0 +1,1 @@
+This feed supports <em>content:encoded</em>. Your imported feeds may appear nicer if you use <strong>{feed:content:encoded}</strong> in your bodytemplate instead of <strong>{feed:description}</strong> and enable the <em>Convert HTML to BB Code</em> option.

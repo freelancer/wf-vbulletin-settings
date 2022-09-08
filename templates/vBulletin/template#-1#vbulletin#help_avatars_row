@@ -1,0 +1,6 @@
+<tr align="center" valign="bottom">
+$avatarcells
+<if condition="$remainingcolumns > 0">
+	<td colspan="$remainingcolumns">&nbsp;</td>
+</if>
+</tr>

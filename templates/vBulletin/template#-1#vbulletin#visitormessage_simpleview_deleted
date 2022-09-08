@@ -1,0 +1,18 @@
+<div class="alt1">
+
+	<div valign="top" align="$stylevar[right]" style="float:$stylevar[right]" class="smallfont">
+		<a href="member.php?$session[sessionurl]u=$message[postuserid]">$message[username]</a>
+
+
+		<br />
+		$message[date]<if condition="!$show['detailedtime']">, $message[time]</if>
+		<br />
+	</div>
+
+	<div class="smallfont">
+		<phrase 1="member.php?$session[sessionurl]u=$message[del_userid]" 2="$message[del_username]">$vbphrase[message_deleted_by_x]</phrase>
+		<if condition="$message['del_reason']">$vbphrase[reason]: <em>$message[del_reason]</em></if>
+	</div>
+
+</div>
+<hr />

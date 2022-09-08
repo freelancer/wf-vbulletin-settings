@@ -1,0 +1,11 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=user&amp;pageaction=&amp;option=">Users</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=usertools&amp;pageaction=&amp;option=">User Tools</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=banning&amp;pageaction=&amp;option=">User Banning</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=email&amp;pageaction=&amp;option=">Emailing Users</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=accessmask&amp;pageaction=&amp;option=">Access Masks</a><br /><br />
+
+<b>Emailing Users:</b><br />
+The email pages in the Users tab of the Admin CP allow you to send mass emails and generate mailing lists based on the same search criteria you use to search for users on the <a href="user.php?do=modify" target="_blank">Search for Users</a> page.<br /><br />
+
+You can email users on the <a href="email.php?do=start" target="_blank">Send Email to Users</a> page and you can generate a mailing list of email addresses on the <a href="email.php?do=genlist" target="_blank">Generate Mailing List</a> page.  Both pages use the same search criteria.  vBulletin emails / includes in the mailing list only users whose profiles match the search criteria you specify.  One obvious application of these email features is to send out mass emails notifying your members of updates to your forums.  Other applications include sending warning emails to inactive users before you prune their accounts or otherwise deal with them.

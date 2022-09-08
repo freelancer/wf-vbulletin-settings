@@ -1,0 +1,7 @@
+if(defined('VBSEO_ENABLED') && VBSEO_ENABLED)
+			{ $notifications['vbseo_likes_unread'] = array(
+			'phrase' => $vbphrase['vbseo_new_likes'],
+			'link'   => 'member.php?' . $vbulletin->session->vars['sessionurl'] . '&amp;u='.$vbulletin->userinfo['userid'].'&amp;tab=likes_received',
+			'order'  => 100
+		);
+		}

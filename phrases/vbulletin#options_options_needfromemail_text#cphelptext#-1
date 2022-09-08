@@ -1,0 +1,1 @@
+Some email servers require the "-f" parameter to be sent with email calls from PHP. If users are not receiving email from your forum, then you can try enabling this option.

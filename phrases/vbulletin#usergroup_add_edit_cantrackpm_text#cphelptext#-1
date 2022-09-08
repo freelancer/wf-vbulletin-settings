@@ -1,0 +1,3 @@
+Private message tracking allows users to request read receipts for their PMs.  The sender will know the recipient has read their PM if the recipient chooses to acknowledge the read receipt.<br /><br />
+
+Private Messaging must be enabled in your <a href="options.php?dogroup=pm&amp;do=options" target="_blank">vBulletin options</a> for this permission to have any effect.  The "Maximum Stored Messages" permission above must also be set to a positive number for members of this group to use the PM feature.

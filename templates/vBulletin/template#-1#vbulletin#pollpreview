@@ -1,0 +1,13 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[poll_preview]</td>
+</tr>
+<tr>
+	<td class="alt1">
+		<p><strong>$previewquestion</strong></p>
+		<div>$vbphrase[options]:<br />$pollpreviewbits</div>
+	</td>
+</tr>
+</table>
+
+<br />

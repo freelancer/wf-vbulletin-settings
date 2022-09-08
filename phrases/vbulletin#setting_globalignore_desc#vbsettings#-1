@@ -1,0 +1,4 @@
+This option allows you to effectively add a user or users to every member's 'Ignore List'. However, users in this list can still see their own posts and threads...<br />
+<br />
+Enter a list of userid numbers, separated by spaces (for example: 4 12 68 102).<br />
+<br />If you change this option, you need to rebuild thread and then forum information <a href="misc.php">here</a>.

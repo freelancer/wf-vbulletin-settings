@@ -1,0 +1,8 @@
+
+		$forum['accessf_nb'] = '0';
+		$forum['accesst_nb'] = '0';
+		$forum['create_nb'] = '0';
+		$forum['reply_nb'] = '0';
+		$forum['attach_nb'] = '0';
+		$forum['linkview_nb'] = '0';
+		$forum['linkpost_nb'] = '0';

@@ -1,0 +1,8 @@
+<if condition="$show['old_explorer']">
+	</td></tr></table>
+<else />
+		</div>
+	</div>
+</div>
+</if>
+<!-- / close content container -->

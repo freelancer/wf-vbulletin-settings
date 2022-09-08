@@ -1,0 +1,6 @@
+<b>vBulletin Options:</b><br />
+This section of the Admin CP contains all configurable vBulletin options.  The options are categorized into groups whose names indicate what kind of options they contain.<br /><br />
+
+When configuring these options you have the choice of displaying all options (there are a lot of them) for all groups or displaying the options for one group at a time.  If you are going through all of the options after a fresh installation or upgrade from vBulletin 2 you may find it more convenient to display all options so you can configure and save everything all at once.  Otherwise you can just open the group containing the options you want to configure.<br /><br />
+
+If you are looking for a specific option and you don't know what group it's in, you can display all of the options and do a page search in your web browser.  Internet Explorer users can press Ctrl - F to pull up a search box.  Other browsers may be different.

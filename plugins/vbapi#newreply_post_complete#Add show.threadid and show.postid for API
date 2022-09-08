@@ -1,0 +1,5 @@
+if (VB_API === true)
+{
+	$show['threadid'] = $threadinfo['threadid'];
+	$show['postid'] = $newpost['postid'];
+}

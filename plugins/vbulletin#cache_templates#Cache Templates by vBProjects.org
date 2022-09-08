@@ -1,0 +1,5 @@
+if(THIS_SCRIPT=='showthread')
+{
+$globaltemplates[]='vbseo_linkbackmenu';
+$globaltemplates[]='vbseo_linkbackmenu_entry';
+}

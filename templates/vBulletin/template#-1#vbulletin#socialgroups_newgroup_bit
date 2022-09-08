@@ -1,0 +1,7 @@
+<div class="sgicon">
+	<a href="group.php?$session[sessionurl]groupid=$group[groupid]">
+		<img class="sgicon" src="$group[iconurl]" alt="$group[shortdescription]" />
+		<span class="smallfont <if condition="!$group['is_read']">unread</if>">$group[name]</span>
+	</a>
+	$template_hook[group_after_newgroup_bit]
+</div>

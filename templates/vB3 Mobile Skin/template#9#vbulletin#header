@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="$assets[css_vendor_wf]" />
+<link rel="stylesheet" href="$assets[css_wf]" />
+<link rel="stylesheet" href="$assets[css_wf_mobile]" />
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KTRB72"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KTRB72');</script>
+<!-- End Google Tag Manager -->
+
+<a name="top"></a>
+
+<div style="height:50px;">
+<div style="padding:6px; float: left;"><a href="$vboptions[forumhome].php$session[sessionurl_q]"><img src="images/wf_logo_small.png" width="134" height="40" border="0" alt="$vboptions[bbtitle]" /></a></div>
+
+
+<div align="center" style="float:right; width:36px; margin-top:15px; margin-right:5px;"><a href="search.php"><img src="images/mobile/search.png" width="21" height="21" /></a></div>
+
+</div>
+
+<!-- content table -->
+$spacer_open
+
+$_phpinclude_output
+
+$ad_location[ad_header_end]

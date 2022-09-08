@@ -1,0 +1,3 @@
+<if condition="$onlinestatus==0"><img class="inlineimg" src="$stylevar[imgdir_statusicon]/user_offline.gif" alt="<phrase 1="$user[username]">$vbphrase[x_is_offline]</phrase>" border="0" /></if>
+<if condition="$onlinestatus==1"><img class="inlineimg" src="$stylevar[imgdir_statusicon]/user_online.gif" alt="<phrase 1="$user[username]">$vbphrase[x_is_online_now]</phrase>" border="0" /></if>
+<if condition="$onlinestatus==2"><img class="inlineimg" src="$stylevar[imgdir_statusicon]/user_invisible.gif" alt="<phrase 1="$user[username]">$vbphrase[x_is_invisible]</phrase>" border="0" /></if>

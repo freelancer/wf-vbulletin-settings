@@ -1,0 +1,168 @@
+$preview
+
+<form action="profile.php?do=updatesignature" enctype="multipart/form-data" method="post" name="vbform"<if condition="!is_browser('webtv')"> onsubmit="return vB_Editor['$editorid'].prepare_submit(0, 0)"</if>>
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[edit_signature]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]" style="max-width:$stylevar[formwidth]; width:auto !important; width:$stylevar[formwidth_usercp]">
+
+		<!-- message area -->
+		<div class="smallfont">$vbphrase[your_signature]:</div>
+		$messagearea
+		<!-- / message area -->
+
+		</div>
+	</div>
+
+	<if condition="!$show['cansigpic']">
+		<div style="margin-top:$stylevar[cellpadding]px">
+			<input type="hidden" name="url" value="$url" />
+			<input type="hidden" name="s" value="$session[sessionhash]" />
+			<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+			<input type="hidden" name="do" value="updatesignature" />
+			<input type="hidden" name="MAX_FILE_SIZE" value="$inimaxattach" />
+			<input type="submit" class="button" value="$vbphrase[save_signature]" accesskey="s" tabindex="1" />
+			<input type="submit" class="button" value="$vbphrase[preview_signature]" name="preview" accesskey="r" tabindex="1" />
+		</div>
+	</if>
+	</td>
+</tr>
+
+<if condition="$show['cansigpic']">
+<tr>
+	<td class="tcat">$vbphrase[signature_picture]<a name="sigpic">&nbsp;</a></td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]" style="max-width:$stylevar[formwidth]; width:auto !important; width:$stylevar[formwidth_usercp]">
+
+		<if condition="$sigpicurl">
+			<!-- existing image -->
+			<fieldset class="fieldset">
+				<legend>$vbphrase[your_current_signature_picture]</legend>
+				<div style="padding:$stylevar[formspacer]px">
+					<div style="float:$stylevar[left]; margin-$stylevar[right]:10px"><img src="$sigpicurl" alt="$vbphrase[your_current_signature_picture]"  border="0" /></div>
+					<div>
+						<if condition="$show['editor_toolbar']">
+							<a id="{$editorid}_cmd_wrap0_sigpic" href="#sigpic" onclick="vB_Editor['$editorid'].wrap_tags('sigpic', false); return false;">$vbphrase[insert_signature_picture]</a><br />
+							<br />
+						</if>
+						<label for="delsigpic"><input type="checkbox" name="deletesigpic" value="1" id="delsigpic" />$vbphrase[delete_current_image]</label>
+					</div>
+				</div>
+			</fieldset>
+			<!-- / existing image -->
+		</if>
+
+		<!-- upload control -->
+		<fieldset class="fieldset">
+			<legend>$vbphrase[upload_signature_picture]</legend>
+
+			<div style="padding:$stylevar[formspacer]px; padding-bottom: 0px">
+			<div class="fieldset">
+
+			$vbphrase[may_upload_custom_image_controls]<br /><br />
+
+			<if condition="$show['sigpic_url']">
+			$vbphrase[enter_url_to_image]
+
+			<div style="padding:$stylevar[formspacer]px">
+				<input type="text" class="bginput" name="sigpicurl" value="http://www." size="50" dir="ltr" />
+			</div>
+			</if>
+
+			<if condition="$show['sigpic_url']">$vbphrase[option_2_upload_image_from_computer]<else />$vbphrase[upload_image_from_computer]</if>
+			<div style="padding:$stylevar[formspacer]px">
+				<input type="file" class="bginput" name="upload" size="50" />
+				<input type="hidden" name="MAX_FILE_SIZE" value="$inimaxattach" />
+			</div>
+
+			<if condition="$show['maxnote']">
+				$maxnote
+			</if>
+
+			<div style="padding-top:$stylevar[formspacer]px"><input type="submit" class="button" value="$vbphrase[upload]" name="preview" tabindex="1" /></div>
+
+			</div>
+			</div>
+		</fieldset>
+		<!-- / upload control -->
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="hidden" name="s" value="$session[sessionhash]" />
+		<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+		<input type="hidden" name="do" value="updatesignature" />
+		<input type="hidden" name="url" value="$url" />
+		<input type="hidden" name="MAX_FILE_SIZE" value="$inimaxattach" />
+		<input type="submit" class="button" value="$vbphrase[save_signature]" accesskey="s" tabindex="1" />
+		<input type="submit" class="button" value="$vbphrase[preview_signature]" name="preview" accesskey="r" tabindex="1" />
+	</div>
+	</td>
+</tr>
+</if>
+
+</table>
+</form>
+<br />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+<tr>
+	<td class="tcat">
+		<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('sigperms')"><img id="collapseimg_sigperms" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_sigperms].gif" alt="" border="0" /></a>
+		$vbphrase[signature_permissions]
+	</td>
+</tr>
+</thead>
+<tbody id="collapseobj_sigperms" style="$vbcollapse[collapseobj_sigperms]">
+<tr>
+	<td class="alt1">
+		<table border="0" cellspacing="2" cellpadding="0">
+		<tr>
+			<td class="smallfont" nowrap="nowrap" valign="top" style="padding-$stylevar[right]: 10px">
+				<if condition="$show['canbbcode']">
+					<div>$vbphrase[allow_bbcode_basic] <strong><if condition="$show['canbbcodebasic']">$vbphrase[yes]<else />$vbphrase[no]</if></strong></div>
+					<div>$vbphrase[allow_bbcode_color] <strong><if condition="$show['canbbcodecolor']">$vbphrase[yes]<else />$vbphrase[no]</if></strong></div>
+					<div>$vbphrase[allow_bbcode_size] <strong><if condition="$show['canbbcodesize']">$vbphrase[yes]<else />$vbphrase[no]</if></strong></div>
+					<div>$vbphrase[allow_bbcode_font] <strong><if condition="$show['canbbcodefont']">$vbphrase[yes]<else />$vbphrase[no]</if></strong></div>
+					<div>$vbphrase[allow_bbcode_align] <strong><if condition="$show['canbbcodealign']">$vbphrase[yes]<else />$vbphrase[no]</if></strong></div>
+					<div>$vbphrase[allow_bbcode_list] <strong><if condition="$show['canbbcodelist']">$vbphrase[yes]<else />$vbphrase[no]</if></strong></div>
+					<div>$vbphrase[allow_bbcode_link] <strong><if condition="$show['canbbcodelink']">$vbphrase[yes]<else />$vbphrase[no]</if></strong></div>
+					<div>$vbphrase[allow_html] <strong><if condition="$show['allowhtml']">$vbphrase[yes]<else />$vbphrase[no]</if></strong></div>
+				<else />
+					<div>$vbphrase[allow_bbcode] <strong>$vbphrase[no]</strong></div>
+					<div>$vbphrase[allow_html] <strong><if condition="$show['allowhtml']">$vbphrase[yes]<else />$vbphrase[no]</if></strong></div>
+				</if>
+			</td>
+			<td class="smallfont" nowrap="nowrap" valign="top">
+				<if condition="$show['canbbcode']">
+					<div>$vbphrase[allow_bbcode_img] <strong><if condition="$show['allowimg']">$vbphrase[yes]<else />$vbphrase[no]</if></strong></div>
+					<div>$vbphrase[allow_bbcode_code] <strong><if condition="$show['canbbcodecode']">$vbphrase[yes]<else />$vbphrase[no]</if></strong></div>
+					<div>$vbphrase[allow_bbcode_php] <strong><if condition="$show['canbbcodephp']">$vbphrase[yes]<else />$vbphrase[no]</if></strong></div>
+					<div>$vbphrase[allow_bbcode_html] <strong><if condition="$show['canbbcodehtml']">$vbphrase[yes]<else />$vbphrase[no]</if></strong></div>
+					<div>$vbphrase[allow_bbcode_quote] <strong><if condition="$show['canbbcodequote']">$vbphrase[yes]<else />$vbphrase[no]</if></strong></div>
+				</if>
+				<div>$vbphrase[allow_smilies] <strong><if condition="$show['allowsmilies']">$vbphrase[yes]<else />$vbphrase[no]</if></strong></div>
+				<div>$vbphrase[can_upload_sig_img] <strong><if condition="$show['cansigpic']">$vbphrase[yes]<else />$vbphrase[no]</if></strong></div>
+				<div>$vbphrase[can_upload_ani_gif_sig_img] <strong><if condition="$show['cananimatesigpic']">$vbphrase[yes]<else />$vbphrase[no]</if></strong></div>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</tbody>
+</table>
+<!--
+<ul>
+	<li>$vbphrase[sig_image_max_imagenum] $sigperms[imagemaxnum_display]</li>
+	<li>$vbphrase[sig_size_max_number] $sigperms[sizemaxbbcode]</li>
+</ul>
+-->

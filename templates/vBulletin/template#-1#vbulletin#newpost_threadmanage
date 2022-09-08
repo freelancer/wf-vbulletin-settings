@@ -1,0 +1,11 @@
+<fieldset class="fieldset">
+	<legend>$vbphrase[thread_management]</legend>
+	<div style="padding:$stylevar[formspacer]px">
+		<if condition="$show['openclose']"><div>
+			<label for="cb_openclose"><input type="checkbox" name="openclose" value="1" id="cb_openclose" tabindex="1" $checked[openclose] /><if condition="$show['closethread']">$vbphrase[close_this_thread]<else />$vbphrase[reopen_this_thread]</if></label>
+		</div></if>
+		<if condition="$show['stickunstick']">
+			<div><label for="cb_stickunstick"><input type="checkbox" name="stickunstick" value="1" id="cb_stickunstick" tabindex="1" $checked[stickunstick] /><if condition="$show['unstickthread']">$vbphrase[unstick_this_thread]<else />$vbphrase[stick_this_thread]</if></label>
+		</div></if>
+	</div>
+</fieldset>

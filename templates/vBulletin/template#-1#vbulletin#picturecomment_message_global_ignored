@@ -1,0 +1,22 @@
+<li id="picturecomment$message[commentid]" class="floatcontainer">
+	<div class="tborder info_bar">
+		<div class="alt2 smallfont">
+			<if condition="$show['inlinemod']"><input type="checkbox" class="inlinemod_checkbox" name="picturecommentlist[$message[commentid]]" id="picturecommentlist_$message[commentid]" value="$message[checkbox_value]" title="$vbphrase[select_this_item_for_inline_moderation]" /></if>
+			<div class="message_date">$message[date]<if condition="!$show['detailedtime']"> <span class="time">$message[time]</span></if></div>
+			<a href="member.php?$session[sessionurl]u=$message[postuserid]" class="smallfont username">$message[musername]</a>
+
+			<if condition="$show['picture']">
+				<div><phrase 1="album.php?$session[sessionurl]albumid=$message[albumid]&amp;pictureid=$message[pictureid]" 2="$message[caption]" 3="member.php?$session[sessionurl]u=$message[pictureowner_userid]" 4="$message[pictureowner_name]">$vbphrase[picture_x_by_y]</phrase></div>
+			</if>
+
+		</div>
+	</div>
+
+	<div class="smallfont" style="float: $stylevar[right]">
+		<a href="<if condition="$pictureinfo['groupid']">group.php?$session[sessionurl]do=picture&amp;groupid=$pictureinfo[groupid]<else />album.php?$session[sessionurl]albumid=$pictureinfo[albumid]</if>&amp;pictureid=$pictureinfo[pictureid]&amp;commentid=$message[commentid]&amp;showignored=1#picturecomment$message[commentid]">$vbphrase[show_message_text]</a>
+	</div>
+	<div class="smallfont">
+		<phrase 1="$message[username]" 2="profile.php?$session[sessionurl]do=ignorelist">$vbphrase[administrator_decided_x_quiet]</phrase>
+		<if condition="$show['moderation']"><div class="shade">$vbphrase[this_message_is_moderated]</div></if>
+	</div>
+</li>

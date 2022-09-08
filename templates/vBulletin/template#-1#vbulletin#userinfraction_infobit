@@ -1,0 +1,43 @@
+<tr>
+	<td class="alt2"><img src="$stylevar[imgdir_misc]/{$card}_small.gif" border="0" alt="" /></td>
+	<td class="alt1" width="50%"><span class="smallfont">
+
+	<if condition="$infraction[postid]">
+		<if condition="$show['postdeleted']">
+			<em>$vbphrase[n_a]</em>
+		<else />
+			<if condition="$show['threadtitle']">
+				<a href="showthread.php?$session[sessionurl]p=$infraction[postid]#post$infraction[postid]">$infraction[title]</a>
+			<else />
+				<em>$vbphrase[private]</em>
+			</if>
+		</if>
+	<else />
+		<if condition="$infraction['points']">
+			$vbphrase[profile_infraction]
+		<else />
+			$vbphrase[profile_warning]
+		</if>
+	</if>
+
+	</span></td>
+	<td class="alt2" nowrap="nowrap" align="$stylevar[right]"><span class="smallfont">$infraction[dateline]<br /><span class="time">$infraction[timeline]</span></span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">
+
+	<if condition="$show['reversed']">
+		$vbphrase[reversed]
+	<else />
+		<if condition="$show['expired']">
+			$vbphrase[expired]
+		<else />
+			<if condition="$show['neverexpires']">$vbphrase[never]<else />$infraction[expires_dateline]<br /><span class="time">$infraction[expires_timeline]</span></if>
+		</if>
+	</if>
+	</span>
+	</td>
+
+	<td class="alt2"><span class="smallfont">$infraction[points]</span></td>
+	<td class="alt1" width="50%"><span class="smallfont">$infraction[reason]</span></td>
+	<td class="alt2"><a class="smallfont" href="member.php?$session[sessionurl]u=$infraction[whoadded]">$infraction[username]</a></td>
+	<if condition="$show['reverse']"><td class="alt1"><span class="smallfont"><a href="infraction.php?$session[sessionurl]do=view&amp;infractionid=$infraction[infractionid]">$vbphrase[view]</a></span></td></if>
+</tr>

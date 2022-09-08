@@ -1,0 +1,50 @@
+$spamlookup = $vbulletin->db->query_first("SELECT COUNT(*) AS count FROM wfglowhostspamomatic_log WHERE ip='$_SERVER[REMOTE_ADDR]' AND date >= DATE_SUB(NOW(),INTERVAL 1 WEEK)");
+
+if ($spamlookup[count]>5) {
+
+print "To Many Attempts, Please Try Later. (x)";
+exit();
+
+}
+
+$spamlookup = $vbulletin->db->query_first("SELECT COUNT(*) AS count FROM wfglowhostspamomatic_log WHERE ip='$_SERVER[REMOTE_ADDR]' AND date >= DATE_SUB(NOW(),INTERVAL 1 HOUR)");
+
+if ($spamlookup[count]>2) {
+
+print "To Many Attempts, Please Try Later. (a)";
+exit();
+
+}
+
+// Check for Email in Last Week
+
+$spamlookup = $vbulletin->db->query_first("SELECT COUNT(*) AS count FROM wfglowhostspamomatic_log WHERE email='$_POST[email]' AND date >= DATE_SUB(NOW(),INTERVAL 1 WEEK)");
+
+if ($spamlookup[count]>5) {
+
+print "To Many Attempts, Please Try Later. (b)";
+exit();
+
+}
+
+// Check for Username in Last Week
+
+$spamlookup = $vbulletin->db->query_first("SELECT COUNT(*) AS count FROM wfglowhostspamomatic_log WHERE username='$_POST[username]' AND date >= DATE_SUB(NOW(),INTERVAL 1 WEEK)");
+
+if ($spamlookup[count]>5) {
+
+print "To Many Attempts, Please Try Later. (c)";
+exit();
+
+}
+
+// look up useraccounts w/ matching IPs in last week
+
+$spamlookup = $vbulletin->db->query_first("SELECT COUNT(*) AS count FROM wfuser WHERE ipaddress='$_SERVER[REMOTE_ADDR]' AND joindate >= unix_timestamp(CURRENT_TIMESTAMP - INTERVAL 2 WEEK)");
+
+if ($spamlookup[count]>0) {
+
+print "To Many Registrations, Please Try Later. (e)";
+exit();
+
+}

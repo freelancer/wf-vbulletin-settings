@@ -1,0 +1,3 @@
+Enabling this option will remove the update pages that are displayed after a user makes a post, starts a search, etc.  These pages provide assurance to the user that their information has been processed by the forum.  Disabling these pages will save you bandwidth and may lessen the load of the forum on your server.
+<br /><br />
+Note: Some pages will still use the redirection page when cookies are involved to prevent some potential problems.

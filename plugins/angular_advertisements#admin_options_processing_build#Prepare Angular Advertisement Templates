@@ -1,0 +1,9 @@
+
+			if ($oldsetting['varname'] == 'angadver_uploadpath')
+			{
+				if (!file_exists(DIR . '/' . $newvalue))
+				{
+					print_stop_message('directory_not_exists', $newvalue);
+				}
+			}
+			

@@ -1,0 +1,6 @@
+You may prevent your users from flooding your forum with posts by activating this feature.<br />
+<br />
+By enabling floodcheck, you disallow users from making another post within a given time span of their last posting. In other words, if you set a floodcheck time span of 30 seconds, a user may not post again within 30 seconds of making his last post.<br />
+<br />
+Administrators and moderators are exempt from floodcheck.<br />
+<br />Recommended: 30 seconds. Type the number of seconds only. Enter 0 to disable this function.

@@ -1,0 +1,10 @@
+
+if($vbulletin->options['vbplm_on']==1)
+{
+	if(THIS_SCRIPT=='forumdisplay')
+	{
+		$globaltemplates[]='vbplm_link';
+	}
+}
+			
+			

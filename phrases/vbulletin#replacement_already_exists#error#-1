@@ -1,0 +1,3 @@
+A replacement variable searching for <i>{1}</i> already exists. It is set to replace <i>{1}</i> with <i>{2}</i>.<br />
+<br />
+To edit this replacement, please <a href="{3}">click here</a>.

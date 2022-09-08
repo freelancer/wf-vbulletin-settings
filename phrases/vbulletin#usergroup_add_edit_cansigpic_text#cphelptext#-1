@@ -1,0 +1,1 @@
+This controls whether users can upload a picture to be placed within their signature. This will use some bandwidth as the images are served from your server, but with this method you may control the dimensions and file size of the uploaded image; if the user simply links to an image on a different site, this is not possible.

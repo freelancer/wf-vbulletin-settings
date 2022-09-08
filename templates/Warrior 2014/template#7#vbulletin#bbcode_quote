@@ -1,0 +1,21 @@
+<div class="VBEditorContent-quote" style="margin:20px; margin-top:5px; <if condition="$show['iewidthfix']">width: 100%;</if>">
+	<table cellpadding="$stylevar[cellpadding]" cellspacing="0" border="0" width="100%">
+		<tr>
+			<td class="alt2" style="border:1px inset">
+				<if condition="$show['username']">
+					<div><phrase 1="$username">$vbphrase[originally_posted_by_x]</phrase>
+						<if condition="$postid">
+							<a href="/showthread.php?$session[sessionurl]p=$postid#post$postid" rel="nofollow">
+								<img class="inlineimg" src="//cdn.warriorforum.com/$stylevar[imgdir_button]/viewpost.gif" border="0" alt="$vbphrase[view_post]" />
+							</a>
+						</if>
+					</div>
+					<br>
+					<div style="font-style:italic">$message</div>
+				<else />
+					$message
+				</if>
+			</td>
+		</tr>
+	</table>
+</div>

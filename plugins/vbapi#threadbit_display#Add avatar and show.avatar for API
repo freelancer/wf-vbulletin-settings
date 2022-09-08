@@ -1,0 +1,14 @@
+if (defined('VB_API') AND VB_API === true)
+{
+        require_once(DIR . '/includes/functions_user.php');
+	// We need to fetch avatar url
+	if (intval($thread['postuserid']) AND $vbulletin->options['avatarenabled'])
+	{
+		$avatar = fetch_avatar_url($thread['postuserid']);
+	}
+
+	if (!isset($avatar) )
+	{
+		$avatar = false;
+	}
+}

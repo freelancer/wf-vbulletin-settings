@@ -1,0 +1,17 @@
+Dear $username,
+
+We have now activated your account at the $vboptions[bbtitle]. The forums can be found here:
+
+$vboptions[bburl]/$vboptions[forumhome].php
+
+Your login details are as follows:
+Username: $username
+Password: as you entered it when you registered
+
+Don't forget that your password is case sensitive.
+
+To edit your profile, please visit this page:
+$vboptions[bburl]/profile.php?do=editprofile
+
+All the best,
+$vboptions[bbtitle]

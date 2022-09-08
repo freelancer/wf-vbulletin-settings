@@ -1,0 +1,4 @@
+
+$vbpua_lasthook='album_start_precheck';
+include(DIR.'/includes/vbvua_hooks.php');
+             

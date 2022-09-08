@@ -1,0 +1,16 @@
+This page contains several counters that you can update.<br /><br />
+
+<b>Rebuild Blog Entry Information:</b><br />
+This feature will rebuild the total comments, trackbacks and last post information for each blog entry.<br /><br />
+
+<b>Rebuild Blog User Information:</b><br />
+This will rebuild the total entry count for categories as well as the total entries, comments, trackbacks and last post information for each blog.<br /><br />
+
+<b>Rebuild Blog Counters:</b><br />
+This will rebuild the total entry count for categories, total attachments and trackbacks for a blog entry.<br /><br />
+
+<b>Clear Parsed Text Cache:</b><br />
+This will clear all the current cached text entries, this may be useful if you have added or changed permissions on a bbcode or other settings affecting post output.<br /><br />
+
+<b>Rebuild Attachment Thumbnails:</b><br />
+Rebuilding thumbnails is necessary after changing your thumbnail settings in your <a href="options.php?dogroup=attachment&do=options" target="_blank">vBulletin options</a>.<br /><br />

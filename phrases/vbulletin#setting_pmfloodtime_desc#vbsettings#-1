@@ -1,0 +1,3 @@
+Private Message Flood Checking. Select the minimum time in seconds that must pass before a user can send another private message. This is to prevent a single user 'spamming' by sending lots of messages very quickly.<br />
+<br />
+Set this to 0 to disable the option.

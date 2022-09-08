@@ -1,0 +1,12 @@
+There is a new user, $username at $vboptions[bbtitle]
+
+To view their profile, go here:
+
+$vboptions[bburl]/member.php?u=$userid
+
+Email Address : $email
+Birthday : $birthday
+Referrer: $referrer
+IP Address: $ipaddress
+
+$customfields

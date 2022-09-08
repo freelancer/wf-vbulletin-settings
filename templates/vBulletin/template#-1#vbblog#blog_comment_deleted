@@ -1,0 +1,66 @@
+<li id="comment$response[blogtextid]">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" style="margin-bottom:$stylevar[cellpadding]px; clear:both" width="100%">
+<tr>
+	<td class="thead" align="center" valign="top" $response[scrolltothis]<if condition="!$show['inlinemod']"> rowspan="2"</if>>
+		<a name="comment$response[blogtextid]" href="blog.php?$session[sessionurl]bt=$response[blogtextid]" rel="nofollow"><img class="inlineimg" src="$stylevar[imgdir_statusicon]/post_$response[statusicon].gif" alt="$response[statustitle]" border="0" /></a>
+	</td>
+	<td class="<if condition="$show['entryposter']">entryposter </if>alt1" style="padding:0px">
+		<div id="td_comment_$response[blogtextid]" style="padding:$stylevar[cellpadding]px">
+			<div class="smallfont" style="float:$stylevar[right]" id="view_comment$response[blogtextid]"><img style="display: none" id="comment_progress_$response[blogtextid]" src="$stylevar[imgdir_misc]/progress.gif" alt="$vbphrase[loading_content_please_wait]" /> <a href="blog.php?bt=$response[blogtextid]&amp;uh=1#comment$response[blogtextid]">$vbphrase[view_comment]</a></div>
+			<div class="smallfont shade"><phrase 1="member.php?u=$response[del_userid]" 2="$response[del_username]">$vbphrase[this_comment_has_been_deleted_by_user]</phrase></div>
+			<if condition="$response['del_reason']">
+				<div class="smallfont"><em>$response[del_reason]</em></div>
+			</if>
+		</div>
+	</td>
+</tr>
+<tr>
+	<if condition="$show['inlinemod']">
+		<td class="thead" style="padding:0px" align="center" valign="middle">
+			<input class="inlineimg" type="checkbox" name="commentlist[$response[blogtextid]]" id="commentlist_$response[blogtextid]" value="$response[checkbox_value]" title="$vbphrase[select_this_item_for_inline_moderation]" style="margin:-2px" />
+		</td>
+	</if>
+	<td class="alt2 smallfont" width="100%">
+
+			<if condition="$show['edit'] OR $show['inlinemod']">
+				<div style="float:$stylevar[right]" class="smallfont">
+					<if condition="$show['edit']">
+						<a href="blog_post.php?$session[sessionurl]do=editcomment&amp;bt=$response[blogtextid]"><img src="$stylevar[imgdir_misc]/blog/edit.gif" alt="$vbphrase[edit_comment]" border="0" class="inlineimg" /></a>
+					</if>
+					<if condition="$show['reportlink']">
+						<a href="blog_report.php?$session[sessionurl]bt=$response[blogtextid]"><img src="$stylevar[imgdir_misc]/blog/report.gif" alt="$vbphrase[report_comment]" border="0" class="inlineimg" /></a>
+					</if>
+					<if condition="$show['moderation']">
+						<div style="float:$stylevar[left]"><img class="inlineimg" src="$stylevar[imgdir_misc]/moderated.gif" alt="$vbphrase[moderated_comment]" border="0" /></div>
+					</if>
+					<if condition="$response['blogipaddress']">
+						<a href="blog.php?do=viewip&amp;bt=$response[blogtextid]"><img src="$stylevar[imgdir_misc]/blog/computer.gif" alt="$vbphrase[ip_address]: $response[blogipaddress]" border="0" class="inlineimg" /></a>
+					</if>
+				</div>
+			</if>
+
+			<if condition="$response['userid']">
+				<span class="shade"><phrase 1="$response[date]" 2="$response[time]" 3="blog.php?$session[sessionurl]u=$response[userid]" 4="$response[username]">$vbphrase[posted_date_at_time_by_user]</phrase></span>
+				<if condition="$response['onlinestatus'] == 0">
+						<img class="inlineimg" src="$stylevar[imgdir_misc]/blog/status_offline.gif" alt="<phrase 1="$response[username]">$vbphrase[x_is_offline]</phrase>" border="0" />
+				<else />
+					<if condition="$response['onlinestatus'] == 1">
+						<img class="inlineimg" src="$stylevar[imgdir_misc]/blog/status_online.gif" alt="<phrase 1="$response[username]">$vbphrase[x_is_online_now]</phrase>" border="0" />
+					<else />
+						<if condition="$response['onlinestatus'] == 2">
+							<img class="inlineimg" src="$stylevar[imgdir_misc]/blog/status_invisible.gif" alt="<phrase 1="$response[username]">$vbphrase[x_is_invisible]</phrase>" border="0" />
+						</if>
+					</if>
+				</if>
+			<else />
+				<span class="shade"><phrase 1="$response[date]" 2="$response[time]" 3="$response[username]">$vbphrase[posted_date_at_time_by_guest]</phrase></span>
+			</if>
+	</td>
+</tr>
+</table>
+<script type="text/javascript">
+<!--
+	vBulletin.register_control("vB_QuickLoad", "$response[blogtextid]");
+//-->
+</script>
+</li>

@@ -1,0 +1,37 @@
+if ($table == 'blog_moderator')
+{
+	$idfield = 'blogmoderatorid';
+
+	$item = $vbulletin->db->query_first("
+		SELECT blogmoderatorid, username
+		FROM " . TABLE_PREFIX . "blog_moderator AS blog_moderator
+		LEFT JOIN " . TABLE_PREFIX . "user AS user USING (userid)
+		WHERE blogmoderatorid = $itemid
+	");
+	$item['title'] = $item['username'];
+	$handled = true;
+}
+else if ($table == 'blog_featured')
+{
+	$idfield = 'featureid';
+
+	$item = $vbulletin->db->query_first("
+		SELECT featureid
+		FROM " . TABLE_PREFIX . "blog_featured
+		WHERE featureid = $itemid
+	");
+	$item['title'] = 'featureid';
+	$handled = true;
+}
+else if ($table == 'blog_category')
+{
+	$idfield = 'blogcategoryid';
+
+	$item = $vbulletin->db->query_first("
+		SELECT blogcategoryid
+		FROM " . TABLE_PREFIX . "blog_category
+		WHERE blogcategoryid = $itemid AND userid = 0
+	");
+	$item['title'] = 'blogcategoryid';
+	$handled = true;
+}

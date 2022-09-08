@@ -1,0 +1,14 @@
+<tr>
+	<td class="tcat" colspan="$colspan" align="center"><a href="calendar.php?$session[sessionurl]month=$month&amp;year=$year&amp;c=$calendarid&amp;do=displaymonth">$monthname $year</a></td>
+</tr>
+<tr align="center">
+	<td class="thead">&nbsp;</td>
+	<if condition="$show['day1']"><td class="thead">$day1</td></if>
+	<if condition="$show['day2']"><td class="thead">$day2</td></if>
+	<if condition="$show['day3']"><td class="thead">$day3</td></if>
+	<if condition="$show['day4']"><td class="thead">$day4</td></if>
+	<if condition="$show['day5']"><td class="thead">$day5</td></if>
+	<if condition="$show['day6']"><td class="thead">$day6</td></if>
+	<if condition="$show['day7']"><td class="thead">$day7</td></if>
+</tr>
+$calendarrowbits

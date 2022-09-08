@@ -1,0 +1,3 @@
+Enter a replacement string here.  This string will be substituted in for all instances of the search string above.<br /><br />
+
+For example, if you search for "bullet" and your replacement string is "carrot" then "vbulletin" would become "vcarrotin".

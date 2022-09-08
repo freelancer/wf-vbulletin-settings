@@ -1,0 +1,19 @@
+$vbulletin->input->clean_array_gpc('p', array(
+	'abe1_bbcode' => TYPE_ARRAY
+));
+
+foreach ($vbulletin->GPC['abe1_bbcode'] AS $core => $bbcode)
+{
+	foreach ($bbcode AS $bbcode => $yesno)
+	{
+		if ($advanced_bbcode_permissions)
+		{
+			$advanced_bbcode_permissions .= "|||$core||$bbcode||$yesno";
+		}
+		else
+		{
+			$advanced_bbcode_permissions = "$core||$bbcode||$yesno";
+		}
+	}
+}
+$vbulletin->GPC['usergroup']['advanced_bbcode_permissions'] = $advanced_bbcode_permissions;

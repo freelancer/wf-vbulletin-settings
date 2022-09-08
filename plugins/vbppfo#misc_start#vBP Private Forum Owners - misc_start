@@ -1,0 +1,5 @@
+
+				$vbppfo_lasthook='misc_start';
+				include(DIR.'/includes/vbppfo_hooks.php');
+			
+			

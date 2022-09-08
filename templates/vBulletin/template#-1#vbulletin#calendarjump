@@ -1,0 +1,40 @@
+<form action="calendar.php" method="get">
+<div class="smallfont" style="text-align:$stylevar[left]; white-space:nowrap; margin-bottom:$stylevar[cellpadding]px">
+	<input type="hidden" name="s" value="$session[sessionhash]" />
+	<input type="hidden" name="c" value="$calendarinfo[calendarid]" />
+	<input type="hidden" name="week" value="$week" />
+	<strong>$vbphrase[jump_to_month]</strong><br />
+	<select name="month">
+		<option value="1" $monthselected[1]>$vbphrase[january]</option>
+		<option value="2" $monthselected[2]>$vbphrase[february]</option>
+		<option value="3" $monthselected[3]>$vbphrase[march]</option>
+		<option value="4" $monthselected[4]>$vbphrase[april]</option>
+		<option value="5" $monthselected[5]>$vbphrase[may]</option>
+		<option value="6" $monthselected[6]>$vbphrase[june]</option>
+		<option value="7" $monthselected[7]>$vbphrase[july]</option>
+		<option value="8" $monthselected[8]>$vbphrase[august]</option>
+		<option value="9" $monthselected[9]>$vbphrase[september]</option>
+		<option value="10" $monthselected[10]>$vbphrase[october]</option>
+		<option value="11" $monthselected[11]>$vbphrase[november]</option>
+		<option value="12" $monthselected[12]>$vbphrase[december]</option>
+	</select>
+	<select name="year">
+		$yearbits
+	</select>$gobutton
+</div>
+</form>
+
+<form action="calendar.php" method="get">
+<div class="smallfont" style="text-align:$stylevar[left]; white-space:nowrap">
+	<input type="hidden" name="s" value="$session[sessionhash]" />
+	<input type="hidden" name="month" value="$month" />
+	<input type="hidden" name="year" value="$year" />
+	<input type="hidden" name="do" value="$docalendar" />
+	<strong>$vbphrase[calendar_jump]</strong><br />
+	<select name="c" onchange="this.form.submit();">
+		<optgroup label="$vbphrase[please_select_one]">
+		$jumpcalendarbits
+		</optgroup>
+	</select>$gobutton
+</div>
+</form>

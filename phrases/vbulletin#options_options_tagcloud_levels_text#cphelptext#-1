@@ -1,0 +1,3 @@
+This is the number of sizes that tags are displayed in.<br />
+<br />
+If you wish to increase this value above 5, you will need to edit the search_forums template and add additional CSS rules at the top.

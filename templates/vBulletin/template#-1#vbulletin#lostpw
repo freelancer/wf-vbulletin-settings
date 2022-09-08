@@ -1,0 +1,60 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $vbphrase[lost_password_recovery_form]</title>
+</head>
+<body>
+$header
+<if condition="$navbar">$navbar<else /><br /><br /></if>
+
+<form action="login.php?do=emailpassword" method="post">
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[lost_password_recovery_form]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+		<div class="fieldset">
+			<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+			<tr>
+				<td>$vbphrase[forgotten_password_request_email]</td>
+			</tr>
+			<tr>
+				<td>
+					$vbphrase[email_address]:<br />
+					<input type="text" class="bginput" name="email" size="35" maxlength="90" value="$email" dir="ltr" />
+				</td>
+			</tr>
+			<if condition="$human_verify">
+			<tr>
+				<td>$human_verify</td>
+			</tr>
+			</if>
+			</table>
+		</div>
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="hidden" name="s" value="$session[sessionhash]" />
+		<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+		<input type="hidden" name="do" value="emailpassword" />
+		<input type="hidden" name="url" value="$url" />
+		<input type="submit" class="button" value="$vbphrase[request_username_password_now]" accesskey="s" />
+	</div>
+	</td>
+</tr>
+</table>
+
+</form>
+
+$footer
+
+</body>
+</html>

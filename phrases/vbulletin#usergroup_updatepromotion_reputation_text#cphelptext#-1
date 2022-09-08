@@ -1,0 +1,3 @@
+This is the boundary value for reputation level that is used to determine if a user should be promoted.<br /><br />
+
+If a user's reputation level is "Greater or Equal to" or "Less Than" (depending on the "Reputation Comparison Type" you selected above) this number then the user will be promoted.  This value will only be used if "Reputation" is included in the "Promotion Strategy" setting bellow.

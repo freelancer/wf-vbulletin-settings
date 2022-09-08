@@ -1,0 +1,17 @@
+<table style="width:{$picturebit_width}px; margin:5px; float:$stylevar[left]" border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td class="smallfont" align="center" valign="middle" style="height:{$picturebit_height}px">
+	<if condition="$picture['thumburl']">
+		<a href="album.php?$session[sessionurl]albumid=$picture[albumid]&amp;pictureid=$picture[pictureid]&amp;commentid=$picture[unreadcommentid]#picturecomment$picture[unreadcommentid]"><img class="alt2" src="$picture[thumburl]" alt="$picture[caption_preview]" border="0" style="
+			padding:$stylevar[cellpadding]px;
+			<if condition="!$usercss">border:solid $stylevar[cellspacing]px $stylevar[tborder_bgcolor]</if>
+		" $picture[dimensions] /></a>
+	<else />
+		<a href="album.php?$session[sessionurl]albumid=$picture[albumid]&amp;pictureid=$picture[pictureid]&amp;commentid=$picture[unreadcommentid]#picturecomment$picture[unreadcommentid]"><if condition="$picture['caption_preview']">$picture[caption_preview]<else />$vbphrase[picture]</if></a>
+	</if>
+	</td>
+</tr>
+<tr>
+	<td class="smallfont" align="center"><a href="album.php?$session[sessionurl]albumid=$picture[albumid]&amp;pictureid=$picture[pictureid]&amp;commentid=$picture[unreadcommentid]#picturecomment$picture[unreadcommentid]"><phrase 1="$picture[unreadcomments]">$vbphrase[x_unread]</phrase></a></td>
+</tr>
+</table>

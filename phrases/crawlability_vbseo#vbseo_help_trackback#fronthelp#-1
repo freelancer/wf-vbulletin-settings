@@ -1,0 +1,25 @@
+
+<p><img src="vbseo/resources/images/forum/trackback.gif" alt="Trackback" width="347" height="110" style="float:right" />A Trackback is simply an acknowledgment. This acknowledgment is sent via a network signal (ping) from Site A (originator) to Site B (receptor). The receptor often publishes a link back to the originator indicating its worthiness.</p>
+<p>Trackback requires both, Site A and Site B to be Trackback enabled in order to establish this communication. Trackback does not require for Site A to phisically link to Site B.</p>
+<p><strong><a onclick="return   toggle_collapse('tforum')" href="#">Trackback our Forums from another Site</a></strong></p>
+<div id="collapseobj_tforum" style="display:none">
+<ol>
+<li>Find the thread Trackback URL - In our forums, the Trackback URL is also the &quot;LinkBack URL&quot;, located under the LinkBack dropdown menu within each thread.
+</li>
+<li>Copy and paste this URL into your publishing platform</li>
+<li>Submit your entry.</li>
+</ol>
+<p>Note: If the forum administrator requires moderation for Incoming Trackbacks, a link-back to the site originating the Trackback will be published only after the Trackback has been manually approved by a moderator.</p>
+<p>Once a Trackback has been published, an automated notification email will be sent to the thread contributors.</p>
+</div>
+<p><strong><a onclick="return toggle_collapse('tsite')" href="#">Trackback other Sites from our Forums</a></strong></p>
+<div id="collapseobj_tsite" style="display:none">
+<ol>
+<li>Find the entry's Trackback URL - Find the URL for the resource you wish to Trackback. This 'Trackback' URL is<br />
+usually located somewhere visible in a blog entry or within the Linkback dropdown in forum threads.</li>
+<li>Create (or reply to) a thread; enter the Trackback URL - Trackback enabled forums include an additional <br />
+'Trackback' field where you can enter sites you wish to Trackback when submitting your entry.</li>
+<li>Submit your entry - The trackback will be sent automatically when your thread (or post) is created.</li>
+</ol>
+<p>Note: If the Trackback recipient site requires moderation for Trackbacks, a link-back to the thread originating the Trackback will be published only after the Trackback has been manually approved by the recipient's site administrator.</p>
+</div>

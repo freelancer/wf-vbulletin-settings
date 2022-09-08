@@ -1,0 +1,1 @@
+If this is set to No, users will not be allowed to delete their posts. Note that if Can delete own threads below is set to No, they will not be able to delete their post if it is the first post in a thread, even if this is set to Yes.

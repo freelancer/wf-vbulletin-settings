@@ -1,0 +1,86 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+	$headinclude
+	<title>$vboptions[bbtitle] - $custompagetitle</title>
+	$memberinfo_css
+	$socialgroups_css
+	<script type="text/javascript" src="clientscript/vbulletin_ajax_namesugg.js?v=$vboptions[simpleversion]"></script>
+
+	<script type="text/javascript" src="clientscript/vbulletin_ajax_userlist.js?v=$vboptions[simpleversion]"></script>
+</head>
+<body>
+	$header
+	$navbar
+
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat"><span style="float:$stylevar[right]" class="smallfont"><a href="group.php?$session[sessionurl]groupid=$group[groupid]">$group[name]</a></span>$vbphrase[manage_members]</td>
+	</tr>
+	<tr>
+		<td class="panelsurround" align="center">
+			<div class="panel">
+				<div align="center">
+					<fieldset class="fieldset" id="memberlist_container" style="width: $stylevar[formwidth]; text-align: $stylevar[left];">
+						<legend>$vbphrase[manage_members]</legend>
+						<if condition="$memberbits">
+							<form action="group.php?$session[sessionurl]do=pendingmembers&amp;groupid=$group[groupid]" method="post" id="memberlist_change_form">
+								<input type="hidden" name="do" value="kickmembers" />
+								<input type="hidden" name="s" value="$session[sessionhash]" />
+								<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+								<input type="hidden" name="groupid" value="$group[groupid]" />
+
+								<div class="checkbox_ctrls floatcontainer">
+									<label class="check_all_ctrl shade"><input type="checkbox" id="memberlist_checkall" />$vbphrase[check_uncheck_all]</label>
+								</div>
+								<div class="userlist_title">$vbphrase[kick_members]</div>
+								<div class="userlist_description">$vbphrase[kick_members_description]:</div>
+								<ul class="userlist userlist_hiddenavatars floatcontainer" id="memberlist">
+									$memberbits
+								</ul>
+								<div class="submitrow smallfont" style="margin-top: $stylevar[cellpadding]px;">
+									<input type="submit" class="button" id="moderated_submit" value="$vbphrase[kick_members]" />
+								</div>
+							</form>
+
+							<script type="text/javascript">
+							<!--
+							vBulletin.register_control("vB_UserList_Highlighter", "memberlist");
+							//-->
+							</script>
+						<else />
+							$vbphrase[last_member_of_group]
+						</if>
+
+					</fieldset>
+				</div>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+	<script type="text/javascript">
+		<!--
+
+		//    snc_buddylist = new vB_AJAX_NameSuggest("snc_buddylist", "buddylist_add_txt", "buddylist_add");
+
+		// ajax saver
+		//    vBulletin.register_control("vB_UserList_Saver", "buddylist");
+		//    vBulletin.register_control("vB_UserList_Saver", "incomingreqs");
+		// img-label handler
+// 		vBulletin.register_control("vB_UserList_Highlighter", "invitedlist");
+
+// 		console.log("foo");
+		//vBulletin.register_control("vB_UserList_Highlighter", "incomingreqs");
+		//-->
+	</script>
+$footer
+</body>
+</html>
+
+
+
+<!-- Still to edit -->
+
+

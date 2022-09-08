@@ -1,0 +1,3 @@
+When a username is changed, you may wish to prevent users from registering with that name for a certain length of time.<br />
+<br />
+Enter the number of days which an old username is reserved for. (Use 0 to disable.)

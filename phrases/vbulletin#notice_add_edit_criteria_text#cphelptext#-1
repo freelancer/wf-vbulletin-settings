@@ -1,0 +1,22 @@
+Here, there are listed a number of conditions you can set in order for your notice to be displayed.<br />
+<br />
+To activate a criterion, check the checkbox next to its description, then enter the values you would like to use in the form fields for that criterion, if it has any.<br />
+<br />
+All active criteria must be satisfied in order for a notice to be displayed.<br />
+<br />
+For criteria that are of the form 'value is between x and y', the condition is inclusive. Therefore, if you have a criterion saying 'User has between 10 and 20 reputation points', a user with 10 or 20 reputation points or any value between would be shown the notice.<br />
+<br />
+Additionally, these 'value is between x and y' criteria can be used as 'less than' or 'greater than' conditions. To do this, leave the <em>first</em> box totally empty to set a condition of 'less than the value in the second box', or leave the <em>second</em> box blank to use a condition of 'greater than the value in the first box'.<br />
+<br />
+The 'Criteria for notice x are not met' condition is a special case. It works by looking back over the list of notices that have been selected for display, and then removing notices that are dependent on another notice not being matched for display.<br />
+<br />
+Consider the following example:<ul>
+<li>Notices A, B and C exist.</li>
+<li>Notice A is shown when visiting users belong to the 'Registered Users' group</li>
+<li>Notice B is shown if criteria for notice A are not met</li>
+<li>Notice C is shown if criteria for notice B are not met</li>
+<li>A registered user views a page. Notice A is shown</li>
+<li>Notice B is not shown, because the criteria for showing Notice A are met</li>
+<li>Notice C is not shown, because (with the exception of the 'Criteria for notice x are not met' condition), Notice B would have been shown.</li>
+<li>The final result is that only Notice A is shown. The same is true regardless of the order in which the notices are executed or displayed.</li>
+</ul>

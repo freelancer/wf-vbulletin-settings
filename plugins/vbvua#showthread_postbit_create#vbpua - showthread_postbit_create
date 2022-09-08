@@ -1,0 +1,4 @@
+
+$vbpua_lasthook='showthread_postbit_create';
+include(DIR.'/includes/vbvua_hooks.php');
+             

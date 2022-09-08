@@ -1,0 +1,26 @@
+
+<div class="vbseo_buttons" id="lkbtn_$contenttype.$contentgroup.$contentid">
+<if condition="$bookmarks || (!$own_content && $show[member])">
+    <ul class="vbseo_links"<if condition="$like_link_visible"> style="visibility:visible"</if>>
+    <if condition="$bookmarks">
+    <li class="vbseo_share"><a href="#">$vbphrase[vbseo_share]</a>
+    <ul class="vbseo_share_body">
+	<li class="share_header">$vbphrase[vbseo_share_this_post]</li>
+	<vb:each from="bookmarks" key="ind" value="bm">
+    	<li class="<if condition="$ind%2">left<else />right</if>"><img src="$bm[image]" width="18px" height="18px" alt="" /><a href="$bm[url]">$bm[text]</a></li>
+    </vb:each>
+    </ul>
+    </li>
+    <if condition="!$own_content && $show[member]">
+    <li class="seperator"> | </li>
+    </if>
+    </if>
+    <if condition="!$own_content && $show[member]">
+    <li class="vbseo_like"><a href="#" onclick="return false" class="vbseo_like_link"><if condition="$own_liked">$vbphrase[vbseo_unlike]<else />$vbphrase[vbseo_like]</if></a></li>
+    </if>
+    </ul>
+</if>
+    <div class="alt2 vbseo_liked"<if condition="!$vbseo_liked"> style="display:none"</if>>$vbseo_liked</div>
+
+
+</div>

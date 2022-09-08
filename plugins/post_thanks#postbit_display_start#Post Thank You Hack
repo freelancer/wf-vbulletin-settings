@@ -1,0 +1,24 @@
+require_once(DIR . '/includes/functions_post_thanks.php');
+
+if (!(defined('LOCATION_BYPASS')) && !(post_thanks_off($this->thread['forumid'], $this->post, $this->thread['firstpostid'], THIS_SCRIPT)))
+{
+	global $ids;
+
+	$thanks = fetch_thanks($this->post['postid'], $ids);
+
+	if (thanked_already($this->post) && $this->registry->options[post_thanks_delete_own])
+	{
+		$this->post['show_thanks_remove_option'] = true;
+	}
+
+	if ($this->post['post_thanks_amount'] > 0 && $this->thread['isdeleted'] == 0)
+	{
+		$this->post['post_thanks_bit'] = fetch_thanks_bit($this->thread['forumid'], $thanks);
+		$this->post['post_thanks_user'] = $post_thanks_user;
+		$this->post['post_thanks_amount_formatted'] = vb_number_format($this->post['post_thanks_amount']);
+
+		$post_thanks_box = fetch_post_thanks_template($this->post);
+	}
+
+	eval('$template_hook[postbit_end] .= " ' . fetch_template('post_thanks_box') . '";');
+}

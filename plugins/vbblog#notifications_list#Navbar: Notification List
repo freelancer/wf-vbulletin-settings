@@ -1,0 +1,12 @@
+if (
+		$vbulletin->userinfo['permissions']['vbblog_general_permissions'] & $vbulletin->bf_ugp_vbblog_general_permissions['blog_canjoingroupblog']
+			AND
+		$vbulletin->userinfo['permissions']['vbblog_general_permissions'] & $vbulletin->bf_ugp_vbblog_general_permissions['blog_canviewothers']
+	)
+	{
+		$notifications['bloggroupreqcount'] = array(
+			'phrase' => $vbphrase['invitations_to_join_blogs'],
+			'link'   => 'blog_usercp.php?' . $vbulletin->session->vars['sessionurl'] . 'do=groups',
+			'order'  => 200
+		);
+	}

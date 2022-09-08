@@ -1,0 +1,13 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=user&amp;pageaction=&amp;option=">Users</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=usertools&amp;pageaction=&amp;option=">User Tools</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=banning&amp;pageaction=&amp;option=">User Banning</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=email&amp;pageaction=&amp;option=">Emailing Users</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=accessmask&amp;pageaction=&amp;option=">Access Masks</a><br /><br />
+
+<b>User Banning:</b><br />
+The banning pages in the Users tab of the Admin CP allow you to ban users and view users which are currently banned.<br /><br />
+
+You can ban users at the <i>Ban User</i> page of the Moderator Control Panel.  You are given a choice of ban length and banned usergroup to which you want to move the user.  If you want a usergroup to be used for banning then you need to enable the "This Usergroup is a 'Banned' Group" option for that group in the <a href="usergroup.php?do=modify" target="_blank">Usergroup Manager</a>; all usergroups with this option enabled will show up as selectable banned usergroups on the Ban User page.<br /><br />
+
+Additionally, you can view a list of currently banned users on the View Banned Users page of the Moderator Control Panel.  This page shows you all current temporary and permanent bans and gives you the option to lift any bans you choose.

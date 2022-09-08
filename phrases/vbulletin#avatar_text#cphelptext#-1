@@ -1,0 +1,8 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=image&amp;pageaction=&amp;option=">Avatars, Post Icons, and Smilies</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=avatar&amp;pageaction=&amp;option=">User Picture Storage</a><br /><br />
+
+<b>User Picture Storage:</b><br />
+vBulletin supports two storage types for avatars and profile pictures : database or file system.<br /><br />
+
+Both methods have advantages and disadvantages.  The database is easier to backup than individual files.  However, storing user pictures in the database is also an extra burden on the database when images are loaded on forum pages.  Other considerations include how you want to protect access to the images, whether you want to use vBulletin's permission system or directory permissions like htaccess.

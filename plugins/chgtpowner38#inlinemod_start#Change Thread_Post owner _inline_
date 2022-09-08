@@ -1,0 +1,365 @@
+
+
+if ($_POST['do']=="changethreadsowner" || $_POST['do']=="dochangethreadsowner" || $_POST['do']=="changepostsowner" || $_POST['do']=="dochangepostsowner")
+{
+	$has_permission = false;
+	if ($vbulletin->options['changethreadsowner_gp']) {
+		foreach(split(",", $vbulletin->options['changethreadsowner_gp']) as $gp) {
+			if (is_member_of($vbulletin->userinfo, $gp)) {	
+				$has_permission = true;
+				break;
+			}
+		}
+
+	} else {
+		$has_permission = can_moderate($threadinfo['forumid']);
+	}
+
+	if (!$has_permission) {
+		print_no_permission();
+	} 
+
+	if (count($vbulletin->GPC['tlist']) > $threadlimit)	{
+		eval(standard_error(fetch_error('you_are_limited_to_working_with_x_threads', $threadlimit)));
+	}
+
+	if (count($vbulletin->GPC['plist']) > $postlimit) {
+		eval(standard_error(fetch_error('you_are_limited_to_working_with_x_posts', $postlimit)));
+	}
+
+}
+
+
+// ##########################
+// ### Change Posts Owner ###
+// ##########################
+if ($_POST['do']=="dochangepostsowner" || $_POST['do']=="dochangethreadsowner" )
+{
+	
+	
+
+	$changedate = false;
+	$arrnewdate = $vbulletin->input->clean_gpc('p', 'date', TYPE_ARRAY);
+	$newdate = mktime($arrnewdate['hour'], $arrnewdate['minute'], $arrnewdate['second'], $arrnewdate['month'], $arrnewdate['day'], $arrnewdate['year']);
+	if ($arrnewdate['change'] == 'on')
+	{
+		$changedate = true;
+	}
+		
+	$newpostowner = $vbulletin->input->clean_gpc('p', 'newthreadowner', TYPE_NOHTML);
+	$setunregistered = $vbulletin->input->clean_gpc('p', 'setunregistered', TYPE_NOHTML);
+	$newpostowner = $db->escape_string($newpostowner);
+	
+	if ($setunregistered == 'on')
+	{
+		$changeuser = true;
+		$userinfo['userid'] = 0;
+		if (strlen($newpostowner) > 0)
+		{
+			$userinfo['username'] = $newpostowner;
+		} else {
+			$userinfo['username'] = $vbphrase['unregistered'];
+		}
+		
+		$userinfo['ipaddress'] = "";
+	} else {
+		$changeuser = false;
+
+		if (is_numeric($newpostowner))
+		{
+			$querywhat = "userid";
+		} else {
+			$querywhat = "username";
+		}
+		
+		$getuseridq = $vbulletin->db->query_read("SELECT ipaddress, userid, username FROM " . TABLE_PREFIX . "user WHERE ".$querywhat."='".$newpostowner."'");
+		if ($db->num_rows($getuseridq) > 0)
+		{
+			$userinfo = $vbulletin->db->fetch_array($getuseridq);
+			$changeuser = true;
+		}
+	}
+
+
+	if (!$changeuser AND !$changedate)
+	{
+		eval(standard_error(fetch_error('invalidid', $vbphrase['user'], $vbulletin->options['contactuslink'])));
+	}
+	
+	
+}
+
+if ($_POST['do']=="changepostsowner")
+{
+
+		
+	if (empty($vbulletin->GPC['plist']))
+	{
+		eval(standard_error(fetch_error('no_applicable_posts_selected')));
+	}
+
+	$postids = implode(',', $vbulletin->GPC['plist']);
+	$navbits[''] = $vbphrase['changethreadsowner_title'];
+	$template = 'forumdisplay_changethreadsowner';	
+	
+	$postq = $db->query_read("SELECT
+		p.dateline
+		FROM " . TABLE_PREFIX . "post as p
+		WHERE p.postid=".$vbulletin->GPC['plist'][0]);
+	
+	if ($db->num_rows($postq) > 0)
+	{
+		$datepost = $db->fetch_array($postq);
+		$mydate['day'] = date("d", $datepost['dateline']);
+		$mydate['month'] = date("m", $datepost['dateline']);
+		$mydate['year'] = date("Y", $datepost['dateline']);
+		
+		$mydate['hour'] = date("H", $datepost['dateline']);
+		$mydate['minute'] = date("i", $datepost['dateline']);
+		$mydate['second'] = date("s", $datepost['dateline']);
+	}
+
+}
+
+
+if ($_POST['do']=="dochangepostsowner")
+{
+	$vbulletin->input->clean_array_gpc('p', array('postids' => TYPE_STR));
+	$postids = explode(',', $vbulletin->GPC['postids']);
+	foreach ($postids AS $index => $postid)
+	{
+		$post['postid'] = $postid;
+		
+		$postq = $db->query_read("SELECT
+			p.userid,
+			p.username,
+			p.threadid,
+			t.forumid
+			FROM " . TABLE_PREFIX . "post as p
+			INNER JOIN " . TABLE_PREFIX . "thread as t ON p.threadid=t.threadid
+			WHERE p.postid=".$post['postid']);
+		
+		if ($db->num_rows($postq)>0)
+		{
+			$oldpost = $db->fetch_array($postq);
+		}
+
+		$postdm =& datamanager_init('Post', $vbulletin, ERRTYPE_STANDARD, 'threadpost'); 
+		$postdm->set_existing($post);	
+		if ($changeuser) 
+		{
+			if ($vbulletin->options['changethreadsowner_ip'])
+			{
+				$postdm->set('ipaddress', $userinfo['ipaddress'], true, false);
+			}
+			$postdm->set('userid', $userinfo['userid'], true, false);
+			$postdm->set('username', $userinfo['username'], true, false);
+		}
+		if ($changedate) 
+		{
+			$postdm->set('dateline', $newdate, true, false);
+		}
+		
+		$postdm->save();
+		unset($postdm);
+		
+		if ($changeuser) 
+		{
+			// Update Attachments
+			$updateattq = $db->query_write("UPDATE " . TABLE_PREFIX . "attachment SET userid=".$userinfo['userid']." WHERE postid=".$post['postid']);
+		}
+		
+		$threadlist["$oldpost[threadid]"] = true;
+		$forumlist["$oldpost[forumid]"] = true; 
+		
+		if ($changeuser) 
+		{
+			$userdm =& datamanager_init('User', $vbulletin, ERRTYPE_STANDARD);
+			$userdm->set_existing($oldpost);
+			$userdm->set('posts', 'IF(posts > 1, posts - 1, 0)', false);
+			$userdm->save();
+			unset($userdm);
+		
+			$userdm =& datamanager_init('User', $vbulletin, ERRTYPE_STANDARD);
+			$userdm->set_existing($userinfo);
+			$userdm->set('posts', 'posts + 1', false);
+			$userdm->save();
+			unset($userdm);
+		}
+
+		$modlog[] = array(
+			'userid'   =>& $vbulletin->userinfo['userid'],
+			'forumid'  =>& $oldpost['forumid'],
+			'threadid' =>  $oldpost['threadid'],
+			'postid'   => $post['postid'],
+		);
+		
+		log_moderator_action($modlog, 'changethreadsowner_modaction', array($oldpost['username'], $userinfo['username']));
+	} 
+		
+	foreach (array_keys($threadlist) AS $threadid)
+	{
+		build_thread_counters($threadid);
+	}
+	
+	foreach (array_keys($forumlist) AS $forumid)
+	{
+		build_forum_counters($forumid);
+	}
+
+
+
+
+	// empty cookie
+	setcookie('vbulletin_inlinepost', '', TIMENOW - 3600, '/');
+		
+	//Finished, go to last thread
+	$vbulletin->url = 'showthread.php?' . $vbulletin->session->vars['sessionurl'] . "t=".$oldpost['threadid'];
+	eval(print_standard_redirect('redirect_changethreadsowner_success', true)); 
+		
+}
+
+
+
+
+
+
+
+
+// ############################
+// ### Change Thread/Post owner ###
+// ############################
+if ($_POST['do']=="changethreadsowner") {
+	if (empty($vbulletin->GPC['tlist'])) {
+		eval(standard_error(fetch_error('you_did_not_select_any_valid_threads')));
+	}
+
+	$threadids = implode(',', $vbulletin->GPC['tlist']);
+	$navbits[''] = $vbphrase['changethreadsowner_title'];
+	$template = 'forumdisplay_changethreadsowner';	
+	
+	
+	$postq = $db->query_read("SELECT
+		t.dateline
+		FROM " . TABLE_PREFIX . "thread as t
+		WHERE t.threadid=".$vbulletin->GPC['tlist'][0]);
+	
+	if ($db->num_rows($postq) > 0)
+	{
+		$datepost = $db->fetch_array($postq);
+		$mydate['day'] = date("d", $datepost['dateline']);
+		$mydate['month'] = date("m", $datepost['dateline']);
+		$mydate['year'] = date("Y", $datepost['dateline']);
+		
+		$mydate['hour'] = date("h", $datepost['dateline']);
+		$mydate['minute'] = date("i", $datepost['dateline']);
+		$mydate['second'] = date("s", $datepost['dateline']);
+	}
+	
+	
+}
+
+
+if ($_POST['do']=="dochangethreadsowner")
+{
+	//Get Threads
+	
+	$vbulletin->input->clean_array_gpc('p', array('threadids' => TYPE_STR));
+	$threadids = explode(',', $vbulletin->GPC['threadids']);
+	foreach ($threadids AS $index => $threadid)
+	{
+
+		//Get Thread
+		$threaddm =& datamanager_init('Thread', $vbulletin, ERRTYPE_STANDARD, 'threadpost');
+		$threaddm->set_existing(fetch_threadinfo($threadid));
+		$firstpostid=$threaddm->fetch_field('firstpostid');
+		$olduser['userid']=$threaddm->fetch_field('postuserid');
+		$olduser['username']=$threaddm->fetch_field('postusername');
+		$forumid=$threaddm->fetch_field('forumid');
+		
+		$forumlist["$forumid"] = true; 
+		
+		//Update Thread
+		if ($changeuser) 
+		{
+			$threaddm->set('postuserid', $userinfo['userid'], true, false); 
+			$threaddm->set('postusername', $userinfo['username'], true, false); 
+		}
+		
+		if ($changedate) 
+		{
+			$threaddm->set('dateline', $newdate, true, false);
+		}
+
+		$threaddm->save();
+
+		//Update post
+		$postdm =& datamanager_init('Post', $vbulletin, ERRTYPE_STANDARD, 'threadpost'); 
+		$postdm->set_existing(fetch_postinfo($firstpostid));
+		if ($changeuser) 
+		{
+			if ($vbulletin->options['changethreadsowner_ip'])
+			{
+				$postdm->set('ipaddress', $userinfo['ipaddress'], true, false);
+			}
+			$postdm->set('userid', $userinfo['userid'], true, false);
+			$postdm->set('username', $userinfo['username'], true, false);
+		}
+		
+		if ($changedate) 
+		{
+			$postdm->set('dateline', $newdate, true, false);
+		}
+		
+		$postdm->save();
+		
+		if ($changeuser) 
+		{
+			//Update user's postcount
+			$userdm =& datamanager_init('User', $vbulletin, ERRTYPE_STANDARD);
+			$userdm->set_existing($olduser);
+			$userdm->set('posts', 'IF(posts > 1, posts - 1, 0)', false);
+			$userdm->save();
+			unset($userdm);
+		
+			$userdm =& datamanager_init('User', $vbulletin, ERRTYPE_STANDARD);
+			$userdm->set_existing($userinfo);
+			$userdm->set('posts', 'posts + 1', false);
+			$userdm->save();
+			unset($userdm);
+		}
+		
+		if ($changeuser) 
+		{
+			// Update Attachments
+			$updateattq = $db->query_write("UPDATE " . TABLE_PREFIX . "attachment SET userid=".$userinfo['userid']." WHERE postid=".$firstpostid);
+		}
+		
+		unset($threaddm);
+		unset($postdm);
+		
+		$modlog[] = array(
+			'userid'   =>& $vbulletin->userinfo['userid'],
+			'forumid'  =>& $forumid,
+			'threadid' => $threadid,
+		);
+		
+		build_thread_counters($threadid);
+		
+		log_moderator_action($modlog, 'changethreadsowner_modaction', array($olduser['username'], $userinfo['username']));
+	}
+	
+
+	foreach (array_keys($forumlist) AS $forumid) {
+		build_forum_counters($forumid);
+	}
+
+
+	// empty cookie
+	setcookie('vbulletin_inlinethread', '', TIMENOW - 3600, '/');
+		
+	//Finished
+	$vbulletin->url = 'forumdisplay.php?' . $vbulletin->session->vars['sessionurl'] . "f=".$forumid;
+	eval(print_standard_redirect('redirect_changethreadsowner_success', true)); 
+
+}

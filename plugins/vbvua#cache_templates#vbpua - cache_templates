@@ -1,0 +1,4 @@
+
+$vbpua_lasthook='cache_templates';
+include(DIR.'/includes/vbvua_hooks.php');
+             

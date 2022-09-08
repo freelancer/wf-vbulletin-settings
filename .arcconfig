@@ -1,0 +1,5 @@
+{
+    "project.name": "wf-vbulletin-settings",
+    "phabricator.uri": "https://phabricator.tools.flnltd.com",
+    "base": "git:merge-base(origin/master), arc:upstream, arc:prompt"
+}

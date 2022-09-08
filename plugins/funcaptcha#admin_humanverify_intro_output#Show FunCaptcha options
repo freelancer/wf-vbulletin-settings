@@ -1,0 +1,16 @@
+
+			if ($vbulletin->options['hv_type'] !== 'FunCaptcha')
+				return;
+			
+			print_form_header('verify', 'updateoptions');
+            print_table_header('FunCaptcha Options');
+            foreach($cache AS $setting)
+            {
+                if (preg_match('#^funcaptcha_#si', $setting['varname']))
+                {
+                    print_setting_row($setting, $settingphrase);
+                }
+            }
+            print_submit_row($vbphrase['save']);
+            echo '<div class="fc-frame" style="margin-left: auto;margin-right: auto;background: white;width: 89%;margin-top: 20px;border: ridge 4px;text-align: center;"><h3>FunCaptcha Registration</h3><p>You can register for your public and private keys below or at our <a href="http://www.funcaptcha.co/" target="_blank">website</a>.</p><iframe id="reg-fc" src="https://www.funcaptcha.co/wp-fc-register?plugin=vbulletin" scrolling="no" frameBorder="0" height="450px;" width="400px"></iframe></div>';
+		    

@@ -1,0 +1,3 @@
+This permission, when set to "yes" allows the user to edit the details of their own Social Groups.<br />
+<br />
+If there are no members of this group other than the owner, the owner will be able to edit the settings of this group even if this permission is set to no.

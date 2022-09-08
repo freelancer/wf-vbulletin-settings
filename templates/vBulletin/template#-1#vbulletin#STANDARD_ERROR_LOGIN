@@ -1,0 +1,89 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+<if condition="$show['search_noindex']"><meta name="robots" content="noindex,follow" /></if>
+$headinclude
+	<title>$pagetitle</title>
+$headinsert
+</head>
+<body>
+$header
+
+<!-- $_navbar // the navbar shows a login option that will break the purpose of this form -->
+<br /><br /><br />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="70%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[vbulletin_message]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]">
+
+			<script type="text/javascript" src="clientscript/vbulletin_md5.js?v=$vboptions[simpleversion]"></script>
+			<form action="login.php?do=login" method="post" onsubmit="md5hash(vb_login_password, vb_login_md5password, vb_login_md5password_utf, $show[nopasswordempty])">
+			<input type="hidden" name="do" value="login" />
+			<input type="hidden" name="url" value="$scriptpath" />
+			<input type="hidden" name="vb_login_md5password" />
+			<input type="hidden" name="vb_login_md5password_utf" />
+			$postvars
+
+			<input type="hidden" name="s" value="$session[sessionhash]" />
+			<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+
+			<blockquote><p>$errormessage</p></blockquote>
+
+			<fieldset class="fieldset">
+				<legend>$vbphrase[log_in]</legend>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" align="center">
+				<tr>
+					<td>$vbphrase[username]:<br /><input type="text" class="bginput" name="vb_login_username" size="50" accesskey="u" tabindex="1" /></td>
+				</tr>
+				<tr>
+					<td>$vbphrase[password]:<br /><input type="password" class="bginput" name="vb_login_password" size="50" tabindex="1" /></td>
+				</tr>
+				<tr>
+					<td>
+						<span style="float:$stylevar[right]"><a href="login.php?$session[sessionurl]do=lostpw">$vbphrase[forgotten_your_password]</a></span>
+						<label for="cb_cookieuser"><input type="checkbox" name="cookieuser" value="1" id="cb_cookieuser" tabindex="1" />$vbphrase[remember_me]</label>
+					</td>
+				</tr>
+				<tr>
+					<td align="$stylevar[right]">
+						<input type="submit" class="button" value="$vbphrase[log_in]" accesskey="s" tabindex="1" />
+						<input type="reset" class="button" value="$vbphrase[reset_fields]" accesskey="r" tabindex="1" />
+					</td>
+				</tr>
+				</table>
+			</fieldset>
+
+			<if condition="$show['register_message']">
+				<div class="smallfont"><phrase 1="register.php?$session[sessionurl]do=signup">$vbphrase[admin_required_register]</phrase></div>
+			</if>
+			</form>
+
+		</div>
+	</div>
+	</td>
+</tr>
+</table>
+
+<br />
+
+<if condition="!$show['enableforumjump']">
+<!-- forum jump -->
+<table cellpadding="0" cellspacing="0" border="0" align="center">
+<tr>
+	<td>$forumjump</td>
+</tr>
+</table>
+<!-- / forum jump -->
+</if>
+
+<br />
+
+$footer
+
+</body>
+</html>

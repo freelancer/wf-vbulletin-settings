@@ -1,0 +1,5 @@
+When switching a forum to the fulltext search mode, you will want to consider emptying the indexes that the default search engine built.  These indexes are not used by the fulltext search and consume a large portion of your database.  You should be certain that you are going to permanently use the fulltext search before removing these indexes since, generally, it takes a lot of time and server load to rebuild these indexes.  Another consideration is during any time that the fulltext option is enabled, these indexes will not be updated by any new posts.  Using fulltext search for an extended period of time will leave these indexes stale and you may still wish to rebuild them.<br />
+<br />
+You can also empty these indexes in the <i>Update Counters</i> section of <i>Maintenance</i>.<br />
+<br />
+You may want to optimize the <i>postindex</i> and <i>word</i> tables afterwards by going to the <i>Repair / Optimize Tables</i> section of <i>Maintenance</i>.

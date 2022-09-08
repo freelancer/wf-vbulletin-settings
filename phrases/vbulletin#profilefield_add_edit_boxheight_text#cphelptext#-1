@@ -1,0 +1,1 @@
+This setting is how tall the box should be. If you have 12 options and want 3 of them displayed without the user having to use the scrollbar, set this to 3. It is recommended that you set this to at least 3 for user sanity reasons.

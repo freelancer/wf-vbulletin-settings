@@ -1,0 +1,3 @@
+If this is set to "Yes", then users will be able to use your forum. If this is set to "No", then users will see a message notifying them that the forum is turned off.  You can edit this message in the "Reason For Turning Forum Off" option below.<br /><br />
+
+Note that admins will still be able to use the forum while it is off, but they will see a notice on the top and bottom of the screen that says the forum is offline.

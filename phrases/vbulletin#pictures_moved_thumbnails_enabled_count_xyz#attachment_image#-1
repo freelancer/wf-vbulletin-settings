@@ -1,0 +1,2 @@
+<p>Picture thumbnails have been moved and are now directly accessible. Of the {1} pictures in the database, {2} were processed. {3} had errors.</p>
+<p>Selecting finalize below will remove the duplicate data from the file system. Any thumbnails that did not convert successfully will be lost.</p>

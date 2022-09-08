@@ -1,0 +1,13 @@
+<p><strong>{1}</strong>, you do not have permission to access this page. This could be due to one of several reasons:</p>
+
+<ol>
+	<li>You may not have upgraded to the <a
+ href="http://www.warriorforum.com/war-room/join">War Room</a>. Or, this may be a separate private forum.
+</li>
+	<li>If you are trying to post, the administrator may have disabled your account, or it may be awaiting activation.</li>
+</ol>
+
+<div align="{2}">
+	<a href="login.php?{3}do=logout&amp;logouthash={4}">Log Out</a>
+	<a href="{5}.php?{3}">Home</a>
+</div>

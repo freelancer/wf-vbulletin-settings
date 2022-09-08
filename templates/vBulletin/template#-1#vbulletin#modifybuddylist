@@ -1,0 +1,120 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<span style="float:$stylevar[right]" class="smallfont">$vbphrase[total]: <span id="buddycount">$buddycount</span></span>
+		<if condition="$show['friend_controls']">$vbphrase[contacts_and_friends]<else />$vbphrase[contacts]</if>
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]">
+
+			<fieldset class="fieldset">
+				<legend><if condition="$show['friend_controls']">$vbphrase[contacts_and_friends]<else />$vbphrase[contacts]</if></legend>								
+				<form action="profile.php?do=updatelist&amp;userlist=buddy" method="post" id="buddylist_change_form" class="floatcontainer"  <if condition="!$show['buddylist']">style="display: none"</if>>
+					<input type="hidden" name="s" value="$session[sessionhash]" />
+					<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+					<input type="hidden" name="do" value="updatelist" />
+					<input type="hidden" name="userlist" value="buddy" />
+					<div class="checkbox_ctrls floatcontainer">
+						<input type="text" id="userlist_filter" class="filterbox_inactive bginput smallfont" size="15" value="$vbphrase[find_people_on_your_list]" title="$vbphrase[userlist_filter_tooltip]" />
+						<label class="show_avatars_ctrl shade"><input type="checkbox" id="buddylist_showavatars"$showavatarchecked />$vbphrase[show_avatars]</label>
+						<!--<label class="check_all_ctrl shade"><input type="checkbox" id="buddylist_checkall" checked="checked" />$vbphrase[check_uncheck_all]</label>-->
+					</div>
+					<if condition="$show['avatars']">
+						<ul class="userlist userlist_showavatars floatcontainer" id="buddylist">
+					<else />
+						<ul class="userlist userlist_hideavatars floatcontainer" id="buddylist">
+					</if>
+						$buddylist
+						<li style="display:none">&nbsp;</li>
+					</ul>
+					<div class="submitrow smallfont">
+						<img src="$stylevar[imgdir_misc]/progress.gif" id="buddylist_change_progress" class="inlineimg" style="display:none" alt="" />
+						<input type="submit" class="button" id="submit_save" value="$vbphrase[save_changes]" />
+					</div>
+					<hr />
+				</form>
+				<form action="profile.php?do=updatelist&amp;userlist=buddy" method="post" id="buddylist_add_form" class="floatcontainer">
+					<input type="hidden" name="s" value="$session[sessionhash]" />
+					<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+					<input type="hidden" name="do" value="updatelist" />
+					<input type="hidden" name="userlist" value="buddy" />
+					<div id="buddylist_error" class="userlist_error floatcontainer"><img src="$stylevar[imgdir_statusicon]/wol_error.gif" id="buddylist_error_image" class="userlist_error_image" alt="" /> <span id="buddylist_error_message"></span></div>
+					<div class="userlist_form_controls">
+						<label for="buddylist_add_txt">$vbphrase[add_member_to_your_list]</label>
+						<div>
+							<span id="buddylist_add"><input type="text" class="bginput" name="username" id="buddylist_add_txt" size="35" value="$buddy_username" /></span>
+							<div id="buddylist_add_menu" class="vbmenu_popup" style="display:none"></div>
+							<input type="submit" class="button" id="buddylist_submit" value="$vbphrase[add_contact]" />
+							<if condition="$show['friend_controls']"><input type="submit" class="button" name="makefriends" id="friend_submit" value="$vbphrase[add_friend]" /></if>
+							<img src="$stylevar[imgdir_misc]/progress.gif" id="buddylist_add_progress" class="inlineimg" style="display:none" alt="" />
+						</div>
+					</div>
+					<hr />
+				</form>
+				<div class="fieldsetpad">
+					<div class="userlist_form_controls"><if condition="$show['friend_controls']">$vbphrase[friends_instructions]<else />$vbphrase[contacts_instructions]</if></div>
+				</div>
+			</fieldset>
+
+			<fieldset class="fieldset" id="incomingreqs_container" <if condition="!$show['incominglist']">style="display: none"</if>>
+				<legend id="irc">$vbphrase[incoming_friend_requests]</legend>
+				<form action="profile.php?do=updatelist&amp;userlist=approval" method="post" id="incomingreqs_change_form" class="floatcontainer">
+					<input type="hidden" name="s" value="$session[sessionhash]" />
+					<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+					<input type="hidden" name="do" value="updatelist" />
+					<input type="hidden" name="userlist" value="incoming" />
+					<div class="checkbox_ctrls floatcontainer">
+						<label class="check_all_ctrl shade"><input type="checkbox" id="incomingreqs_checkall" />$vbphrase[check_uncheck_all]</label>
+						<label class="show_avatars_ctrl shade"><input type="checkbox" id="incomingreqs_showavatars" checked="checked" />$vbphrase[show_avatars]</label>
+					</div>
+					<div class="userlist_title">$vbphrase[incoming_friend_requests]</div>
+					<div class="userlist_description">$vbphrase[incoming_friend_requests_description]</div>
+					<ul class="userlist userlist_showavatars floatcontainer" id="incomingreqs">
+						$incominglist
+						<li style="display:none">&nbsp;</li>
+					</ul>
+					<div class="submitrow smallfont">
+						<div id="incomingreqs_action">
+							<div><label for="incomingaction_accept"><input type="radio" name="incomingaction" value="accept" id="incomingaction_accept" checked="checked" />$vbphrase[accept_selected_friend_requests]</label></div>
+							<div><label for="incomingaction_reject"><input type="radio" name="incomingaction" value="reject" id="incomingaction_reject" />$vbphrase[reject_selected_friend_requests]</label></div>
+						</div>
+						<img src="$stylevar[imgdir_misc]/progress.gif" id="incomingreqs_change_progress" class="inlineimg" style="display:none" alt="" />
+						<input type="submit" class="button" id="incoming_submit" value="$vbphrase[save_changes]" />
+					</div>
+				</form>
+			</fieldset>
+
+		</div>
+	</div>
+	</td>
+</tr>
+</table>
+
+
+<if condition="$show['popups']">
+<script type="text/javascript" src="clientscript/vbulletin_ajax_namesugg.js?v=$vboptions[simpleversion]"></script>
+</if>
+<script type="text/javascript" src="clientscript/vbulletin_ajax_userlist.js?v=$vboptions[simpleversion]"></script>
+<script type="text/javascript">
+<!--
+<if condition="$show['popups']">
+vBmenu.register("buddylist_add", true);
+snc_buddylist = new vB_AJAX_NameSuggest("snc_buddylist", "buddylist_add_txt", "buddylist_add");
+</if>
+// ajax saver
+vBulletin.register_control("vB_UserList_Saver", "buddylist");
+vBulletin.register_control("vB_UserList_Saver", "incomingreqs");
+// img-label handler
+vBulletin.register_control("vB_UserList_Highlighter", "buddylist");
+vBulletin.register_control("vB_UserList_Highlighter", "incomingreqs");
+vBulletin.register_control("vB_UserList_Filter", "userlist_filter", Array("buddylist", "incomingreqs"), {
+	$js_userlist_array
+});
+var vbphrase = {
+	"remove_from_userlist_confirm" : "$vbphrase[remove_from_userlist_confirm]"
+};
+//-->
+</script>

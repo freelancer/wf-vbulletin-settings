@@ -1,0 +1,3 @@
+This permission allows members of this group to manage (edit / delete) notes that they post.  If you want posted user notes to be permanent then don't grant user's this permission.<br /><br />
+
+User notes can be managed on the screen that lists a user's notes.  Click the <i>User Notes: [View]</i> link when viewing a user's profile page on the frontend.

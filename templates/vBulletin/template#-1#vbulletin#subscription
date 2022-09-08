@@ -1,0 +1,41 @@
+<if condition="$show['activesubscriptions']">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="3">$vbphrase[active_subscriptions]</td>
+</tr>
+<tr>
+	<td class="thead">$vbphrase[subscription_title]</td>
+	<td class="thead">$vbphrase[start_date]</td>
+	<td class="thead">$vbphrase[expiry_date]</td>
+</tr>
+$subscribedbits
+</table>
+<br />
+</if>
+<if condition="$show['subscriptions']">
+<form action="payments.php?do=order" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="order" />
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[available_subscriptions]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]">
+
+			$subscriptionbits
+
+			<div class="fieldset" style="margin:0px; padding:$stylevar[formspacer]px">
+				$vbphrase[validity_periods_marked_indicate]
+			</div>
+
+		</div>
+	</div>
+	</td>
+</tr>
+</table>
+</form>
+</if>

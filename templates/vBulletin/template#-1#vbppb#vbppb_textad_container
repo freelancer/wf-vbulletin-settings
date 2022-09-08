@@ -1,0 +1,56 @@
+
+			<if condition="$show['spacer']">
+	$spacer_open
+	<div id="lastpostad" style="padding:0px 0px $stylevar[cellpadding]px 0px">
+</if>
+<div class="textadcontainer">
+<style type="text/css">
+div.textadcontainer {
+	background-color:white;
+	padding:5px;
+}
+div.adwrapper {
+	background-color:#dff2fd;
+	overflow:hidden;
+}
+div.textadcolumn {
+	width:33.3%;
+	overflow:hidden;
+	float:left;
+}
+div.adbit {
+	padding:2px 0 0 8px;
+}
+span.adtitle a {
+	color:black;
+	font-size:12px;
+}
+div.adtext {
+	font-size:10px;
+	color:0000cc;
+}
+span.adurl a {
+	color:black;
+	font-size:10px;
+	text-decoration:none;
+}
+div.adcredits {
+	font-size:10px;
+	text-align:right;
+	padding:2px;
+	clear:both;
+}
+div.adcredits a {
+	text-decoration:none;
+	color:black;
+}
+</style>
+<div class="adwrapper">{bannercode}<div class="adcredits"><a href="$vboptions[bburl]/paidbanners.php?pageid=textads">Ads By Warrior Forum</a> (<a href="$vboptions[bburl]/paidbanners.php?pageid=textads&do=viewall">View All</a>)</div></div>
+</div>
+<if condition="$show['spacer']">
+	</div>
+	$spacer_close
+</if>
+
+
+		

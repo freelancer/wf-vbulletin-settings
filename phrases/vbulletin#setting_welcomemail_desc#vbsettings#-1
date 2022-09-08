@@ -1,0 +1,3 @@
+Enabling this option will send a welcome email to new users. To alter or translate this email, use the following links:<br /><br /> [<a href="phrase.php?do=edit&amp;e[emailsubject][welcomemail]" target="_blank">Email Title</a>] [<a href="phrase.php?do=edit&amp;e[emailbody][welcomemail]" target="_blank">Email Body</a>]<br />
+<br />
+Note: If you require emails to be verified, this email will be sent after the user has activated his or her account. If you moderate new memberships, no welcome mail will be sent as the user will already be receiving an email.

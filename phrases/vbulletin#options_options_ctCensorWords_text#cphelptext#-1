@@ -1,0 +1,13 @@
+Enter the word(s) you want censored from user titles in this box. Separate each with a space.<br /><br />
+
+To censor a word even if it appears as part of another word, for example 'dog' as part of 'dogma', simply enter the word. If you wish to be more selective, and only censor the word if it appears as a whole word by itself, you can enclose it with curly braces, like so:<br />
+{dog}<br /><br />
+
+Following are some examples. This is the sentence they will be matched against:<br />
+Dogs and cats fight when it's raining.<br />
+Censor list: {dog} cat rain<br />
+Censor result: Dogs and ***s fight when it's ****ing.<br />
+Censor list: dog {cat} {rain}<br />
+Censor result: ***s and cats fight when it's raining.<br /><br />
+
+Do *not* use quotation marks or the results may be unexpected or it may cause errors. Additionally be certain you are using curly brackets {} and not parentheses () when specifying exact words.

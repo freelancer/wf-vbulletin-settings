@@ -1,0 +1,27 @@
+<tr>
+	$template_hook[albumbit_start]
+	<td class="alt2" valign="middle" align="center">
+		<if condition="$album['coverthumburl']">
+			<a href="album.php?$session[sessionurl]albumid=$album[albumid]"><img src="$album[coverthumburl]" border="0" alt="$vbphrase[picture]" $album[coverdimensions] /></a>
+		<else />
+			&nbsp;
+		</if>
+	</td>
+	<td class="alt1" valign="middle">
+		<if condition="$show['moderated']"><img class="inlineimg" src="$stylevar[imgdir_misc]/moderated_small.gif" alt="<phrase 1="$album[moderatedcount]">$vbphrase[x_moderated_pictures]</phrase>" style="float:$stylevar[right]" /></if>
+		<a href="album.php?$session[sessionurl]albumid=$album[albumid]"><strong>$album[title_html]</strong></a>
+		<div class="smallfont">
+			$album[description_html]
+			<if condition="$show['personalalbum']"><span class="shade">$albumtype</span></if>
+		</div>
+	</td>
+	<td class="alt2" valign="middle" align="center">$album[picturecount]</td>
+	<td class="alt1" valign="middle" nowrap="nowrap">
+		<if condition="$album['lastpicturedate']">
+			$album[picturedate] <if condition="!$show['detailedtime']"><span class="time">$album[picturetime]</span></if>
+		<else />
+			$vbphrase[none]
+		</if>
+	</td>
+	$template_hook[albumbit_end]
+</tr>

@@ -1,0 +1,447 @@
+<style type="text/css" id="memberinfo_css">
+<!--
+#content_container {
+	width:100%;
+	float:$stylevar[left];
+}
+#content {
+
+}
+#sidebar_container {
+	width:0px;
+	float:$stylevar[right];
+}
+
+.list_no_decoration {
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+}
+
+div.fixed_width_avatar {
+	text-align:center;
+	width:60px;
+}
+
+/**
+* Memberinfo Small
+*/
+li.memberinfo_small {
+	margin-top:6px;
+}
+li.memberinfo_small div.fixed_width_avatar {
+	margin-$stylevar[right]:6px;
+}
+li.memberinfo_small div.info_bar, #friends li.memberinfo_small div.info_bar {
+	border-width:1px 0px 0px 0px;
+	margin-bottom:6px;
+}
+li.memberinfo_small div.info_bar ul {
+	padding:6px;
+}
+li.memberinfo_small ul.friend_im_list li {
+	display:inline;
+	margin-$stylevar[right]:3px;
+}
+li.memberinfo_small ul.friend_im_list img {
+	vertical-align:middle;
+}
+
+/**
+* Memberinfo Tiny
+*/
+li.memberinfo_tiny {
+	height:105px;
+	width:75px;
+	overflow:hidden;
+	float:$stylevar[left];
+	text-align:center;
+	margin:1px;
+}
+
+/**
+* Tabs and Blocks
+*/
+.content_block {
+	margin-bottom:6px;
+	padding:$stylevar[cellspacing]px;
+}
+.content_block .block_row {
+	padding:$stylevar[cellpadding]px;
+	margin:$stylevar[cellspacing]px 0px 0px 0px;
+}
+.content_block .block_title {
+	padding:$stylevar[cellpadding]px;
+	margin:0px 0px 0px 0px;
+}
+/*.content_block h4.thead, .content_block .block_title {
+	padding:4px;
+	margin:$stylevar[cellspacing]px 0px 0px 0px;
+}*/
+.content_block .block_footer {
+	text-align:$stylevar[right];
+	padding:4px;
+	margin:$stylevar[cellspacing]px 0px 0px 0px;
+}
+a.collapse_gadget {
+	float:$stylevar[right];
+}
+
+/**
+* Popup Menus Built With List Markup
+*/
+ul.vbmenu_popup li {
+	padding:4px;
+	margin:0px 1px 1px 1px;
+	white-space:nowrap;
+}
+ul.vbmenu_popup li.first {
+	margin:1px;
+}
+ul.vbmenu_popup li.notext {
+	font-size:1px;
+}
+
+/**
+* Override Menu CSS for 'Send Message' Menu
+*/
+#minicontact_menu li.vbmenu_option, #minicontact_menu li.vbmenu_hilite {
+	padding:0px;
+	padding-$stylevar[right]:4px;
+}
+#minicontact_menu li.vbmenu_option img, #minicontact_menu li.vbmenu_hilite img {
+	padding:4px;
+}
+
+/**
+* Profile Field List Title / Value Pairs
+*/
+dl.profilefield_list dd {
+	margin-bottom:3px;
+	margin-$stylevar[left]:16px;
+}
+
+/**
+* Sidebar profile field blocks
+*/
+#sidebar_container dl.profilefield_list {
+	font-size:11px;
+}
+
+/**
+* Top Panel
+*/
+#main_userinfo {
+	margin-bottom:20px;
+}
+#main_userinfo #profilepic_cell {
+	 border-bottom-width:0px;
+	 padding:4px;
+}
+#main_userinfo .profilepic_adjacent {
+	padding-$stylevar[left]:6px;
+}
+#main_userinfo h1 {
+	font-size:18pt;
+	font-weight:normal;
+	margin:0px;
+}
+#main_userinfo h2 {
+	font-size:10pt;
+	font-weight:normal;
+	margin:0px;
+}
+#reputation_rank {
+	float:$stylevar[right];
+}
+#reputation {
+	margin-bottom:6px;
+	text-align:$stylevar[right];
+}
+#rank {
+	margin-bottom:6px;
+	text-align:$stylevar[right];
+}
+#send_message_cell {
+	padding-bottom:6px;
+	text-align:$stylevar[right];
+}
+#link_bar ul {
+	padding:4px;
+}
+#link_bar li.thead {
+	float:$stylevar[left];
+	margin-$stylevar[right]:10px;
+	white-space:nowrap;
+	font-weight:normal;
+	background:transparent;
+}
+#link_bar a {
+	text-decoration:none;
+}
+#link_bar a:hover {
+	text-decoration:underline;
+}
+#activity_info {
+	border-top-width:0px;
+}
+#activity_info div.alt2 {
+	padding:4px;
+}
+#link_bar #usercss_switch_link {
+	float:$stylevar[right];
+	margin-$stylevar[left]:3px;
+	margin-$stylevar[right]:0px;
+}
+
+/**
+* Visitor Messaging Tab
+*/
+
+#qc_error_div {
+	text-align:$stylevar[left];
+	margin-bottom:6px;
+}
+#qc_error_header {
+	font-weight:bold;
+}
+#qc_error_okay {
+	text-align:$stylevar[right];
+}
+
+#message_form {
+	display:block;
+	margin:0px;
+}
+#message_form textarea {
+	width:98%;
+	height:50px;
+}
+#message_form div.messagetext {
+	text-align:$stylevar[left];
+}
+#message_form div.allowed_bbcode {
+	float:$stylevar[left];
+}
+#message_form div.submit_button {
+	text-align:$stylevar[right];
+}
+
+#visitor_messaging #inlinemodsel {
+	float:$stylevar[right];
+}
+
+#visitor_messaging #view_my_conversation_link {
+	float:$stylevar[right];
+	text-decoration:none;
+}
+
+#visitor_message_inlinemod_form {
+	margin:0px;
+	display:block;
+}
+
+#message_list {
+	border:none;
+}
+#message_list li {
+	margin-bottom:6px;
+}
+#message_list div.fixed_width_avatar {
+	margin-$stylevar[right]:6px;
+	float:$stylevar[left];
+}
+#message_list div.visitor_message_avatar_margin {
+	margin-$stylevar[left]:66px;
+}
+#message_list div.info_bar {
+	border-width:1px 0px 0px 0px;
+	margin-bottom:6px;
+}
+#message_list div.info_bar div.alt2 {
+	padding:6px;
+}
+#message_list div.info_bar a.username {
+	/*font-weight:bold;*/
+}
+#message_list .visitor_message_date {
+	float:$stylevar[right];
+}
+#message_list .group_message_date {
+	float:$stylevar[right];
+}
+#message_list .inlinemod_checkbox {
+	float:$stylevar[right];
+}
+#message_list div.visitor_message_body {
+	overflow:auto;
+}
+#message_list ul.controls {
+	margin-top:6px;
+	text-align:$stylevar[right];
+}
+#message_list ul.controls li {
+	display:inline;
+	margin-$stylevar[left]:6px;
+}
+#message_list ul.controls a:link, #message_list ul.controls a:visited {
+	text-decoration:none;
+}
+#message_list .deletedmessage{
+	float: $stylevar[left]
+}
+
+/**
+* About Me Tab
+*/
+#aboutme li.profilefield_category {
+	font-weight:bold;
+	margin-top:6px;
+}
+#aboutme dl.profilefield_list {
+	font-weight:normal;
+	margin:6px 16px 0px 16px;
+}
+#aboutme dl.profilefield_list dd {
+	margin-bottom:6px;
+	margin-$stylevar[left]:0px;
+}
+#aboutme #signature {
+	width:100%;
+	overflow:auto;
+}
+#aboutme #simple_aboutme_link {
+	text-align: $stylevar[right];
+	display: block;
+}
+
+/**
+* About Me Tab (Alternative)
+*/
+#aboutme2 dl.profilefield_list dd {
+	margin-bottom:6px;
+	margin-$stylevar[left]:0px;
+}
+
+/**
+* Statistics Tab
+*/
+#stats fieldset.statistics_group {
+	margin-top:6px;
+}
+#stats fieldset.statistics_group ul {
+	padding:6px;
+}
+#stats fieldset.statistics_group ul li {
+	margin-bottom:3px;
+}
+
+/**
+* Statistics Tab (Alternative)
+*/
+#statistics2 ul.statistics_group li {
+	margin-bottom:3px;
+}
+
+/**
+* Friends Tab
+*/
+#friends a.edit_friends_link {
+	float:$stylevar[right];
+}
+#friends_mini a.edit_friends_link {
+	float:<if condition="$prepared['friendcount']">$stylevar[left]<else />$stylevar[right]</if>;
+	<if condition="$prepared['friendcount']">margin-$stylevar[right]<else />margin-$stylevar[left]</if>:10px;
+}
+
+/**
+* Infractions Tab
+*/
+div#infractions.content_block {
+	padding:0px;
+}
+
+/**
+* Contact Info Tab
+*/
+#contactinfo fieldset {
+	margin-bottom:6px;
+}
+#contactinfo div.fieldset_padding {
+	padding:6px;
+}
+#contactinfo #messaging_list li {
+	margin-bottom:3px;
+	margin-$stylevar[right]:16px;
+	float:$stylevar[left];
+	white-space:nowrap;
+}
+#contactinfo #instant_messaging_list li {
+	margin-top:6px;
+	margin-$stylevar[right]:6px;
+	position:relative;
+}
+#contactinfo #instant_messaging_list .im_img_link {
+	vertical-align: middle;
+}
+#contactinfo #instant_messaging_list .im_txt_link {
+	position:absolute;
+	$stylevar[left]:75px;
+}
+#contactinfo #additional_contact_details dd {
+	margin-$stylevar[left]:0px;
+	margin-bottom:6px;
+}
+
+/**
+* Albums Block
+*/
+#albums_mini_list li {
+	text-align:center;
+	margin-bottom:6px;
+}
+
+/**
+* Mini Friends Block
+*/
+
+#friends_mini_list a.username {
+	display:block;
+	margin-top:3px;
+}
+#friends_mini div.friends_counter {
+	padding-bottom:6px;
+}
+
+/**
+* Groups Block
+*/
+span.group_count {
+	float:$stylevar[right];
+}
+ul.group_list {
+	margin:6px 0px 0px 6px;
+}
+ul.group_list li {
+	display:inline;
+	margin-$stylevar[right]:3px;
+}
+#public_usergroup_list a:link, #public_usergroup_list a:visited {
+	text-decoration:none;
+}
+
+/**
+* Traffic Block
+*/
+ol.last_visitors_list {
+	margin:0px;
+	margin-top:6px;
+}
+ol.last_visitors_list li {
+	display:inline;
+	margin-$stylevar[right]:3px;
+}
+
+$template_hook[memberinfo_css]
+-->
+</style>

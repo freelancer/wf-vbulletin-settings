@@ -1,0 +1,4 @@
+<b>Subscriptions:</b><br />
+vBulletin's subscription manager is used to charge users for forum access.  Make sure you enable at least one payment method within the <a href="subscriptions.php?do=api" target="_blank">Payment API Manager</a> if you use paid subscriptions.<br /><br />
+
+Subscriptions manage forum access by adding and removing primary and secondary group memberships as well as manipulating user access masks.  For an explanation about usergroups and forum permissions see the general help topic for <a href="help.php?s=&amp;do=answer&amp;page=usergroup&amp;pageaction=&amp;option=">Usergroups</a>.

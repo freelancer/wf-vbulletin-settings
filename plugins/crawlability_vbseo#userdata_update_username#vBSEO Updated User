@@ -1,0 +1,1 @@
+vBSEO_Storage::user_updated($userid, $username);

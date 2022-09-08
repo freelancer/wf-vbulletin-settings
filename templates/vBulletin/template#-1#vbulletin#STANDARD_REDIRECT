@@ -1,0 +1,118 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$pagetitle</title>
+</head>
+<body>
+
+<br />
+<br />
+<br />
+<br />
+
+<form action="$formfile" method="post" name="postvarform">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="70%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[redirecting]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+
+		<blockquote>
+			<p>&nbsp;</p>
+			<p><strong>$errormessage</strong></p>
+			<if condition="$postvars">
+				$postvars
+				<p id="click_here_p" class="smallfont">$vbphrase[click_the_following_button]</p>
+				<input type="submit" class="button" id="proceed_button" value="$vbphrase[proceed]" onclick="proceed_click()" accesskey="s" />
+			<else />
+				<p class="smallfont"><a href="$url">$vbphrase[click_if_browser_does_not_redirect]</a></p>
+				<div>&nbsp;</div>
+			</if>
+		</blockquote>
+
+	</div>
+	</td>
+</tr>
+</table>
+</form>
+
+<if condition="$postvars">
+
+<!-- redirect with POST -->
+
+<script type="text/javascript">
+<!--
+fetch_object('click_here_p').style.display = 'none';
+
+myvar = "";
+timeout = 18;
+timerID = 0;
+
+function proceed_click()
+{
+	clearTimeout(timerID);
+	return true;
+}
+
+function submit_form()
+{
+	window.status = "Redirecting" + myvar;
+	myvar = myvar + " .";
+	timerID = setTimeout("submit_form();", 100);
+	if (timeout > 0)
+	{
+		timeout -= 1;
+	}
+	else
+	{
+		clearTimeout(timerID);
+		window.status = "";
+		document.forms.postvarform.submit();
+		fetch_object('proceed_button').disabled = true;
+	}
+}
+
+submit_form();
+//-->
+</script>
+
+<!-- / redirect with POST -->
+
+<else />
+
+<noscript>
+<meta http-equiv="Refresh" content="2; URL=$url" />
+</noscript>
+
+<script type="text/javascript">
+<!--
+function exec_refresh()
+{
+	window.status = "$vbphrase[redirecting]" + myvar;
+	myvar = myvar + " .";
+	var timerID = setTimeout("exec_refresh();", 100);
+	if (timeout > 0)
+	{
+		timeout -= 1;
+	}
+	else
+	{
+		clearTimeout(timerID);
+		window.status = "";
+		window.location = "$js_url";
+	}
+}
+
+var myvar = "";
+var timeout = 20;
+exec_refresh();
+//-->
+</script>
+
+</if>
+
+</body>
+</html>

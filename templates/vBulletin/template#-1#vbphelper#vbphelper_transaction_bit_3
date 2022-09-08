@@ -1,0 +1,32 @@
+
+<tr>
+	<td class="alt1">
+		$method
+	</td>
+	<td class="alt1">
+		$date
+	</td>
+	<td class="alt1">
+		$amount
+	</td>
+	<td class="alt1">
+		$comment
+	</td>
+	<td class="alt1">
+		$address
+	</td>
+	<td class="alt1">
+		<if condition="$transaction[moderated]==2">
+			$vbphrase[vbphelper_approved]
+		<else />
+			<if condition="$transaction[moderated]==3">
+				$vbphrase[vbphelper_declined]
+			<else />
+				<a class="smallfont" href="misc.php?do=moderatePayments&action=approve&transactionhash=$transactionhash" data-confirm="$vbphrase[vbphelper_please_confirm_approval]">$vbphrase[vbphelper_approve]</a>
+				<a class="smallfont" href="misc.php?do=moderatePayments&action=decline&transactionhash=$transactionhash" data-confirm="$vbphrase[vbphelper_please_confirm_decline]">$vbphrase[vbphelper_decline]</a>
+			</if>
+
+		</if>
+	</td>
+</tr>
+				

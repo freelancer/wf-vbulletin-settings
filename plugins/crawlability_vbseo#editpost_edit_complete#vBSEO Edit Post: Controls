@@ -1,0 +1,2 @@
+if(defined('VBSEO_ENABLED') && VBSEO_ENABLED)
+vbseo_complete_sec('editpost_edit_complete', $post);

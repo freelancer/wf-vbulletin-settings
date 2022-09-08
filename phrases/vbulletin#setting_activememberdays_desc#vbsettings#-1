@@ -1,0 +1,3 @@
+Enter a number of days here that represents a threshold for 'active' members. If a user has visited the board within the past number of days you specify, they are considered 'active'.<br />
+<br />
+Enter '0' to treat all members as 'active'.

@@ -1,0 +1,1 @@
+<a href="#" onclick="imwindow('icq', '$userinfo[userid]', 500, 450); return false;"><img src="$stylevar[imgdir_misc]/im_icq.gif" alt="<phrase 1="$userinfo[username]">$vbphrase[send_message_via_icq_to_x]</phrase>" border="0" /></a>

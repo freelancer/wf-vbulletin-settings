@@ -1,0 +1,6 @@
+On this screen you are shown the results of your system information inquiry.<br /><br />
+
+The various types of information you can be shown is described below:<br />
+<b>MySQL Variables</b> is a list of the MySQL variables that are set. Please visit the following pages for more information on MySQL variables and their meanings: <a href="http://www.mysql.com/doc/en/SHOW_VARIABLES.html">MySQL Variables</a>, <a href="http://www.mysql.com/doc/en/Server_parameters.html" target="_blank">Tuning Server Parameters</a>.<br />
+<b>MySQL Status</b> shows the status of many things related to the MySQL server. For more information on the items listed on this page, visit <a href="http://www.mysql.com/doc/en/SHOW_STATUS.html" target="_blank">MySQL Status</a>.<br />
+<b>Table Status</b>: If you are running MySQL 3.23 or higher, you can also view this page of information. The following link provides more information about the information displayed on this page: <a href="http://www.mysql.com/doc/en/SHOW_TABLE_STATUS.html" target="_blank">MySQL Table Status</a>.

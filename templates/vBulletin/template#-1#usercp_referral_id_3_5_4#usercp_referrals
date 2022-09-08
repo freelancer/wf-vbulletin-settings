@@ -1,0 +1,20 @@
+<!-- ########## REFERRALS IN USER CP ########## -->
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+<tr>
+<td class="tcat">
+<a style="float:right" href="#top" onclick="return toggle_collapse('referral')"><img id="collapseimg_referral" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_my_table].gif" alt="" border="0" /></a>
+$vboptions[bbtitle] $vbphrase[referrals]<span class="normal">: ($referrals)</span>
+</td>
+</tr>
+</thead>
+<tbody id="collapseobj_referral" style="">
+<tr>
+<td class="alt1" title="$bbuserinfo[username]'s $vbphrase[referrals]" width="100%" align="left">
+<phrase 1="$vboptions[bbtitle]" 2="$vbphrase[referrals]" 3="member.php?$session[sessionurl]u=$bbuserinfo[userid]" 4="$vbphrase[profile]" 5="$bbuserinfo[username]" 6="$vboptions[bburl]/index.php?referrerid=$bbuserinfo[userid]" >$vbphrase[refid_usercp]</phrase>
+</td>
+</tr>
+</tbody>
+</table>
+<br />
+<!-- ######## END REFERRALS IN USER CP ######## -->

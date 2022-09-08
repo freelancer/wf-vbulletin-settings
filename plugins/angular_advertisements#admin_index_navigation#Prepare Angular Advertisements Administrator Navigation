@@ -1,0 +1,49 @@
+				
+				if (can_administer_angadver())
+				{
+					$navigation[20][fetch_nav_text(array('text' => 'angular_advertisements'))] = array(
+						'options' => array(
+							10 => array(
+								$tmp = fetch_nav_text(array('phrase' => 'settings')) => array(
+									'displayorder' => 10,
+									'phrase' => 'settings',
+									'link' => 'options.php?do=options&dogroup=angular_advertisements',
+									'text' => $tmp
+								)
+							),
+							20 => array(
+								$tmp = fetch_nav_text(array('phrase' => 'angular_advertisements_manager')) => array(
+									'displayorder' => 20,
+									'phrase' => 'angular_advertisements_manager',
+									'link' => 'angadver.php?do=modify',
+									'text' => $tmp
+								)
+							),
+							30 => array(
+								$tmp = fetch_nav_text(array('phrase' => 'angular_advertisements_add')) => array(
+									'displayorder' => 30,
+									'phrase' => 'angular_advertisements_add',
+									'link' => 'angadver.php?do=add',
+									'text' => $tmp
+								)
+							),
+							40 => array(
+								$tmp = fetch_nav_text(array('phrase' => 'angular_advertisements_rebuild_cache')) => array(
+									'displayorder' => 30,
+									'phrase' => 'angular_advertisements_rebuild_cache',
+									'link' => 'angadver.php?do=rebuildcache',
+									'text' => $tmp
+								)
+							)																					
+						),
+						'group' => array(
+							'phrase' => fetch_nav_text(array('text' => 'angular_advertisements')),
+							'permissions' => canadminangularadver,
+							'hr' => false,
+							'displayorder' => 20,
+							'nav_file' => angularadvertisements,
+							'text' => fetch_nav_text(array('phrase' => 'angular_advertisements'))
+						)
+					);
+				}
+			

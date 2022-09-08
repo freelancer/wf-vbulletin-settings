@@ -1,0 +1,4 @@
+
+$vbpua_lasthook='attachment_start';
+include(DIR.'/includes/vbvua_hooks.php');
+             

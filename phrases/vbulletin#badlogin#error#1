@@ -1,0 +1,1 @@
+<p>You have entered an invalid username or password. Please press the back button, enter the correct details and try again. Don't forget that the password is case sensitive. Forgotten your password? Click <a href="{1}/login.php?{2}do=lostpw">here</a>!</p>

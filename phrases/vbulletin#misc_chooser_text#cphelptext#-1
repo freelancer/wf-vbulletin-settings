@@ -1,0 +1,52 @@
+This page contains several counters that you can update.<br /><br />
+
+<b>Update Forums:</b><br />
+This feature will update the information for each forum including: last post info, thread count, and post count.  This may need to be done after mass moving / pruning threads and posts.<br /><br />
+
+<b>Update User Titles and Ranks:</b><br />
+This will go through every user on your forums and determine their correct user title and rank.  This may need to be done after changing your <a href="usertitle.php?do=modify" target="_blank">user title ladder</a> or <a href="ranks.php" target="_blank">user ranks</a>.<br /><br />
+
+<b>Update User Names:</b><br />
+This will update user names everywhere they occur on your forums.  This may need to be done after changing a user's name in the Admin CP.<br /><br />
+
+<b>Update Post Counts:</b><br />
+This will update the number of posts for each user by counting each user's posts in the database.  If you have artificially inflated / deflated a user's post count by editing their profile in the Admin CP then this will reset it to its true value.<br /><br />
+
+<b>Fix broken user profiles:</b><br />
+Incomplete profiles are usually the result of hacks making user insertions from outside of vBulletin.  Run this to fix any broken profiles.<br /><br />
+
+<b>Rebuild Forum Information:</b><br />
+This feature will update your forum counters and check for orphan moderators.  This may need to be run after managing your forums.<br /><br />
+
+<b>Rebuild Thread Information:</b><br />
+This feature will update your thread counters including: last post info, reply count, view count, etc.  You may need to run this after moving / pruning threads and posts.<br /><br />
+
+<b>Rebuild Similar Threads:</b><br />
+This feature will run a similar thread search for all threads on your forums.  To show similar threads you need to enable the option in your <a href="options.php?dogroup=showthread&amp;do=options" target="_blank">vBulletin options</a>.  If you want your forums to search for similar threads when a new thread is posted (rather than having to update this counter later) then you need to enable the option on <a href="options.php?dogroup=search&amp;do=options" target="_blank">this page</a>.<br /><br />
+
+<b>Rebuild Search Index:</b><br />
+This needs to be done after changing the max / min search word length in your <a href="options.php?dogroup=search&amp;do=options" target="_blank">vBulletin options</a>.<br /><br />
+
+<b>Rebuild Statistics:</b><br />
+This feature rebuilds the information that is displayed on your <a href="stats.php?do=index" target="_blank">Statistics page</a>.<br /><br />
+
+<b>Rebuild Post Cache:</b><br />
+vBulletin doesn't parse BB code in posts every time they are displayed.  Instead the parsed posts are saved in the "postparsed" table.  In this way vBulletin reduces the processing time needed to display a post.  Update this counter to rebuild the parsed posts.  This needs to be done after changing BB code tags, posting allowances (like HTML code), etc.<br /><br />
+
+<b>Delete Duplicate Threads:</b><br />
+Sometimes duplicate threads are created during the posting process.  Updating this counter will remove those duplicates.<br /><br />
+
+<b>Rebuild Styles:</b><br />
+Update this counter to rebuild your style structure.<br /><br />
+
+<b>Rebuild Attachment Thumbnails:</b><br />
+Rebuilding thumbnails is necessary after changing your thumbnail settings in your <a href="options.php?dogroup=attachment&amp;do=options" target="_blank">vBulletin options</a>.<br /><br />
+
+<b>Rebuild User Reputation:</b><br />
+You need to update this counter if you change the default reputation value in your <a href="options.php?dogroup=reputation&amp;do=options" target="_blank">vBulletin options</a>.<br /><br />
+
+<b>Remove Orphan Threads:</b><br />
+This function will delete any threads that belong to forums that no longer exist. Such threads are not accessible via the forums but they do add to your totals. You will see the number of orphan threads in parenthesis.<br /><br />
+
+<b>Remove Orphan Posts:</b><br />
+This function will delete any posts that belong to threads that no longer exist. Such posts are not accessible via the forums but they do add your your totals. You will see the number of orphan posts in parenthesis.

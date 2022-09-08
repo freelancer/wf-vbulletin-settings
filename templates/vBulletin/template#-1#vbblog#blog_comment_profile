@@ -1,0 +1,29 @@
+<div class="block_row">
+	<div class="tborder">
+		<div class="alt2 block_row">
+
+			<div><a href="blog.php?$session[sessionurl]bt=$response[blogtextid]#comment$response[blogtextid]">$response[entrytitle]</a></div>
+			<div class="smallfont">$response[message]<if condition="$show['readmore']">...</if></div>
+
+			<div align="$stylevar[right]" class="smallfont">
+				<if condition="$response['userid']">
+					<phrase 1="$response[date]" 2="$response[time]" 3="member.php?$session[sessionurl]u=$response[userid]" 4="$response[username]">$vbphrase[posted_date_at_time_by_user]</phrase>
+					<if condition="$response['onlinestatus'] == 0">
+							<img class="inlineimg" src="$stylevar[imgdir_misc]/blog/status_offline.gif" alt="<phrase 1="$response[username]">$vbphrase[x_is_offline]</phrase>" border="0" />
+					<else />
+						<if condition="$response['onlinestatus'] == 1">
+							<img class="inlineimg" src="$stylevar[imgdir_misc]/blog/status_online.gif" alt="<phrase 1="$response[username]">$vbphrase[x_is_online_now]</phrase>" border="0" />
+						<else />
+							<if condition="$response['onlinestatus'] == 2">
+								<img class="inlineimg" src="$stylevar[imgdir_misc]/blog/status_invisible.gif" alt="<phrase 1="$response[username]">$vbphrase[x_is_invisible]</phrase>" border="0" />
+							</if>
+						</if>
+					</if>
+				<else />
+					<phrase 1="$response[date]" 2="$response[time]" 3="$response[postusername]">$vbphrase[posted_date_at_time_by_guest]</phrase>
+				</if>
+			</div>
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,14 @@
+<tr>
+	<td class="alt1" width="70%">
+		<if condition="$option['uservote']">
+			<em>$option[question]</em>
+		<else />
+			$option[question]
+		</if>
+		<if condition="$show['pollvoters']"><div class="alt2 smallfont" style="border:inset 1px; margin-top:$stylevar[cellpadding]px; padding:$stylevar[cellpadding]px">$names</div></if>
+	</td>
+	
+
+	<td class="alt1" width="40" align="center" title="$vbphrase[votes]" nowrap="nowrap"><strong>$option[votes]</strong></td>
+	<td class="alt2" width="11%" align="$stylevar[right]" nowrap="nowrap">$option[percent]%</td>
+</tr>

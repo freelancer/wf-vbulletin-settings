@@ -1,0 +1,1 @@
+	<td class="$bgclass"><span class="smallfont"><img src="$avatar[avatarpath]" alt="$avatar[title]" border="0" /><br />$avatar[title]</span></td>

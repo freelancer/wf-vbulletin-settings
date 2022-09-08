@@ -1,0 +1,4 @@
+<div class="fieldset">
+	$profilefield[title]:<br />
+	<input type="text" class="bginput" name="$profilefieldname" value="$bbuserinfo[$profilefieldname]" size="$profilefield[size]" maxlength="$profilefield[maxlength]" />
+</div>

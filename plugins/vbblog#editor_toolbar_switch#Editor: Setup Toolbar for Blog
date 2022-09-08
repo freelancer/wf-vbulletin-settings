@@ -1,0 +1,10 @@
+if ($forumid == 'blog_user' OR $forumid == 'blog_entry')
+{
+	$can_toolbar = ($vbulletin->userinfo['permissions']['vbblog_entry_permissions'] & $vbulletin->bf_ugp_vbblog_entry_permissions['blog_allowbbcode']) ? true : false;
+	$show['img_bbcode'] = ($vbulletin->userinfo['permissions']['vbblog_entry_permissions'] & $vbulletin->bf_ugp_vbblog_entry_permissions['blog_allowimages']) ? true : false;
+}
+else if ($forumid == 'blog_comment')
+{
+	$can_toolbar = ($vbulletin->userinfo['permissions']['vbblog_comment_permissions'] & $vbulletin->bf_ugp_vbblog_comment_permissions['blog_allowbbcode']) ? true : false;
+	$show['img_bbcode'] = ($vbulletin->userinfo['permissions']['vbblog_comment_permissions'] & $vbulletin->bf_ugp_vbblog_comment_permissions['blog_allowimages']) ? true : false;
+}

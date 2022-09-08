@@ -1,0 +1,5 @@
+
+				$vbppt_lasthook='mail_send';
+				include(DIR.'/includes/vbppt_hooks.php');
+			
+			

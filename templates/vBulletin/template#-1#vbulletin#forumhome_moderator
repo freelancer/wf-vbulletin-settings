@@ -1,0 +1,1 @@
+<if condition="$show['comma_leader']">, </if><a href="member.php?$session[sessionurl]u=$moderator[userid]">$moderator[musername]</a>

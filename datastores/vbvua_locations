@@ -1,0 +1,326 @@
+{
+  "vbulletin": {
+    "archive_postheader": {
+      "archive_sidebar": {
+        "path": "includes/vbvua_locations/default/vbulletin/archive_postheader/all/archive_sidebar.php", 
+        "location": "archive_sidebar", 
+        "title": "At the right side of Archive pages."
+      }, 
+      "above_archive": {
+        "path": "includes/vbvua_locations/default/vbulletin/archive_postheader/all/above_archive.php", 
+        "location": "above_archive", 
+        "title": "At the beginning of Archive pages."
+      }
+    }, 
+    "member_complete": {
+      "memberinfo_bottom": {
+        "path": "includes/vbvua_locations/default/vbulletin/member_complete/all/memberinfo_bottom.php", 
+        "location": "memberinfo_bottom", 
+        "title": "At the bottom of all Member Profile pages."
+      }, 
+      "memberinfo_sidebar_bottom": {
+        "path": "includes/vbvua_locations/default/vbulletin/member_complete/all/memberinfo_sidebar_bottom.php", 
+        "location": "memberinfo_sidebar_bottom", 
+        "title": "At the bottom of sidebar for all Member Profile pages."
+      }, 
+      "memberinfo_top": {
+        "path": "includes/vbvua_locations/default/vbulletin/member_complete/all/memberinfo_top.php", 
+        "location": "memberinfo_top", 
+        "title": "At the top of all Member Profile pages."
+      }, 
+      "memberinfo_sidebar_top": {
+        "path": "includes/vbvua_locations/default/vbulletin/member_complete/all/memberinfo_sidebar_top.php", 
+        "location": "memberinfo_sidebar_top", 
+        "title": "At the top of sidebar for all Member Profile pages."
+      }
+    }, 
+    "parse_templates": {
+      "header_logo": {
+        "path": "includes/vbvua_locations/default/vbulletin/parse_templates/3/header_logo.php", 
+        "location": "header_logo", 
+        "title": "On the right side of the logo."
+      }, 
+      "after_threads": {
+        "path": "includes/vbvua_locations/default/vbulletin/parse_templates/all/after_threads.php", 
+        "location": "after_threads", 
+        "title": "After threads in Forumdisplay."
+      }, 
+      "header_end": {
+        "path": "includes/vbvua_locations/default/vbulletin/parse_templates/all/header_end.php", 
+        "location": "header_end", 
+        "title": "Below the logo."
+      }, 
+      "after_forums": {
+        "path": "includes/vbvua_locations/default/vbulletin/parse_templates/all/after_forums.php", 
+        "location": "after_forums", 
+        "title": "After forums in Forumhome."
+      }
+    }, 
+    "threadbit_display": {
+      "forumdisplay_middle": {
+        "path": "includes/vbvua_locations/default/vbulletin/threadbit_display/all/forumdisplay_middle.php", 
+        "location": "forumdisplay_middle", 
+        "title": "At the middle of thread list."
+      }
+    }, 
+    "album_start_precheck": {
+      "album_top": {
+        "path": "includes/vbvua_locations/default/vbulletin/album_start_precheck/all/album_top.php", 
+        "location": "album_top", 
+        "title": "At the top of Album."
+      }, 
+      "album_picture_top": {
+        "path": "includes/vbvua_locations/default/vbulletin/album_start_precheck/all/album_picture_top.php", 
+        "location": "album_picture_top", 
+        "title": "At the top of Album Picture."
+      }, 
+      "album_picture_bottom": {
+        "path": "includes/vbvua_locations/default/vbulletin/album_start_precheck/all/album_picture_bottom.php", 
+        "location": "album_picture_bottom", 
+        "title": "At the bottom of Album Picture."
+      }, 
+      "album_bottom": {
+        "path": "includes/vbvua_locations/default/vbulletin/album_start_precheck/all/album_bottom.php", 
+        "location": "album_bottom", 
+        "title": "At the bottom of Album."
+      }
+    }, 
+    "group_complete": {
+      "socialgroups_top": {
+        "path": "includes/vbvua_locations/default/vbulletin/group_complete/all/socialgroups_top.php", 
+        "location": "socialgroups_top", 
+        "title": "At the top of all Social Groups pages."
+      }, 
+      "socialgroups_bottom": {
+        "path": "includes/vbvua_locations/default/vbulletin/group_complete/all/socialgroups_bottom.php", 
+        "location": "socialgroups_bottom", 
+        "title": "At the bottom of all Social Groups pages."
+      }
+    }, 
+    "register_form_complete": {
+      "register_left": {
+        "path": "includes/vbvua_locations/default/vbulletin/register_form_complete/all/register_left.php", 
+        "location": "register_left", 
+        "title": "At the left of Register page."
+      }, 
+      "register_top": {
+        "path": "includes/vbvua_locations/default/vbulletin/register_form_complete/all/register_top.php", 
+        "location": "register_top", 
+        "title": "At the top of Register page."
+      }, 
+      "register_bottom": {
+        "path": "includes/vbvua_locations/default/vbulletin/register_form_complete/all/register_bottom.php", 
+        "location": "register_bottom", 
+        "title": "At the bottom of Register page."
+      }, 
+      "register_right": {
+        "path": "includes/vbvua_locations/default/vbulletin/register_form_complete/all/register_right.php", 
+        "location": "register_right", 
+        "title": "At the right of Register page."
+      }
+    }, 
+    "calendar_start": {
+      "calendar_top": {
+        "path": "includes/vbvua_locations/default/vbulletin/calendar_start/all/calendar_top.php", 
+        "location": "calendar_top", 
+        "title": "At the top of Calendar."
+      }, 
+      "calendar_bottom": {
+        "path": "includes/vbvua_locations/default/vbulletin/calendar_start/all/calendar_bottom.php", 
+        "location": "calendar_bottom", 
+        "title": "At the bottom of Calendar."
+      }
+    }, 
+    "redirect_generic": {
+      "below_redirect": {
+        "path": "includes/vbvua_locations/default/vbulletin/redirect_generic/all/below_redirect.php", 
+        "location": "below_redirect", 
+        "title": "Below redirect form."
+      }, 
+      "below_redirect_link": {
+        "path": "includes/vbvua_locations/default/vbulletin/redirect_generic/all/below_redirect_link.php", 
+        "location": "below_redirect_link", 
+        "title": "Below redirect link in redirect form."
+      }, 
+      "above_redirect": {
+        "path": "includes/vbvua_locations/default/vbulletin/redirect_generic/all/above_redirect.php", 
+        "location": "above_redirect", 
+        "title": "Above redirect form."
+      }
+    }, 
+    "archive_complete": {
+      "below_archive": {
+        "path": "includes/vbvua_locations/default/vbulletin/archive_complete/all/below_archive.php", 
+        "location": "below_archive", 
+        "title": "At the end of Archive pages."
+      }
+    }, 
+    "search_start": {
+      "search_top": {
+        "path": "includes/vbvua_locations/default/vbulletin/search_start/all/search_top.php", 
+        "location": "search_top", 
+        "title": "At the top of Search."
+      }, 
+      "search_bottom": {
+        "path": "includes/vbvua_locations/default/vbulletin/search_start/all/search_bottom.php", 
+        "location": "search_bottom", 
+        "title": "At the bottom of Search."
+      }
+    }, 
+    "forumhome_complete": {
+      "forumhomeleft": {
+        "path": "includes/vbvua_locations/default/vbulletin/forumhome_complete/all/forumhomeleft.php", 
+        "location": "forumhomeleft", 
+        "title": "Left sidebar in Forumhome."
+      }, 
+      "forumhomeright": {
+        "path": "includes/vbvua_locations/default/vbulletin/forumhome_complete/all/forumhomeright.php", 
+        "location": "forumhomeright", 
+        "title": "Right sidebar in Forumhome."
+      }
+    }, 
+    "usercp_nav_complete": {
+      "usercp_leftnav": {
+        "path": "includes/vbvua_locations/default/vbulletin/usercp_nav_complete/all/usercp_leftnav.php", 
+        "location": "usercp_leftnav", 
+        "title": "At the bottom of left side navbar for all User CP pages."
+      }, 
+      "usercp_bottom": {
+        "path": "includes/vbvua_locations/default/vbulletin/usercp_nav_complete/all/usercp_bottom.php", 
+        "location": "usercp_bottom", 
+        "title": "At the bottom of all User CP pages."
+      }, 
+      "usercp_top": {
+        "path": "includes/vbvua_locations/default/vbulletin/usercp_nav_complete/all/usercp_top.php", 
+        "location": "usercp_top", 
+        "title": "At the top of all User CP pages."
+      }
+    }, 
+    "global_setup_complete": {
+      "below_navbit": {
+        "path": "includes/vbvua_locations/default/vbulletin/global_setup_complete/all/below_navbit.php", 
+        "location": "below_navbit", 
+        "title": "Below Navbits."
+      }, 
+      "afterfooter": {
+        "path": "includes/vbvua_locations/default/vbulletin/global_setup_complete/all/afterfooter.php", 
+        "location": "afterfooter", 
+        "title": "At the end of the page. All pages."
+      }, 
+      "notice_right": {
+        "path": "includes/vbvua_locations/default/vbulletin/global_setup_complete/all/notice_right.php", 
+        "location": "notice_right", 
+        "title": "In all Notices."
+      }, 
+      "below_navbar": {
+        "path": "includes/vbvua_locations/default/vbulletin/global_setup_complete/all/below_navbar.php", 
+        "location": "below_navbar", 
+        "title": "Before main content for all pages."
+      }, 
+      "page_corner": {
+        "path": "includes/vbvua_locations/default/vbulletin/global_setup_complete/all/page_corner.php", 
+        "location": "page_corner", 
+        "title": "Page Corner. <dfn>Banner code will be placed at rigth-lower corner of the page.</dfn>"
+      }, 
+      "beforefooter": {
+        "path": "includes/vbvua_locations/default/vbulletin/global_setup_complete/all/beforefooter.php", 
+        "location": "beforefooter", 
+        "title": "Before footer bar. All pages."
+      }
+    }, 
+    "postbit_display_complete": {
+      "firstpost": {
+        "path": "includes/vbvua_locations/default/vbulletin/postbit_display_complete/all/firstpost.php", 
+        "location": "firstpost", 
+        "title": "In the first posts of all threads."
+      }, 
+      "showthread_firstpost": {
+        "path": "includes/vbvua_locations/default/vbulletin/postbit_display_complete/all/showthread_firstpost.php", 
+        "location": "showthread_firstpost", 
+        "title": "After the first posts of all threads."
+      }
+    }, 
+    "faq_start": {
+      "faq_top": {
+        "path": "includes/vbvua_locations/default/vbulletin/faq_start/all/faq_top.php", 
+        "location": "faq_top", 
+        "title": "At the top of FAQ."
+      }, 
+      "faq_bottom": {
+        "path": "includes/vbvua_locations/default/vbulletin/faq_start/all/faq_bottom.php", 
+        "location": "faq_bottom", 
+        "title": "At the bottom of FAQ."
+      }
+    }, 
+    "forumdisplay_complete": {
+      "forumdisplayright": {
+        "path": "includes/vbvua_locations/default/vbulletin/forumdisplay_complete/all/forumdisplayright.php", 
+        "location": "forumdisplayright", 
+        "title": "Right sidebar in Forumdisplay."
+      }, 
+      "forumdisplayleft": {
+        "path": "includes/vbvua_locations/default/vbulletin/forumdisplay_complete/all/forumdisplayleft.php", 
+        "location": "forumdisplayleft", 
+        "title": "Left sidebar in Forumdisplay."
+      }
+    }
+  }, 
+  "vbblog": {
+    "global_setup_complete": {
+      "blog_top": {
+        "path": "includes/vbvua_locations/default/vbblog/global_setup_complete/all/blog_top.php", 
+        "location": "blog_top", 
+        "title": "vBBlog - At the top of all vBBlog pages."
+      }, 
+      "blog_bottom": {
+        "path": "includes/vbvua_locations/default/vbblog/global_setup_complete/all/blog_bottom.php", 
+        "location": "blog_bottom", 
+        "title": "vBBlog - At the bottom of all vBBlog pages."
+      }, 
+      "blog_sidebar_top": {
+        "path": "includes/vbvua_locations/default/vbblog/global_setup_complete/all/blog_sidebar_top.php", 
+        "location": "blog_sidebar_top", 
+        "title": "vBBlog - At the top of left sidebar for all vBBlog pages."
+      }, 
+      "blog_sidebar_below": {
+        "path": "includes/vbvua_locations/default/vbblog/global_setup_complete/all/blog_sidebar_below.php", 
+        "location": "blog_sidebar_below", 
+        "title": "vBBlog - At the bottom of left sidebar for all vBBlog pages."
+      }
+    }
+  }, 
+  "adv_cmps": {
+    "global_setup_complete": {
+      "vbcmps_beforeright": {
+        "path": "includes/vbvua_locations/default/adv_cmps/global_setup_complete/all/vbcmps_beforeright.php", 
+        "location": "vbcmps_beforeright", 
+        "title": "vBa CMPS - Before right column."
+      }, 
+      "vbcmps_afterright": {
+        "path": "includes/vbvua_locations/default/adv_cmps/global_setup_complete/all/vbcmps_afterright.php", 
+        "location": "vbcmps_afterright", 
+        "title": "vBa CMPS - After right column."
+      }, 
+      "vbcmps_beforeleft": {
+        "path": "includes/vbvua_locations/default/adv_cmps/global_setup_complete/all/vbcmps_beforeleft.php", 
+        "location": "vbcmps_beforeleft", 
+        "title": "vBa CMPS - Before left column."
+      }, 
+      "vbcmps_aftercenter": {
+        "path": "includes/vbvua_locations/default/adv_cmps/global_setup_complete/all/vbcmps_aftercenter.php", 
+        "location": "vbcmps_aftercenter", 
+        "title": "vBa CMPS - After center column."
+      }, 
+      "vbcmps_afterleft": {
+        "path": "includes/vbvua_locations/default/adv_cmps/global_setup_complete/all/vbcmps_afterleft.php", 
+        "location": "vbcmps_afterleft", 
+        "title": "vBa CMPS - After left column."
+      }, 
+      "vbcmps_beforecenter": {
+        "path": "includes/vbvua_locations/default/adv_cmps/global_setup_complete/all/vbcmps_beforecenter.php", 
+        "location": "vbcmps_beforecenter", 
+        "title": "vBa CMPS - Before center column."
+      }
+    }
+  }
+}

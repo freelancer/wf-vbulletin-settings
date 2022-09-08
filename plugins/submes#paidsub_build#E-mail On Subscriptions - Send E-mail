@@ -1,0 +1,29 @@
+// #### Subscription Notification E-mail ####
+if($this->registry->options['submes_enable'] && (!$currentsubscription['subscriptionlogid'] || ($currentsubscription['subscriptionlogid'] && ($currentsubscription['expirydate'] != $expirydate))))
+{
+   global $vbphrase;
+   // Prepare e-mail variables
+   // user info
+   $subscriber = $user;    
+   if(!$vbphrase)
+   {
+      global $vbulletin, $phrasegroups;
+      $vbphrase = init_language();
+   }   
+   $sub['title'] = $vbphrase['sub' . $sub['subscriptionid'] . '_title'];
+   $sub['description'] = $vbphrase['sub' . $sub['subscriptionid'] . '_desc'];                   
+   $subscription['title'] = $sub['title'];
+   $subscription['description'] = $sub['description'];               
+   $currency = isset($this->paymentinfo['currency']) ? $this->paymentinfo['currency'] : 'usd';  
+   $subscription['date']  = vbdate($this->registry->options['dateformat'].' h:i',TIMENOW);
+   $subscription['startdate'] = vbdate($this->registry->options['dateformat'],$regdate);
+   $subscription['enddate']   = vbdate($this->registry->options['dateformat'],$expirydate);
+   // site info
+   $bbtitle   = $this->registry->options['bbtitle'];
+   $bburl     = $this->registry->options['bburl'];
+   $sitetitle = $this->registry->options['homeurl'];
+   $sitename  = $this->registry->options['hometitle'];
+   eval(fetch_email_phrases('submes_subscription_user'));
+   vbmail($user['email'], $subject, $message, true, $this->registry->options['submes_email_from'],'','',true);   
+}     
+// #### End Subscription Notification E-mail ####

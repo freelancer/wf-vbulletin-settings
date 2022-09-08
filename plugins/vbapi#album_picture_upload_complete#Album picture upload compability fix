@@ -1,0 +1,40 @@
+if (VB_API === true)
+{
+	if (!$moderatedpictures AND $pictureids AND !$albuminfo['coverpictureid'])
+	{
+		// no cover -> set cover to the first pic uploaded
+		$db->query_write("
+			UPDATE " . TABLE_PREFIX . "album SET
+				coverpictureid = " . reset($pictureids) . "
+			WHERE albumid = $albuminfo[albumid]
+		");
+	}
+
+	// Build custom JSON response
+	$attachments = array();
+	$i = 0;
+	foreach ($uploads AS $uploadid => $uploadinfo)
+	{
+		if ($pictureids["$uploadid"])
+		{
+			$attachments[$i]['attach']['attachmentid'] = $pictureids["$uploadid"];
+			$attachments[$i]['attach']['filename'] = $uploads["$uploadid"]['name'];
+			$i++;
+		}
+	}
+
+	if (count($attachments) == 1)
+	{
+		$attachments = $attachments[0];
+	}
+
+	$response['response']['attachments'] = $attachments;
+	$output = @json_encode($response);
+	
+	$sign = md5($output . $vbulletin->apiclient['apiaccesstoken'] . $vbulletin->apiclient['apiclientid'] . $vbulletin->apiclient['secret'] . $vbulletin->options['apikey']);
+	@header('Authorization: ' . $sign);
+	
+	echo $output;
+	exit;
+	
+}

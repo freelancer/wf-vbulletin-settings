@@ -1,0 +1,1 @@
+This script updates attachment views once an hour if the delayed attachment views option is enabled.  This is suggested for forums with a large number of attachments or users.

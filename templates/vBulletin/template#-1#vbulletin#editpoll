@@ -1,0 +1,114 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $vbphrase[edit_poll]</title>
+</head>
+<body>
+$header
+$navbar
+
+<form action="poll.php?do=updatepoll&amp;pollid=$pollid" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="updatepoll" />
+<input type="hidden" name="pollid" value="$pollid" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<span class="smallfont" style="float:$stylevar[right]"><strong>$vbphrase[thread]</strong>: $threadinfo[prefix_plain_html] <a href="showthread.php?$session[sessionurl]t=$threadinfo[threadid]">$threadinfo[title]</a></span>
+		$vbphrase[edit_poll]
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+		$usernamecode
+
+		<div class="fieldset">
+			<div><label for="pollquestion">$vbphrase[poll_question]</label>:</div>
+			<input type="text" class="bginput" name="pollquestion" value="$pollinfo[question]" id="pollquestion" size="50" maxlength="$vboptions[titlemaxchars]" />
+		</div>
+
+		<fieldset class="fieldset">
+			<legend>$vbphrase[poll_options]</legend>
+			<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+			$pollbits
+
+			<if condition="$show['additional_option1']">
+			<tr>
+				<td colspan="2"><label for="add1">$vbphrase[additional_option_1]:<br /><input type="text" class="bginput" name="options[]" id="add1" size="50" /></label></td>
+			</tr>
+			</if>
+
+			<if condition="$show['additional_option2']">
+			<tr>
+				<td colspan="2"><label for="add2">$vbphrase[additional_option_2]:<br /><input type="text" class="bginput" name="options[]" id="add2" size="50" /></label></td>
+			</tr>
+			</if>
+			<tr>
+				<td colspan="2">$vbphrase[keep_poll_options_short]</td>
+			</tr>
+			</table>
+		</fieldset>
+
+		<fieldset class="fieldset">
+			<legend>$vbphrase[poll_timeout]</legend>
+			<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+			<tr>
+				<td>$vbphrase[automatically_close_poll_enter_days]</td>
+			</tr>
+			<tr>
+				<td><label for="poll_timeout">$vbphrase[close_poll] <input type="text" class="bginput" name="timeout" value="$pollinfo[timeout]" size="5" id="poll_timeout" /> <phrase 1="$pollinfo[postdate]">$vbphrase[days_after_x]</phrase></label></td>
+			</tr>
+			</table>
+		</fieldset>
+
+		<if condition="$show['makeprivate']">
+		<fieldset class="fieldset">
+			<legend>$vbphrase[poll_options]</legend>
+			<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+			<tr>
+				<td><label for="cb_public"><input type="checkbox" name="public" value="1" id="cb_public" tabindex="1" $pollinfo[public] />$vbphrase[make_votes_public]</label></td>
+			</tr>
+			</table>
+		</fieldset>
+		</if>
+
+		<fieldset class="fieldset">
+			<legend>$vbphrase[close_poll]</legend>
+			<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+			<tr>
+				<td><label for="cb_closepoll"><input type="checkbox" name="closepoll" value="yes" id="cb_closepoll" $pollinfo[closed] />$vbphrase[to_close_this_poll_check_this_box]</label></td>
+			</tr>
+			<tr>
+				<td>$vbphrase[closing_poll_impossible_to_vote]</td>
+			</tr>
+			</table>
+		</fieldset>
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" name="sbutton" accesskey="s" value="$vbphrase[save_changes]" />
+		<input type="reset" class="button" value="$vbphrase[reset_fields]" />
+	</div>
+
+	</td>
+</tr>
+</table>
+
+</form>
+
+<br />
+
+$forumrules
+
+$footer
+
+</body>
+</html>

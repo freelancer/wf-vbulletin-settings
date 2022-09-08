@@ -1,0 +1,1 @@
+This script is only needed if you enable the CCBill payment processor. It will contact the CCBill server to check for reversed payments and update your subscriptions accordingly.

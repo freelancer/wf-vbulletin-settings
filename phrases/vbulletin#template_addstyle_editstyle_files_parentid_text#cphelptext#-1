@@ -1,0 +1,1 @@
+This style will inherit the templates, settings, etc of the parent style that is selected here.  Any changes that are made to the parent will be passed down to its children unless the child has customized the settings that are changed.

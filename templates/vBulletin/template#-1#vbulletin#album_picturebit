@@ -1,0 +1,15 @@
+<table style="width:{$picturebit_width}px; height:{$picturebit_height}px; margin:5px; float:$stylevar[left]" border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td class="smallfont" align="center" valign="middle">
+	<if condition="$picture['thumburl']">
+		<a href="album.php?$session[sessionurl]albumid=$albuminfo[albumid]&amp;pictureid=$picture[pictureid]"><img class="alt2" src="$picture[thumburl]" alt="$picture[caption_preview]" border="0" style="
+			padding:$stylevar[cellpadding]px;
+			<if condition="!$usercss">border:solid $stylevar[cellspacing]px $stylevar[tborder_bgcolor]</if>
+		" $picture[dimensions] /></a>
+	<else />
+		<a href="album.php?$session[sessionurl]albumid=$albuminfo[albumid]&amp;pictureid=$picture[pictureid]"><if condition="$picture['caption_preview']">$picture[caption_preview]<else />$vbphrase[picture]</if></a>
+	</if>
+	<if condition="$show['moderation']"><br /><span class="shade">$vbphrase[picture_moderated]</span></if>
+	</td>
+</tr>
+</table>

@@ -1,0 +1,23 @@
+<p><b>What are signatures?</b></p>
+
+<p>'Signatures' contain information that you want to include at the bottom of all your posts. This might include pictures, links to your site(s), quotes, etc.</p>
+
+<p><b>What are avatars?</b></p>
+
+<p>Avatars are small images that people use to identify or distinguish themselves to other forum members. In some cases the administrator will not allow avatars or only allow them for specific members. The administrator can also provide some stock avatars people can use, or they can allow members to upload their own custom avatars from their own computers. These avatars will be displayed as part of the user info in posts, as well as in the public profile.</p>
+
+<p>For more information about avatars, please click <a href="misc.php?$session[sessionurl]do=showavatars">here</a>.</p>
+
+<p><b>What are profile pictures?</b></p>
+
+<p>Profile Pictures are photos members can upload that will display in their public member profile. This option may or may not be enabled by the administrator.</p>
+
+<p><b>How do I set signatures, avatars and profile pictures?</b></p>
+
+<p>You can set and change your signature, avatar and profile picture in the <b>User Control Panel</b> (providing the administrator has made these options available).</p>
+
+<p>For signatures, click on '<a href="profile.php?$session[sessionurl]do=editsignature">Edit Signature</a>' under the 'Settings and Options' area of the navigation bar within the User CP.</p>
+
+<p>To select an existing or upload a new avatar, click on '<a href="profile.php?$session[sessionurl]do=editavatar">Edit Avatar</a>'.</p>
+
+<p>To upload a profile picture, click on '<a href="profile.php?$session[sessionurl]do=editprofilepic">Edit Profile Picture</a>' in the 'Your Profile' section.</p>

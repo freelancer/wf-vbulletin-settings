@@ -1,0 +1,98 @@
+<script type="text/javascript">
+<!--
+var preview_focus = true;
+//-->
+</script>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<if condition="$show['errors']">
+			$vbphrase[errors_occured_when_submitted]:
+		<else />
+			$vbphrase[preview]
+		</if>
+	</td>
+</tr>
+<tr>
+	<td class="alt1">
+		<if condition="$show['errors']">
+			<!--POSTERROR do not remove this comment-->
+			<ol>$errorlist</ol>
+			<!--/POSTERROR do not remove this comment-->
+		<else />
+
+			<if condition="$show['messageicon'] OR $newpost['title']">
+				<!-- icon and title -->
+				<div class="smallfont">
+					<if condition="$show['messageicon']"><img class="inlineimg" src="$newpost[iconpath]" alt="$newpost[icontitle]" border="0" /></if>
+					<if condition="$newpost['title']"><strong>$newpost[title]</strong></if>
+				</div>
+				<hr size="1" style="color:$stylevar[tborder_bgcolor]; background-color:$stylevar[tborder_bgcolor]" />
+				<!-- / icon and title -->
+			</if>
+			$previewmessage
+
+			<if condition="$show['attachments']">
+			<!-- attachments -->
+				<div style="padding:$stylevar[cellpadding]px">
+
+				<if condition="$show['thumbnailattachment']">
+					<fieldset class="fieldset">
+						<legend>$vbphrase[attached_thumbnails]</legend>
+						<div style="padding:$stylevar[formspacer]px">
+						$post[thumbnailattachments]
+						</div>
+					</fieldset>
+				</if>
+
+				<if condition="$show['imageattachment']">
+					<fieldset class="fieldset">
+						<legend>$vbphrase[attached_images]</legend>
+						<div style="padding:$stylevar[formspacer]px">
+						$post[imageattachments]
+						</div>
+					</fieldset>
+				</if>
+
+				<if condition="$show['imageattachmentlink']">
+					<fieldset class="fieldset">
+						<legend>$vbphrase[attached_images]</legend>
+						<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+						$post[imageattachmentlinks]
+						</table>
+						</fieldset>
+				</if>
+
+				<if condition="$show['otherattachment']">
+					<fieldset class="fieldset">
+						<legend>$vbphrase[attached_files]</legend>
+						<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+						$post[otherattachments]
+						</table>
+					</fieldset>
+				</if>
+
+				<if condition="$show['moderatedattachment']">
+					<fieldset class="fieldset">
+						<legend>$vbphrase[attachments_pending_approval]</legend>
+						<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+						$post[moderatedattachments]
+						</table>
+					</fieldset>
+				</if>
+
+				</div>
+			<!-- / attachments -->
+			</if>
+
+			<if condition="$show['signature']">
+			<div>__________________<br />
+			$post[signature]</div>
+			</if>
+		</if>
+	</td>
+</tr>
+</table>
+
+<br />

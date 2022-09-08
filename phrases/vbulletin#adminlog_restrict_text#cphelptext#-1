@@ -1,0 +1,16 @@
+You can restrict access and pruning access to the Admin Log by adding or modifying two variables in config.php.<br /><br />
+
+Access control to the admin log is <b>not</b> controlled through the control panel for security reasons.<br />
+Access to the admin log is controlled with two variables which are located in includes/config.php file.<br /><br />
+
+Both variables can take either a single number, or a list of numbers separated by commas, each representing userids which have access to the admin log.<br /><br />
+
+If you would like to change the current access permissions to the adminlog, you may do so by opening <i>includes/config.php</i> in a text editor and modifying the following variables<br /><br />
+
+<pre> $config['SpecialUsers']['canviewadminlog'] = '1,10';
+ $config['SpecialUsers']['canpruneadminlog'] = '1';</pre>
+
+This will restrict viewing access to this script to only you (usually userid 1) and the member with userid 10. Access to prune entries from the log would be restricted to you (usually userid 1).<br /><br />
+
+If the $config['SpecialUsers']['canviewadminlog'] line is omitted from config.php, or if the value is blank (<i>$config['SpecialUsers']['canviewadminlog'] = '';</i>), all administrators will have access to view the admin log.<br />
+Conversely, if the $config['SpecialUsers']['canpruneadminlog'] line is omitted or blank, <i>nobody</i> will be granted pruning permission.<br />

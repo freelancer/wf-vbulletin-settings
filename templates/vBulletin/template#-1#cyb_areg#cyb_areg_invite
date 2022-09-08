@@ -1,0 +1,101 @@
+
+		$stylevar[htmldoctype]
+		<html dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+			<head>
+			$headinclude
+			<title>$vboptions[bbtitle] - $vbphrase[cybareg_invitations]</title>
+			<script language="Javascript" type="text/javascript">
+				function CybAReg_CheckMail(email_field,error_field,target){
+					emailRegExp = /^[_A-Za-z0-9-]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*(\.([A-Za-z]){2,4})$/;
+					var error_address = '$vbphrase[cybareg_invitation_mailerror]: ';
+					var error_blank = '$vbphrase[cybareg_invitation_missingmail]';
+					var error_number = '$vbphrase[cybareg_invitation_limit]: $vboptions[cybareg_invite_oncelimit]';
+					var wait_message = '$vbphrase[cybareg_wait]';
+					var email = target.split(","); 
+					var errmail = "";
+
+					if (target=='')
+					{
+						document.getElementById(error_field).innerHTML=error_blank;
+						document.cybareg_invite.cybareg_invite_email.focus();
+						return false;
+					}
+					else if (email.length>$vboptions[cybareg_invite_oncelimit])
+					{
+						document.getElementById(error_field).innerHTML=error_number;
+						document.cybareg_invite.cybareg_invite_email.focus();
+						return false;
+					}
+					else
+					{
+						for (var i in email)
+						{
+							if (!emailRegExp.test(email[i]))
+							{
+								errmail += "; " + email[i];
+							}
+						} 
+						if (errmail)
+						{	
+							document.cybareg_invite.cybareg_invite_email.focus();
+							document.getElementById(error_field).innerHTML=error_address + "<span class=\"smallfont\">" + errmail.substr(1) + "</span>";
+							return false;
+						} else {
+							document.getElementById(error_field).innerHTML=wait_message;
+							return true;
+						}
+					}
+				}
+				function CybAReg_UpdName(name){
+					if (name=='')
+					{
+						cybareg_name = "";
+					}
+					else
+					{
+						cybareg_name = " (" + name + ")";
+					}
+					document.getElementById('cybareg_nameupd').innerHTML=cybareg_name;
+				}
+			</script>
+			</head>
+			<body onload="document.cybareg_invite.cybareg_invite_email.focus();">
+			$header
+			$navbar
+			<if condition="(($vboptions[cybareg_invite_amount]>0) AND ($cyb_areg_total_inv_user >= $vboptions[cybareg_invite_amount]))">
+				<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+					<tr valign="top">
+						<td class="tcat" align="$stylevar[left]">$vbphrase[cybareg_invitations]</td>
+					</tr>
+					<tr>
+						<td class="alt1" align="center"><phrase 1="$vboptions[cybareg_invite_amount]">$vbphrase[cybareg_invitation_nomore]</phrase></td>
+					</tr>
+				</table>
+			<else />
+				<form name="cybareg_invite" id="cybareg_invite" action="misc.php?do=cybareginvdo" method="post" onsubmit="return CybAReg_CheckMail('cybareg_invite_email','cybareg_wrongmail', document.cybareg_invite.cybareg_invite_email.value);">
+					<input type="hidden" name="securitytoken" value="$cybareg_sectok" />
+					<input type="hidden" name="cybareg_inviter_id" value="$bbuserinfo[userid]" />
+					<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+						<tr>
+							<td class="tcat" align="$stylevar[left]" colspan="2">$vbphrase[cybareg_invitations] $cyb_areg_inv_myinfo</td>
+						</tr>
+						<tr>
+							<td class="thead" align="$stylevar[left]">$vbphrase[email]</td>
+							<td class="thead" align="$stylevar[left]" width="50%">$vbphrase[cybareg_invitation_message_info]</td>
+						</tr>
+						<tr>
+							<td class="alt1" align="center"><span class="smallfont">$vbphrase[cybareg_invitation_notes]</span><br /><br /><span id="cybareg_wrongmail" style="color:red;">$vbphrase[cybareg_invitation_recipients]:</span><br /><br /><input type="text" class="smallfont" id="cybareg_invite_email" name="cybareg_invite_email" value="" size="50" dir="ltr" /></td>
+							<td class="alt2" align="$stylevar[left]" rowspan="2"><pre style="font-family:Verdana;font-size:11px">$cybareg_invmess_preview</pre></td>
+						</tr>
+						<tr>
+							<td class="alt1" align="center"><span class="smallfont">$vbphrase[cybareg_invitation_realname]</span><br /><br /><span>$vbphrase[cybareg_invitation_yourname]:</span><br /><br /><input type="text" class="smallfont" id="cybareg_inviter_name" name="cybareg_inviter_name" value="" size="50" dir="ltr" onkeyup="CybAReg_UpdName(this.value);" /></td>
+						</tr>
+						<tr>
+							<td class="tfoot" align="center" colspan="2"><input class="buton" type="submit" value="&nbsp;$vbphrase[send]&nbsp;" /></td>
+						</tr>
+					</table>				</form>
+			</if>
+			<br />
+			$footer
+			</body>
+		</html>

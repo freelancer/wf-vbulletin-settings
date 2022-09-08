@@ -1,0 +1,1 @@
+vBulletin has a mail queue that prevents bottlenecks when sending large numbers of emails (for example, when a new post is added to a thread that has a lot of subscriptions to it). By default, 10 emails are sent from the queue at a time. If you have a more powerful server, you can probably safely increase this number, but we do not recommend going too high on this regardless.

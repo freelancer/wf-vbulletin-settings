@@ -1,0 +1,13 @@
+<div>Choose the verification type that you wish to present to the user.</div>
+
+			<div style="font-weight:bold; margin-top:1em">Image Verification</div>
+			<div>An image consisting of letters in varying fonts/shapes/sizes will be shown to the user. The appearance of this image is dictated by several options that you may control.</div>
+
+			<div style="font-weight:bold; margin-top:1em">Question and Answer Verification</div>
+			<div>Questions provided by you that must be answered appropriately for verification.</div>
+
+			<div style="font-weight:bold; margin-top:1em"><a href="http://recaptcha.net" target="_blank">reCAPTCHA&trade;</a> Verification</div>
+			<div>An image containing two words will be shown to the user. This verification supports audio, allowing blind users to register.</div>
+
+			<div style="font-weight:bold; margin-top:1em"><a href="http://www.funcaptcha.co" target="_blank">FunCaptcha</a></div>
+			<div>FunCaptcha stops spam with a fun, easy game.</div>

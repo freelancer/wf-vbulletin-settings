@@ -1,0 +1,67 @@
+if ($_POST['do'] == 'sendemail' && THIS_SCRIPT=='report')
+{
+	$vbulletin->input->clean_array_gpc('p', array(
+		'reason' => TYPE_STR,
+	));
+
+	if ($vbulletin->GPC['reason'] == '')
+	{
+		eval(standard_error(fetch_error('noreason')));
+	}
+
+	if ($perform_floodcheck)
+	{
+		$reportobj->perform_floodcheck_commit();
+	}
+
+	$reportobj->do_report($vbulletin->GPC['reason'], $postinfo);
+	
+	
+	$forumid = $db->query_first('SELECT thread.forumid FROM ' . TABLE_PREFIX . 'thread AS thread WHERE threadid = ' . $postinfo['threadid']);
+	$forumid = $forumid['forumid'];
+	
+	if ($vbulletin->userinfo['posts'] >= $vbulletin->options['reporting_postcount'] && in_array($forumid, explode(",", $vbulletin->options['reporting_forumids'])))
+	{
+  	$postinfo['strikes']++;
+  	
+  	$threadexisting = $db->query_first('SELECT thread.* FROM ' . TABLE_PREFIX . 'thread AS thread WHERE firstpostid = ' . $postinfo['postid']);
+  	if ($threadexisting)
+  	{
+  		$threadman =& datamanager_init('Thread', $vbulletin, ERRTYPE_STANDARD, 'threadpost');
+  		$threadman->set_existing($threadexisting);
+  	}
+
+  	$postman =& datamanager_init('Post', $vbulletin, ERRTYPE_STANDARD, 'threadpost');
+	 	$postman->set_existing($postinfo);
+  	if ($postinfo['strikes'] >= $vbulletin->options['reporting_strikes'])
+  	{
+	  	if ($threadexisting)
+	  	{
+	  		$threadman->set('visible', 0);
+	  	}
+	  	else
+	  	{
+	  		$postman->set('visible', 0);
+	  	}
+	  	$db->query_write('DELETE FROM ' . TABLE_PREFIX . 'report WHERE postid = ' . $postinfo['postid']);
+	  }
+	  else
+	  {
+	  	$postman->set('strikes', $postinfo['strikes']);
+	  	
+	  	$db->query_write('
+				INSERT INTO ' . TABLE_PREFIX . 'report
+				(userid, username, postid, dateline)
+				VALUES
+				(' . $vbulletin->userinfo['userid'] . ', "' . $db->escape_string($vbulletin->userinfo['username']) . '", ' . $postinfo['postid'] . ', ' . TIMENOW . ')
+		');
+	  }
+	  $postman->save();
+	  if ($threadexisting)
+	  {
+	  	$threadman->save();
+	  }
+	}
+
+	eval(print_standard_redirect('redirect_reportthanks'));
+}

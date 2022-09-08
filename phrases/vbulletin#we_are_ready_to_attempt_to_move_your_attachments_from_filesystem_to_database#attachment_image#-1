@@ -1,0 +1,1 @@
+<p>We are ready to attempt to move your Attachments from the Filesystem to the Database.</p> <p>It is possible that you might not have enough space in the database but we are unable to determine that ahead of time.</p> <p>We will not finalize the move until the end of the process.</p> <p>If the process aborts before the end, you will need to free up space before trying again.</p>

@@ -1,0 +1,1 @@
+Setting a cookie timeout shorter than 60 seconds could render your board unusable, as you may not have time to enter the control panel to change the cookie timeout value to something longer before you are logged out.

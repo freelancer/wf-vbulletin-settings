@@ -1,0 +1,17 @@
+This option will attempt to automatically resize image attachments that exceed the set dimensions for that specific image type. The image will be proportionately resized to the maximum dimensions for that image type. Resized images will be converted to JPG images to conserve space. Image types that can be resized depends on your server configuration. Resizing is as follows:
+<br /><br />
+<strong>GD</strong><br />
+JPEG => JPEG<br />
+PNG => JPEG<br />
+GIF => JPEG
+<br />
+<br />
+<strong>Imagemagick</strong><br />
+JPEG => JPEG<br />
+PNG => JPEG<br />
+GIF => JPEG<br />
+BMP => JPEG<br />
+TIFF => JPEG<br />
+PSD (N/A)*<br />
+PDF (N/A)*<br /><br />
+<dfn>*PSD and PDF image types are not resized as you would want to retain their current setting.</dfn>

@@ -1,0 +1,1 @@
+Set how many days here to be cut off for Forum Threads displayed in TOP/NEW section on the Home page of mobile application. Threads posted before these days will not be queried. If you have a big board, setting it to a lower number will improve its performance.

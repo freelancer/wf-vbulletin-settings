@@ -1,0 +1,1 @@
+'Table Border' serves two purposes - primarily it is used to set the background color of all colored tables, which will show through in the color of the lines between cells. Secondly, you may wish to apply a border to the outside of the table itself.

@@ -1,0 +1,9 @@
+
+		print_table_header($vbphrase['Cyb_APBOUPC']);
+		print_input_row($vbphrase['forum_accessf_nb'], 'forum[accessf_nb]', $forum['accessf_nb']);
+		print_input_row($vbphrase['forum_accesst_nb'], 'forum[accesst_nb]', $forum['accesst_nb']);
+		print_input_row($vbphrase['forum_create_nb'], 'forum[create_nb]', $forum['create_nb']);
+		print_input_row($vbphrase['forum_reply_nb'], 'forum[reply_nb]', $forum['reply_nb']);
+		print_input_row($vbphrase['attach_nb'], 'forum[attach_nb]', $forum['attach_nb']);
+		print_input_row($vbphrase['linkview_nb'], 'forum[linkview_nb]', $forum['linkview_nb']);
+		print_input_row($vbphrase['linkpost_nb'], 'forum[linkpost_nb]', $forum['linkpost_nb']);

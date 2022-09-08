@@ -1,0 +1,75 @@
+<div class="alt1 block_row">
+	$template_hook[profile_stats_first]
+
+	<fieldset class="statistics_group">
+		<legend>$vbphrase[total_posts]</legend>
+		<ul class="list_no_decoration">
+			<li><span class="shade">$vbphrase[total_posts]:</span> $prepared[posts]</li>
+			<li><span class="shade">$vbphrase[posts_per_day]:</span> $prepared[postsperday]</li>
+			<if condition="$prepared['lastposturl']">
+				<li>
+					<span class="shade">$vbphrase[last_post]:</span> <a href="$prepared[lastposturl]">$prepared[lastposttitle]</a> $prepared[lastpostdate] <span class="time">$prepared[lastposttime]</span>
+				</li>
+			</if>
+			<li><a href="search.php?$session[sessionurl]do=finduser&amp;u=$userinfo[userid]" rel="nofollow"><phrase 1="$prepared[username]">$vbphrase[find_all_posts_by_x]</phrase></a></li>
+			<li><a href="search.php?$session[sessionurl]do=finduser&amp;u=$userinfo[userid]&amp;starteronly=1" rel="nofollow"><phrase 1="$prepared[username]">$vbphrase[find_all_threads_started_by_x]</phrase></a></li>
+		</ul>
+	</fieldset>
+
+	<if condition="$show['album_block']">
+	<fieldset class="statistics_group">
+		<legend>$vbphrase[albums]</legend>
+		<ul class="list_no_decoration">
+			<li><span class="shade">$vbphrase[total_albums]:</span> $block_data[albumcount]</li>
+			<li><span class="shade">$vbphrase[total_pictures]:</span> $block_data[picturecount]</li>
+			<li><a href="album.php?$session[sessionurl]u=$prepared[userid]"><phrase 1="$prepared[username]">$vbphrase[albums_created_by_x]</phrase></a></li>
+		</ul>
+	</fieldset>
+	</if>
+	<if condition="$show['vm_block']">
+	<fieldset class="statistics_group">
+		<legend>$vbphrase[visitor_messages]</legend>
+		<ul class="list_no_decoration">
+			<li><span class="shade">$vbphrase[total_messages]:</span> $prepared[vm_total]</li>
+			<li><span class="shade">$vbphrase[most_recent_message]:</span> $prepared[lastvm_date] <if condition="!$show['detailedtime']">$prepared[lastvm_time] </if></li>
+			<li><a href="#visitor_messaging" onclick="return vB_TabCtrls['profile_tabs'].switch_tab('visitor_messaging');"><phrase 1="$prepared[username]">$vbphrase[visitor_messages_for_x]</phrase></a></li>
+			<if condition="$show['post_visitor_message']"><li><a href="#visitor_messaging" onclick="return goto_post_pm();"><phrase 1="$prepared[username]">$vbphrase[post_a_visitor_message_for_x]</phrase></a></li></if>
+		</ul>
+	</fieldset>
+	</if>
+
+	<if condition="$show['usernote_block']">
+	<fieldset class="statistics_group">
+		<legend>$vbphrase[user_notes]</legend>
+		<ul class="list_no_decoration">
+			<if condition="$show['usernote_data']">
+			<li><span class="shade">$vbphrase[total_user_notes]:</span> $prepared[usernotecount]</li>
+			<li><span class="shade">$vbphrase[most_recent_user_note]:</span> $block_data[note_lastdate]<if condition="!$show['detailedtime']"> <span class="time">$block_data[note_lasttime]</span></if></li>
+			<li><a href="usernote.php?$session[sessionurl]u=$userinfo[userid]"><phrase 1="$prepared[username]">$vbphrase[user_notes_for_x]</phrase></a></li>
+			</if>
+			<if condition="$show['usernote_post']"><li><a href="usernote.php?$session[sessionurl]do=newnote&amp;u=$userinfo[userid]">$vbphrase[post_a_user_note]</a></li></if>
+		</ul>
+	</fieldset>
+	</if>
+
+	$template_hook[profile_stats_pregeneral]
+
+	<fieldset class="statistics_group">
+		<legend>$vbphrase[general_information]</legend>
+		<ul class="list_no_decoration">
+			<if condition="$prepared['lastactivitydate']">
+				<li><span class="shade">$vbphrase[last_activity]:</span> $prepared[lastactivitydate] <if condition="!$show['detailedtime']"><span class="time">$prepared[lastactivitytime]</span></if></li>
+			</if>
+			<if condition="$prepared['action']">
+				<li><span class="shade">$vbphrase[current_activity]:</span> $prepared[action] $prepared[where]</li>
+			</if>
+			<li><span class="shade">$vbphrase[join_date]:</span> $prepared[joindate]</li>
+			<if condition="$vboptions['usereferrer']"><li><span class="shade">$vbphrase[referrals]:</span> $prepared[referrals]</li></if>
+			<if condition="$prepared['homepage']">
+				<li><span class="shade">$vbphrase[home_page]:</span> <a href="$prepared[homepage]" target="_blank">$prepared[homepage]</a></li>
+			</if>
+		</ul>
+	</fieldset>
+
+	$template_hook[profile_stats_last]
+</div>

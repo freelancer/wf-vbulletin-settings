@@ -1,0 +1,1 @@
+This is the order in which calendars are displayed in the "Jump to Calendar" drop-down menu on the calendar page, and in the Admin CP. Set this to 0 to not show the calendar to the end-user. If this is set to 0, the user can still access this calendar by typing in the direct URL to it.

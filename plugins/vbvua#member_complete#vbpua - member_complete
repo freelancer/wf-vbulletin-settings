@@ -1,0 +1,4 @@
+
+$vbpua_lasthook='member_complete';
+include(DIR.'/includes/vbvua_hooks.php');
+             

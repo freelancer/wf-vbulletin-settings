@@ -1,0 +1,1 @@
+Allow users to delete attachments, even if the post edit time limit has been exceeded?  If you have attachment quotas enabled then you will need this option enabled to allow users to delete attachments once they reach their quota. The user will still need permission to edit posts in the forum for this to apply.

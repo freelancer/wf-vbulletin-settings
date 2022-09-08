@@ -1,0 +1,277 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $vbphrase[user_infraction]</title>
+</head>
+<body>
+$header
+$navbar
+
+<if condition="$show['pm']">
+<form action="infraction.php?do=update" method="post" name="vbform"<if condition="!is_browser('webtv')"> onsubmit="return vB_Editor['$editorid'].prepare_submit(0, 0)"</if>>
+<else />
+<form action="infraction.php?do=update" method="post">
+</if>
+
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<if condition="$foruminfo[forumid]"><span class="smallfont" style="float:$stylevar[right]"><strong>$vbphrase[forum]</strong>: <a href="forumdisplay.php?$session[sessionurl]f=$foruminfo[forumid]">$foruminfo[title]</a></span></if>
+		$vbphrase[user_infraction]
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+			<fieldset class="fieldset">
+				<legend>$userinfo[username]</legend>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="<if condition="$show['groups'] OR $show['possiblegroups']">90%<else />25%</if>" align="center">
+				<tr>
+					<td nowrap="nowrap">$vbphrase[infractions_active_total]</td>
+					<td nowrap="nowrap"><strong>$userinfo[infractions] / $totalinfractions</strong></td>
+				</tr>
+				<tr>
+					<td>$vbphrase[points]</td>
+					<td><strong>$userinfo[ipoints]</strong></td>
+				</tr>
+				<tr>
+					<td>$vbphrase[warnings]</td>
+					<td><strong>$userinfo[warnings]</strong></td>
+				</tr>
+				<if condition="$show['groups']">
+				<tr>
+					<td nowrap="nowrap" width="40%">$vbphrase[current_infraction_groups]</td>
+					<td><strong>$infractiongroups</strong></td>
+				</tr>
+				</if>
+				<if condition="$show['possiblegroups']">
+
+				<tr>
+					<td nowrap="nowrap" width="40%">$vbphrase[possible_infraction_groups]</td>
+					<td><phrase 1="$firstgroup" 2="$firstpoints">$vbphrase[x_y_points]</phrase></td>
+				</tr>
+				<if condition="$show['moregroups']">
+					$moregroups
+				</if>
+				</if>
+				</table>
+			</fieldset>
+		</div>
+
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+
+			<fieldset class="fieldset">
+				<legend>$vbphrase[infraction_level]</legend>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="75%" align="center">
+				<tr>
+					<td width="45%"><strong>$vbphrase[title]</strong></td>
+					<if condition="$show['count']"><td width="10%" align="center"><strong>$vbphrase[active]</strong></td></if>
+					<td width="10%" align="center"><strong>$vbphrase[points]</strong></td>
+					<td width="15%" align="center"><strong>$vbphrase[expires]</strong></td>
+					<td width="10%" nowrap="nowrap"><strong>$vbphrase[warning]</strong></td>
+				</tr>
+				$infractionbits
+				<if condition="$show['custominfraction']">
+				<tr>
+					<td colspan="<if condition="$show['count']">5<else />4</if>"><strong>$vbphrase[custom_infraction]</strong></td>
+				</tr>
+				<tr>
+					<td colspan="<if condition="$show['count']">5<else />4</if>">
+					<table cellpadding="0" cellspacing="1" border="0" align="center" width="75%">
+					<tr>
+						<if condition="$infractionbits"><td valign="top"><input type="radio" name="infractionlevelid" value="0" $checked_inf tabindex="1" /></td></if>
+						<td>$vbphrase[reason]<br /><input type="text" class="bginput" name="customreason" value="$customreason" size="40" tabindex="1" /></td>
+						<td valign="top" align="center" style="padding-$stylevar[left]: 5px">$vbphrase[points]<br /><input type="text" class="bginput" name="points" value="$custompoints" size="1" style="width: 1.5em" tabindex="1" /></td>
+						<td valign="top" style="padding-$stylevar[left]: 5px" nowrap="nowrap">$vbphrase[expires]<br /><input type="text" class="bginput" name="expires" value="$customexpires" size="1" style="width: 1.5em" tabindex="1" /> <select name="period" tabindex="1">
+							<option value="H" $periodselected[H]>$vbphrase[hours]</option>
+							<option value="D" $periodselected[D]>$vbphrase[days]</option>
+							<option value="M" $periodselected[M]>$vbphrase[months]</option>
+							<option value="N" $periodselected[N]>$vbphrase[never]</option>
+						</select></td>
+						<td width="100%">&nbsp;</td>
+					</tr>
+					</table>
+					</td>
+				</tr>
+				</if>
+				</table>
+			</fieldset>
+
+			<if condition="$show['banreason']">
+			<fieldset class="fieldset">
+				<legend>$vbphrase[automatic_ban]</legend>
+
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="75%" align="center">
+				<tr>
+					<td width="45%" nowrap="nowrap"><strong>$vbphrase[ban_usergroup]</strong></td>
+					<td width="10%" align="center"><strong>$vbphrase[points]</strong></td>
+					<td width="10%" align="center"><strong>$vbphrase[infractions]</strong></td>
+					<td width="10%" nowrap="nowrap" align="$stylevar[right]"><strong>$vbphrase[ban_period]</strong></td>
+				</tr>
+				$banbits
+				<tr>
+					<td colspan="4"><strong>$vbphrase[ban_reason]</strong></td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<input type="text" class="bginput" name="banreason" value="$banreason" size="40" tabindex="1" />
+					</td>
+				</tr>
+				</table>
+
+			</fieldset>
+			</if>
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="hidden" name="p" value="$postinfo[postid]" />
+		<input type="hidden" name="u" value="$userinfo[userid]" />
+		<input type="hidden" name="do" value="update" />
+		<input type="hidden" name="url" value="$url" />
+		<input type="submit" class="button" name="sbutton" id="{$editorid}_save" value="$vbphrase[give_infraction]" accesskey="s" tabindex="1" />
+	</div>
+
+	</td>
+</tr>
+</table>
+
+
+<br />
+
+$postpreview
+
+<if condition="$show['pm']">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		$vbphrase[post_new_private_message]
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+		<!-- note field -->
+		<table cellpadding="0" cellspacing="0" border="0" class="fieldset">
+		<tr>
+			<td class="smallfont" colspan="3">$vbphrase[administrative_note]</td>
+		</tr>
+		<tr>
+			<td><input type="text" class="bginput" name="note" value="$note" size="50" tabindex="1" /></td>
+			<td>&nbsp;&nbsp;</td>
+			<td><img id="display_posticon" src="$selectedicon[src]" alt="$selectedicon[alt]" /></td>
+		</tr>
+		</table>
+		<!-- / note field -->
+
+		<!-- message area -->
+		<div class="smallfont">$vbphrase[message_to_user]</div>
+		$messagearea
+		<!-- / message area -->
+
+		$posticons
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" name="sbutton" id="{$editorid}_save" value="$vbphrase[give_infraction]" accesskey="s" tabindex="1" />
+		<input type="submit" class="button" value="$vbphrase[preview_message]" accesskey="r" name="preview" tabindex="1" />
+	</div>
+	</td>
+</tr>
+</table>
+
+<br />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<a name="options" style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('newpost_options')"><img id="collapseimg_newpost_options" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_newpost_options].gif" alt="" border="0" /></a>
+		$vbphrase[additional_options]
+	</td>
+</tr>
+<tbody id="collapseobj_newpost_options" style="$vbcollapse[collapseobj_newpost_options]">
+	<tr valign="top">
+		<td class="panelsurround" align="center">
+		<div class="panel">
+			<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+				<fieldset class="fieldset">
+					<legend>$vbphrase[miscellaneous_options]</legend>
+					<div style="padding:$stylevar[formspacer]px">
+						<if condition="$show['trackpm']"><div><label for="cb_receipt"><input type="checkbox" name="receipt" value="1" id="cb_receipt" $checked[receipt] />$vbphrase[request_receipt_for_message]</label></div></if>
+						<div><label for="cb_savecopy"><input type="checkbox" name="savecopy" value="1" id="cb_savecopy" tabindex="1" $checked[savecopy] /><phrase 1="private.php?$session[sessionurl]folderid=-1">$vbphrase[save_copy_in_sent_items_folder]</phrase></label></div>
+						<if condition="$bbuserinfo['signature']"><div><label for="cb_signature"><input type="checkbox" name="signature" value="1" id="cb_signature" tabindex="1" $checked[signature] />$vbphrase[show_your_signature]</label></div></if>
+						<if condition="$show['parseurl']"><div><label for="cb_parseurl"><input type="checkbox" name="parseurl" value="1" id="cb_parseurl" tabindex="1" $checked[parseurl] />$vbphrase[automatically_parse_links_in_text]</label></div></if>
+						$disablesmiliesoption
+					</div>
+				</fieldset>
+
+			</div>
+		</div>
+		</td>
+	</tr>
+</tbody>
+</table>
+
+<br />
+
+$forumrules
+<else />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		$vbphrase[send_new_message]
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+		<!-- note field -->
+		<div class="fieldset">
+			$vbphrase[administrative_note]<br />
+			<input type="text" class="bginput" name="note" value="$note" size="50" tabindex="1" />
+		</div>
+		<!-- / note field -->
+
+		<if condition="$show['email']">
+			<!-- message area -->
+			<div class="fieldset">
+				$vbphrase[message_to_user]<br />
+				<textarea name="message" rows="10" cols="50" style="width:$stylevar[messagewidth]">$postmessage</textarea>
+			</div>
+			<!-- / message area -->
+		</if>
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" name="sbutton" id="{$editorid}_save" value="$vbphrase[give_infraction]" accesskey="s" tabindex="1" />
+	</div>
+	</td>
+</tr>
+</table>
+</if>
+
+</form>
+
+$footer
+
+</body>
+</html>

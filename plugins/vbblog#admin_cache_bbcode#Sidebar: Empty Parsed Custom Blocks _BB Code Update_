@@ -1,0 +1,1 @@
+$vbulletin->db->query_write("TRUNCATE TABLE " . TABLE_PREFIX . "blog_custom_block_parsed");

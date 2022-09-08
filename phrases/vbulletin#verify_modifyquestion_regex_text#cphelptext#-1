@@ -1,0 +1,11 @@
+You may require the answer to match a PCRE-type regular expression. You are not required to provide answers to a question if you choose to define a regular expression as satisfying the answer.  You may also offer both a regular expression and a list of answers if you wish.
+<br /><br />
+<span class="smallfont">(Do not start or end the expression with an escape character)</span><br />
+<br />
+Examples:<br /><br />
+<b>^[A-Z]+$</b> - Characters from A-Z only<br />
+<b>^[A-Z ]+$</b> - Characters from A-Z including space<br />
+<b>^[A-Z0-9 ]+$</b> - Alphanumeric characters including space<br />
+<b>^[\x20-\x7E]+$</b> - ASCII characters from 32-127<br />
+<br />
+See <a href="http://www.php.net/manual-lookup.php?function=preg-match" target="_blank">PHP.net</a> for more information on regular expressions.

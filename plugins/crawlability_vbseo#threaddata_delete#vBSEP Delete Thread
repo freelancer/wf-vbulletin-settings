@@ -1,0 +1,5 @@
+if(defined('VBSEO_ENABLED') && VBSEO_ENABLED && VBSEO_LIKE_POST && ($_POST['do'] != 'domergethreads'))
+{
+	vbseo_extra_inc('ui');
+	vBSEO_UI::delete_likes(0, $threadid, VBSEO_UI_THREAD);
+}

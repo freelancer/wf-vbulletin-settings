@@ -1,0 +1,18 @@
+Hello,
+
+A new LinkBack has been recorded for a thread entitled - $threadinfo[title] - in the $foruminfo[title_clean] forum of $vboptions[bbtitle].
+
+This LinkBack may be awaiting moderation if administrator has chosen to require approval before publishing at:
+$vboptions[bburl]/showthread.php?t=$threadinfo[threadid]#linkbacks
+
+The originating site is located at:
+$vbseo_linkback_uri
+
+Here is the associated message:
+***************
+$message
+***************
+
+
+All the best,
+$vboptions[bbtitle]

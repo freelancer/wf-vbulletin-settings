@@ -1,0 +1,17 @@
+$reportinfo[rusername] ( mailto:$reportinfo[remail] ) has reported this post:
+
+$reportinfo[posttitle]
+$vboptions[bburl]/showthread.php?p=$reportinfo[postid]#post$reportinfo[postid]
+
+This is part of this thread:
+$reportinfo[prefix_plain]$reportinfo[threadtitle]
+$vboptions[bburl]/showthread.php?t=$reportinfo[threadid]
+
+This is the reason that the user gave:
+$reportinfo[reason]
+
+$reportinfo[discuss]
+
+This message has been sent to all moderators of this forum, or all administrators if there are no moderators.
+
+Please respond to this post as applicable.

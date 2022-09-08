@@ -1,0 +1,12 @@
+<tr>
+	$template_hook[group_categorybit_start]
+	<td class="alt1" width="100%" valign="top">
+		<div style="margin-bottom:$stylevar[cellpadding]px; margin-$stylevar[left]:$stylevar[cellspacing]px">
+			<a href="group.php?$session[sessionurl]cat=$category[categoryid]">$category[title]</a></div>
+		<div class="smallfont">$category[description]</div>
+	</td>
+	<td class="alt2" align="center">
+		<a href="group.php?$session[sessionurl]cat=$category[categoryid]">$category[groups]</a>
+	</td>
+	$template_hook[group_categorybit_end]
+</tr>

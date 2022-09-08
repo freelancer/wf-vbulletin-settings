@@ -1,0 +1,37 @@
+<if condition="$show['highlighttoday']">
+	<td class="alt2" height="50" width="$daywidth" style="padding:0px; border:1px solid red; font-weight:bold" title="$vbphrase[today]">
+<else />
+	<td class="alt2" height="50" width="$daywidth" style="padding:0px">
+</if>
+<div class="thead">
+	<span style="float:$stylevar[right]">
+		<if condition="$show['daylink']">
+			<a href="calendar.php?$session[sessionurl]do=getinfo&amp;day=$year-$month-$day&amp;c=$calendarid">$day</a>
+		<else />
+			$day
+		</if>
+	</span>
+	$dayname
+</div>
+<div style="padding:$stylevar[cellpadding]px">
+	<if condition="$show['birthdaylink']">
+		<div class="smallfont" style="margin-bottom:$stylevar[cellpadding]px; padding-bottom:2px; border-bottom:1px dotted">
+			<!--<strong>&raquo;</strong>--> <em><a href="calendar.php?$session[sessionurl]do=getinfo&amp;day=$year-$month-$day&amp;c=$calendarid" title="$birthdaydesc"><phrase 1="$bdaycount">$vbphrase[x_birthdays]</phrase></a></em>
+		</div>
+	<else />
+		$userbdays
+	</if>
+	<if condition="$show['eventlink']">
+		<div class="smallfont" style="margin-bottom:$stylevar[cellpadding]px; padding-bottom:2px; border-bottom:dotted 1px">
+			<if condition="$show['subscribed']">
+				<img class="inlineimg" src="$stylevar[imgdir_misc]/subscribed_event.gif" alt="$vbphrase[event_notification]" />
+			<else />
+				<!--<strong>&raquo;</strong>-->
+			</if>
+			<em><a href="calendar.php?$session[sessionurl]do=getinfo&amp;day=$year-$month-$day&amp;c=$calendarid" title="$eventdesc">$vbphrase[events]</a> ($eventtotal)</em>
+		</div>
+	<else />
+		$userevents
+	</if>
+</div>
+</td>

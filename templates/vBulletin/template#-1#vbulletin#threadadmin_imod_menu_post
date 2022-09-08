@@ -1,0 +1,14 @@
+<table cellpadding="4" cellspacing="1" border="0">
+
+<tr><td class="thead">$vbphrase[from_this_page]</td></tr>
+<tr><td class="vbmenu_option" onclick="inlineMod.check_all(true)">$vbphrase[select_all]</td></tr>
+<tr><td class="vbmenu_option" onclick="inlineMod.check_all(false)">$vbphrase[deselect_all]</td></tr>
+<tr><td class="vbmenu_option" onclick="inlineMod.check_all('invert')">$vbphrase[invert_selection]</td></tr>
+
+<tr><td class="thead"><img src="$vboptions[cleargifurl]" alt="" width="1" height="1" /></td></tr>
+<tr><td class="vbmenu_option" onclick="inlineMod.check_all(true, 1)">$vbphrase[select_unapproved_posts]</td></tr>
+<tr><td class="vbmenu_option" onclick="inlineMod.check_all(true, 2)">$vbphrase[select_deleted_posts]</td></tr>
+<tr><td class="vbmenu_option" onclick="inlineMod.check_all(true, 4)">$vbphrase[select_posts_with_attachments]</td></tr>
+<tr><td class="vbmenu_option" onclick="inlineMod.check_all(true, 8)">$vbphrase[select_posts_from_guests]</td></tr>
+
+</table>

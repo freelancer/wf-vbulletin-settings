@@ -1,0 +1,10 @@
+Dear $userinfo[username],
+
+Your WSO has dropped off the second page in the Warrior Special Offer forum. Bump your thread back to the front page for only $20. This will promote your WSO thread and bump it back to the front of the Warrior Special Offer section to get more exposure, conversation and increase your chances of sales.
+
+Click on the "Bump" button on your WSO now!
+
+$vboptions[bburl]/showthread.php?t=$threadinfo[threadid]
+
+Best Regards,
+$vboptions[bbtitle]

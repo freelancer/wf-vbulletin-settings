@@ -1,0 +1,5 @@
+if(!VBSEO_VB4 && $vbseo_ltab)
+{
+	global $template_hook;
+	$template_hook['profile_left_last'] .= $blocks[$vbseo_ltab];
+}

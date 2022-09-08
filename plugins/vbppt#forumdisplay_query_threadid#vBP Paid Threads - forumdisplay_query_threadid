@@ -1,0 +1,5 @@
+
+				$vbppt_lasthook='forumdisplay_query_threadid';
+				include(DIR.'/includes/vbppt_hooks.php');
+			
+			

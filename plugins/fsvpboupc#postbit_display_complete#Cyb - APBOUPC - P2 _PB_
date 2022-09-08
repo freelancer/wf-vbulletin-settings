@@ -1,0 +1,24 @@
+
+		if ($this->registry->options['apboupc_global_enable'] AND $this->registry->options['apboupc_viewlinks'])
+		{
+			if (((ereg("(showthread)", $GLOBALS[vbulletin]->scriptpath)) OR (ereg("(showpost)", $GLOBALS[vbulletin]->scriptpath))))
+			{
+				if ($this->registry->userinfo[userid])
+				{
+					$cyb_apboupc_viewlinks_userpostsnr = $this->registry->userinfo['posts'];
+				}
+				else
+				{
+					$cyb_apboupc_viewlinks_userpostsnr = '0';
+				}
+
+				if (($forum['linkview_nb'] !='0') AND ($forum['linkview_nb'] > $this->registry->userinfo[posts]) AND (!is_member_of($this->registry->userinfo, split(',', $this->registry->options['apboupc_viewlinks_excl_groups']))))
+				{
+					$this->post['message'] = preg_replace('!(\\[url(\\[img)?|\\[email|\\[img)(.*)((\\[\/img\\])?\\[\/url\\]|\\[\/email\\]|\\[\/img\\])|<a[^>]*(http|www|mailto)(.*)</a>|(http:\/\/)?www(.*)[\s]\b|<img[^>]*(src|border|title)(.*)(</img>|\/>)|[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,4}\b!siU', construct_phrase('<br /><span class="smallfont"><i>'.$vbphrase['error_postcount_too_low_viewlinks'].'</i></span><br />', $forum[linkview_nb], $cyb_apboupc_viewlinks_userpostsnr), $this->post['message'].' ');
+				}
+				if (($this->registry->options['apboupc_viewlinks_sigs'] > $this->registry->userinfo[posts]) AND (!is_member_of($this->registry->userinfo, split(',', $this->registry->options['apboupc_viewlinks_excl_groups']))))
+				{
+					$this->post['signature'] = preg_replace('!(\\[url(\\[img)?|\\[email|\\[img)(.*)((\\[\/img\\])?\\[\/url\\]|\\[\/email\\]|\\[\/img\\])|<a[^>]*(http|www|mailto)(.*)</a>|(http:\/\/)?www(.*)[\s]\b|<img[^>]*(src|border|title)(.*)(</img>|\/>)|[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,4}\b!siU', construct_phrase('<br /><span class="smallfont"><i>'.$vbphrase['error_postcount_too_low_viewlinks_sigs'].'</i></span><br />', $this->registry->options['apboupc_viewlinks_sigs'], $cyb_apboupc_viewlinks_userpostsnr), $this->post['signature']);
+				}
+			}
+		}

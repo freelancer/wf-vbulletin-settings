@@ -1,0 +1,27 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+	<!-- no cache headers -->
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="-1" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<!-- end no cache headers -->
+	$headinclude
+        <title><phrase 1="$vboptions[bbtitle]">$vbphrase[x_powered_by_vbulletin]</phrase></title>
+</head>
+<body>
+$header
+$navbar
+
+<table class="tborder cellLink" cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+
+$forumbits
+
+</table>
+
+$forumhome_markread_script
+<!-- /main -->
+
+$footer
+</body>
+</html>

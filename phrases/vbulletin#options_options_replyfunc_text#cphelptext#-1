@@ -1,0 +1,1 @@
+This setting allows you to perform a PHP function on the $replyscore of a search result.  An example would be to return the log() (Natural logarithm) value of the $replyscore.  You would do this by entering 'safelog' as the function name.

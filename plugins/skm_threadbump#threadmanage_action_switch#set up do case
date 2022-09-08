@@ -1,0 +1,9 @@
+if ($_REQUEST['do'] == 'bump')
+{
+$handled_do = true;
+
+	if (!$threadinfo['threadid'])
+	{
+		eval(standard_error(fetch_error('invalidid', $vbphrase['thread'], $vbulletin->options['contactuslink'])));
+	}
+}

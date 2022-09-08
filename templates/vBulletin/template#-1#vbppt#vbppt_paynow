@@ -1,0 +1,20 @@
+
+			
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="70%" align="center">
+<tr>
+	<td class="tcat"><phrase 1="$vboptions[bbtitle]">$vbphrase[vbppt_pay_for_thread]</phrase></td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:70%" align="$stylevar[left]">
+			<phrase 1="$cost" 2="$threadinfo[title]">$vbphrase[vbppt_pay_for_x]</phrase>
+			<br /><br/>
+			$orderbits
+		</div>
+	</div>
+	</td>
+</tr>
+</table>
+			
+		

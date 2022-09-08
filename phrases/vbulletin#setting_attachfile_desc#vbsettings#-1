@@ -1,0 +1,3 @@
+Leave this setting alone.<br />
+<br />
+Before 3.0.0 RC1, we stored attachments for each user in a sub folder named after that user's userid.  This resulted in us having X folders for X users with attachments. Some systems couldn't cope when this number exceeded 32,768 so we altered this method for 3.0.0 RC1.  Now each digit of the userid is made into a directory, i.e. userid 568 gets her attachments stored in /path/5/6/8.  To use the new setting you must move all of your attachments back into the DB and then move them back out to the FS.  This is the only way to 'activate' the new option.

@@ -1,0 +1,20 @@
+<if condition="$sidebar['tagcloud']">
+<li id="block_tagcloud">
+		<div class="tborder" style="margin-top:$stylevar[cellpadding]px; padding:$stylevar[cellspacing]px" id="block_tagcloud_div">
+			<div class="thead" style="padding:$stylevar[cellpadding]px"<if condition="$show['moveable']"> id="block_tagcloud_handle"</if>>
+				<a style="float:$stylevar[right]; padding-$stylevar[left]:$stylevar[cellspacing]px" href="#top" onclick="return toggle_collapse('blog_cloud')"><img id="collapseimg_blog_cloud" src="$stylevar[imgdir_button]/collapse_generic$vbcollapse[collapseimg_blog_cloud].gif" alt="" border="0" /></a>
+				$vbphrase[tag_cloud]
+			</div>
+			<div style="$vbcollapse[collapseobj_blog_cloud]" id="collapseobj_blog_cloud">
+				<div class="alt1 smallfont" style="padding:$stylevar[cellpadding]px; margin:$stylevar[cellspacing]px 0px $stylevar[cellspacing]px 0px">
+					<div id="tags_cloud_list" style="overflow:hidden">
+						$sidebar[tagcloud]
+					</div>
+				</div>
+				<div class="alt2 smallfont" style="padding:$stylevar[cellpadding]px">
+					<a href="blog_tag.php$session[sessionurl]?u=$userinfo[userid]">$vbphrase[search_by_tag]</a>
+				</div>
+			</div>
+		</div>
+</li>
+</if>

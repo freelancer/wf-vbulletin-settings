@@ -1,0 +1,3 @@
+If you would like to allow the user to set their own maximum posts per thread then give the options separated by commas. Leave this option blank to force users to use the 'Maximum Displayed Posts Before Page Split' setting above this option.<br />
+<br />
+Example setting: 10,20,30,40

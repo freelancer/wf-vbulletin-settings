@@ -1,0 +1,9 @@
+This allows you to specify a URL that can be called to check for the latest version of your product. Any URL may be specified, but it must return data in a specific format.<br />
+<br />
+For the version check to function properly, data returned from the specified URL should be in the format of:
+
+<blockquote><pre>&lt;version productid="<strong>x</strong>"&gt;<strong>1.2.3</strong>&lt;/version&gt;</pre></blockquote>
+
+<strong>x</strong> should be replaced with the ID of the product that the version applies to. <strong>1.2.3</strong> should be replaced with the latest version of the product.<br />
+<br />
+Note: A POST request will be made to the server. Some configurations deny this for static files so you may need to use PHP to serve the data.

@@ -1,0 +1,24 @@
+<tr class="thead" colspan="2">
+	<td class="thead" colspan="2">
+		<a target="_blank" href="http://vbresults.com/spam-hammer">$vbphrase[spam_hammer_service_statistics]</a>
+	</td>
+</tr>
+<tr>
+	<td class="alt2">
+		<img src="$stylevar[imgdir_misc]/stats.gif" border="0" />
+	</td>
+	<td class="alt1" width="100%">
+		<div class="smallfont">
+			<div style="font-size: 1.5em;">
+				<phrase 1="$blocks">$vbphrase[spam_hammer_service_statistics_attack_preventions]</phrase>
+			</div>
+			<div>
+				$vbphrase[spam_hammer_service_statistics_virgins]
+				$vbphrase[today]: $virgins[day],
+				$vbphrase[week]: $virgins[week],
+				$vbphrase[month]: $virgins[month],
+				$vbphrase[year]: $virgins[year]
+			</div>
+		</div>
+	</td>
+</tr>

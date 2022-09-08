@@ -1,0 +1,19 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="4">
+		<if condition="$show['editpoll']"><span class="smallfont" style="float:$stylevar[right]"><a href="poll.php?$session[sessionurl]do=polledit&amp;pollid=$pollinfo[pollid]">$vbphrase[edit_poll]</a></span></if>
+		$vbphrase[view_poll_results]<span class="normal">: $pollinfo[question]</span>
+	</td>
+</tr>
+<if condition="$show['pollenddate']">
+<tr>
+	<td class="thead" colspan="4" align="center" style="font-weight:normal"><phrase 1="$pollenddate" 2="$pollendtime">$vbphrase[this_poll_will_close_on_x_at_y]</phrase></td>
+</tr>
+</if>
+$pollbits
+<tr>
+	<td class="tfoot" colspan="4" align="center"><span class="smallfont"><if condition="$show['multiple']">$vbphrase[multiple_choice_poll] </if>$vbphrase[voters]: <strong>$pollinfo[numbervotes]</strong>. $pollstatus</span></td>
+</tr>
+</table>
+
+<br />

@@ -1,0 +1,3 @@
+You may choose to limit the number of pictures that a user can have in one album. This is primarily useful for encouraging your users to have albums for smaller topics, but it does have minor performance considerations as well.<br />
+<br />
+Set this to 0 to disable the limit.

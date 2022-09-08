@@ -1,0 +1,1 @@
+This option is used to search for a specific transaction ID. The transaction ID is the ID assigned to the transaction by the payment processor. This ID is generally included in any email send from the payment processor or in the payment processor's admin center.

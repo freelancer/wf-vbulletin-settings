@@ -1,0 +1,3 @@
+If this is set to No, users will only be allowed to view threads that they started (made the first post in).
+
+If this usergroup is "Unregistered/Not Logged In", setting this to No have the effect of not allowing them to view any threads, even if you allow unregistered users to post because unregistered users cannot be told apart, so determining if an unregistered user posted a certain thread would be impossible.

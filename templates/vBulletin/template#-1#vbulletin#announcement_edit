@@ -1,0 +1,195 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+	<title>$vboptions[bbtitle] - <if condition="$show['editing_mode']">$vbphrase[edit_announcement]<else />$vbphrase[post_new_announcement]</if></title>
+</head>
+<body>
+$header
+$navbar
+
+<if condition="$show['editing_mode']">
+<form action="announcement.php?do=delete&amp;a=$announcementinfo[announcementid]" method="post">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('editpost_delete')"><img id="collapseimg_editpost_delete" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_editpost_delete].gif" alt="" border="0" /></a>
+		$vbphrase[delete_this_message]
+	</td>
+</tr>
+<tbody id="collapseobj_editpost_delete" style="$vbcollapse[collapseobj_editpost_delete]">
+	<tr>
+		<td class="panelsurround" align="center">
+		<div class="panel">
+			<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+				<div class="fieldset">
+					<div><label for="rb_del_leave"><input type="radio" name="delete" value="" id="rb_del_leave" tabindex="1" checked="checked" />$vbphrase[do_not_delete_message]</label></div>
+					<div><label for="rb_del_soft"><input type="radio" name="delete" value="delete" id="rb_del_soft" tabindex="1" />$vbphrase[delete_message]</label></div>
+				</div>
+			</div>
+		</div>
+		<div style="margin-top:$stylevar[cellpadding]px">
+			<input type="submit" class="button" value="$vbphrase[delete_this_message]" tabindex="1" accesskey="d" />
+		</div>
+	</td>
+</tr>
+</table>
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="delete" />
+<input type="hidden" name="announcementid" value="$announcementinfo[announcementid]" />
+</form>
+<br />
+</if>
+
+<form name="vbform" action="announcement.php?do=update&amp;a=$announcementinfo[announcementid]" method="post"<if condition="!is_browser('webtv')"> onsubmit="return vB_Editor['$editorid'].prepare_submit(0, 0)"</if>>
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<if condition="$show['editing_mode']">
+			<span class="smallfont" style="float:$stylevar[right]"><strong>$vbphrase[announcement]</strong> <a href="announcement.php?$session[sessionurl]a=$announcementinfo[announcementid]">$announcementinfo[title]</a></span>
+			$vbphrase[edit_announcement]
+		<else />
+			$vbphrase[post_new_announcement]
+		</if>
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+		$usernamecode
+
+		<!-- forum field -->
+		<div class="smallfont" style="margin-bottom:$stylevar[formspacer]px">
+			$vbphrase[forum]:<br />
+			<select name="forumid" tabindex="1">$forum_options</select>
+		</div>
+		<!-- / forum field -->
+
+		<!-- title field -->
+		<div class="smallfont" style="margin-bottom:$stylevar[formspacer]px">
+			$vbphrase[title]:<br />
+			<input type="text" class="bginput" name="title" value="$announcementinfo[title_safe]" size="50" tabindex="1" />
+		</div>
+		<!-- / title field -->
+
+		<!-- message area -->
+		<div class="smallfont">$vbphrase[message]:</div>
+		$messagearea
+		<!-- / message area -->
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" name="sbutton" id="{$editorid}_save" value="$vbphrase[save_changes]" accesskey="s" tabindex="1" />
+	</div>
+
+	</td>
+</tr>
+</table>
+
+<br />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('editannc_options')"><img id="collapseimg_editannc_options" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_editannc_options].gif" alt="" border="0" /></a>
+		$vbphrase[additional_options]
+	</td>
+</tr>
+<tbody id="collapseobj_editannc_options" style="$vbcollapse[collapseobj_editannc_options]">
+	<tr valign="top">
+		<td class="panelsurround" align="center">
+		<div class="panel">
+			<div style="width:$stylevar[formwidth_usercp]" align="$stylevar[left]">
+
+				<!-- date fields -->
+				<fieldset class="fieldset">
+					<legend>$vbphrase[start_date] / $vbphrase[end_date]</legend>
+					<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+					<tr>
+						<td>
+							$vbphrase[start_date]<br />
+							<select name="startdate[month]" tabindex="1">
+								<option value="1" $start_month_selected[1]>$vbphrase[january]</option>
+								<option value="2" $start_month_selected[2]>$vbphrase[february]</option>
+								<option value="3" $start_month_selected[3]>$vbphrase[march]</option>
+								<option value="4" $start_month_selected[4]>$vbphrase[april]</option>
+								<option value="5" $start_month_selected[5]>$vbphrase[may]</option>
+								<option value="6" $start_month_selected[6]>$vbphrase[june]</option>
+								<option value="7" $start_month_selected[7]>$vbphrase[july]</option>
+								<option value="8" $start_month_selected[8]>$vbphrase[august]</option>
+								<option value="9" $start_month_selected[9]>$vbphrase[september]</option>
+								<option value="10" $start_month_selected[10]>$vbphrase[october]</option>
+								<option value="11" $start_month_selected[11]>$vbphrase[november]</option>
+								<option value="12" $start_month_selected[12]>$vbphrase[december]</option>
+							</select>
+							<input type="text" class="bginput" name="startdate[day]" value="$start_date_array[day]" size="2" tabindex="1" />
+							<input type="text" class="bginput" name="startdate[year]" value="$start_date_array[year]" size="4" tabindex="1" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							$vbphrase[end_date]<br />
+							<select name="enddate[month]" tabindex="1">
+								<option value="1" $end_month_selected[1]>$vbphrase[january]</option>
+								<option value="2" $end_month_selected[2]>$vbphrase[february]</option>
+								<option value="3" $end_month_selected[3]>$vbphrase[march]</option>
+								<option value="4" $end_month_selected[4]>$vbphrase[april]</option>
+								<option value="5" $end_month_selected[5]>$vbphrase[may]</option>
+								<option value="6" $end_month_selected[6]>$vbphrase[june]</option>
+								<option value="7" $end_month_selected[7]>$vbphrase[july]</option>
+								<option value="8" $end_month_selected[8]>$vbphrase[august]</option>
+								<option value="9" $end_month_selected[9]>$vbphrase[september]</option>
+								<option value="10" $end_month_selected[10]>$vbphrase[october]</option>
+								<option value="11" $end_month_selected[11]>$vbphrase[november]</option>
+								<option value="12" $end_month_selected[12]>$vbphrase[december]</option>
+							</select>
+							<input type="text" class="bginput" name="enddate[day]" value="$end_date_array[day]" size="2" tabindex="1" />
+							<input type="text" class="bginput" name="enddate[year]" value="$end_date_array[year]" size="4" tabindex="1" />
+						</td>
+					</tr>
+					</table>
+				</fieldset>
+				<!-- / date fields -->
+
+				<fieldset class="fieldset">
+					<legend>$vbphrase[miscellaneous_options]</legend>
+					<div style="padding:$stylevar[formspacer]px">
+						<div><label for="cb_bbcode"><input type="checkbox" name="options[allowbbcode]" id="cb_bbcode" value="1" $checked[allowbbcode] />$vbphrase[allow_bbcode]</label></div>
+						<div><label for="cb_html"><input type="checkbox" name="options[allowhtml]" id="cb_html" value="1" $checked[allowhtml] />$vbphrase[allow_html]</label></div>
+						<div><label for="cb_smilies"><input type="checkbox" name="options[allowsmilies]" id="cb_smilies" value="1" $checked[allowsmilies] />$vbphrase[allow_smilies]</label></div>
+						<div><label for="cb_parseurl"><input type="checkbox" name="options[parseurl]" value="1" id="cb_parseurl" tabindex="1" $checked[parseurl] />$vbphrase[automatically_parse_links_in_text]</label></div>
+						<div><label for="cb_signature"><input type="checkbox" name="options[signature]" value="1" id="cb_signature" tabindex="1" $checked[signature] />$vbphrase[show_your_signature]</label></div>
+					</div>
+				</fieldset>
+
+				<if condition="$show['editing_mode']">
+					<div class="fieldset">
+						<label for="cb_rstvws"><input type="checkbox" name="reset_views" id="cb_rstvws" value="1" />$vbphrase[reset_views_counter]</label>
+					</div>
+				</if>
+
+			</div>
+		</div>
+
+		<div style="margin-top:$stylevar[cellpadding]px">
+			<input type="submit" class="button" name="sbutton" value="$vbphrase[save_changes]" tabindex="1" />
+		</div>
+		</td>
+	</tr>
+</table>
+
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="update" />
+<input type="hidden" name="announcementid" value="$announcementinfo[announcementid]" />
+</form>
+
+$footer
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+global $permissions;
+// Was this post made by an allowed Usergroup member?
+if ($permissions['allowhtmlpermissions'] & $vbulletin->bf_ugp_allowhtmlpermissions['canposthtml']) 
+				{
+					// This is an allowed post so parse HTML.
+					$dohtml = '1';
+				}
+			
+		
+			else
+			{
+				// usergroup HTML disabled so use default forum permission.
+				$dohtml = $forum['allowhtml'];
+			}

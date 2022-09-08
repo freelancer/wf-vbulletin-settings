@@ -1,0 +1,1 @@
+This determines whether a moderator can edit other users' posts. They will still be able to edit their own posts (if their usergroup permission allows) even if you set this to No.

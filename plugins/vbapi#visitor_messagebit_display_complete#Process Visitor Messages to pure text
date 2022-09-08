@@ -1,0 +1,4 @@
+if (defined('VB_API') && VB_API === true)
+{
+	$message['message'] = strip_tags($message['message']);
+}

@@ -1,0 +1,11 @@
+Allowing a user to manage his/her own social groups grants the following options on social groups created by that user:
+<ul>
+<li>Unapprove messages</li>
+<li>Approve messages</li>
+<li>Delete messages</li>
+<li>Remove pictures from the group (pictures will remain in the owner's album)</li>
+<li>Kick members from the group</li>
+</ul>
+Additionally, if the option 'Allow Groups Owners to Force New Group Messages into Moderation Queue' is enabled, having this permission will allow users to create groups where messages must be approved before becoming visible.<br />
+<br />
+Regardless of this permission, users will be able to moderate membership requests or invite users to the group.

@@ -1,0 +1,5 @@
+
+				$vbpppf_lasthook='vbphelper_user_data_saved';
+				include(DIR.'/includes/vbpppf_hooks.php');
+			
+			

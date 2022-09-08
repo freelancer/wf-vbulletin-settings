@@ -1,0 +1,17 @@
+<li class="blog_home_list_item" style="margin-bottom:$stylevar[cellpadding]px">
+	<table cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td style="text-align:center; padding-$stylevar[right]:$stylevar[cellpadding]px; width:30px">
+		<if condition="$show['avatar']">
+			<a href="member.php?$session[sessionurl]u=$updated[userid]"><img class="inlineimg blog_home_list_image" src="$updated[avatarurl]" border="0" width="30" alt="<phrase 1="$updated[username]">$vbphrase[xs_avatar]</phrase>" /></a>
+		<else />
+			<img src="images/misc/blog/clear.gif" width="30" height="30" alt="" />
+		</if>
+		</td>
+		<td class="smallfont">
+			<div><if condition="$show['moderation']"><img class="inlineimg" src="$stylevar[imgdir_misc]/moderated_small.gif" alt="$vbphrase[moderated_comment]"  border="0" /> </if><a href="blog.php?$session[sessionurl]bt=$updated[blogtextid]#comment$updated[blogtextid]" title="$updated[username], $updated[postdate]<if condition="!$show['detailedtime']">, $updated[posttime]</if>"><em>$updated[excerpt]</em></a></div>
+			<div><a class="shade" href="blog.php?$session[sessionurl]b=$updated[blogid]">$updated[title]</a></div>
+		</td>
+	</tr>
+	</table>
+</li>

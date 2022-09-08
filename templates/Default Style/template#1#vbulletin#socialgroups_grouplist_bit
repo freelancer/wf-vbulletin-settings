@@ -1,0 +1,43 @@
+<tr>
+	<td class="alt1" width="100%" valign="top">
+		<if condition="$group[iconurl]">
+			<div class="sgicon" style="float:$stylevar[left];padding:2px 4px 2px 0">
+				<a href="group.php?$session[sessionurl]groupid=$group[groupid]">
+					<img class="sgicon" src="$group[iconurl]" alt="$group[shortdescription]" />
+				</a>
+			</div>
+		</if>
+		<if condition="$show[category_names]">
+			<span style="float:$stylevar[right]" class="smallfont"><a href="group.php?$session[sessionurl]do=grouplist&amp;cat=$group[categoryid]" style="font-weight:normal">$group[categoryname]</a></span>
+		</if>
+		<div style="margin-bottom:$stylevar[cellpadding]px; margin-$stylevar[left]:$stylevar[cellspacing]px">
+			<a href="group.php?$session[sessionurl]groupid=$group[groupid]" <if condition="!$group['is_read']">class="unread"</if>>$group[name]</a>
+		</div>
+
+		<div>$group[mediumdescription]</div>
+
+	</td>
+	<td class="alt2" align="center"><a href="group.php?$session[sessionurl]do=viewmembers&amp;groupid=$group[groupid]">$group[members]</a></td>
+	<if condition="$show['gminfo']">
+		<td class="alt1" align="center">$group[discussions]</td>
+		<td class="alt2" align="center">$group[visible]</td>
+	</if>
+	<if condition="$show['pictureinfo']"><td class="alt1" align="center"><if condition="$group['picturecount']"><a href="group.php?$session[sessionurl]do=grouppictures&amp;groupid=$group[groupid]">$group[picturecount]</a><else />$group[picturecount]</if></td></if>
+
+	<if condition="$show['gminfo']">
+	<td class="$lastpostalt smallfont" align="center" nowrap="nowrap">
+	<if condition="$show['lastpostinfo']">
+		<div style="text-align: center">
+			$group[lastpostdate]
+			<if condition="!$show['detailedtime']">
+				<br /><span class="time">$group[lastposttime]</span>
+			</if>
+		</div>
+	<else />
+		<div style="text-align: center">
+			$group[createdate]
+		</div>
+	</if>
+	</td>
+	</if>
+</tr>

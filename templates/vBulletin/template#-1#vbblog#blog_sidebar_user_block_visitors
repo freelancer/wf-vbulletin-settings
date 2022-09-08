@@ -1,0 +1,13 @@
+<if condition="$sidebar['visitorbits']">
+<li id="block_visitors">
+		<div class="tborder" style="margin-top:$stylevar[cellpadding]px; padding:$stylevar[cellspacing]px" id="block_visitors_div">
+			<div class="thead" style="padding:$stylevar[cellpadding]px"<if condition="$show['moveable']"> id="block_visitors_handle"</if>>
+				<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('blog_visitors')"><img id="collapseimg_blog_visitors" src="$stylevar[imgdir_button]/collapse_generic$vbcollapse[collapseimg_blog_visitors].gif" alt="" border="0" /></a>
+				$vbphrase[recent_visitors]
+			</div>
+			<div class="alt1" style="padding:$stylevar[cellpadding]px; margin-top:$stylevar[cellspacing]px; $vbcollapse[collapseobj_blog_visitors]" id="collapseobj_blog_visitors">
+				<ul class="list_no_decoration recent_visitors_list">$sidebar[visitorbits]</ul>
+			</div>
+		</div>
+</li>
+</if>

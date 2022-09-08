@@ -1,0 +1,356 @@
+$template_hook[usercp_main_pos1]
+
+<if condition="$show['pendingfriendrequests'] OR $show['privatemessages'] OR $show['newvisitormessages'] OR $show['groupattention'] OR $show['invitedgroups'] OR $show['picture_comment_block']">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+<thead>
+<tr>
+	<td colspan="2" class="tcat">$vbphrase[user_notifications]</td>
+</tr>
+</thead>
+
+<if condition="$show['privatemessages']">
+	<tbody>
+	<tr>
+		<td class="thead" colspan="2">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('usercp_pms')"><img id="collapseimg_usercp_pms" src="$stylevar[imgdir_button]/collapse_thead$vbcollapse[collapseimg_usercp_pms].gif" alt="" border="0" /></a>
+			<a href="private.php$session[sessionurl_q]">$vbphrase[new_private_messages]</a><span class="normal">: ($numpms)</span>
+		</td>
+	</tr>
+	</tbody>
+	<tbody id="collapseobj_usercp_pms" style="$vbcollapse[collapseobj_usercp_pms]">
+		$messagelistbits
+		<if condition="$show['more_pms_link']">
+		<tr>
+			<td class="alt2 smallfont" align="$stylevar[right]" colspan="2"><a href="private.php$session[sessionurl_q]">$vbphrase[view_all_unread_private_messages]</a></td>
+		</tr>
+		</if>
+	</tbody>
+</if>
+<if condition="$show['newvisitormessages']">
+	<tbody>
+	<tr>
+		<td class="thead" colspan="2">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('usercp_visitormessages')"><img id="collapseimg_usercp_visitormessages" src="$stylevar[imgdir_button]/collapse_thead$vbcollapse[collapseimg_usercp_visitormessages].gif" alt="" border="0" /></a>
+			<a href="member.php?$session[sessionurl]u=$bbuserinfo[userid]&amp;tab=visitor_messaging#visitor_messaging">$vbphrase[new_visitor_messages]</a><span class="normal">: ($newvisitormessages)</span>
+		</td>
+	</tr>
+	</tbody>
+	<tbody id="collapseobj_usercp_visitormessages" style="$vbcollapse[collapseobj_usercp_visitormessages]">
+		$newvisitormessagebits
+	</tbody>
+</if>
+<if condition="$show['pendingfriendrequests']">
+	<tbody>
+	<tr>
+		<td class="thead" colspan="2">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('usercp_friends')"><img id="collapseimg_usercp_friends" src="$stylevar[imgdir_button]/collapse_thead$vbcollapse[collapseimg_usercp_friends].gif" alt="" border="0" /></a>
+			<a href="profile.php?$session[sessionurl]do=buddylist">$vbphrase[pending_friend_requests]</a><span class="normal">: ($pendingfriendrequests)</span>
+		</td>
+	</tr>
+	</tbody>
+	<tbody id="collapseobj_usercp_friends" style="$vbcollapse[collapseobj_usercp_friends]">
+	<tr>
+		<td class="alt1" colspan="2">$pendingfriendstext</td>
+	</tr>
+	<tr>
+		<td class="alt2 smallfont" align="$stylevar[right]" colspan="2"><a href="profile.php?$session[sessionurl]do=buddylist">$vbphrase[manage_your_friend_requests]</a></td>
+	</tr>
+	</tbody>
+</if>
+<if condition="$show['groupattention']">
+	<tbody>
+	<tr>
+		<td class="thead" colspan="2">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('usercp_groups')"><img id="collapseimg_usercp_groups" src="$stylevar[imgdir_button]/collapse_thead$vbcollapse[collapseimg_usercp_groups].gif" alt="" border="0" /></a>
+			$vbphrase[the_following_groups_need_attention]<span class="normal">: ($groupsneedattention)</span>
+		</td>
+	</tr>
+	</tbody>
+	<tbody id="collapseobj_usercp_groups" style="$vbcollapse[collapseobj_usercp_groups]">
+	<tr>
+		<td class="alt1" colspan="2">$groupsawaitingtext</td>
+	</tr>
+	<tr>
+		<td class="alt2 smallfont" align="$stylevar[right]" colspan="2"><a href="group.php?$session[sessionurl]do=requests">$vbphrase[view_group_requests]</a></td>
+	</tr>
+	</tbody>
+</if>
+<if condition="$show['invitedgroups']">
+	<tbody>
+	<tr>
+		<td class="thead" colspan="2">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('usercp_groupsinvited')"><img id="collapseimg_usercp_groupsinvited" src="$stylevar[imgdir_button]/collapse_thead$vbcollapse[collapseimg_usercp_groupsinvited].gif" alt="" border="0" /></a>
+			$vbphrase[you_have_been_invited_to_the_following_groups]<span class="normal">: ($bbuserinfo[socgroupinvitecount])</span>
+		</td>
+	</tr>
+	</tbody>
+	<tbody id="collapseobj_usercp_groupsinvited" style="$vbcollapse[collapseobj_usercp_groupsinvited]">
+	<tr>
+		<td class="alt1" colspan="2">$invitetext</td>
+	</tr>
+	<tr>
+		<td class="alt2 smallfont" align="$stylevar[right]" colspan="2"><a href="group.php?$session[sessionurl]do=invitations">$vbphrase[view_group_invitations]</a></td>
+	</tr>
+	</tbody>
+</if>
+<if condition="$show['picture_comment_block']">
+	<tbody>
+	<tr>
+		<td class="thead" colspan="2">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('usercp_picturecomments')"><img id="collapseimg_usercp_picturecomments" src="$stylevar[imgdir_button]/collapse_thead$vbcollapse[collapseimg_usercp_picturecomments].gif" alt="" border="0" /></a>
+			$vbphrase[pending_picture_comments]
+		</td>
+	</tr>
+	</tbody>
+	<tbody id="collapseobj_usercp_picturecomments" style="$vbcollapse[collapseobj_usercp_picturecomments]">
+	<if condition="$show['picture_comment_unread']">
+	<tr>
+		<td class="alt1" colspan="2">
+			<a style="float:$stylevar[right]" class="smallfont" href="album.php?$session[sessionurl]do=unread">$vbphrase[view_unread_comments]</a>
+			<phrase 1="$bbuserinfo[pcunreadcount]">$vbphrase[you_have_x_unread_picture_comments]</phrase>
+		</td>
+	</tr>
+	</if>
+
+	<if condition="$show['picture_comment_moderated']">
+	<tr>
+		<td class="alt2" colspan="2">
+			<a style="float:$stylevar[right]" class="smallfont" href="album.php?$session[sessionurl]do=moderated">$vbphrase[view_comments_awaiting_approval]</a>
+			<phrase 1="$bbuserinfo[pcmoderatedcount]">$vbphrase[you_have_x_picture_comments_awaiting_approval]</phrase>
+		</td>
+	</tr>
+	</if>
+	</tbody>
+</if>
+</table>
+<br />
+</if>
+
+$template_hook[usercp_main_pos2]
+
+<!-- ############## SUBSCRIBED THREADS ##############  -->
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat" colspan="$subscribedthreadscolspan">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('usercp_subthreads')"><img id="collapseimg_usercp_subthreads" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_usercp_subthreads].gif" alt="" border="0" /></a>
+			$vbphrase[new_subscribed_threads]<span class="normal">: ($numthreads)</span>
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_usercp_subthreads" style="$vbcollapse[collapseobj_usercp_subthreads]">
+	<if condition="$show['threads']">
+		<tr class="thead">
+
+			<if condition="$show['threadicons']">
+				<td class="thead" colspan="2">&nbsp;</td>
+			<else />
+				<td class="thead">&nbsp;</td>
+			</if>
+
+			<td class="thead" width="100%">$vbphrase[thread] / $vbphrase[thread_starter]</td>
+			<td class="thead" width="150" align="center" nowrap="nowrap">$vbphrase[last_post]</td>
+			<td class="thead" align="center">$vbphrase[replies]</td>
+			<td class="thead" align="center">$vbphrase[views]</td>
+		</tr>
+		$threadbits
+	<else />
+		<tr>
+			<td class="alt1" align="center" colspan="$subscribedthreadscolspan"><strong>$vbphrase[no_subscribed_threads_to_display]</strong></td>
+		</tr>
+	</if>
+	<tr>
+		<td align="$stylevar[right]" colspan="$subscribedthreadscolspan" class="tfoot">
+		<span class="smallfont"><a href="subscription.php?$session[sessionurl]do=viewsubscription&amp;folderid=all">$vbphrase[view_all_subscribed_threads]</a></span>
+		</td>
+	</tr>
+</tbody>
+</table>
+<br />
+<!-- ############## END SUBSCRIBED THREADS ##############  -->
+
+$template_hook[usercp_main_pos3]
+
+<if condition="$show['forums']">
+<!-- ############## SUBSCRIBED FORUMS ##############  -->
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat" colspan="<if condition="$vboptions['showmoderatorcolumn']">6<else />5</if>">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('usercp_forums')"><img id="collapseimg_usercp_forums" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_usercp_forums].gif" alt="" border="0" /></a>
+			$vbphrase[subscribed_forums]
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_usercp_forums" style="$vbcollapse[collapseobj_usercp_forums]">
+	<tr align="center" valign="bottom">
+		<td class="thead" width="2%">&nbsp;</td>
+		<td class="thead" align="$stylevar[left]" width="80%">$vbphrase[forum]</td>
+		<td class="thead">$vbphrase[last_post]</td>
+		<td class="thead">$vbphrase[threads]</td>
+		<td class="thead">$vbphrase[posts]</td>
+		<if condition="$vboptions['showmoderatorcolumn']">
+		<td class="thead" width="20%">$vbphrase[moderator]</td>
+		</if>
+	</tr>
+	$forumbits
+</tbody>
+</table>
+<br />
+<!-- ############## END SUBSCRIBED FORUMS ##############  -->
+</if>
+
+<if condition="$show['socialgroups']">
+<!-- ############# SUBSCRIBED SOCIAL GROUPS ###############  -->
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+<thead>
+	<tr>
+		<td class="tcat" colspan="<if condition="$show[pictureinfo]">6<else />5</if>">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('usercp_socialgroups')"><img id="collapseimg_usercp_socialgroups" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_usercp_socialgroups].gif" alt="" border="0" /></a>
+			$vbphrase[subscribed_social_groups] <span class="normal">: ($numsocialgroups)</span>
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_usercp_socialgroups" style="$vbcollapse[collapseobj_usercp_socialgroups]">
+	<tr>
+		<td class="thead" width="100%">
+			$vbphrase[group_name]
+		</td>
+		<td class="thead" align="center" colspan="2" nowrap="nowrap">
+			$vbphrase[group_content]
+		</td>
+		<td class="thead" align="center" nowrap="nowrap">
+			$vbphrase[last_post]
+		</td>
+	</tr>
+		$grouplist
+</tbody>
+</table>
+<br />
+
+<!-- ########### END SUBSCRIBED SOCIAL GROUPS #############  -->
+</if>
+
+<if condition="$show['discussions']">
+<!-- ############## SUBSCRIBED DISCUSSIONS #############  -->
+<table class="tborder discussion_list" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+<thead>
+	<tr>
+		<td class="tcat" colspan="3">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('usercp_discussions')"><img id="collapseimg_usercp_discussions" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_usercp_discussions].gif" alt="" border="0" /></a>
+			$vbphrase[new_subscribed_discussions] <span class="normal">: ($numdiscussions)</span>
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_usercp_discussions" style="$vbcollapse[collapseobj_usercp_discussions]">
+<if condition="!$numdiscussions">
+	<tr>
+		<td class="alt1" align="center" colspan="3">
+			<strong>$vbphrase[no_subscribed_discussions_to_display]</strong>
+		</td>
+	</tr>
+<else />
+	<tr class="block_title">
+		<td class="thead" width="100%">
+			<span style="float: $stylevar[left]">$vbphrase[discussion]</span>
+			<span style="float:$stylevar[right]">$vbphrase[group_created]</span>
+		</td>
+		<td class="thead" align="center" nowrap="nowrap">
+			$vbphrase[messages]
+		</td>
+		<td class="thead" align="center" nowrap="nowrap">
+			$vbphrase[last_post]
+		</td>
+	</tr>
+	$messagebits
+</if>
+	<tfoot>
+		<tr>
+			<td align="$stylevar[right]" colspan="3" class="tfoot">
+				<span class="smallfont"><a href="groupsubscription.php?$session[sessionurl]">$vbphrase[view_all_subscribed_discussions]</a></span>
+			</td>
+		</tr>
+	</tfoot>
+</tbody>
+</table>
+<br />
+<!-- ############ END SUBSCRIBED DISCUSSIONS #############  -->
+</if>
+
+$template_hook[usercp_main_pos4]
+
+<if condition="$show['infractions']">
+<!-- ############## NEW INFRACTIONS ##############  -->
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat" colspan="7">
+			<span class="smallfont" style="float:$stylevar[right]">
+				<phrase 1="$bbuserinfo[ipoints]">$vbphrase[x_points_total]</phrase>
+				&nbsp; &nbsp;
+				<a href="#top" onclick="return toggle_collapse('usercp_infraction')"><img id="collapseimg_usercp_infraction" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_usercp_infraction].gif" alt="" border="0" /></a>
+			</span>
+			$vbphrase[latest_infractions_received]
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_usercp_infraction" style="$vbcollapse[collapseobj_usercp_infraction]">
+	<tr>
+		<td class="thead">&nbsp;</td>
+		<td class="thead">$vbphrase[post]</td>
+		<td class="thead">$vbphrase[date]</td>
+		<td class="thead">$vbphrase[expires]</td>
+		<td class="thead" nowrap="nowrap">$vbphrase[points]</td>
+		<td class="thead">$vbphrase[reason]</td>
+		<td class="thead" nowrap="nowrap">$vbphrase[posted_by]</td>
+	</tr>
+	$infractionbits
+</tbody>
+</table>
+<br />
+<!-- ############## END NEW INFRACTIONS ##############  -->
+</if>
+
+$template_hook[usercp_main_pos5]
+
+<if condition="$show['reputation']">
+<!-- ############## NEW REPUTATION ##############  -->
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat" colspan="$reputationcolspan">
+			<span class="smallfont" style="float:$stylevar[right]">
+				<phrase 1="$bbuserinfo[reputation]">$vbphrase[x_points_total]</phrase>
+				&nbsp; &nbsp;
+				<a href="#top" onclick="return toggle_collapse('usercp_reputation')"><img id="collapseimg_usercp_reputation" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_usercp_reputation].gif" alt="" border="0" /></a>
+			</span>
+			$vbphrase[latest_reputation_received]
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_usercp_reputation" style="$vbcollapse[collapseobj_usercp_reputation]">
+	<tr>
+		<td class="thead">&nbsp;</td>
+		<td class="thead">$vbphrase[thread]</td>
+		<td class="thead">$vbphrase[date]</td>
+		<if condition="$vboptions['showuserraters']">
+		<td class="thead" nowrap="nowrap">$vbphrase[posted_by]</td>
+		</if>
+		<td class="thead">$vbphrase[comment]</td>
+	</tr>
+	$reputationcommentbits
+</tbody>
+</table>
+<br />
+<!-- ############## END NEW REPUTATION ##############  -->
+</if>
+
+$template_hook[usercp_main_pos6]
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr>
+	<td width="100%">&nbsp;</td>
+	<td align="$stylevar[right]">$forumjump</td>
+</tr>
+</table>

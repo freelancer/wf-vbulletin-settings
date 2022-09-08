@@ -1,0 +1,3 @@
+If your server is running in PHP Safe Mode, you'll need to specify a directory that is CHMOD to 777 that will act as a temporary directory for uploads.  All files are removed from this directory after database insertion.<br />
+<br />
+<b>Note:</b> Do NOT include the trailing slash ('/') after the directory name.

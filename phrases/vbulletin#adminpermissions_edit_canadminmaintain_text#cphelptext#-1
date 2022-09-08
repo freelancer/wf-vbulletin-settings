@@ -1,0 +1,3 @@
+This setting determines whether an admin will be able to access the Maintenance area of the Admin CP.<br />
+<br />
+Enabling this allows an admin to potentially run code directly on your server, please ensure you trust the admin prior to enabling this permission.

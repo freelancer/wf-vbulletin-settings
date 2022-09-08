@@ -1,0 +1,11 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<div class="smallfont" style="float:$stylevar[right]"><phrase 1="$cloud[count]">$vbphrase[these_are_the_x_most_used_thread_tags]</phrase></div>
+		$vbphrase[tag_cloud]
+	</td>
+</tr>
+<tr>
+	<td class="alt1" style="text-align:justify">$cloud[links]</td>
+</tr>
+</table>

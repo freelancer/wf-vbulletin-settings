@@ -1,0 +1,90 @@
+if (!defined('VB_API'))
+{
+	define('VB_API', false);
+}
+
+require_once(DIR . '/includes/api/class_core_ext.php');
+require_once(DIR . '/includes/api/functions_api.php');
+
+if (VB_API === true)
+{
+	// API disabled
+	if (!$vbulletin->options['enableapi'] OR !$vbulletin->options['apikey'])
+	{
+		print_apierror('api_disabled', 'API is disabled');
+	}
+
+	define('NOCOOKIES', true);
+	
+	$vbulletin->input =& new vB_Input_Cleaner_API($vbulletin);
+	
+	// #############################################################################
+	// VB API Request Signature Verification
+	global $VB_API_PARAMS_TO_VERIFY, $VB_API_REQUESTS;
+
+	if ($VB_API_REQUESTS['api_c'])
+	{
+		// Get client information from api_c. api_c has been intvaled in api.php
+		$client = $db->query_first("SELECT *
+			FROM " . TABLE_PREFIX . "apiclient
+			WHERE apiclientid = $VB_API_REQUESTS[api_c]");
+
+		if (!$client)
+		{
+			print_apierror('invalid_clientid', 'Invalid Client ID');
+		}
+
+		// An accesstoken is passed but invalid
+		if ($VB_API_REQUESTS['api_s'] AND $VB_API_REQUESTS['api_s'] != $client['apiaccesstoken'])
+		{
+			print_apierror('invalid_accesstoken', 'Invalid Access Token');
+		}
+
+		$signtoverify = md5(http_build_query($VB_API_PARAMS_TO_VERIFY, '', '&') . $VB_API_REQUESTS['api_s'] . $client['apiclientid'] . $client['secret'] . $vbulletin->options['apikey']);
+		$vbulletin->input->clean_array_gpc('r', array(
+			'debug' => TYPE_BOOL,
+		));
+		if ($VB_API_REQUESTS['api_sig'] !== $signtoverify AND !($vbulletin->debug AND $vbulletin->GPC['debug']))
+		{
+			print_apierror('invalid_api_signature', 'Invalid API Signature');
+		}
+		else
+		{
+			$vbulletin->apiclient = $client;
+		}
+
+		if ($vbulletin->options['enableapilog'])
+		{
+			$db->query_write("
+				INSERT INTO " . TABLE_PREFIX . "apilog (apiclientid, method, paramget, parampost, ipaddress, dateline)
+				VALUES (
+					$VB_API_REQUESTS[api_c],
+					'" . $db->escape_string($VB_API_REQUESTS['api_m']) . "',
+					'" . $db->escape_string(serialize($_GET)) . "',
+					'" . (($vbulletin->options['apilogpostparam'])?$db->escape_string(serialize($_POST)):'') . "',
+					'" . $db->escape_string(IPADDRESS) . "',
+					'" . TIMENOW . "'
+				)
+			");
+		}
+
+		// TODO: Disable human verification in this release. enabled it when release API to public
+		$vbulletin->options['hvcheck_registration'] = 0;
+		$vbulletin->options['hvcheck_post'] = 0;
+		$vbulletin->options['hvcheck_search'] = 0;
+		$vbulletin->options['hvcheck_contactus'] = 0;
+		$vbulletin->options['hvcheck_lostpw'] = 0;
+	}
+	// api_init is a special method that is able to generate new client info.
+	elseif ($VB_API_REQUESTS['api_m'] != 'api_init')
+	{
+		print_apierror('missing_api_signature', 'Missing API Signature');
+	}
+
+	// #############################################################################
+	// Force sessionhash, cookieuserid, cookiepassword empty so that in init.php
+	// $vbulletin->userinfo['userid'] is always 0. Thus we can skip CSRF protection
+	unset($vbulletin->GPC['s'], $vbulletin->GPC[COOKIE_PREFIX . 'sessionhash'],
+		$vbulletin->GPC[COOKIE_PREFIX . 'userid'], $vbulletin->GPC[COOKIE_PREFIX . 'password']);
+	define('SKIP_REFERRER_CHECK', true);
+}

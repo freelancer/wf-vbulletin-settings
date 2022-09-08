@@ -1,0 +1,13 @@
+<div class="pagenav" align="$stylevar[right]">
+<table class="tborder" cellpadding="3" cellspacing="$stylevar[cellspacing]" border="0">
+<tr>
+	<td class="vbmenu_control" style="font-weight:normal"><phrase 1="$pagenumber" 2="$totalpages">$vbphrase[page_x_of_y]</phrase></td>
+	<if condition="$show['first']"><td class="alt1" nowrap="nowrap"><a rel="start" class="smallfont" href="$address$address2<if condition="$anchor">#$anchor</if>" title="$vbphrase[first_page] - <phrase 1="$firstnumbers[first]" 2="$firstnumbers[last]" 3="$total">$vbphrase[results_x_to_y_of_z]</phrase>"><strong>&laquo;</strong> $vbphrase[pagenav_first]</a></td></if>
+	<if condition="$show['prev']"><td class="alt1"><a rel="prev" class="smallfont" href="$address$address2<if condition="$prevpage != 1">&amp;page=$prevpage</if><if condition="$anchor">#$anchor</if>" title="$vbphrase[prev_page] - <phrase 1="$prevnumbers[first]" 2="$prevnumbers[last]" 3="$total">$vbphrase[results_x_to_y_of_z]</phrase>">&lt;</a></td></if>
+	$pagenav
+	<if condition="$show['next']"><td class="alt1"><a rel="next" class="smallfont" href="$address$address2&amp;page=$nextpage<if condition="$anchor">#$anchor</if>" title="$vbphrase[next_page] - <phrase 1="$nextnumbers[first]" 2="$nextnumbers[last]" 3="$total">$vbphrase[results_x_to_y_of_z]</phrase>">&gt;</a></td></if>
+	<if condition="$show['last']"><td class="alt1" nowrap="nowrap"><a class="smallfont" href="$address$address2&amp;page=$totalpages<if condition="$anchor">#$anchor</if>" title="$vbphrase[last_page] - <phrase 1="$lastnumbers[first]" 2="$lastnumbers[last]" 3="$total">$vbphrase[results_x_to_y_of_z]</phrase>">$vbphrase[pagenav_last] <strong>&raquo;</strong></a></td></if>
+	<if condition="$show['popups']"><td class="vbmenu_control" title="$address$address2"><a name="PageNav"></a></td></if>
+</tr>
+</table>
+</div>

@@ -1,0 +1,1 @@
+<tr><td class="$ap_g_class"><a href="group.php?groupid=$ap_grupsonmesaj[groupid]">$ap_grupsonmesaj[name]</a><br /><em><small>$ap_grupsonmesaj[pagetext]</small></em><br /><small><span style="float: right">$grupdate</span> $vbphrase[last_poster]: <a href="member.php?u=$ap_grupsonmesaj[postuserid]">$ap_grupsonmesajmarkupuye</a></small></td></tr>

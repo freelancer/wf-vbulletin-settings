@@ -1,0 +1,26 @@
+if (defined('VB_API') AND VB_API === true)
+{
+	// See VBM-635: &#xxx; should be converted to windows-1252 extended char. This may not happen if a browser submits the form. But from API or user manually input, it does.
+	// See also vB_DataManager_User::verify_username()
+	$vbulletin->GPC['vb_login_username'] = preg_replace(
+		'/&#([0-9]+);/ie',
+		"convert_unicode_char_to_charset('\\1', \$stylevar['charset'])",
+		$vbulletin->GPC['vb_login_username']
+	);
+	
+	if (verify_authentication($vbulletin->GPC['vb_login_username'], $vbulletin->GPC['vb_login_password'], $vbulletin->GPC['vb_login_md5password'], $vbulletin->GPC['vb_login_md5password_utf'], $vbulletin->GPC['cookieuser'], true))
+	{
+		exec_unstrike_user($vbulletin->GPC['vb_login_username']);
+
+		// create new session
+		process_new_login($vbulletin->GPC['logintype'], $vbulletin->GPC['cookieuser'], $vbulletin->GPC['cssprefs']);
+
+		// do redirect
+		do_login_redirect();
+	}
+	else
+	{
+		$vbulletin->session->set('userid', 0);
+		$vbulletin->session->set('loggedin', 0);
+	}
+}

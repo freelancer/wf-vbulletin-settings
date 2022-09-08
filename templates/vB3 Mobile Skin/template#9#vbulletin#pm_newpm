@@ -1,0 +1,157 @@
+<form action="private.php?do=insertpm&amp;pmid=$pm[pmid]" method="post" name="vbform"<if condition="!is_browser('webtv')"> onsubmit="return vB_Editor['$editorid'].prepare_submit(this.title.value, 0)"</if>>
+
+$postpreview
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[post_new_private_message]</td>
+</tr>
+
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]" style="max-width:$stylevar[formwidth]; width:auto !important; width:$stylevar[formwidth_usercp]">
+
+		<!-- recipients field -->
+		
+			<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+			<tr>
+				<td>
+					<if condition="$show['popups']">
+					<script type="text/javascript" src="clientscript/vbulletin_ajax_namesugg.js?v=$vboptions[simpleversion]"></script>
+					</if>
+					<div>$vbphrase[recipient_usernames]</div>
+					<div id="pmrecips"><textarea id="pmrecips_txt" name="recipients" rows="<if condition="is_browser('mozilla')">1<else />2</if>" size="30" cols="30" tabindex="1">$pm[recipients]</textarea></div>
+					<if condition="$show['popups']">
+						<div class="vbmenu_popup" id="pmrecips_menu" style="display:none; z-index:50"></div>
+						<script type="text/javascript">
+						<!--
+						vbmenu_register('pmrecips', true);
+						recip_sugg = new vB_AJAX_NameSuggest('recip_sugg', 'pmrecips_txt', 'pmrecips');
+						<if condition="$show['sendmultiple']">recip_sugg.allow_multiple = true;</if>
+						//-->
+						</script>
+					</if>
+					<if condition="$show['sendmultiple']">
+						<span style="display:none" onclick="return swapbcc(this);" id="bccspan1">[<a href="#">$vbphrase[bcc]</a>]</span>
+						<span id="bccspan2">$vbphrase[bcc] $vbphrase[recipient_usernames]<br /></span>
+						<div id="bccpmrecips"><textarea id="bccpmrecips_txt" name="bccrecipients" rows="<if condition="is_browser('mozilla')">1<else />2</if>" cols="50" tabindex="1">$pm[bccrecipients]</textarea></div>
+						<if condition="$show['popups']">
+							<div class="vbmenu_popup" id="bccpmrecips_menu" style="display:none; z-index:50"></div>
+							<script type="text/javascript">
+							<!--
+							vbmenu_register('bccpmrecips', true);
+							bccrecip_sugg = new vB_AJAX_NameSuggest('bccrecip_sugg', 'bccpmrecips_txt', 'bccpmrecips');
+							bccrecip_sugg.allow_multiple = true;
+							<if condition="$show['bcclink']">
+							fetch_object('bccpmrecips').style.display = 'none';
+							fetch_object('bccspan2').style.display = 'none';
+							fetch_object('bccspan1').style.display = '';
+							function swapbcc(obj)
+							{
+								obj.style.display = 'none';
+								fetch_object('bccpmrecips').style.display = '';
+								fetch_object('bccspan2').style.display = '';
+								return false;
+							}
+							</if>
+							//-->
+							</script>
+						</if>
+					</if>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<if condition="$show['sendmax']"><div><phrase 1="$permissions[pmsendmax]">$vbphrase[may_send_to_x_people]</phrase></div></if>
+					<if condition="$show['sendmultiple']"><div>$vbphrase[separate_multiple_names]</div></if>
+				</td>
+			</tr>
+			</table>
+	
+		<!-- / recipients field -->
+
+		<!-- subject field -->
+		<table cellpadding="0" cellspacing="0" border="0" class="fieldset">
+		<tr>
+			<td class="smallfont" colspan="3">$vbphrase[title]:</td>
+		</tr>
+		<tr>
+			<td><input type="text" class="bginput" name="title" value="$pm[title]" size="30" maxlength="85" tabindex="1" /></td>
+			<td>&nbsp;&nbsp;</td>
+			<td><img id="display_posticon" src="$selectedicon[src]" alt="$selectedicon[alt]" /></td>
+		</tr>
+		</table>
+		<!-- / subject field -->
+
+		<!-- message area -->
+		<div class="smallfont">$vbphrase[message]:</div>
+		$messagearea
+		<!-- / message area -->
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="hidden" name="s" value="$session[sessionhash]" />
+		<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+		<input type="hidden" name="do" value="insertpm" />
+		<input type="hidden" name="pmid" value="$pm[pmid]" />
+		<input type="hidden" name="forward" value="$pm[forward]" />
+		<input type="submit" class="button" name="sbutton" id="{$editorid}_save" value="$vbphrase[submit_message]" accesskey="s" tabindex="1" />
+		<input type="submit" class="button" value="$vbphrase[preview_message]" accesskey="r" name="preview" tabindex="1" />
+	</div>
+	</td>
+</tr>
+</table>
+
+<br />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat">
+ 			<a name="options" style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('newpost_options')"><img id="collapseimg_newpost_options" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_newpost_options].gif" alt="" border="0" /></a>
+ 			$vbphrase[additional_options]
+ 		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_newpost_options" style="$vbcollapse[collapseobj_newpost_options]">
+	<tr valign="top">
+		<td class="panelsurround" align="center">
+		<div class="panel">
+			<div align="$stylevar[left]" style="max-width:$stylevar[formwidth]; width:auto !important; width:$stylevar[formwidth_usercp]">
+
+				<if condition="$show['receivepmbuddies']">
+				<fieldset class="fieldset">
+					<legend>$vbphrase[pm_non_contacts_heading]</legend>
+					<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+					<tr>
+						<td><phrase 1="$session[sessionurl]">$vbphrase[pm_non_contact_option_description]</phrase></td>
+					</tr>
+					<tr>
+						<td><label for="cb_anyway"><input type="checkbox" name="sendanyway" id="cb_anyway" value="1" $anywaychecked />$vbphrase[pm_non_contact_option]</label></td>
+					</tr>
+					</table>
+				</fieldset>
+				</if>
+
+				<fieldset class="fieldset">
+					<legend>$vbphrase[miscellaneous_options]</legend>
+					<div style="padding:$stylevar[formspacer]px">
+						<if condition="$show['trackpm']"><div><label for="cb_receipt"><input type="checkbox" name="receipt" value="1" id="cb_receipt" $checked[receipt] />$vbphrase[request_receipt_for_message]</label></div></if>
+						<div><label for="cb_savecopy"><input type="checkbox" name="savecopy" value="1" id="cb_savecopy" tabindex="1" $checked[savecopy] /><phrase 1="private.php?$session[sessionurl]folderid=-1">$vbphrase[save_copy_in_sent_items_folder]</phrase></label></div>
+						<if condition="$bbuserinfo['signature']"><div><label for="cb_signature"><input type="checkbox" name="signature" value="1" id="cb_signature" tabindex="1" $checked[signature] />$vbphrase[show_your_signature]</label></div></if>
+						<if condition="$show['parseurl']"><div><label for="cb_parseurl"><input type="checkbox" name="parseurl" value="1" id="cb_parseurl" tabindex="1" $checked[parseurl] />$vbphrase[automatically_parse_links_in_text]</label></div></if>
+						$disablesmiliesoption
+					</div>
+				</fieldset>
+
+			</div>
+		</div>
+		</td>
+	</tr>
+</tbody>
+</table>
+
+</form>

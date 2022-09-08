@@ -1,0 +1,3 @@
+vB Optimise displays a credit at the bottom of your pages, by default this credit is also used to display information on MySQL/PHP % reductions in realtime. If you do not want this extra information appear you can switch this setting to "No."
+<br /><br />
+<strong>Note:</strong> The information only displays PHP % for guest caching.

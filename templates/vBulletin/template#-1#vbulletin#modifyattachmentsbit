@@ -1,0 +1,30 @@
+<tr>
+	<td class="alt2">
+		<div>
+			<if condition="$show['thumbnail']">
+				<a href="attachment.php?$session[sessionurl]attachmentid=$post[attachmentid]&amp;d=$post[dateline]" target="attachment" rel="Lightbox" id="attachment$post[attachmentid]"><img src="attachment.php?$session[sessionurl]attachmentid=$post[attachmentid]&amp;stc=1&amp;thumb=1&amp;d=$post[thumbnail_dateline]" border="0" alt="" /></a>
+			<else />
+				<img class="inlineimg" src="$stylevar[imgdir_attach]/$post[attachmentextension].gif" alt="$post[attachmentextension]" /> <a href="attachment.php?$session[sessionurl]attachmentid=$post[attachmentid]&amp;d=$post[dateline]" target="attachment">$post[filename]</a>
+			</if>
+		</div>
+		<div class="smallfont">$post[size], <phrase 1="$post[counter]">$vbphrase[x_downloads]</phrase></div>
+	</td>
+	<td class="alt1">
+		<div class="smallfont">
+			<div><strong>$vbphrase[thread]</strong>: <a href="showthread.php?$session[sessionurl]t=$post[p_threadid]">$post[t_title]</a></div>
+			<div><strong>$vbphrase[post]</strong>: <a href="showthread.php?$session[sessionurl]p=$post[postid]#post$post[postid]">$post[p_title]</a></div>
+		</div>
+	</td>
+	<td class="alt2">
+		<if condition="$show['inprogress']">
+			<em>$vbphrase[in_progress]</em>
+		<else />
+			<div class="smallfont">$post[postdate] <if condition="!$show['detailedtime']"><span class="time">$post[posttime]</span></if></div>
+		</if>
+	</td>
+	<if condition="$show['deletebox']">
+		<td class="alt1" align="center" style="padding:0px"><input type="checkbox" name="deletebox[$post[attachmentid]]" value="yes" /></td>
+	<else />
+		<td class="alt1" align="center">&nbsp;</td>
+	</if>
+</tr>

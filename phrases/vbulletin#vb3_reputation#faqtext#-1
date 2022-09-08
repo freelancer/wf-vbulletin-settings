@@ -1,0 +1,21 @@
+<p><b>What is reputation?</b></p>
+
+<p>Reputation is a way of rating users depending on the quality of their posts. If the administrators have enabled reputation, then the reputation icon will be visible in posts.</p>
+
+<p>Reputation may be positive <img class="inlineimg" src="$stylevar[imgdir_reputation]/reputation_pos.gif" alt="Positive Reputation Icon" /> , negative <img class="inlineimg" src="$stylevar[imgdir_reputation]/reputation_neg.gif" alt="Negative Reputation Icon" /> or neutral <img class="inlineimg" src="$stylevar[imgdir_reputation]/reputation_balance.gif" alt="Neutral Reputation Icon" />. Negative reputation may only be given if the administrator has enabled this. Neutral reputation is only given when the person giving reputation does not meet the criteria set by the administrator to affect someone else's reputation.</p>
+
+<p><b>How do I give reputation?</b></p>
+
+<p>To give reputation, click on the reputation icon in the relevant post. This will reveal a form to complete with the reputation type and the reason for giving the reputation. If negative reputation is disabled then it will not be displayed in this form. You may not give reputation for the same post twice.</p>
+
+<p><b>How do I know what reputation I have received?</b></p>
+
+<p>You can view the reputation that you have received in your <a href="usercp.php$session[sessionurl_q]">User CP</a> (User Control Panel) where it is displayed at the bottom of the User CP page. Here you will see the latest reputation that you have received and whether this is positive, negative or neutral. Your total reputation will be shown as series of reputation indicators in your posts and profile. The more positive your reputation, the more positive icons will be shown. The more negative your reputation the more negative icons will be shown.</p>
+
+<p><b>How much reputation is given? What is reputation power?</b></p>
+
+<p>If the administrator has enabled this, the amount of reputation that each user will give (or take away if negative) is shown in the user's posts as 'Reputation Power'. The value of the reputation power is determined by the administrator and may increase over time depending on the settings they have applied.</p>
+
+<p><b>What if I don't want anyone to see my reputation?</b></p>
+
+<p>You can disable the display of your reputation by going to your User CP and selecting Edit Options. On this page you will find a check box labelled 'Show Your Reputation Level'. Un-checking this box will remove the display of your reputation and replace it with the Reputation Disabled icon. You can still give and receive reputation while your reputation display is disabled.</p>

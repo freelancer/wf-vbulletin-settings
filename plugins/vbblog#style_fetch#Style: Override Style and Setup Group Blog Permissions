@@ -1,0 +1,7 @@
+if (defined('VBBLOG_STYLE') AND $vbulletin->options['vbblog_style'])
+{
+	$styleid = $vbulletin->options['vbblog_style'];
+	$vbulletin->userinfo['styleid'] = $styleid;
+	$userselect = true;
+	$vbulletin->options['allowchangestyles'] = false;
+}

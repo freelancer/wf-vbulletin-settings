@@ -1,0 +1,51 @@
+<p>If the administrator has enabled the <a href="private.php$session[sessionurl_q]">Private Messaging</a> system, registered members may send each other private messages.</p>
+
+<p><b>How do I send Private Messages?</b></p>
+
+<p>Private messages work a little like email, but are limited to registered members of this forum. You may be able to include BB code, smilies and images in private messages that you send.</p>
+
+<p>You may send a private message to a member of this forum by clicking the '<a href="private.php?$session[sessionurl]do=newpm">Send A Private Message</a>' link in the private messaging section of your user control panel (<a href="faq.php?$session[sessionurl]faq=vb3_user_profile#faq_vb3_user_cp">more info</a>), or by clicking the 'Send a Private Message' link in the drop down menu that appears in a member's posts when you click on their username.</p>
+
+<p>When you send a message, you have the option to save a copy of it in your 'Sent Items' folder.</p>
+
+<p><b>How do I work with Private Message Folders?</b></p>
+
+<p>By default, you will have two folders in your private message area. These are the 'Inbox' and the 'Sent' Items folders.</p>
+
+<p>The '<a href="private.php$session[sessionurl_q]">Inbox</a>' folder contains any new messages you receive. It allows you to view all the messages you have received, along with the name of the person who sent it, and the date and time it was sent.</p>
+
+<p>The '<a href="private.php?$session[sessionurl]folderid=-1">Sent Items</a>' folder contains a copy of any messages that you have sent, where you have specified that you wish to keep a copy for future reference.</p>
+
+<p>You can create additional folders for your messages by clicking the '<a href="private.php?$session[sessionurl]do=editfolders">Edit Folders</a>' link.</p>
+
+<p>Each folder has a set of message controls which allow you to select messages, then either move them to one of your custom folders, or delete them. Once you have selected your messages, you can choose the following options in the 'Selected Messages' box at the bottom of the list:</p>
+
+<ul>
+<li>Move to Folder</li>
+<li>Delete</li>
+<li>Mark as Read</li>
+<li>Mark as Unread</li>
+<li>Download as XML</li>
+<li>Download as CSV</li>
+<li>Download as TEXT</li>
+</ul>
+
+<p>You will need to periodically delete old messages, as the administrator has probably set a limit to the number of private messages you can have in your folders. If you exceed this number, you will not be able to send or receive new messages until you delete some old ones.</p>
+
+<p>If you would like to keep a record of your messages before you delete them, you can use any of the 'Download as..' options listed above to take a copy and store them on your own computer.</p>
+
+<p>Whenever you read a message, you will have the option to reply or forward it to another member of the forum. You may also have the ability to forward that message to multiple members of your contact list.</p>
+
+<p><b>How do I track messages?</b></p>
+
+<p>When you send a new private message, you may have the option to request a read-receipt. This lets you check whether or not a message has been read by its recipient. To do this, go to the '<a href="private.php?$session[sessionurl]do=trackpm">Message Tracking</a>' page.</p>
+
+<p>This page is divided into two sections: unread and read messages.</p>
+
+<p>The unread messages section shows all messages that you have sent with a read-receipt request, that have not yet been read by their recipient.</p>
+
+<p>The read messages section shows all messages you have sent with a receipt request that have been read and acknowledged by their recipient. The time that the message was read is also shown.</p>
+
+<p>You may choose to end the tracking on any message you choose by selecting it and clicking the 'End Tracking' button.</p>
+
+<p>When you receive a message with a read-receipt request, you may have the option to read the message while denying the read-receipt request. To do this, simply click the 'Deny Receipt' link rather than the title of the message, if it appears.</p>

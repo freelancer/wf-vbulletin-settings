@@ -1,0 +1,6 @@
+	<td class="smallfont" align="$stylevar[left]">
+		<label for="rb_avatarid_$avatar[avatarid]">
+			<img src="$avatar[avatarpath]" alt="$avatar[title]" border="0" /><br />
+			<input type="radio" name="avatarid" value="$avatar[avatarid]" id="rb_avatarid_$avatar[avatarid]" $avatarchecked[$avatarid] />$avatar[title]
+		</label>
+	</td>

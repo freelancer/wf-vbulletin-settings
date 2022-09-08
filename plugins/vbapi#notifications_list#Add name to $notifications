@@ -1,0 +1,5 @@
+// Add name to $notifications
+foreach ($notifications as $userfield => &$notification)
+{
+	$notification['name'] = $userfield;
+}

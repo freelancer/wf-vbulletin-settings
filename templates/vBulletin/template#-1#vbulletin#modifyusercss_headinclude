@@ -1,0 +1,134 @@
+<style type="text/css">
+<!--
+.usercsserror input, .usercsserror select {
+	background-color:red;
+	color:white;
+}
+#usercss_example {
+	padding:$stylevar[cellpadding]px;
+}
+#usercss_editor fieldset {
+	padding:0px;
+	margin-bottom:1em;
+}
+#usercss_editor div.fieldset_spacer {
+	padding:$stylevar[cellpadding]px;
+}
+#usercss_editor div.intermediate_submit_row {
+	text-align:$stylevar[right];
+	padding:2px;
+	margin:0px 1px 1px 1px;
+	border-top:2px groove;
+}
+table.usercssbit {
+	margin-bottom:0.3em;
+}
+
+table.usercssbit .smallfont {
+	padding-$stylevar[right]:$stylevar[cellpadding]px;
+}
+
+/* form elements */
+select.usercss_select {
+	margin-$stylevar[right]:$stylevar[cellpadding]px;
+}
+select.usercss_select option {
+	padding-$stylevar[right]:16px;
+}
+input.bgimage_field {
+	width:180px;
+	<if condition="!$show['backgroundpicker']">margin-$stylevar[right]:$stylevar[cellpadding]px;</if>
+}
+select.border_width_field {
+	width:80px;
+}
+
+/* color picker and color preview css */
+.colorpreview {
+	width:40px;
+	height:20px;
+	cursor:pointer;
+	margin-$stylevar[left]:$stylevar[cellspacing]px;
+	margin-$stylevar[right]:$stylevar[cellpadding]px;
+}
+.pickerinput {
+	width:80px;
+}
+#colorpicker {
+	position:absolute;
+	background:black;
+	width:228px;
+}
+#colorpicker_feedback button {
+	width:19px;
+	height:19px;
+}
+#colorpicker_surround {
+	border:inset 1px;
+	white-space:nowrap;
+	width:80px;
+	height:15px;
+}
+#colorpicker_surround td {
+	background-color:none;
+	border:none;
+	width:40px;
+	height:15px;
+}
+
+#backgroundpicker {
+	position:absolute;
+	width:350px;
+}
+#backgroundpicker div.imagerow {
+	white-space:nowrap;
+	overflow:auto;
+	height:180px;
+	width:350px;
+}
+#backgroundpicker ul {
+	list-style:none;
+	padding:4px;
+	margin:0px;
+}
+#backgroundpicker li {
+	padding:4px;
+	display:inline;
+	cursor:pointer;
+}
+#backgroundpicker img.box, span.box {
+	padding:3px;
+	border:solid 1px $stylevar[tborder_bgcolor];
+	vertical-align:bottom;
+}
+#backgroundpicker img.box_selected, span.box_selected {
+	padding:3px;
+	border:solid 1px red;
+	vertical-align:bottom;
+}
+#backgroundpicker_closerow {
+	padding:$stylevar[cellpadding]px
+}
+#backgroundpicker_closerow button {
+	width:19px;
+	height:19px;
+}
+
+/* image preview */
+.imagepreview {
+	cursor:pointer;
+}
+
+-->
+</style>
+
+$usercss_string
+
+<script type="text/javascript" src="clientscript/vbulletin_colorpicker.js?v=$vboptions[simpleversion]"></script>
+<if condition="$show['backgroundpicker']"><script type="text/javascript" src="clientscript/vbulletin_backgroundpicker.js?v=$vboptions[simpleversion]"></script></if>
+<script type="text/javascript" src="clientscript/vbulletin_custom_profile.js?v=$vboptions[simpleversion]"></script>
+<script type="text/javascript">
+<!--
+var cleargifurl = "$vboptions[cleargifurl]";
+//-->
+</script>

@@ -1,0 +1,1 @@
+Database tables should be optimized if you have deleted a large part of a table or if you have made many changes to a table with variable-length rows (tables that have VARCHAR, BLOB, or TEXT columns).  Optimizing helps you reclaim unused space which can reduce the size of your database.

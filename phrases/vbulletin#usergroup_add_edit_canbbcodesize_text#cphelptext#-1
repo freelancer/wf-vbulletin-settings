@@ -1,0 +1,1 @@
+This controls whether users in this group may use the [size] tag in their signature at all. If they attempt to use this tag and this setting is set to "No", they will receive an error while saving their signature. You may limit the maximum size they can use using the option below.

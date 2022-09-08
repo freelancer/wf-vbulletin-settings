@@ -1,0 +1,14 @@
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+  <tr>
+    <td align="center" class="tcat">$vboptions[vietvbbadv_left_title]</td>
+   <td align="center" class="tcat">$vboptions[vietvbbadv_right_title]</td>
+ </tr>
+<tbody>
+  <tr>
+    <td class="alt1">$vboptions[vietvbbadv_left_text]</td>
+    <td class="alt1">$vboptions[vietvbbadv_right_text]</td>
+  </tr>
+  </tbody>
+</table>
+<br>

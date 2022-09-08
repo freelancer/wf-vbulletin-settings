@@ -1,0 +1,5 @@
+
+				$vbpcba_lasthook='paidsub_order_start';
+				// include(DIR.'/includes/vbpcba_hooks.php');
+			
+			

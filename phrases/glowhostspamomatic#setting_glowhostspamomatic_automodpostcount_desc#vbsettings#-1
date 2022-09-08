@@ -1,0 +1,1 @@
+Minimum postcount required to avoid keyword and URL moderation. If user has a higher postcount than this number, all Auto-Moderation checks below will be disabled for that user. <br /><br /><b>This does not effect moderators and admins, nor does it affect Akismet auto-moderation.</b>

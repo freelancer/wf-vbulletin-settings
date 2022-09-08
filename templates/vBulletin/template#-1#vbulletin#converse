@@ -1,0 +1,32 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+
+$usercss
+$memberinfo_css
+
+<title>$vboptions[bbtitle] - $pagetitle</title>
+</head>
+<body>
+$header
+$navbar
+
+<div id="usercss">
+	<div class="tborder content_block" id="visitor_messaging">
+		<div class="tcat block_row block_title">
+			<if condition="$show['usercss_switch']">
+				<div class="smallfont" style="float:$stylevar[right]">
+					<a href="profile.php?$session[sessionurl]do=switchusercss&amp;hash=$bbuserinfo[logouthash]&amp;u=$userinfo[userid]">$usercss_switch_phrase</a>
+				</div>
+			</if>
+			$pagetitle
+		</div>
+		$html
+	</div>
+</div>
+
+$footer
+
+</body>
+</html>

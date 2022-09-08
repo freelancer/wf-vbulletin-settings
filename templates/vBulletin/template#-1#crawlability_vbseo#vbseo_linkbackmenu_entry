@@ -1,0 +1,5 @@
+
+<td class="vbmenu_control" id="linkbacktools" nowrap="nowrap">
+	<a href="$show[nojs_link]#links">$vbphrase[vbseo_linkback]<if condition="$vbseo_linkbacks_no"> ($vbseo_linkbacks_no)</if></a>
+	<if condition="$show['popups']"><script type="text/javascript"> vbmenu_register("linkbacktools"); </script></if>
+</td>

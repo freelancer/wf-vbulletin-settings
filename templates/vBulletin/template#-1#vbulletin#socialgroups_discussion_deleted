@@ -1,0 +1,28 @@
+<tr>
+	<td class="alt1" width="100%" id="gdiscussion$discussion[gmid]" title="$discussion[title]">
+		<div class="smallfont" style="float:$stylevar[right];text-align:$stylevar[right]">
+			<if condition="$discussion['lastposterid']">
+				<span class="smallfont username"><phrase 1="member.php?$session[sessionurl]u=$discussion[lastposterid]" 2="$discussion[lastposter]">$vbphrase[by_x]</phrase></span>
+			<else />
+				<span class="smallfont username">$discussion[musername]</span>
+			</if>
+				<br /><div class="push_down">$discussion[date]<if condition="!$show['detailedtime']"> <span class="time">$discussion[time]</span></if></div>
+		</div>
+		<if condition="$discussion[moderated]">$vbphrase[moderated_discussion_prefix] </if><a href="group.php?do=discuss&amp;group=$group[groupid]&amp;discussionid=$discussion[discussionid]">$discussion[title]</a>
+		
+		<div class="floatcontainer">
+			<span class="shade smallfont">
+				<phrase 1="member.php?$session[sessionurl]u=$discussion[del_userid]" 2="$discussion[del_username]">$vbphrase[discussion_deleted_by_x]</phrase>
+				<if condition="$discussion['del_reason']">$vbphrase[reason] : $discussion[del_reason]</if>
+			</span>
+		</div>
+	</td>
+
+	<td class="alt2 smallfont" colspan="2" align="center" nowrap="nowrap">
+		<phrase 1="member.php?$session[sessionurl]u=$discussion[del_userid]" 2="$discussion[del_username]">$vbphrase[discussion_deleted_by_x]</phrase>
+	</td>
+
+	<if condition="$show[inlinemod]">
+		<td class="alt2"><if condition="$discussion[inlinemod]"><input type="checkbox" class="inlinemod_checkbox" name="gdiscussionlist[$discussion[discussionid]]" id="gdiscussionlist_$discussion[discussionid]" value="$discussion[checkbox_value]" title="$vbphrase[select_this_item_for_inline_moderation]"  /></if></td>
+	</if>
+</tr>

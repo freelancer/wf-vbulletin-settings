@@ -1,0 +1,2 @@
+Allows you to specify a function to operate on the average rating of a thread.<br />
+Works like: = func($thread[rating]) * $ratingscore

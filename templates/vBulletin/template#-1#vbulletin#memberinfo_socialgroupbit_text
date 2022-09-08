@@ -1,0 +1,1 @@
+<li class="smallfont"><if condition="$showgrouplink"><a href="group.php?$session[sessionurl]groupid=$socialgroup[groupid]"></if>$socialgroup[name_html]<if condition="$showgrouplink"></a></if> </li>

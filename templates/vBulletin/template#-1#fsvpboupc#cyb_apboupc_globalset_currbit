@@ -1,0 +1,13 @@
+
+		<tr class="$bgclass">
+			<td class="smallfont"><a href="forumdisplay.php?f=$cyb_apboupc_viewcurrper[forumid]">$cyb_apboupc_viewcurrper[title]</a></td>
+			<td class="smallfont" align="center">$cyb_apboupc_viewcurrper[accessf_nb]</td>
+			<td class="smallfont" align="center">$cyb_apboupc_viewcurrper[accesst_nb]</td>
+			<td class="smallfont" align="center">$cyb_apboupc_viewcurrper[create_nb]</td>
+			<td class="smallfont" align="center">$cyb_apboupc_viewcurrper[reply_nb]</td>
+			<td class="smallfont" align="center">$cyb_apboupc_viewcurrper[attach_nb]</td>
+			<td class="smallfont" align="center">$cyb_apboupc_viewcurrper[linkview_nb]</td>
+			<td class="smallfont" align="center">$cyb_apboupc_viewcurrper[linkpost_nb]</td>
+			<td class="smallfont" nowrap="nowrap"><a href="$cyb_admincpdir/forum.php?do=edit&f=$cyb_apboupc_viewcurrper[forumid]">$vbphrase[apboupc_edit_forum]</a> (id:$cyb_apboupc_viewcurrper[forumid])</td>
+		</tr>
+		

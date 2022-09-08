@@ -1,0 +1,5 @@
+Prevent your users 'shouting' in their thread titles/message text by changing all-uppercase titles with at least this many characters to capitalization only on the first letters of some words.<br />
+<br />
+Set the value to 0 to disable this function.<br />
+<br />
+Disable this for some international forums with different character sets, as this may cause problems.

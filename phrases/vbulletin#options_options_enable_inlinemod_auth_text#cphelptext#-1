@@ -1,0 +1,1 @@
+Inline moderation actions will require a user to authenticate again prior to being performed. The timeout is based on the admin control panel timeout, or one hour if that option is disabled.

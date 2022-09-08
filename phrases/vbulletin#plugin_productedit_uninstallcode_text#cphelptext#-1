@@ -1,0 +1,1 @@
+This code will be executed when a user uninstalls your product. Code will be executed from newest version to oldest version. For example, if there is uninstall code associated with versions 1.0 and 1.1, the 1.1 code will run before the 1.0 code.

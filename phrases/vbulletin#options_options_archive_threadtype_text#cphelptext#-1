@@ -1,0 +1,7 @@
+Disabling this option will cause the thread links in the archive to link to the actual threads on the main forum (dynamic URLs and all).  For example, instead of:<br /><br />
+
+<i>http://www.yoursite.com/forum/archive/index.php/t-1.html</i><br /><br />
+
+...you will get:<br /><br />
+
+<i>http://www.yoursite.com/forum/showthread.php?t=1</i>

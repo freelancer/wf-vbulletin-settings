@@ -1,0 +1,16 @@
+<tr>
+	<td class="$bgclass">$user[onlinestatus]</td>
+	<td class="$bgclass">
+		<a href="member.php?$session[sessionurl]u=$user[userid]">$user[musername]</a>
+		<if condition="$show['locationfield'] AND $user['field2']"><div class="smallfont" title="$vbphrase[location_perm]">$user[field2]</div></if>
+	</td>
+	<if condition="$showforums">
+		<td class="$bgclass"><div class="smallfont">$user[forumbits]</div></td>
+	</if>
+	<if condition="$show['contactinfo']">
+	<td class="$bgclass" nowrap="nowrap">
+		<if condition="$show['pmlink']"><a href="private.php?$session[sessionurl]do=newpm&amp;u=$user[userid]" rel="nofollow"><img src="$stylevar[imgdir_button]/sendpm.gif" alt="<phrase 1="$user[username]">$vbphrase[send_private_message_to_x]</phrase>" border="0" /></a></if>
+		<if condition="$show['emaillink']"><a href="sendmessage.php?$session[sessionurl]do=mailmember&amp;u=$user[userid]" rel="nofollow"><img src="$stylevar[imgdir_button]/email.gif" alt="<phrase 1="$user[username]">$vbphrase[send_message_via_email_to_x]</phrase>" border="0" /></a></if>
+	</td>
+	</if>
+</tr>

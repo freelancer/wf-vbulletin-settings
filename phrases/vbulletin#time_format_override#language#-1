@@ -1,0 +1,7 @@
+Time Format Override
+<dfn>See: <a href="http://www.php.net/manual-lookup.php?function=strftime" target="_blank">http://www.php.net/manual-lookup.php?function=strftime</a><br /><br />
+<b>Examples:</b> (if a locale is specified)<br />
+AM/PM Time Format (eg, 11:15 PM): %I:%M %p<br />
+24-Hour Format Time (eg, 23:15): %H:%M<br />
+Default Time Format for this Locale: %X
+</dfn>

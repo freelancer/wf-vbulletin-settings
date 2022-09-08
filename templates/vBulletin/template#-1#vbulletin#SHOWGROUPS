@@ -1,0 +1,40 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $vbphrase[show_groups]</title>
+</head>
+<body>
+$header
+$navbar
+
+<if condition="$moderatorbits">
+<!-- moderators -->
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="4">$vbphrase[moderators]</td>
+</tr>
+<tr>
+	<td class="thead">&nbsp;</td>
+	<td class="thead" width="50%">$vbphrase[username]<if condition="$show['locationfield']"> / $vbphrase[location_perm]</if></td>
+	<td class="thead" width="50%">$vbphrase[forums]</td>
+	<if condition="$show['contactinfo']"><td class="thead">$vbphrase[contact]</td></if>
+</tr>
+$moderatorbits
+</table>
+<br />
+<!-- end moderators -->
+</if>
+
+$usergroups
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr>
+	<td width="100%">&nbsp;</td>
+	<td>$forumjump</td>
+</tr>
+</table>
+
+$footer
+</body>
+</html>

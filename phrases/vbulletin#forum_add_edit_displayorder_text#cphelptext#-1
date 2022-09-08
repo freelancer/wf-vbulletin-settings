@@ -1,0 +1,1 @@
+This determines the order in which forums are displayed anywhere they are listed. If you set this to 0, the forum will not be displayed to end-users anywhere unless the user manually types in the URL to access it.

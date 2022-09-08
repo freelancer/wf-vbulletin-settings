@@ -1,0 +1,19 @@
+<p><b>How do I attach a file to a post?</b></p>
+
+<p>To attach a file to your post, you need to be using the main 'New Post' or 'New Thread' page and not 'Quick Reply'. To use the main 'New Post' page, click the 'Post Reply' button in the relevant thread.</p>
+
+<p>On this page, below the message box, you will find a button labelled 'Manage Attachments'. Clicking this button will open a new window for uploading attachments. You can upload an attachment either from your computer or from another URL by using the appropriate box on this page. Alternatively you can click the Attachment Icon to open this page.</p>
+
+<p>To upload a file from your computer, click the 'Browse' button and locate the file. To upload a file from another URL, enter the full URL for the file in the second box on this page. Once you have completed one of the boxes, click 'Upload'.</p>
+
+<p>Once the upload is completed the file name will appear below the input boxes in this window. You can then close the window to return to the new post screen.</p>
+
+<p><b>What files types can I use? How large can attachments be?</b></p>
+
+<p>In the attachment window you will find a list of the allowed file types and their maximum sizes. Files that are larger than these sizes will be rejected. There may also be an overall quota limit to the number of attachments you can post to the board.</p>
+
+<p><b>How do I add an image to a post?</b></p>
+
+<p>If you have uploaded an image as an attachment, you can click the arrow next to the 'Attachment Icon' and select it from the list. This will be inserted into your post and can be located where you want it displayed.</p>
+
+<p>To include an image that is not uploaded as an attachment and is located on another website, you can do so by copying the full URL to the image, (not the page on which the image is located), and either pressing the 'Insert Image' icon or by typing [img] before the URL and [/img] after it, ensuring that you do not have any spaces before or after the URL of the image.  You can insert pictures from your albums <a href="faq.php?$session[sessionurl]faq=vb3_user_profile#faq_vb3_albums">(?)</a> in this way too.</p>

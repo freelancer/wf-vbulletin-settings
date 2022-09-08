@@ -1,0 +1,6 @@
+************
+$thread[prefix_plain]$thread[title]
+$vboptions[bburl]/showthread.php?t=$thread[threadid]
+In forum: $thread[forumtitle]
+Started by: $thread[postusername]
+Last post: $thread[lastreplydate] $thread[lastreplytime]

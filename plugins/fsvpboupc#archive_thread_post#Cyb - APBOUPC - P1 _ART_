@@ -1,0 +1,13 @@
+
+		if ($vbulletin->options['apboupc_global_enable'] AND $vbulletin->options['apboupc_forum'])
+		{
+			if ((!$vbulletin->userinfo['userid']) & ($foruminfo[accesst_nb] != 0) and (!is_member_of($vbulletin->userinfo, split(',', $vbulletin->options['apboupc_forum_excludedgroups']))))
+			{
+				eval(print_output(fetch_error('error_postcount_too_low_thread', intval($foruminfo['accesst_nb']), intval($vbulletin->userinfo['posts']))));
+			}
+
+			if (($vbulletin->userinfo[usergroupid]!='1') AND ($foruminfo[accesst_nb] !='0') AND ($foruminfo[accesst_nb] > $vbulletin->userinfo[posts]) AND (!is_member_of($vbulletin->userinfo, split(',', $vbulletin->options['apboupc_forum_excludedgroups']))))
+			{
+				eval(print_output(fetch_error('error_postcount_too_low_thread', intval($foruminfo['accesst_nb']), intval($vbulletin->userinfo['posts']))));
+			}
+		}

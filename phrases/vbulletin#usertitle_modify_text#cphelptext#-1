@@ -1,0 +1,3 @@
+Here you can specify user titles based on post count.  When a user reaches the specified minimum post count their title will be changed.  User titles are displayed in profiles and in posts.<br /><br />
+
+Click the "Add New User Title" button to create a new user title.  Below is a list of existing user titles.  To the right of each user title there is a menu with an "Edit" and "Delete" option.  Select the "Edit" option to edit the title itself and the minimum post count required to get that title.  Select the "Delete" option to delete that title all together.

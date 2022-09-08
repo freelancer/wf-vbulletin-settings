@@ -1,0 +1,6 @@
+if (!empty($thread['isurlredirect']))
+{
+$thread['statusicon'] = '_moved' . iif($thread['lastpost'] > $lastread, '_new');
+$show['rmanage']  = can_moderate($thread['forumid'], 'caneditthreads');
+$thread['redirectthreadid'] = $thread['threadid'];
+}

@@ -1,0 +1,5 @@
+<b>Yes</b> - User may edit this field at any time.<br />
+<br />
+<b>No</b>  - User may never edit this field.<br />
+<br />
+<b>Only at registration</b> - User may only edit this field at registration or if it is set to be required and it is blank.

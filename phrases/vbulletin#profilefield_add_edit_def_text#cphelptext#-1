@@ -1,0 +1,5 @@
+<b>Select Fields</b><br />
+If you wish to have the first option set as the default choice for this field, set this to Yes. Otherwise, a blank line will be the default. This is useful to force users to select an option at registration if this is a required field.<br />
+<br />
+<b>Radio Fields</b><br />
+If this is set to Yes, the first radio button will be preselected for the user. Otherwise, none will be selected. This is useful if you wish to force a user to select one if this field is required.

@@ -1,0 +1,5 @@
+
+$vbp_helper_hook='admin_global';
+include DIR.'/includes/vbp_helper.php';
+			
+			

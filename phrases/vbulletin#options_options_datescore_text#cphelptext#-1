@@ -1,0 +1,3 @@
+This setting allows you to give a higher relevance score to search results that are newer.<br /><br />
+
+This can be deceiving for multi-word searches.  For example, for multi-word search strings a search result might only match one of the words but end up with a higher relevance score than an older search result that matched all of the words.

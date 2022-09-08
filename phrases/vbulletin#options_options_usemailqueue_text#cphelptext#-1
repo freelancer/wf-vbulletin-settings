@@ -1,0 +1,1 @@
+If this option is enabled, the Mailqueue will be turned on and thread/forum subscriptions will be sent in batches to ease the load on the server. Important emails (such as those regarding account activation and lost passwords) are sent instantly regardless of this setting.  If you enable the mail queue, then you need to also check the "Number of Emails to Send Per Batch" setting.

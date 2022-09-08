@@ -1,0 +1,1 @@
+After copying the file into the specified "Safe Mode Temp Directory," it remained unreadable. PHP's safe_mode setting must be disabled for uploads to function. You will need to contact your host for this to be changed.

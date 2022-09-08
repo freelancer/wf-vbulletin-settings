@@ -1,0 +1,15 @@
+			
+<label style="padding:10px;">
+	<input type="radio" name="subscriptionId" value="$subscriptionid" $checked /> $subscription[title] $cost $currency
+</label>
+
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1"
+http-equiv="content-type">
+<title></title>
+</head>
+<body>
+<a href="http://www.warriorforum.com/warrior-forum-news/119745-warrior-forum-going-back-paid-status.html" target="_blank">Explanation Of These Options</a><br>
+</body>
+</html>

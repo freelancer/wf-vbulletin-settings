@@ -1,0 +1,9 @@
+<tr class="$bgclass">
+	<td width="100%">$perm[title]</td>
+	<td>
+		<div class="smallfont" style="white-space:nowrap">
+			<label for="$perm[varname]_1"><input type="radio" name="userperm[$perm[varname]]" id="$perm[varname]_1" value="1" tabindex="1" $perm[checkyes] />$vbphrase[yes]</label>
+			<label for="$perm[varname]_2"><input type="radio" name="userperm[$perm[varname]]" id="$perm[varname]_2" value="0" tabindex="1" $perm[checkno] />$vbphrase[no]</label>
+		</div>
+	</td>
+</tr>

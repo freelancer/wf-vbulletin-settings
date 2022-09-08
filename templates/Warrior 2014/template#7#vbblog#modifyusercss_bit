@@ -1,0 +1,176 @@
+<fieldset>
+    <legend>$selector[phrase]</legend>
+    <a name="usercss_$selectorname"></a>
+    <div class="fieldset_spacer">
+        <if condition="$selector['description']">
+            <div class="smallfont">$selector[description]</div>
+            <hr size="1" style="color:$stylevar[tborder_bgcolor]; background-color:$stylevar[tborder_bgcolor]" />
+        </if>
+
+        <if condition="$show['font']">
+            <table cellpadding="0" cellspacing="0" border="0" class="usercssbit">
+            <tr>
+            <if condition="$field_names['font_family']">
+                <td class="smallfont"><label for="usercss_{$selectorname}_font_family">$vbphrase[usercss_font_family]</label></td>
+            </if>
+            <if condition="$field_names['font_size']">
+                <td class="smallfont"><label for="usercss_{$selectorname}_font_size">$vbphrase[usercss_font_size]</label></td>
+            </if>
+            </tr>
+            <tr>
+            <if condition="$field_names['font_family']">
+                <td class="$selectorinvalid[font_family]">
+                    <a name="{$selectorname}_font_family"></a>
+                    <select name="$field_names[font_family]" id="usercss_{$selectorname}_font_family" class="usercss_select">
+                        <option value="">&nbsp;</option>
+                        $fontselect
+                    </select>
+                </td>
+            </if>
+            <if condition="$field_names['font_size']">
+                <td class="$selectorinvalid[font_size]">
+                    <a name="{$selectorname}_font_size"></a>
+                    <select name="$field_names[font_size]" id="usercss_{$selectorname}_font_size" class="usercss_select">
+                        <option value="">&nbsp;</option>
+                        $fontsizeselect
+                    </select>
+                </td>
+            </if>
+            </tr>
+            </table>
+        </if>
+
+        <if condition="$show['textcolor']">
+            <table cellpadding="0" cellspacing="0" border="0" class="usercssbit">
+            <tr>
+            <if condition="$field_names['color']">
+                <td class="smallfont" colspan="2"><label for="usercss_{$selectorname}_color">$vbphrase[usercss_color]</label></td>
+            </if>
+            <if condition="$field_names['shadecolor']">
+                <td class="smallfont" colspan="2"><label for="usercss_{$selectorname}_shadecolor">$vbphrase[usercss_shadecolor]</label></td>
+            </if>
+            <if condition="$field_names['linkcolor']">
+                <td class="smallfont" colspan="2"><label for="usercss_{$selectorname}_linkcolor">$vbphrase[usercss_linkcolor]</label></td>
+            </if>
+            </tr>
+            <tr>
+            <if condition="$field_names['color']">
+                <td class="$selectorinvalid[color]"><a name="{$selectorname}_color"></a><input type="text" class="bginput pickerinput" name="$field_names[color]" id="usercss_{$selectorname}_color" value="$selector[color]" dir="ltr" /></td>
+                <td><div id="usercss_{$selectorname}_color_preview" class="colorpreview"></div></td>
+            </if>
+            <if condition="$field_names['shadecolor']">
+                <td class="$selectorinvalid[shadecolor]"><a name="{$selectorname}_shadecolor"></a><input type="text" class="bginput pickerinput" name="$field_names[shadecolor]" id="usercss_{$selectorname}_shadecolor" value="$selector[shadecolor]" dir="ltr" /></td>
+                <td><div id="usercss_{$selectorname}_shadecolor_preview" class="colorpreview"></div></td>
+            </if>
+            <if condition="$field_names['linkcolor']">
+                <td class="$selectorinvalid[linkcolor]"><a name="{$selectorname}_linkcolor"></a><input type="text" class="bginput pickerinput" name="$field_names[linkcolor]" id="usercss_{$selectorname}_linkcolor" value="$selector[linkcolor]" dir="ltr" /></td>
+                <td><div id="usercss_{$selectorname}_linkcolor_preview" class="colorpreview"></div></td>
+            </if>
+            </tr>
+            </table>
+        </if>
+
+        <if condition="$show['border']">
+            <table cellpadding="0" cellspacing="0" border="0" class="usercssbit">
+            <tr>
+            <if condition="$field_names['border_color']">
+                <td class="smallfont" colspan="2"><label for="usercss_{$selectorname}_border_color">$vbphrase[usercss_border_color]</label></td>
+            </if>
+            <if condition="$field_names['border_style']">
+                <td class="smallfont"><label for="usercss_{$selectorname}_border_style">$vbphrase[usercss_border_style]</label></td>
+            </if>
+            <if condition="$field_names['border_width']">
+                <td class="smallfont"><label for="usercss_{$selectorname}_border_width">$vbphrase[usercss_border_width]</label></td>
+            </if>
+            <if condition="$field_names['padding']">
+                <td class="smallfont"><label for="usercss_{$selectorname}_padding">$vbphrase[usercss_padding]</label></td>
+            </if>
+            </tr>
+            <tr>
+            <if condition="$field_names['border_color']">
+                    <td class="$selectorinvalid[border_color]"><a name="{$selectorname}_border_color"></a><input type="text" class="bginput pickerinput" name="$field_names[border_color]" id="usercss_{$selectorname}_border_color" value="$selector[border_color]" dir="ltr" /></td>
+                    <td><div id="usercss_{$selectorname}_border_color_preview" class="colorpreview"></div></td>
+            </if>
+            <if condition="$field_names['border_style']">
+                <td class="$selectorinvalid[border_style]">
+                    <a name="{$selectorname}_border_style"></a>
+                    <select name="$field_names[border_style]" id="usercss_{$selectorname}_border_style" class="usercss_select">
+                        <option value="">&nbsp;</option>
+                        <option value="none"$border_style_selected[none]>$vbphrase[usercss_borderstyle_none]</option>
+                        <option value="hidden"$border_style_selected[hidden]>$vbphrase[usercss_borderstyle_hidden]</option>
+                        <option value="dotted"$border_style_selected[dotted]>$vbphrase[usercss_borderstyle_dotted]</option>
+                        <option value="dashed"$border_style_selected[dashed]>$vbphrase[usercss_borderstyle_dashed]</option>
+                        <option value="solid"$border_style_selected[solid]>$vbphrase[usercss_borderstyle_solid]</option>
+                        <option value="double"$border_style_selected[double]>$vbphrase[usercss_borderstyle_double]</option>
+                        <option value="groove"$border_style_selected[groove]>$vbphrase[usercss_borderstyle_groove]</option>
+                        <option value="ridge"$border_style_selected[ridge]>$vbphrase[usercss_borderstyle_ridge]</option>
+                        <option value="inset"$border_style_selected[inset]>$vbphrase[usercss_borderstyle_inset]</option>
+                        <option value="outset"$border_style_selected[outset]>$vbphrase[usercss_borderstyle_outset]</option>
+                    </select>
+                </td>
+            </if>
+            <if condition="$field_names['border_width']">
+                <td class="$selectorinvalid[border_width]">
+                    <a name="{$selectorname}_border_width"></a>
+                    <select name="$field_names[border_width]" id="usercss_{$selectorname}_border_width" class="usercss_select border_width_field">
+                        <option value="">&nbsp;</option>
+                        $borderwidthselect
+                    </select>
+                </td>
+            </if>
+            <if condition="$field_names['padding']">
+                <td class="$selectorinvalid[padding]"><a name="{$selectorname}_padding"></a>
+                    <select name="$field_names[padding]" id="usercss_{$selectorname}_padding" class="usercss_select padding_field">
+                        <option value="">&nbsp;</option>
+                        $paddingselect
+                    </select>
+                </td>
+            </if>
+            </tr>
+            </table>
+        </if>
+
+        <if condition="$show['background']">
+            <table cellpadding="0" cellspacing="0" border="0" class="usercssbit">
+            <tr>
+            <if condition="$field_names['background_color']">
+                <td class="smallfont" colspan="2"><label for="usercss_{$selectorname}_background_color">$vbphrase[usercss_background_color]</label></td>
+            </if>
+            <if condition="$field_names['background_image']">
+                <td class="smallfont"><label for="usercss_{$selectorname}_background_image">$vbphrase[usercss_background_image]</label></td>
+                <td class="smallfont"><label for="usercss_{$selectorname}_background_repeat">$vbphrase[usercss_background_repeat]</label></td>
+            </if>
+            </tr>
+            <tr>
+            <if condition="$field_names['background_color']">
+                <td class="$selectorinvalid[background_color]"><a name="{$selectorname}_background_color"></a><input type="text" class="bginput pickerinput" name="$field_names[background_color]" id="usercss_{$selectorname}_background_color" value="$selector[background_color]" dir="ltr" /></td>
+                <td><div id="usercss_{$selectorname}_background_color_preview" class="colorpreview"></div></td>
+            </if>
+            <if condition="$field_names['background_image']">
+                <td class="$selectorinvalid[background_image]" nowrap="nowrap"><a name="{$selectorname}_background_image"></a><input type="text" class="bginput bgimage_field" name="$field_names[background_image]" id="usercss_{$selectorname}_background_image" value="$selector[background_image]" dir="ltr" ng-non-bindable/><img src="$stylevar[imgdir_editor]/insertimage.gif" class="inlineimg imagepreview" id="usercss_{$selectorname}_background_image_chooser" style="display:none" alt=""/></td>
+                <td class="$selectorinvalid[background_repeat]">
+                    <a name="{$selectorname}_background_repeat"></a>
+                    <select name="$field_names[background_repeat]" id="usercss_{$selectorname}_background_repeat" class="usercss_select bgimage_repeat_field">
+                        <option value="">&nbsp;</option>
+                        <option value="repeat" $repeat_selected[repeat]>$vbphrase[usercss_repeat_repeat]</option>
+                        <option value="repeat-x" $repeat_selected[repeat_x]>$vbphrase[usercss_repeat_repeat_x]</option>
+                        <option value="repeat-y" $repeat_selected[repeat_y]>$vbphrase[usercss_repeat_repeat_y]</option>
+                        <option value="no-repeat" $repeat_selected[no_repeat]>$vbphrase[usercss_repeat_no_repeat]</option>
+                    </select>
+                </td>
+            </if>
+            </tr>
+            </table>
+        </if>
+
+    </div>
+    <div class="alt2 intermediate_submit_row">
+        <input type="button" class="button" value="$vbphrase[preview]" id="preview_$selectorname" style="display:none" />
+        <input type="submit" class="button" value="$vbphrase[save]" />
+    </div>
+    <script type="text/javascript">
+    <!--
+        vBulletin.register_control("vB_UserCSSPreview", "preview_$selectorname");
+    //-->
+    </script>
+</fieldset>

@@ -1,0 +1,1 @@
+This script executes four times an hour to process pending entries that are ready to go active.

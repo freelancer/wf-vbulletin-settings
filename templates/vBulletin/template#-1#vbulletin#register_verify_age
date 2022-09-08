@@ -1,0 +1,136 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+	<title>$vboptions[bbtitle] - $vbphrase[register]</title>
+<script type="text/javascript">
+<!--
+function checkform(formobj)
+{
+	if (formobj.month.selectedIndex == 0)
+	{
+		alert("$vbphrase[select_a_month]");
+		return false;
+	}
+	if (formobj.day.selectedIndex == 0)
+	{
+		alert("$vbphrase[select_a_day]");
+		return false;
+	}
+	if (! formobj.year.value.match(/^\d{4}$/))
+	{
+ 		alert("$vbphrase[please_enter_a_proper_year]");
+		return false;
+	}
+	return true;
+}
+// -->
+</script>
+</head>
+<body>
+$header
+
+<br />
+<br />
+
+<form action="register.php?do=checkdate" method="post" onsubmit="return checkform(this)">
+<input type="hidden" name="do" value="checkdate" />
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="url" value="$url" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="70%" align="center">
+<tr>
+	<td class="tcat"><phrase 1="$vboptions[bbtitle]">$vbphrase[register_at_x]</phrase></td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:70%" align="$stylevar[left]">
+
+			<fieldset class="fieldset">
+				<legend>$vbphrase[please_enter_your_date_of_birth]</legend>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" align="center" width="100%">
+				<tr>
+					<td>
+						$vbphrase[month]:<br />
+						<select name="month">
+							<option value="" selected="selected">-</option>
+							<option value="01">$vbphrase[january]</option>
+							<option value="02">$vbphrase[february]</option>
+							<option value="03">$vbphrase[march]</option>
+							<option value="04">$vbphrase[april]</option>
+							<option value="05">$vbphrase[may]</option>
+							<option value="06">$vbphrase[june]</option>
+							<option value="07">$vbphrase[july]</option>
+							<option value="08">$vbphrase[august]</option>
+							<option value="09">$vbphrase[september]</option>
+							<option value="10">$vbphrase[october]</option>
+							<option value="11">$vbphrase[november]</option>
+							<option value="12">$vbphrase[december]</option>
+						</select>
+					</td>
+					<td>
+						$vbphrase[day]:<br />
+						<select name="day">
+							<option value="" selected="selected">-</option>
+							<option value="01">1</option>
+							<option value="02">2</option>
+							<option value="03">3</option>
+							<option value="04">4</option>
+							<option value="05">5</option>
+							<option value="06">6</option>
+							<option value="07">7</option>
+							<option value="08">8</option>
+							<option value="09">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">31</option>
+						</select>
+					</td>
+					<td>
+						$vbphrase[year]:<br />
+						<input type="text" class="bginput" name="year" size="10" maxlength="4" value="" />
+					</td>
+				</tr>
+				</table>
+			</fieldset>
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" value="$vbphrase[proceed]" accesskey="s" />
+	</div>
+	</td>
+</tr>
+</table>
+
+</form>
+
+<br />
+<br />
+
+$footer
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+This is a link for contacting the forum administrator. There is a built-in email form located at "sendmessage.php" which can be used, or you can use an email address. If you use an email address, then you must add "mailto:" to the beginning of it so it looks like this:<br /><br />
+
+mailto:admin@example.com<br /><br />
+
+If you use the built-in contact form, you can specify predefined subjects below in "Contact Us Options".

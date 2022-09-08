@@ -1,0 +1,5 @@
+If you would like your vBulletin error logs to be rotated when they reach a certain size, enter the maximum file size in bytes here.<br />1048576 bytes = 1 megabyte.<br />
+<br />
+When a log file reaches this size, it will be renamed as {filename}{unix timestamp}.log and a new file will be created.<br />
+<br />
+Set this value to 0 to disable log rotation.

@@ -1,0 +1,7 @@
+<tr>
+	<if condition="$show['optionspage']">
+	<td><span style="float:$stylevar[right]"><input type="text" class="bginput" name="userfield[$optionalname]" value="$optional" size="$profilefield[size]" maxlength="$profilefield[maxlength]" $tabindex /></span>$vbphrase[or_enter_your_choice_here]:</td>
+	<else />
+	<td>$vbphrase[or_enter_your_choice_here]:<br /><input type="text" class="bginput" name="userfield[$optionalname]" value="$optional" size="$profilefield[size]" maxlength="$profilefield[maxlength]" $tabindex /></td>
+	</if>
+</tr>

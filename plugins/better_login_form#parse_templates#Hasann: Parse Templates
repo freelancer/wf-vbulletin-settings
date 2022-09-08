@@ -1,0 +1,4 @@
+if (isset($vbulletin->templatecache['STANDARD_ERROR']))  
+{  
+  $vbulletin->templatecache['STANDARD_ERROR'] = $vbulletin->templatecache['STANDARD_BETTER_ERROR'];  
+}

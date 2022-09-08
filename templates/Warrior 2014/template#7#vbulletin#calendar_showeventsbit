@@ -1,0 +1,94 @@
+$spacer_open
+<div style="padding:0px 0px $stylevar[cellpadding]px 0px">
+
+<form action="calendar.php?do=manage&amp;e=$eventinfo[eventid]" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="manage" />
+<input type="hidden" name="e" value="$eventinfo[eventid]" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$eventinfo[title]</td>
+</tr>
+<tr>
+	<td class="thead" style="font-weight:normal"><strong>$vbphrase[calendar]</strong>: $calendarinfo[title]</td>
+</tr>
+<tr>
+	<td class="alt1">
+		<if condition="$show['postedby'] OR $show['subscribed']">
+		<table cellpadding="0" cellspacing="0" border="0" width="100%">
+		<tr valign="bottom">
+			<td align="$stylevar[left]"><if condition="$show['postedby']"><a class="bigusername" href="member.php?$session[sessionurl]u=$eventinfo[userid]">$eventinfo[musername]</a><else />&nbsp;</if></td>
+			<td align="$stylevar[right]"><if condition="$show['subscribed']"><img class="inlineimg" src="$stylevar[imgdir_misc]/subscribed_event.gif" alt="$vbphrase[event_reminder]" /><else />&nbsp;</if></td>
+		</tr>
+		</table>
+		</if>
+
+		<div class="smallfont">
+			<if condition="$show['subscribelink']">
+				<div style="float:$stylevar[right]">
+					<if condition="$show['subscribed']">
+						<a rel="nofollow" href="calendar.php?do=deletereminder&amp;e=$eventinfo[eventid]">$vbphrase[delete_reminder_for_this_event]</a>
+					<else />
+						<a rel="nofollow" href="calendar.php?do=addreminder&amp;e=$eventinfo[eventid]">$vbphrase[request_reminder_for_this_event]</a>
+					</if>
+				</div>
+			</if>
+			<if condition="$show['recuroption']">
+				$recurcriteria<br />
+				<phrase 1="$date1" 2="$date2">$vbphrase[date_x_to_y]</phrase><if condition="$show['adjustedday']">*</if>
+				<br /><phrase 1="$time1" 2="$time2">$vbphrase[time_x_to_y]</phrase>
+			<else />
+				<if condition="$show['holiday'] OR $show['singleday']">
+					$eventdate
+				<else />
+					<if condition="$show['daterange']"><phrase 1="$date1" 2="$date2">$vbphrase[date_x_to_y]</phrase><else />$eventdate</if> <span class="time"><phrase 1="$time1" 2="$time2">$vbphrase[time_x_to_y]</phrase></span>
+				</if>
+			</if>
+			<if condition="$show['ignoredst']">
+				<!--<div class="shade">*$vbphrase[event_ignores_dst]</div>-->
+			<else />
+				<div class="shade">*$vbphrase[event_uses_dst]</div>
+			</if>
+			<if condition="$show['adjustedday']">
+				<div>*<phrase 1="$eventinfo[timezone]">$vbphrase[event_posted_for_timezone_x]</phrase></div>
+			</if>
+		</div>
+	</td>
+</tr>
+<tr valign="top">
+	<td class="alt2">
+
+		<if condition="$show['customfields']">
+			$customfields
+			<hr size="1" style="color:$stylevar[tborder_bgcolor]; background-color:$stylevar[tborder_bgcolor]" />
+		</if>
+
+		<div>$eventinfo[event]</div>
+
+		<if condition="$show['eventoptions']">
+			<div style="margin-top:$stylevar[cellpadding]px" align="$stylevar[right]">
+				<select name="what" onchange="this.form.submit();">
+					<option value="">$vbphrase[event_options]</option>
+					<if condition="$show['caneditevent']">
+						<option value="edit">:: &nbsp; $vbphrase[edit_event]</option>
+					</if>
+					<if condition="$show['candeleteevent']">
+						<option value="delete">:: &nbsp; $vbphrase[delete_event]</option>
+					</if>
+					<if condition="$show['canmoveevent']">
+						<option value="move">:: &nbsp; $vbphrase[move_event]</option>
+					</if>
+				</select>$gobutton
+			</div>
+		</if>
+
+	</td>
+</tr>
+</table>
+
+</form>
+
+</div>
+$spacer_close

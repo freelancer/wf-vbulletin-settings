@@ -1,0 +1,18 @@
+<tbody>
+	<tr>
+		<td class="alt2" colspan="<if condition="$show['pmicons']">3<else />2</if>" style="padding-top:3px; padding-bottom:3px; border-bottom:1px outset; cursor:pointer;" ondblclick="toggle_collapse('pmf$groupid')" width="100%">
+			<div class="smallfont">
+				<span style="float:$stylevar[right]">
+					<label for="checkall_$groupid">$vbphrase[messages]: <strong>$messagesingroup</strong></label>
+				</span>
+				<a href="#top" onclick="return toggle_collapse('pmf$groupid')"><img class="inlineimg" id="collapseimg_pmf$groupid" src="$stylevar[imgdir_button]/collapse_alt{$collapseimg_groupid}.gif" alt="" border="0" /></a>
+				&nbsp;
+				<strong>$groupname</strong>
+			</div>
+		</td>
+		<td class="alt2" style="padding:0px; border-bottom:1px outset" align="center"><input type="checkbox" id="checkall_$groupid" title="$vbphrase[select_deselect_all_in_group]" onclick="inlineMod_pms.check_all(this.checked, '$groupid')" /></td>
+	</tr>
+</tbody>
+<tbody id="collapseobj_pmf$groupid" style="{$collapseobj_groupid}">
+	$messagelistbits
+</tbody>

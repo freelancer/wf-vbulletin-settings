@@ -1,0 +1,23 @@
+Dear $touser[username],
+
+$username has just replied to a blog entry you have subscribed to entitled - $entrytitle - in the $blogtitle blog of $vboptions[bbtitle].
+
+This entry is located at:
+$vboptions[bburl]/blog.php?blogid=$blogid&goto=newpost
+
+Here is the message that has just been posted:
+***************
+$pagetext
+***************
+
+
+There may also be other comments, but you will not receive any more notifications until you visit the forum or blog again.
+
+All the best,
+$vboptions[bbtitle]
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unsubscription information:
+
+To unsubscribe from this blog entry, please visit this page:
+$vboptions[bburl]/blog_subscription.php?do=unsubscribe&blogsubscribeentryid=$touser[blogsubscribeentryid]&auth=$touser[auth]

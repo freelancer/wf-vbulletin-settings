@@ -1,0 +1,3 @@
+The option is related to the permission that controls how many lines a user may have in his or her signature.<br />
+<br />
+A line of text without a hard linebreak may wrap when displayed in a browser and actually appear as two lines. This option controls how many characters (other than linebreaks) that are allowed before the text counts as multiple lines.

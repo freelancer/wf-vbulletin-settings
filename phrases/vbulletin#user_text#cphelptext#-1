@@ -1,0 +1,15 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=user&amp;pageaction=&amp;option=">Users</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=usertools&amp;pageaction=&amp;option=">User Tools</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=banning&amp;pageaction=&amp;option=">User Banning</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=email&amp;pageaction=&amp;option=">Emailing Users</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=accessmask&amp;pageaction=&amp;option=">Access Masks</a><br /><br />
+
+<b>Users:</b><br />
+vBulletin's user system is made up of several different parts so make sure you read the related help topics above.  Within the "Users" tab of the Admin CP you have the ability to add new users, search for existing users based on several criteria, prune users, and do several other things that are covered in the "User Tools," "User Banning," "Emailing Users," and "Access Masks" help topics that are linked above.<br /><br />
+
+Adding a new user via the Admin CP is the same as some one registering a new account except that the "add form" in the Admin CP is free of the required fields and agreements that are imposed on the registration form.  For example, you can create an account without an email address when using the Admin CP.  Visit the <a href="user.php?do=add" target="_blank">Add New User</a> page to add a user via the Admin CP.<br /><br />
+
+vBulletin's user search system provides you with numerous search criteria and display options.  You can use the user search feature to find and edit users and to run reports showing specific user info and profile fields.  See the <a href="user.php?do=modify" target="_blank">Search for Users</a> page to see the list of search and display options.<br /><br />
+
+vBulletin's user system also allows you to prune / move users based on their usergroup, last visit date, join date, and post count.  Possible applications of the user pruning / moving system include cleaning out inactive users and changing usergroups to manage forum permissions.  The user pruning / moving page can be found <a href="user.php?do=prune" target="_blank">here</a>.

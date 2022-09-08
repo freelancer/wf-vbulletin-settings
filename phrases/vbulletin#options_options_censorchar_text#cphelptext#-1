@@ -1,0 +1,1 @@
+If a word is to be censored, it will be replaced by the character(s) you specify here. It will be replaced on a one-to-one basis - that is, if the word 'dog' is censored, and this setting is set to *, 'dog' would be replaced with '***'.

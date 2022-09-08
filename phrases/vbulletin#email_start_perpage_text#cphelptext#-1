@@ -1,0 +1,1 @@
+This is the number of messages to be sent in a batch. Unless you run your own server, it is recommended this is set to 100 or less. Even if you do run your own server, unless it is not very busy, you should keep this relatively low.

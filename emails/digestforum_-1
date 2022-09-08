@@ -1,0 +1,19 @@
+Dear $forum[username],
+
+You are subscribed to the forum $forum[title_clean], there have been $newthreads new thread(s) and $updatedthreads updated thread(s).
+$vboptions[bburl]/forumdisplay.php?f=$forum[forumid]
+
+The following threads are new:
+$newthreadbits
+
+The following threads have been updated:
+$updatedthreadbits
+
+All the best,
+$vboptions[bbtitle]
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unsubscription information:
+
+To unsubscribe from this forum, please visit this page:
+$vboptions[bburl]/subscription.php?do=removesubscription&type=forum&subscriptionid=$forum[subscribeforumid]&auth=$forum[auth]

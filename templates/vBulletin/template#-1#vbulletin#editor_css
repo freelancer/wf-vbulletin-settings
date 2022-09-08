@@ -1,0 +1,49 @@
+<!-- Editor Styles -->
+<style type="text/css" id="vbulletin_editor_css_dynamic">
+<!--
+@import url("clientscript/vbulletin_editor.css?v=$vboptions[simpleversion]");
+
+.vBulletin_editor {
+	background: {$istyles[pi_button_normal][0]};
+	padding: $stylevar[cellpadding]px;
+}
+.imagebutton {
+	background: {$istyles[pi_button_normal][0]};
+	color: {$istyles[pi_button_normal][1]};
+	padding: {$istyles[pi_button_normal][2]};
+	border: {$istyles[pi_button_normal][3]};
+}
+.ocolor, .ofont, .osize, .osmilie, .osyscoloar, .smilietitle {
+	background: {$istyles[pi_menu_normal][0]};
+	color: {$istyles[pi_menu_normal][1]};
+	border: {$istyles[pi_menu_normal][3]};
+}
+.popup_pickbutton {
+	border: {$istyles[pi_menu_normal][3]};
+}
+.popup_feedback {
+	background: {$istyles[pi_menu_normal][0]};
+	color: {$istyles[pi_menu_normal][1]};
+	border-$stylevar[right]: {$istyles[pi_menu_normal][3]};
+}
+.popupwindow {
+	background: {$istyles[pi_menu_normal][0]};
+}
+#fontOut, #sizeOut, .popup_feedback div {
+	background: {$istyles[pi_menu_normal][0]};
+	color: {$istyles[pi_menu_normal][1]};
+}
+.alt_pickbutton {
+	border-$stylevar[left]: 1px solid {$istyles[pi_button_normal][0]};
+}
+.popup_feedback input, .popup_feedback div
+{
+	border: 0px solid;
+	padding: 0px 2px 0px 2px;
+	cursor: default;
+	font: 11px tahoma;
+	overflow: hidden;
+}
+-->
+</style>
+<!-- / Editor Styles -->

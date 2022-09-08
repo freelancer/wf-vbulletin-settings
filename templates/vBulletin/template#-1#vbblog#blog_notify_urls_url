@@ -1,0 +1,1 @@
+<li><label for="cb_notifyurl_$counter"><input type="checkbox" name="notifyurl[$counter]" id="cb_notifyurl_$counter" value="1" tabindex="1" $checked />$url</label></li>

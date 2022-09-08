@@ -1,0 +1,28 @@
+<if condition="$sidebar['search']">
+<li id="block_search">
+	<div class="tborder" style="margin-top:$stylevar[cellpadding]px; padding:$stylevar[cellspacing]px" id="block_search_div">
+		<form action="blog_search.php?do=dosearch" method="post">
+		<div class="thead" style="padding:$stylevar[cellpadding]px"<if condition="$show['moveable']"> id="block_search_handle"</if>>
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('blog_search')"><img id="collapseimg_blog_search" src="$stylevar[imgdir_button]/collapse_generic$vbcollapse[collapseimg_blog_search].gif" alt="" border="0" /></a>
+			<phrase 1="$userinfo[username]">$vbphrase[find_blog_entries_by_user]</phrase>
+		</div>
+		<div style="$vbcollapse[collapseobj_blog_search]" id="collapseobj_blog_search">
+			<div class="alt1 smallfont" style="padding:$stylevar[cellpadding]px; margin:$stylevar[cellspacing]px 0px $stylevar[cellspacing]px 0px">
+				<label for="quicksearch_blog_text" class="smallfont" style="display:block; margin-top:$stylevar[cellpadding]px">$vbphrase[containing_text]</label>
+				<input type="text" class="bginput" style="width:95%" tabindex="51" name="text" id="quicksearch_blog_text" />
+				<label class="smallfont" style="display:block; margin-top:$stylevar[cellpadding]px" for="cb_titleonly"><input class="inlineimg" type="checkbox" tabindex="52" name="titleonly" id="cb_titleonly" value="1" />$vbphrase[search_titles_only]</label>
+			</div>
+			<div class="alt2 smallfont" style="padding:$stylevar[cellpadding]px">
+				<input type="submit" class="button" style="font-size:10px; float:$stylevar[right]" value="$vbphrase[search]" tabindex="53" />
+				<a href="blog_search.php?$session[sessionurl]do=search">$vbphrase[advanced_search]</a>
+			</div>
+		</div>
+		<input type="hidden" name="quicksearch" value="1" />
+		<input type="hidden" name="searchuserid" value="$userinfo[userid]" />
+		<input type="hidden" name="s" value="$session[sessionhash]" />
+		<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+		<input type="hidden" name="do" value="dosearch" />
+	</form>
+	</div>
+</li>
+</if>

@@ -1,0 +1,1 @@
+eval('$headinclude .= "' . fetch_template('post_thanks_javascript') . '";');

@@ -1,0 +1,22 @@
+<p>The administrator will probably require you to register in order to use all the features of the forum. Being registered gives you an identity on the board, a fixed username on all messages you post and an online public profile.</p>
+
+<p>Registration is free (unless otherwise specified), and offers an extended range of features, including:</p>
+
+<ul>
+<li>Posting new threads</li>
+<li>Replying to other peoples' threads</li>
+<li>Editing your posts</li>
+<li>Receiving email notification of replies to posts and threads you specify</li>
+<li>Sending private messages to other members</li>
+<li>Creating albums of pictures and comment on others' pictures</li>
+<li>Adding events to the forum calendar</li>
+<li>Setting up a 'contact list' to quickly see which of your friends are online.</li>
+</ul>
+
+<p><b>How do I register?</b></p>
+
+<p>You register by clicking on the '<a href="register.php$session[sessionurl_q]" rel="nofollow">Register</a>' link near the top of the page. You will be asked to choose a user name, password and enter a valid email address. In addition there will be some other fields to which you will be invited to respond. Some will be mandatory while others are optional. Once this is complete you will either be fully registered, or in some cases you may have to click on a link in an 'activation email' sent to your email address. Once you have done this you will be registered.</p>
+
+<p>Note that entering your email address will not leave you open to 'spam', as you can choose to hide it from other board users. You'll probably be able to allow other registered users to contact you via email, but the system won't display your email address to them unless you give permission.</p>
+
+<p>If you are under the age of 13, the administrator may require that a parent or guardian provide consent before allowing you to complete the registration process. More information about this is available during the registration process.</p>

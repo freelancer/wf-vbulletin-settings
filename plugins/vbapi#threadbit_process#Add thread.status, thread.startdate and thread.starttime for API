@@ -1,0 +1,60 @@
+if (VB_API === true)
+{
+	// get the thread starting date and time if applicable
+	if ($thread['dateline'])
+	{
+		$thread['startdate'] = vbdate($vbulletin->options['dateformat'], $thread['dateline'], true);
+		$thread['starttime'] = vbdate($vbulletin->options['timeformat'], $thread['dateline']);
+		
+		if (!$thread['lastpostdate'])
+		{
+			$thread['lastpostdate'] = $thread['startdate'];
+		}
+		if (!$thread['lastposttime'])
+		{
+			$thread['lastposttime'] = $thread['starttime'];
+		}
+	}
+	else
+	{
+		$thread['startdate'] = '';
+		$thread['starttime'] = '';
+	}
+	
+	// thread not moved
+	if ($thread['open'] != 10)
+	{
+		if (!$thread['visible'])
+		{
+			$thread['status']['moderated'] = 'moderated';
+		}
+		if ($thread['visible'] == 2)
+		{
+			$thread['status']['deleted'] = 'deleted';
+		}
+		if ($vbulletin->userinfo['userid'] AND $vbulletin->options['showdots'] AND $dotthreads["$thread[threadid]"])
+		{
+			$thread['status']['dot'] = 'dot';
+		}
+		if ($vbulletin->options['usehotthreads'] AND (($thread['replycount'] >= $vbulletin->options['hotnumberposts'] AND $vbulletin->options['hotnumberposts'] > 0) OR ($thread['views'] >= $vbulletin->options['hotnumberviews'] AND $vbulletin->options['hotnumberviews'] > 0)))
+		{
+			$thread['status']['hot'] = 'hot';
+		}
+		if (!$thread['open'])
+		{
+			$thread['status']['lock'] = 'lock';
+		}
+		if ($thread['lastpost'] > $lastread)
+		{
+			if ($thread['lastpost'] > $threadview)
+			{
+				$thread['status']['new'] = 'new';
+			}
+		}
+	}
+	// thread moved?
+	else
+	{
+		$thread['status'] = array('moved' => 'moved', 'new' => ($thread['lastpost'] > $lastread) ? 'new' : false);
+	}
+}

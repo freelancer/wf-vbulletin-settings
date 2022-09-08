@@ -1,0 +1,1 @@
+<tr><td class="$ap_a_class"><span style="float: right">$ap_ak_grup[visible]</span><a href="group.php?groupid=$ap_ak_grup[groupid]">$ap_ak_grup[name]</a><br /> $vbphrase[last_post]: <a href="member.php?u=$ap_ak_grup[userid]">$ap_ak_grupmarkupuye</a></td></tr>

@@ -1,0 +1,5 @@
+The URL is the link used in conjunction with the icon at the bottom of a thread, you can use replacements for constructing a more useful link.<br />
+<ul>
+<li><strong>{TITLE}</strong> - Title of the current page.</li>
+<li><strong>{URL}</strong> - URL of the current page.</li>
+</ul>

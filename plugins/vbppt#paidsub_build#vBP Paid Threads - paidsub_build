@@ -1,0 +1,5 @@
+
+				$vbppt_lasthook='paidsub_build';
+				include(DIR.'/includes/vbppt_hooks.php');
+			
+			

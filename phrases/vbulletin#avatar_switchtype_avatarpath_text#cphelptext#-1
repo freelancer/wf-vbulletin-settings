@@ -1,0 +1,5 @@
+This is the path to the directory where the avatars will be stored on your server. It should be relative to your vBulletin forums root directory and must be CHMODed such that your web server can read and write to it (usually 777). Additionally it must be accessible from the web! (This is unlike when you have attachments in the file system, when it is recommended that the folder not be accessible from the web.)<br /><br />
+
+A setting of<br />
+./customavatars<br />
+would mean a directory called customavatars inside your forums root directory.

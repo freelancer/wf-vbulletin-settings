@@ -1,0 +1,1 @@
+$this->validfields['notepad'] = array(TYPE_NOHTML, REQ_NO);

@@ -1,0 +1,50 @@
+<if condition="$show['errors']">
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat">$vbphrase[errors_occured_when_submitted]</td>
+	</tr>
+	<tr>
+		<td class="alt1"><ul>$errorlist</ul></td>
+	</tr>
+	</table>
+	<br />
+</if>
+
+<form action="blog_post.php?do=updatetrackback&amp;blogtrackbackid=$trackbackinfo[blogtrackbackid]" method="post">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<th class="tcat">
+		<span class="smallfont" style="float:$stylevar[right]"><strong>$vbphrase[blog_entry]</strong> <a href="blog.php?$session[sessionurl]b=$bloginfo[blogid]">$bloginfo[title]</a></span>
+		$vbphrase[edit_trackback]
+	</th>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]">
+
+			<div style="margin-top:$stylevar[cellpadding]px">
+				<label class="smallfont">$vbphrase[title]
+					<input type="text" class="bginput" name="title" size="50" tabindex="1" style="display:block; width:350px" value="$trackbackinfo[title]" />
+				</label>
+			</div>
+
+			<div style="margin-top:$stylevar[cellpadding]px">
+				<label class="smallfont">$vbphrase[snippet]
+					<textarea name="snippet" tabindex="1" rows="5" cols="50" style="display:block; width:350px">$trackbackinfo[snippet]</textarea>
+				</label>
+			</div>
+		</div>
+	</div>
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="hidden" name="s" value="$session[sessionhash]" />
+		<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+		<input type="hidden" name="do" value="updatetrackback" />
+		<input type="hidden" name="blogtrackbackid" value="$trackbackinfo[blogtrackbackid]" />
+		<input type="submit" class="button" value="$vbphrase[save]" accesskey="s" />
+		<input type="hidden" name="url" value="$url" />
+	</div>
+	</td>
+</tr>
+</table>
+</form>

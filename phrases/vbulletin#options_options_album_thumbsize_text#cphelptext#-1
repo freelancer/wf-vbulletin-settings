@@ -1,0 +1,3 @@
+The maximum height and width of thumbnails for pictures uploaded to the album system. The picture's aspect ratio will be maintained.<br />
+<br />
+For example, if a user uploads and 900x600 picture and the thumbnail size is 150, the thumbnail will be 150x100.

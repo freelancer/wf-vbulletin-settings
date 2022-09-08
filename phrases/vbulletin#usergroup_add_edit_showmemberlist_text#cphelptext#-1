@@ -1,0 +1,4 @@
+This option refers to <a href="../memberlist.php" target="_blank">this page</a>.  The member list shows all members of your forums.  If you disable this option then members of this group will not show up on the member list.<br />
+<br />
+<em>Note:</em> By default, due to performance issues, secondary groups cannot override the value of the primary group. If you need this functionality, add the following line to your includes/config.php file:
+<pre>define('MEMBERLIST_INCLUDE_SECONDARY', true);</pre>

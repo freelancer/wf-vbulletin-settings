@@ -1,0 +1,1 @@
+If you would like to store the CSS stylesheet for each style as a file, you must ensure that you have a directory called 'vbulletin_css' inside the 'clientscript' folder, and that the web server has permission to write and delete files within that directory.

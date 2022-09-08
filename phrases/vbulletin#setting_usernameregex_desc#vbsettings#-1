@@ -1,0 +1,1 @@
+You may require the username to match a regular expression (<a href="http://www.php.net/manual-lookup.php?function=preg-match" target="_blank">PCRE</a>).  The admin help provides some examples that may be useful. To disable this function leave the option blank.

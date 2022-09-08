@@ -1,0 +1,5 @@
+This is the format in which the time is presented on all vBulletin pages. It uses PHP's <a href="http://www.php.net/date" target="_blank">date function formatting options</a>.<br /><br />
+
+Some examples:<br />
+<b>h:i A</b> becomes 11:15 PM<br />
+<b>H:i</b> becomes 23:15

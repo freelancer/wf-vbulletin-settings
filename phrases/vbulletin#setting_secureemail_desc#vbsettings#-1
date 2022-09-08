@@ -1,0 +1,5 @@
+If 'Allow Users to Email Other Members' is set to 'Yes', how should members' email addresses be displayed?<br />
+<br />
+If this is set to 'Yes', then an online form must be filled in to send a user an email, thus hiding the destination email address.<br />
+<br />
+Setting 'No' will mean that the user is just given the email address in order to send email using their email client application.

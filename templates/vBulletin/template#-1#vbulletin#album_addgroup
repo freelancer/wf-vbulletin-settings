@@ -1,0 +1,62 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+$usercss
+<title>$vboptions[bbtitle] - <phrase 1="$userinfo[username]" 2="$albuminfo[title_html]">$vbphrase[xs_album_y]</phrase> - $vbphrase[add_picture_to_groups]</title>
+</head>
+<body>
+$header
+$navbar
+
+<div id="usercss">
+
+<form action="album.php?do=doaddgroup&amp;albumid=$albuminfo[albumid]&amp;pictureid=$pictureinfo[pictureid]" method="post">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[add_picture_to_groups]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel floatcontainer">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+			<if condition="$pictureinfo['thumburl']">
+				<table width="100%" border="0" cellspacing="$stylevar[cellspacing]" cellpadding="$stylevar[cellpadding]">
+				<tr>
+					<td valign="middle"><img src="$pictureinfo[thumburl]" alt="$pictureinfo[caption_preview]" border="0" style="float: $stylevar[left]" $pictureinfo[dimensions] /></td>
+					<td valign="top" width="100%">
+			</if>
+
+			<fieldset class="fieldset">
+				<legend>$vbphrase[groups]</legend>
+				<table border="0" cellspacing="$stylevar[cellspacing]" cellpadding="2">
+					$groupbits
+				</table>
+			</fieldset>
+
+			<if condition="$pictureinfo['thumburl']">
+					</td>
+				</tr>
+				</table>
+			</if>
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="hidden" name="s" value="$session[sessionhash]" />
+		<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+		<input type="hidden" name="do" value="doaddgroup" />
+		<input type="hidden" name="albumid" value="$albuminfo[albumid]" />
+		<input type="hidden" name="pictureid" value="$pictureinfo[pictureid]" />
+		<input type="submit" class="button" value="$vbphrase[add_picture_to_groups]" accesskey="s" tabindex="1" />
+	</div>
+	</td>
+</tr>
+</table>
+</form>
+
+</div>
+
+$footer
+</body>
+</html>

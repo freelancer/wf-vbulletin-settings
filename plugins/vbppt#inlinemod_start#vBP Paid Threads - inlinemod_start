@@ -1,0 +1,5 @@
+
+				$vbppt_lasthook='inlinemod_start';
+				include(DIR.'/includes/vbppt_hooks.php');
+			
+			

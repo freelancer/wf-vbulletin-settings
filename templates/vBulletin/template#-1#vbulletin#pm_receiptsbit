@@ -1,0 +1,6 @@
+<tr valign="top">
+	<td class="alt1"><span class="smallfont"><label for="cb_receipt_$receipt[receiptid]"><strong>$receipt[title]</strong><br />$vbphrase[sent_to]: <a href="member.php?$session[sessionurl]u=$receipt[touserid]">$receipt[tousername]</a></label></span></td>
+	<td class="alt1"><span class="smallfont">$receipt[send_date] <span class="time">$receipt[send_time]</span></span></td>
+	<td class="alt2"><span class="smallfont"><if condition="$show['readpm']">$receipt[read_date] <span class="time">$receipt[read_time]</span><else /><em>$vbphrase[unread_date]</em></if></span></td>
+	<td class="alt1" align="center"><input type="checkbox" name="receipt[]" value="$receipt[receiptid]" id="cb_receipt_$receipt[receiptid]" /></td>
+</tr>

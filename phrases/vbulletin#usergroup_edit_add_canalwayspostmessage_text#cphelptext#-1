@@ -1,0 +1,8 @@
+If this is set to 'yes' the user will always be able to post messages in social groups, even when:
+
+<ul>
+<li>The social group is configured with 'Users must join to view the content'.</li>
+<li>The user is not a member of the group.</li>
+</ul>
+
+Note: If the user has this permission, they will always be able to see the contents of groups configured with 'Invite Only' and 'Users must join to view the content'.

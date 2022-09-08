@@ -1,0 +1,26 @@
+global $vbulletin;
+$post['message'] = explode ("\n", $post['message']);
+$yourusername = '* ' . $vbulletin->userinfo['username'] . ' ';
+foreach ($post['message'] as &$postmessageline)
+{
+if (substr($postmessageline, 0, 5) == '/you ')
+{
+if (substr($postmessageline, -4) == '<br>')
+{
+$postmessageline = substr($postmessageline, 0, -4);
+$addbr = true;
+}
+else
+{
+$addbr = false;
+}
+$postmessageline = '<font color="red">' . $postmessageline . '</font>';
+$postmessageline = str_replace('/you ', $yourusername, $postmessageline);
+if ($addbr)
+{
+$postmessageline = $postmessageline . "<br>";
+}
+}
+}
+unset($postmessageline);
+$post['message'] = implode ("\n", $post['message']);

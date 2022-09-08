@@ -1,0 +1,21 @@
+
+	//$vbulletin->options['EZsociallinks_enable'] && $vbulletin->options['EZsociallinks_pbenable'] && 	
+if( $post['show_ezsocial_links'] )
+{
+	
+	//field6 Myspace.com
+	$ezmyspace =& $post['field6'];
+	//field7 Facebook.com
+	$ezfacebook =& $post['field7'];
+	//field8 Linkedin.com
+	$eztwitter =& $post['field8'];
+	//field9 Youtube.com
+	$ezyoutube =& $post['field9'];
+	
+	//$ezmyspace =& $post['field7'];
+	
+	if($ezmyspace||$ezfacebook||$eztwitter||$ezyoutube)
+		eval('$template_hook[postbit_userinfo_right] .= "' . fetch_template('EZsociallinks_postbit_bit') . '";');
+	
+}
+

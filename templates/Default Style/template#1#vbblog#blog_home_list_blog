@@ -1,0 +1,20 @@
+<li class="blog_home_list_item" style="margin-bottom:$stylevar[cellpadding]px">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td style="text-align:center; padding-$stylevar[right]:$stylevar[cellpadding]px">
+		<if condition="$show['avatar']">
+			<a href="blog.php?$session[sessionurl]u=$updated[userid]"><img class="inlineimg blog_home_list_image" src="$updated[avatarurl]" border="0" width="30" alt="<phrase 1="$updated[username]">$vbphrase[xs_avatar]</phrase>" /></a>
+		<else />
+			<img src="images/misc/blog/clear.gif" width="30" height="30" alt="" />
+		</if>
+		</td>
+		<td class="smallfont" width="100%">
+			<div><a href="blog.php?$session[sessionurl]u=$updated[userid]">$updated[title]</a></div>
+			<div><a href="member.php?$session[sessionurl]u=$updated[userid]" class="shade">$updated[username]</a> <!--$updated[musername]--></div>
+		</td>
+		<td style="padding-$stylevar[left]:$stylevar[cellpadding]px; text-align:$stylevar[right]">
+			<img src="$stylevar[imgdir_rating]/rating_$updated[rating].gif" alt="<phrase 1="$updated[ratingnum]" 2="$updated[voteavg]">$vbphrase[rating_x_votes_y_average]</phrase>" border="0" />
+		</td>
+	</tr>
+	</table>
+</li>

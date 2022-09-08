@@ -1,0 +1,7 @@
+This page allows you to moderate events that are awaiting moderation.  Below are all events that are awaiting moderation (if any).  Select an action for each event (validate, delete, or ignore) and click the "Save" button to continue.<br /><br />
+
+Validating an event removes it from this moderation queue and makes it visible on the calendar.  Deleting an event does exactly that.  Ignoring an event leaves it in this moderation queue so you can handle it another time.<br /><br />
+
+If you want to validate, delete, or ignore all events awaiting moderation then you can click the appropriate button at the top which sets all actions appropriately.<br /><br />
+
+You can edit the content of events on this page while moderating them.  For example, an event might have an inappropriate title... just change the text for the title and then validate the event.

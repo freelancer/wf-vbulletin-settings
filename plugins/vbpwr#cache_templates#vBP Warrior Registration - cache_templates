@@ -1,0 +1,5 @@
+
+				$vbpwr_lasthook='cache_templates';
+				include(DIR.'/includes/vbpwr_hooks.php');
+			
+			

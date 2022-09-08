@@ -1,0 +1,1 @@
+vBulletin offers you the ability to store avatars as files, instead of the database. It is highly recommended you do this as avatars can lead to slowing your database down and increased load.

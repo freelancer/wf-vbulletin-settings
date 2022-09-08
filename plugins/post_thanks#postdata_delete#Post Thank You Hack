@@ -1,0 +1,5 @@
+if ($physicaldel)
+{
+	require_once(DIR . '/includes/functions_post_thanks.php');
+	delete_all_thanks($this->existing, false);
+}

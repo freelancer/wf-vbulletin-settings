@@ -1,0 +1,1 @@
+Enter the first and last year that should show on your calendar separated by a dash, e.g. <b>2000-2006</b>. Due to the way PHP works, the maximum range is 1970 to 2037; entering dates outside this range may result in errors or problems.

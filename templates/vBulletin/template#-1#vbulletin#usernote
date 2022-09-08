@@ -1,0 +1,71 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - <phrase 1="$userinfo[username]">$vbphrase[user_notes_for_x]</phrase></title>
+</head>
+<body>
+$header
+$navbar
+
+<!-- add note / pagenav -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tr valign="bottom">
+	<td class="smallfont"><if condition="$show['addnote']"><a href="usernote.php?$session[sessionurl]do=newnote&amp;u=$userinfo[userid]">$vbphrase[post_new_user_note]</a></if>&nbsp;</td>
+	<if condition="$show['pagenav']"><td align="$stylevar[right]">$pagenav</td></if>
+</tr>
+</table>
+<!-- / add note / pagenav -->
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center" style="border-bottom-width: 0px">
+<tr>
+	<td class="tcat"><phrase 1="$userinfo[username]">$vbphrase[user_notes_for_x]</phrase></td>
+</tr>
+</table>
+
+<if condition="$show['notes']">
+
+	$spacer_close
+	<div id="notes">
+	$notebits
+	</div>
+	$spacer_open
+
+<else />
+<div style="padding:0px 0px $stylevar[cellpadding]px 0px">
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="alt1" align="center">
+			&nbsp;<br />
+			<phrase 1="$userinfo[username]">$vbphrase[x_does_not_have_any_notes]</phrase>
+			<br />&nbsp;
+		</td>
+	</tr>
+	</table>
+</div>
+</if>
+
+<!-- add note / pagenav -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:$stylevar[margin_3px_fix]px">
+<tr valign="top">
+	<td class="smallfont"><if condition="$show['addnote']"><a href="usernote.php?$session[sessionurl]do=newnote&amp;u=$userinfo[userid]">$vbphrase[post_new_user_note]</a></if>&nbsp;</td>
+	<if condition="$show['pagenav']"><td align="$stylevar[right]">$pagenav</td></if>
+</tr>
+</table>
+<!-- / add note / pagenav -->
+
+<br />
+
+<!-- forum jump and forum rules -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tr valign="bottom">
+	<td width="100%">$forumrules</td>
+	<td>$forumjump</td>
+</tr>
+</table>
+<!-- / forum jump and forum rules -->
+
+$footer
+
+</body>
+</html>

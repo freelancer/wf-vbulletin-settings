@@ -1,0 +1,3 @@
+Setting this option to yes will cause search index information to be copied with each post in the thread. This allows the copied version of the thread to be searchable.
+<br /><br />
+However, on larger boards, this may cause significant delays in copying a thread. If this is a problem for you, we recommend disabling this option.

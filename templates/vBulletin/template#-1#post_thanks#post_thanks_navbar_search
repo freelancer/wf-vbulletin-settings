@@ -1,0 +1,3 @@
+<tr>
+	<td class="vbmenu_option"><a href="post_thanks.php?$session[sessionurl]do=findallthanks">$vbphrase[post_thanks_search]</a></td>
+</tr>

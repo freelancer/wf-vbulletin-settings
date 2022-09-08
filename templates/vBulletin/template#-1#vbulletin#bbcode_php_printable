@@ -1,0 +1,12 @@
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">$vbphrase[php_code]:</div>
+	<div class="alt2">
+		<hr />
+		<code style="white-space:nowrap">
+		<div dir="ltr" style="text-align:left;">
+			<!-- php buffer start -->$code<!-- php buffer end -->
+		</div>
+		</code>
+		<hr />
+	</div>
+</div>

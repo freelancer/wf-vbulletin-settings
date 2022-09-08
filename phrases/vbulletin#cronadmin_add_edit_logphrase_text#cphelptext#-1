@@ -1,0 +1,1 @@
+The log phrase allows you to phrase the entries that appear in the admin log. You need to call log_cron_action() with a 1 for the third parameter to invoke the phrase in the log viewer.  Otherwise the value saved in the description field will be displayed as is.  You may also save the description field in serialized form if you have more than one replacement in your phrase.

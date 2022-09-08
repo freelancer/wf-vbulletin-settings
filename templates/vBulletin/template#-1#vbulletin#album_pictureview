@@ -1,0 +1,102 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+$usercss
+$picturecomment_css
+<title>$vboptions[bbtitle] - <phrase 1="$userinfo[username]" 2="$albuminfo[title_html]">$vbphrase[xs_album_y]</phrase> - $vbphrase[picture]</title>
+
+<script type="text/javascript" src="clientscript/vbulletin_quick_edit_generic.js?v=$vboptions[simpleversion]"></script>
+<script type="text/javascript" src="clientscript/vbulletin_quick_edit_picturecomment.js?v=$vboptions[simpleversion]"></script>
+</head>
+<body>
+$header
+$navbar
+
+<div id="usercss">
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<div class="smallfont" style="float: $stylevar[right]">
+			<if condition="$show['picture_nav']">
+				<a href="album.php?$session[sessionurl]albumid=$albuminfo[albumid]&amp;pictureid=$pic_location[prev_pictureid]">$pic_location[prev_text_short]</a> |
+				<a href="album.php?$session[sessionurl]albumid=$albuminfo[albumid]&amp;pictureid=$pic_location[next_pictureid]">$pic_location[next_text_short]</a>
+				<if condition="$show['usercss_switch']">|</if>
+			</if>
+			<if condition="$show['usercss_switch']"><a href="profile.php?$session[sessionurl]do=switchusercss&amp;hash=$bbuserinfo[logouthash]&amp;u=$userinfo[userid]">$usercss_switch_phrase</a></if>
+		</div>
+
+		<phrase 1="$pic_location[pic_position]" 2="$albuminfo[picturecount]" 3="$albuminfo[title]">$vbphrase[picture_x_of_y_from_album_z]</phrase>
+	</td>
+</tr>
+<tr>
+	<td class="alt1" align="center">
+		<table width="<if condition="$pictureinfo['width'] < 400">400<else />$pictureinfo[width]</if>" cellpadding="$stylevar[cellpadding]">
+		<tr>
+			<td align="center"><img src="picture.php?$session[sessionurl]albumid=$albuminfo[albumid]&amp;pictureid=$pictureinfo[pictureid]" alt="$pictureinfo[caption_censored]" /></td>
+		</tr>
+		<if condition="$show['moderation']"><tr><td align="center"><strong>$vbphrase[picture_waiting_moderator_approval]</strong></td></tr></if>
+		<if condition="$pictureinfo['caption_html']">
+			<tr>
+				<td align="$stylevar[left]"><em>$pictureinfo[caption_html]</em></td>
+			</tr>
+		</if>
+		<tr>
+			<td align="$stylevar[left]" class="smallfont">
+				<if condition="$show['edit_picture_option'] OR $show['add_group_link'] OR $show['reportlink']">
+				<div class="smallfont normal" style="float: $stylevar[right]">
+					<if condition="$show['edit_picture_option']">
+						<div><a href="album.php?$session[sessionurl]do=editpictures&amp;albumid=$albuminfo[albumid]&amp;pictureid=$pictureinfo[pictureid]&amp;frompicture=1">$vbphrase[edit_picture]</a></div>
+					</if>
+					<if condition="$show['add_group_link']">
+						<div><a href="album.php?$session[sessionurl]do=addgroup&amp;albumid=$albuminfo[albumid]&amp;pictureid=$pictureinfo[pictureid]">$vbphrase[add_to_group]</a></div>
+					</if>
+					<if condition="$show['reportlink']">
+						<div><a href="album.php?$session[sessionurl]do=report&amp;albumid=$albuminfo[albumid]&amp;pictureid=$pictureinfo[pictureid]">$vbphrase[report_picture]</a></div>
+					</if>
+				</div>
+				</if>
+				<span class="shade">$vbphrase[picture_added]</span> $pictureinfo[adddate] <if condition="!$show['detailedtime']"><span class="time">$pictureinfo[addtime]</span></if>
+				<br /><span class="shade"><phrase 1='<a href="member.php?$session[sessionurl]u=$userinfo[userid]">$userinfo[username]</a>'>$vbphrase[added_by_x]</phrase></span>
+			</td>
+		</tr>
+		<if condition="$show['picture_owner']">
+		<tr>
+			<td class="smallfont" align="center"><div style="text-align: $stylevar[left]; width: 400px">
+				<div>$vbphrase[picture_url]<br />
+					<input type="text" value="$pictureinfo[pictureurl]" readonly="readonly" class="bginput" onfocus="this.select()" dir="ltr" size="30" style="width:400px" />
+				</div>
+				
+				<div>$vbphrase[bb_code]<br />
+					<input type="text" value="[IMG]$pictureinfo[pictureurl][/IMG]" readonly="readonly" class="bginput" onfocus="this.select()" dir="ltr" size="30" style="width:400px" />
+				</div>
+			</div></td>
+		</tr>
+		</if>
+		</table>
+	</td>
+</tr>
+</table>
+
+<if condition="$show['picture_nav']">
+	<div class="smallfont" align="center" style="margin-top: $stylevar[cellpadding]px">
+		<a href="album.php?$session[sessionurl]albumid=$albuminfo[albumid]&amp;pictureid=$pic_location[prev_pictureid]">$pic_location[prev_text]</a> |
+		<a href="album.php?$session[sessionurl]albumid=$albuminfo[albumid]&amp;pictureid=$pic_location[next_pictureid]">$pic_location[next_text]</a>
+	</div>
+</if>
+
+$picturecomment_commentarea
+
+<if condition="$show['picturecomment_options'] AND $show['picture_nav']">
+	<div class="smallfont" align="center" style="margin-top: $stylevar[cellpadding]px">
+		<a href="album.php?$session[sessionurl]albumid=$albuminfo[albumid]&amp;pictureid=$pic_location[prev_pictureid]">$pic_location[prev_text]</a> |
+		<a href="album.php?$session[sessionurl]albumid=$albuminfo[albumid]&amp;pictureid=$pic_location[next_pictureid]">$pic_location[next_text]</a>
+	</div>
+</if>
+
+</div>
+
+$footer
+</body>
+</html>

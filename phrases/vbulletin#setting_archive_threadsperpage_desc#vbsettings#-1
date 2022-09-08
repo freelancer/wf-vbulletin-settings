@@ -1,0 +1,4 @@
+The number of threads to display per page in the threads listing.<br />
+This is done on a per-forum basis.<br />
+<br />
+<b>Note: </b>This number must be at least 1.

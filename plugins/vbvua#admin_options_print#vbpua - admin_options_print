@@ -1,0 +1,4 @@
+
+$vbpua_lasthook='admin_options_print';
+include(DIR.'/includes/vbvua_hooks.php');
+             

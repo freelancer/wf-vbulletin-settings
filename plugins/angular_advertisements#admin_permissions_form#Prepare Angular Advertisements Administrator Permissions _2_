@@ -1,0 +1,3 @@
+
+				print_yes_no_row($vbphrase["can_administer_angular_advertisements"], "canadminangularadver", $user['canadminangularadver']);
+			

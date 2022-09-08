@@ -1,0 +1,7 @@
+When this infraction group is given to an user, this user group will be used to apply permissions from.
+
+Infraction groups work in the opposite manner of normal usergroups.  When an infraction usergroup is given to a user, the user's normal permissions will be determined and then the users combined infraction groups permissions will be determined.
+
+If any permission in an infraction usergroup is set to <strong>No</strong> then the user will lose that permission.
+
+<strong>No</strong> permissions override <strong>Yes</strong> permissions.

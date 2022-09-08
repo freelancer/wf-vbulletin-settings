@@ -1,0 +1,17 @@
+This screen shows you a portion of the log entries that have been made by your moderators while performing mod duties. From left to right, the columns tell you:<br /><br />
+
+<b>Log ID</b>: This is simply an internal ID used for cataloging.<br /><br />
+
+<b>Username</b>: This is the person who performed the action.<br /><br />
+
+<b>Date</b>: This is the date and time the action was performed.<br /><br />
+
+<b>Action</b>: This is the action that the user performed.<br /><br />
+
+<b>Extra Info</b>: For some actions, this records extra bits, such as affected threads and forums.<br /><br />
+
+At the bottom of the page, if there are more entries than could be displayed on one screen, you will find links to view the first page, previous page, next page, and last page. These buttons appear as necessary. For example if you are on the first page, the First Page and Previous Page buttons will not appear.<br /><br />
+
+To return to the main screen, choose Restart from the bottom of any page.<br /><br />
+
+You can restrict access to this script, or just to the pruning function or just to the viewing function. See <a href="help.php?do=answer&amp;page=adminlog.php&amp;pageaction=restrict">Restricting Access to Admin Log</a>.

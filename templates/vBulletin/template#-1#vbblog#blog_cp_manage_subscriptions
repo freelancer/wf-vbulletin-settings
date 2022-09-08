@@ -1,0 +1,82 @@
+<if condition="$show['pagenav']">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tr valign="bottom">
+	<td align="$stylevar[right]">$pagenav</td>
+</tr>
+</table>
+</if>
+
+<!-- topic table -->
+<form action="blog_subscription.php?do=dostuff&amp;type=$type" method="post" name="form">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="dostuff" />
+<input type="hidden" name="type" value="$type" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="$colspan">
+		<span class="smallfont" style="float:$stylevar[right]"><strong><if condition="$show['blog']">$vbphrase[blog_entries]<else />$vbphrase[blogs]</if></strong> $sub_count</span>
+		<if condition="$show['blog']">
+		$vbphrase[blog_entry_subscriptions]
+		<else />
+		$vbphrase[blog_subscriptions]
+		</if>
+	</td>
+</tr>
+<if condition="$show['havesubs']">
+<tr>
+	<td class="thead">
+		<span style="float:$stylevar[right]"><a href="$sorturl&amp;order=asc&amp;sort=rating">$vbphrase[rating]</a> $sortarrow[rating]</span>
+		<a href="$sorturl&amp;order=asc&amp;sort=title">$vbphrase[title]</a> $sortarrow[title] /
+		<a href="$sorturl&amp;order=asc&amp;sort=username">$vbphrase[user]</a> $sortarrow[username]
+		<if condition="$show['blog']">/ <a href="$sorturl&amp;order=asc&amp;sort=blog">$vbphrase[blog]</a> $sortarrow[blog]</if>
+	</td>
+	<if condition="!$show['blog']">
+		<td class="thead" align="center" nowrap="nowrap">$vbphrase[entries]</td>
+		<td class="thead" align="center" nowrap="nowrap">$vbphrase[comments]</td>
+	</if>
+	<td class="thead" align="center" nowrap="nowrap"><a href="$sorturl&amp;order=desc&amp;sort=lastblog">$vbphrase[last_post]</a> $sortarrow[lastblog]</td>
+	<td class="thead" nowrap="nowrap">$vbphrase[notification]</td>
+	<td class="thead" align="center"><input name="allbox" type="checkbox" value="Check All" title="$vbphrase[check_uncheck_all]" onclick="checkall(this.form);" /></td>
+</tr>
+$blogbits
+<tr>
+	<td class="tfoot" colspan="$colspan" align="$stylevar[right]"><div class="smallfont">
+
+		$vbphrase[with_selected_blogs]
+		<select name="what">
+			<optgroup label="$vbphrase[delete_subscription]">
+				<option value="delete">$vbphrase[delete_subscription]</option>
+			</optgroup>
+			<optgroup label="$vbphrase[update_subscription_type]">
+				<option value="usercp">$vbphrase[no_email_notification]</option>
+				<option value="email">$vbphrase[instant_email_notification]</option>
+			</optgroup>
+		</select>$gobutton
+
+	</div></td>
+</tr>
+<else />
+	<tr>
+		<td class="alt1" align="center" colspan="$colspan">
+			<if condition="$show['blog']">
+				$vbphrase[you_have_no_blog_entry_subscriptions]
+			<else />
+				$vbphrase[you_have_no_blog_subscriptions]
+			</if>
+		</td>
+	</tr>
+</if>
+</table>
+
+</form>
+<!-- / topic table -->
+
+<if condition="$show['pagenav']">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:3px">
+<tr valign="top">
+	<td align="$stylevar[right]">$pagenav</td>
+</tr>
+</table>
+</if>

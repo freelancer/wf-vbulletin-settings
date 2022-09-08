@@ -1,0 +1,25 @@
+
+<div class="vbmenu_popup" id="linkbacktools_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">$vbphrase[vbseo_linkback]<a name="goto_linkback"></a></td>
+	</tr>
+<if condition="$vbseo_linkbacks_no">
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="vbseo/resources/images/forum/goto_linkbacks.gif" alt="$vbphrase[vbseo_goto_linkbacks]" /> <a href="#linkbacks">$vbphrase[vbseo_goto_linkbacks]</a></td>
+	</tr>
+</if>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="vbseo/resources/images/forum/linkback_url.gif" alt="$vbphrase[vbseo_linkback_url]" /> <a href="$vbseo_linkback_uri" onclick="prompt('$vbphrase[vbseo_linkback_url_popup]','$vbseo_linkback_uri');return false;">$vbphrase[vbseo_linkback_url]</a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="vbseo/resources/images/forum/linkback_about.gif" alt="$vbphrase[vbseo_about_linkbacks]" /> <a href="misc.php?$session[sessionurl]do=linkbacks">$vbphrase[vbseo_about_linkbacks]</a></td>
+	</tr>
+<if condition="$vbseo_bookmarks">
+	<tr>
+		<td class="thead">$vbphrase[vbseo_bookmark_share]</td>
+	</tr>
+	$vbseo_bookmarks
+</if>
+	</table>
+</div>

@@ -1,0 +1,4 @@
+
+$vbpua_lasthook='threadbit_display';
+include(DIR.'/includes/vbvua_hooks.php');
+             

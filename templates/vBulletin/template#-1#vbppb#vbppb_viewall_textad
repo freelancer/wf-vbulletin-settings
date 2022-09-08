@@ -1,0 +1,28 @@
+
+			
+<style type="text/css">
+	td.nowrap {
+		white-space:nowrap;
+	}
+	.hideCredits .adcredits {
+		display:none;
+	}
+	.hideCredits .textadcolumn {
+		width: 33%;
+		float:left;
+	}
+	.hideCredits .separator {
+		clear:both;
+		width:100%;
+		margin-top: 10px;
+	}
+</style>
+<div class="uploadButton">
+	<a href="paidbanners.php?pageid=textads&do=add">$vbphrase[vbppb_create_new_text_ad]</a>
+</div>
+<br /><br />
+<div class="hideCredits">
+	$bannerList
+</div>
+		
+		

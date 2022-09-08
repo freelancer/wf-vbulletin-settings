@@ -1,0 +1,30 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<span class="smallfont" style="float:$stylevar[right]"><a href="#" onclick="self.close()">$vbphrase[close_this_window]</a></span>
+		$vbphrase[aim]
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]">
+
+		<div class="fieldset">
+			<img src="$stylevar[imgdir_misc]/im_aim.gif" alt="" />
+			<phrase 1="member.php?$session[sessionurl]u=$userinfo[userid]" 2="$userinfo[username]">$vbphrase[send_message_via_aim_to_x_link]</phrase> (<strong dir="ltr">$userinfo[aim]</strong>)
+		</div>
+
+		<div class="fieldset"><a href="aim:addbuddy?screenname=$userinfo[aim_link]"><phrase 1="$userinfo[aim]">$vbphrase[add_x_to_your_contact_list]</phrase></a></div>
+
+		<div class="fieldset"><a href="aim:goim?screenname=$userinfo[aim_link]&amp;message=$vbphrase[aim_hi_are_you_there]"><phrase 1="$userinfo[aim]">$vbphrase[send_x_a_message]</phrase></a></div>
+
+		<div class="fieldset">
+			$vbphrase[these_functions_require_aim]
+		</div>
+
+		</div>
+	</div>
+	</td>
+</tr>
+</table>

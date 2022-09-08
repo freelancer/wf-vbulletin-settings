@@ -1,0 +1,5 @@
+Below is a list of current promotions (if any).  Promotions can be used to grant or take away usergroup permissions and settings based on reputation, number of days registered, and post count.<br /><br />
+
+The promotions on this page are grouped by the usergroups to which they apply.  The long horizontal bars tell you what usergroup the following promotions are for.  The columns underneath tell you what the settings are for each promotion.  The "Usergroup" column tells you to which usergroup users will be promoted.  The "Promotion Type" column tells you if the promotion changes a user's primary usergroup or adds the group membership as an additional usergroup.  The "Promotion Strategy" column tells you which of the following 3 conditions must be met for a user to be promoted.<br /><br />
+
+Click the "Add New Promotion" button to add a new promotion.  Click the [Edit] link to edit the settings for the corresponding promotion.  Click the [Delete] link to delete the corresponding promotion.

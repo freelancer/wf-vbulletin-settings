@@ -1,0 +1,3 @@
+The number of days worth of data that should be used to generate the usage-based tag cloud <a href="../blog_tag.php" target="_blank">here</a>.<br />
+<br />
+Tags added more than this many days ago will not change the size of the link in the cloud.

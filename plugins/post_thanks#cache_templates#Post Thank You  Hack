@@ -1,0 +1,23 @@
+$globaltemplates[] = 'post_thanks_navbar_search';
+
+if ($vbulletin->options[post_thanks_show_stats_postbit])
+{
+	$globaltemplates[] = 'post_thanks_postbit_info';
+}
+
+if (THIS_SCRIPT === member && $vbulletin->options[post_thanks_show_stats_profile])
+{
+	$globaltemplates[] = 'post_thanks_memberinfo_block';
+}
+
+if (THIS_SCRIPT === showthread || THIS_SCRIPT === showpost || THIS_SCRIPT === post_thanks)
+{
+	$globaltemplates = array_merge($globaltemplates, array(
+		'post_thanks_box',
+		'post_thanks_box_bit',
+		'post_thanks_button',
+		'post_thanks_javascript',
+		'post_thanks_postbit',
+		'post_thanks_postbit_legacy'
+	));
+}

@@ -1,0 +1,47 @@
+
+				if ($vbulletin->options['angadver_enabled'])
+				{					
+					// make the advertisement variable
+					if (!empty($vbulletin->angadvercache) AND is_array($vbulletin->angadvercache))
+					{
+						$angadvers = '';
+						require_once(DIR . '/includes/functions_angadver.php');
+						foreach (construct_fit_angular_advertisement() AS $advertisementid)
+						{
+							construct_angular_advertisement($advertisementid, $angadvers);	
+						}
+					}
+					
+					if ($angadvers)
+					{
+						if (THIS_SCRIPT == 'printthread')
+						{
+							$lookfor = array('</head>', '<body class=\"page\">');
+							$replace[] = $vbulletin->templatecache['angular_advertisement_css'] . $lookfor[0];
+							$replace[] = $lookfor[1] . '$angadvers'; 
+							$vbulletin->templatecache['printthread'] = str_replace($lookfor, $replace, $vbulletin->templatecache['printthread']);
+						}
+							else
+						{
+							$lookfor = '$style[css]';
+							$vbulletin->templatecache['headinclude'] = str_replace($lookfor, $lookfor . $vbulletin->templatecache['angular_advertisement_css'], $vbulletin->templatecache['headinclude']);
+							
+							if (THIS_SCRIPT == 'showpost')
+							{
+								$lookfor = '</body>';
+								$vbulletin->templatecache['SHOWTHREAD_SHOWPOST'] = str_replace($lookfor, '$angadvers' . $lookfor, $vbulletin->templatecache['SHOWTHREAD_SHOWPOST']);						
+							}
+							else if (THIS_SCRIPT == 'misc' AND $_REQUEST['do'] == 'whoposted')
+							{
+								$lookfor = '</body>';
+								$vbulletin->templatecache['WHOPOSTED'] = str_replace($lookfor, '$angadvers' . $lookfor, $vbulletin->templatecache['WHOPOSTED']);								
+							}
+							else
+							{
+								$lookfor = '<!-- logo -->';
+								$vbulletin->templatecache['header'] = str_replace($lookfor, $lookfor . '$angadvers', $vbulletin->templatecache['header']);												
+							}
+						}
+					}				
+				}
+			

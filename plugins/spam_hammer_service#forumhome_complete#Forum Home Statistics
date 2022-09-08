@@ -1,0 +1,5 @@
+if ($vbulletin->options['vbresults_service_auth_token']) {
+	if ($vbulletin->options['spam_hammer_service_forumhome_statistics'] && $vbulletin->options['spam_hammer_service_statistics']) {
+		$template_hook['forumhome_wgo_pos2'] .= Spam_Hammer_Service::getStatistics();
+	}
+}

@@ -1,0 +1,2 @@
+<dt>$usergroup[opentag]$usergroup[title]$usergroup[closetag]<if condition="$usergroup[description]">:</if></dt>
+<dd>$usergroup[description]</dd>

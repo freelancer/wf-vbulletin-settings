@@ -1,0 +1,3 @@
+This is the default time zone for guests and new members on your forum.  For example, if most of your visitors are from California, then you should set this to Pacific Time.<br /><br />
+
+Note that vB3 gets your server's time zone from PHP.  If you need to change your server's time zone, then you need to change your server configuration.  You should contact your host for help with this.

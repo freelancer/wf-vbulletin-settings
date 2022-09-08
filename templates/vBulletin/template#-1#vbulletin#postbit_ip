@@ -1,0 +1,5 @@
+<if condition="$show['ip']">
+	$vbphrase[ip]: $post[ip]
+<else />
+	<a href="postings.php?$session[sessionurl]do=getip&amp;p=$post[postid]"><img class="inlineimg" src="$stylevar[imgdir_button]/ip.gif" alt="$vbphrase[ip]" title="$post[ip]" border="0" /></a>
+</if>

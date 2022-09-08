@@ -1,0 +1,89 @@
+$bbcodecache = $vbulletin->bbcodecache;
+
+if (strstr($_REQUEST['do'], 'edit'))
+{
+	global $eventinfo, $post, $postinfo;
+
+	if (!empty($eventinfo['userid']))
+	{
+		$userinfo = fetch_userinfo($eventinfo['userid']);
+		$permissions = fetch_permissions(0, $userinfo['userid'], $userinfo);
+	}
+	else if (!empty($post['userid']))
+	{
+		$userinfo = fetch_userinfo($post['userid']);
+		$permissions = fetch_permissions(0, $userinfo['userid'], $userinfo);
+	}
+	else if (!empty($postinfo['userid']))
+	{
+		$userinfo = fetch_userinfo($postinfo['userid']);
+		$permissions = fetch_permissions(0, $userinfo['userid'], $userinfo);
+	}
+	else
+	{
+		$permissions = $vbulletin->userinfo['permissions'];
+	}
+}
+else
+{
+	$permissions = $vbulletin->userinfo['permissions'];
+}
+
+if ($permissions['advanced_bbcode_usergroup_on'])
+{
+	$advanced_bbcode_permissions = explode('|||', $permissions['advanced_bbcode_permissions']);
+	foreach ($advanced_bbcode_permissions AS $key => $bbcode)
+	{
+		list($core, $bbcode, $yesno) = split("\|\|", $bbcode);
+		$abe1_bbcode[$core][$bbcode] = $yesno;
+	}
+
+	if ($abe1_bbcode[core][allow_bbcode_basic] == 0)
+	{
+		$show['basic_bbcode'] = false;
+	}
+	if ($abe1_bbcode[core][allow_bbcode_color] == 0)
+	{
+		$show['color_bbcode'] = false;
+	}
+	if ($abe1_bbcode[core][allow_bbcode_size] == 0)
+	{
+		$show['size_bbcode'] = false;
+	}
+	if ($abe1_bbcode[core][allow_bbcode_font] == 0)
+	{
+		$show['font_bbcode'] = false;
+	}
+	if ($abe1_bbcode[core][allow_bbcode_align] == 0)
+	{
+		$show['align_bbcode'] = false;
+	}
+	if ($abe1_bbcode[core][allow_bbcode_list] == 0)
+	{
+		$show['list_bbcode'] = false;
+	}
+	if ($abe1_bbcode[core][allow_bbcode_url] == 0)
+	{
+		$show['url_bbcode'] = false;
+	}
+	if ($abe1_bbcode[core][allow_bbcode_code] == 0)
+	{
+		$show['code_bbcode'] = false;
+	}
+	if ($abe1_bbcode[core][allow_bbcode_php] == 0)
+	{
+		$show['php_bbcode'] = false;
+	}
+	if ($abe1_bbcode[core][allow_bbcode_html] == 0)
+	{
+		$show['html_bbcode'] = false;
+	}
+
+	foreach ($bbcodecache AS $bbcode)
+	{
+		if($abe1_bbcode[non_core][$bbcode['bbcodetag']] == 0)
+		{
+			unset($vbulletin->bbcodecache[$bbcode['bbcodeid']]);
+		}
+	}
+}

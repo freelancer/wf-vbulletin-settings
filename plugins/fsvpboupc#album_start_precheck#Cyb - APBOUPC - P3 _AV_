@@ -1,0 +1,8 @@
+
+		 if (($vbulletin->options['apboupc_pictures_viewalbums']>0) AND !is_member_of($vbulletin->userinfo, split(',', $vbulletin->options['apboupc_pictures_excl_groups'])))
+		 {
+			if ($vbulletin->userinfo[posts] < $vbulletin->options['apboupc_pictures_viewalbums'])
+			{
+				eval(standard_error(fetch_error('error_postcount_too_low_view_picalbums', intval($vbulletin->options['apboupc_pictures_viewalbums']), intval($vbulletin->userinfo['posts']))));
+			}
+		 }

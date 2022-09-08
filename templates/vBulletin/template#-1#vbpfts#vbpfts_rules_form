@@ -1,0 +1,71 @@
+
+			
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - <if condition="$show['coppa']">$vbphrase[coppa_rules]<else />$vbphrase[forum_rules]</if></title>
+</head>
+<body>
+$header
+
+<br />
+<br />
+
+<form action="index.php?do=agree_new_tos" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="agree_new_tos" />
+<input type="hidden" name="url" value="$url" />
+<input type="hidden" name="month" value="$month" />
+<input type="hidden" name="day" value="$day" />
+<input type="hidden" name="year" value="$year" />
+<if condition="$show['coppa']">
+<input type="hidden" name="who" value="coppa" />
+<else />
+<input type="hidden" name="who" value="adult" />
+</if>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat"><phrase 1="$vboptions[bbtitle]">$vbphrase[x_rules]</phrase></td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+			<fieldset class="fieldset">
+				<legend>Updated terms and conditions</legend>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+				<tr>
+					<td>$vbphrase[vbpfts_in_order_to_proceed]</td>
+				</tr>
+				<tr>
+					<td>
+						<div><label for="cb_rules_agree"><input type="checkbox" name="agree" id="cb_rules_agree" value="1" /><strong><phrase 1="$vboptions[bbtitle]">$vbphrase[vbpfts_read_agree_abide_by_rules]</phrase></strong></label></div>
+					</td>
+				</tr>
+				</table>
+			</fieldset>
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" value="$vbphrase[vbpfts_continue]" accesskey="s" />
+	</div>
+	</td>
+</tr>
+</table>
+
+</form>
+
+<br />
+<br />
+
+$footer
+
+</body>
+</html>
+			
+		

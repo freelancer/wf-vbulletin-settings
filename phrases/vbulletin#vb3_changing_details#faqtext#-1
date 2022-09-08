@@ -1,0 +1,3 @@
+<p><b>How do I change my user details?</b></p>
+
+<p>You can change your account information using the <a href="usercp.php?$session[sessionurl_q]">User Control Panel</a>. For basic profile details (including your email address and password), click on the '<a href="profile.php?$session[sessionurl]do=editprofile">Edit Your Details</a>' option from within the User CP. This page allows you to set a number of required and optional details, some of which will be displayed on your public profile. With the exception of your email address, do not enter information that you do not wish to be publicly viewable.</p>

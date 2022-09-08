@@ -1,0 +1,5 @@
+if(defined('VBSEO_ENABLED') && VBSEO_ENABLED)
+{
+	define('VBSEO_AJAX', 1);
+	$this->doc = vbseo_output_handler($this->doc, true);
+}

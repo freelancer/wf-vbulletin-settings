@@ -1,0 +1,3 @@
+if(THIS_SCRIPT == 'showthread'){ 
+global $globaltemplates;
+$globaltemplates= array_merge($globaltemplates, array('postbit_quickdelete'));}

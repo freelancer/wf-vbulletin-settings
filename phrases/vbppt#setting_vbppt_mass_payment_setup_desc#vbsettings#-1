@@ -1,0 +1,5 @@
+Here you can setup mass payment to forum "owners" when someone purchases access to their forum using vBulletin Paid Subscriptions.<br />
+Use format<br />
+subscription_id=>user_id=>email@paypal=>percent<br />
+and place each rule on a new line. <br />
+subscription_id is the ID of Paid Subscription, that gives access to some particular forum, PayPal email is the email to which the payment will be sent, and the percent is how much from each payment should be sent-out to forum owner.

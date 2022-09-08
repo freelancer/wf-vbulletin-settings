@@ -1,0 +1,57 @@
+<form action="http://msg.mirabilis.com/scripts/WWPMsg.dll" method="get" name="frmPager">
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+<tr>
+	<td class="tcat">
+		<span class="smallfont" style="float:$stylevar[right]"><a href="#" onclick="self.close()">$vbphrase[close_this_window]</a></span>
+		$vbphrase[icq]
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]">
+
+		<div class="fieldset">
+			<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+			<tr>
+				<td>
+					<span style="float:$stylevar[right]"><img src="http://web.icq.com/whitepages/online?icq=$userinfo[icq]&amp;img=9" alt="$vbphrase[online_status]" border="0" /></span>
+					<img src="$stylevar[imgdir_misc]/im_icq.gif" alt="" />
+					<phrase 1="member.php?$session[sessionurl]u=$userinfo[userid]" 2="$userinfo[username]">$vbphrase[send_message_via_icq_to_x_link]</phrase> (<strong dir="ltr">$userinfo[icq]</strong>)
+				</td>
+			</tr>
+			<tr>
+				<td>
+					$vbphrase[from]:<br />
+					<input type="text" class="bginput" name="from" value="$bbuserinfo[username]" size="40" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					$vbphrase[email_address]:<br />
+					<input type="text" class="bginput" name="fromemail" value="$bbuserinfo[email]" size="40" dir="ltr" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					$vbphrase[message]:<br />
+					<textarea name="body" cols="50" rows="12"></textarea>
+				</td>
+			</tr>
+			</table>
+		</div>
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="hidden" name="subject" value="From WebPager Panel" />
+		<input type="hidden" name="to" value="$userinfo[icq]" />
+		<input type="submit" class="button" value="$vbphrase[send_message]" />
+	</div>
+	</td>
+</tr>
+</table>
+
+</form>

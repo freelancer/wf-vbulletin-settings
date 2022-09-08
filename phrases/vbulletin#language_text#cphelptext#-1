@@ -1,0 +1,10 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=language&amp;pageaction=&amp;option=">Languages</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=phrase&amp;pageaction=&amp;option=">Phrases</a><br /><br />
+
+<b>Languages:</b><br />
+vBulletin's language system allows you to translate your forum into other languages without editing any templates or files.  This is thanks to the phrase system (see "Phrases" link above) which makes vBulletin's templates language-independent.  The end result is that you can serve multiple languages from a single style.<br /><br />
+
+Each phrase can have a translation for each language specified in this Language Manager.  When a forum page is loaded, vBulletin checks what language the current logged in user has selected and parses the phrase variables into the appropriate translated text.<br /><br />
+
+In addition to translated phrases, vBulletin's language system supports translated images (by allowing you to override a style's images folder setting), and language-specific date / time / number formats.

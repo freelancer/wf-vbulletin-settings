@@ -1,0 +1,19 @@
+<div class="alt1">
+
+	<div>
+		<div valign="top" align="$stylevar[right]" style="float:$stylevar[right]" class="smallfont">
+			<a href="member.php?$session[sessionurl]u=$message[postuserid]">$message[username]</a>
+			<br />
+			$message[date]<if condition="!$show['detailedtime']">, $message[time]</if>
+		</div>
+
+		<div class="smallfont" style="padding-bottom:10px">$message[message]</div>
+	</div>
+
+
+	<if condition="$show['moderation']">
+		<img class="inlineimg" src="$stylevar[imgdir_misc]/moderated.gif" alt="$vbphrase[moderated_visitor_message]" border="0" />
+	</if>
+
+</div>
+<hr />

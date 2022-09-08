@@ -1,0 +1,9 @@
+
+		if ($vbulletin->options['apboupc_global_enable'] AND $vbulletin->options['apboupc_viewlinks'])
+		{
+			eval('$cyb_apboupc_forums_viewlinks = in_array($foruminfo[forumid], array(' . $vbulletin->options['apboupc_viewlinks_excl_forums'] . '));');		
+			if (($foruminfo[linkview_nb] !='0') AND ($foruminfo[linkview_nb] > $vbulletin->userinfo[posts]) AND (!in_array($foruminfo['forumid'], array($cyb_apboupc_forums_viewlinks))) AND (!is_member_of($vbulletin->userinfo, split(',', $vbulletin->options['apboupc_viewlinks_excl_groups']))))
+			{
+				$thread['preview'] = '';
+			}
+		}

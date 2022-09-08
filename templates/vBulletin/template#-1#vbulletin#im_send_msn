@@ -1,0 +1,57 @@
+<object classid="clsid:B69003B3-C55E-4B48-836C-BC5946FC3B28" codetype="application/x-oleobject" id="MsgrObj" width="0" height="0"></object>
+
+<script type="text/javascript">
+<!--
+var vbphrase = {
+	"you_must_be_logged_into_msn_before_doing_this" : "$vbphrase[you_must_be_logged_into_msn_before_doing_this]",
+	"msn_functions_only_work_in_ie" : "$vbphrase[msn_functions_only_work_in_ie]"
+};
+
+
+function handleError(msg, url, h)
+{
+	if (msg.indexOf('8100031e') != '-1')
+	{
+		alert(vbphrase["you_must_be_logged_into_msn_before_doing_this"]);
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+window.onerror = handleError;
+-->
+</script>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<span class="smallfont" style="float:$stylevar[right]"><a href="#" onclick="self.close()">$vbphrase[close_this_window]</a></span>
+		$vbphrase[msn]
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]">
+
+		<div class="fieldset">
+			<img src="$stylevar[imgdir_misc]/im_msn.gif" alt="" />
+			<phrase 1="member.php?$session[sessionurl]u=$userinfo[userid]" 2="$userinfo[username]">$vbphrase[send_message_via_msn_to_x_link]</phrase> <span style="white-space:nowrap">(<strong dir="ltr">$userinfo[msn]</strong>)</span>
+		</div>
+
+		<div class="fieldset"><a href="#" onclick="AddMSNContact('$userinfo[msn]'); return false;"><phrase 1="$userinfo[msn]">$vbphrase[add_x_to_your_contact_list]</phrase></a></div>
+
+		<div class="fieldset"><a href="#" onclick="SendMSNMessage('$userinfo[msn]'); return false;"><phrase 1="$userinfo[msn]">$vbphrase[send_x_a_message]</phrase></a></div>
+
+		<div class="fieldset">
+			$vbphrase[these_functions_require_msn]
+		</div>
+
+		</div>
+	</div>
+	</td>
+</tr>
+</table>

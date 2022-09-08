@@ -1,0 +1,1 @@
+<tr><td class="vbmenu_option"><a href="blog.php?$session[sessionurl]u=$post[userid]">$vbphrase[view_blog]</a></td></tr>

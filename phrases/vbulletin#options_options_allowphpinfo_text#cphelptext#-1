@@ -1,0 +1,1 @@
+If you enable this option, anyone can view your phpinfo() page by adding &amp;do=phpinfo to a forum URL. vBulletin Support may ask you to temporarily enable this to help diagnose problems if you request technical support. Otherwise, we recommend turning it off.

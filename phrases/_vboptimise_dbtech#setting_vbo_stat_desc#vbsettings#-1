@@ -1,0 +1,4 @@
+vB Optimise provides a means to view the work it executes in the background. By turning this setting to "Yes" vB Optimise will your Opcache Operator to store the number of queries saved. This data is then aggregated every ten minutes by a vBulletin Cron to provide you the "Resource Statistics" section within vB Optimise.
+<br /><br />
+<strong>Note:</strong> If your Opcache Operator is not configured this feature will not provide any data.<br /><br />
+<strong>Additional Note:</strong> vB Optimise will use the filecache to record these statistics temporarily between aggregations in realtime so that no unexpected cache flush will damage the monitoring process (even if you selected Filecache here). With this in mind, you will need to ensure ./vboptimise/filecache/ has write permissions regardless of your Opcache Operator.

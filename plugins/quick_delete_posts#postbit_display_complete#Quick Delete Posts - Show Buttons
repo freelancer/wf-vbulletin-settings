@@ -1,0 +1,26 @@
+if (($postinfo['firstpostid'] == $postinfo['postid']) AND can_moderate($this->thread['forumid'], 'canmanagethreads'))
+ {
+  $show['deletepostoption'] = true;
+ }
+ else if (!$post['isfirstshown'] AND can_moderate($this->thread['forumid'], 'candeleteposts'))
+ {
+  $show['deletepostoption'] = true;
+ }
+ else if (((($forumperms & $this->registry->bf_ugp_forumpermissions['candeletepost']) AND !$post['isfirstshown']) OR (($forumperms & $this->registry->bf_ugp_forumpermissions['candeletethread']) AND $post['isfirstshown'])) AND $this->registry->userinfo['userid'] == $this->post['userid'])
+ {
+  $show['deletepostoption'] = true;
+ }
+ else
+ {
+  $show['deletepostoption'] = false;
+ }
+
+
+if($show['deletepostoption']){
+
+$show['softdelete'] = iif(can_moderate($this->thread['forumid'], 'candeleteposts'), true, false);
+$show['harddelete'] = iif(can_moderate($this->thread['forumid'], 'canremoveposts'), true, false);
+
+eval('$template_hook[postbit_controls] .= "' . fetch_template('postbit_quickdelete') . '";');
+
+}

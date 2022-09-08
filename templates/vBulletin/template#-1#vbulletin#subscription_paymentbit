@@ -1,0 +1,12 @@
+<form action="$form[action]" method="$form[method]">
+	<fieldset class="fieldset">
+		<legend><phrase 1="{$vbphrase[$method[classname]]}">$vbphrase[order_using_x]</phrase></legend>
+		<div style="padding:$stylevar[formspacer]px">
+			<div style="margin-bottom:$stylevar[formspacer]px">$vbphrase[$typetext]</div>
+			<div>
+				$form[hiddenfields]
+				<input type="submit" class="button" style="font-weight:normal" value="<phrase 1="{$vbphrase[$method[classname]]}">$vbphrase[order_using_x]</phrase>" />
+			</div>
+		</div>
+	</fieldset>
+</form>

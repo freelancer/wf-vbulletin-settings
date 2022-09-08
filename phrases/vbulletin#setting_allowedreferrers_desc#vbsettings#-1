@@ -1,0 +1,3 @@
+For security purposes, vBulletin only allows data to be submitted via post from within the domain the board is installed on. If you are submitting post requests from a different domain or subdomain, you must add them here.
+<br /><br />
+Enter domains in the form of .domain.com (including the leading dot). Separate multiple domains by line breaks.

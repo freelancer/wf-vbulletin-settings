@@ -1,0 +1,94 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		$vbphrase[blog_groups]
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]">
+
+			<if condition="$show['myblogs']">
+				<fieldset class="fieldset">
+					<legend>$vbphrase[your_blog_membership]</legend>
+						<if condition="$show['haveblogs']">
+							<table cellspacing="$stylevar[cellspacing]" cellpadding="$stylevar[cellpadding]" border="0" width="100%">
+								<tr>
+									<td><strong>$vbphrase[blog]</strong></td>
+									<td><strong>$vbphrase[invite_join_date]</strong></td>
+									<td align="$stylevar[right]"><strong>$vbphrase[action]</strong></td>
+								</tr>
+								$blogbits
+							</table>
+						<else />
+							<div class="fieldsetpad">
+								<div>$vbphrase[you_are_not_a_member_of_other_blogs]</div>
+							</div>
+						</if>
+				</fieldset>
+			</if>
+
+			<if condition="$show['mymembers']">
+				<fieldset class="fieldset">
+					<legend>$vbphrase[members_of_your_blog]</legend>
+
+					<if condition="$show['havemembers']">
+						<form action="blog_usercp.php?do=deleteuser" method="post" class="floatcontainer">
+							<input type="hidden" name="s" value="$session[sessionhash]" />
+							<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+							<input type="hidden" name="do" value="deleteuser" />
+							<div class="checkbox_ctrls floatcontainer">
+								<label class="show_avatars_ctrl shade"><input type="checkbox" id="userlist_showavatars"$showavatarchecked />$vbphrase[show_avatars]</label>
+							</div>
+							<if condition="$show['avatars']">
+								<ul class="userlist userlist_showavatars floatcontainer" id="userlist">
+							<else />
+								<ul class="userlist userlist_hideavatars floatcontainer" id="userlist">
+							</if>
+								$memberlist
+								<li style="display:none">&nbsp;</li>
+							</ul>
+							<div class="submitrow smallfont">
+								<input type="submit" class="button" id="submit_save" value="$vbphrase[save_changes]" />
+							</div>
+							<hr />
+						</form>
+					</if>
+
+					<form action="blog_usercp.php?do=adduser" method="post" class="floatcontainer">
+						<input type="hidden" name="s" value="$session[sessionhash]" />
+						<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+						<input type="hidden" name="do" value="adduser" />
+						<div>
+							<label for="member_add_txt">$vbphrase[add_member_to_your_blog]</label>
+							<div>
+								<span id="member_add"><input type="text" class="bginput" name="username" id="member_add_txt" size="35" /></span>
+								<div id="member_add_menu" class="vbmenu_popup" style="display:none"></div>
+								<input type="submit" class="button" id="member_submit" value="$vbphrase[add_member]" />
+							</div>
+						</div>
+						<hr />
+					</form>
+					<div class="fieldsetpad">
+						<div>$vbphrase[groupblog_instructions]</div>
+					</div>
+				</fieldset>
+
+				<script type="text/javascript" src="clientscript/blog_grouplist.js?v=$vboptions[simpleversion]"></script>
+				<if condition="$show['popups']">
+				<script type="text/javascript" src="clientscript/vbulletin_ajax_namesugg.js?v=$vboptions[simpleversion]"></script>
+				<script type="text/javascript">
+				<!--
+					vbmenu_register('member_add', true);
+					snc = new vB_AJAX_NameSuggest('snc', 'member_add_txt', 'member_add');
+					vBulletin.register_control("vB_UserList_Highlighter", "userlist");
+				//-->
+				</script>
+				</if>
+			</if>
+		</div>
+	</div>
+	</td>
+</tr>
+</table>

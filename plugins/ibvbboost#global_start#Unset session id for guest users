@@ -1,0 +1,5 @@
+if($vbulletin->userinfo['userid'] <= 0)
+{
+$vbulletin->session->vars['sessionurl']  = '';
+$vbulletin->session->vars['sessionurl_q']  = '';
+}

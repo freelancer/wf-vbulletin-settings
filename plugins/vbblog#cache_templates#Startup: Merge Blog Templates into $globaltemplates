@@ -1,0 +1,36 @@
+// Check that the viewer can access the blog
+if ($vbulletin->userinfo['permissions']['vbblog_general_permissions'] & $vbulletin->bf_ugp_vbblog_general_permissions['blog_canviewothers'] OR ($vbulletin->userinfo['userid'] AND $vbulletin->userinfo['permissions']['vbblog_general_permissions'] & $vbulletin->bf_ugp_vbblog_general_permissions['blog_canviewown']))
+{
+	$globaltemplates[] = 'blog_navbar_link';
+	$globaltemplates[] = 'blog_navbar_link_menu';
+	$globaltemplates[] = 'blog_navbar_search';
+
+	if (is_array($globaltemplates))
+ 	{
+ 		if (in_array('usercp_nav_folderbit', $globaltemplates))
+		{
+			$globaltemplates[] = 'blog_usercp_nav_link';
+		}
+		if (in_array('postbit', $globaltemplates))
+		{
+			$globaltemplates[] = 'blog_postbit_entries_link';
+			$globaltemplates[] = 'blog_postbit_blog_link';
+			$globaltemplates[] = 'blog_postbit_blog_this_post';
+		}
+	}
+
+	define('VBBLOG_CACHED_TEMPLATES', true);
+}
+
+if (defined('VBBLOG_PERMS') AND defined('GET_EDIT_TEMPLATES'))
+{
+	if (GET_EDIT_TEMPLATES === true OR in_array($_REQUEST['do'], $_get_edit_templates))
+	{
+		$globaltemplates = array_merge($globaltemplates, array(
+			'blog_bbcode_code',
+			'blog_bbcode_html',
+			'blog_bbcode_php',
+			'blog_bbcode_quote',
+		));
+	}
+}

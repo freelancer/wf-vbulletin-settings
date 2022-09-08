@@ -1,0 +1,1 @@
+The read status determines if an announcement is displayed on the "New Posts" and "Today's Posts" searches. Once an active announcement is viewed, it no longer will display on these searches for the user.  When this option is set to yes, it resets the status of the announcement for all users so that they will see it as a new announcement again.

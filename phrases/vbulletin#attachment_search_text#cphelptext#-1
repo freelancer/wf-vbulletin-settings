@@ -1,0 +1,16 @@
+On this screen you are given a lot of information about each attachment that was found as a result of your search. (see <a href="help.php?do=answer&amp;page=attachment.php&amp;pageaction=intro">Searching for Specific Attachments</a>)<br /><br />
+
+From this screen, you are shown the following:<br />
+<b>Filename</b>: This is the filename of the attachment. Clicking on the filename will show you the attachment itself if it is an image, or prompt you to download the file if it is another type of attachment.<br /><br />
+
+<b>User Name</b>: This is the user that posted the attachment. Clicking their name will take you to edit their profile.<br /><br />
+
+<b>Date</b>: This is the date the attachment was posted. Next to the date is a link to view the post that the attachment belongs to.<br /><br />
+
+<b>Size</b>: This is the size, in KB (KiloBytes), of the attachment.<br /><br />
+
+<b>Downloads</b>: This is how many times the attachment has been downloaded.<br /><br />
+
+At the extreme left is a column of checkboxes. You can check them individually or click the box in the header row to select them all. Clicking "Delete Checked Attachments" will remove the selected attachments.<br /><br />
+
+At the extreme right is a link to delete an attachment.

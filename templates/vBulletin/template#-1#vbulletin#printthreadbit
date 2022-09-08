@@ -1,0 +1,25 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="1" border="0" width="100%">
+<tr>
+	<td class="page">
+
+		<table cellpadding="0" cellspacing="0" border="0" width="100%">
+		<tr valign="bottom">
+			<td style="font-size:14pt">$post[username]</td>
+			<td class="smallfont" align="$stylevar[right]">$post[postdate] $post[posttime]</td>
+		</tr>
+		</table>
+
+		<hr />
+
+		<if condition="$post['title']">
+			<div><strong>$post[title]</strong><br />&nbsp;</div>
+		</if>
+		<if condition="$post['attach']">
+			<div class="smallfont"><phrase 1="$post[attach]">$vbphrase[x_attachments]</phrase></div>
+		</if>
+
+		<div>$post[message]</div>
+	</td>
+</tr>
+</table>
+<br />

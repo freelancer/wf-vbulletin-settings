@@ -1,0 +1,1 @@
+Your vBulletin settings have now been updated to store social group icons in <b>{1}</b> rather than <b>{2}</b>.<br /><br /> You must now manually move all group icon images to the new folder, using an FTP client or a shell command such as:<br /><br /> <code>mv -rf {2}/* {1}/</code>

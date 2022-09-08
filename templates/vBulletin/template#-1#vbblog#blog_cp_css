@@ -1,0 +1,28 @@
+<style type="text/css" id="vbulletin_blog_cp_css">
+<!--
+fieldset form, div.fieldsetpad { display:block; padding:6px; }
+
+div.checkbox_ctrls { margin-bottom:6px; }
+label.show_avatars_ctrl { float:$stylevar[left]; }
+
+div.submitrow { text-align:$stylevar[right]; }
+
+ul.userlist { list-style:none; padding:0px; margin:0px; }
+ul.userlist li { float:$stylevar[left]; margin-$stylevar[right]:6px; margin-bottom:6px; width:175px; }
+ul.userlist hr { display:none; }
+
+/* avatars shown */
+ul.userlist_showavatars li { position:relative; width:215px; height:80px; border:solid 1px silver; padding:4px; overflow: hidden}
+ul.userlist_showavatars label.avatar_label img { float: $stylevar[left]; }
+ul.userlist_showavatars div.username { position:relative; }
+ul.userlist_showavatars div.username a { position:relative; $stylevar[left]:6px; vertical-align:top; font-weight:bold; }
+ul.userlist_showavatars div.userstatus { position:relative; $stylevar[left]:6px; padding-top:4px; }
+ul.userlist_showavatars div.username input { position:absolute; $stylevar[left]:0px; top:0px; }
+
+/* avatars hidden */
+ul.userlist_hideavatars li { position:relative; width:215px; border:solid 1px silver; padding:4px; }
+ul.userlist_hideavatars label.avatar_label img { display:none; }
+ul.userlist_hideavatars div.username a { font-weight:bold; }
+ul.userlist_hideavatars div.userstatus { float:$stylevar[left]; }
+-->
+</style>

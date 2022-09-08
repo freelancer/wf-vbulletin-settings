@@ -1,0 +1,14 @@
+<if condition="$show['popups'] AND $show['member']">
+<div class="vbmenu_popup" id="usercpnmenu_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">		
+	<tr><td class="thead" align="$stylevar[left]"><a href="usercp.php$session[sessionurl_q]">$vbphrase[user_control_panel]</a></td></tr>	
+	<if condition="$show['pmstats']"><tr><td class="vbmenu_option" align="$stylevar[left]"><a href="private.php$session[sessionurl_q]" rel="nofollow">$vbphrase[private_messages]</a></td></tr></if>
+	<tr><td class="vbmenu_option" align="$stylevar[left]"><a href="subscription.php$session[sessionurl_q]" rel="nofollow">$vbphrase[subscribed_threads]</a></td></tr>
+	<if condition="$show['siglink']"><tr><td class="vbmenu_option" align="$stylevar[left]"><a href="profile.php?$session[sessionurl]do=editsignature">$vbphrase[edit_signature]</a></td></tr></if>
+	<tr><td class="vbmenu_option" align="$stylevar[left]"><a href="profile.php?$session[sessionurl]do=editprofile">$vbphrase[edit_your_details]</a></td></tr>
+	<tr><td class="vbmenu_option" align="$stylevar[left]"><a href="profile.php?$session[sessionurl]do=editoptions">$vbphrase[edit_options]</a></td></tr>
+	<tr><td class="thead" align="$stylevar[left]">$vbphrase[miscellaneous]</td></tr>
+	<tr><td class="vbmenu_option" align="$stylevar[left]"><a href="member.php?$session[sessionurl]u=$bbuserinfo[userid]">$vbphrase[your_profile]</a></td></tr>
+	</table>
+</div>
+</if>

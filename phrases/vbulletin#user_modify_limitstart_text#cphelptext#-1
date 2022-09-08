@@ -1,0 +1,3 @@
+This setting allows you to begin the list of search results at any of the matching records.<br /><br />
+
+For example, if a search finds 50 records and you start the results at record 25, then the results page will show you records 25 - 50.

@@ -1,0 +1,15 @@
+This process will allow you to move your pictures from the database into the file system, or, if they are in the file system, to a different directory in the file system or back into the database. Please note that if you do not have enough disk space in the intended destination, the process will fail, but your pictures will be safe as tests are done first to ensure there is enough space.<br />
+<br />
+Pictures will not be removed from the database or filesystem and your storage type setting will not be changed until the end of the process.
+If the process aborts before the end, you will need to free up space or prune pictures before trying again.<br />
+<br />
+If you are moving pictures from the file system into the database, you must have enough storage space on the drive and/or partition where your database is located.<br />
+<br />
+There are two file system methods that you may choose from:
+<ul>
+<li><strong>Direct browser access to the thumbnails</strong> - this method makes the album pages faster as each thumbnail does not need a database hit. However, if users know the URL to a thumbnail, they will be able to bypass any permissions or contact-only settings and view the thumbnail. Full size pictures will always be accessed via a vBulletin script and thus subject to permission checks.</li>
+<li><strong>No direct browser access to the thumbnails</strong> - this method still takes the binary data out of the database, but each thumbnail is accessed via a vBulletin script, which causes a database connection. However, permissions are respected for thumbnails as well as full size pictures.</li>
+</ul>
+When pictures in the database, permissions are always respected.<br />
+<br />
+If you are moving pictures into the file system, you will need to make the folder (or folders) writeable by PHP. The easiest way to do this is CHMOD it 777 (consult your FTP, Telnet, or SSH documentation for more info on how to do this). More information on where to put these folder(s) is available on the following pages.

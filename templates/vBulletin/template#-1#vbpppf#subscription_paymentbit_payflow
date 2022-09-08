@@ -1,0 +1,7 @@
+
+			$form[payflow_iframe]
+<if condition="$form[error]">
+	<div style="color:red;">$form[error]</div>
+</if>
+			
+		

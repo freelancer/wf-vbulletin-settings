@@ -1,0 +1,7 @@
+This field contains the raw HTML of your notice. You may use any HTML you like - BB code is not accepted here.<br />
+<br />
+If you want to refer by name to a user viewing your notice, include {username} or {musername} in the text of your notice and it will be replaced with the user's username when the message is displayed to them. {musername} will display their name with the markup specified by their usergroup.<br />
+<br />
+You may also use {userid} and {sessionurl} to assist in creating hyperlinks.<br />
+<br />
+The text displayed here should be entered in the base language for your board. If you want to create versions for other languages you have enabled on your board, click the 'Translations' link.

@@ -1,0 +1,10 @@
+Dear $username,
+
+Your access to the paid subscription "$subscription_title" is about to expire.
+
+If you have selected a recurring subscription you will be automatically billed for the renewal, else to renew this subscription you must visit $vboptions[bburl]/payments.php
+
+If you do not extend your subscription, access will be removed.
+
+All the best,
+$vboptions[bbtitle]

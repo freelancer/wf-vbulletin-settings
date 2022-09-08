@@ -1,0 +1,76 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+	$headinclude
+	<title>$vboptions[bbtitle] - $custompagetitle</title>
+	<script type="text/javascript" src="clientscript/vbulletin_ajax_namesugg.js?v=$vboptions[simpleversion]"></script>
+</head>
+<body>
+$header
+$navbar
+
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+	<tr>
+		<td class="tcat">$vbphrase[transfer_group_ownership]</td>
+	</tr>
+	<if condition="!$targetuser">
+	<tr>
+		<td class="alt1 panelsurround" align="center">
+			<div class="panel">
+				<div align="center">
+					<form action="group.php?do=dotransfer&amp;groupid=$group[groupid]" method="post">
+						<input type="hidden" name="do" value="dotransfer" />
+						<input type="hidden" name="groupid" value="$group[groupid]" />
+						<input type="hidden" name="s" value="$session[sessionhash]" />
+						<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+						<input type="hidden" name="url" value="$url" />
+
+						<fieldset class="fieldset" style="width: $stylevar[formwidth]; text-align: $stylevar[left];">
+							<legend>$vbphrase[transfer_group_ownership]</legend>
+							$vbphrase[transfer_group_ownership_info]
+							<br /><br />
+							<if condition="$error">
+								<div><img src="$stylevar[imgdir_statusicon]/wol_error.gif" class="inlineimg" alt="" /> $error</div>
+							</if>
+								$vbphrase[transfer_to_user]
+								<div>
+									<span id="group_transfer"><input type="text" class="bginput" name="targetusername" id="group_transfer_txt" size="40" value="$target_username" /></span>
+									<input type="submit" class="button" value="$vbphrase[request_transfer]" />
+								</div>
+								<div id="group_transfer_menu" class="vbmenu_popup" style="display:none"></div>
+							</form>
+							<script type="text/javascript">
+								vBmenu.register("group_transfer", true);
+								snc_transfer = new vB_AJAX_NameSuggest("snc_transfer", "group_transfer_txt", "group_transfer");
+							</script>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</td>
+	</tr>
+	<else />
+	<tr>
+		<td class="alt1" align="center">
+			<phrase 1="$userinfo[userid]" 2="$userinfo[username]">$vbphrase[group_ownership_transfer_request_sent_to_x]</phrase>
+		</td>
+	</tr>
+	<tr>
+		<td class="tfoot" align="center">
+			<form action="group.php?do=canceltransfer&amp;groupid=$group[groupid]" method="post">
+				<input type="hidden" name="do" value="canceltransfer" />
+				<input type="hidden" name="groupid" value="$group[groupid]" />
+				<input type="hidden" name="s" value="$session[sessionhash]" />
+				<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+				<input type="hidden" name="url" value="$url" />
+				<input class="button" type="submit" name="confirm" value="  $vbphrase[yes]  " />
+				<input class="button" type="submit" name="deny" value="  $vbphrase[no]  " />
+			</form>
+		</td>
+	</tr>
+	</if>
+	</table>
+
+$footer
+</body>
+</html>

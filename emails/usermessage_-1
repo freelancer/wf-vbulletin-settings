@@ -1,0 +1,11 @@
+This is a message from $bbuserinfo[username] at $vboptions[bbtitle] ( $vboptions[bburl]/$vboptions[forumhome].php ). The $vboptions[bbtitle] owners cannot accept any responsibility for the contents of the email.
+
+To email $bbuserinfo[username], you can use this online form:
+$vboptions[bburl]/sendmessage.php?do=mailmember&u=$bbuserinfo[userid]
+
+OR, by email:
+mailto:$bbuserinfo[email]
+
+This is the message:
+
+$message

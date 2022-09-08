@@ -1,0 +1,21 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="2">$bbcode[title]<a name="$bbcode[bbcodetag]"></a></td>
+</tr>
+<tr>
+	<td class="thead" colspan="2" style="font-weight:normal">$bbcode[bbcodeexplanation]</td>
+</tr>
+<tr valign="top">
+	<td class="alt1" width="20%"><strong>$vbphrase[usage]</strong></td>
+	<td class="alt1">$bbcode[tag]</td>
+</tr>
+<tr valign="top">
+	<td class="alt2" width="20%"><strong>$vbphrase[example_usage]</strong></td>
+	<td class="alt2">$bbcode[bbcodeexample]</td>
+</tr>
+<tr valign="top">
+	<td class="alt1" width="20%"><strong>$vbphrase[example_output]</strong></td>
+	<td class="alt1">$bbcode[output]</td>
+</tr>
+</table>
+<br />

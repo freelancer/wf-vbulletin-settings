@@ -1,0 +1,5 @@
+
+$vbp_helper_hook='misc_start';
+include DIR.'/includes/vbp_helper.php';
+			
+			

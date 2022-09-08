@@ -1,0 +1,57 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center" style="margin:$stylevar[cellpadding]px 0px $stylevar[cellpadding]px 0px" id="post$post[postid]">
+<tr>
+	<td class="thead" style="font-weight:normal">
+		<if condition="$show['inlinemod']">
+			<input type="checkbox" name="plist[$post[postid]]" id="plist_$post[postid]" style="float:$stylevar[right]; vertical-align:middle; padding:0px; margin:0px 0px 0px 5px" value="1" <if condition="$show['disabled']">disabled="disabled"</if> />
+		</if>
+		<span style="float:$stylevar[right]">
+			$vbphrase[forum]: <a href="forumdisplay.php?$session[sessionurl]f=$post[forumid]">$post[forumtitle]</a>
+		</span>
+		<img class="inlineimg" src="$stylevar[imgdir_statusicon]/post_$post[post_statusicon].gif" alt="" border="0" />
+		$post[postdate]<if condition="!$show['detailedtime']">, $post[posttime]</if>
+	</td>
+</tr>
+<tr>
+	<if condition="$show['moderated']">
+	<td class="alt2">
+	<else />
+	<td class="alt1">
+	</if>
+		<div class="smallfont" style="float:$stylevar[right]">
+			$vbphrase[replies]: <strong>$post[replycount]</strong>
+		</div>
+		<div>
+			<img class="inlineimg" src="$stylevar[imgdir_statusicon]/thread$post[statusicon].gif" alt="" border="0" />
+			$post[typeprefix] $post[prefix_rich] <a href="showthread.php?$session[sessionurl]t=$post[threadid]$post[highlight]"><strong>$post[threadtitle]</strong></a>
+		</div>
+		<div class="smallfont" style="float:$stylevar[right]">
+			$vbphrase[views]: <strong>$post[views]</strong>
+		</div>
+		<div class="smallfont">
+			$vbphrase[posted_by]
+			<if condition="$post[userid]"><a href="member.php?$session[sessionurl]u=$post[userid]">$post[username]</a><else />$post[username]</if>
+		</div>
+
+		<div class="alt2" style="margin:$stylevar[cellpadding]px 0px $stylevar[cellpadding]px 0px; padding:$stylevar[cellpadding]px; border:2px groove">
+			<div class="smallfont"><em>
+				<if condition="$post[posticon]"><img class="inlineimg" src="$post[posticonpath]" alt="$post[posticontitle]" border="0" /></if>
+				<a href="showthread.php?$session[sessionurl]p=$post[postid]$post[highlight]#post$post[postid]">$post[posttitle]</a><br />
+				<br />
+				$post[pagetext]
+			</em></div>
+		</div>
+
+		<if condition="$show['moderated']">
+			<div style="float:$stylevar[right]"><img src="$stylevar[imgdir_misc]/moderated.gif" alt="$vbphrase[moderated_post]" border="0" /></div>
+		</if>
+
+		<if condition="$show['deleted']">
+		<div style="float:$stylevar[right]"><img src="$stylevar[imgdir_misc]/trashcan.gif" alt="$vbphrase[deleted_post]" border="0" /></div>
+		<div class="smallfont">
+			<phrase 1="member.php?$session[sessionurl]u=$post[del_userid]" 2="$post[del_username]">$post[del_phrase]</phrase>
+			<if condition="$post['del_reason']">$vbphrase[reason]: <em>$post[del_reason]</em></if>
+		</div>
+		</if>
+	</td>
+</tr>
+</table>

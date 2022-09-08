@@ -1,0 +1,1 @@
+Always exclude these IP numbers from testing<br><br>In this format<br>123.123.10 (will ban 123.123.10.*) or 123.123.123.10 for a single IP number<br>Put a space required between IP numbers

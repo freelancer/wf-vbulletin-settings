@@ -1,0 +1,2 @@
+The usernames to be found must contain the phrase entered in this box. By "phrase", we mean a string of characters. They do not have to make a word but they must be exactly how they appear in the user(s) name(s).<br /><br />
+For example, the string <i>exam</i> would match <i>example</i>, <i>anexample</i>, and <i>theexam</i>, but not <i>exsiam</i>.

@@ -1,0 +1,24 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$foruminfo[title_clean]<if condition="$pagenumber>1"> - <phrase 1="$pagenumber">$vbphrase[page_x]</phrase></if> </title>
+<if condition="$show['inlinemod']"><script type="text/javascript" src="clientscript/vbulletin_inlinemod.js?v=$vboptions[simpleversion]"></script></if>
+</head>
+<body>
+
+$header
+$navbar
+
+<div class="forum-feed-sorting">
+    <a href="/feed/top?hackto=thefuture">Top</a> | <a href="/feed/new?hackto=thefuture">New</a> | <a href="/feed/trending?hackto=thefuture">Trending</a>
+</div>
+        <div class="forum-feed-wrapper">
+            <ul class="forum-feed">
+$feedthreadbits
+            </ul>
+        </div>
+
+$footer
+</body>
+</html>

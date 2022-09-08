@@ -1,0 +1,25 @@
+<p><b>Can I email other members?</b></p>
+
+<p>Yes. To send an email to another member, you can either find them on the <a href="memberlist.php$session[sessionurl_q]">member list</a>, or click the email user button <img class="inlineimg" src="$stylevar[imgdir_button]/email.gif" alt="Email User" /> on any post they have written.</p>
+
+<p>This will usually open a page that contains a form where you can enter your message. When you have finished typing your message, press the 'send email' button and your message will be sent instantly.</p>
+
+<p><b>Can I see email addresses?</b></p>
+
+<p>For privacy reasons, the recipient's email address is not revealed to you during this process.</p>
+
+<p><b>Why can't I send an email to someone?</b></p>
+
+<p>If you cannot find an email button or link for a member, it means either that the administrator has disabled email functions for this forum, or that the member has said that they do not wish to receive email from other members.</p>
+
+<p><b>Can I email a link to a friend?</b></p>
+
+<p>Another useful email function is the ability to send a friend a link to a thread you think they may find interesting. Whenever you view a thread, you will find a link somewhere on the page which will allow you to send a brief message to anyone you like. Your referrer ID is added to the link you send, so if your friend registers on this forum as a result of viewing the link you sent to them, your referrals total will automatically be credited.</p>
+
+<p><b>What is private messaging?</b></p>
+
+<p>Registered members may also be able to send messages to other members of this forum using the <a href="private.php$session[sessionurl_q]">private messaging</a> system. For more information about private messaging, <a href="faq.php?$session[sessionurl]faq=vb3_user_profile#faq_vb3_private_messages">click here</a>.</p>
+
+<p><b>What are visitor messages?</b></p>
+
+<p>Registered members may leave messages for other members on their profile page. These messages can generally be viewed by all visitors, including members, guests and search engine spiders. For more information on visitor messages, <a href="faq.php?$session[sessionurl]faq=vb3_user_profile#faq_vb3_public_profile">click here</a>.</p>

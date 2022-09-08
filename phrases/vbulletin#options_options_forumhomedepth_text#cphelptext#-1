@@ -1,0 +1,11 @@
+For example, if this is set to 2 and your forums are arranged like this:<br /><br />
+
+parent<br />
+--child<br />
+----child's child<br /><br />
+
+Then you will only see the first two levels on your forum homepage:<br /><br />
+
+parent<br />
+--child<br /><br />
+<strong>Please Note:</strong> If this setting is set as more than two, you will need to create the appropriate templates for this depth

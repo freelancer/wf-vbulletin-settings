@@ -1,0 +1,1 @@
+Pruning many threads is a server intensive process because of the amount of data that must be removed. Use with care!

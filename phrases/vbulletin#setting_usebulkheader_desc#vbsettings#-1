@@ -1,0 +1,3 @@
+Mail servers using Exchange will send auto responders unless you mark your email as bulk mail.  While there is no documented case of emails being marked as spam directly due to this header, there is no guarantee what other mail servers will do with this header.<br />
+<br />
+Set this option to 'yes' if you are getting tired of all the auto responders in your webmaster email from Exchange servers.

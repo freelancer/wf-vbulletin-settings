@@ -1,0 +1,4 @@
+************
+$eventinfo[title] (In less than $hour hour(s))
+$vboptions[bburl]/calendar.php?do=getinfo&e=$eventinfo[eventid]
+In Calendar: $eventinfo[calendar]

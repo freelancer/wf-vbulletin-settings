@@ -1,0 +1,206 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+	$headinclude
+	<title>$vboptions[bbtitle] - $pagetitle</title>
+</head>
+<body>
+$header
+$navbar
+
+<if condition="$show['errors']">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr align="$stylevar[left]">
+	<td class="tcat">
+	<if condition="!$grouplisttitle">$vbphrase[errors_occured_with_search]
+	<else />$grouplisttitle</if>
+	</td>
+</tr>
+<tr>
+	<td class="alt1">
+		<if condition="$show['noresults']">
+			<ol style="list-style-type:none">$errorlist</ol>
+		<else />
+			<ol>$errorlist</ol>
+		</if>
+	</td>
+</tr>
+</table>
+<br /><br />
+</if>
+
+<form action="group.php?$session[sessionurl]do=grouplist" method="post">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" align="center" width="100%">
+<tr>
+	<td class="tcat">$vbphrase[advanced_search]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+		<div class="panel">
+		<table style="width:$stylevar[formwidth]" align="center" border="0" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]">
+		<tr valign="top">
+			<td width="50%" align="$stylevar[left]">
+				<fieldset class="fieldset">
+					<legend>$vbphrase[search_by_key_word]</legend>
+					<div style="padding:$stylevar[formspacer]px">
+						<div><label for="filter_keywords">$vbphrase[key_words]:</label></div>
+						<div><input type="text" class="bginput" name="filtertext" id="filter_keywords" size="35" value="$filters[text]" style="width:250px" /></div>
+					</div>
+				</fieldset>
+				<fieldset class="fieldset">
+					<legend>$vbphrase[find_groups_with]</legend>
+					<table cellspacing="0" cellpadding="$stylevar[formspacer]" border="0">
+					<tr>
+						<td>
+							<select name="memberless" style="width:150px">
+								<option value="0" $memberlessselected[0]>$vbphrase[at_least]</option>
+								<option value="1" $memberlessselected[1]>$vbphrase[at_most]</option>
+							</select>
+						</td>
+						<td align="$stylevar[left]">
+							<label for="memberlimit"><input type="text" class="bginput" style="font-size:11px" name="memberlimit" id="memberlimit" size="3" value="$memberlimit" /> $vbphrase[members]</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<select name="discussionless" style="width:150px">
+								<option value="0" $discussionlessselected[0]>$vbphrase[at_least]</option>
+								<option value="1" $discussionlessselected[1]>$vbphrase[at_most]</option>
+							</select>
+						</td>
+						<td align="$stylevar[left]">
+							<label for="discussionlimit"><input type="text" class="bginput" style="font-size:11px" name="discussionlimit" id="discussionlimit" size="3" value="$discussionlimit" /> $vbphrase[discussions]</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<select name="messageless" style="width:150px">
+								<option value="0" $messagelessselected[0]>$vbphrase[at_least]</option>
+								<option value="1" $messagelessselected[1]>$vbphrase[at_most]</option>
+							</select>
+						</td>
+						<td align="$stylevar[left]">
+							<label for="messagelimit"><input type="text" class="bginput" style="font-size:11px" name="messagelimit" id="messagelimit" size="3" value="$messagelimit" /> $vbphrase[messages]</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<select name="pictureless" style="width:150px">
+								<option value="0" $picturelessselected[0]>$vbphrase[at_least]</option>
+								<option value="1" $picturelessselected[1]>$vbphrase[at_most]</option>
+							</select>
+						</td>
+						<td align="$stylevar[left]">
+							<label for="picturelimit"><input type="text" class="bginput" style="font-size:11px" name="picturelimit" id="picturelimit" size="3" value="$picturelimit" /> $vbphrase[pictures]</label>
+						</td>
+					</tr>
+					</table>
+				</fieldset>
+			</td>
+			<td width="50%" align="$stylevar[left]">
+				<fieldset class="fieldset">
+					<legend>$vbphrase[creation_date_filter]</legend>
+					<div style=" padding:$stylevar[formspacer]px">
+						<div>$vbphrase[date_is_before]</div>
+						<table cellpadding="0" cellspacing="2" border="0">
+						<tr>
+							<td class="smallfont">
+								<div><label for="filter_date_lteq_month">$vbphrase[month]</label></div>
+								<div>
+									<select name="filter_date_lteq[month]" id="filter_date_lteq_month">
+										<option value="0">---</option>
+										<option value="1">$vbphrase[january]</option>
+										<option value="2">$vbphrase[february]</option>
+										<option value="3">$vbphrase[march]</option>
+										<option value="4">$vbphrase[april]</option>
+										<option value="5">$vbphrase[may]</option>
+										<option value="6">$vbphrase[june]</option>
+										<option value="7">$vbphrase[july]</option>
+										<option value="8">$vbphrase[august]</option>
+										<option value="9">$vbphrase[september]</option>
+										<option value="10">$vbphrase[october]</option>
+										<option value="11">$vbphrase[november]</option>
+										<option value="12">$vbphrase[december]</option>
+									</select>
+								</div>
+							</td>
+							<td class="smallfont">
+								<div><label for="filter_date_lteq_day">$vbphrase[day]</label></div>
+								<div><input type="text" class="bginput" style="font-size:11px" name="filter_date_lteq[day]" id="filter_date_lteq_day" value="$filter_date_lteq[day]" size="4" maxlength="2" /></div>
+							</td>
+							<td class="smallfont">
+								<div><label for="filter_date_lteq_year">$vbphrase[year]</label></div>
+								<div><input type="text" class="bginput" style="font-size:11px" name="filter_date_lteq[year]" id="filter_date_lteq_year" value="$filter_date_lteq[year]" size="4" maxlength="4" /></div>
+							</td>
+						</tr>
+						</table>
+						<div>$vbphrase[date_is_after]</div>
+						<table cellpadding="0" cellspacing="2" border="0">
+						<tr>
+							<td class="smallfont">
+								<div>
+									<label for="filter_date_gteq_month">$vbphrase[month]</label>
+								</div>
+								<div>
+									<select name="filter_date_gteq[month]" id="filter_date_gteq_month">
+										<option value="0">---</option>
+										<option value="1">$vbphrase[january]</option>
+										<option value="2">$vbphrase[february]</option>
+										<option value="3">$vbphrase[march]</option>
+										<option value="4">$vbphrase[april]</option>
+										<option value="5">$vbphrase[may]</option>
+										<option value="6">$vbphrase[june]</option>
+										<option value="7">$vbphrase[july]</option>
+										<option value="8">$vbphrase[august]</option>
+										<option value="9">$vbphrase[september]</option>
+										<option value="10">$vbphrase[october]</option>
+										<option value="11">$vbphrase[november]</option>
+										<option value="12">$vbphrase[december]</option>
+									</select>
+								</div>
+							</td>
+							<td class="smallfont">
+								<div><label for="filter_date_gteq_day">$vbphrase[day]</label></div>
+								<div><input type="text" class="bginput" style="font-size:11px" name="filter_date_gteq[day]" id="filter_date_gteq_day" value="$filter_date_gteq[day]" size="4" maxlength="2" /></div>
+							</td>
+							<td valign="top" class="smallfont">
+								<div><label for="filter_date_gteq_year">$vbphrase[year]</label></div>
+								<div><input type="text" class="bginput" style="font-size:11px" name="filter_date_gteq[year]" id="filter_date_gteq_year" value="$filter_date_gteq[year]" size="4" maxlength="4" /></div>
+							</td>
+						</tr>
+						</table>
+					</div>
+				</fieldset>
+
+				<fieldset class="fieldset">
+					<legend>$vbphrase[category_filter]</legend>
+					<div style="padding:$stylevar[formspacer]px" class="smallfont">
+						<div><label for="cat">$vbphrase[is_in_category]</label></div>
+						<div>
+							<select name="cat" id="cat">
+								$category_options
+							</select>
+						</div>
+					</div>
+				</fieldset>
+			</td>
+		</tr>
+		</table>
+		</div>
+
+		<div style="margin-top: $stylevar[cellpadding]px;">
+			<input type="submit" class="button" value="$vbphrase[search_groups]" />
+		</div>
+	</td>
+</tr>
+</table>
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="dofilter" value="1" />
+</form>
+
+$footer
+</body>
+
+
+</html>

@@ -1,0 +1,6 @@
+<if condition="$show['cplink']">
+	<a href="blog.php?$session[sessionurl]cp=$page[i]" class="thead">$page[t]</a>
+<else />
+	$page[t]
+</if>
+<if condition="$show['divider']">|</if>

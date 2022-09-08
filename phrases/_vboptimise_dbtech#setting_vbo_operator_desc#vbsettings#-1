@@ -1,0 +1,9 @@
+Choose your desired Opcache Operator here that vB Optimise will use in order to perform vBulletin optimisations.
+<br />
+<br />
+You must have the selected operator installed on your machine in order to use it.<br />By choosing "None" vB Optimise will have no impact on your forum.
+<br />
+<br />
+<strong>Note:</strong> Memcache will use the settings defined in your config.php in order to connect, please make sure they are valid.
+<br />
+<strong>Note:</strong> Filecache will store data directly on your hard drive in the directory ./vboptimise/filecache/. Please make sure the directory is writable.

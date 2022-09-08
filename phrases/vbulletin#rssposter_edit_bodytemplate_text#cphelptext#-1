@@ -1,0 +1,22 @@
+The body template controls the main text of threads or announcements for feed items.<br />
+<br />
+In the same way as can be done with the <a href="help.php?do=answer&amp;page=rssposter&amp;pageaction=edit&amp;option=titletemplate">Title Template</a>, you may use selected nodes from the feed XML by specifying {feed:<strong>x</strong>}.<br />
+Valid values for x include:<br />
+<ul>
+<li>title</li>
+<li>description</li>
+<li>link</li>
+<li>id</li>
+<li>date</li>
+<li>enclosure_href</li>
+<li>content:encoded.</li>
+</ul>
+<br />
+The main replacements to include in this template is the &lt;description&gt; and &lt;link&gt; nodes, which can be referenced with <strong>{feed:description}</strong> and <strong>{feed:link}</strong>.<br />
+<br />
+For example:
+<pre class="alt2" style="border:inset 1px; padding:4px">[b][i]My RSS Feed[/i] Has Just Posted the Following:[/b]
+
+<strong style="color:red">{feed:description}</strong>
+
+[url=&quot;<strong style="color:red">{feed:link}</strong>&quot;]Click here to view the article.[/url]</pre>

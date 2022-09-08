@@ -1,0 +1,45 @@
+<li id="picturecomment$message[commentid]" class="floatcontainer">
+	<if condition="$message['avatarurl']">
+		<div class="fixed_width_avatar">
+			<if condition="$message['postuserid']"><a href="member.php?$session[sessionurl]u=$message[postuserid]"></if><img src="$message[avatarurl]" class="alt2 avatar"<if condition="$message['avatarwidth']"> width="$message[avatarwidth]"</if><if condition="$message['avatarheight']"> height="$message[avatarheight]"</if> border="0" alt="$message[username]" /><if condition="$message['postuserid']"></a></if>
+		</div>
+		<div class="message_avatar_margin">
+	</if>
+	<div class="tborder info_bar">
+		<div class="alt2 smallfont">
+			<if condition="$show['inlinemod']"><input type="checkbox" class="inlinemod_checkbox" name="picturecommentlist[$message[commentid]]" id="picturecommentlist_$message[commentid]" value="$message[checkbox_value]" title="$vbphrase[select_this_item_for_inline_moderation]"  /></if>
+			<div class="message_date">$message[date]<if condition="!$show['detailedtime']"> <span class="time">$message[time]</span></if></div>
+			<if condition="$message['postuserid']">
+				<a href="member.php?$session[sessionurl]u=$message[postuserid]" class="smallfont username">$message[musername]</a>
+			<else />
+				<span class="smallfont username">$message[musername]</span>
+			</if>
+			<if condition="$show['picture']">
+				<div><phrase 1="album.php?$session[sessionurl]albumid=$message[albumid]&amp;pictureid=$message[pictureid]" 2="$message[caption]" 3="member.php?$session[sessionurl]u=$message[pictureowner_userid]" 4="$message[pictureowner_name]">$vbphrase[picture_x_by_y]</phrase></div>
+			</if>
+		</div>
+	</div>
+
+	<if condition="$show['moderation']"><div class="shade">$vbphrase[this_message_is_moderated]</div></if>
+	<div id="picturecomment_text_$message[commentid]">$message[message]</div>
+
+	<ul class="list_no_decoration controls">
+		<if condition="$show['edit']">
+			<li class="smallfont"><a href="picturecomment.php?$session[sessionurl]do=message&amp;<if condition="$pictureinfo['groupid']">groupid=$pictureinfo[groupid]<else />albumid=$pictureinfo[albumid]</if>&amp;pictureid=$pictureinfo[pictureid]&amp;commentid=$message[commentid]" id="picturecomment_edit_$message[commentid]">$vbphrase[edit]</a></li>
+		</if>
+		<if condition="$show['reportlink']">
+			<li class="smallfont"><a href="picturecomment.php?$session[sessionurl]do=report&amp;<if condition="$pictureinfo['groupid']">groupid=$pictureinfo[groupid]<else />albumid=$pictureinfo[albumid]</if>&amp;pictureid=$pictureinfo[pictureid]&amp;commentid=$message[commentid]">$vbphrase[report]</a></li>
+		</if>
+		<if condition="$message['messageipaddress']">
+			<li class="smallfont"><a href="picturecomment.php?do=viewip&amp;<if condition="$pictureinfo['groupid']">groupid=$pictureinfo[groupid]<else />albumid=$pictureinfo[albumid]</if>&amp;pictureid=$pictureinfo[pictureid]&amp;commentid=$message[commentid]">$vbphrase[ip]</a></li>
+		</if>
+	</ul>
+<if condition="$message['avatarurl']">
+	</div>
+</if>
+<script type="text/javascript"> 
+<!-- 
+vBulletin.register_control("vB_QuickEdit", "$message[commentid]", 'PictureComment', '$pictureinfo[pictureid]', '<if condition="$pictureinfo['groupid']">$pictureinfo[groupid]<else />$pictureinfo[albumid]</if>', <if condition="$pictureinfo['groupid']">1<else /> 0</if> ); 
+//--> 
+</script> 
+</li>

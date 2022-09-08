@@ -1,0 +1,5 @@
+<div class="fieldset">
+	$profilefield[title]:<br />
+	<if condition="$radiobits"><table cellspacing="2" cellpadding="2" border="0">$radiobits</table></if>
+	$optionalfield
+</div>

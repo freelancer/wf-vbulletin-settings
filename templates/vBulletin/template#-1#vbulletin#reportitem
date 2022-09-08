@@ -1,0 +1,57 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $forminfo[reportphrase]</title>
+</head>
+<body>
+$header
+$navbar
+
+<form action="$forminfo[file].php?do=$forminfo[action]" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<span class="smallfont" style="float:$stylevar[right]"><strong>$forminfo[reporttype]</strong>: <a href="$forminfo[itemlink]">$forminfo[itemname]</a></span>
+		$forminfo[reportphrase]
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+		$usernamecode
+
+		<!-- report field -->
+		<div class="fieldset">
+			<div class="smallfont">$vbphrase[message]:</div>
+			<textarea name="reason" rows="6" cols="$textareacols"></textarea>
+		</div>
+		<!-- / report field -->
+
+		<div class="fieldset">
+			$forminfo[description]
+		</div>
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		$forminfo[hiddenfields]
+		<input type="hidden" name="do" value="$forminfo[action]" />
+		<input type="hidden" name="url" value="$url" />
+		<input type="submit" class="button" value="$vbphrase[send_report]" accesskey="s" />
+	</div>
+	</td>
+</tr>
+</table>
+</form>
+
+$footer
+
+</body>
+</html>

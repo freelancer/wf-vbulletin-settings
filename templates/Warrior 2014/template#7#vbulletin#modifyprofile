@@ -1,0 +1,212 @@
+<if condition="$bbuserinfo['coppauser']">
+<!-- coppa text -->
+<form action="register.php?do=coppaform" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="coppaform" />
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+    <td class="tcat">$vbphrase[coppa_information]</td>
+</tr>
+<tr>
+    <td class="panelsurround" align="center">
+    <div class="panel">
+        <div style="width:$stylevar[formwidth_usercp]" align="$stylevar[left]">
+
+            <p class="smallfont">
+                <phrase 1="$vboptions[contactuslink]">$vbphrase[make_changes_parent_notified]</phrase>
+            </p>
+
+            <p class="smallfont">
+                $vbphrase[print_new_permissions_form]
+            </p>
+
+            <input type="submit" class="button" style="font-weight:normal" value="$vbphrase[display_permissions_form]" />
+
+        </div>
+    </div>
+    </td>
+</tr>
+</table>
+</form>
+<br />
+<!-- end coppa text -->
+</if>
+
+<form action="profile.php?do=updateprofile" method="post" id="profileform">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="updateprofile" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+    <td class="tcat">$vbphrase[edit_your_details]<span class="normal"> $bbuserinfo[username]</span></td>
+</tr>
+<tr>
+    <td class="thead">$vbphrase[registration_required_information]</td>
+</tr>
+<tr>
+    <td class="panelsurround" align="center">
+    <div class="panel">
+        <div style="width:$stylevar[formwidth_usercp]" align="$stylevar[left]">
+
+            <fieldset class="fieldset">
+                <legend>$vbphrase[email_and_password]</legend>
+                <table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+                <tr>
+                    <td>$vbphrase[click_button_below_edit_email]</td>
+                </tr>
+                <tr>
+                    <td>
+                        <!-- don't remove -->
+                        <input type="image" src="$vboptions[cleargifurl]" style="width: 1px; height: 1px;" />
+                        <!-- / don't remove -->
+                        <input type="submit" class="button" style="font-weight:normal" value="$vbphrase[edit_email_and_password]" name="gotopassword" />
+                    </td>
+                </tr>
+                </table>
+            </fieldset>
+
+            <if condition="$bbuserinfo['coppauser']">
+            <fieldset class="fieldset">
+                <legend><label for="tb_parentemail">$vbphrase[parent_guardian_email]</label></legend>
+                <table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+                <tr>
+                    <td>$vbphrase[if_under_13_provide_parent]</td>
+                </tr>
+                <tr>
+                    <td>
+                        $vbphrase[parent_guardian_email]<br />
+                        <input type="text" class="bginput" name="parentemail" id="tb_parentemail" size="50" maxlength="30" value="$bbuserinfo[parentemail]" />
+                        <input type="hidden" name="coppauser" value="1" />
+                    </td>
+                </tr>
+                </table>
+            </fieldset>
+            </if>
+
+            <if condition="$show['birthday_required']">
+                $birthdaybit
+            </if>
+
+            $customfields[required]
+
+        </div>
+    </div>
+    </td>
+</tr>
+</table>
+
+<br />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+    <td class="thead">$vbphrase[optional_information_will]</td>
+</tr>
+<tr>
+    <td class="panelsurround" align="center">
+    <div class="panel">
+        <div style="width:$stylevar[formwidth_usercp]" align="$stylevar[left]">
+
+            <if condition="$show['customtitleoption']">
+            <fieldset class="fieldset">
+                <legend><label for="tb_customtext">$vbphrase[custom_user_title]</label></legend>
+                <table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+                <tr>
+                    <td colspan="2">$vbphrase[title_appears_beneath_your_name]</td>
+                </tr>
+                <tr>
+                    <td>$vbphrase[your_current_user_title_is]<br /><strong>$bbuserinfo[usertitle]</strong></td>
+                    <td align="$stylevar[right]"><label for="cb_resettitle"><input type="checkbox" name="resettitle" value="yes" id="cb_resettitle" />$vbphrase[reset]</label></td>
+                </tr>
+                <tr>
+                    <td>$vbphrase[custom_user_title]<br /><input type="text" class="bginput" name="customtext" id="tb_customtext" value="" size="50" maxlength="$vboptions[ctMaxChars]" /></td>
+                </tr>
+                </table>
+            </fieldset>
+            </if>
+
+            <if condition="$show['birthday_optional']">
+                $birthdaybit
+            </if>
+
+            <fieldset class="fieldset">
+                <legend><label for="tb_homepage">$vbphrase[home_page_url]</label></legend>
+                <table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+                <tr>
+                    <td>$vbphrase[let_other_visitors_know_url]</td>
+                </tr>
+                <tr>
+                    <td>$vbphrase[home_page_url]<br /><input type="text" class="bginput" name="homepage" id="tb_homepage" value="$bbuserinfo[homepage]" size="50" maxlength="200" dir="ltr" ng-non-bindable /></td>
+                </tr>
+                </table>
+            </fieldset>
+
+            <fieldset class="fieldset">
+                <legend>$vbphrase[instant_messaging]</legend>
+                <table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+                <tr>
+                    <td colspan="2">$vbphrase[may_enter_identity_for_im]</td>
+                </tr>
+                <tr>
+                    <td>$vbphrase[icq_number]<br />
+                        <img src="$stylevar[imgdir_misc]/im_icq.gif" alt="" />
+                        <input type="text" class="bginput" name="icq" value="$bbuserinfo[icq]" size="25" maxlength="30" dir="ltr" /></td>
+                    <td>$vbphrase[aim_screen_name]<br />
+                        <img src="$stylevar[imgdir_misc]/im_aim.gif" alt="" />
+                        <input type="text" class="bginput" name="aim" value="$bbuserinfo[aim]" size="25" maxlength="30" dir="ltr" /></td>
+                </tr>
+                <tr>
+                    <td>$vbphrase[msn_messenger_handle]<br />
+                        <img src="$stylevar[imgdir_misc]/im_msn.gif" alt="" />
+                        <input type="text" class="bginput" name="msn" value="$bbuserinfo[msn]" size="25" maxlength="50" dir="ltr" /></td>
+                    <td>$vbphrase[yahoo_messenger_handle]<br />
+                        <img src="$stylevar[imgdir_misc]/im_yahoo.gif" alt="" />
+                        <input type="text" class="bginput" name="yahoo" value="$bbuserinfo[yahoo]" size="25" maxlength="30" dir="ltr" /></td>
+                </tr>
+                <tr>
+                    <td>$vbphrase[skype_name]<br />
+                        <img src="$stylevar[imgdir_misc]/im_skype.gif" alt="" />
+                        <input type="text" class="bginput" name="skype" value="$bbuserinfo[skype]" size="25" maxlength="32" dir="ltr" /></td>
+                    <td>&nbsp;</td>
+                </tr>
+                </table>
+            </fieldset>
+
+<if condition="$customfields['regular']">
+<!-- start if customfields -->
+
+        </div>
+    </div>
+    </td>
+</tr>
+</table>
+
+<br />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+    <td class="thead">$vbphrase[additional_information]</td>
+</tr>
+<tr>
+    <td class="panelsurround" align="center">
+    <div class="panel">
+        <div style="width:$stylevar[formwidth_usercp]" align="$stylevar[left]">
+
+        $customfields[regular]
+
+<!-- end if custom fields -->
+</if>
+
+        </div>
+    </div>
+
+    <div style="margin-top:$stylevar[cellpadding]px">
+        <input type="submit" class="button" value="$vbphrase[save_changes]" accesskey="s" />
+        <input type="reset" class="button" value="$vbphrase[reset_fields]" accesskey="r" />
+    </div>
+    </td>
+</tr>
+</table>
+
+</form>

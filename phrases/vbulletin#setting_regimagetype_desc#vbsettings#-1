@@ -1,0 +1,2 @@
+Choose the image processing library that vBulletin will use for generating Image Verification.  If the <em>GD (True Type)</em> option doesn't work, please ask your host to recompile PHP with <strong>FreeType 2</strong> support.
+<br /><br />Imagemagick must have a valid path specified in the <a href="options.php?dogroup=imagesettings">Image Settings.</a>

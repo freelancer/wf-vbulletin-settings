@@ -1,0 +1,1 @@
+	<option value="$thiscategoryid"$selected>$category[title] (<phrase 1="$category[avatars]">$vbphrase[x_avatars]</phrase>)</option>

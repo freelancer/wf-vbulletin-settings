@@ -1,0 +1,1 @@
+If yes the product will treat quoted text as a single tag.  For example if the thread title is:<br/><br/>"Fish food" for cats<br/><br/>The tags will be:<br/><br/>fish food, cats<br/><br/>If this option is disabled the auto tagger will split titles on spaces and treat each items as a potential tag.

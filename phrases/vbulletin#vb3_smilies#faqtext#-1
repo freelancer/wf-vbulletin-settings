@@ -1,0 +1,11 @@
+<p><b>What are smilies?</b></p>
+
+<p>Smilies are icons that can be used in your posts to express emotions or feelings. You might wish to use these to show that you are happy, sad, joking, or embarrassed. For example, if you are telling a joke or being sarcastic you may wish to add a wink instead of writing 'this is a joke'.</p>
+
+<p>The basic smilies are the same as what you would find on any instant messenger system. They are made up of a combination of characters which often show the basis of the resulting image. For example, <b>:)</b> is converted to a smiley face and <b>:(</b> to a sad face or frown. Tilt your head to the left to see this in action as these consist of two eyes and a mouth either smiling or frowning.</p>
+
+<p><b>How do I add smilies?</b></p>
+
+<p>Some smilies can be accessed from the 'New Post' or 'New Thread' pages if your administrator has enabled this function. Clicking them will automatically insert them into your message. You can also type the character combinations for the smilies directly. A full list of the smilies and their character combinations used on this forum can be found <a href="misc.php?$session[sessionurl]do=showsmilies">here</a>.</p>
+
+<p>On occasions, you may want to prevent the text in your message being converted into smilies. You will see a checkbox which you can select when you make a new post, which will allow you to 'Disable Smilies'.</p>

@@ -1,0 +1,142 @@
+<if condition="$errors">
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center" style="margin-bottom:1em">
+	<tr>
+		<td class="tcat">$vbphrase[errors_occured_when_submitted]</td>
+	</tr>
+	<tr>
+		<td class="alt1">
+			<ul style="list-style-type:none; padding:0px; margin:0px">$errors</ul>
+		</td>
+	</tr>
+	</table>
+</if>
+
+<form action="blog_usercp.php?do=docustomize" method="post" id="profileform">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="docustomize" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[customize_blog]</td>
+</tr>
+
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth_usercp]" align="$stylevar[left]">
+
+			<if condition="$usercsspermissions['caneditbgimage']">
+				<div class="smallfont" style="margin-bottom: $stylevar[cellpadding]px"><phrase 1="album.php?$session[sessionurl]u=$bbuserinfo[userid]">$vbphrase[background_images_album_x]</phrase></div>
+			</if>
+
+			<div id="usercss_editor">
+			$usercssbits
+			</div>
+
+			<a name="example"></a>
+			<div class="page" id="usercss_example">
+			<div id="usercss">
+				<div style="margin-bottom:1em">
+					<img src="$stylevar[imgdir_misc]/progress.gif" id="preview_progress" class="inlineimg" style="float:$stylevar[right]; display:none" alt="" />
+					$vbphrase[usercss_example]
+				</div>
+				<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+				<tr><td class="tcat" colspan="2">$vbphrase[usercss_tabletitle]</td></tr>
+				<tr><td class="thead" colspan="2">$vbphrase[usercss_tableheader]</td></tr>
+				<tr><td class="alt1">$vbphrase[usercss_alternating1]</td><td class="alt2">$vbphrase[usercss_alternating2]</td></tr>
+				<tr><td class="alt1 entryposter smallfont" colspan="2" align="center">$vbphrase[usercss_entryposter]</td></tr>
+				<tr>
+					<td class="panelsurround" colspan="2">
+						<div class="panel">
+							<div><input type="text" class="bginput" value="$vbphrase[usercss_inputs]" size="40" style="width:85%" /> <input type="button" class="button" value="$vbphrase[go]" /></div>
+							<!--<div>$vbphrase[usercss_panel]</div>-->
+						</div>
+						<!--<div style="margin-top:1em">$vbphrase[usercss_panelsurround]</div>-->
+					</td>
+				</tr>
+				<tr>
+					<td class="tfoot" colspan="2">$vbphrase[usercss_tablefooter]</td>
+				</tr>
+				</table>
+				<div style="margin-top:1em">
+					$vbphrase[usercss_main]
+					<a href="#">$vbphrase[usercss_linkcolor]</a>
+					<span class="shade">$vbphrase[usercss_shadecolor]</span>
+				</div>
+			</div>
+			</div>
+
+			<br />
+			<if condition="$show['copyprofilecss']">
+				<fieldset class="fieldset">
+					<legend>$vbphrase[copy_profile_css]</legend>
+					<div class="fieldset_spacer">
+						$vbphrase[click_copy_profile_style]
+						<div align="center">
+							<input type="submit" class="button" value="$vbphrase[copy_profile_css]" name="copyprofilecss" accesskey="s" />
+						</div>
+					</div>
+				</fieldset>
+			</if>
+
+		</div>
+	</div>
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" value="$vbphrase[save_changes]" accesskey="s" />
+		<input type="button" class="button" value="$vbphrase[clear_all]" id="clear_all_button" onclick="clear_css_customizations()" />
+		<input type="reset" class="button" value="$vbphrase[reset_fields]" accesskey="r" />
+	</div>
+
+	</td>
+</tr>
+</table>
+
+</form>
+
+<div id="colorpicker" style="display:none">
+<table class="tborder" cellpadding="0" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+<tr>
+	<td class="tcat">
+		<table id="colorpicker_feedback" cellpadding="$stylevar[cellpadding]" cellspacing="0" border="0" width="100%">
+		<tr>
+			<td><button id="colorpicker_transparent" title="$vbphrase[reset_to_default]"><img src="$stylevar[imgdir_misc]/colorpicker_transparent.gif" alt="$vbphrase[reset_to_default]" /></button></td>
+			<td>
+				<table id="colorpicker_surround" cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<td id="colorpicker_surround_old"></td>
+					<td id="colorpicker_surround_new"></td>
+				</tr>
+				</table>
+			</td>
+			<td width="100%">&nbsp;</td>
+			<td style="white-space:nowrap">
+				<button id="colorpicker_close" title="$vbphrase[close]"><img src="$stylevar[imgdir_misc]/colorpicker_close.gif" alt="" /></button>
+
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+<tr>
+	<td class="alt1" style="background-color:black" id="colorpicker_swatches_container">&nbsp;</td>
+</tr>
+</table>
+</div>
+
+<if condition="$show['backgroundpicker']">
+<div id="backgroundpicker" style="display:none" class="tborder">
+	<div class="tcat" id="backgroundpicker_closerow">
+				<div style="float:$stylevar[right]">
+					<button id="backgroundpicker_close"><img src="$stylevar[imgdir_misc]/colorpicker_close.gif" alt="$vbphrase[close]" /></button>
+				</div>
+				<select name="backgroundpicker_select" id="backgroundpicker_select"<if condition="!$show['albumselect']">style="display:none"</if>>
+					$albumbits
+				</select>
+				&nbsp;
+	</div>
+	<div class="alt1">
+		$picturerowbits
+	</div>
+</div>
+</if>

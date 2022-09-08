@@ -1,0 +1,12 @@
+Banner transaction error occured at $vboptions[bbtitle]
+			
+Username : $username
+Profile: $vboptions[bburl]/member.php?u=$userid
+Amount: $amount
+Processor: $processor
+Transaction ID: $transactionid
+
+Best Regards
+$vboptions[bbtitle]
+			
+			

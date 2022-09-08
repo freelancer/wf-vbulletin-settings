@@ -1,0 +1,1 @@
+If you enter a number other than 0 (which will disable this function) here, it will cause a user to be forced to wait at least this many seconds between posts. It can prevent a user from attempting to flood your forum with new posts, through either manual or automatic means. Administrators and moderators are always exempt from floodcheck.

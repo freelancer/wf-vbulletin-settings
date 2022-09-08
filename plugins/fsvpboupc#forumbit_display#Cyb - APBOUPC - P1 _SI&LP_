@@ -1,0 +1,17 @@
+
+		if ($vbulletin->options['apboupc_global_enable'] AND $vbulletin->options['apboupc_forum'])
+		{
+			eval('$cyb_apboupc_hide_info = in_array($forum[forumid], array(' . $vbulletin->options['apboupc_lastpost_forumids'] . '));');
+
+			if ($vbulletin->options['showlocks'] AND substr($forum['statusicon'], -5) != '_lock')
+			{
+				if (($forum[accessf_nb] !='0') AND ($forum[accessf_nb] > $vbulletin->userinfo[posts]) AND (!in_array($vbulletin->userinfo['usergroupid'], array($cyb_apboupc_usrgrps_forum))))
+				{
+					$forum['statusicon'] .= '_lock';
+				}
+			}
+			if ((in_array($forum['forumid'], array($cyb_apboupc_hide_info)) OR $forum['accessf_nb']>$vbulletin->userinfo['posts']) AND (!is_member_of($vbulletin->userinfo, split(',', $vbulletin->options['apboupc_forum_excludedgroups']))))
+			{
+				$forum['lastpostinfo'] = $vbphrase[apboupc_lastpostinfo];	
+			}
+		}

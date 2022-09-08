@@ -1,0 +1,18 @@
+// Do not cache logged in user pages
+
+if ( $vbulletin->userinfo['userid'] || $vbulletin->options["mob_detected_device_name"])
+{
+        //header('X-Accel-Expires: 0');
+        header('X-LiteSpeed-Cache-Control: no-cache');
+        //header('X-LiteSpeed-Cache-Control: private');
+} else {
+
+        //header('X-LiteSpeed-Cache-Control: max-age=600');
+}
+
+
+#if ($_SERVER[REMOTE_ADDR]=="67.52.18.100") {
+#var_dump(headers_list());
+#exit;
+
+#}

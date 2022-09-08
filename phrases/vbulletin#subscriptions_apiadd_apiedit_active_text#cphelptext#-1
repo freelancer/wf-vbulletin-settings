@@ -1,0 +1,1 @@
+This option allows you to enable / disable this API without having to delete and recreate the API to toggle its status.  If an API is disabled then it will not be available as a payment option when a user purchases a subscription.

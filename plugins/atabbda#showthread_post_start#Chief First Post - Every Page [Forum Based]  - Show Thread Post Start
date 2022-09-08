@@ -1,0 +1,5 @@
+if ($forum['ada_forum'] AND $threadedmode == 0 AND $thread['attach'])
+{
+    $thread['hasattach'] = $thread['attach'];
+    unset($thread['attach']);
+}

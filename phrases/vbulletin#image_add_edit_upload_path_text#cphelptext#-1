@@ -1,0 +1,9 @@
+This is the path to the image. This should be relative from your main vBulletin directory. For example, if your directory structure looks like this:<br />
+- vBulletin<br />
+-- images<br />
+--- avatars<br />
+--- icons<br />
+--- smilies<br />
+<br />
+and your smiley was called tongue.gif and located in the smilies directory, you would specify:<br />
+images/smilies/tongue.gif

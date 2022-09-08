@@ -1,0 +1,39 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+	$headinclude
+	<title>$vboptions[bbtitle] - $custompagetitle</title>
+</head>
+<body>
+$header
+$navbar
+
+<form action="$confirmaction" method="post">
+	<input type="hidden" name="do" value="$confirmdo" />
+	<input type="hidden" name="groupid" value="$group[groupid]" />
+	<if condition="$pictureinfo">
+		<input type="hidden" name="pictureid" value="$pictureinfo[pictureid]" />
+	</if>
+	<input type="hidden" name="s" value="$session[sessionhash]" />
+	<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+	<input type="hidden" name="url" value="$url" />
+
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+	<tr>
+		<td class="tcat">$title_phrase</td>
+	</tr>
+	<tr>
+		<td class="alt1" align="center">$question_phrase<if condition="$extratext"><br /><br />$extratext</if></td>
+	</tr>
+	<tr>
+		<td class="tfoot" align="center">
+			<input class="button" type="submit" name="confirm" value="  $vbphrase[yes]  " />
+			<input class="button" type="submit" name="deny" value="  $vbphrase[no]  " />
+		</td>
+	</tr>
+	</table>
+</form>
+
+$footer
+</body>
+</html>

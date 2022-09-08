@@ -1,0 +1,1 @@
+If thumbnails are enabled, any image without a thumbnail will be shown as a link, regardless of this setting's status, unless the image size happens to be within the thumbnail size limits.<br /><br />Set this to 'No' if you want to preserve bandwidth or server processor resources.

@@ -1,0 +1,9 @@
+<tr>
+	<td class="alt1">
+		<div style="margin:0 $stylevar[cellpadding]px">
+			<a href="group.php?$session[sessionurl]groupid=$group[groupid]">$group[name]</a>
+			<div class="smallfont">$group[shortdescription]</div>
+		</div>
+	</td>
+	<td class="alt2 smallfont" align="center" nowrap="nowrap"><a href="group.php?$session[sessionurl]do=grouplist&amp;cat=$group[categoryid]" style="font-weight:normal">$group[categoryname]</a></td>
+</tr>

@@ -1,0 +1,3 @@
+The tag cloud pulls together data from all entries in all blogs. Users may not be able to see all of the entries that make up the tag cloud results. With this option, you can force the tag cloud to be built using the viewing user's permissions.<br />
+<br />
+It is recommended that no permission checking be performed. At the worst, this will expose tags of entries that a user can not access because they are either in a private category or the blog owner has denied them access to the blog.

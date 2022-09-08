@@ -1,0 +1,12 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="3">$user[title]</td>
+</tr>
+<tr>
+	<td class="thead">&nbsp;</td>
+	<td class="thead" width="100%">$vbphrase[user_name]<if condition="$show['locationfield']"> / $vbphrase[location_perm]</if></td>
+	<if condition="$show['contactinfo']"><td class="thead">$vbphrase[contact]</td></if>
+</tr>
+$usergroupbits
+</table>
+<br />

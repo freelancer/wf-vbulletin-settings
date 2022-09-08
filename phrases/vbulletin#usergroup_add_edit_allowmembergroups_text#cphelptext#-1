@@ -1,0 +1,3 @@
+This option must be set to "Yes" if secondary (member) groups are to have any effect on the permissions of users whose primary group is this group.<br /><br />
+
+Secondary groups serve no purpose if this option is set to "No".  The only reason this option should be set to "No" is if this group is a banned group, in which case you don't want secondary group memberships to override the null access of the banned group.

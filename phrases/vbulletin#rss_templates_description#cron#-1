@@ -1,0 +1,3 @@
+The two templates listed here are used for the title (title template) and body (body template) of messages posted by the RSS poster.<br />
+<br />
+You can specify exactly how these items appear and any item from a feed can be inserted by using {feed:<strong>fieldname</strong>} where 'fieldname' corresponds to one of the following: title, description, link, id, date, enclosure_href and content:encoded.

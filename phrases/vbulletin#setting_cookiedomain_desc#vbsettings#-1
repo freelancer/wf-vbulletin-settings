@@ -1,0 +1,5 @@
+This option sets the domain on which the cookie is active. The most common reason to change this setting is that you have two different urls to your forum, i.e. example.com and forums.example.com.  To allow users to stay logged into the forum if they visit via either url, you would set this to <b>.example.com</b> (note the domain begins with a <b>dot</b>.<br />
+<br />
+Suggested valid values for Cookie Domain are available in the drop-down menu opposite. If you have a good reason to want a different setting, check the checkbox and enter the desired value in the box provided.<br />
+<br />
+<span class="modlasttendays">You most likely want to leave this setting blank as entering an invalid setting can leave you unable to login to your forum.</span>

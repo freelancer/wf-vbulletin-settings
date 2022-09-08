@@ -1,0 +1,92 @@
+<if condition="$show['joinrequests']">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="3">$vbphrase[you_leader_following_groups]</td>
+</tr>
+<tr>
+	<td class="thead">$vbphrase[user_group]</td>
+	<td class="thead">$vbphrase[view_requests]</td>
+	<td class="thead">$vbphrase[list_members]</td>
+</tr>
+$joinrequestbits
+</table>
+<br />
+</if>
+
+<if condition="$show['nonmembergroups']">
+<form action="profile.php?do=joingroup" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="joingroup" />
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="3">$vbphrase[following_groups_available_to_join]</td>
+</tr>
+<tr>
+	<td class="thead">$vbphrase[user_group]</td>
+	<td class="thead">$vbphrase[joining_conditions]</td>
+	<td class="thead">$vbphrase[join_group]</td>
+</tr>
+$nonmembergroupbits
+<tr>
+	<td class="tfoot" align="center" colspan="4"><input type="submit" class="button" value="$vbphrase[join_group]" /></td>
+</tr>
+</table>
+</form>
+<br />
+</if>
+
+<if condition="$show['membergroups']">
+<form action="profile.php?do=leavegroup" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="leavegroup" />
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="3">$vbphrase[member_of_following_groups]</td>
+</tr>
+<tr>
+	<td class="thead">$vbphrase[user_group]</td>
+	<td class="thead">$vbphrase[user_title]</td>
+	<td class="thead">$vbphrase[leave_group]</td>
+</tr>
+<tr>
+	<td class="alt1">$primarygroup[opentag]$primarygroup[title]$primarygroup[closetag]</td>
+	<td class="alt1">$primarygroup[usertitle]</td>
+	<td class="alt1"><span class="smallfont">($vbphrase[cannot_leave_primary_group])</span></td>
+</tr>
+$membergroupbits
+<tr>
+	<td class="tfoot" align="center" colspan="4"><input type="submit" class="button" value="$vbphrase[leave_group]" /></td>
+</tr>
+</table>
+</form>
+<br />
+</if>
+
+<if condition="$show['displaygroups']">
+<form action="profile.php?do=updatedisplaygroup" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="updatedisplaygroup" />
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="3">$vbphrase[may_be_identified_member_groups]</td>
+</tr>
+<tr>
+	<td class="thead">$vbphrase[user_group]</td>
+	<td class="thead">$vbphrase[user_title]</td>
+	<td class="thead">&nbsp;</td>
+</tr>
+<tr>
+	<td class="alt1">$primarygroup[opentag]$primarygroup[title]$primarygroup[closetag]</td>
+	<td class="alt1">$primarygroup[usertitle]</td>
+	<td class="alt1"><span class="smallfont"><label for="rb_identify_$primarygroupid"><input type="radio" name="usergroupid" value="$primarygroupid" id="rb_identify_$primarygroupid" $checked[$primarygroupid] />$vbphrase[identify_as_member_of_group]</label></span></td>
+</tr>
+$displaygroupbits
+<tr>
+	<td class="tfoot" align="center" colspan="4"><input type="submit" class="button" value="$vbphrase[update_display_group]" /></td>
+</tr>
+</table>
+</form>
+</if>

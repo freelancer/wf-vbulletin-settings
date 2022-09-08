@@ -1,0 +1,82 @@
+<if condition="$show['errors']">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr align="left">
+	<td class="tcat">
+			$vbphrase[errors_occured_with_search]:
+	</td>
+</tr>
+<tr>
+	<td class="alt1">
+			<ol>$errorlist</ol>
+	</td>
+</tr>
+</table>
+
+<br />
+</if>
+
+<form action="blog_search.php?do=dosearch" method="post">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<th class="tcat">$vbphrase[find_blogs]</th>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+		<div class="panel">
+			<div align="$stylevar[left]" class="fieldset">
+				<label for="input_text" style="display:block; margin-top:$stylevar[cellpadding]px">$vbphrase[blog_contains]
+					<input type="text" name="text" id="input_text" size="50" class="bginput" tabindex="1" style="display:block; width:250px" value="$text" />
+				</label>
+
+				<div style="display:block; margin-top:$stylevar[cellpadding]px">
+					<label for="rb_boolean_or"><input type="radio" name="boolean" id="rb_boolean_or" value="1" tabindex="1" $booleanchecked[1] />$vbphrase[search_titles_and_text]</label><br />
+					<label for="rb_boolean_and"><input type="radio" name="boolean" id="rb_boolean_and" value="2" tabindex="1" $booleanchecked[2] />$vbphrase[search_titles_only]</label>
+				</div>
+
+
+				<label for="cb_ignorecomments" style="display:block; margin-top:$stylevar[cellpadding]px">
+					<input type="checkbox" name="ignorecomments" id="cb_ignorecomments" value="1" tabindex="1" $ignorecommentschecked[1] />$vbphrase[ignore_comments]
+				</label>
+
+				<label for="input_username" style="display:block; margin-top:$stylevar[cellpadding]px">$vbphrase[blog_posted_by]
+					<input type="text" name="username" id="input_username" size="50" class="bginput" tabindex="1" style="display:block; width:250px" value="$username" />
+				</label>
+
+				<if condition="$vboptions['vbblog_tagging']">
+				<label for="input_tag" style="display:block; margin-top:$stylevar[cellpadding]px">$vbphrase[tag]:
+					<input type="text" name="tag" id="input_tag" size="50" class="bginput" tabindex="1" style="display:block; width:250px" value="$tag" />
+				</label>
+				</if>
+
+				<hr />
+
+				<label for="blog_sort" style="display:block; margin-top:$stylevar[cellpadding]px">$vbphrase[sort_results_by]</label>
+				<select name="sort" tabindex="1" id="blog_sort">
+					<option value="posttime" $sortselected[posttime]>$vbphrase[blog_entry_post_date_time]</option>
+					<option value="lastcomment" $sortselected[lastcomment]>$vbphrase[last_comment]</option>
+				</select>
+				<select name="sortorder" tabindex="1">
+					<option value="desc" $sortorderselected[desc]>$vbphrase[in_descending_order]</option>
+					<option value="asc" $sortorderselected[asc]>$vbphrase[in_ascending_order]</option>
+				</select>
+
+				$imagereg$human_verify
+
+
+			</div>
+		</div>
+
+		<div style="margin-top:$stylevar[cellpadding]px">
+			<input type="hidden" name="s" value="$session[sessionhash]" />
+			<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+			<input type="hidden" name="do" value="dosearch" />
+			<input type="submit" class="button" tabindex="1" value="$vbphrase[search]" />
+		</div>
+	</td>
+</tr>
+</table>
+</form>
+
+<if condition="$tag_cloud">
+	<div style="margin-top:20px">$tag_cloud</div>
+</if>

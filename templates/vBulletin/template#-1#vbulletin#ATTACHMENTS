@@ -1,0 +1,29 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+	$headinclude
+	<title>$vbphrase[attachments] - $vboptions[bbtitle]</title>
+</head>
+<body onload="self.focus()" style="margin:0px">
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+<tr>
+	<td class="tcat" colspan="3">
+		$vbphrase[attachments]
+	</td>
+</tr>
+<tr>
+	<td class="thead">$vbphrase[attachment]</td>
+	<td class="thead">$vbphrase[size]</td>
+	<td class="thead">$vbphrase[views]</td>
+</tr>
+$attachments
+<tr>
+	<td class="tfoot" colspan="3" align="center"><div class="smallfont">
+		<a href="#" onclick="opener.location=('showthread.php?$session[sessionurl]t=$threadid'); self.close();"><strong>$vbphrase[show_thread_and_close_window]</strong></a>
+	</div></td>
+</tr>
+</table>
+
+</body>
+</html>

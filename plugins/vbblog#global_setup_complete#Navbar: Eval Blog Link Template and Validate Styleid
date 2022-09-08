@@ -1,0 +1,31 @@
+$show['canpostitems'] = (
+	$vbulletin->userinfo['permissions']['vbblog_general_permissions'] & $vbulletin->bf_ugp_vbblog_general_permissions['blog_canviewown']
+		AND
+	$vbulletin->userinfo['permissions']['vbblog_entry_permissions'] & $vbulletin->bf_ugp_vbblog_entry_permissions['blog_canpost']
+		AND
+	$vbulletin->userinfo['userid']
+);
+$show['blog_search'] = ($vbulletin->userinfo['permissions']['vbblog_general_permissions'] & $vbulletin->bf_ugp_vbblog_general_permissions['blog_cansearch']);
+
+if (defined('VBBLOG_CACHED_TEMPLATES'))
+{
+	eval('$template_hook[\'navbar_buttons_left\'] .= "' . fetch_template('blog_navbar_link') . '";');
+	eval('$header .= "' . fetch_template('blog_navbar_link_menu') . '";');
+	if ($show['blog_search'])
+	{
+		eval('$template_hook[\'navbar_search_menu\'] .= "' . fetch_template('blog_navbar_search') . '";');
+	}
+}
+
+if ($vbulletin->templatecache['blog_bbcode_quote'])
+{
+	$vbulletin->templatecache['bbcode_quote'] =& $vbulletin->templatecache['blog_bbcode_quote'];
+	$vbulletin->templatecache['bbcode_code'] =& $vbulletin->templatecache['blog_bbcode_code'];
+	$vbulletin->templatecache['bbcode_html'] =& $vbulletin->templatecache['blog_bbcode_html'];
+	$vbulletin->templatecache['bbcode_php'] =& $vbulletin->templatecache['blog_bbcode_php'];
+}
+
+if (STYLEID != $vbulletin->userinfo['blogstyleid'])
+{
+	$vbulletin->userinfo['blocktext'] = '';
+}

@@ -1,0 +1,253 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+	<title>$vboptions[bbtitle] - $pagetitle</title>
+</head>
+<body$onload>
+$header
+$navbar
+
+<!-- table to support left column nav -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tr valign="top">
+<td>
+
+<!-- usercp nav -->
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0">
+<tbody>
+<tr><td class="tcat" nowrap="nowrap"><a href="usercp.php$session[sessionurl_q]">$vbphrase[your_control_panel]</a></td></tr>
+<tr><td class="thead"><a href="member.php?$session[sessionurl]u=$bbuserinfo[userid]">$vbphrase[your_profile]</a></td></tr>
+	<tr><td class="$navclass[profile]" nowrap="nowrap"><a class="smallfont" href="profile.php?$session[sessionurl]do=editprofile">$vbphrase[edit_your_details]</a></td></tr>
+	<if condition="$show['customizelink']">
+	<tr><td class="$navclass[customize]" nowrap="nowrap"><a class="smallfont" href="profile.php?$session[sessionurl]do=customize">$vbphrase[customize_profile]</a></td></tr>
+	</if>
+	<if condition="$show['privacylink']">
+	<tr><td class="$navclass[privacy]" nowrap="nowrap"><a class="smallfont" href="profile.php?$session[sessionurl]do=privacy">$vbphrase[profile_privacy]</a></td></tr>
+	</if>
+	<if condition="$show['profilepiclink']">
+	<tr><td class="$navclass[profilepic]" nowrap="nowrap"><a class="smallfont" href="profile.php?$session[sessionurl]do=editprofilepic">$vbphrase[edit_profile_picture]</a></td></tr>
+	</if>
+<tr><td class="thead">$vbphrase[networking]</td></tr>
+	<tr><td class="$navclass[buddylist]" nowrap="nowrap"><a class="smallfont" href="profile.php?$session[sessionurl]do=buddylist"><if condition="$show['friends_and_contacts']">$vbphrase[contacts_and_friends]<else />$vbphrase[contacts]</if></a></td></tr>
+	<if condition="$show['socialgroupslink']">
+	<tr><td class="$navclass[socialgroups]" nowrap="nowrap"><a class="smallfont" href="group.php$session[sessionurl_q]">$vbphrase[social_groups]</a></td></tr>
+	</if>
+	<if condition="$show['publicgroups']">
+	<tr><td class="$navclass[usergroups]" nowrap="nowrap"><a class="smallfont" href="profile.php?$session[sessionurl]do=editusergroups">$vbphrase[group_memberships]</a></td></tr>
+	</if>
+	<if condition="$show['albumlink']">
+	<tr><td class="$navclass[album]" nowrap="nowrap"><a class="smallfont" href="album.php?$session[sessionurl]u=$bbuserinfo[userid]">$vbphrase[pictures_and_albums]</a></td></tr>
+	</if>
+<tr><td class="thead">$vbphrase[settings_and_options]</td></tr>
+	<if condition="$show['avatarlink']">
+	<tr><td class="$navclass[avatar]" nowrap="nowrap"><a class="smallfont" href="profile.php?$session[sessionurl]do=editavatar">$vbphrase[edit_avatar]</a></td></tr>
+	</if>
+	<if condition="$show['siglink']">
+	<tr><td class="$navclass[signature]" nowrap="nowrap"><a class="smallfont" href="profile.php?$session[sessionurl]do=editsignature">$vbphrase[edit_signature]</a></td></tr>
+	</if>
+	<tr><td class="$navclass[password]" nowrap="nowrap"><a class="smallfont" href="profile.php?$session[sessionurl]do=editpassword">$vbphrase[edit_email_and_password]</a></td></tr>
+	<tr><td class="$navclass[options]" nowrap="nowrap"><a class="smallfont" href="profile.php?$session[sessionurl]do=editoptions">$vbphrase[edit_options]</a></td></tr>
+	<tr><td class="$navclass[ignorelist]" nowrap="nowrap"><a class="smallfont" href="profile.php?$session[sessionurl]do=ignorelist">$vbphrase[edit_ignore_list]</a></td></tr>
+<if condition="$show['pmmainlink']">
+<tr>
+	<td class="thead" nowrap="nowrap">
+	<span id="nav_pmfolders">$vbphrase[private_messages] <if condition="$show['popups']"><script type="text/javascript"> vbmenu_register("nav_pmfolders"); </script></if></span>
+	<if condition="$show['popups']">
+		<div class="vbmenu_popup" id="nav_pmfolders_menu" style="display:<if condition="$show['popups']">none<else />block</if>">
+			<table cellpadding="4" cellspacing="1" border="0">
+			<tr>
+				<td class="thead" nowrap="nowrap">$vbphrase[folders]</td>
+			</tr>
+			$cpnav[pmfolders]
+			</table>
+		</div>
+	</if>
+	</td>
+</tr>
+	<tr><td class="$navclass[pm_messagelist]" nowrap="nowrap"><a class="smallfont" href="private.php$session[sessionurl_q]">$vbphrase[list_messages]</a></td></tr>
+	<if condition="$show['pmsendlink']">
+	<tr><td class="$navclass[pm_newpm]" nowrap="nowrap"><a class="smallfont" href="private.php?$session[sessionurl]do=newpm">$vbphrase[send_new_message]</a></td></tr>
+	</if>
+	<if condition="$show['pmtracklink']">
+	<tr><td class="$navclass[pm_trackpm]" nowrap="nowrap"><a class="smallfont" href="private.php?$session[sessionurl]do=trackpm">$vbphrase[track_messages]</a></td></tr>
+	</if>
+	<tr><td class="$navclass[pm_editfolders]" nowrap="nowrap"><a class="smallfont" href="private.php?$session[sessionurl]do=editfolders">$vbphrase[edit_folders]</a></td></tr>
+</if>
+<tr>
+	<td class="thead" nowrap="nowrap">
+		<span id="nav_subsfolders">$vbphrase[subscribed_threads] <if condition="$show['popups']"><script type="text/javascript"> vbmenu_register("nav_subsfolders"); </script></if></span>
+		<if condition="$show['popups']">
+			<div class="vbmenu_popup" id="nav_subsfolders_menu" style="display:<if condition="$show['popups']">none<else />block</if>">
+				<table cellpadding="4" cellspacing="1" border="0">
+				<tr>
+					<td class="thead" nowrap="nowrap">$vbphrase[folders]</td>
+				</tr>
+				$cpnav[subsfolders]
+				</table>
+			</div>
+		</if>
+	</td>
+</tr>
+	<tr><td class="$navclass[substhreads_listthreads]" nowrap="nowrap"><a class="smallfont" href="subscription.php?$session[sessionurl]do=viewsubscription">$vbphrase[list_subscriptions]</a></td></tr>
+	<tr><td class="$navclass[substhreads_editfolders]" nowrap="nowrap"><a class="smallfont" href="subscription.php?$session[sessionurl]do=editfolders">$vbphrase[edit_folders]</a></td></tr>
+</tbody>
+<if condition="$show['moderation']">
+<tbody id="nav_moderation">
+<if condition="$show['deleteditems']">
+	<tr><td class="thead">$vbphrase[deleted_items]</td></tr>
+	<tr><td class="$navclass[deletedthreads]" nowrap="nowrap"><a class="smallfont" href="moderation.php?$session[sessionurl]do=viewthreads&amp;type=deleted">$vbphrase[threads]</a></td></tr>
+	<tr><td class="$navclass[deletedposts]" nowrap="nowrap"><a class="smallfont" href="moderation.php?$session[sessionurl]do=viewposts&amp;type=deleted">$vbphrase[posts]</a></td></tr>
+	<if condition="$show['deletedvms']"><tr><td class="$navclass[deletedvms]" nowrap="nowrap"><a class="smallfont" href="moderation.php?$session[sessionurl]do=viewvms&amp;type=deleted">$vbphrase[visitor_messages]</a></td></tr></if>
+	<if condition="$show['deletedgms']"><tr><td class="$navclass[deletedgms]" nowrap="nowrap"><a class="smallfont" href="moderation.php?$session[sessionurl]do=viewgms&amp;type=deleted">$vbphrase[group_messages]</a></td></tr></if>
+	<if condition="$show['deleteddiscussions']"><tr><td class="$navclass[deleteddiscussions]" nowrap="nowrap"><a class="smallfont" href="moderation.php?$session[sessionurl]do=viewdiscussions&amp;type=deleted">$vbphrase[group_discussions]</a></td></tr></if>
+	<if condition="$show['deletedpcs']"><tr><td class="$navclass[deletedpcs]" nowrap="nowrap"><a class="smallfont" href="moderation.php?$session[sessionurl]do=viewpcs&amp;type=deleted">$vbphrase[picture_comments]</a></td></tr></if>
+</if>
+
+<if condition="$show['moderateditems']">
+	<tr><td class="thead">$vbphrase[moderated_items]</td></tr>
+	<if condition="$show['moderatedposts']">
+		<tr><td class="$navclass[moderatedthreads]" nowrap="nowrap"><a class="smallfont" href="moderation.php?$session[sessionurl]do=viewthreads&amp;type=moderated">$vbphrase[threads]</a></td></tr>
+		<tr><td class="$navclass[moderatedposts]" nowrap="nowrap"><a class="smallfont" href="moderation.php?$session[sessionurl]do=viewposts&amp;type=moderated">$vbphrase[posts]</a></td></tr>
+	</if>
+	<if condition="$show['moderatedvms']">
+		<tr><td class="$navclass[moderatedvms]" nowrap="nowrap"><a class="smallfont" href="moderation.php?$session[sessionurl]do=viewvms&amp;type=moderated">$vbphrase[visitor_messages]</a></td></tr>
+	</if>
+	<if condition="$show['moderatedgms']">
+		<tr><td class="$navclass[moderatedgms]" nowrap="nowrap"><a class="smallfont" href="moderation.php?$session[sessionurl]do=viewgms&amp;type=moderated">$vbphrase[group_messages]</a></td></tr>
+	</if>
+	<if condition="$show['moderateddiscussions']">
+		<tr><td class="$navclass[moderateddiscussions]" nowrap="nowrap"><a class="smallfont" href="moderation.php?$session[sessionurl]do=viewdiscussions&amp;type=moderated">$vbphrase[group_discussions]</a></td></tr>
+	</if>
+	<if condition="$show['moderatedpcs']">
+		<tr><td class="$navclass[moderatedpcs]" nowrap="nowrap"><a class="smallfont" href="moderation.php?$session[sessionurl]do=viewpcs&amp;type=moderated">$vbphrase[picture_comments]</a></td></tr>
+	</if>
+	<if condition="$show['moderatedpics']">
+		<tr><td class="$navclass[moderatedpics]" nowrap="nowrap"><a class="smallfont" href="moderation.php?$session[sessionurl]do=viewpics">$vbphrase[album_pictures]</a></td></tr>
+	</if>
+</if>
+
+<if condition="$show['newitems']">
+	<tr><td class="thead">$vbphrase[new_items]</td></tr>
+	<if condition="$show['newvms']">
+		<tr><td class="$navclass[newvms]" nowrap="nowrap"><a class="smallfont" href="moderation.php?$session[sessionurl]do=viewvms&amp;type=new">$vbphrase[visitor_messages]</a></td></tr>
+	</if>
+	<if condition="$show['newgms']">
+		<tr><td class="$navclass[newgms]" nowrap="nowrap"><a class="smallfont" href="moderation.php?$session[sessionurl]do=viewgms&amp;type=new">$vbphrase[group_messages]</a></td></tr>
+	</if>
+	<if condition="$show['newdiscussions']">
+		<tr><td class="$navclass[newdiscussions]" nowrap="nowrap"><a class="smallfont" href="moderation.php?$session[sessionurl]do=viewdiscussions&amp;type=new">$vbphrase[group_discussions]</a></td></tr>
+	</if>
+	<if condition="$show['newpcs']">
+		<tr><td class="$navclass[newpcs]" nowrap="nowrap"><a class="smallfont" href="moderation.php?$session[sessionurl]do=viewpcs&amp;type=new">$vbphrase[picture_comments]</a></td></tr>
+	</if>
+	<if condition="$show['newpics']">
+		<tr><td class="$navclass[newpics]" nowrap="nowrap"><a class="smallfont" href="moderation.php?$session[sessionurl]do=viewpics&amp;type=new">$vbphrase[album_pictures]</a></td></tr>
+	</if>
+</if>
+</tbody>
+</if>
+
+<if condition="$show['popups'] AND $show['moderation']">
+<tbody id="nav_moderation_popups" style="display:none">
+	<tr><td class="thead">$vbphrase[moderation]</td></tr>
+	<if condition="$show['deleteditems']"><tr><td class="$navclass[deleteditems]" nowrap="nowrap"><span class="smallfont" id="nav_deleteditems"><a href="javascript://">$vbphrase[deleted_items]</a> </span></td></tr></if>
+	<if condition="$show['moderateditems']"><tr><td class="$navclass[moderateditems]" nowrap="nowrap"><span class="smallfont" id="nav_moderateditems"><a href="javascript://">$vbphrase[moderated_items]</a> </span></td></tr></if>
+	<if condition="$show['newitems']"><tr><td class="$navclass[newitems]" nowrap="nowrap"><span class="smallfont" id="nav_newitems"><a href="javascript://">$vbphrase[new_items]</a> </span></td></tr></if>
+</tbody>
+</if>
+<tbody>
+<tr><td class="thead">$vbphrase[miscellaneous]</td></tr>
+<tr><td class="$navclass[event_reminders]" nowrap="nowrap"><a class="smallfont" href="calendar.php?$session[sessionurl]do=viewreminder">$vbphrase[event_reminders]</a></td></tr>
+<if condition="$show['paidsubscriptions']">
+<tr><td class="$navclass[paid_subscriptions]" nowrap="nowrap"><a class="smallfont" href="payments.php$session[sessionurl_q]">$vbphrase[paid_subscriptions]</a></td></tr>
+</if>
+<if condition="$show['attachments']">
+<tr><td class="$navclass[attachments]" nowrap="nowrap"><a class="smallfont" href="profile.php?$session[sessionurl]do=editattachments">$vbphrase[attachments]</a></td></tr>
+</if>
+</tbody>
+$template_hook[usercp_navbar_bottom]
+</table>
+<!-- / usercp nav -->
+
+<if condition="$show['popups'] AND $show['moderation']">
+<!-- moderation popups -->
+<if condition="$show['deleteditems']">
+<div class="vbmenu_popup" id="nav_deleteditems_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+
+		<tr><td class="thead" nowrap="nowrap">$vbphrase[deleted_items]</td></tr>
+		<if condition="$show['deletedposts']">
+		<tr><td class="vbmenu_option"><a href="moderation.php?$session[sessionurl]do=viewthreads&amp;type=deleted">$vbphrase[threads]</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="moderation.php?$session[sessionurl]do=viewposts&amp;type=deleted">$vbphrase[posts]</a></td></tr>
+		</if>
+		<if condition="$show['deletedvms']"><tr><td class="vbmenu_option"><a href="moderation.php?$session[sessionurl]do=viewvms&amp;type=deleted">$vbphrase[visitor_messages]</a></td></tr></if>
+		<if condition="$show['deletedgms']"><tr><td class="vbmenu_option"><a href="moderation.php?$session[sessionurl]do=viewgms&amp;type=deleted">$vbphrase[group_messages]</a></td></tr></if>
+		<if condition="$show['deleteddiscussions']"><tr><td class="vbmenu_option"><a href="moderation.php?$session[sessionurl]do=viewdiscussions&amp;type=deleted">$vbphrase[group_discussions]</a></td></tr></if>
+		<if condition="$show['deletedpcs']"><tr><td class="vbmenu_option"><a href="moderation.php?$session[sessionurl]do=viewpcs&amp;type=deleted">$vbphrase[picture_comments]</a></td></tr></if>
+
+	</table>
+</div>
+<script type="text/javascript"> vbmenu_register("nav_deleteditems"); </script>
+</if>
+
+<if condition="$show['moderateditems']">
+<div class="vbmenu_popup" id="nav_moderateditems_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+
+		<tr><td class="thead" nowrap="nowrap">$vbphrase[moderated_items]</td></tr>
+		<if condition="$show['moderatedposts']">
+		<tr><td class="vbmenu_option"><a href="moderation.php?$session[sessionurl]do=viewthreads&amp;type=moderated">$vbphrase[threads]</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="moderation.php?$session[sessionurl]do=viewposts&amp;type=moderated">$vbphrase[posts]</a></td></tr>
+		</if>
+		<if condition="$show['moderatedvms']"><tr><td class="vbmenu_option"><a href="moderation.php?$session[sessionurl]do=viewvms&amp;type=moderated">$vbphrase[visitor_messages]</a></td></tr></if>
+		<if condition="$show['moderatedgms']"><tr><td class="vbmenu_option"><a href="moderation.php?$session[sessionurl]do=viewgms&amp;type=moderated">$vbphrase[group_messages]</a></td></tr></if>
+		<if condition="$show['moderateddiscussions']"><tr><td class="vbmenu_option"><a href="moderation.php?$session[sessionurl]do=viewdiscussions&amp;type=moderated">$vbphrase[group_discussions]</a></td></tr></if>
+		<if condition="$show['moderatedpcs']"><tr><td class="vbmenu_option"><a href="moderation.php?$session[sessionurl]do=viewpcs&amp;type=moderated">$vbphrase[picture_comments]</a></td></tr></if>
+		<if condition="$show['moderatedpics']"><tr><td class="vbmenu_option"><a href="moderation.php?$session[sessionurl]do=viewpics">$vbphrase[album_pictures]</a></td></tr></if>
+
+	</table>
+</div>
+<script type="text/javascript"> vbmenu_register("nav_moderateditems"); </script>
+</if>
+
+<if condition="$show['newitems']">
+<div class="vbmenu_popup" id="nav_newitems_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+
+		<tr><td class="thead" nowrap="nowrap">$vbphrase[new_items]</td></tr>
+		<if condition="$show['newvms']"><tr><td class="vbmenu_option"><a href="moderation.php?$session[sessionurl]do=viewvms&amp;type=new">$vbphrase[visitor_messages]</a></td></tr></if>
+		<if condition="$show['newgms']"><tr><td class="vbmenu_option"><a  href="moderation.php?$session[sessionurl]do=viewgms&amp;type=new">$vbphrase[group_messages]</a></td></tr></if>
+		<if condition="$show['newdiscussions']"><tr><td class="vbmenu_option"><a href="moderation.php?$session[sessionurl]do=viewdiscussions&amp;type=new">$vbphrase[group_discussions]</a></td></tr></if>
+		<if condition="$show['newpcs']"><tr><td class="vbmenu_option"><a href="moderation.php?$session[sessionurl]do=viewpcs&amp;type=new">$vbphrase[picture_comments]</a></td></tr></if>
+		<if condition="$show['newpics']"><tr><td class="vbmenu_option"><a href="moderation.php?$session[sessionurl]do=viewpics&amp;type=new">$vbphrase[album_pictures]</a></td></tr></if>
+
+	</table>
+</div>
+<script type="text/javascript"> vbmenu_register("nav_newitems"); </script>
+</if>
+
+<script type="text/javascript">
+<!--
+	fetch_object('nav_moderation_popups').style.display = '';
+	fetch_object('nav_moderation').style.display = 'none';
+-->
+</script>
+<!-- / moderation popups -->
+</if>
+	
+</td>
+<td>&nbsp;&nbsp;</td>
+<td width="100%">
+
+<!-- main page contents -->
+$HTML
+<!-- / main page contents -->
+
+</td>
+</tr>
+</table>
+<!-- / table to support left column nav -->
+$footer
+</body>
+</html>

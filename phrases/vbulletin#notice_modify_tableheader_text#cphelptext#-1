@@ -1,0 +1,15 @@
+Here you see a list of all the notices you have currently defined on your system.<br />
+<br />
+At the top of the list is a checkbox that allows you to toggle the 'Active' status of all notices with one click.<br />
+<br />
+To edit a notice, click its title. To delete a notice, there is a 'Delete' link at the end of each notice's row in the manager.<br />
+<br />
+Each notice is displayed with two checkboxes and a text box containing a number. These represent the Active status, the Persistent nature of the notice, and the notice's Display Order.<br />
+<br />
+If a notice is not active, it will not be displayed to visitors under any circumstances.<br />
+<br />
+A notice that is not persistent will be displayed the first time a user visits the board and will then disappear until they visit again (it is displayed once per browser-session).<br />
+<br />
+The display order text box controls the order in which the notice is shown, both in the notices manager <em>and</em> to visitors. Display order also controls the order in which notices are checked, so it's important for the 'Notice x has not already been displayed' condition.<br />
+<br />
+After using the Active, Persistent and Display Order controls, you need to click the 'Save' button to commit your changes.

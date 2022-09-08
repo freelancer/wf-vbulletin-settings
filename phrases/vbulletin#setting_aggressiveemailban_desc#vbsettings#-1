@@ -1,0 +1,3 @@
+If this option is enabled, when checking for banned emails, incomplete addresses are matched anywhere in the email address, not just the end.<br />
+<br />
+For example, if this option is enabled 'yahoo' will block any email address with 'yahoo' in it. If this option is disabled, no emails will be banned unless the ban was changed to 'yahoo.com'.

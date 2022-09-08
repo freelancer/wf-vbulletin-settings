@@ -1,0 +1,4 @@
+<dt class="shade"><img src="vbseo/resources/images/forum/vbseo_like.png" alt="$vbphrase[vbseo_likes_received]" class="inlineimg" /> $vbphrase[vbseo_likes_received]</dt>
+<dd><a href="member.php?u=$prepared[userid]&tab=likes_received">$userinfo[vbseo_likes_in]</a></dd>
+<dt class="shade"><img src="vbseo/resources/images/forum/vbseo_like.png" alt="$vbphrase[vbseo_likes_given]" class="inlineimg" /> $vbphrase[vbseo_likes_given]</dt>
+<dd><a href="member.php?u=$prepared[userid]&tab=likes_given">$userinfo[vbseo_likes_out]</a></dd>

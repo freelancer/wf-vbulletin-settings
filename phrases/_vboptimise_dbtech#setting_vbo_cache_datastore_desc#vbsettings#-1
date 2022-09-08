@@ -1,0 +1,7 @@
+This option specifies if you would like vB Optimise to cache custom Datastore items. This is useful if you have modifications installed and they are using datastore items, even if all you're using is the vBulletin Blog this will have an impact.
+<br />
+<br />
+By doing so, your forum will have one small global query eliminated where possible.
+<br />
+<br />
+<strong>Note:</strong> This feature doesn't cache any data, it auto-corrects Datastore Items to use your preferred Datastore Cache method (defined within config.php) instead of your database.

@@ -1,0 +1,29 @@
+if (!$show['member'] && $vbulletin->options['spam_hammer_service_contact_us'] && empty($errors)) {
+	$fallback = Spam_Hammer_Fallback::run();
+
+	if ($vbulletin->options['vbresults_service_auth_token']) {
+		$process = vB_Forum_Results_Service::get('spamhammer', 'process_form', array(
+			'type' => 'contact',
+			'time' => TIMENOW,
+			'request' => $vbulletin->GPC + $_POST,
+			'email_address' => $vbulletin->GPC['email'],
+			'user_name' => $vbulletin->GPC['name'],
+			'user_agent' => $_SERVER['HTTP_USER_AGENT'],
+			'ip_address' => $_SERVER['REMOTE_ADDR'],
+			'session_hash' => $vbulletin->session->vars['dbsessionhash'],
+			'countdown' => 15,
+			'protect' => true,
+			'report' => $vbulletin->options['spam_hammer_service_report']
+		));
+	} else {
+		$process = '';
+	}
+
+	if (!$fallback && (!$process || is_array($process))) {
+		if (!$fallback) {
+			Spam_Hammer_Fallback::report();
+		}
+
+		exit;
+	}
+}

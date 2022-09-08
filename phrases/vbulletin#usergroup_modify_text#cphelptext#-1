@@ -1,0 +1,7 @@
+This is the usergroup manager.  Here you can manage your default, custom, and public custom usergroups.<br /><br />
+
+Default usergroups are those that are created as a part of vBulletin.  Custom usergroups are those that you created.  Public custom usergroups are custom usergroups that your users can request to join because you have enabled the "Public (Joinable) Custom Usergroups" option for those usergroups.<br /><br />
+
+The "Primary Users" column specifies the number of users whose primary usergroup is the corresponding group.  The "Additional Users" column specifies the number of users whose additional usergroup memberships include the corresponding group.  The "Controls" column contains a menu with several options for each usergroup... select an option and click "Go" to continue.<br /><br />
+
+The "Public Custom Usergroups" section has two extra columns, "Join Requests" and "Usergroup Leader."  The "Join Requests" column indicates how many join requests are awaiting approval for the corresponding usergroup; users can submit join requests for usergroups for which you have enabled the "Public (Joinable) Custom Usergroups" option.  The "Usergroup Leader" column lists the current group leaders.  You can delete an existing group leader by clicking the corresponding [Delete] link.  To add a new usergroup leader simply select the "Add Usergroup Leader" options from the group's Controls menu.

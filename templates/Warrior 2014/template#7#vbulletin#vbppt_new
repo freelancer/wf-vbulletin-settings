@@ -1,0 +1,36 @@
+<if condition="$threadinfo[forumid] == 77">
+    <img border="0" src="$stylevar[imgdir_button]/paythread.png"
+         wf-payment-choice
+         <if condition="$redirecturl">redirect-url="$redirecturl"</if>
+         fixed-charge-item-id=6
+         item-id=$threadinfo[threadid]
+         item-class='thread'
+         style="cursor:pointer;"
+         auto-open=1
+         fl-analytics-section="wf-paymentbutton" fl-analytics="thread-page-show-paynewmodal"
+     />
+<else />
+    <if condition="$threadinfo[forumid] == 79">
+        <img border="0" src="$stylevar[imgdir_button]/paythread.png"
+             wf-payment-choice
+             <if condition="$redirecturl">redirect-url="$redirecturl"</if>
+             fixed-charge-item-id=7
+             item-id=$threadinfo[threadid]
+             item-class='thread'
+             style="cursor:pointer;"
+             auto-open=1
+             fl-analytics-section="wf-paymentbutton" fl-analytics="thread-page-show-paynewmodal"
+         />
+    <else />
+         <img border="0" src="$stylevar[imgdir_button]/paythread.png"
+             wf-payment-choice
+             <if condition="$redirecturl">redirect-url="$redirecturl"</if>
+             fixed-charge-item-id=1
+             item-id=$threadinfo[threadid]
+             item-class='thread'
+             style="cursor:pointer;"
+             auto-open=1
+             fl-analytics-section="wf-paymentbutton" fl-analytics="thread-page-show-paynewmodal"
+        />
+    </if>
+ </if>

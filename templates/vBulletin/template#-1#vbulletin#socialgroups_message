@@ -1,0 +1,67 @@
+<div id="gmessage_qe$message[gmid]">
+	<if condition="$message['goto']">
+		<a name="newmessage"></a>
+	</if>
+	<div class="social_group_message">
+		<div id="gmessage$message[gmid]" class="floatcontainer alt1 tborder">
+		<if condition="$message['avatarurl']">
+			<div class="fixed_width_avatar">
+				<if condition="$message['postuserid']"><a href="member.php?$session[sessionurl]u=$message[postuserid]"></if><img src="$message[avatarurl]" class="alt2 avatar"<if condition="$message['avatarwidth']"> width="$message[avatarwidth]"</if><if condition="$message['avatarheight']"> height="$message[avatarheight]"</if> border="0" alt="$message[username]" /><if condition="$message['postuserid']"></a></if>
+			</div>
+			<div class="message_avatar_margin">
+		</if>
+		<div class="tborder info_bar">
+			<div class="alt2 smallfont">
+					<if condition="$show['inlinemod']"><div class="inlinemod_control"><input type="checkbox" class="inlinemod_checkbox" name="gmessagelist[$message[gmid]]" id="gmessagelist_$message[gmid]" value="$message[checkbox_value]" title="$vbphrase[select_this_item_for_inline_moderation]"  /></div></if>
+				<div class="group_message_date">$message[date]<if condition="!$show['detailedtime']"> <span class="time">$message[time]</span></if></div>
+				<if condition="$message['postuserid']">
+					<a href="member.php?$session[sessionurl]u=$message[postuserid]" class="smallfont username">$message[musername]</a>
+				<else />
+					<span class="smallfont username">$message[musername]</span>
+				</if>
+				
+				<if condition="$show['group'] OR $show['discussion']">
+				<div>
+				<if condition="$show['group']">
+					<span><phrase 1="group.php?$session[sessionurl]gmid=$message[gmid]#gmessage$message[gmid]" 2="$message[groupname]">$vbphrase[group_x]</phrase></span>
+				</if>
+				<if condition="$show['discussion']">
+					<span><phrase 1="group.php?$session[sessionurl]gmid=$message[gmid]#gmessage$message[gmid]" 2="$message[discussiontitle]">$vbphrase[discussion_x]</phrase></span>
+				</if>
+				</div>
+				</if>
+		</div>
+			</div>
+
+			<div class="social_group_message_body">
+				<if condition="$show['moderation']"><div class="shade smallfont">$vbphrase[this_message_is_moderated]</div></if>
+		<div class="group_message_body" id="gmessage_text_$message[gmid]">$message[message]</div>
+
+		<ul class="list_no_decoration controls">
+			<if condition="$message['edit']">
+				<if condition="!$message[is_discussion]">
+				<img style="display: none" id="progress_$message[gmid]" src="$stylevar[imgdir_misc]/progress.gif" alt="$vbphrase[loading_editor_please_wait]" />
+				</if>
+				<li class="smallfont"><a href="group.php?$session[sessionurl]do=message&amp;gmid=$message[gmid]<if condition="$perpage">&amp;pp=$perpage</if><if condition="$pagenumber">&amp;page=$pagenumber</if>" id="gmessage_qe_edit_$message[gmid]">$vbphrase[edit]</a></li>
+			</if>
+			<if condition="$show['reportlink']">
+				<li class="smallfont"><a href="group.php?$session[sessionurl]do=report&amp;gmid=$message[gmid]">$vbphrase[report]</a></li>
+			</if>
+					<if condition="$message['itemipaddress']">
+				<li class="smallfont"><a href="group.php?do=viewip&amp;gmid=$message[gmid]">$vbphrase[ip]</a></li>
+			</if>
+		</ul>
+			</div>
+	<if condition="$message['avatarurl']">
+		</div>
+	</if>
+		</div>
+	<if condition="$show['edit'] AND $show['popups'] AND !$message[is_discussion]">
+		<script type="text/javascript">
+		<!--
+		vBulletin.register_control("vB_QuickEdit", "$message[gmid]", 'GroupMessage');
+		//-->
+		</script>
+	</if>
+	</div>
+</div>

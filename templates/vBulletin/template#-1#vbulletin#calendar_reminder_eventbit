@@ -1,0 +1,44 @@
+<tr>
+	<td class="alt1Active" id="e$event[subscribeeventid]" title="$event[preview]" width="100%">
+
+		<div>
+			<a href="calendar.php?$session[sessionurl]do=getinfo&amp;e=$event[eventid]">$event[title]</a>
+		</div>
+
+		<div class="smallfont">
+			<if condition="$event['username']">
+				<span style="cursor:pointer" onclick="window.open('member.php?$session[sessionurl]u=$event[userid]','_self')">$event[username]</span>
+			</if>
+		</div>
+	</td>
+
+	<td class="alt2" title="$vbphrase[event_date]" nowrap="nowrap">
+		<div class="smallfont" style="text-align:$stylevar[right]; white-space:nowrap">
+			<span class="smallfont">
+			<if condition="$show['recuroption']">
+				$recurcriteria<br /><phrase 1="$date1" 2="$date2">$vbphrase[date_x_to_y]</phrase><br />
+				<phrase 1="$time1" 2="$time2">$vbphrase[time_x_to_y]</phrase>
+			<else />
+				<if condition="$daterange">
+					$daterange
+				<else />
+					<if condition="$show['singleday']">
+						$eventdate
+					<else />
+						$date1 <span class="time">$time1</span><br />$date2 <span class="time">$time2</span>
+					</if>
+				</if>
+			</if>
+			</span>
+		</div>
+	</td>
+
+	<td class="alt1" title="$vbphrase[reminder]" nowrap="nowrap">
+		<div class="smallfont">$event[reminder]</div>
+	</td>
+
+	<td class="alt2"><div class="smallfont" align="$stylevar[right]">
+		<label for="ev$event[subscribeeventid]"><input type="checkbox" name="deletebox[$event[subscribeeventid]]" id="ev$event[subscribeeventid]" value="yes" /></label>
+	</div></td>
+
+</tr>

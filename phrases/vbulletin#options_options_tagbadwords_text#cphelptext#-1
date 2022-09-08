@@ -1,0 +1,3 @@
+When users create new tags, the words they choose are checked against a list specified in includes/searchwords.php, and against the list described in this setting.<br />
+<br />
+If the word the user has chosen as their tag is found in either list, its use will be disallowed and the user will receive an error message stating that they can not use that word.

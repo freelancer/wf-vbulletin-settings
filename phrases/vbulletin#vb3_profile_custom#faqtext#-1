@@ -1,0 +1,5 @@
+<p><b>How do I customize my profile page?</b></p>
+
+<p>You may be able to edit the design and styling of your public profile page (if this is enabled by the board administrator) via the '<a href="profile.php?$session[sessionurl]do=customize">Customize Profile</a>' section within the <a href="usercp.php$session[sessionurl_q]">User CP</a>. You can adjust the color scheme, fonts, borders and layout of elements on the page.</p>
+
+<p>You can also use images as background for various sections of you profile. First you will need to upload the background images to an album you have created <a href="faq.php?$session[sessionurl]faq=vb3_user_profile#faq_vb3_albums">(?)</a>. Background images can be sourced only from albums defined as public, or 'profile' type. Images in private albums cannot be used.</p>

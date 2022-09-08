@@ -1,0 +1,1 @@
+Some search engines don't like "dynamic" pages with parameters in the URLs, like http://www.domain.com/index.php?parameter=value.  The archive feature gives search engines "static" URLs from which to access your forum content.

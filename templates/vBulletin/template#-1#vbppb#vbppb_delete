@@ -1,0 +1,25 @@
+
+			
+<form action="$filename.php?do=dodeletebanner" enctype="multipart/form-data" method="post" name="vbform">			
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="70%" align="center">
+	<tr>
+		<td class="tcat">$vbphrase[vbppb_delete_banner]</td>
+	</tr>
+	<tr>
+		<td class="panelsurround">
+			<div class="panel" align="center">
+				<strong>$vbphrase[vbppb_please_confirm_delete]</strong>
+				<div>
+					<input type="submit" class="button" value="$vbphrase[vbppb_delete]" tabindex="1" accesskey="s" />
+					<input type="reset" class="button" value="$vbphrase[vbppb_cancel]" tabindex="1" accesskey="r" onclick="history.back()" />
+					<input type="hidden" name="s" value="$session[sessionhash]" />
+					<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+					<input type="hidden" name="do" value="dodeletebanner" />
+					$hiddenCode
+				</div>
+			</div>
+		</td>
+	</tr>
+</table>
+			
+		

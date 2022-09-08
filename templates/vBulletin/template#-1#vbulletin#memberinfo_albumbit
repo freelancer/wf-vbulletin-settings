@@ -1,0 +1,14 @@
+<li>
+	<if condition="$album['coverthumburl']">
+		<a href="album.php?$session[sessionurl]albumid=$album[albumid]"><img src="$album[coverthumburl]" alt="$album[title_html]" border="0" /></a>
+	</if>
+	<div><a href="album.php?$session[sessionurl]albumid=$album[albumid]">$album[title_html]</a></div>
+
+	<if condition="$album['lastpicturedate']">
+		<div class="smallfont">$album[picturedate]<if condition="!$show['detailedtime']"> <span class="time">$album[picturetime]</span></if>
+	<else />
+		<div>$vbphrase[n_a]
+	</if>
+		<if condition="$show['moderated']"> <img class="inlineimg" src="$stylevar[imgdir_misc]/moderated_small.gif" alt="<phrase 1="$album[moderatedcount]">$vbphrase[x_moderated_pictures]</phrase>" /></if>
+	</div>
+</li>

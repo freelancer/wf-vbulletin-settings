@@ -1,0 +1,6 @@
+The path to which the cookie is saved. If you run more than one forum on the same domain, it will be necessary to set this to the individual directories of the forums. Otherwise, just leave it as / .<br />
+<br />
+Suggested valid values for Cookie Path are available in the drop-down menu opposite. If you have a good reason to want a different setting, check the checkbox and enter the desired value in the box provided.<br />
+<br />
+Please note that your path should <b>always</b> end in a forward-slash; for example '/forums/', '/vbulletin/' etc.<br /><br />
+<span class="modlasttendays">Entering an invalid setting can leave you unable to login to your forum.</span>

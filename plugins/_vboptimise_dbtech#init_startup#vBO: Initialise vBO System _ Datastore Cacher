@@ -1,0 +1,10 @@
+require_once(DIR . '/vboptimise/core/class_vboptimise.php');
+require_once(DIR . '/vboptimise/core/class_vboptimise_overload.php');
+vb_optimise::$prefix = $vbulletin->options['vbo_prefix'];
+vb_optimise::assign($vbulletin->options['vbo_operator']);
+vb_optimise::cache('datastore', $datastore_fetch);
+
+if (VB_AREA == 'AdminCP')
+{
+	vb_optimise::update();
+}

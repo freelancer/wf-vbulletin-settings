@@ -1,0 +1,13 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=user&amp;pageaction=&amp;option=">Users</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=usertools&amp;pageaction=&amp;option=">User Tools</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=banning&amp;pageaction=&amp;option=">User Banning</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=email&amp;pageaction=&amp;option=">Emailing Users</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=accessmask&amp;pageaction=&amp;option=">Access Masks</a><br /><br />
+
+<b>Access Masks:</b><br />
+Access Masks allow you grant permission to view a forum, or alternatively to deny permission to view a forum, on a per-user basis without making an additional usergroup. This works in conjunction with the Forum Permission system.<br /><br />
+
+Note that inheritance applies here; if you allow a user to view a parent forum, they will also have access to any children forums.<br /><br />
+
+You must enable access masks in your <a href="options.php?dogroup=general&amp;do=options" target="_blank">vBulletin options</a>, otherwise changes made here will do nothing.

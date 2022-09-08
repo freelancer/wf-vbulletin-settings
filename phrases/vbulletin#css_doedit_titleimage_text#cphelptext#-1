@@ -1,0 +1,3 @@
+Enter a file name complete with a path that is relative to your forum directory.<br /><br />
+
+For example, if your title image is named titleimage.gif and you upload it to the images directory in your forum directory, then you would enter this: images/titleimage.gif

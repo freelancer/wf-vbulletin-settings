@@ -1,0 +1,296 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+
+<if condition="$noredirect_search_page">
+<title>$noredirect_search_query | Warrior Forum</title>
+<else />
+<title>$vboptions[bbtitle] - $vbphrase[search_results]</title>
+</if>
+<if condition="$show['inlinemod']"><script type="text/javascript" src="clientscript/vbulletin_inlinemod.js?v=$vboptions[simpleversion]"></script></if>
+</head>
+<body>
+$header
+$navbar
+
+$template_hook[search_results_top]
+
+<if condition="$pagenav">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tr valign="bottom">
+	<td align="$stylevar[right]">$pagenav</td>
+</tr>
+</table>
+</if>
+
+<form action="inlinemod.php?forumid=$forumid" method="post" id="inlinemodform">
+<input type="hidden" name="url" value="$url" />
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="forumid" value="$forumid" />
+
+<if condition="$noredirect_search_page">
+<h1>$noredirect_search_query</h1>
+$searchtags
+</if>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center" id="threadslist">
+<tr>
+	<td class="tcat" colspan="$threadcolspan" style="font-weight:normal">
+
+		<if condition="$show['inlinemod'] AND $search['showposts']"><input name="allbox" style="margin: 0px 0px 0px 5px; padding: 0px; float: $stylevar[right]; vertical-align: middle;" id="checkall_all" title="$vbphrase[check_uncheck_all]" onclick="inlineMod.check_all();" type="checkbox" /></if>
+		<span class="smallfont" style="float:$stylevar[right]">
+			<if condition="$show['results']">
+			<phrase 1="$first" 2="$last" 3="$numitems">$vbphrase[showing_results_x_to_y_of_z]</phrase>
+			<br />
+			</if>
+			<if condition="$show['generated']">
+			<phrase 1="$searchtime" 2="$searchminutes">$vbphrase[search_took_x_seconds_gen_y_mins]</phrase>
+			<else />
+			<phrase 1="$searchtime">$vbphrase[search_took_x_seconds]</phrase>
+			</if>
+		</span>
+
+		<a href="search.php?$session[sessionurl]$searchquery"><strong>$vbphrase[search]:</strong></a>
+		<span class="smallfont">
+		<if condition="$action == 'process'">
+			<if condition="$displayWords">$vbphrase[key_words]: $displayWords</if>
+
+			<if condition="$displayUsers">
+				<if condition="$displayWords">; </if>
+				<if condition="$starteronly">$vbphrase[threads_started_by]<else />$vbphrase[posts_made_by]</if>: $displayUsers
+			</if>
+
+			<if condition="$display_tag">
+				<if condition="$displayWords OR $displayUsers">; </if>
+				$vbphrase[tag]: $display_tag
+			</if>
+
+			<if condition="$display_prefixes">
+				<if condition="$displayWords OR $displayUsers OR $display_tag">; </if>
+				$vbphrase[prefix]: $display_prefixes <if condition="$show['no_prefix']">$vbphrase[or_no_prefix]</if>
+			</if>
+		<else /><if condition="$action == 'getnew'">
+			$vbphrase[new_posts_nav]
+		<else /><if condition="$action == 'getdaily'">
+			$vbphrase[posts_from_last_day]
+		</if></if></if>
+
+		<if condition="$displayForums">
+			; $vbphrase[forum]: $displayForums <if condition="$childforums">$vbphrase[and_child_forums]</if>
+		</if>
+		<if condition="$show['titleonlysearch']">
+			<br /><strong><phrase 1="$titlesearchurl">$vbphrase[thread_titles_only_search]</phrase></strong>
+		</if>
+		</span>
+	</td>
+</tr>
+
+<if condition="$displayCommon">
+<tr>
+	<td class="thead" style="font-weight: normal" colspan="$threadcolspan">$vbphrase[words_very_common]: $displayCommon</td>
+</tr>
+</if>
+
+<if condition="$search['showposts']">
+
+</table>
+
+$searchbits
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+
+<else />
+$announcebits
+<tr>
+	<if condition="$show['threadicons']">
+		<td class="thead" colspan="2">&nbsp;</td>
+	<else />
+		<td class="thead">&nbsp;</td>
+	</if>
+	<td class="thead" width="75%">$vbphrase[thread] / $vbphrase[thread_starter]</td>
+	<td class="thead" width="150" align="center" nowrap="nowrap">$vbphrase[last_post]</td>
+	<td class="thead" align="center" nowrap="nowrap">$vbphrase[replies]</td>
+	<td class="thead" align="center" nowrap="nowrap">$vbphrase[views]</td>
+	<td class="thead" width="25%">$vbphrase[forum]</td>
+
+	<if condition="$show['inlinemod']">
+		<if condition="$show['popups']">
+			<td class="vbmenu_control" id="imod" align="center" title="$vbphrase[moderation]"> <script type="text/javascript"> vbmenu_register('imod'); </script> </td>
+		<else />
+			<td class="thead" align="center">
+				<input type="checkbox" name="allbox" id="checkall_all" title="$vbphrase[check_uncheck_all]" onclick="inlineMod.check_all()" />
+			</td>
+		</if>
+
+
+	</if>
+
+</tr>
+
+<if condition="!$show['results']">
+	<!-- show no threads message -->
+	<tr>
+		<td class="alt1" colspan="$threadcolspan" align="center">
+			<div style="padding: 16px">
+				<strong>$vbphrase[no_unread_threads]</strong>
+			</div>
+		</td>
+	</tr>
+	<!-- end show no threads message -->
+<else />
+$searchbits
+</if>
+
+</if>
+
+<tr>
+	<td class="tfoot" colspan="$threadcolspan" align="$stylevar[right]">
+		<if condition="$show['results']">
+		<span class="smallfont"><phrase 1="$first" 2="$last" 3="$numitems">$vbphrase[showing_results_x_to_y_of_z]</phrase></span>
+		<else />
+		&nbsp;
+		</if>
+	</td>
+</tr>
+</table>
+
+<if condition="$pagenav">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:3px">
+<tr valign="top">
+	<if condition="$pagenav"><td align="$stylevar[right]">$pagenav</td></if>
+</tr>
+</table>
+</if>
+
+<if condition="$show['ajax_js'] AND $show['results'] AND !$search['showposts']">
+	<script type="text/javascript" src="clientscript/vbulletin_ajax_threadslist.js?v=$vboptions[simpleversion]"></script>
+	<script type="text/javascript">
+	<!--
+	vB_AJAX_Threadlist_Init('threadslist');
+	var titlemaxchars = parseInt("$vboptions[titlemaxchars]");
+	//-->
+	</script>
+</if>
+
+<if condition="$show['inlinemod']">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:3px">
+<tr valign="top">
+	<td align="$stylevar[right]">
+		<div class="smallfont" style="text-align:$stylevar[left]; white-space:nowrap; float:$stylevar[right]">
+		<strong>$vbphrase[moderation]</strong><br />
+		<if condition="!$search['showposts']">
+			<select name="do">
+				<if condition="$show['deletethread'] OR $show['spamctrls'] OR $show['openthread'] OR $show['approvethread'] OR $show['movethread'] OR $template_hook['inlinemod_thread_bottom']">
+				<optgroup label="$vbphrase[option]">
+
+					<if condition="$show['deletethread']">
+					<option value="deletethread">$vbphrase[delete_threads]</option>
+					<option value="undeletethread">$vbphrase[undelete_threads]</option>
+					</if>
+
+					<if condition="$show['spamctrls']">
+					<option value="spamthread">$vbphrase[delete_threads_as_spam]</option>
+					</if>
+
+					<if condition="$show['openthread']">
+					<option value="open">$vbphrase[open_threads]</option>
+					<option value="close">$vbphrase[close_threads]</option>
+					</if>
+
+					<if condition="$show['approvethread']">
+					<option value="approvethread">$vbphrase[approve_threads]</option>
+					<option value="unapprovethread">$vbphrase[unapprove_threads]</option>
+					</if>
+
+					<if condition="$show['movethread']">
+					<option value="stick">$vbphrase[stick_threads]</option>
+					<option value="unstick">$vbphrase[unstick_threads]</option>
+					<option value="movethread">$vbphrase[move_threads]</option>
+					<option value="mergethread">$vbphrase[merge_threads]</option>
+					</if>
+
+					$template_hook[inlinemod_thread_bottom]
+				</optgroup>
+				</if>
+				<optgroup label="____________________">
+					<option value="viewthread">$vbphrase[view_selected_threads]</option>
+					<option value="clearthread">$vbphrase[clear_thread_list]</option>
+				</optgroup>
+			</select><input type="submit" class="button" id="inlinego" value="$vbphrase[go]" />
+			<script type="text/javascript">
+			<!--
+			inlineMod = new vB_Inline_Mod('inlineMod', 'thread', 'inlinemodform', '$vbphrase[go_x]');
+			//-->
+			</script>
+		<else />
+			<select name="do">
+				<optgroup label="$vbphrase[option]">
+					<if condition="$show['managethread']">
+					<option value="mergeposts">$vbphrase[merge_posts]</option>
+					<option value="moveposts">$vbphrase[move_posts]</option>
+					<option value="copyposts">$vbphrase[copy_posts]</option>
+					</if>
+
+					<if condition="$show['spamctrls']">
+					<option value="spampost">$vbphrase[delete_posts_as_spam]</option>
+					</if>
+
+					<if condition="$show['managepost']">
+					<option value="deleteposts">$vbphrase[delete_posts]</option>
+					<option value="undeleteposts">$vbphrase[undelete_posts]</option>
+					</if>
+
+					<if condition="$show['approvepost']">
+					<option value="approveposts">$vbphrase[approve_posts]</option>
+					<option value="unapproveposts">$vbphrase[unapprove_posts]</option>
+					</if>
+
+					<if condition="$show['approveattachment']">
+					<option value="approveattachments">$vbphrase[approve_attachments]</option>
+					<option value="unapproveattachments">$vbphrase[unapprove_attachments]</option>
+					</if>
+
+					$template_hook[inlinemod_post_bottom]
+				</optgroup>
+				<optgroup label="____________________">
+					<option value="viewpost">$vbphrase[view_selected_posts]</option>
+					<option value="clearpost">$vbphrase[clear_post_list]</option>
+				</optgroup>
+			</select><input type="submit" class="button" id="inlinego" value="$vbphrase[go]" />
+			<script type="text/javascript">
+			<!--
+			inlineMod = new vB_Inline_Mod('inlineMod', 'post', 'inlinemodform', '$vbphrase[go_x]');
+			//-->
+			</script>
+		</if>
+		</div>
+	</td>
+</tr>
+</table>
+</if>
+
+</form>
+
+<br />
+
+$template_hook[search_results_bottom]
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr>
+	<td width="100%">&nbsp;</td>
+	<td>$forumjump</td>
+</tr>
+</table>
+
+<if condition="$show['inlinemod'] AND $show['popups']">
+	<div class="vbmenu_popup" id="imod_menu" style="display:none" align="$stylevar[left]">
+		$threadadmin_imod_menu
+	</div>
+</if>
+
+$footer
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+Attachments Successfully Moved to the Filesystem
+<br />
+<br />
+You should now <a href="repair.php?{1}do=list">Optimize</a> your <b>attachment</b> table to reclaim space that was used by the attachments that are no longer there.

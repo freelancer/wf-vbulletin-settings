@@ -1,0 +1,1 @@
+Finds any users who do not have complete entries in the database. Sometimes the data is not inserted correctly and the user's profile becomes unusable. Running this should correct any incomplete profiles.

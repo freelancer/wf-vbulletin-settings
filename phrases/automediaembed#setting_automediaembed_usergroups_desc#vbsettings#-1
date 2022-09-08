@@ -1,0 +1,2 @@
+A comma seperated list of usergroups whose urls will not become converted during new/edit post
+(note you can use the <a href="automediaembed_admin.php?do=settings">AME CP</a> for this option)

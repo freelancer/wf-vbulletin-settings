@@ -1,0 +1,123 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+<title>$vboptions[bbtitle] - $vbphrase[parental_permission_required]</title>
+<style type="text/css">
+td, p, li, div
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.smallfont
+{
+	font-size: 11px;
+}
+</style>
+</head>
+
+<body bgcolor="white" text="black">
+
+<table border="0" width="100%">
+<tr valign="bottom">
+	<td><a href="$vboptions[forumhome].php$session[sessionurl_q]"><img src="$stylevar[titleimage]" border="0" /></a></td>
+	<td align="center"><strong><phrase 1="$vboptions[bbtitle]">$vbphrase[permission_to_participate_at_x]</phrase></strong></td>
+</tr>
+</table>
+
+
+<p>
+	<phrase 1="$vboptions[companyname]" 2="$vboptions[faxnumber]" 3="$vboptions[address]">$vbphrase[instructions_for_parent_guardian]</phrase>
+</p>
+
+
+<table width="100%" border="1" cellpadding="$stylevar[cellpadding]" cellspacing="1">
+<tr>
+	<td colspan="2"><strong>$vbphrase[required_information]</strong></td>
+</tr>
+<tr>
+	<td width="20%"><strong>$vbphrase[username]</strong></td>
+	<td width="80%">$bbuserinfo[username]&nbsp;</td>
+</tr>
+<tr>
+	<td width="20%"><strong>$vbphrase[email_address]</strong></td>
+	<td width="80%">$bbuserinfo[email]&nbsp;</td>
+</tr>
+<tr>
+	<td colspan="2"><strong>$vbphrase[optional_information]</strong></td>
+</tr>
+<tr>
+	<td colspan="2">
+		$vbphrase[make_changes_profile_visit]:<br />
+		<a href="$vboptions[bburl]/profile.php?$session[sessionurl]do=editprofile">$vboptions[bburl]/profile.php?do=editprofile</a>
+	</td>
+</tr>
+<tr>
+	<td width="20%"><strong>$vbphrase[home_page]</strong></td>
+	<td width="80%">$bbuserinfo[homepage]&nbsp;</td>
+</tr>
+<tr>
+	<td width="20%"><strong>$vbphrase[signature]</strong></td>
+	<td width="80%">$bbuserinfo[signature]&nbsp;</td>
+</tr>
+<tr>
+	<td width="20%">
+		<strong>$vbphrase[privacy_mode]</strong>
+		<div class="smallfont">$vbphrase[yes_hides_email_icq_etc]</div>
+	</td>
+	<td width="80%">$bbuserinfo[showemail]&nbsp;</td>
+</tr>
+<tr>
+	<td width="20%"><strong>$vbphrase[icq_number]</strong></td>
+	<td width="80%">$bbuserinfo[icq]&nbsp;</td>
+</tr>
+<tr>
+	<td width="20%"><strong>$vbphrase[aim_screen_name]</strong></td>
+	<td width="80%">$bbuserinfo[aim]&nbsp;</td>
+</tr>
+<tr>
+	<td width="20%"><strong>$vbphrase[yahoo_messenger_handle]</strong></td>
+	<td width="80%">$bbuserinfo[yahoo]&nbsp;</td>
+</tr>
+<tr>
+	<td width="20%"><strong>$vbphrase[msn_messenger_handle]</strong></td>
+	<td width="80%">$bbuserinfo[msn]&nbsp;</td>
+</tr>
+<tr>
+	<td width="20%"><strong>$vbphrase[skype_name]</strong></td>
+	<td width="80%">$bbuserinfo[skype]&nbsp;</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<strong><if condition="$vboptions['privacyurl']"><phrase 1="$vboptions[privacyurl]">$vbphrase[sign_form_and_send_with_privacy]</phrase><else />$vbphrase[sign_form_and_send_without_privacy]</if></strong>
+	</td>
+</tr>
+<tr>
+	<td width="20%"><strong>$vbphrase[parent_guardian_full_name]</strong></td>
+	<td width="80%">&nbsp;</td>
+</tr>
+<tr>
+	<td width="20%"><strong>$vbphrase[relation_to_child]</strong></td>
+	<td width="80%">&nbsp;</td>
+</tr>
+<tr>
+	<td width="20%"><strong>$vbphrase[telephone_number]</strong></td>
+	<td width="80%">&nbsp;</td>
+</tr>
+<tr>
+	<td width="20%"><strong>$vbphrase[email_address]</strong></td>
+	<td width="80%">$bbuserinfo[parentemail]&nbsp;</td>
+</tr>
+<tr>
+	<td width="20%"><strong>$vbphrase[parent_signature]</strong></td>
+	<td>&nbsp;</td>
+</tr>
+<tr>
+	<td width="20%"><strong>$vbphrase[date]</strong></td>
+	<td width="80%">&nbsp;</td>
+</tr>
+<tr>
+	<td colspan="2"><phrase 1="$vboptions[contactuslink]">$vbphrase[contact_webmaster_questions]</phrase></td>
+</tr>
+</table>
+
+</body>
+</html>

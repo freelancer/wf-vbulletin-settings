@@ -1,0 +1,51 @@
+<tr>
+	<td class="alt1">
+
+		<if condition="$show['rating']">
+			<img style="float:$stylevar[right]" class="inlineimg" src="$stylevar[imgdir_rating]/rating_$blog[rating].gif" alt="<phrase 1="$blog[ratingnum]" 2="$blog[ratingavg]">$vbphrase[rating_x_votes_y_average]</phrase>" border="0" />
+		</if>
+		<if condition="$blog['title']">
+			<div>
+				<a href="blog.php?$session[sessionurl]u=$blog[userid]">$blog[title]</a>
+				<if condition="$show['private']">
+					<img class="inlineimg" src="$stylevar[imgdir_misc]/blog/key.gif" alt="$vbphrase[private_blog]"  border="0" />
+				</if>
+			</div>
+
+			<div class="smallfont">
+				<span style="cursor:pointer" onclick="window.open('member.php?$session[sessionurl]u=$blog[userid]', '_self')">$blog[username]</span>
+			</div>
+		<else />
+			<div>
+				<a href="blog.php?$session[sessionurl]u=$blog[userid]">$blog[username]</a>
+				<if condition="$show['private']">
+					<img class="inlineimg" src="$stylevar[imgdir_misc]/blog/key.gif" alt="$vbphrase[private_blog]"  border="0" />
+				</if>
+			</div>
+		</if>
+	</td>
+	<td class="alt2" align="center">$blog[entries]</td>
+	<td class="alt1" align="center">$blog[comments]</td>
+	<td class="alt2">
+		<div class="smallfont" style="text-align:$stylevar[right]">
+			<if condition="$show['lastentry']"><strong><a href="blog.php?$session[sessionurl]b=$blog[lastblogid]">$blog[entrytitle]</a></strong></if>
+			<br />
+			$blog[lastentrydate] <if condition="!$show['detailedtime']"><span class="time">$blog[lastentrytime]</span></if>
+		</div>
+	</td>
+
+	<if condition="$show['notificationtype']">
+		<td class="alt1"><div class="smallfont">
+			<label for="blog$blog[userid]">$blog[notification]</label>
+		</div></td>
+		<td class="alt2"><input type="checkbox" name="deletebox[$blog[userid]]" id="blog$blog[userid]" value="yes" /></td>
+	<else />
+
+	</if>
+
+	<if condition="$show['inlinemod']">
+		<td class="alt1">
+			<input type="checkbox" name="userlist[$blog[userid]]" id="userlist_$blog[userid]" value="$thread[checkbox_value]" />
+		</td>
+	</if>
+</tr>

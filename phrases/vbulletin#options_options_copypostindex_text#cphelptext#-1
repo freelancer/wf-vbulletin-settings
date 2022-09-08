@@ -1,0 +1,1 @@
+It is not strictly necessary to index a copied thread since the original thread is already indexed.  However, you may wish to index copied threads for the sake of completeness.

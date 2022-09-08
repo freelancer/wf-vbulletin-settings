@@ -1,0 +1,35 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+	<title>$vboptions[bbtitle] - $pagetitle</title>
+</head>
+<body$onload>
+$header
+$navbar
+
+<!-- table to support left column nav -->
+<table cellpadding="5" cellspacing="0" border="0" width="100%" align="center">
+	<tr><td class="$navclass[pm_messagelist]" nowrap="nowrap"><a class="smallfont" href="private.php$session[sessionurl_q]"><strong>$vbphrase[list_messages]</strong></a> &nbsp; 
+	<a class="smallfont" href="private.php?$session[sessionurl]do=newpm"><strong>$vbphrase[send_new_message]</strong></a></td></tr>
+$template_hook[usercp_navbar_bottom]
+</table>
+<!-- / usercp nav -->
+
+
+
+</td>
+<td>&nbsp;&nbsp;</td>
+<td width="100%">
+
+<!-- main page contents -->
+$HTML
+<!-- / main page contents -->
+
+</td>
+</tr>
+</table>
+<!-- / table to support left column nav -->
+$footer
+</body>
+</html>

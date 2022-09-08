@@ -1,0 +1,1 @@
+This setting controls how many of a user's posts will be scanned by the Akismet Service. Once a user's post count exceeds this threshold, their posts will not be scanned for spam content. To always scan all posts from all users, set this value to 0.

@@ -1,0 +1,3 @@
+This option allows you to prevent a user's name from being reused for a specified number of days after that user has been renamed.<br />
+<br />
+For example, if you change "Mike" to "Michael", no one would be able to register with the name "Mike" for 365 days (by default).

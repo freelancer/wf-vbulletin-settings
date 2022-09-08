@@ -1,0 +1,13 @@
+You are receiving this email because your email address was entered as an email test at {1}.
+
+The first step of this email test script has been completed. However, a formatting test is still necessary:
+
+A paragraph break.
+A single line break.
+
+Another paragraph break.
+Another single line break.
+Another single line break.
+
+If the above lines look correct, you are finished. The email features on your server are setup correctly.
+If this email is run together on one line, there is possibly a configuration error with your mail server. Please ensure it is configured correctly.

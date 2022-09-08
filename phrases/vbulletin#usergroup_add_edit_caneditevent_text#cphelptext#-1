@@ -1,0 +1,3 @@
+This permission allows members of this group to edit their own events on the calendar(s).<br /><br />
+
+This group must also have permission to edit their own events on a specific calendar if they are to have permission to do so.  You can check your calendar permissions <a href="calendarpermission.php?do=modify" target="_blank">here</a>.

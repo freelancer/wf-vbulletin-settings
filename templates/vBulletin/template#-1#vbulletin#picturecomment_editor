@@ -1,0 +1,176 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $pagetitle</title>
+</head>
+<body>
+$header
+
+$navbar
+
+<if condition="$show['delete']">
+<form action="picturecomment.php?do=deletemessage&amp;commentid=$commentinfo[commentid]" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="deletemessage" />
+<input type="hidden" name="pictureid" value="$pictureinfo[pictureid]" />
+<input type="hidden" name="albumid" value="$pictureinfo[albumid]" />
+<input type="hidden" name="groupid" value="$pictureinfo[groupid]" />
+<input type="hidden" name="commentid" value="$commentinfo[commentid]" />
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('editpost_delete')"><img id="collapseimg_editpost_delete" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_editpost_delete].gif" alt="" border="0" /></a>
+		$vbphrase[delete_message]
+	</td>
+</tr>
+<tbody id="collapseobj_editpost_delete" style="$vbcollapse[collapseobj_editpost_delete]">
+	<tr>
+		<td class="panelsurround" align="center">
+		<div class="panel">
+			<div align="$stylevar[left]" style="max-width:$stylevar[formwidth]; width:auto !important; width:$stylevar[formwidth_usercp]">
+
+			<div class="fieldset">$vbphrase[delete_message_check_appropriate_option]</div>
+
+			<fieldset class="fieldset">
+				<legend>$vbphrase[deletion_options]</legend>
+				<div style="padding:$stylevar[formspacer]px">
+					<div>
+						<label for="rb_del_leave"><input type="radio" name="deletemessage" value="" id="rb_del_leave" tabindex="1" checked="checked" />$vbphrase[do_not_delete_message]</label>
+					</div>
+					<div>
+						<label for="rb_del_soft"><input type="radio" name="deletemessage" value="soft" id="rb_del_soft" tabindex="1" />$vbphrase[delete_message]</label>
+					</div>
+					<if condition="$show['physicaldeleteoption']">
+					<div>
+						<label for="rb_del_hard"><input type="radio" name="deletemessage" value="remove" id="rb_del_hard" tabindex="1" />$vbphrase[physically_remove_message]</label>
+					</div>
+					</if>
+				</div>
+			</fieldset>
+
+			<div class="smallfont">
+				<div>$vbphrase[reason_for_deletion]:</div>
+				<input type="text" class="bginput" name="reason" size="50" tabindex="1" title="$vbphrase[optional]" />
+			</div>
+
+			</div>
+		</div>
+
+		<div style="margin-top:$stylevar[cellpadding]px">
+			<input type="submit" class="button" value="$vbphrase[delete]" tabindex="1" accesskey="d" />
+		</div>
+
+		</td>
+	</tr>
+</tbody>
+</table>
+</form>
+<br />
+</if>
+
+$postpreview
+
+<form action="picturecomment.php?do=message" name="vbform" method="post"<if condition="!is_browser('webtv')"> onsubmit="return vB_Editor['$editorid'].prepare_submit(0, $vboptions[postminchars])"</if>>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<if condition="$show['edit']">
+			<span class="smallfont" style="float:$stylevar[right]"><strong>$vbphrase[user]</strong>: <a href="member.php?$session[sessionurl]u=$albuminfo[userid]">$albuminfo[username]</a></span>
+			$vbphrase[edit_picture_comment]
+		<else />
+			$vbphrase[post_new_picture_comment]
+		</if>
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]" style="max-width:$stylevar[formwidth]; width:auto !important; width:$stylevar[formwidth_usercp]">
+
+		$usernamecode
+
+		<!-- message area -->
+		<div class="smallfont">$vbphrase[comment]:</div>
+		$messagearea
+		<!-- / message area -->
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="hidden" name="s" value="$session[sessionhash]" />
+		<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+		<input type="hidden" name="do" value="message" />
+		<input type="hidden" name="pictureid" value="$pictureinfo[pictureid]" />
+		<input type="hidden" name="albumid" value="$pictureinfo[albumid]" />
+		<input type="hidden" name="groupid" value="$pictureinfo[groupid]" />
+		<input type="hidden" name="commentid" value="$commentinfo[commentid]" />
+		<input type="hidden" name="posthash" value="$posthash" />
+		<input type="hidden" name="loggedinuser" value="$bbuserinfo[userid]" />
+		<input type="hidden" name="u" value="$userinfo[userid]" />
+		<if condition="$show['edit']">
+			<input type="submit" class="button" name="sbutton" id="{$editorid}_save" value="$vbphrase[save_changes]" accesskey="s" tabindex="1" />
+			<input type="submit" class="button" name="preview" value="$vbphrase[preview_message]" accesskey="r" tabindex="1" />
+		<else />
+			<input type="submit" class="button" name="sbutton" id="{$editorid}_save" value="$vbphrase[post_comment]" accesskey="s" tabindex="1" />
+			<input type="submit" class="button" name="preview" value="$vbphrase[preview]" accesskey="r" tabindex="1" />
+		</if>
+	</div>
+	</td>
+</tr>
+</table>
+
+<if condition="$show['additional_options']">
+<br />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('newpost_options')"><img id="collapseimg_newpost_options" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_newpost_options].gif" alt="" border="0" /></a>
+			$vbphrase[additional_options]
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_newpost_options" style="$vbcollapse[collapseobj_newpost_options]">
+	<tr valign="top">
+		<td class="panelsurround" align="center">
+		<div class="panel">
+			<div align="$stylevar[left]" style="width:$stylevar[formwidth]">
+
+				<if condition="$show['misc_options']">
+				<fieldset class="fieldset">
+					<legend>$vbphrase[miscellaneous_options]</legend>
+					<div style="padding:$stylevar[formspacer]px">
+						<if condition="$show['parseurl']"><div><label for="cb_parseurl"><input type="checkbox" name="parseurl" value="1" id="cb_parseurl" tabindex="1" $checked[parseurl] />$vbphrase[automatically_parse_links_in_text]</label></div></if>
+						$disablesmiliesoption
+					</div>
+				</fieldset>
+				</if>
+			</div>
+		</div>
+
+		<div style="margin-top:$stylevar[cellpadding]px">
+		<if condition="$show['edit']">
+			<input type="submit" class="button" name="sbutton" id="{$editorid}_save" value="$vbphrase[save_changes]" accesskey="s" tabindex="1" />
+			<input type="submit" class="button" name="preview" value="$vbphrase[preview_message]" accesskey="r" tabindex="1" />
+		<else />
+			<input type="submit" class="button" name="sbutton" id="{$editorid}_save" value="$vbphrase[post_comment]" accesskey="s" tabindex="1" />
+			<input type="submit" class="button" name="preview" value="$vbphrase[preview]" accesskey="r" tabindex="1" />
+		</if>
+		</div>
+		</td>
+	</tr>
+</tbody>
+</table>
+</if>
+
+</form>
+
+$footer
+
+</body>
+</html>

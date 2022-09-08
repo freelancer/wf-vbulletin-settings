@@ -1,0 +1,13 @@
+On this page you can manage your user profile fields.  User profile fields are used to hold information and preferences about your users.<br /><br />
+
+Click the [Edit] link to edit the settings of the corresponding profile field.  Click the [Delete] link to do exactly that (this will lose information if users have information in the field!).<br /><br />
+
+User profile fields can be displayed in posts next to the author's name.  If you want to display a profile field in posts then you need to edit your <b>postbit</b> or <b>postbit_legacy</b> template (depending on which one you use as is indicated by the "Use Legacy (Vertical) Postbit Template" option in your <a href="options.php?dogroup=stylelang&amp;do=options" target="_blank">vBulletin options</a>) and add <b>$post[fieldX]</b> where <b>X</b> is the field ID of the profile field as shown under the "Name" column on this page.<br /><br />
+
+Below is a list of existing profile fields.  The "Title / Profile Field Type" column tells you the name and type of the profile field.  Please see the General Topics for examples of each type of profile field.<br /><br />
+
+The "Options" column tells you which options are enabled for the corresponding profile field.  Profile fields can be required, editable, private, searchable, and shown on the <a href="../memberlist.php" target="_blank">member list</a> - or not.<br /><br />
+
+The "Name" column tells you the field number of the corresponding profile field.  You can use a profile field's field number to make it show in user posts (see above).<br /><br />
+
+The "Display Order" column tells you the display order of the corresponding profile field.  Display orders are used to order profile fields on the various pages of the User CP on which they can be displayed.  You can change display orders on this page by editing the display order fields and clicking the "Save Display Order" button.<br /><br />

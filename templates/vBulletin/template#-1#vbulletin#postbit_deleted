@@ -1,0 +1,28 @@
+<table id="post$post[postid]" class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr title="<phrase 1="$post[postid]">$vbphrase[post_x]</phrase>">
+	<td class="thead" style="font-weight:normal" $post[scrolltothis]>
+		<if condition="$show['inlinemod']">
+			<input type="checkbox" name="plist[$postid]" id="plist_$postid" style="float:$stylevar[right]; vertical-align:middle; padding:0px; margin:0px 0px 0px 5px" value="$post[checkbox_value]" onclick="inlineMod.toggle(this)" />
+		</if>
+		<if condition="$show['viewpost']"><a style="float:$stylevar[right]" href="showpost.php?$session[sessionurl]p=$post[postid]" target="_blank" rel="nofollow" onclick="return display_post($post[postid]);">$vbphrase[view_post]</a></if>
+		<a name="post$post[postid]"><img class="inlineimg" src="$stylevar[imgdir_statusicon]/post_$post[statusicon].gif" alt="$post[statustitle]" border="0" /></a>
+		$post[postdate]<if condition="!$show['detailedtime']">, $post[posttime]</if> $post[firstnewinsert]
+	</td>
+</tr>
+<tr>
+	<td class="alt2">
+		<if condition="$show['managepost']"><div class="smallfont" style="float:$stylevar[right]"><a href="postings.php?$session[sessionurl]do=managepost&amp;p=$post[postid]">$vbphrase[manage]</a></div></if>
+		<if condition="$show['profile']"><a href="member.php?$session[sessionurl]u=$post[userid]">$post[musername]</a><else />$post[musername]</if>
+	</td>
+</tr>
+<tr>
+	<td class="alt1">
+
+		<div class="smallfont">
+			<phrase 1="member.php?$session[sessionurl]u=$post[del_userid]" 2="$post[del_username]">$vbphrase[message_deleted_by_x]</phrase>
+			<if condition="$post['del_reason']">$vbphrase[reason]: <em>$post[del_reason]</em></if>
+		</div>
+
+	</td>
+</tr>
+</table>

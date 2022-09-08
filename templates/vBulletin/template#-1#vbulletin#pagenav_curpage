@@ -1,0 +1,2 @@
+	<td class="alt2"><span class="smallfont" title="<phrase 1="$numbers[first]" 2="$numbers[last]" 3="$total">$vbphrase[showing_results_x_to_y_of_z]</phrase>"><strong>$curpage</strong></span></td>
+ 

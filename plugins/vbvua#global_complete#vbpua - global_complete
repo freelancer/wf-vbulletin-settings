@@ -1,0 +1,4 @@
+
+$vbpua_lasthook='global_complete';
+include(DIR.'/includes/vbvua_hooks.php');
+             

@@ -1,0 +1,10 @@
+Hello,
+
+$bbuserinfo[username] has just posted in the $foruminfo[title_clean] forum of $vboptions[bbtitle] under the title of $threadinfo[prefix_plain]$threadinfo[title].
+
+This thread is located at $vboptions[bburl]/showthread.php?t=$threadinfo[threadid]
+
+Here is the message that has just been posted:
+***************
+$post[message]
+***************

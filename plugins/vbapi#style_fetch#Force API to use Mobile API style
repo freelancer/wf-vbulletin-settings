@@ -1,0 +1,5 @@
+if (VB_API === true)
+{
+	$styleid = -2;
+	$vbulletin->options['styleid'] = -2;
+}

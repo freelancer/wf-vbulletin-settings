@@ -1,0 +1,6 @@
+// ANTI-SPAMBOT
+// block access if the refering page is the same as your register page
+
+if ($_SERVER[$_SERVER['HTTP_REFERER'] == $vbulletin->options['bburl'].'/register.php' OR $_REQUEST['do'] != 'register') {
+	die();
+}

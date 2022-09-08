@@ -1,0 +1,4 @@
+
+$vbpua_lasthook='forumbit_display';
+include(DIR.'/includes/vbvua_hooks.php');
+             

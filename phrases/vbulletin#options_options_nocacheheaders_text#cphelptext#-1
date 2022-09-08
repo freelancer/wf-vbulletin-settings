@@ -1,0 +1,1 @@
+If you enable this option, no-cache HTTP headers will be added to each page. These cause full page data to be re-requested from the server every time the user gets a page, which will increase bandwidth; it may additionally cause an increase in server load as it will cause more pages to be served.

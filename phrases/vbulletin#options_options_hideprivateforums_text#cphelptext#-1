@@ -1,0 +1,3 @@
+A private forum is one that the current logged in user doesn't have access to. Disabling this option will hide private forums from users so they don't know what they're missing. ;)<br /><br />
+
+If you enable this option then users will be able to see private forums but not access them.

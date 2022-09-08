@@ -1,0 +1,5 @@
+This is code that will be executed when a user installs your product.<br />
+<br />
+It will only be executed if the version the code is associated with has not been installed. For example, if you select a version of 1.0, when a user first installs your product, this install code will run. If he/she later upgrades from 1.0 to 1.1, install code associated with 1.0 will <em>not</em> run.<br />
+<br />
+When multiple install codes must be run (such as if you have install codes for 1.0 and 1.1 and the user does not have any version of your product installed), they will be executed in ascending version order. That is, 1.0 code will execute before 1.1 code.

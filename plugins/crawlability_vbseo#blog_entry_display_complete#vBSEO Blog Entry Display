@@ -1,0 +1,4 @@
+if(class_exists('vBSEO_UI'))
+   	{
+   		vBSEO_UI::blog_entry_hook($blog);
+   	}

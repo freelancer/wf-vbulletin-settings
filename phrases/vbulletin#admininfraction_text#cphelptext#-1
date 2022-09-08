@@ -1,0 +1,15 @@
+The User Infraction system is designed to automate the management of misbehaving users.
+<br /><br />
+The first step in the system is the creation of Infraction Levels.  These levels will vary based on the content of the forum and the scale of the system that you wish to create.  You can create just a few levels or can get very detailed with many levels covering a myriad of forum infractions.
+<br /><br />
+When creating levels, keep in mind a point total at which you wish to start penalizing users by taking away permissions.  If you envision taking away a certain permission when a user accumulates 10 infraction points then you need to consider how many points will be given for each infraction and how quickly the user can get to 10 points.
+<br /><br />
+Each infraction level has an expiration time. When the infraction expires, the associated points are removed from the user's point total and the user's infraction groups are recalculated.
+<br /><br />
+Infraction levels can also be allowed to be given as warnings. A warning does not add any infraction points to the user's point total.  Warnings serve as a method to remind user's of your forum's rules and encourage them to be followed without awarding infraction points. Moderators have the ability to give an infraction or a warning for those levels that have the warning ability enabled.
+<br /><br />
+The second step in the system is to create Infraction Groups that penalize users in the manner that you wish.
+<br /><br />
+Normal permissions work by combining all of a user's usergroup permissions and granting a permission for any that have a yes. Infraction group permissions work in the reverse as all infraction group permissions are combined and any permission with a No is taken from the user.  You should set up your infraction usergroups (in the Usergroup Manager) by setting all permissions to Yes and then setting those that you wish to take away to No.
+<br /><br />
+A user can have multiple infraction groups as they will gain all groups that apply to their primary usergroupid that have a point total less than or equal to their accumulated points.

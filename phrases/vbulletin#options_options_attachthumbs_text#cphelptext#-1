@@ -1,0 +1,5 @@
+A thumbnail is a smaller version of an image.  When thumbnails are enabled attached images that are shown inline will be represented by a smaller version of that image.  A user can then click on the thumbnail to view the full-size image.<br /><br />
+
+Enabling thumbnails is useful in conserving bandwidth on forums where attachments are displayed inline and in preventing large (dimensions) attached images from stretching the forum layout.<br /><br />The border and dimensions options require either the GD2 or ImageMagick image processing libraries. These options will not add anything if you are using the GD1 library.<br /><br />
+
+If you are enabling this option and have existing image attachments on your forums, you will need to <a href="misc.php?do=chooser" target="_blank">rebuild your thumbnails</a> to generate thumbnails for those existing attachments.

@@ -1,0 +1,13 @@
+<tr>
+	<td class="alt1"><img src="$stylevar[imgdir_statusicon]/pm_new.gif" alt="" border="0" /></td>
+	<td class="alt1Active" id="m$visitormessage[vmid]" width="100%">
+		<div>
+			<span style="float:$stylevar[right]" class="smallfont">$visitormessage[formatteddate]</span>
+			<a href="member.php?$session[sessionurl]u=$bbuserinfo[userid]&amp;tab=visitor_messaging#visitor_messaging"><strong>$visitormessage[summary]</strong></a>
+		</div>
+		<div class="smallfont">
+			<span style="float:$stylevar[right]" class="time">$visitormessage[formattedtime]</span>
+			$userbit
+		</div>
+	</td>
+</tr>

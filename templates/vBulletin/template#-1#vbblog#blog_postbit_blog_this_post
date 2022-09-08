@@ -1,0 +1,1 @@
+<a href="blog_post.php?$session[sessionurl]do=newblog&amp;p=$post[postid]"><img src="$stylevar[imgdir_misc]/blog/blogpost.gif" title="$vbphrase[blog_this_post]" alt="" border="0" /></a>

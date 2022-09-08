@@ -1,0 +1,4 @@
+if(defined('VBSEO_ENABLED'))
+vbseo_complete_sec('blog_entry_complete');
+$blog['message'] = vbseo_prepare_int_replace($blog['message']);
+$blog['message'] = vbseo_process_content_area($blog['message']);

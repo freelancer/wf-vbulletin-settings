@@ -1,0 +1,1 @@
+Setting this to anything greater than 0 will only show that many characters of the event title on the Monthly View of this calendar. Setting it to 0 will always display the complete title, no matter how long, on the Monthly View.

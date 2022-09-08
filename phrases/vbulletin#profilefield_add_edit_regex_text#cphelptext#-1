@@ -1,0 +1,11 @@
+You may require this field's contents to match a PCRE-type regular expression. For example, you could have a field that is for the user's ICQ number. Since ICQ numbers consist of only numerals, you could write a regular expression to check for non-numerals. 
+<br /><br />
+Example: <span class="smallfont">(Do not start or end the expression with an escape character)</span><br />
+<br />
+<b>^[0-9]{7,8}$</b><br />
+<br />
+If you want to allow an empty response to be given, you need to account for it within the regex:<br />
+<br />
+<b>^[0-9]{7,8}$|^$</b><br />
+<br />
+See <a href="http://www.php.net/manual-lookup.php?function=preg-match" target="_blank">PHP.net</a> for more information on regular expressions.

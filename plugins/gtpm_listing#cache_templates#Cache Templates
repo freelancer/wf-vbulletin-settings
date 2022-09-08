@@ -1,0 +1,4 @@
+if (is_array($globaltemplates) AND THIS_SCRIPT == 'private')
+{	
+	$globaltemplates[] = 'gtpm_messagelistbit';
+}

@@ -1,0 +1,23 @@
+if ($vbulletin->options['personal_notepad_onoff'] AND (is_member_of($vbulletin->userinfo, explode(",", $vbulletin->options['personal_notepad_usergroups'])) OR $vbulletin->options['personal_notepad_usergroups'] == ""))
+{
+	if ($_REQUEST['do'] == 'savenotepad')
+	{
+		$vbulletin->input->clean_gpc('p', 'notepad', TYPE_STR);
+		if (strlen($vbulletin->GPC['notepad']) > $vbulletin->options['personal_notepad_maxlength'])
+		{
+			standard_error(fetch_error('personal_notepad_input_too_long'));
+		}
+		else
+		{
+			$userdata =& datamanager_init('User', $vbulletin, ERRTYPE_STANDARD);
+			$userdata->set_existing($vbulletin->userinfo);
+			$userdata->setr('notepad', $vbulletin->GPC['notepad']);
+			$userdata->save();
+
+			$vbulletin->url = 'usercp.php' . $vbulletin->session->vars['sessionurl_q'];
+			eval(print_standard_redirect('redirect_notepad_saved', true, true));
+		}
+	}
+	$notepadlength = strlen($vbulletin->userinfo['notepad']);
+	eval('$template_hook["usercp_main_pos' . $vbulletin->options['notepad_location'] . '"] .= "' . fetch_template('personal_notepad') . '";');
+}

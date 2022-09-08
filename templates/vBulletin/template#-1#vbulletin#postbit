@@ -1,0 +1,269 @@
+$template_hook[postbit_start]
+<table class="tborder" id="post$post[postid]" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="thead" $post[scrolltothis]>
+		<div class="normal" style="float:$stylevar[right]">
+			&nbsp;
+			<if condition="$show['postcount']">#<a href="showpost.php?$session[sessionurl]p=$post[postid]&amp;postcount=$post[postcount]" target="new" rel="nofollow" id="postcount$post[postid]" name="$post[postcount]"><strong>$post[postcount]</strong></a> &nbsp;</if>
+			<if condition="$show['reputationlink']">
+				<span id="reputationmenu_$post[postid]"><a href="reputation.php?$session[sessionurl]p=$post[postid]" rel="nofollow" id="reputation_$post[postid]"><img class="inlineimg" src="$stylevar[imgdir_button]/reputation.gif" alt="<phrase 1="$post[username]">$vbphrase[add_to_xs_reputation]</phrase>" border="0" /></a></span>
+				<if condition="$show['popups']"><script type="text/javascript"> vbrep_register("$post[postid]")</script></if>&nbsp;
+			</if>
+			<if condition="$show['infractionlink']"><a href="infraction.php?$session[sessionurl]do=report&amp;p=$post[postid]" rel="nofollow"><img class="inlineimg" src="$stylevar[imgdir_button]/infraction.gif" alt="<phrase 1="$post[username]">$vbphrase[add_infraction_for_x]</phrase>" border="0" /></a> &nbsp;</if>
+			<if condition="$show['reportlink']"><a href="report.php?$session[sessionurl]p=$post[postid]" rel="nofollow"><img class="inlineimg" src="$stylevar[imgdir_button]/report.gif" alt="$vbphrase[report_bad_post]" border="0" /></a> &nbsp;</if>
+			$post[iplogged]
+			<if condition="$show['inlinemod']">
+			<input type="checkbox" name="plist[$postid]" id="plist_$postid" style="vertical-align:middle; padding:0px; margin:0px 0px 0px 5px" value="$post[checkbox_value]" />
+			</if>
+		</div>
+
+		<div class="normal">
+			<!-- status icon and date -->
+			<a name="post$post[postid]"><img class="inlineimg" src="$stylevar[imgdir_statusicon]/post_$post[statusicon].gif" alt="$post[statustitle]" border="0" /></a>
+			<if condition="!$show['announcement']">
+				$post[postdate]<if condition="!$show['detailedtime']">, $post[posttime]</if>
+			<else />
+				<phrase 1="$post[startdate]" 2="$post[enddate]">$vbphrase[x_until_y]</phrase>
+			</if>
+			$post[firstnewinsert]
+			<!-- / status icon and date -->
+		</div>
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="padding:0px">
+		<!-- user info -->
+		<table cellpadding="0" cellspacing="$stylevar[cellpadding]" border="0" width="100%">
+		<tr>
+			<if condition="$show['avatar']"><td class="alt2"><a href="member.php?$session[sessionurl]u=$post[userid]"><img src="$post[avatarurl]" $post[avwidth] $post[avheight] alt="<phrase 1="$post[username]">$vbphrase[xs_avatar]</phrase>" border="0" /></a></td></if>
+			<td nowrap="nowrap">
+
+				<div id="postmenu_$post[postid]">
+					<if condition="$show['profile']">
+					<a class="bigusername" href="member.php?$session[sessionurl]u=$post[userid]">$post[musername]</a>
+					$post[onlinestatus]
+					<script type="text/javascript"> vbmenu_register("postmenu_$post[postid]", true); </script>
+					<else />
+					$post[musername]
+					</if>
+				</div>
+
+				<if condition="$post['usertitle']"><div class="smallfont">$post[usertitle]</div></if>
+				<if condition="$post['rank']"><div class="smallfont">$post[rank]</div></if>
+				$template_hook[postbit_userinfo_left]
+
+			</td>
+			<td width="100%">&nbsp;</td>
+			<td valign="top" nowrap="nowrap">
+
+				<div class="smallfont">
+					<if condition="$post['joindate']"><div>$vbphrase[join_date]: $post[joindate]</div></if>
+					<if condition="$post['field2']"><div>$vbphrase[location_perm]: $post[field2]</div></if>
+					<if condition="$post['age']"><div>$vbphrase[age]: $post[age]</div></if>
+					<div>
+						$vbphrase[posts]: $post[posts]
+					</div>
+					$template_hook[postbit_userinfo_right_after_posts]
+					<if condition="$show['infraction']"><div>$vbphrase[infractions]: $post[warnings]/$post[infractions] ($post[ipoints])</div></if>
+					<if condition="$show['reputation']"><if condition="$show['reppower']">$vbphrase[reppower]: <span id="reppower_$post[postid]_$post[userid]">$post[reppower]</span> </if><div><span id="repdisplay_$post[postid]_$post[userid]">$post[reputationdisplay]</span></div></if>
+					$template_hook[postbit_userinfo_right]
+					<div>$post[icqicon] $post[aimicon] $post[msnicon] $post[yahooicon] $post[skypeicon]</div>
+				</div>
+
+			</td>
+		</tr>
+		</table>
+		<!-- / user info -->
+	</td>
+</tr>
+<tr>
+	<if condition="$show['moderated']">
+	<td class="alt2" id="td_post_$post[postid]">
+	<else />
+	<td class="alt1" id="td_post_$post[postid]">
+	</if>	
+	<!-- message, attachments, sig -->
+
+		$template_hook[postbit_messagearea_start]
+
+		<if condition="$show['messageicon'] OR $post['title']">
+			<!-- icon and title -->
+			<div class="smallfont">
+				<if condition="$show['messageicon']"><img class="inlineimg" src="$post[iconpath]" alt="$post[icontitle]" border="0" /></if>
+				<if condition="$post['title']"><strong>$post[title]</strong></if>
+			</div>
+			<hr size="1" style="color:$stylevar[tborder_bgcolor]; background-color:$stylevar[tborder_bgcolor]" />
+			<!-- / icon and title -->
+		</if>
+
+		<!-- message -->
+		<div id="post_message_$post[postid]">
+			$ad_location[ad_showthread_firstpost_start]
+			$post[message]
+		</div>
+		<!-- / message -->
+
+		<if condition="$show['attachments']">
+		<!-- attachments -->
+			<div style="padding:$stylevar[cellpadding]px">
+
+			<if condition="$show['thumbnailattachment']">
+				<fieldset class="fieldset">
+					<legend>$vbphrase[attached_thumbnails]</legend>
+					<div style="padding:$stylevar[formspacer]px">
+					$post[thumbnailattachments]
+					</div>
+				</fieldset>
+			</if>
+
+			<if condition="$show['imageattachment']">
+				<fieldset class="fieldset">
+					<legend>$vbphrase[attached_images]</legend>
+					<div style="padding:$stylevar[formspacer]px">
+					$post[imageattachments]
+					</div>
+				</fieldset>
+			</if>
+
+			<if condition="$show['imageattachmentlink']">
+				<fieldset class="fieldset">
+					<legend>$vbphrase[attached_images]</legend>
+					<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+					$post[imageattachmentlinks]
+					</table>
+					</fieldset>
+			</if>
+
+			<if condition="$show['otherattachment']">
+				<fieldset class="fieldset">
+					<legend>$vbphrase[attached_files]</legend>
+					<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+					$post[otherattachments]
+					</table>
+				</fieldset>
+			</if>
+
+			<if condition="$show['moderatedattachment']">
+				<fieldset class="fieldset">
+					<legend>$vbphrase[attachments_pending_approval]</legend>
+					<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+					$post[moderatedattachments]
+					</table>
+				</fieldset>
+			</if>
+
+			</div>
+		<!-- / attachments -->
+		</if>
+
+		$template_hook[postbit_signature_start]
+		$ad_location[ad_showthread_firstpost_sig]
+
+		<if condition="$post['signature']">
+		<!-- sig -->
+			<div>
+				__________________<br />
+				$post[signature]
+			</div>
+		<!-- / sig -->
+		</if>
+
+		$template_hook[postbit_signature_end]
+
+		<if condition="$show['postedited']">
+		<!-- edit note -->
+			<div class="smallfont">
+				<hr size="1" style="color:$stylevar[tborder_bgcolor]; background-color:$stylevar[tborder_bgcolor]" />
+				<em>
+					<if condition="$show['postedithistory']">
+						<phrase 1="$post[edit_username]" 2="$post[edit_date]" 3="$post[edit_time]" 4="posthistory.php?$session[sessionurl]p=$post[postid]">$vbphrase[last_edited_link_by_x_on_y_at_z_postid]</phrase>
+					<else />
+						<phrase 1="$post[edit_username]" 2="$post[edit_date]" 3="$post[edit_time]">$vbphrase[last_edited_by_x_on_y_at_z]</phrase>
+					</if>
+					<if condition="$post['edit_reason']">
+						$vbphrase[reason]: $post[edit_reason]
+					</if>
+				</em>
+			</div>
+		<!-- / edit note -->
+		</if>
+
+		<div style="margin-top: 10px" align="$stylevar[right]">
+			<!-- controls -->
+			<if condition="$post['editlink']">
+				<img style="display: none" id="progress_$postid" src="$stylevar[imgdir_misc]/progress.gif" alt="$vbphrase[loading_editor_please_wait]" />
+				<a href="$post[editlink]" name="vB::QuickEdit::$post[postid]"><img src="$stylevar[imgdir_button]/edit.gif" alt="$vbphrase[edit_delete_message]" border="0" /></a>
+			</if>
+			<if condition="$post['forwardlink']">
+				<a href="$post[forwardlink]"><img src="$stylevar[imgdir_button]/forward.gif" alt="$vbphrase[forward_message]" border="0" /></a>
+			</if>
+			<if condition="$post['replylink']">
+				<a href="$post[replylink]" rel="nofollow"><img src="$stylevar[imgdir_button]/<if condition="$post['forwardlink']">reply_small<else />quote</if>.gif" alt="$vbphrase[reply_with_quote]" border="0" /></a>
+			</if>
+			<if condition="$show['multiquote_post']">
+				<a href="$post[replylink]" rel="nofollow" onclick="return false"><img src="$stylevar[imgdir_button]/multiquote_<if condition="$show['multiquote_selected']">on<else />off</if>.gif" alt="$vbphrase[multi_quote_this_message]" border="0" id="mq_$post[postid]" /></a>
+			</if>
+			<if condition="$show['quickreply'] AND !$show['threadedmode']">
+				<a href="$post[replylink]" rel="nofollow" id="qr_$post[postid]" onclick="return false"><img src="$stylevar[imgdir_button]/quickreply.gif" alt="$vbphrase[quick_reply_to_this_message]" border="0" /></a>
+			</if>
+			<if condition="$show['moderated']">
+				<img src="$stylevar[imgdir_misc]/moderated.gif" alt="$vbphrase[moderated_post]" border="0" />
+			</if>
+			<if condition="$show['spam']">
+				<img src="$stylevar[imgdir_misc]/spam_detected.png" alt="$vbphrase[spam_post]" border="0" />
+			</if>
+			<if condition="$show['deletedpost']">
+				<if condition="$show['managepost']">
+					<a href="postings.php?$session[sessionurl]do=managepost&amp;p=$post[postid]"><img src="$stylevar[imgdir_misc]/trashcan.gif" alt="$vbphrase[manage]" border="0" /></a>
+				<else />
+					<img src="$stylevar[imgdir_misc]/trashcan.gif" alt="$vbphrase[deleted_post]" border="0" />
+				</if>
+			</if>
+			<if condition="$show['redcard']">
+				<a href="infraction.php?$session[sessionurl]do=view&amp;p=$post[postid]"><img src="$stylevar[imgdir_button]/redcard.gif" alt="$vbphrase[received_infraction]" border="0" /></a>
+			<else />
+				<if condition="$show['yellowcard']">
+					<a href="infraction.php?$session[sessionurl]do=view&amp;p=$post[postid]"><img src="$stylevar[imgdir_button]/yellowcard.gif" alt="$vbphrase[received_warning]" border="0" /></a>
+				</if>
+			</if>
+			$template_hook[postbit_controls]
+			<!-- / controls -->
+		</div>
+
+	<!-- message, attachments, sig -->
+
+	</td>
+</tr>
+</table>
+$template_hook[postbit_end]
+
+<if condition="$show['profile']"> 
+<!-- post $post[postid] popup menu -->
+<div class="vbmenu_popup" id="postmenu_$post[postid]_menu" style="display:none;">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">$post[username]</td>
+	</tr>
+	<if condition="$show['profile']">
+		<tr><td class="vbmenu_option"><a href="member.php?$session[sessionurl]u=$post[userid]">$vbphrase[view_public_profile]</a></td></tr>
+	</if>
+	<if condition="$show['pmlink']">
+		<tr><td class="vbmenu_option"><a href="private.php?$session[sessionurl]do=newpm&amp;u=$post[userid]" rel="nofollow"><phrase 1="$post[username]">$vbphrase[send_private_message_to_x]</phrase></a></td></tr>
+	</if>
+	<if condition="$show['emaillink']">
+		<tr><td class="vbmenu_option"><a href="sendmessage.php?$session[sessionurl]do=mailmember&amp;u=$post[userid]" rel="nofollow"><phrase 1="$post[username]">$vbphrase[send_email_to_x]</phrase></a></td></tr>
+	</if>
+	<if condition="$show['homepage']">
+		<tr><td class="vbmenu_option"><a href="$post[homepage]"><phrase 1="$post[username]">$vbphrase[visit_xs_homepage]</phrase></a></td></tr>
+	</if>
+	<if condition="$show['search']">
+		<tr><td class="vbmenu_option"><a href="search.php?$session[sessionurl]do=finduser&amp;u=$post[userid]" rel="nofollow"><phrase 1="$post[username]">$vbphrase[find_all_posts_by_x]</phrase></a></td></tr>
+	</if>
+	<if condition="$post['userid'] AND $show['member']">
+	<tr><td class="vbmenu_option"><a href="profile.php?$session[sessionurl]do=addlist&amp;userlist=buddy&amp;u=$post[userid]"><phrase 1="$post[username]">$vbphrase[add_x_to_contacts]</phrase></a></td></tr>
+	</if>
+	$template_hook[postbit_user_popup]
+	</table>
+</div>
+<!-- / post $post[postid] popup menu -->
+</if>

@@ -1,0 +1,57 @@
+<div class="alt1 block_row">
+<if condition="$show['messagelinks']">
+	<fieldset>
+		<legend><phrase 1="$prepared[username]">$vbphrase[send_message_to_x]</phrase></legend>
+		<div class="fieldset_padding floatcontainer">
+			<ul class="list_no_decoration" id="messaging_list">
+				<if condition="$show['post_visitor_message']">
+					<li>
+						<img src="$stylevar[imgdir_button]/sendtofriend.gif" alt="" border="0" class="inlineimg" />
+						<a href="#" onclick="return goto_post_pm()"><phrase 1="$prepared[username]">$vbphrase[post_a_visitor_message_for_x]</phrase></a>
+					</li>
+				</if>
+				<if condition="$show['pm']">
+					<li>
+						<img src="$stylevar[imgdir_button]/sendtofriend.gif" alt="" border="0" class="inlineimg" />
+						<a href="private.php?$session[sessionurl]do=newpm&amp;username=$prepared[username]"><phrase 1="$prepared[username]">$vbphrase[send_private_message_to_x]</phrase></a></li>
+					</if>
+				<if condition="$show['email']">
+					<li>	
+						<img src="$stylevar[imgdir_button]/sendtofriend.gif" alt="" border="0" class="inlineimg" />
+						<a href="sendmessage.php?$session[sessionurl]do=mailmember&amp;u=$prepared[userid]"><phrase 1="$prepared[username]">$vbphrase[send_message_via_email_to_x]</phrase></a>
+					</li>
+				</if>
+			</ul>
+		</div>
+	</fieldset>
+</if>
+
+	<if condition="$prepared['hasimdetails']">
+		<fieldset>
+			<legend>$vbphrase[instant_messaging]</legend>
+			<div class="fieldset_padding floatcontainer">
+				<div><phrase 1="$prepared[username]">$vbphrase[send_instant_message_to_x_using]</phrase></div>
+				<ul class="list_no_decoration" id="instant_messaging_list">
+					$block_data[imbits]
+				</ul>
+			</div>
+		</fieldset>
+	</if>
+
+	<dl class="list_no_decoration" id="additional_contact_details">
+	<if condition="$prepared['displayemail']">
+	<dt class="shade">$vbphrase[email_address]</dt>
+		<dd><a href="mailto:$prepared[displayemail]">$prepared[displayemail]</a></dd>
+	</if>
+	<if condition="$prepared['homepage']">
+	<dt class="shade">$vbphrase[home_page]</dt>
+		<dd><a href="$prepared[homepage]" target="_blank">$prepared[homepage]</a></dd>
+	</if>
+	<dt class="shade">$vbphrase[this_page]</dt>
+		<dd><a href="$prepared[profileurl]">$prepared[profileurl]</a></dd>
+	<if condition="$show['vcard']">
+	<dt class="shade">$vbphrase[vcard]</dt>
+		<dd><a href="member.php?$session[sessionurl]do=vcard&amp;u=$prepared[userid]" rel="nofollow">$vbphrase[download_vcard]</a></dd>
+	</if>
+	</dl>
+</div>

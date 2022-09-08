@@ -1,0 +1,3 @@
+<p>This script will allow you to rename your vBulletin SQL tables in order to accommodate a new table prefix value in <i>includes/config.php</i>.</p>
+<p><b>Note:</b> Do not alter the <b>tableprefix</b> value in config.php until this script has completed and you are given a message telling you to edit the value.</p>
+<p>Your table prefix is currently set to <b>'{1}'</b>.</p>

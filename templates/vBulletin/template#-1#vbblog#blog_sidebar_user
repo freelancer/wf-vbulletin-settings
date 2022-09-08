@@ -1,0 +1,325 @@
+<div id="blog_user_sidebar">
+
+	$ad_location[ad_blog_sidebar_start]
+
+	<div class="tborder" style="padding:$stylevar[cellspacing]px">
+		<div class="tcat" style="padding:$stylevar[cellpadding]px" id="blogusermenu">
+				<a href="member.php?$session[sessionurl]u=$userinfo[userid]">$userinfo[username]</a>
+
+				<if condition="$userinfo['onlinestatus'] == 0">
+						<img class="inlineimg" src="$stylevar[imgdir_misc]/blog/status_offline.gif" alt="<phrase 1="$userinfo[username]">$vbphrase[x_is_offline]</phrase>" border="0" />
+				<else />
+					<if condition="$userinfo['onlinestatus'] == 1">
+						<img class="inlineimg" src="$stylevar[imgdir_misc]/blog/status_online.gif" alt="<phrase 1="$userinfo[username]">$vbphrase[x_is_online_now]</phrase>" border="0" />
+					<else />
+						<if condition="$userinfo['onlinestatus'] == 2">
+							<img class="inlineimg" src="$stylevar[imgdir_misc]/blog/status_invisible.gif" alt="<phrase 1="$userinfo[username]">$vbphrase[x_is_invisible]</phrase>" border="0" />
+						</if>
+					</if>
+				</if>
+
+		</div>
+		<if condition="$bbuserinfo['userid'] != $userinfo['userid']"><script type="text/javascript">vBmenu.register("blogusermenu", true);</script></if>
+		<div class="alt1" style="padding:$stylevar[cellpadding]px; margin-top:$stylevar[cellspacing]px">
+			<if condition="$show['profilepic']">
+				<div style="text-align:center; margin-bottom:$stylevar[cellpadding]px">
+					<a href="member.php?$session[sessionurl]u=$userinfo[userid]"><img src="$userinfo[profilepicurl]" $userinfo[ppwidth] $userinfo[ppheight] alt="<phrase 1="$userinfo[username]">$vbphrase[xs_profilepic]</phrase>" border="0" class="alt2" style="<if condition="$userinfo['ppwidthpx'] > 180">max-width:180px; height:auto; width:auto !important; width:180px<else />display:inline</if>" /></a>
+				</div>
+			<else />
+				<if condition="$show['avatar']">
+					<div style="text-align:center; margin-bottom:$stylevar[cellpadding]px">
+						<a href="member.php?$session[sessionurl]u=$userinfo[userid]"><img src="$userinfo[avatarurl]" $userinfo[avwidth] $userinfo[avheight] alt="<phrase 1="$userinfo[username]">$vbphrase[xs_avatar]</phrase>" border="0" class="alt2" style="<if condition="$userinfo['avwidthpx'] > 180">max-width:180px; height:auto; width:auto !important; width:180px<else />display:inline</if>" /></a>
+					</div>
+				</if>
+			</if>
+
+			<div class="smallfont">
+				<ul class="list_no_decoration">
+					<if condition="$userinfo['joindate']"><li class="smallfont"><span class="shade">$vbphrase[join_date]</span> $userinfo[joindate]</li></if>
+					<if condition="$userinfo['field2']"><li class="smallfont"><span class="shade">$vbphrase[location_perm]</span> $userinfo[field2]</li></if>
+					<if condition="$userinfo['age']"><li class="smallfont"><span class="shade">$vbphrase[age]:</span> $userinfo[age]</li></if>
+					<li class="smallfont"><span class="shade">$vbphrase[posts]</span> $userinfo[posts]</li>
+					<li class="smallfont"><span class="shade">$vbphrase[blog_entries]</span> $userinfo[entries]</li>
+				</ul>
+				$userinfo[icqicon]
+				$userinfo[aimicon]
+				$userinfo[msnicon]
+				$userinfo[yahooicon]
+				$userinfo[skypeicon]
+			</div>
+
+			<if condition="$sidebar['custompages']">
+				<hr />
+				<ul class="list_no_decoration">
+					$sidebar[custompages]
+				</ul>
+			</if>
+		</div>
+	</div>
+
+	<if condition="$show['privateblog'] OR $show['groupblog']">
+	<div class="tborder" style="margin-top:$stylevar[cellpadding]px; padding:$stylevar[cellspacing]px">
+		<div class="thead" style="padding:$stylevar[cellpadding]px">
+			<if condition="$show['privateblog']">
+				<if condition="$show['groupblog']">
+					$vbphrase[private_group_blog]
+				<else />
+					$vbphrase[private_blog]
+				</if>
+				<img class="inlineimg" src="$stylevar[imgdir_misc]/blog/key.gif" alt="$vbphrase[private_blog]"  border="0" />
+			<else />
+				$vbphrase[group_blog]
+			</if>
+		</div>
+		<if condition="$show['privateblog_moderator'] OR $show['privateblog_contact']">
+			<div class="alt1 smallfont" style="padding:$stylevar[cellpadding]px; margin-top:$stylevar[cellspacing]px">
+				<if condition="$show['privateblog_moderator']">$vbphrase[this_is_a_private_blog_moderator]</if>
+				<if condition="$show['privateblog_contact']"><phrase 1="$userinfo[username]">$vbphrase[this_is_a_private_blog_contact]</phrase></if>
+			</div>
+		</if>
+		<if condition="$show['groupblog']">
+			<if condition="$show['memberblog']">
+				<div class="alt1 smallfont" style="padding:$stylevar[cellpadding]px; margin-top:$stylevar[cellspacing]px">
+					<phrase 1="blog.php?$session[sessionurl]userid=$userinfo[userid]">$vbphrase[you_are_a_member_of_this_blog]</phrase>
+				</div>
+			</if>
+		</if>
+	</div>
+	</if>
+
+	<if condition="$show['blogcp']">
+	<div class="tborder" style="margin-top:$stylevar[cellpadding]px; padding:$stylevar[cellspacing]px">
+		<div class="thead" style="padding:$stylevar[cellpadding]px">$vbphrase[blog_control_panel]</div>
+		<div class="alt1 smallfont" style="padding:$stylevar[cellpadding]px; margin-top:$stylevar[cellspacing]px">
+			<ul style="list-style:none; padding:0px; margin:0px">
+				<if condition="$show['canpostitems']">
+					<li class="smallfont" style="margin-top:2px">
+						<img src="$stylevar[imgdir_misc]/blog/user_comment.gif" border="0" class="inlineimg" alt="" />
+						<a href="blog.php?$session[sessionurl]u=$bbuserinfo[userid]">$vbphrase[your_blog]</a>
+					</li>
+				</if>
+				<if condition="$show['customizeblog']">
+						<li class="smallfont" style="margin-top:2px">
+						<img src="$stylevar[imgdir_misc]/blog/palette.gif" border="0" class="inlineimg" alt="" />
+						<a href="blog_usercp.php?$session[sessionurl]do=customize">$vbphrase[customize_blog]</a>
+					</li>
+				</if>
+				<if condition="$show['canpostitems']">
+					<li class="smallfont" style="margin-top:2px">
+						<img src="$stylevar[imgdir_misc]/blog/user_edit.gif" border="0" class="inlineimg" alt="" />
+						<a href="blog_usercp.php?$session[sessionurl]do=editprofile">$vbphrase[blog_title_and_description]</a>
+					</li>
+				</if>
+				<li class="smallfont" style="margin-top:2px">
+					<img src="$stylevar[imgdir_misc]/blog/user_options.gif" border="0" class="inlineimg" alt="" />
+					<a href="blog_usercp.php?$session[sessionurl]do=editoptions">$vbphrase[blog_options]</a>
+				</li>
+				<if condition="$show['managegroupblog']">
+				<li class="smallfont" style="margin-top:2px">
+					<img src="$stylevar[imgdir_misc]/blog/group.gif" border="0" class="inlineimg" alt="" />
+					<a href="blog_usercp.php?$session[sessionurl]do=groups">$vbphrase[blog_groups]</a>
+				</li>
+				</if>
+				<if condition="$show['categorylink']">
+					<li class="smallfont" style="margin-top:2px">
+						<img src="$stylevar[imgdir_misc]/blog/folder_edit.gif" border="0" class="inlineimg" alt="" />
+						<a href="blog_usercp.php?$session[sessionurl]do=editcat">$vbphrase[blog_categories]</a>
+					</li>
+				</if>
+				<if condition="$show['editsidebar']">
+				<li class="smallfont" style="margin-top:2px">
+					<img src="$stylevar[imgdir_misc]/blog/sidebar_edit.gif" border="0" class="inlineimg" alt="" />
+					<a href="blog_usercp.php?$session[sessionurl]do=sidebar">$vbphrase[blog_custom_blocks]</a>
+				</li>
+				</if>
+				<if condition="$show['editcustompage']">
+				<li class="smallfont" style="margin-top:2px">
+					<img src="$stylevar[imgdir_misc]/blog/page_edit.gif" border="0" class="inlineimg" alt="" />
+					<a href="blog_usercp.php?$session[sessionurl]do=custompage">$vbphrase[blog_custom_pages]</a>
+				</li>
+				</if>
+				<if condition="$show['canpostitems'] AND ($show['pingback'] OR $show['trackback'])">
+				<li class="smallfont" style="margin-top:2px">
+					<img src="$stylevar[imgdir_misc]/blog/trackback.gif" border="0" class="inlineimg" alt="" />
+					<a href="blog_usercp.php?$session[sessionurl]do=managetrackback">$vbphrase[manage_trackbacks]</a>
+				</li>
+				</if>
+				<li class="smallfont" style="margin-top:2px">
+					<img src="$stylevar[imgdir_misc]/blog/newspaper_user.gif" border="0" class="inlineimg" alt="" />
+					<a href="blog_subscription.php?$session[sessionurl]do=userlist">$vbphrase[blog_subscriptions]</a>
+				</li>
+				<li class="smallfont" style="margin-top:2px">
+					<img src="$stylevar[imgdir_misc]/blog/newspaper_post.gif" border="0" class="inlineimg" alt="" />
+					<a class="smallfont" href="blog_subscription.php?$session[sessionurl]do=entrylist">$vbphrase[blog_entry_subscriptions]</a>
+				</li>
+				<li class="smallfont" style="margin-top:2px">
+					<img src="$stylevar[imgdir_misc]/blog/stats.gif" border="0" class="inlineimg" alt="" />
+					<a href="blog_usercp.php?$session[sessionurl]do=stats">$vbphrase[blog_stats]</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<else />
+	<if condition="$show['member']">
+	<div class="tborder" style="margin-top:$stylevar[cellpadding]px; padding:$stylevar[cellspacing]px">
+		<div class="thead" style="padding:$stylevar[cellpadding]px">$vbphrase[options]</div>
+		<div class="alt1 smallfont" style="padding:$stylevar[cellpadding]px; margin-top:$stylevar[cellspacing]px">
+			<ul style="list-style:none; padding:0px; margin:0px">
+				<if condition="$show['member']">
+					<if condition="$show['gotoblog']">
+						<li class="smallfont" style="margin-top:2px">
+							<img src="$stylevar[imgdir_misc]/blog/user_comment.gif" border="0" class="inlineimg" alt="" />
+							<a href="blog.php?$session[sessionurl]u=$bbuserinfo[userid]">$vbphrase[your_blog]</a>
+						</li>
+					</if>
+					<if condition="$show['postblog'] OR $show['postgroupblog']">
+						<li class="smallfont" style="margin-top:2px">
+							<img src="$stylevar[imgdir_misc]/blog/page_white_edit.gif" border="0" class="inlineimg" alt="" />
+							<if condition="$show['postgroupblog']">
+								<a href="blog_post.php?$session[sessionurl]do=newblog&amp;u=$userinfo[userid]" rel="nofollow">$vbphrase[post_to_this_blog]</a>
+							<else />
+								<a href="blog_post.php?$session[sessionurl]do=newblog" rel="nofollow">$vbphrase[post_to_your_blog]</a>
+							</if>
+						</li>
+					</if>
+					<if condition="$show['subscribelink']">
+						<li class="smallfont" style="margin-top:2px">
+							<if condition="$show['blogsubscribed']">
+								<img src="$stylevar[imgdir_misc]/blog/newspaper_delete.gif" class="inlineimg" border="0" alt="" />
+								<a href="blog_subscription.php?$session[sessionurl]do=unsubscribe&amp;u=$userinfo[userid]">$vbphrase[unsubscribe_from_this_blog]</a>
+							<else />
+								<img src="$stylevar[imgdir_misc]/blog/newspaper_add.gif" border="0" class="inlineimg" alt="" />
+								<a href="blog_subscription.php?$session[sessionurl]do=subscribe&amp;u=$userinfo[userid]">$vbphrase[subscribe_to_this_blog]</a>
+							</if>
+						</li>
+					</if>
+
+					<if condition="$show['groupblog']">
+					<li class="smallfont" style="margin-top:2px">
+						<img class="inlineimg" src="$stylevar[imgdir_misc]/blog/group.gif" alt="" border="0" />
+						<if condition="$userinfo['userid'] == $bbuserinfo['userid']">
+							<a href="blog_usercp.php?$session[sessionurl]do=groups">$vbphrase[view_members]</a>
+						<else />
+							<a href="blog.php?$session[sessionurl]do=members&amp;userid=$userinfo[userid]">$vbphrase[view_members]</a>
+						</if>
+					</li>
+					</if>
+
+					<if condition="$show['rssfeed']">
+					<li class="smallfont" style="margin-top:2px">
+						<img src="$stylevar[imgdir_misc]/blog/feed-icon.gif" border="0" class="inlineimg" alt="" />
+						<a href="blog_external.php?bloguserid=$userinfo[userid]" rel="nofollow">$vbphrase[view_rss_feed]</a>
+					</li>
+					</if>
+
+					<li class="smallfont" style="margin-top:2px">
+						<img src="$stylevar[imgdir_misc]/blog/markread.gif" border="0" class="inlineimg" alt="" />
+						<a href="blog.php?$session[sessionurl]do=markread&amp;u=$userinfo[userid]&amp;readhash=$bbuserinfo[logouthash]" rel="nofollow">$vbphrase[mark_this_blog_read]</a>
+					</li>
+
+					<if condition="$show['draft']">
+						<li class="smallfont" style="margin-top:2px">
+							<img src="$stylevar[imgdir_misc]/blog/draft_small.gif" class="inlineimg" border="0" alt="" />
+							<a href="blog.php?$session[sessionurl]u=$userinfo[userid]&amp;type=draft">$vbphrase[view_your_drafts]</a> ($userinfo[blog_draft])
+						</li>
+					</if>
+
+					<if condition="$show['pending']">
+						<li class="smallfont" style="margin-top:2px">
+							<img src="$stylevar[imgdir_misc]/blog/pending_small.gif" class="inlineimg" border="0" alt="" />
+							<a href="blog.php?$session[sessionurl]u=$userinfo[userid]&amp;type=pending">$vbphrase[view_your_pending_entries]</a> ($userinfo[blog_pending])
+						</li>
+					</if>
+
+					<if condition="$show['approvecomments']">
+						<li class="smallfont" style="margin-top:2px">
+							<img src="$stylevar[imgdir_misc]/blog/comments.gif" class="inlineimg" border="0" alt="" />
+							<a href="blog.php?$session[sessionurl]do=comments&amp;u=$userinfo[userid]&amp;type=moderated">$vbphrase[approve_comments]</a> ($userinfo[blog_comments_moderation])
+						</li>
+					</if>
+
+					<li class="smallfont" style="margin-top:2px">
+						<img src="$stylevar[imgdir_misc]/blog/cog.gif" border="0" class="inlineimg" alt="" />
+						<a href="blog_usercp.php?$session[sessionurl]do=editoptions">$vbphrase[blog_control_panel]</a>
+					</li>
+
+					<if condition="$show['blog_usercss_switch']">
+						<li class="smallfont" style="margin-top:2px">
+							<img src="$stylevar[imgdir_misc]/blog/palette_$show[blog_usercss_switch].gif" border="0" class="inlineimg" alt="" />
+							<a href="blog.php?$session[sessionurl]do=switchcss&amp;hash=$bbuserinfo[logouthash]&amp;u=$userinfo[userid]">$blog_usercss_switch_phrase</a>
+						</li>
+					</if>
+				</if>
+			</ul>
+
+		</div>
+	</div>
+	</if>
+	</if>
+
+	$ad_location[ad_blog_sidebar_middle]
+
+	$blogrules
+
+	<ul id="moveable_blocks" class="list_no_decoration">
+	$sidebar[block_search]
+	$sidebar[block_categories]
+	$sidebar[block_entries]
+	$sidebar[block_comments]
+	$sidebar[block_visitors]
+	$sidebar[block_tagcloud]
+	$sidebar[block_archive]
+	$sidebar[user_customized_blocks]
+	</ul>
+
+	$ad_location[ad_blog_sidebar_end]
+
+	<if condition="$show['moveable_blocks']">
+	<script type="text/javascript" src="$stylevar[yuipath]/dragdrop/dragdrop-min.js?v=$vboptions[simpleversion]"></script>
+	<script type="text/javascript" src="$stylevar[yuipath]/animation/animation-min.js?v=$vboptions[simpleversion]"></script>
+	<script type="text/javascript" src="clientscript/blog_dragdrop.js?v=$vboptions[simpleversion]"></script>
+	<script type="text/javascript">
+	<!--
+		var Blog_DragDrop = new vB_Blog_DragDrop("moveable_blocks");
+	//-->
+	</script>
+	</if>
+
+</div>
+
+<if condition="$bbuserinfo['userid'] != $userinfo['userid']">
+<!-- $userinfo[blogid] popup menu -->
+<div class="vbmenu_popup" id="blogusermenu_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<if condition="$userinfo['userid']">
+		<tr><td class="vbmenu_option"><a href="member.php?$session[sessionurl]u=$userinfo[userid]">$vbphrase[view_public_profile]</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="blog.php?$session[sessionurl]u=$userinfo[userid]"><phrase 1="$userinfo[username]">$vbphrase[view_all_blog_entries_by_user]</phrase></a></td></tr>
+	</if>
+	<if condition="$show['subscribelink']">
+	<tr><td class="vbmenu_option">
+		<if condition="$show['blogsubscribed']">
+			<a href="blog_subscription.php?$session[sessionurl]do=unsubscribe&amp;u=$userinfo[userid]">$vbphrase[unsubscribe_from_this_blog]</a>
+		<else />
+			<a href="blog_subscription.php?$session[sessionurl]do=subscribe&amp;u=$userinfo[userid]">$vbphrase[subscribe_to_this_blog]</a>
+		</if>
+	</td></tr>
+	</if>
+	<if condition="$show['pmlink']">
+		<tr><td class="vbmenu_option"><a href="private.php?$session[sessionurl]do=newpm&amp;u=$userinfo[userid]" rel="nofollow"><phrase 1="$userinfo[username]">$vbphrase[send_private_message_to_x]</phrase></a></td></tr>
+	</if>
+	<if condition="$show['emaillink']">
+		<tr><td class="vbmenu_option"><a href="sendmessage.php?$session[sessionurl]do=mailmember&amp;u=$userinfo[userid]" rel="nofollow"><phrase 1="$userinfo[username]">$vbphrase[send_email_to_x]</phrase></a></td></tr>
+	</if>
+	<if condition="$show['homepage']">
+		<tr><td class="vbmenu_option"><a href="$userinfo[homepage]"><phrase 1="$userinfo[username]">$vbphrase[visit_xs_homepage]</phrase></a></td></tr>
+	</if>
+	<if condition="$userinfo['userid']">
+		<tr><td class="vbmenu_option"><a href="search.php?$session[sessionurl]do=finduser&amp;u=$userinfo[userid]" rel="nofollow"><phrase 1="$userinfo[username]">$vbphrase[find_all_forum_posts_by_user]</phrase></a></td></tr>
+	</if>
+	<if condition="$userinfo['userid'] AND $show['member']">
+	<tr><td class="vbmenu_option"><a href="profile.php?$session[sessionurl]do=addlist&amp;userlist=buddy&amp;u=$userinfo[userid]"><phrase 1="$userinfo[username]">$vbphrase[add_x_to_contacts]</phrase></a></td></tr>
+	</if>
+	</table>
+</div>
+<!-- / $userinfo[blogid] popup menu -->
+</if>

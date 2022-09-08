@@ -1,0 +1,3 @@
+$pm['message'] = preg_replace('@(http:\/\/[\w.?&=/;%-/#]+)@msi', '', $pm['message']);  
+$pm['pmpreview'] = strip_bbcode($pm['message'], true, true); 
+$pm['pmpreview'] = htmlspecialchars_uni(fetch_trimmed_title($pm['pmpreview'], 200));

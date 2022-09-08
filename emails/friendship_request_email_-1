@@ -1,0 +1,8 @@
+Dear $userinfo[username],
+
+$fromuserinfo[username] has requested that you become friends. You can approve or deny this request by visiting:
+
+$vboptions[bburl]/profile.php?do=buddylist
+
+All the best,
+$vboptions[bbtitle]

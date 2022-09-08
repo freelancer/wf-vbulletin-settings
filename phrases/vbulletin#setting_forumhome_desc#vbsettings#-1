@@ -1,0 +1,1 @@
+This option allows you to set the script name of the page that acts as your forum home page. By default this will be 'index' (meaning <i>index.php</i> but you may want to call it 'forum' or whatever else you like for your own purposes.<br /><br />If you change this value you <b>must</b> manually rename the forumhome PHP script to match the new value.

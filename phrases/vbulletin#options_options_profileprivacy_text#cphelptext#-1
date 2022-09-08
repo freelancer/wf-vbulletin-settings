@@ -1,0 +1,3 @@
+Setting this option to yes will allow users to customize the blocks on their profile page so that they are either hidden or shown to other users.<br /><br />
+If enabled and the user has the 'Can Edit Profile Privacy' permission, the user can choose to hide blocks from their ignored users; unregistered users; users who are not on their contact list; and users who are not on their friends list.<br /><br />
+Note: When enabled, the 'Profile Privacy' link on the User Control Panel allows users to customize their profile page in this way.

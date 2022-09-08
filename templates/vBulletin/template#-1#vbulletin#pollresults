@@ -1,0 +1,16 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $vbphrase[view_poll_results]</title>
+</head>
+<body>
+$header
+$navbar
+
+$pollresults
+
+$footer
+
+</body>
+</html>

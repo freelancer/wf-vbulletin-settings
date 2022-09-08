@@ -1,0 +1,17 @@
+if ($this->forum['ada_forum']==1 AND $post['postid']==$this->thread['firstpostid'])
+{
+$this->templatename = 'ada_postbit_articles';
+}
+else
+{
+if ($this->forum['ada_forum']==1 and !$post['isdeleted'])
+{
+switch ($this->forum['ada_style'])
+{
+case 0: $this->templatename = 'ada_postbit_comment'; break;
+case 1: $this->templatename = 'postbit'; break;
+case 2: $this->templatename = 'postbit_legacy'; break;
+case 3: $this->templatename = 'ada_postbit_flipped'; break;
+}
+}
+}

@@ -1,0 +1,1 @@
+If your server has PHP's Safe Mode enabled, you must specify a directory that is writable by PHP and is CHMODed 777. This will act as a temporary directory for uploads before they are moved to the database. Do *not* include the final slash at the end.

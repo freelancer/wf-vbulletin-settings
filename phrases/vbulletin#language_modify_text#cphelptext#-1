@@ -1,0 +1,13 @@
+On this screen, a list of all languages you have installed is shown. Next to each language is a drop-down menu containing a series of phrase-editing options, as well as links to modify the language settings and download it.<br /><br />
+
+Selecting an item on the (edit) drop-down list will take you to edit the type of phrase you select, e.g. Privatemessage related phrases, or Error phrases, etc.<br /><br />
+
+Clicking Settings takes you to edit the settings of the language.<br /><br />
+
+Delete removes the language from your vBulletin<br /><br />
+
+Download lets you download a language set, which consists of all phrases you have translated for that language. You can distribute this to fellow vBulletin owners.<br />
+
+The 'Set Default' button allows you to set a language as the default for your forum. The default language is what is shown to registered forum members who did not select a language at registration, and to unregistered users or those who are not logged in.<br /><br />
+
+At the bottom of the list are links to add a new language and download or upload existing language sets.

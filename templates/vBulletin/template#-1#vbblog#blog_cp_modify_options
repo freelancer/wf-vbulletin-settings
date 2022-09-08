@@ -1,0 +1,161 @@
+<form action="blog_usercp.php?do=updateoptions" method="post">
+<input type="hidden" name="s" value="$session[dbsessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="updateoptions" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[blog_options]</td>
+</tr>
+<tr>
+	<td class="thead">
+		$vbphrase[edit_preferences_and_permissions_for_your_blog]
+	</td>
+</tr>
+
+<tr>
+	<td class="panelsurround" align="center">
+		<div class="panel">
+			<div align="$stylevar[left]" style="max-width:$stylevar[formwidth]; width:auto !important; width:$stylevar[formwidth_blog]">
+				<div class="smallfont" style="margin:10px 0px 10px 0px">
+
+					<if condition="$show['allowcomments'] OR $show['moderatecomments']">
+						<strong>$vbphrase[default_entry_options]</strong></div>
+						<fieldset class="fieldset">
+							<legend>$vbphrase[when_posting_new_blog_entry_i_would_like_to]</legend>
+							<div align="$stylevar[left]" class="fieldset" style="padding:$stylevar[formspacer]px">
+								<ul class="list_no_decoration">
+									<if condition="$show['allowcomments']">
+										<li>
+											<label for="cb_allow_comments"><input type="checkbox" name="options[allowcomments]" id="cb_allow_comments" value="1" $checked[allowcomments] />$vbphrase[allow_comments_to_be_posted]</label>
+											<input type="hidden" name="set_options[allowcomments]" value="1" />
+										</li>
+									</if>
+									<if condition="$show['moderatecomments']">
+										<li>
+											<label for="cb_moderate_comments"><input type="checkbox" name="options[moderatecomments]" id="cb_moderate_comments" value="1" $checked[moderatecomments] />$vbphrase[moderate_comments_before_displaying]</label>
+											<input type="hidden" name="set_options[moderatecomments]" value="1" />
+										</li>
+									</if>
+										<if condition="$show['pingback'] OR $show['trackback']">
+											<li>
+												<label for="cb_allow_pingback"><input type="checkbox" name="options[allowpingback]" id="cb_allow_pingback" value="1"  $checked[allowpingback] /><if condition="!$show['pingback']">$vbphrase[allow_trackback]<else /><if condition="!$show['trackback']">$vbphrase[allow_pingback]<else />$vbphrase[allow_trackback_pingback]</if></if></label>
+												<input type="hidden" name="set_options[allowpingback]" value="1" />
+											</li>
+										</if>
+								</ul>
+								<div class="shade" style="margin-top:$stylevar[cellpadding]px">$vbphrase[these_settings_may_be_changed_when_posting]</div>
+							</div>
+						</fieldset>
+					</if>
+
+					<if condition="$show['privacy']">
+						<div class="smallfont" style="margin:10px 0px 10px 0px">
+							<strong>$vbphrase[permissions_and_privacy]</strong> $vbphrase[view_blog_warning]
+						</div>
+
+						<fieldset class="fieldset">
+							<legend>
+								<phrase 1="$session[sessionurl]">$vbphrase[members_on_your_contact_list_may]</phrase>
+							</legend>
+							<div align="$stylevar[left]" class="fieldset" style="padding:$stylevar[formspacer]px">
+								<div><label for="cb_buddy_canview"><input type="checkbox" name="options_buddy[canviewmyblog]" id="cb_buddy_canview" $checked[buddy_canviewmyblog] value="1" />$vbphrase[view_your_blog_permission]</label></div>
+								<div><label for="cb_buddy_cancommentblog"><input type="checkbox" name="options_buddy[cancommentmyblog]" id="cb_buddy_cancommentblog" $checked[buddy_cancommentmyblog] value="1" />$vbphrase[leave_comments_on_your_blog_entries_permission]</label></div>
+							</div>
+							<input type="hidden" name="set_options[options_buddy_canviewmyblog]" value="1" />
+							<input type="hidden" name="set_options[options_buddy_cancommentmyblog]" value="1" />
+						</fieldset>
+
+						<fieldset class="fieldset">
+							<legend>
+							<phrase 1="$session[sessionurl]do=ignorelist">$vbphrase[members_on_your_ignore_list_may]</phrase>
+							</legend>
+							<div align="$stylevar[left]" class="fieldset" style="padding:$stylevar[formspacer]px">
+								<div><label for="cb_ignore_canview"><input type="checkbox" name="options_ignore[canviewmyblog]" id="cb_ignore_canview" $checked[ignore_canviewmyblog] value="1" />$vbphrase[view_your_blog_permission]</label></div>
+								<div><label for="cb_ignore_cancommentblog"><input type="checkbox" name="options_ignore[cancommentmyblog]" id="cb_ignore_cancommentblog" $checked[ignore_cancommentmyblog] value="1" />$vbphrase[leave_comments_on_your_blog_entries_permission]</label></div>
+							</div>
+							<input type="hidden" name="set_options[options_ignore_canviewmyblog]" value="1" />
+							<input type="hidden" name="set_options[options_ignore_cancommentmyblog]" value="1" />
+						</fieldset>
+
+						<fieldset class="fieldset">
+							<legend>$vbphrase[other_members_may]</legend>
+							<div align="$stylevar[left]" class="fieldset" style="padding:$stylevar[formspacer]px">
+								<div><label for="cb_member_canview"><input type="checkbox" name="options_member[canviewmyblog]" id="cb_member_canview" $checked[member_canviewmyblog] value="1" />$vbphrase[view_your_blog_permission]</label></div>
+								<div><label for="cb_member_cancommentblog"><input type="checkbox" name="options_member[cancommentmyblog]" id="cb_member_cancommentblog" $checked[member_cancommentmyblog] value="1" />$vbphrase[leave_comments_on_your_blog_entries_permission]</label></div>
+							</div>
+							<input type="hidden" name="set_options[options_member_canviewmyblog]" value="1" />
+							<input type="hidden" name="set_options[options_member_cancommentmyblog]" value="1" />
+						</fieldset>
+
+						<fieldset class="fieldset">
+							<legend>$vbphrase[guests_may]</legend>
+							<div align="$stylevar[left]" class="fieldset" style="padding:$stylevar[formspacer]px">
+								<div><label for="cb_guest_canview"><input type="checkbox" name="options_guest[canviewmyblog]" id="cb_guest_canview" $checked[guest_canviewmyblog] value="1" />$vbphrase[view_your_blog_permission]</label></div>
+								<div><label for="cb_guest_cancommentblog"><input type="checkbox" name="options_guest[cancommentmyblog]" id="cb_guest_cancommentblog" $checked[guest_cancommentmyblog] value="1" />$vbphrase[leave_comments_on_your_blog_entries_permission]</label></div>
+								<div class="shade" style="margin-top:$stylevar[cellpadding]px">
+									$vbphrase[unregistered_visitors_permissions_note]
+									<if condition="$show['pingback'] OR $show['trackback']">
+										$vbphrase[unregistered_visitors_trackback_your]
+									</if>
+								</div>
+							</div>
+							<input type="hidden" name="set_options[options_guest_canviewmyblog]" value="1" />
+							<input type="hidden" name="set_options[options_guest_cancommentmyblog]" value="1" />
+						</fieldset>
+					</if>
+
+					<if condition="$show['akismet_key']">
+						<div class="smallfont" style="margin:10px 0px 10px 0px"><strong>$vbphrase[spam_prevention]</strong></div>
+
+						<div class="fieldset" style="padding:$stylevar[formspacer]px">
+							<div>$vbphrase[akismet_key_description]</div>
+							<div style="margin-top:$stylevar[cellpadding]px">
+								<label for="akismet_key">$vbphrase[wordpress_api_key]</label>
+								<input type="text" class="bginput" name="akismet_key" id="akismet_key" value="$blog_akismet_key" />
+								<input type="hidden" name="set_options[akismet_key]" value="1" />
+							</div>
+						</div>
+					</if>
+
+					<div class="smallfont" style="margin:10px 0px 10px 0px"><if condition="$show['akismet_key']"><hr /></if><strong>$vbphrase[default_subscription_mode] $vbphrase[blog_entries]</strong></div>
+
+					<div class="fieldset" style="padding:$stylevar[formspacer]px">
+						<div><phrase 1="$session[sessionurl_q]">$vbphrase[auto_subscribe_blog_entry_description]</phrase></div>
+						<div style="margin-top:$stylevar[cellpadding]px">
+							<label for="subscribeown">$vbphrase[default_subscription_mode]</label>
+							<select name="subscribeown" id="subscribeown">
+								<option value="none" $subscribeownchecked[none]>$vbphrase[do_not_subscribe]</option>
+								<option value="usercp" $subscribeownchecked[usercp]>$vbphrase[no_email_notification]</option>
+								<option value="email" $subscribeownchecked[email]>$vbphrase[instant_email_notification]</option>
+							</select>
+							<input type="hidden" name="set_options[subscribeown]" value="1" />
+						</div>
+					</div>
+
+					<div class="smallfont" style="margin:10px 0px 10px 0px"><hr /><strong>$vbphrase[default_subscription_mode] $vbphrase[blog_comments]</strong></div>
+
+					<div class="fieldset" style="padding:$stylevar[formspacer]px">
+						<phrase 1="$session[sessionurl_q]">$vbphrase[auto_subscribe_blog_comment_description]</phrase>
+						<div style="margin-top:$stylevar[cellpadding]px">
+							<label for="subscribeothers">$vbphrase[default_subscription_mode]</label>
+							<select name="subscribeothers" id="subscribeothers">
+								<option value="none" $subscribeotherschecked[none]>$vbphrase[do_not_subscribe]</option>
+								<option value="usercp" $subscribeotherschecked[usercp]>$vbphrase[no_email_notification]</option>
+								<option value="email" $subscribeotherschecked[email]>$vbphrase[instant_email_notification]</option>
+							</select>
+							<input type="hidden" name="set_options[subscribeothers]" value="1" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<div style="margin-top:$stylevar[cellpadding]px">
+			<input type="submit" class="button" value="$vbphrase[save_changes]" accesskey="s" />
+			<input type="reset" class="button" value="$vbphrase[reset_fields]" accesskey="r" />
+		</div>
+	</td>
+</tr>
+</table>
+
+</form>

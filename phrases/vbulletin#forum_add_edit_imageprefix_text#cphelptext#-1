@@ -1,0 +1,12 @@
+Forum Status images are usually shown alongside the forum in a forum listings to indicate the read status.<br />
+<br />
+This prefix must only contain alphanumerical characters, though the following are also allowed <em>- _ / .</em>, a folder name is also acceptable to be placed within the status icon directory.<br />
+<br />
+The following images are currently in use for status icons, you will need to create images with the specified prefix to match.
+<ul>
+<li>forum_link.gif</li>
+<li>forum_new.gif</li>
+<li>forum_new_lock.gif</li>
+<li>forum_old.gif</li>
+<li>forum_old_lock.gif</li>
+</ul>

@@ -1,0 +1,16 @@
+ 
+			
+<script type="text/javascript">
+	setTimeout(function(){
+		window.location='$url';
+	}, 5000);
+</script>
+<center>
+	<h1>$vbphrase[vbppb_payment_completed]</h1>
+	<br />
+	<h4>
+		<a href="$url">$vbphrase[vbppb_click_if_no_redirect]</a>
+	</h4>
+</center>
+			
+		

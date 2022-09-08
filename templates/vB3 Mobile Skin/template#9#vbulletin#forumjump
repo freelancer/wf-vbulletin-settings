@@ -1,0 +1,22 @@
+<div class="smallfont" style="text-align:$stylevar[left]; white-space:nowrap">
+	<form action="forumdisplay.php" method="get">
+	<input type="hidden" name="s" value="$session[sessionhash]" />
+	<input type="hidden" name="daysprune" value="$daysprune" />
+	<strong>$vbphrase[forum_jump]</strong><br />
+	<select style="width:180px;" name="f" onchange="this.form.submit();">
+		<optgroup label="$vbphrase[site_areas]">
+			<option value="cp" $frmjmpsel[usercp]>$vbphrase[user_control_panel]</option>
+			<option value="pm" $frmjmpsel[pm]>$vbphrase[private_messages]</option>
+			<option value="subs" $frmjmpsel[subs]>$vbphrase[subscriptions]</option>
+			<option value="wol" $frmjmpsel[wol]>$vbphrase[whos_online]</option>
+			<option value="search" $frmjmpsel[search]>$vbphrase[search_forums]</option>
+			<option value="home" $frmjmpsel[home]>$vbphrase[forums_home]</option>
+		</optgroup>
+		<if condition="$jumpforumbits">
+		<optgroup label="$vbphrase[forums]">
+		$jumpforumbits
+		</optgroup>
+		</if>
+	</select>$gobutton
+	</form>
+</div>

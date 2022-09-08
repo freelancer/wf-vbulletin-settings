@@ -1,0 +1,63 @@
+<form action="inlinemod.php?do=docopyposts&amp;t=$threadid&amp;postids=$postids" method="post" name="vbform">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="postids" value="$postids" />
+<input type="hidden" name="t" value="$threadid" />
+<input type="hidden" name="do" value="docopyposts" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[copy_posts]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+
+		<fieldset class="fieldset">
+			<legend>$vbphrase[copy_posts_to_new_thread]</legend>
+			<div style="float:$stylevar[right]; width: 95%; padding:$stylevar[formspacer]px">
+
+				<div class="fieldset">$vbphrase[destination_forum]<br />
+				<select name="destforumid">
+					$moveforumbits
+				</select></div>
+				<div class="fieldset">$vbphrase[title]<br />
+				<input type="text" class="bginput" name="title" value="$post[title]" size="50" maxlength="$vboptions[titlemaxchars]" /></div>
+			</div>
+			<div><input type="radio" name="type" value="0" checked="checked" /></div>
+		</fieldset>
+
+		<fieldset class="fieldset">
+			<legend>$vbphrase[copy_posts_to_existing_thread]</legend>
+			<div style="float:$stylevar[right]; width: 95%; padding:$stylevar[formspacer]px">
+				<div class="fieldset">$vbphrase[copy_posts_note]</div>
+				<div class="fieldset">$vbphrase[url_of_thread_to_be_merged]<br />
+				<input type="text" class="bginput" name="mergethreadurl" value="" size="50" /></div>
+			</div>
+			<div><input type="radio" name="type" value="1" /></div>
+		</fieldset>
+
+		<fieldset class="fieldset">
+			<legend>$vbphrase[notes]</legend>
+			<div style="padding:$stylevar[formspacer]px">
+
+			<div class="fieldset"><phrase 1="$postcount" 2="$threadcount" 3="$forumcount">$vbphrase[copying_x_posts_from_y_threads_in_z_forums]</phrase></div>
+			<div class="fieldset">$vbphrase[you_must_have_the_required_permission]</div>
+
+			</div>
+		</fieldset>
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" value="$vbphrase[copy_posts]" accesskey="s" />
+		<input type="reset" class="button" value="$vbphrase[reset_fields]" accesskey="r" />
+	</div>
+	</td>
+</tr>
+</table>
+
+</form>

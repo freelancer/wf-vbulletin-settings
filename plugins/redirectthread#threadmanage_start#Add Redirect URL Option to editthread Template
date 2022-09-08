@@ -1,0 +1,14 @@
+if ($_REQUEST['do'] == 'editthread' AND $threadinfo['open'] != 10) {
+$vbulletin->templatecache['threadadmin_editthread'] = str_replace('$posticons','		<fieldset class=\"fieldset\">
+			<legend>$vbphrase[redirect_threads_to_url]</legend>
+			<div style=\"padding:$stylevar[formspacer]px\">
+				<div class=\"fieldset\">
+					$vbphrase[redirect_threads_to_url_link]<br />
+					<input type=\"text\" class=\"bginput\" name=\"isurlredirect\" value=\"$threadinfo[isurlredirect]\" size=\"50\" maxlength=\"250\" title=\"$vbphrase[optional]\" />
+				</div>
+
+			</div>
+		</fieldset>
+		
+		$posticons',$vbulletin->templatecache['threadadmin_editthread']);
+}

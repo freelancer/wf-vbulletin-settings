@@ -1,0 +1,1 @@
+You can also set a starting date, where the attachment must have been attached after this date. The format is YYYY-MM-DD HH:MM:SS. For example, 2002-04-30 12:02:01. Use a 24 hour clock; that is, convert 01:02:02 PM into 13:02:02. Note if you use both Attached Before and Attached After, Attached After must be a date before Attached Before or there will be no search period!

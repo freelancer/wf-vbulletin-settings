@@ -1,0 +1,5 @@
+<if condition="$show['breadcrumb']">
+	<span class="navbar">&gt; <a href="$nav_url">$nav_title</a></span>
+<else />
+	$nav_title
+</if>

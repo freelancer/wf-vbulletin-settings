@@ -1,0 +1,36 @@
+<if condition="$block_data['friendbits']">
+	<div class="thead block_title">
+		<if condition="$prepared['myprofile']">
+			<a class="normal edit_friends_link" href="profile.php?$session[sessionurl]do=buddylist">$vbphrase[edit_your_friends_list]</a>
+			<else /><if condition="$prepared['canbefriend']">
+				<a class="normal edit_friends_link" href="profile.php?$session[sessionurl]do=addlist&amp;userlist=friend&amp;u=$prepared[userid]"><phrase 1="$prepared[username]">$vbphrase[befriend_x]</phrase></a>
+			</if></if>
+		<phrase 1="$block_data[start_friends]" 2="$block_data[end_friends]" 3="$prepared[friendcount]">$vbphrase[showing_friends_x_to_y_of_z]</phrase>
+	</div>
+	<ul class="list_no_decoration alt1 block_row" id="friends_list_big">
+		$block_data[friendbits]
+	</ul>
+	<if condition="$block_data['pagenav']">
+		<div class="alt2 smallfont block_row block_footer">
+			$block_data[pagenav]
+		</div>
+	</if>
+<else />
+	<div class="alt1 smallfont block_row">
+		<if condition="$prepared['myprofile']">
+			$vbphrase[your_friends_list_is_empty]
+		<else />
+			<phrase 1="$prepared[username]">$vbphrase[x_has_not_made_any_friends_yet]</phrase>
+		</if>
+	</div>
+	<if condition="$prepared['myprofile'] OR $prepared['canbefriend']">
+		<div class="alt2 smallfont block_row block_footer">
+			<if condition="$prepared['myprofile']">
+				<a class="edit_friends_link" href="profile.php?$session[sessionurl]do=buddylist">$vbphrase[edit_your_friends_list]</a>
+			</if>
+			<if condition="$prepared['canbefriend']">
+				<a href="profile.php?$session[sessionurl]do=addlist&amp;userlist=friend&amp;u=$prepared[userid]"><phrase 1="$prepared[username]">$vbphrase[befriend_x]</phrase></a>
+			</if>
+		</div>
+	</if>
+</if>

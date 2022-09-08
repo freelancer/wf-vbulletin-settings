@@ -1,0 +1,95 @@
+if ($userinfo['userid'])
+{
+	$userdata->pre_save();
+	if (empty($userdata->errors))
+	{
+		$vbulletin->input->clean_array_gpc('p', array(
+			'blog' => TYPE_ARRAY
+		));
+
+		$blogman =& datamanager_init('Blog_User', $vbulletin, ERRTYPE_CP);
+
+		if ($bloguserinfo = $db->query_first("
+			SELECT bloguserid
+			FROM " . TABLE_PREFIX . "blog_user
+			WHERE bloguserid = $userinfo[userid]
+		"))
+		{
+			$blogman->set_existing($bloguserinfo);
+		}
+		else
+		{
+			$blogman->set('bloguserid', $userinfo['userid']);
+		}
+
+		$blogman->set('description', $vbulletin->GPC['blog']['description']);
+		$blogman->set('title', $vbulletin->GPC['blog']['title']);
+
+		if ($vbulletin->GPC['blog']['akismet_key'] AND empty($vbulletin->options['vb_antispam_key']))
+		{
+			$blogman->set('akismet_key', $vbulletin->GPC['blog']['akismet_key']);
+		}
+
+		// options bitfield
+		foreach ($vbulletin->bf_misc_vbbloguseroptions AS $key => $val)
+		{
+			$value = intval($vbulletin->GPC['blog']['options']["$key"]);
+			$blogman->set_bitfield('options', $key, $value);
+		}
+
+		$insert = false;
+		// options bitfield
+		foreach ($vbulletin->bf_misc_vbblogsocnetoptions AS $key => $val)
+		{
+			$blogman->set_bitfield('options_member', $key, intval($vbulletin->GPC['blog']['options_member']["$key"]));
+			$blogman->set_bitfield('options_guest', $key, intval($vbulletin->GPC['blog']['options_guest']["$key"]));
+			$blogman->set_bitfield('options_buddy', $key, intval($vbulletin->GPC['blog']['options_buddy']["$key"]));
+			$blogman->set_bitfield('options_ignore', $key, intval($vbulletin->GPC['blog']['options_ignore']["$key"]));
+
+			if (
+				!intval($vbulletin->GPC['blog']['options_member']["$key"])
+					OR
+				!intval($vbulletin->GPC['blog']['options_guest']["$key"])
+					OR
+				!intval($vbulletin->GPC['blog']['options_buddy']["$key"])
+					OR
+				intval($vbulletin->GPC['blog']['options_ignore']["$key"]))
+			{
+				$insert = true;
+			}
+		}
+
+		$blogman->set('subscribeown', $vbulletin->GPC['blog']['subscribeown']);
+		$blogman->set('subscribeothers', $vbulletin->GPC['blog']['subscribeothers']);
+
+		// Don't insert a blog_user record if the user doesn't have one and none of this stuff was changed from the "default" value
+		if (
+			$bloguserinfo
+				OR
+			$vbulletin->GPC['description']
+				OR
+			$vbulletin->GPC['title']
+				OR
+			(
+				$vbulletin->GPC['blog']['akismet_key']
+					AND
+				empty($vbulletin->options['vb_antispam_key'])
+			)
+				OR
+			$vbulletin->GPC['blog']['subscribeown'] != 'none'
+				OR
+			$vbulletin->GPC['blog']['subscribeothers'] != 'none'
+				OR
+			!$vbulletin->GPC['blog']['options']['allowcomments']
+				OR
+			!$vbulletin->GPC['blog']['options']['allowpingback']
+				OR
+			$vbulletin->GPC['blog']['options']['moderatecomments']
+				OR
+			$insert
+		)
+		{
+			$blogman->save();
+		}
+	}
+}

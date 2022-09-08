@@ -1,0 +1,18 @@
+<tr id="trackback$trackback[blogtrackbackid]">
+	<td class="alt1">
+			<if condition="$show['moderation']">
+				<img style="float:$stylevar[right]" src="$stylevar[imgdir_misc]/moderated_small.gif" alt="$vbphrase[moderated_trackback]"  border="0" class="inlineimg" />
+			</if>
+			<a href="blog.php?$session[sessionurl]b=$trackback[blogid]#trackback$trackback[blogtrackbackid]">$trackback[blogtitle]</a>
+		</td>
+	<td class="alt2">
+		<a href="$trackback[url]" rel="nofollow">$trackback[title]</a>
+		<div class="smallfont shade">$trackback[url]</div>
+	</td>
+	<td class="alt1"><div class="smallfont"><span style="white-space:nowrap">$trackback[date]</span> <span class="time" style="white-space:nowrap">$trackback[time]</span></div></td>
+	<if condition="$show['inlinemod_trackback']">
+	<td class="alt2">
+		<input type="checkbox" name="trackbacklist[$trackback[blogtrackbackid]]" id="trackbacklist_$trackback[blogtrackbackid]" value="1" title="$vbphrase[select_this_item_for_inline_moderation]" />
+	</td>
+	</if>
+</tr>

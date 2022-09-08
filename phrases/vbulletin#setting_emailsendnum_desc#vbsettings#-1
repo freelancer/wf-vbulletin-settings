@@ -1,0 +1,1 @@
+vBulletin includes a mail queuing system to prevent bottlenecks when sending lots of email. Use this option to specify how many emails will be sent per batch.

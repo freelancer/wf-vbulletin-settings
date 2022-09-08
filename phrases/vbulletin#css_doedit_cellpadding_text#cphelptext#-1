@@ -1,0 +1,3 @@
+This is the cellpadding attribute of your forum tables.  This setting determines how big a table cell is around its content.<br /><br />
+
+An example of a table cell is one of the boxes on your <a href="../{$vbulletin->options[forumhome]}.php" target="_blank">forumhome</a> page that contains a linked forum name and its description.

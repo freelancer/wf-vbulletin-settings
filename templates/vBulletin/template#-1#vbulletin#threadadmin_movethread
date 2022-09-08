@@ -1,0 +1,110 @@
+<form action="postings.php?do=domovethread&amp;t=$threadid" method="post" name="vbform">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="t" value="$threadid" />
+<input type="hidden" name="do" value="domovethread" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat"><if condition="$show['move']">$vbphrase[move_thread]<else />$vbphrase[copy_thread]</if></td>
+</tr>
+<tr>
+	<td class="thead">$vbphrase[title]: <span style="font-weight:normal">$threadinfo[prefix_plain_html] $threadinfo[title]</span></td>
+</tr>
+
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+		<fieldset class="fieldset">
+			<legend>$vbphrase[new_subject]</legend>
+
+			<div style="padding:$stylevar[formspacer]px">
+
+			<div class="fieldset">
+			$vbphrase[may_rename_thread]<br />
+
+			$vbphrase[new_subject]:<br />
+			<input type="text" class="bginput" name="title" value="$title" size="50" maxlength="$vboptions[titlemaxchars]" />
+
+			</div>
+
+			</div>
+		</fieldset>
+
+		<fieldset class="fieldset">
+			<legend>$vbphrase[destination_forum]</legend>
+
+			<div style="padding:$stylevar[formspacer]px">
+
+			<div class="fieldset">
+			$vbphrase[destination_forum]:<br />
+			<select name="destforumid">
+				$moveforumbits
+			</select>
+			</div>
+
+			</div>
+		</fieldset>
+
+		<if condition="$show['move']">
+		<fieldset class="fieldset">
+			<legend>$vbphrase[redirect]</legend>
+
+			<div style="padding:$stylevar[formspacer]px">
+
+			<div class="fieldset">
+					<label for="rb_redirect_none"><input type="radio" name="redirect" value="none" id="rb_redirect_none" />$vbphrase[leave_no_redirect]</label><br />
+					<label for="rb_redirect_perm"><input type="radio" name="redirect" value="perm" id="rb_redirect_perm" checked="checked" />$vbphrase[leave_permanent_redirect]</label><br />
+					<label for="rb_redirect_expires"><input type="radio" name="redirect" value="expires" id="rb_redirect_expires" />$vbphrase[leave_expiring_redirect]</label><br />
+					<img style="padding-$stylevar[left]: 4px" class="inlineimg" src="$stylevar[imgdir_misc]/tree_$stylevar[textdirection].gif" alt="" border="0" /> $vbphrase[expires_in]
+					<select name="period">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+
+					<select name="frame">
+						<option value="h">$vbphrase[hours]</option>
+						<option value="d">$vbphrase[days]</option>
+						<option value="w">$vbphrase[weeks]</option>
+						<option value="m" selected="selected">$vbphrase[months]</option>
+						<option value="y">$vbphrase[years]</option>
+					</select>
+			</div>
+
+			<div class="fieldset">
+				$vbphrase[redirect_title]:<br />
+				<if condition="$prefix_options">
+					<select name="redirectprefixid" class="bginput">
+						<option value="">$vbphrase[no_prefix_meta]</option>
+						$prefix_options
+					</select>
+				</if>
+				<input type="text" class="bginput" name="redirecttitle" value="$title" size="50" maxlength="85" />
+			</div>
+
+			</div>
+		</fieldset>
+		</if>
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" value="<if condition="$show['move']">$vbphrase[move_thread]<else />$vbphrase[copy_thread]</if>" accesskey="s" />
+		<input type="reset" class="button" value="$vbphrase[reset_fields]" accesskey="r" />
+	</div>
+	</td>
+</tr>
+</table>
+
+</form>

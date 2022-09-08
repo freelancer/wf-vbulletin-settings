@@ -1,0 +1,5 @@
+If items are posted as threads, you may specify a delay in hours here and have the system then perform an action on the thread.<br />
+<br />
+For example, you could specify a delay of 6 hours, then have the system close threads posted by this RSS feed after that delay.<br />
+<br />
+A setting of '0' disables the thread action delay, so no actions will be automatically applied to threads after they are posted.

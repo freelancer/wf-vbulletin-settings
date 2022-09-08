@@ -1,0 +1,4 @@
+
+$post['show_ezsocial_links'] = false;		
+if($vbulletin->options['EZsociallinks_enable'] && $vbulletin->options['EZsociallinks_pbenable'] && THIS_SCRIPT == 'showthread')
+	$post['show_ezsocial_links'] = true;

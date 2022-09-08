@@ -1,0 +1,7 @@
+<tr>
+    <td>
+        $vbphrase[folder_name]: <if condition="$show['messagecount']"><a href="private.php?do=emptyfolder&amp;folderid=$folderid"><em>$vbphrase[empty_folder]</em></a></if><br />
+        <input type="text" class="bginput" size="50" name="folder[$folderid]" value="$foldername" title="<phrase 1="$folderid">$vbphrase[folder_id_x]</phrase>" ng-non-bindable/>
+        <if condition="$show['messagecount']">$vbphrase[messages]: <strong>$foldertotal</strong></if>
+    </td>
+</tr>

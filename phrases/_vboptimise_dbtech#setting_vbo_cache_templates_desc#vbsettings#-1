@@ -1,0 +1,4 @@
+This option specifies if you would like vB Optimise to cache Forum Templates.
+<br />
+<br />
+By doing so, your forum will have one large global query eliminated. Additionally, vB Optimise will take an extra step and cache templates within the vB CMS if you have it installed to reduce upto 20 queries on pages within the CMS.

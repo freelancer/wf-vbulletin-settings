@@ -1,0 +1,66 @@
+<form action="$ptpnt_action" method="post">
+<if condition="$ptpnt_total_price">
+	<input type="hidden" name="cmd" value="_xclick" />
+	<input type="hidden" name="business" value="$ptpnt_ppemail" />
+	<input type="hidden" name="item_name" value="$vbphrase[post_new_thread]" />
+	<input type="hidden" name="item_number" value="$ptpnt_item" />
+	<input type="hidden" name="currency_code" value="$foruminfo[ptpnt_currency]" />
+	<input type="hidden" name="amount" value="$ptpnt_total_price" />
+	<input type="hidden" name="no_shipping" value="1" />
+	<input type="hidden" name="shipping" value="0.00" />
+	<input type="hidden" name="return" value="$vboptions[bburl]/$vboptions[forumhome].php" />
+	<input type="hidden" name="cancel_return" value="$vboptions[bburl]/$vboptions[forumhome].php" />
+	<input type="hidden" name="notify_url" value="$vboptions[bburl]/buythread.php?do=paypal" />
+	<input type="hidden" name="custom" value="$bbuserinfo[username]" />
+	<input type="hidden" name="no_note" value="1" />
+	<input type="hidden" name="tax" value="0.00" />
+<else />
+	<input type="hidden" name="s" value="$session[sessionhash]" />
+	<input type="hidden" name="f" value="$foruminfo[forumid]" />
+	<input type="hidden" name="do" value="$ptpnt_do" />
+        <input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+</if>
+
+<table class="tborder" border="0" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" align="center" width="100%">
+<tr>
+	<td colspan="2" class="tcat">$vbphrase[post_new_thread] - $vbphrase[ptpnt_payment_required]</td>
+</tr>
+<tr>
+	<td nowrap class="thead">$vbphrase[title]</td>
+	<td nowrap class="thead">$vbphrase[ptpnt_description]</td>
+</tr>
+<tr>
+	<td nowrap class="alt1">$vbphrase[ptpnt_forum_for_thread]</td>
+	<td nowrap class="alt1"><a href="forumdisplay.php?$session[sessionurl]f=$foruminfo[forumid]">$foruminfo[title]</a></td>
+</tr>
+<tr>
+	<td nowrap class="alt1">$vbphrase[ptpnt_price_per_thread]</td>
+	<td nowrap class="alt1">$ptpnt_price $foruminfo[ptpnt_currency]</td>
+</tr>
+<tr>
+	<td nowrap class="alt1">$vbphrase[ptpnt_maximum_threads_allowed]</td>
+	<td nowrap class="alt1">$foruminfo[ptpnt_threads]</td>
+</tr>
+<tr>
+<if condition="$ptpnt_total_price">
+		<td nowrap class="alt1">$vbphrase[ptpnt_number_of_threads]</td>
+		<td nowrap class="alt1">$ptpnt_num_threads</td>
+	</tr>
+	<tr>
+		<td nowrap class="alt1">$vbphrase[ptpnt_total_price]</td>
+		<td nowrap class="alt1">$ptpnt_total_price $foruminfo[ptpnt_currency]</td>
+<else />
+		<td nowrap class="alt1">$vbphrase[ptpnt_enter_number_of_threads_to_purchase]</td>
+		<td nowrap class="alt1"><input type="text" name="num_threads" value="" /></td>
+</if>
+</tr>
+<tr>
+<if condition="$ptpnt_total_price">
+		<td colspan="2" class="tfoot" align="center"><input type="submit" name="" value="$vbphrase[ptpnt_purchase]" /></td>
+<else />
+		<td colspan="2" class="tfoot" align="center"><input type="submit" name="" value="$vbphrase[submit]" /></td>
+</if>
+</tr>
+</table>
+
+</form>

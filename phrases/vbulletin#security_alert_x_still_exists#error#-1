@@ -1,0 +1,3 @@
+Security Alert!<br /><br />
+{1} still remains in the /install/ directory.<br /><br />
+This poses a security risk, so please delete that file immediately. You cannot access the control panel until you do so.

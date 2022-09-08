@@ -1,0 +1,53 @@
+<li id="vmessage$message[vmid]" class="floatcontainer">
+<if condition="$message['avatarurl']">
+	<div class="fixed_width_avatar">
+		<if condition="$message['postuserid']"><a href="member.php?$session[sessionurl]u=$message[postuserid]"></if><img src="$message[avatarurl]" class="alt2 avatar"<if condition="$message['avatarwidth']"> width="$message[avatarwidth]"</if><if condition="$message['avatarheight']"> height="$message[avatarheight]"</if> border="0" alt="$message[username]" /><if condition="$message['postuserid']"></a></if>
+	</div>
+	<div class="visitor_message_avatar_margin">
+</if>
+		<div class="tborder info_bar">
+			<div class="alt2 smallfont">
+				<if condition="$show['inlinemod']"><input type="checkbox" class="inlinemod_checkbox" name="vmessagelist[$message[vmid]]" id="vmessagelist_$message[vmid]" value="$message[checkbox_value]" title="$vbphrase[select_this_item_for_inline_moderation]"  /></if>
+				<div class="visitor_message_date">$message[date]<if condition="!$show['detailedtime']"> <span class="time">$message[time]</span></if></div>
+				<if condition="$message['postuserid']">
+					<a href="member.php?$session[sessionurl]u=$message[postuserid]" class="smallfont username">$message[musername]</a>
+				<else />
+					<span class="smallfont username">$message[musername]</span>
+				</if>
+				<if condition="$show['profile']">
+					<div><phrase 1="member.php?$session[sessionurl]u=$message[profileuserid]&amp;vmid=$message[vmid]#vmessage$message[vmid]" 2="$message[profileusername]">$vbphrase[profile_x]</phrase></div>
+				</if>
+			</div>
+		</div>
+
+		<if condition="$show['moderation']"><div class="shade">$vbphrase[this_message_is_moderated]</div></if>
+		<div class="visitor_message_body" id="vmessage_text_$message[vmid]">$message[message]</div>
+
+	<if condition="$show['converse'] OR $show['edit'] OR $show['reportlink'] OR $message['messageipaddress']">
+		<if condition="$show['edit']">
+			<img style="display: none" id="progress_$message[vmid]" src="$stylevar[imgdir_misc]/progress.gif" alt="$vbphrase[loading_editor_please_wait]" />
+		</if>
+		<ul class="list_no_decoration controls">
+			<if condition="$show['converse']">
+				<li class="smallfont"><a href="converse.php?$session[sessionurl]u=$message[hostuserid]&amp;u2=$message[guestuserid]" title="$message[converse_description_phrase]">$vbphrase[view_conversation]</a></li>
+			</if>
+			<if condition="$show['edit']">
+				<li class="smallfont"><a href="visitormessage.php?$session[sessionurl]u=$userinfo[userid]&amp;do=message&amp;vmid=$message[vmid]" id="vmessage_edit_$message[vmid]">$vbphrase[edit]</a></li>
+			</if>
+			<if condition="$show['reportlink']">
+				<li class="smallfont"><a href="visitormessage.php?$session[sessionurl]do=report&amp;vmid=$message[vmid]">$vbphrase[report]</a></li>
+			</if>
+			<if condition="$message['messageipaddress']">
+				<li class="smallfont"><a href="visitormessage.php?do=viewip&amp;vmid=$message[vmid]">$vbphrase[ip]</a></li>
+			</if>
+		</ul>
+	</if>
+<if condition="$message['avatarurl']">
+	</div>
+</if>
+<script type="text/javascript"> 
+<!-- 
+vBulletin.register_control("vB_QuickEdit", "$message[vmid]", 'VisitorMessage'); 
+//--> 
+</script> 
+</li>

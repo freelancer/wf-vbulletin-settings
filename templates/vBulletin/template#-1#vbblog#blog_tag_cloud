@@ -1,0 +1,31 @@
+<if condition="$tag_cloud">
+	$tag_cloud<br />
+</if>
+
+<form action="blog.php" method="get">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[search_by_tag]</td>
+</tr>
+<tr>
+	<td class="alt1" align="center"><div align="$stylevar[left]">
+		<span id="tag_wrapper"><input type="text" id="tag_input" name="tag" size="25" class="bginput" style="width: 80%" /></span>
+		<input type="hidden" name="u" value="$userinfo[userid]" />
+		<input type="submit" class="button" value="$vbphrase[search]" />
+	</div></td>
+</tr>
+</table>
+</form>
+<if condition="$show['popups']">
+	<div id="tag_wrapper_menu" class="vbmenu_popup" style="display:none"></div>
+	<script type="text/javascript" src="clientscript/vbulletin_ajax_tagsugg.js?v=$vboptions[simpleversion]"></script>
+	<script type="text/javascript" src="clientscript/blog_ajax_tagsugg.js?v=$vboptions[simpleversion]"></script>
+	<script type="text/javascript">
+	<!--
+	vbmenu_register('tag_wrapper', true);
+	tag_comp = new vB_Blog_AJAX_TagSuggest('tag_comp', 'tag_input', 'tag_wrapper');
+	tag_comp.set_delimiters('$tag_delimiters');
+	//-->
+	</script>
+</if>

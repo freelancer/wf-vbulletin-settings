@@ -1,0 +1,9 @@
+If you want to display text for this rank instead of an image, then leave the previous field blank and fill in this field instead.  You can use HTML code in this field.<br /><br />
+
+Some HTML tags you might want to use here include:<br /><br />
+
+&lt;b&gt;rank&lt;/b&gt; = <b>rank</b><br />
+&lt;i&gt;rank&lt;/i&gt; = <i>rank</i><br />
+&lt;u&gt;rank&lt;/u&gt; = <u>rank</u><br />
+&lt;font color="red"&gt;rank&lt;/font&gt; = <font color="red">rank</font><br />
+&lt;font size="4"&gt;rank&lt;/font&gt; = <font size="3">rank</font>

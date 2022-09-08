@@ -1,0 +1,3 @@
+If this permission is enabled then members of this group will see a question mark icon next to locations on the <a href="../online.php" target="_blank">online.php</a> page.  They can "mouse over" the image to see the file path of the page each user is visiting.<br /><br />
+
+Who's online must be enabled in your <a href="options.php?dogroup=online&amp;do=options" target="_blank">vBulletin options</a> for this permission to have any effect.  The "Can View Who's Online" permission above must also be enabled.

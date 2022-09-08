@@ -1,0 +1,57 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $pagetitle</title>
+</head>
+<body>
+$header
+$navbar
+
+<form action="calendar.php?do=manage&amp;e=$eventinfo[eventid]" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="manage" />
+<input type="hidden" name="e" value="$eventinfo[eventid]" />
+
+$_logincode
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat"><if condition="$show['delete']">$vbphrase[delete_event]<else />$vbphrase[move_event]</if></td>
+</tr>
+<tr>
+	<td class="thead" style="font-weight:normal"><strong>$vbphrase[event]</strong>: $eventinfo[title]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+			<table cellpadding="0" cellspacing="0" border="0" width="100%" class="fieldset">
+			<tr valign="bottom">
+				<td>
+					<if condition="$show['delete']">
+						<input type="hidden" name="what" value="dodelete" />
+						<label for="cb_confdel"><input type="checkbox" name="dodelete" value="1" id="cb_confdel" />$vbphrase[to_delete_this_event]</label>
+					<else />
+						<input type="hidden" name="what" value="domove" />
+						$vbphrase[move_event_to_calendar]:<br />
+						<select name="newcalendarid">
+							$calendarbits
+						</select>
+					</if>
+				</td>
+				<td align="$stylevar[right]"><input type="submit" class="button" value="$pagetitle" accesskey="s" /></td>
+			</tr>
+			</table>
+		</div>
+	</div>
+	</td>
+</tr>
+</table>
+
+</form>
+
+$footer
+</body>
+</html>

@@ -1,0 +1,1 @@
+This is the number of thumbnails to rebuild in a cycle. If you set this too large, you may get timeouts on your server. If you set it too low, the process will take longer.

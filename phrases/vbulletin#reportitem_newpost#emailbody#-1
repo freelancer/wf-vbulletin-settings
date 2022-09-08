@@ -1,0 +1,3 @@
+[url=$vboptions[bburl]/member.php?u=$reportinfo[ruserid]]$reportinfo[rusername][/url] has also reported this item.
+
+Reason:[quote]$reportinfo[reason][/quote]

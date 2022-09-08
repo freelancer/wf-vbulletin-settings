@@ -1,0 +1,1 @@
+This is the day of the week the task should run on. Set this to * to have it not apply, or for it to run every day (if Day of the Month is set to * below). Otherwise select a specific day. Note that this will override the day of the month option, unless this is set to *.

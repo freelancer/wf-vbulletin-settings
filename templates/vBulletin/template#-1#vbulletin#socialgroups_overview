@@ -1,0 +1,215 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $custompagetitle</title>
+$socialgroups_css
+</head>
+<body>
+$header
+$navbar
+
+$template_hook[group_overview_start]
+
+<div class="floatcontainer">
+	<div class="floatwrapper">
+
+		$template_hook[group_overview_before_categories]
+
+		<if condition="$categorybits">
+		<div id="sg_catcloud">
+			<form action="group.php?$session[sessionurl]do=grouplist" method="post">
+				<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" align="center" width="100%">
+				<tr>
+					<td class="tcat">
+						<div style="float:$stylevar[right]" class="normal">$vbphrase[search_groups] <input type="text" class="bginput" name="filtertext" value="$filters[text]" style="font-size: 11px;" />&nbsp;<input type="submit" class="button" value="$vbphrase[go]" /></div>
+						$vbphrase[categories]
+					</td>
+				</tr>
+				<tr>
+					<td class="alt1">
+						$categorybits
+					</td>
+				</tr>
+				<tr>
+					<td align="$stylevar[right]" class="tfoot smallfont">
+						<strong><a href="group.php?$session[sessionurl]do=categorylist">$vbphrase[view_all_categories]</a></strong>
+					</td>
+				</tr>
+				</table>
+
+				<input type="hidden" name="s" value="$session[sessionhash]" />
+				<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+				<input type="hidden" name="dofilter" value="1" />
+			</form>
+		</div>
+		</if>
+
+		$template_hook[group_overview_after_categories]
+
+		<if condition="$randomgroup">
+		<div id="sg_randomgroup">
+			<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" align="center" width="100%">
+			<tr>
+				<td class="tcat">
+					$vbphrase[random_group]
+				</td>
+			</tr>
+			<tr>
+				<td class="alt1">
+					<span style="float:$stylevar[right]" class="smallfont"><phrase 1='<a href="group.php?$session[sessionurl]do=grouplist&amp;cat=$randomgroup[categoryid]" style="font-weight:normal">$randomgroup[categoryname]</a>'>$vbphrase[in_category_x]</phrase></span>
+					<a href="group.php?$session[sessionurl]groupid=$randomgroup[groupid]" <if condition="!$randomgroup[is_read]">class="unread"</if>>$randomgroup[name]</a><br />
+				</td>
+			</tr>
+			<tr>
+				<td class="alt1">
+					<if condition="$show['sgicons']"><div class="sgicon"><a href="group.php?$session[sessionurl]groupid=$randomgroup[groupid]"><img class="sgicon" src="$randomgroup[iconurl]" alt="$randomgroup[shortdescription]" /></a></div></if>
+					<span style="display:block">$randomgroup[mediumdescription]</span>
+					<div id="sg_randomgroup_info">
+						<table cellspacing="0" cellpadding="0" border="0">
+						<tr>
+							<td nowrap="nowrap" align="$stylevar[left]" valign="top">
+								<div><a href="group.php?$session[sessionid]groupid=$randomgroup[groupid]">$vbphrase[group_members]:</a> <strong>$randomgroup[members]</strong></div>
+							<if condition="$show['pictureinfo']">
+								<div><a href="group.php?$session[sessionid]do=grouppictures&amp;groupid=$randomgroup[groupid]">$vbphrase[pictures]:</a> <strong>$randomgroup[picturecount]</strong></div>
+							</if>
+							</td>
+							<if condition="$show['messageinfo']">
+							<td nowrap="nowrap" align="$stylevar[left]" valign="top">
+								<div><a href="group.php?$session[sessionurl]groupid=$randomgroup[groupid]">$vbphrase[discussions]:</a> <strong>$randomgroup[discussions]</strong></div>
+								<div><a href="group.php?$session[sessionid]groupid=$randomgroup[groupid]">$vbphrase[messages]:</a> <strong>$randomgroup[visible]</strong></div>
+							</td>
+							</if>
+						</tr>
+						</table>
+					</div>
+					$template_hook[group_random_group_info]
+				</td>
+			</tr>
+			<tr>
+				<td class="tfoot smallfont">
+					<span style="float:$stylevar[right]"><strong><a href="group.php?$session[sessionurl]do=grouplist">$vbphrase[view_all_groups]</a></strong></span>
+				</td>
+			</tr>
+			</table>
+		</div>
+		</if>
+
+		$template_hook[group_overview_after_random_group]
+
+		<if condition="$owngroup">
+		<div id="sg_owngroups">
+			$owngroup
+		</div>
+		</if>
+
+		$template_hook[group_overview_after_own_groups]
+
+
+		<div id="sg_mygroups">
+			<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" style="margin-bottom:20px">
+			<tr>
+				<td class="tcat" colspan="3">$vbphrase[your_groups]</td>
+			</tr>
+
+			<if condition="$show['sgicons']">
+
+			<tr>
+				<if condition="$mygroup_bits">
+				<td class="alt1">
+					$mygroup_bits
+				</td>
+				<else />
+				<td class="alt1" style="text-align:center">
+					$vbphrase[you_are_not_a_member_of_any_groups]
+				</td>
+				</if>
+			</tr>
+
+			<else />
+
+			<tr>
+				<td class="thead" width="100%">$vbphrase[group_name]</td>
+				<td class="thead" align="center" nowrap="nowrap">$vbphrase[joined_group]</td>
+				<td class="thead" align="center" nowrap="nowrap">$vbphrase[options]</td>
+			</tr>
+
+			$mygroup_bits
+
+			</if>
+
+			</table>
+		</div>
+
+	</div>
+
+	$template_hook[group_overview_after_your_groups]
+
+	<div id="sg_newgroups">
+		<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+		<tr>
+			<td class="tcat" colspan="3">
+				$vbphrase[new_groups]
+			</td>
+		</tr>
+
+		<if condition="$show['sgicons']">
+
+		<tr>
+			<if condition="$newgroupbits">
+			<td class="alt1">
+				$newgroupbits
+			</td>
+			<else />
+			<td class="alt1" align="center">
+				$vbphrase[no_social_groups]<br />
+				<if condition="$show['creategroup']">
+					<a href="group.php?$session[sessionurl]do=create" rel="nofollow">$vbphrase[create_a_new_group]</a>
+				</if>
+			</td>
+			</if>
+		</tr>
+
+		<else />
+
+		<tr>
+			<td class="thead" width="100%">$vbphrase[group_name]</td>
+			<td class="thead" align="center" nowrap="nowrap">$vbphrase[category]</td>
+		</tr>
+
+		$newgroupbits
+
+		</if>
+
+		<if condition="$newgroupbits">
+		<tr>
+			<td class="tfoot smallfont" colspan="3">
+				<span style="float:$stylevar[right]"><strong><a href="group.php?$session[sessionurl]do=grouplist">$vbphrase[view_all_groups]</a></strong></span>
+			</td>
+		</tr>
+		</if>
+		</table>
+	</div>
+
+	$template_hook[group_overview_after_new_groups]
+
+	<if condition="$show['creategroup']">
+	<div class="action_links">
+		<strong><a href="group.php?$session[sessionurl]do=create" rel="nofollow">$vbphrase[create_a_new_group]</a></strong>
+	</div>
+	</if>
+
+	<div class="action_links">
+		<strong><a href="group.php?$session[sessionurl]do=search">$vbphrase[advanced_search]</a></strong>
+	</div>
+
+	<div class="action_links">
+		<strong><a href="groupsubscription.php$session[sessionurl_q]">$vbphrase[group_subscriptions]</a></strong>
+	</div>
+
+	$template_hook[group_overview_after_action_links]
+</div>
+
+$footer
+</body>
+</html>

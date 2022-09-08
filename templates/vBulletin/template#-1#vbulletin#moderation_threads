@@ -1,0 +1,240 @@
+<script type="text/javascript" src="clientscript/vbulletin_inlinemod.js?v=$vboptions[simpleversion]"></script>
+<if condition="$show['pagenav']">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tr valign="bottom">
+	<td align="$stylevar[right]">$pagenav</td>
+</tr>
+</table>
+</if>
+
+<!-- topic table -->
+<form action="inlinemod.php" method="post" id="inlinemodform">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="url" value="$url" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center" id="threadslist">
+<tr>
+	<td class="tcat" colspan="$colspan">
+		<span class="smallfont" style="float:$stylevar[right]"><strong>$vbphrase[threads]</strong>: $totalthreads</span>
+		<if condition="$show['deleted']">$vbphrase[deleted_threads]<else />$vbphrase[moderated_threads]</if>
+	</td>
+</tr>
+
+<if condition="$show['havethreads']">
+<tr>
+	<if condition="$show['threadicons']">
+		<td class="thead" colspan="2">&nbsp;</td>
+	<else />
+		<td class="thead">&nbsp;</td>
+	</if>
+	<td class="thead" width="100%">
+		<if condition="$show['threadratings']"><span style="float:$stylevar[right]"><a href="$sorturl&amp;order=desc&amp;sort=voteavg" rel="nofollow">$vbphrase[rating]</a> $sortarrow[voteavg]</span></if>
+		<a href="$sorturl&amp;order=asc&amp;sort=title" rel="nofollow">$vbphrase[thread]</a> $sortarrow[title] /
+		<a href="$sorturl&amp;order=asc&amp;sort=postusername" rel="nofollow">$vbphrase[thread_starter]</a> $sortarrow[postusername]
+	</td>
+	<td class="thead" width="150" align="center" nowrap="nowrap"><span style="white-space:nowrap"><a href="$sorturl&amp;order=desc&amp;sort=lastpost" rel="nofollow">$vbphrase[last_post]</a> $sortarrow[lastpost]</span></td>
+	<td class="thead" align="center" nowrap="nowrap"><span style="white-space:nowrap"><a href="$sorturl&amp;order=desc&amp;sort=replycount" rel="nofollow">$vbphrase[replies]</a> $sortarrow[replycount]</span></td>
+	<td class="thead" align="center" nowrap="nowrap"><span style="white-space:nowrap"><a href="$sorturl&amp;order=desc&amp;sort=views" rel="nofollow">$vbphrase[views]</a> $sortarrow[views]</span></td>
+
+	<if condition="$show['popups']">
+		<td class="vbmenu_control" id="imod" align="center" title="$vbphrase[moderation]"> <script type="text/javascript"> vbmenu_register('imod'); </script> </td>
+	<else />
+		<td class="thead" align="center">
+			<input type="checkbox" name="allbox" id="checkall_all" title="$vbphrase[check_uncheck_all]" onclick="inlineMod.check_all()" />
+		</td>
+	</if>
+</tr>
+$threadbits
+<else />
+	<!-- show no threads message -->
+	<tr>
+		<td class="alt1" colspan="$colspan" align="center">
+			<div style="padding: 16px">
+				<strong>$vbphrase[no_posts_found]</strong><br />
+				<span class="smallfont">$vbphrase[try_controls_below_for_older_posts]</span>
+			</div>
+		</td>
+	</tr>
+	<!-- end show no threads message -->
+</if>
+</table>
+
+<if condition="$show['havethreads']">
+	<if condition="$show['ajax_js']">
+	<script type="text/javascript" src="clientscript/vbulletin_ajax_threadslist.js?v=$vboptions[simpleversion]"></script>
+	<script type="text/javascript">
+	<!--
+	vB_AJAX_Threadlist_Init('threadslist');
+	var titlemaxchars = parseInt("$vboptions[titlemaxchars]");
+	//-->
+	</script>
+	</if>
+
+
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:3px">
+	<tr valign="top">
+		<td align="$stylevar[right]">$pagenav
+			<div class="smallfont" style="text-align:$stylevar[left]; white-space:nowrap; align:right; float:$stylevar[right]">
+				<if condition="$show['pagenav']"><br /></if><strong>$vbphrase[moderation]</strong><br />
+				<select name="do">
+				<optgroup label="$vbphrase[option]">
+					<if condition="$show['delete']">
+					<option value="deletethread">$vbphrase[delete_threads]</option>
+					<option value="spamthread">$vbphrase[delete_threads_as_spam]</option>
+					</if>
+					<if condition="$show['undelete']">
+					<option value="undeletethread">$vbphrase[undelete_threads]</option>
+					</if>
+					<option value="open">$vbphrase[open_threads]</option>
+					<option value="close">$vbphrase[close_threads]</option>
+					<option value="approvethread">$vbphrase[approve_threads]</option>
+					<option value="unapprovethread">$vbphrase[unapprove_threads]</option>
+					<option value="stick">$vbphrase[stick_threads]</option>
+					<option value="unstick">$vbphrase[unstick_threads]</option>
+					<option value="movethread">$vbphrase[move_threads]</option>
+					<option value="mergethread">$vbphrase[merge_threads]</option>
+				</optgroup>
+				<optgroup label="____________________">
+					<option value="viewthread">$vbphrase[view_selected_threads]</option>
+					<option value="clearthread">$vbphrase[clear_thread_list]</option>
+				</optgroup>
+				</select><input type="submit" class="button" id="inlinego" value="$vbphrase[go]" />
+				<script type="text/javascript">
+				<!--
+				inlineMod = new vB_Inline_Mod('inlineMod', 'thread', 'inlinemodform', '$vbphrase[go_x]');
+				//-->
+				</script>
+			</div>
+		</td>
+	</tr></table>
+</if>
+
+</form>
+<!-- / topic table -->
+
+<br />
+
+<form action="moderation.php?do=viewthreads&amp;type=$type" method="get">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="page" value="$pagenumber" />
+<input type="hidden" name="pp" value="$perpage" />
+<input type="hidden" name="type" value="$type" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[display_options]</td>
+</tr>
+<if condition="$totalthreads">
+<tr>
+	<td class="thead"><phrase 1="$limitlower" 2="$limitupper" 3="$totalthreads">$vbphrase[showing_threads_x_to_y_of_z]</phrase></td>
+</tr>
+</if>
+<tr valign="top">
+	<td class="alt1">
+
+		<table cellpadding="0" cellspacing="1" border="0" width="100%">
+		<tr valign="bottom">
+			<td class="smallfont">
+				<label for="select_sort">$vbphrase[sorted_by]</label>
+				<select name="sort" id="select_sort" style="display:block">
+					<option value="title" $sort[title]>$vbphrase[thread_title]</option>
+					<option value="lastpost" $sort[lastpost]>$vbphrase[last_post_time]</option>
+					<option value="replycount" $sort[replycount]>$vbphrase[number_of_replies]</option>
+					<option value="views" $sort[views]>$vbphrase[number_of_views]</option>
+					<option value="postusername" $sort[postusername]>$vbphrase[thread_starter]</option>
+					<if condition="$show['threadratings']"><option value="voteavg" $sort[voteavg]>$vbphrase[thread_rating]</option></if>
+				</select>
+			</td>
+			<td class="smallfont">
+				<label for="select_order">$vbphrase[sort_order]</label>
+				<select name="order" id="select_order" style="display:block">
+					<option value="asc" $order[asc]>$vbphrase[ascending]</option>
+					<option value="desc" $order[desc]>$vbphrase[descending]</option>
+				</select>
+			</td>
+			<td class="smallfont">
+				<label for="select_daysprune"><if condition="$show['deleted']">$vbphrase[deleted_within]<else />$vbphrase[moderated_within]</if></label>
+				<select name="daysprune" id="select_daysprune" style="display:block">
+					<option value="1" $daysprunesel[1]>$vbphrase[last_day]</option>
+					<option value="2" $daysprunesel[2]>$vbphrase[last_2_days]</option>
+					<option value="7" $daysprunesel[7]>$vbphrase[last_week]</option>
+					<option value="10" $daysprunesel[10]>$vbphrase[last_10_days]</option>
+					<option value="14" $daysprunesel[14]>$vbphrase[last_2_weeks]</option>
+					<option value="30" $daysprunesel[30]>$vbphrase[last_month]</option>
+					<option value="45" $daysprunesel[45]>$vbphrase[last_45_days]</option>
+					<option value="60" $daysprunesel[60]>$vbphrase[last_2_months]</option>
+					<option value="75" $daysprunesel[75]>$vbphrase[last_75_days]</option>
+					<option value="100" $daysprunesel[100]>$vbphrase[last_100_days]</option>
+					<option value="365" $daysprunesel[365]>$vbphrase[last_year]</option>
+					<option value="-1" $daysprunesel[all]>$vbphrase[beginning]</option>
+				</select>
+			</td>
+			<td class="smallfont">&nbsp;</td>
+		</tr>
+		<tr valign="bottom">
+			<td class="smallfont" colspan="3">
+				<label for="select_f">$vbphrase[forum]</label>
+				<select name="f" id="select_f" style="display:block">
+					<option value="0">$vbphrase[all_forums]</option>
+					$forumjumpbits
+				</select>
+			</td>
+			<td align="$stylevar[right]"><input type="submit" class="button" value="$vbphrase[show_threads]" /></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+</form>
+
+<br />
+
+<!-- icon key and forum jump -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tr valign="bottom">
+	<td width="100%">
+		<!-- icon key -->
+		<table cellpadding="2" cellspacing="0" border="0">
+		<tr align="$stylevar[left]">
+			<td><img src="$stylevar[imgdir_statusicon]/thread_new.gif" alt="$vbphrase[new_posts]" border="0" /></td>
+			<td class="smallfont">$vbphrase[new_posts]</td>
+		</tr>
+		<tr>
+			<td><img src="$stylevar[imgdir_statusicon]/thread.gif" alt="$vbphrase[no_new_posts]" border="0" /></td>
+			<td class="smallfont">$vbphrase[no_new_posts]</td>
+		</tr>
+		<if condition="$vboptions['usehotthreads']">
+		<tr>
+			<td><img src="$stylevar[imgdir_statusicon]/thread_hot_new.gif" alt="$vbphrase[hot_thread_with_new_posts]" border="0" /></td>
+			<td class="smallfont"><phrase 1="$vboptions[hotnumberposts]" 2="$vboptions[hotnumberviews]">$vbphrase[more_than_x_replies_or_y_views]</phrase></td>
+		</tr>
+		<tr>
+			<td><img src="$stylevar[imgdir_statusicon]/thread_hot.gif" alt="$vbphrase[hot_thread_with_no_new_posts]" border="0" /></td>
+			<td class="smallfont"><phrase 1="$vboptions[hotnumberposts]" 2="$vboptions[hotnumberviews]">$vbphrase[more_than_x_replies_or_y_views]</phrase></td>
+		</tr>
+		</if>
+		<tr>
+			<td><img src="$stylevar[imgdir_statusicon]/thread_lock.gif" alt="$vbphrase[closed_thread]" border="0" /></td>
+			<td class="smallfont">$vbphrase[thread_is_closed]</td>
+		</tr>
+		<if condition="$show['dotthreads']">
+		<tr>
+			<td><img src="$stylevar[imgdir_statusicon]/thread_dot.gif" alt="$vbphrase[thread_contains_a_message_written_by_you]" border="0" /></td>
+			<td class="smallfont">$vbphrase[you_have_posted_in_this_thread]</td>
+		</tr>
+		</if>
+		</table>
+		<!-- / icon key -->
+	</td>
+
+	<td>$forumjump</td>
+</tr>
+</table>
+<!-- / icon key and forum jump -->
+
+<if condition="$show['popups'] AND $show['havethreads']">
+	<div class="vbmenu_popup" id="imod_menu" style="display:none" align="$stylevar[left]">
+		$threadadmin_imod_menu
+	</div>
+</if>

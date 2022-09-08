@@ -1,0 +1,13 @@
+
+global $vbulletin;
+if ($vbulletin->options['autotag_enabled_all'])
+{
+	require_once(DIR . '/includes/functions_autotagger.php');
+
+	DeleteThreadTags($this->fetch_field('threadid'));
+	$att_thread = fetch_threadinfo($this->fetch_field('threadid'), false);
+	ProcessThread($att_thread);
+
+}
+
+			

@@ -1,0 +1,5 @@
+If your PHP installation has been compiled with the ZLIB libraries, then you can enable this option to compress outgoing pages and save bandwidth.<br /><br />
+
+The client's browser must support GZIP for this to work.  If the browser does not support GZIP, then the uncompressed page will be sent instead.<br /><br />
+
+If you are using mod_gzip on your server, then you are already compressing outgoing pages and there is no need to enable this option.

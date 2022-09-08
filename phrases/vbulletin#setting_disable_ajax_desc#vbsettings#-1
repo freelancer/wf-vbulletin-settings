@@ -1,0 +1,3 @@
+AJAX uses JavaScript and features of recent browsers to allow additional data to be retrieved without doing a page refresh, such as posting with quick reply or editing a thread title inline.<br />
+<br />
+These features may cause problems with boards not running in English. You may use this setting to disable all AJAX features or just the ones problematic with non-English boards.

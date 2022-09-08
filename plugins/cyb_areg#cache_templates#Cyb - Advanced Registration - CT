@@ -1,0 +1,5 @@
+
+		if ($vbulletin->options['cybareg_enable'])
+		{
+			$globaltemplates = array_merge($globaltemplates, array('cyb_areg_manage', 'cyb_areg_manage_bit', 'cyb_areg_manageuser_bit', 'cyb_areg_edit', 'cyb_areg_invite', 'cyb_areg_manageinv_bit'));
+		}

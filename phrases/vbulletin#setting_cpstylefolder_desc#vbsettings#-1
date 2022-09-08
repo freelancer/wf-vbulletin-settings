@@ -1,0 +1,7 @@
+This setting allows you to specify an alternative style for the Admin / Moderator Control Panels, based on a folder contained within the 'cpstyles' folder. The style you select here will be displayed to all Moderators, and any Administrators who have not expressed their own preference.<br />
+<br />
+Folders in the 'cpstyles' folder must contain at least the following:<br />
+<br />
+- controlpanel.css<br />
+- cp_logo.gif<br />
+- cp_help.gif

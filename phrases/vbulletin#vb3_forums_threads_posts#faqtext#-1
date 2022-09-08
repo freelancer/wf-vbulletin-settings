@@ -1,0 +1,57 @@
+<p><b>What is a bulletin board?</b></p>
+
+<p>A bulletin board is an online discussion site. It's sometimes also called a 'board' or 'forums'. It may contain several categories, consisting of forums, threads and individual posts.</p>
+
+<p><b>How is all this structured?</b></p>
+
+<p>The bulletin board as a whole contains various categories (broad subject areas), which themselves contain forums (more specific subject areas) which contain threads (conversations on a topic) which are made up of individual posts (where a user writes something).</p>
+
+<p>The board home page has a list of categories and forums, with basic statistics for each - including the number of threads and posts, and which member posted the most recent message.</p>
+
+<p><b>How do I find my way around?</b></p>
+
+<p>When you click on a forum's name, you are taken to the list of threads it contains. A thread is a conversation between members or guests. Each thread starts out as a single post and grows as more individual posts are added by different users. Threads can be rated <a href="faq.php?$session[sessionurl]faq=vb3_board_usage#faq_vb3_rating_threads">(?)</a> to show how useful or popular they are and may contain polls <a href="faq.php?$session[sessionurl]faq=vb3_reading_posting#faq_vb3_polls">(?)</a>.</p>
+
+<p>To start a new thread simply click on the 'new thread' button <img class="inlineimg" src="$stylevar[imgdir_button]/newthread.gif" alt="Post New Thread" border="0" /> (you may need the right permissions to do this).</p>
+
+<p>Threads can be ordered in many different ways. The default is to have the thread with the most recent activity at the top. But you can easily change this ordering, for example to have the thread with the most posts at the top, or the highest rating. Simply click on the appropriate column heading at the top of the list of threads (Thread, Thread Starter, Rating, Last Post, Replies or Views). You can also reverse the sorting order by clicking the arrow next to the name of the active option. (Note that 'sticky' threads will always be at the top no matter how you change the viewing options).</p>
+
+<p><b>Multi-page views</b></p>
+
+<p>When there are more threads to display than will fit on a single page, you may see the 'Page' box, which contains page numbers. This indicates that the list of threads has been split over two or more pages.</p>
+
+<p>This method of splitting lists of items over many pages is used throughout the board.</p>
+
+<p><b>What are sticky threads?</b></p>
+
+<p>'Sticky' threads are created by moderators or administrators <a href="faq.php?$session[sessionurl]faq=vb3_reading_posting#faq_vb3_mods_admins">(?)</a>, and remain 'stuck' to the top of the listing, even if they haven't had any posts recently. Their purpose is to keep important information visible and accessible at all times.</p>
+
+<p><b>How do I read a thread?</b></p>
+
+<p>To read a thread, click on its title. Each post in a thread is created by a member or a guest. You'll see some brief information about the member who created the thread above the main post message. In some cases it will be to the side of the post.</p>
+
+<p>To post a reply to an existing thread, click on the 'Post Reply' <img class="inlineimg" src="$stylevar[imgdir_button]/reply.gif" alt="Reply to Thread" border="0" /> button. If the 'Post Reply' button does not appear, it could mean that you are not logged in as a member, or that you do not have permission to reply, or that the thread has been closed to new replies.</p>
+
+<p>If enabled, there will also be a 'Quick Reply' box where you can quickly enter a reply without having to go to the 'Post Reply' page. You may need to click the quick reply button <img class="inlineimg" src="$stylevar[imgdir_button]/quickreply.gif" alt="Quick Reply to this Message" border="0" /> in a post to activate the quick reply box before you can type into it.</p>
+
+<p>On long threads you may want to change how the posts are ordered. For more on different ways to view and navigate threads, click <a href="faq.php?$session[sessionurl]faq=vb3_board_usage#faq_vb3_thread_display">(?)</a>.</p>
+
+<p><b>Is there a faster way to get to forums?</b></p>
+
+<p>If you know which forum you want to go to, you can use the 'Forum Jump' control, which appears at the bottom of many pages within the board.</p>
+
+<p><b>How do I find out more about members?</b></p>
+
+<p>To view information about a particular member, click on the user name. This will take you to their public profile page <a href="faq.php?$session[sessionurl]faq=vb3_user_profile#faq_vb3_public_profile">(?)</a>.</p>
+
+<p><b>What is the Navigation Bar?</b></p>
+
+<p>The navigation bar at the top of every page has links to help you move around. A 'breadcrumb' area at the top left shows where you are now. A form on the right allows you to quickly login. With one click you can reach areas such as: the <a href="usercp.php$session[sessionurl_q]">User Control Panel</a> <a href="faq.php?$session[sessionurl]faq=vb3_user_profile#faq_vb3_user_cp">(?)</a>, FAQ (which you are reading now), the <a href="calendar.php$session[sessionurl_q]">Calendar</a> <a href="faq.php?$session[sessionurl]faq=vb3_board_usage#faq_vb3_calendar">(?)</a>, Search options <a href="faq.php?$session[sessionurl]faq=vb3_board_usage#faq_vb3_search">(?)</a> and Quick Links <a href="faq.php?$session[sessionurl]faq=vb3_board_usage#faq_vb3_quick_links">(?)</a> to other useful features.</p>
+
+<p><b>What is the 'What's Going On?' box on the board home page?</b></p>
+
+<p>On the <a href="$vboptions[forumhome].php$session[sessionurl_q]">board home page</a> you'll see a section at the bottom that tells you what's going on at the moment. It tells you things like the number of registered users online, the number of guests, and even things like birthdays, and forthcoming events.</p>
+
+<p><b>Can I change the way the board looks?</b></p>
+
+<p>You may be able to change the styling of the board by using the style changer in the bottom left of the page. This lets you choose different skins which change the color scheme and appearance of the board. If this option does not appear, the board cannot be restyled.</p>

@@ -1,0 +1,28 @@
+<form action="blog_usercp.php?do=doleaveblog&amp;bloguserid=$inviteinfo[bloguserid]" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="doleaveblog" />
+<input type="hidden" name="bloguserid" value="$inviteinfo[bloguserid]" />
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[confirm_group_blog_withdrawal]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div class="smallfont" align="$stylevar[center]">
+			<if condition="$show['invite']">
+				<phrase 1="$inviteinfo[title]">$vbphrase[decline_invite_blog]</phrase>
+			<else />
+				<phrase 1="$inviteinfo[title]">$vbphrase[confirm_leave_blog]</phrase>
+			</if>
+		</div>
+	</div>
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" value="$vbphrase[yes]" name="confirm" accesskey="s" />
+		<input type="submit" class="button" value="$vbphrase[no]" name="deny" />
+	</div>
+	</td>
+</tr>
+</table>
+</form>

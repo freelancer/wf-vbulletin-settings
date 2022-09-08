@@ -1,0 +1,18 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<if condition="$show['searchcloud']">
+	<td class="tcat">
+		<div class="smallfont" style="float:$stylevar[right]"><phrase 1="$cloud[count]">$vbphrase[these_are_the_x_most_searched_entry_tags]</phrase></div>
+		$vbphrase[search_tag_cloud]
+	</td>
+	<else />
+	<td class="tcat">
+		<div class="smallfont" style="float:$stylevar[right]"><phrase 1="$cloud[count]">$vbphrase[these_are_the_x_most_used_entry_tags]</phrase></div>
+		<if condition="$show['usercloud']"><phrase 1="$userinfo[username]">$vbphrase[xs_tag_cloud]</phrase><else />$vbphrase[tag_cloud]</if>
+	</td>
+	</if>
+</tr>
+<tr>
+	<td class="alt1" style="text-align:justify">$cloud[links]</td>
+</tr>
+</table>

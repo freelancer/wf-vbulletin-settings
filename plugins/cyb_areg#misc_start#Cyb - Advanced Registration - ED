@@ -1,0 +1,597 @@
+if ($vbulletin->options['cybareg_enable'] AND $vbulletin->options['cybareg_enable_invite'] AND ($_REQUEST['do'] == 'cybareginv') AND $vbulletin->userinfo['userid'])
+		{
+			$cybareg_sectok = $vbulletin->userinfo['securitytoken'];
+			if (!$cybareg_sectok)
+			{
+				$cybareg_sectok = 'none';
+			}
+
+			if ($vbulletin->options['cybareg_enable_invite_only'])
+			{
+				$cybareg_invmess_preview = construct_phrase($vbphrase['cybareg_invitation_message_text_code'], $vbulletin->options['bbtitle'], $vbulletin->options['bburl'], '***********', $vbulletin->userinfo['username'].'<span id="cybareg_nameupd"></span>');
+			}
+			else
+			{
+				$cybareg_invmess_preview = construct_phrase($vbphrase['cybareg_invitation_message_text'], $vbulletin->options['bbtitle'], $vbulletin->options['bburl'], $vbulletin->userinfo['username'].'<span id="cybareg_nameupd"></span>');
+			}
+
+			$db->hide_errors();
+			$cyb_areg_total_inv_user = 0;
+			$cyb_areg_inv_timecut = "";
+			if ($vbulletin->options['cybareg_invite_amount']>0)
+			{
+				$cyb_areg_inv_timecut_week = TIMENOW - 604800;
+				$cyb_areg_inv_timecut = "AND sent > $cyb_areg_inv_timecut_week";
+			}
+			$cyb_areg_invuserinfo = $vbulletin->db->query_read("
+				SELECT id, inviter, sent
+				FROM " . TABLE_PREFIX . "cyb_advreg_invite AS cyb_advreg_invite
+				WHERE inviter = '".$db->escape_string($vbulletin->userinfo['userid'])."' $cyb_areg_inv_timecut
+			");
+			$cyb_areg_total_inv_user = $vbulletin->db->num_rows($cyb_areg_invuserinfo);
+			$cyb_areg_total_inv_user_rem = $vbulletin->options['cybareg_invite_amount'] - $cyb_areg_total_inv_user;
+			
+			$cyb_areg_inv_myinfo = "";
+			if (($cyb_areg_total_inv_user > 0) OR ($vbulletin->options['cybareg_invite_amount']>0))
+			{
+				$cyb_areg_inv_myinfo = "<span class=\"smallfont\">(";
+				if ($cyb_areg_total_inv_user > 0)
+				{
+					$cyb_areg_inv_myinfo .= construct_phrase($vbphrase['cybareg_invitation_done_info'], $cyb_areg_total_inv_user);
+				}
+				if ($vbulletin->options['cybareg_invite_amount']>0)
+				{
+					if ($cyb_areg_total_inv_user > 0)
+					{
+						$cyb_areg_inv_myinfo .= ", ";
+					}
+					$cyb_areg_inv_myinfo .= construct_phrase($vbphrase['cybareg_invitation_avail_info'], $cyb_areg_total_inv_user_rem);
+				}
+				$cyb_areg_inv_myinfo .= ")</span>";
+			}
+
+			$db->show_errors();
+
+			$navbits = construct_navbits(array('' => $vbphrase['cybareg_invitations']));
+			eval('$navbar = "' . fetch_template('navbar') . '";');
+			eval('print_output("' . fetch_template('cyb_areg_invite') . '");');
+		}
+
+		if ($vbulletin->options['cybareg_enable'] AND $vbulletin->options['cybareg_enable_invite'] AND ($_REQUEST['do'] == 'cybareginvdo'))
+		{
+			$db->hide_errors();
+			$vbulletin->input->clean_array_gpc('p', array(
+				'cybareg_inviter_id' => TYPE_UINT,
+				'cybareg_inviter_name' => TYPE_NOHTML,
+				'cybareg_invite_email' => TYPE_NOHTML)
+			);
+			$cybareg_invcode = TIMENOW .$vbulletin->userinfo['userid'];
+			if ($vbulletin->GPC['cybareg_inviter_name']=='')
+			{
+				$cybareg_invitername = $vbulletin->userinfo['username'];
+			}
+			else
+			{
+				$cybareg_invitername = $vbulletin->userinfo['username']." (".$vbulletin->GPC['cybareg_inviter_name'].")";
+			}
+
+			require_once(DIR . '/includes/functions_misc.php');
+			if ($vbulletin->options['cybareg_enable_invite_only'])
+			{
+				$text_message = construct_phrase($vbphrase['cybareg_invitation_message_text_code'],$vbulletin->options['bbtitle'],$vbulletin->options['bburl'], $cybareg_invcode, $cybareg_invitername);
+			}
+			else
+			{
+				$text_message = construct_phrase($vbphrase['cybareg_invitation_message_text'],$vbulletin->options['bbtitle'],$vbulletin->options['bburl'], $cybareg_invitername);
+			}
+			$text_subject = construct_phrase($vbphrase['cybareg_invitation_subject'],$vbulletin->options['bbtitle']);
+
+			if(strstr($vbulletin->GPC['cybareg_invite_email'],','))
+			{
+				$cybareg_invitedmails = explode(',', $vbulletin->GPC['cybareg_invite_email']);
+				foreach ($cybareg_invitedmails AS $cybareg_invitedmail)
+				{
+					$cybareg_checkifexist = $db->query_first(" SELECT * FROM " . TABLE_PREFIX . "user WHERE email = '".$cybareg_invitedmail."' ");
+					if ($cybareg_checkifexist)
+					{
+						$cybareg_alreadyexist .= ', '.$cybareg_invitedmail;
+					}
+					$cybareg_checkifsent = $db->query_first(" SELECT * FROM " . TABLE_PREFIX . "cyb_advreg_invite WHERE invited = '".$cybareg_invitedmail."' ");
+					if ($cybareg_checkifsent)
+					{
+						$cybareg_alreadysent .= ', '.$cybareg_invitedmail;
+					}
+
+					if ($cybareg_alreadyexist=='' AND $cybareg_alreadysent=='')
+					{
+						$vbulletin->db->query_write("
+							INSERT INTO `". TABLE_PREFIX ."cyb_advreg_invite`
+							(inviter, invited, code, sent, done)
+							VALUES ('".$db->escape_string($vbulletin->GPC['cybareg_inviter_id'])."', '".$db->escape_string($cybareg_invitedmail)."', '".$cybareg_invcode."', '". TIMENOW ."', 0)
+						");
+						vbmail($cybareg_invitedmail, $text_subject, $text_message, true);
+					}
+				}
+
+				$cybareg_alreadyexist = substr($cybareg_alreadyexist,1);
+				$cybareg_alreadysent = substr($cybareg_alreadysent,1);
+				if ($cybareg_alreadyexist OR $cybareg_alreadysent)
+				{
+					if ($cybareg_alreadyexist)
+					{
+						$cybareg_error_mail .= '<br />'.construct_phrase($vbphrase['cybareg_mail_exist'], $cybareg_alreadyexist);
+					}
+					if ($cybareg_alreadysent)
+					{
+						$cybareg_error_mail .= '<br />'.construct_phrase($vbphrase['cybareg_mail_sent'], $cybareg_alreadysent);
+					}
+					eval(standard_error(fetch_error('cybareg_error_mail', $cybareg_error_mail)));
+				}
+			}
+			else
+			{
+				$cybareg_checkifexist = $db->query_first(" SELECT * FROM " . TABLE_PREFIX . "user WHERE email = '".$vbulletin->GPC['cybareg_invite_email']."' ");
+				if ($cybareg_checkifexist)
+				{
+					$cybareg_alreadyexist = $vbulletin->GPC['cybareg_invite_email'];
+				}
+				$cybareg_checkifsent = $db->query_first(" SELECT * FROM " . TABLE_PREFIX . "cyb_advreg_invite WHERE invited = '".$vbulletin->GPC['cybareg_invite_email']."' ");
+				if ($cybareg_checkifsent)
+				{
+					$cybareg_alreadysent = $vbulletin->GPC['cybareg_invite_email'];
+				}
+
+				if ($cybareg_alreadyexist=='' AND $cybareg_alreadysent=='')
+				{
+					$vbulletin->db->query_write("
+						INSERT INTO `". TABLE_PREFIX ."cyb_advreg_invite`
+						(inviter, invited, code, sent, done)
+						VALUES ('".$db->escape_string($vbulletin->GPC['cybareg_inviter_id'])."', '".$db->escape_string($vbulletin->GPC['cybareg_invite_email'])."', '".$cybareg_invcode."', '". TIMENOW ."', 0)
+					");
+					vbmail($vbulletin->GPC['cybareg_invite_email'], $text_subject, $text_message, true);
+				}
+				else
+				{
+					if ($cybareg_alreadyexist)
+					{
+						$cybareg_error_mail .= '<br />'.construct_phrase($vbphrase['cybareg_mail_exist'], $cybareg_alreadyexist);
+					}
+					if ($cybareg_alreadysent)
+					{
+						$cybareg_error_mail .= '<br />'.construct_phrase($vbphrase['cybareg_mail_sent'], $cybareg_alreadysent);
+					}
+					eval(standard_error(fetch_error('cybareg_error_mail', $cybareg_error_mail)));
+				}
+			}
+			$db->show_errors();
+
+			$vbulletin->url = 'misc.php?do=cybareginv';
+			eval(print_standard_redirect('redirect_cybareg_invitation_sent',1,1));
+		}
+		
+		if ($vbulletin->options['cybareg_enable'] AND is_member_of($vbulletin->userinfo,6))
+		{
+			$cybareg_sectok = $vbulletin->userinfo['securitytoken'];
+			if (!$cybareg_sectok)
+			{
+				$cybareg_sectok = 'none';
+			}
+
+			if ($_REQUEST['do'] == 'cybaregman')
+			{
+				$db->hide_errors();
+
+				$cybareg_display_act = "none";
+				$cybareg_display_mod = "none";
+				$cybareg_display_q = "none";
+				$cybareg_display_i = "none";
+				switch ($_REQUEST['ca'])
+				{
+					case ma: $cybareg_display_act = "block"; ; break;
+					case mm: $cybareg_display_mod = "block"; ; break;
+					case mq: $cybareg_display_q = "block"; ; break;
+					case mi: $cybareg_display_i = "block"; ; break;
+					default: $cybareg_display_mod = "block"; ; break;
+				}
+
+				if ($vbulletin->options['cybareg_prune_days']>0)
+				{
+					$cybereg_prunetime = TIMENOW - ($vbulletin->options['cybareg_prune_days'] * 86400);
+					$vbulletin->db->query_write(" DELETE FROM " . TABLE_PREFIX . "user WHERE joindate < '".$cybereg_prunetime."' AND usergroupid=3 AND posts=0 ");
+				}
+
+				$perpage = $vbulletin->input->clean_gpc('r', 'rpp', TYPE_UINT);
+				if (!$perpage)
+				{
+					$cybareg_ppfirst = strpos($vbulletin->options['cybareg_perpage'], ",");
+					$perpage = substr($vbulletin->options['cybareg_perpage'],0,$cybareg_ppfirst);
+				}
+				$cybareg_perpage = explode(',', $vbulletin->options['cybareg_perpage']);
+				foreach ($cybareg_perpage AS $cybareg_ppitem)
+				{
+					eval('$cybareg_perpageitems .= " <option value=\"'.$cybareg_ppitem.'\" " . iif($perpage==$cybareg_ppitem," selected=\"selected\"","").">'.$cybareg_ppitem.'</option> ";');
+				}
+
+				if ($_REQUEST['ca'] == 'mq')
+				{
+					$pagenumber_q = $vbulletin->input->clean_gpc('r', 'page', TYPE_UINT);
+				}
+				else
+				{
+					$pagenumber_q = 1;
+				}
+				$cybareg_pngettot_q = $vbulletin->db->query_read(" SELECT id FROM " . TABLE_PREFIX . "cyb_advreg AS cyb_advreg ");
+				$cybareg_pntot_q = $vbulletin->db->num_rows($cybareg_pngettot_q);
+				sanitize_pageresults($cybareg_pntot_q, $pagenumber_q, $perpage, 100, 25);
+				$limitlower_q = ($pagenumber_q - 1) * $perpage + 1;
+				$limitupper_q = $pagenumber_q * $perpage;
+				if ($limitupper_q > $cybareg_pntot_q)
+				{
+					$limitupper_q = $cybareg_pntot_q;
+					if ($limitlower_q > $cybareg_pntot_q)
+					{
+						$limitlower_q = $cybareg_pntot_q - $perpage;
+					}
+				}
+				if ($limitlower_q <= 0)
+				{
+					$limitlower_q = 1;
+				}
+				$cyb_areg_totalq = 0;
+				$cyb_aregs_info = $vbulletin->db->query_read("
+					SELECT id, question, answer, active
+					FROM " . TABLE_PREFIX . "cyb_advreg AS cyb_advreg
+					ORDER BY id ASC
+					LIMIT " . ($limitlower_q - 1) . ", $perpage
+				");
+				$cyb_areg_totalq = $cybareg_pntot_q;
+				$cybareg_rowid = $limitlower_q - 1;
+				while ($cybareg = $db->fetch_array($cyb_aregs_info))
+				{
+					exec_switch_bg();
+					$cybareg_itemid = $cybareg[id];
+					$cybareg_rowid += 1;
+					eval('$cybaregs .= "' . $vbulletin->templatecache['cyb_areg_manage_bit'] . '";');
+				}
+				$pagenav_q = construct_page_nav($pagenumber_q, $perpage, $cybareg_pntot_q, 'misc.php?' . $vbulletin->session->vars['sessionurl'] . 'do=cybaregman&amp;ca=mq&amp;rpp='.$perpage, "");
+
+				if ($_REQUEST['ca'] == 'mm')
+				{
+					$pagenumber_m = $vbulletin->input->clean_gpc('r', 'page', TYPE_UINT);
+				}
+				else
+				{
+					$pagenumber_m = 1;
+				}
+				$cybareg_pngettot_m = $vbulletin->db->query_read(" SELECT userid FROM " . TABLE_PREFIX . "user AS user WHERE usergroupid=4 ");
+				$cybareg_pntot_m = $vbulletin->db->num_rows($cybareg_pngettot_m);
+				sanitize_pageresults($cybareg_pntot_m, $pagenumber_m, $perpage, 100, 25);
+				$limitlower_m = ($pagenumber_m - 1) * $perpage + 1;
+				$limitupper_m = $pagenumber_m * $perpage;
+				if ($limitupper_m > $cybareg_pntot_m)
+				{
+					$limitupper_m = $cybareg_pntot_m;
+					if ($limitlower_m > $cybareg_pntot_m)
+					{
+						$limitlower_m = $cybareg_pntot_m - $perpage;
+					}
+				}
+				if ($limitlower_m <= 0)
+				{
+					$limitlower_m = 1;
+				}
+				$cyb_areg_totalu_mod = 0;
+				$cyb_areg_notmodinfo = $vbulletin->db->query_read("
+					SELECT userid, username, usergroupid, displaygroupid, email, ipaddress, joindate
+					FROM " . TABLE_PREFIX . "user AS user
+					WHERE usergroupid=4
+					ORDER BY userid DESC
+					LIMIT " . ($limitlower_m - 1) . ", $perpage
+				");
+				$cyb_areg_totalu_mod = $cybareg_pntot_m;
+				$cybareguser_rowid = $limitlower_m - 1;
+				while ($cybareguser = $db->fetch_array($cyb_areg_notmodinfo))
+				{
+					exec_switch_bg();
+					$cybareguser_rowid += 1;
+					$cybareguser_userid = $cybareguser[userid];
+					if ($cybareguser['userid'])
+					{
+						$cybareg_inviter = '<a href="member.php?u='.$cybareguser['userid'].'">'.fetch_musername($cybareguser).'</a>';
+					}
+					else					
+					{
+						$cybareg_inviter = $vbphrase['n_a'].' (ID: '.$cybareguser['inviter'].')';
+					}
+					$cybareguser_userjoin = vbdate($vbulletin->options['dateformat'].", ".$vbulletin->options['timeformat'], $cybareguser[joindate]);
+					eval('$cybaregusers_mod .= "' . $vbulletin->templatecache['cyb_areg_manageuser_bit'] . '";');
+				}
+				$pagenav_m = construct_page_nav($pagenumber_m, $perpage, $cybareg_pntot_m, 'misc.php?' . $vbulletin->session->vars['sessionurl'] . 'do=cybaregman&amp;ca=mm&amp;rpp='.$perpage, "");
+				unset($cybareguser,$cybareguser_rowid,$cybareguser_userid,$cybareguser_userjoin);
+
+				if ($_REQUEST['ca'] == 'ma')
+				{
+					$pagenumber_a = $vbulletin->input->clean_gpc('r', 'page', TYPE_UINT);
+				}
+				else
+				{
+					$pagenumber_a = 1;
+				}
+				$cybareg_pngettot_a = $vbulletin->db->query_read(" SELECT userid FROM " . TABLE_PREFIX . "user AS user WHERE usergroupid=3 ");
+				$cybareg_pntot_a = $vbulletin->db->num_rows($cybareg_pngettot_a);
+				sanitize_pageresults($cybareg_pntot_a, $pagenumber_a, $perpage, 100, 25);
+				$limitlower_a = ($pagenumber_a - 1) * $perpage + 1;
+				$limitupper_a = $pagenumber_a * $perpage;
+				if ($limitupper_a > $cybareg_pntot_a)
+				{
+					$limitupper_a = $cybareg_pntot_a;
+					if ($limitlower_a > $cybareg_pntot_a)
+					{
+						$limitlower_a = $cybareg_pntot_a - $perpage;
+					}
+				}
+				if ($limitlower_a <= 0)
+				{
+					$limitlower_a = 1;
+				}
+				$cyb_areg_totalu_act = 0;
+				$cyb_areg_notactinfo = $vbulletin->db->query_read("
+					SELECT userid, username, usergroupid, displaygroupid, email, ipaddress, joindate
+					FROM " . TABLE_PREFIX . "user AS user
+					WHERE usergroupid=3
+					ORDER BY userid DESC
+					LIMIT " . ($limitlower_a - 1) . ", $perpage
+				");
+				$cyb_areg_totalu_act = $cybareg_pntot_a;
+				$cybareguser_rowid = $limitlower_a - 1;
+				while ($cybareguser = $db->fetch_array($cyb_areg_notactinfo))
+				{
+					exec_switch_bg();
+					$cybareguser_rowid += 1;
+					$cybareguser_userid = $cybareguser[userid];
+					if ($cybareguser['userid'])
+					{
+						$cybareg_inviter = '<a href="member.php?u='.$cybareguser['userid'].'">'.fetch_musername($cybareguser).'</a>';
+					}
+					else					
+					{
+						$cybareg_inviter = $vbphrase['n_a'].' (ID: '.$cybareguser['inviter'].')';
+					}
+					$cybareguser_userjoin = vbdate($vbulletin->options['dateformat'].", ".$vbulletin->options['timeformat'], $cybareguser[joindate]);
+					eval('$cybaregusers_act .= "' . $vbulletin->templatecache['cyb_areg_manageuser_bit'] . '";');
+				}
+				$pagenav_a = construct_page_nav($pagenumber_a, $perpage, $cybareg_pntot_a, 'misc.php?' . $vbulletin->session->vars['sessionurl'] . 'do=cybaregman&amp;ca=ma&amp;rpp='.$perpage, "");
+				unset($cybareguser,$cybareguser_rowid,$cybareguser_userid,$cybareguser_userjoin);
+
+				if ($_REQUEST['ca'] == 'mi')
+				{
+					$pagenumber_i = $vbulletin->input->clean_gpc('r', 'page', TYPE_UINT);
+				}
+				else
+				{
+					$pagenumber_i = 1;
+				}
+				$cybareg_pngettot_i = $vbulletin->db->query_read(" SELECT id FROM " . TABLE_PREFIX . "cyb_advreg_invite AS cyb_advreg_invite ");
+				$cybareg_pntot_i = $vbulletin->db->num_rows($cybareg_pngettot_i);
+				sanitize_pageresults($cybareg_pntot_i, $pagenumber_i, $perpage, 100, 25);
+				$limitlower_i = ($pagenumber_i - 1) * $perpage + 1;
+				$limitupper_i = $pagenumber_i * $perpage;
+				if ($limitupper_i > $cybareg_pntot_i)
+				{
+					$limitupper_i = $cybareg_pntot_i;
+					if ($limitlower_i > $cybareg_pntot_i)
+					{
+						$limitlower_i = $cybareg_pntot_i - $perpage;
+					}
+				}
+				if ($limitlower_i <= 0)
+				{
+					$limitlower_i = 1;
+				}
+				$cyb_areg_totalu_inv = 0;
+				$cyb_areg_inviteinfo = $vbulletin->db->query_read("
+					SELECT cyb_advreg_invite.id, cyb_advreg_invite.inviter, cyb_advreg_invite.invited, cyb_advreg_invite.sent, cyb_advreg_invite.accepted, cyb_advreg_invite.done, user.userid, user.username, user.usergroupid, user.displaygroupid, who.username AS username_done, who.joindate
+					FROM " . TABLE_PREFIX . "cyb_advreg_invite AS cyb_advreg_invite
+					LEFT JOIN " . TABLE_PREFIX . "user AS user ON (user.userid = cyb_advreg_invite.inviter)
+					LEFT JOIN " . TABLE_PREFIX . "user AS who ON (who.userid = cyb_advreg_invite.accepted)
+					ORDER BY id DESC
+					LIMIT " . ($limitlower_i - 1) . ", $perpage
+				");
+				$cyb_areg_totalu_inv = $cybareg_pntot_i;
+				$cybareguser_rowid = $limitlower_i - 1;
+				while ($cybareguser = $db->fetch_array($cyb_areg_inviteinfo))
+				{
+					exec_switch_bg();
+					$cybareguser_rowid += 1;
+					$cybareguser_id = $cybareguser[id];
+					if ($cybareguser['userid'])
+					{
+						$cybareg_inviter = '<a href="member.php?u='.$cybareguser['userid'].'">'.fetch_musername($cybareguser).'</a>';
+					}
+					else					
+					{
+						$cybareg_inviter = $vbphrase['n_a'].' (ID: '.$cybareguser['inviter'].')';
+					}
+					$cybareguser_sent = vbdate($vbulletin->options['dateformat'].", ".$vbulletin->options['timeformat'], $cybareguser['sent']);
+					if ($cybareguser[accepted]>0)
+					{
+						$cybareguser_accept_date = vbdate($vbulletin->options['dateformat'].", ".$vbulletin->options['timeformat'], $cybareguser['joindate']);
+					}
+					else
+					{
+						$cybareguser_accept_date = $vbphrase['cybareg_not_accepted'];
+					}
+					
+					eval('$cybaregusers_inv .= "' . $vbulletin->templatecache['cyb_areg_manageinv_bit'] . '";');
+				}
+				$pagenav_i = construct_page_nav($pagenumber_i, $perpage, $cybareg_pntot_i, 'misc.php?' . $vbulletin->session->vars['sessionurl'] . 'do=cybaregman&amp;ca=mi&amp;rpp='.$perpage, "");				
+				$db->show_errors();
+
+				if ($_POST['armultibit']!='')
+				{
+					$vbulletin->input->clean_array_gpc('p', array(
+						'armultibit' => TYPE_ARRAY,
+						'cybareg_mdf' => TYPE_NOHTML)
+					);
+					$cybaregmultisel = implode(',', $vbulletin->GPC['armultibit']);
+					$db->hide_errors();
+					if ($vbulletin->GPC['cybareg_mdf']=='delete')
+					{
+						$vbulletin->db->query_write(" DELETE FROM " . TABLE_PREFIX . "cyb_advreg WHERE id IN($cybaregmultisel) ");
+					}
+					if ($vbulletin->GPC['cybareg_mdf']=='active')
+					{
+						$vbulletin->db->query_write(" UPDATE " . TABLE_PREFIX . "cyb_advreg SET active = '1' WHERE id IN($cybaregmultisel) ");
+					}
+					if ($vbulletin->GPC['cybareg_mdf']=='inactive')
+					{
+						$vbulletin->db->query_write(" UPDATE " . TABLE_PREFIX . "cyb_advreg SET active = '0' WHERE id IN($cybaregmultisel) ");
+					}
+					$db->show_errors();
+					exec_header_redirect('misc.php?do=cybaregman&amp;ca=mq');
+				}
+
+				if ($_POST['armultibiti']!='')
+				{
+					$vbulletin->input->clean_array_gpc('p', array(
+						'armultibiti' => TYPE_ARRAY)
+					);
+					$cybaregmultisel = implode(',', $vbulletin->GPC['armultibiti']);
+					$db->hide_errors();
+					$vbulletin->db->query_write(" DELETE FROM " . TABLE_PREFIX . "cyb_advreg_invite WHERE id IN($cybaregmultisel) ");
+					$db->show_errors();
+					exec_header_redirect('misc.php?do=cybaregman&amp;ca=mi');
+				}
+
+				if ($_POST['armultibitu']!='')
+				{
+					$vbulletin->input->clean_array_gpc('p', array(
+						'armultibitu' => TYPE_ARRAY,
+						'cybareg_mdfu' => TYPE_NOHTML,
+						'cybareg_doemail' => TYPE_UINT,
+						'cybareg_page' => TYPE_NOHTML)
+					);
+					$cybaregmultiselu = implode(',', $vbulletin->GPC['armultibitu']);
+					$db->hide_errors();
+					if ($vbulletin->GPC['cybareg_mdfu']=='delete')
+					{
+						$vbulletin->db->query_write(" DELETE FROM " . TABLE_PREFIX . "user WHERE userid IN($cybaregmultiselu) ");
+					}
+					if ($vbulletin->GPC['cybareg_mdfu']=='active')
+					{
+						$vbulletin->db->query_write(" UPDATE " . TABLE_PREFIX . "user SET usergroupid = '2' WHERE userid IN($cybaregmultiselu) ");
+
+						if ($vbulletin->GPC['cybareg_doemail']=='1')
+						{
+							$cybereg_maillist = explode(',', $cybaregmultiselu);
+							foreach ($cybereg_maillist AS $cybereg_mailuser)
+							{
+								$user = $db->query_first("
+									SELECT *
+									FROM " . TABLE_PREFIX . "user
+									WHERE userid = $cybereg_mailuser
+								");
+								$username = unhtmlspecialchars($user['username']);
+								$chosenlanguage = iif($user['languageid'] < 1, intval($vbulletin->options['languageid']), intval($user['languageid']));
+								$email_text = $db->query_first("
+									SELECT text
+									FROM " . TABLE_PREFIX . "phrase
+									WHERE fieldname = 'emailbody'
+										AND varname = 'moderation_validated'
+										AND languageid IN(-1,0,$chosenlanguage)
+									ORDER BY languageid DESC
+								");
+								$email_subject = $db->query_first("
+									SELECT text
+									FROM " . TABLE_PREFIX . "phrase
+									WHERE fieldname = 'emailsubject'
+										AND varname = 'moderation_validated'
+										AND languageid IN(-1,0,$chosenlanguage)
+									ORDER BY languageid DESC
+								");
+								require_once(DIR . '/includes/functions_misc.php');
+								$text_message = replace_template_variables(str_replace("\\'", "'", addslashes($email_text['text'])));
+								$text_subject = replace_template_variables(str_replace("\\'", "'", addslashes($email_subject['text'])));
+								$evalemail_validated["$user[languageid]"] = '
+									$message = "' . $text_message . '";
+									$subject = "' . $text_subject . '";
+								';
+								eval($evalemail_validated["$user[languageid]"]);
+								vbmail($user['email'], $subject, $message, true);
+							}
+						}
+					}
+					$db->show_errors();
+					if ($vbulletin->GPC['cybareg_page']=='ma')
+					{
+						exec_header_redirect('misc.php?do=cybaregman&amp;ca=ma');
+					}
+					else
+					{
+						exec_header_redirect('misc.php?do=cybaregman&amp;ca=mm');
+					}
+				}
+
+				$navbits = construct_navbits(array('' => $vbphrase['cybareg_manage_areg']));
+				eval('$navbar = "' . fetch_template('navbar') . '";');
+				eval('print_output("' . fetch_template('cyb_areg_manage') . '");');
+			}
+
+			if ($_REQUEST['do'] == 'cybaregadddo')
+			{
+				$vbulletin->input->clean_array_gpc('p', array(
+					'question' => TYPE_NOHTML,
+					'answer' => TYPE_NOHTML,
+					'active' => TYPE_UINT)
+				);
+
+				$db->hide_errors();
+				$vbulletin->db->query_write("
+					INSERT INTO `". TABLE_PREFIX ."cyb_advreg`
+					(question, answer, active)
+					VALUES ('".$db->escape_string($vbulletin->GPC['question'])."', '".$db->escape_string($vbulletin->GPC['answer'])."', '".$vbulletin->GPC['active']."')
+				");
+				$db->show_errors();
+				exec_header_redirect('misc.php?do=cybaregman&amp;ca=mq');
+			}
+
+			if ($_REQUEST['do'] == 'cybaregedit')
+			{
+				$vbulletin->input->clean_gpc('r', 'aregid', TYPE_UINT);
+				$db->hide_errors();
+				$cyb_areg_info = $vbulletin->db->query_first("
+					SELECT id, question, answer, active
+					FROM " . TABLE_PREFIX . "cyb_advreg AS cyb_advreg
+					WHERE id = '".$vbulletin->GPC['aregid']."'
+				");
+				$db->show_errors();
+
+				$navbits = construct_navbits(array('' => $vbphrase['cybareg_edit']));
+				eval('$navbar = "' . fetch_template('navbar') . '";');	
+				eval('print_output("' . fetch_template('cyb_areg_edit') . '");');
+			}
+
+			if (($_REQUEST['do'] == 'cybaregeditdo') AND is_member_of($vbulletin->userinfo,6))
+			{
+				$vbulletin->input->clean_array_gpc('p', array(
+					'id' => TYPE_UINT,
+					'question' => TYPE_NOHTML,
+					'answer' => TYPE_NOHTML,
+					'active' => TYPE_UINT)
+				);
+				$db->hide_errors();
+				$vbulletin->db->query_write(" UPDATE " . TABLE_PREFIX . "cyb_advreg SET question = '".$db->escape_string($vbulletin->GPC['question'])."' WHERE id = '".$vbulletin->GPC['id']."' ");
+				$vbulletin->db->query_write(" UPDATE " . TABLE_PREFIX . "cyb_advreg SET answer = '".$db->escape_string($vbulletin->GPC['answer'])."' WHERE id = '".$vbulletin->GPC['id']."' ");
+				if ($vbulletin->GPC['active']=='1')
+				{
+					$cybareg_active = '1';
+				}
+				else
+				{
+					$cybareg_active = '0';
+				}
+				$vbulletin->db->query_write(" UPDATE " . TABLE_PREFIX . "cyb_advreg SET active = '".$cybareg_active."' WHERE id = '".$vbulletin->GPC['id']."' ");
+				$db->show_errors();
+				exec_header_redirect('misc.php?do=cybaregman&amp;ca=mq');
+			}
+		}

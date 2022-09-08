@@ -1,0 +1,3 @@
+PHP has its own email directives that specify the connect info for the email server.  Those directives are detailed on <a href="http://www.php.net/mail" target="_blank">this page</a>.<br /><br />
+
+You can enable this option so you can specify your own mail server info below.  This allows your forum to send emails through a mail server other than the one specified in your PHP configuration.

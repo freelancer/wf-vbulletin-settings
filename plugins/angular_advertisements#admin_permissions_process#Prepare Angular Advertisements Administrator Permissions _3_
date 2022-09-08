@@ -1,0 +1,6 @@
+
+				$vbulletin->input->clean_array_gpc('p', array(
+						'canadminangularadver' => TYPE_BOOL
+				));
+				$admindm->set('canadminangularadver', $vbulletin->GPC['canadminangularadver']);
+			

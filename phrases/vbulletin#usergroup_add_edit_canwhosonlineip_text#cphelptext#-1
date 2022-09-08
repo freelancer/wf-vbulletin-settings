@@ -1,0 +1,3 @@
+This permission will allow members of this group to view the IP addresses of currently logged in users on the <a href="../online.php" target="_blank">online.php</a> page.<br /><br />
+
+Who's online must be enabled in your <a href="options.php?dogroup=online&amp;do=options" target="_blank">vBulletin options</a> for this permission to have any effect.  The "Can View Who's Online" permission above must also be enabled.

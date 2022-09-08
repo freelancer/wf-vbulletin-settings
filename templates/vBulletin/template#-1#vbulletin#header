@@ -1,0 +1,18 @@
+<!-- logo -->
+<a name="top"></a>
+<table border="0" width="$stylevar[outertablewidth]" cellpadding="0" cellspacing="0" align="center">
+<tr>
+	<td align="$stylevar[left]"><a href="$vboptions[forumhome].php$session[sessionurl_q]"><img src="$stylevar[titleimage]" border="0" alt="$vboptions[bbtitle]" /></a></td>
+	<td align="$stylevar[right]" id="header_right_cell">
+		<if condition="$ad_location['ad_header_logo']">$ad_location[ad_header_logo]<else />&nbsp;</if>
+	</td>
+</tr>
+</table>
+<!-- /logo -->
+
+<!-- content table -->
+$spacer_open
+
+$_phpinclude_output
+
+$ad_location[ad_header_end]

@@ -1,0 +1,7 @@
+<tr>
+	<td class="$bgclass" nowrap="nowrap">$log[dateline]</td>
+	<td class="$bgclass" nowrap="nowrap">$log[username]</td>
+	<td class="$bgclass">$log[action]</td>
+	<td class="$bgclass"><if condition="$log['postid']"><a href="showthread.php?$session[sessionurl]p=$log[postid]">$log[title]</a><else />&nbsp;</if></td>
+	<if condition="$show['ipaddress']"><td class="$bgclass"><if condition="$log['ipaddress']"><a href="postings.php?$session[sessionurl]do=getip&amp;ip=$log[ipaddress]">$log[ipaddress]</a><else />&nbsp;</if></td></if>
+</tr>

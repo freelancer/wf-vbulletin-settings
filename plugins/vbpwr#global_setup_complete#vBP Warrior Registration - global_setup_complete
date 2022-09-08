@@ -1,0 +1,5 @@
+
+				$vbpwr_lasthook='global_setup_complete';
+				include(DIR.'/includes/vbpwr_hooks.php');
+			
+			

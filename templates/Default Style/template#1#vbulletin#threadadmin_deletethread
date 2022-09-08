@@ -1,0 +1,62 @@
+<form action="postings.php?do=dodeletethread&amp;threadid=$threadid" method="post" name="vbform">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="t" value="$threadid" />
+<input type="hidden" name="do" value="dodeletethread" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[delete_thread]</td>
+</tr>
+<tr>
+	<td class="thead">$vbphrase[title]: <span style="font-weight:normal">$threadinfo[prefix_plain_html] $threadinfo[title]</span></td>
+</tr>
+
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+
+		<fieldset class="fieldset">
+			<legend>$vbphrase[deletion_options]</legend>
+			<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+			<tr>
+				<td>$vbphrase[how_would_you_like_to_delete]</td>
+			</tr>
+			<tr>
+				<td>
+					<if condition="$show['softdelete']"><div>
+						<div>
+
+<label for="rb_deletetype_1"><input type="radio" name="deletetype" value="1" id="rb_deletetype_1" checked="checked"/>$vbphrase[soft_delete_leave_deleted_message]</label></div>
+                        <div><img class="inlineimg" src="$stylevar[imgdir_misc]/tree_$stylevar[textdirection].gif" alt="" border="0" /><label for="cb_keepattachments"><input type="checkbox" name="keepattachments" class="inlineimg" value="1" id="cb_keepattachments" />$vbphrase[keep_attachments]</label></div>
+                    </div></if>
+                    <if condition="$show['harddelete']"><div>
+                        <label for="rb_deletetype_2"><input type="radio" name="deletetype" value="2" id="rb_deletetype_2"  onselect="alert('moo')" />$vbphrase[physically_remove]</label>
+
+
+					</div></if>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					$vbphrase[reason_for_deletion]:<br />
+					<input type="text" class="bginput" name="deletereason" value="$threadinfo[del_reason]" size="50" maxlength="125" required/>
+				</td>
+			</tr>
+			</table>
+		</fieldset>
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" value="$vbphrase[delete_thread]" accesskey="s" />
+		<input type="reset" class="button" value="$vbphrase[reset_fields]" accesskey="r" />
+	</div>
+	</td>
+</tr>
+</table>
+
+</form>

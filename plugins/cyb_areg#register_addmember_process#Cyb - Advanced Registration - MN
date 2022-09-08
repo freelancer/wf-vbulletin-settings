@@ -1,0 +1,56 @@
+
+		if ($vbulletin->options['cybareg_enable'] AND $vbulletin->options['cybareg_enable_questions'])
+		{
+			$db->hide_errors();
+			$vbulletin->input->clean_array_gpc('p', array(
+				'cybareg_id' => TYPE_UINT,
+				'cybareg_answer' => TYPE_STR)
+			);
+			if ($vbulletin->GPC['cybareg_id']>0)
+			{
+				$cybareg_tqinfo = $vbulletin->db->query_first("
+					SELECT id, question, answer
+					FROM " . TABLE_PREFIX . "cyb_advreg AS cyb_advreg
+					WHERE id = '".$db->escape_string($vbulletin->GPC['cybareg_id'])."'
+				");
+				if (strtoupper($vbulletin->GPC['cybareg_answer']) != strtoupper($cybareg_tqinfo['answer']))
+				{
+					$userdata->error('cybareg_wrong_answer', $vbphrase['cybareg_random_question']);
+				}
+			}
+			$db->show_errors();
+		}
+	
+		if ($vbulletin->options['cybareg_enable'] AND $vbulletin->options['cybareg_enable_invite'])
+		{
+			$cybareg_invonly = "";
+			if ($vbulletin->options['cybareg_enable_invite_only'])
+			{
+				$cybareg_aregcode = $vbulletin->input->clean_gpc('p', 'cybareg_code', TYPE_STR);
+				$cybareg_invonly = "AND code = $cybareg_aregcode";
+			}
+			$db->hide_errors();
+			$cybareg_tiinfo = $vbulletin->db->query_first("
+				SELECT id, inviter, invited, code
+				FROM " . TABLE_PREFIX . "cyb_advreg_invite AS cyb_advreg_invite
+				WHERE invited = '".$db->escape_string($vbulletin->GPC['email'])."' AND done = '0' $cybareg_invonly
+			");
+			if ($cybareg_tiinfo['id']>0)
+			{
+				if (empty($userdata->errors))
+				{
+					$vbulletin->db->query_write(" UPDATE " . TABLE_PREFIX . "cyb_advreg_invite SET done = '1' WHERE id = '".$db->escape_string($cybareg_tiinfo['id'])."' ");
+					$cybareg_refinfo = $vbulletin->db->query_first("
+						SELECT username
+						FROM " . TABLE_PREFIX . "user AS user
+						WHERE userid = '".$db->escape_string($cybareg_tiinfo['inviter'])."'
+					");
+					$userdata->set('referrerid', $cybareg_refinfo['username']);
+				}
+			}
+			else if ($vbulletin->options['cybareg_enable_invite_only'])
+			{
+				$userdata->error('cybareg_wrong_invcode');
+			}
+			$db->show_errors();
+		}

@@ -1,0 +1,9 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=backup&amp;pageaction=&amp;option=">Database Backup</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=repair&amp;pageaction=&amp;option=">Repair / Optimize</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=misc&amp;pageaction=&amp;option=">Update Counters</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=diagnostic&amp;pageaction=&amp;option=">Diagnostics</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=queries&amp;pageaction=&amp;option=">Execute SQL Query</a><br /><br />
+
+<b>Execute SQL Query:</b><br />
+This page can be used to run queries on your forum database.  This can be useful for mass-updating records in your database.  You should always backup your database before querying it.  Any valid MySQL query can be run here.  See <a href="http://www.mysql.com/" target="_blank">mysql.com</a> for more information.

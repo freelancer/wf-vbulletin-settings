@@ -1,0 +1,8 @@
+User: [url=$vboptions[bburl]/member.php?u=$userinfo[userid]]$infractioninfo[username][/url]
+Infraction: $infractioninfo[title]
+Points: $infractioninfo[points]
+
+Administrative Note:[quote]$infractioninfo[note][/quote]
+
+
+Message to User:[quote]$infractioninfo[message][/quote]

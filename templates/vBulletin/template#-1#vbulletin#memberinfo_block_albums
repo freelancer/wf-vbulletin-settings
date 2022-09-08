@@ -1,0 +1,13 @@
+<if condition="$block_data['albumbits']">
+	<ul class="alt1 list_no_decoration block_row" id="{$id}_mini_list">
+		$block_data[albumbits]
+	</ul>
+	<div class="alt2 smallfont block_row block_footer" align="$stylevar[right]">
+		<a href="album.php?$session[sessionurl]u=$userinfo[userid]">$vbphrase[show_all_albums]</a>
+	</div>
+<else />
+	<div class="alt1 smallfont block_row">$vbphrase[you_have_not_created_any_albums]</div>
+		<div class="alt2 smallfont block_row block_footer" align="$stylevar[right]">
+			<a href="album.php?$session[sessionurl]do=addalbum">$vbphrase[add_album]</a>
+		</div>
+</if>

@@ -1,0 +1,8 @@
+if(THIS_SCRIPT=='payment_gateway' && $_REQUEST['method']=='alertpay')
+{		
+	if(!class_exists('vBV_Debugger'))
+	{
+		require_once DIR.'/includes/vbv.debugger.class.php';
+	}
+	vBV_Debugger::getInstance()->addMessage('Alert Pay Information');
+}

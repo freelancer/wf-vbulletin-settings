@@ -1,0 +1,5 @@
+When set to "No" the user's title will be set to the default user title of their primary user group.
+<br /><br />
+When set to "Yes, user set" the user's title will be forced to whatever is in the User Title field above.  HTML code is not allowed and this is the same as if the user set the title themself.  These titles will be reset if the user is not in an usergroup that allows custom titles.
+<br /><br />
+When set to "Yes, admin set (HTML allowed)" the user's title will be forced to whatever is in the User Title field above.  HTML code in the title will be shown as is and not be parsed. These titles will be maintained if the user is not in an usergroup that allows custom titles.

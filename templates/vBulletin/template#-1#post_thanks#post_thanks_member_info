@@ -1,0 +1,28 @@
+<fieldset class="fieldset">
+	<legend>$vbphrase[post_thanks_thanks]</legend>
+	<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+		<tr>
+			<td>
+				$vbphrase[post_thanks_total_thanks]: <strong>$userinfo[post_thanks_user_amount_formatted]</strong>
+				<br />
+				<if condition="$userinfo[post_thanks_thanked_times] == 1">
+					$vbphrase[post_thanks_time_post]
+				<else />
+					<if condition="$userinfo[post_thanks_thanked_posts] == 1">
+						<phrase 1="$userinfo[post_thanks_thanked_times_formatted]">$vbphrase[post_thanks_times_post]</phrase>
+					<else />
+						<phrase 1="$userinfo[post_thanks_thanked_times_formatted]" 2="$userinfo[post_thanks_thanked_posts_formatted]">$vbphrase[post_thanks_times_posts]</phrase>
+					</if>
+				</if>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="post_thanks.php?$session[sessionurl]do=findthanks&amp;u=$userinfo[userid]"><phrase 1="$userinfo[username]">$vbphrase[post_thanks_search_user]</phrase></a>
+			</td>
+			<td>
+				<a href="post_thanks.php?$session[sessionurl]do=findthanks_user_gave&amp;u=$userinfo[userid]"><phrase 1="$userinfo[username]">$vbphrase[post_thanks_search_user_gave]</phrase></a>
+			</td>
+		</tr>
+	</table>
+</fieldset>

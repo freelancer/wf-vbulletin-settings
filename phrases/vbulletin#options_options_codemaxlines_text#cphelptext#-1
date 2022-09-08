@@ -1,0 +1,1 @@
+Code is displayed as pre-formatted text which does not wrap when it reaches the edges of the table.  By placing the code within a scroll box we avoid the situation where the pre-formatted text stretches the forum layout.  This setting allows you to specify the maximum height of the scroll box before a scroll bar is displayed.

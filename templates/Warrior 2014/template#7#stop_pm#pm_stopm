@@ -1,0 +1,14 @@
+  		 
+		<b>WARNING</b>
+
+		<if condition="is_member_of($bbuserinfo, array(1, 2, 3, 4, 9, 6))">
+
+		<p>The Administrator or Moderators will not respond to technical questions through PM's.</p>
+
+		<p>Thank you for your understanding!</p>
+		<p></p>
+
+		</if>
+
+  		 
+		

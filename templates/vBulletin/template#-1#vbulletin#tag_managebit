@@ -1,0 +1,8 @@
+<li class="tag<if condition="$tag['ismine']"> mine</if>"<if condition="$tag['username']"> title="<phrase 1="$tag[username]">$vbphrase[added_by_x]</phrase>"</if>>
+<if condition="$show['tag_checkbox']">
+	<label for="tag_$tag[tagid]"><input type="checkbox" name="tagskept[]" value="$tag[tagid]" id="tag_$tag[tagid]" checked="checked" />$tag[tagtext]</label>
+	<input type="hidden" name="tagsshown[]" value="$tag[tagid]" />
+<else />
+	<label for="tag_$tag[tagid]"><input type="checkbox" checked="checked" disabled="disabled" id="tag_$tag[tagid]" />$tag[tagtext]</label>
+	</if>
+</li>

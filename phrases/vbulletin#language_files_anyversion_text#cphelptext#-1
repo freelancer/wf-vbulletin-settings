@@ -1,0 +1,3 @@
+If this is set to Yes, you will not receive a warning if this language set was created for a different version of vBulletin than you are running.<br /><br />
+
+Typically it is ok to use language files from newer versions but not from older versions. The reason is that newer versions may have extra phrases that your version doesn't have, but at least it will have all of the phrases that yours does, whereas an older version might not.

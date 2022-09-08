@@ -1,0 +1,3 @@
+Several vBulletin images have language-specific text in them. This option lets you use images made for a different language. These images are contained in the button images folder, which is images/buttons by default.<br /><br />
+
+You may use &lt;#&gt; to represent the style ID the user is currently using.  This allows you to support different styles for this language.  For example, you can name the images folder something like <b>images_<i>name of language</i>_<i>style ID of style</i></b> and then set this setting to <b>images_<i>name of language</i>_&lt;#&gt;</b>

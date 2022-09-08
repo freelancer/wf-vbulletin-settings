@@ -1,0 +1,3 @@
+Enter the username of the user here.  A member's username is used when logging in and is displayed next to their posts.
+<br /><br />
+If you are editing the username of an existing member, you should <a href="misc.php?do=chooser" target="_blank"><b>update your counters</b></a> afterwards.

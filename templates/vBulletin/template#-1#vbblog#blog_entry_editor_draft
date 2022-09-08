@@ -1,0 +1,3 @@
+<li><label for="rb_$blog_draft[blogid]"><img src="$stylevar[imgdir_misc]/blog/draft_small.gif" alt="$vbphrase[draft]" />
+	<input type="radio" name="b" id="rb_$blog_draft[blogid]" value="$blog_draft[blogid]" tabindex="1"$radiochecked />$blog_draft[title]
+	<span class="shade">($blog_draft[date_string]$_blog_draft[time_string])</label></li>

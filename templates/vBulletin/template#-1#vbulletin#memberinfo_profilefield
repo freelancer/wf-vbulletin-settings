@@ -1,0 +1,14 @@
+<if condition="$show['profilefield_edit']">
+	<dt class="shade" id="profilefield_title_$profilefield[profilefieldid]">$profilefield[title]</dt>
+	<dd id="profilefield_value_$profilefield[profilefieldid]">
+		$profilefield[value]
+		<script type="text/javascript">
+		<!--
+		vBulletin.register_control("vB_ProfilefieldEditor", "$profilefield[profilefieldid]");
+		//-->
+		</script>
+	</dd>
+<else />
+	<dt class="shade">$profilefield[title]</dt>
+	<dd>$profilefield[value]</dd>
+</if>

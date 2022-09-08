@@ -1,0 +1,5 @@
+<li>
+	<if condition="!$show['textimicons']"><span class="im_img_link">$imicon</span></if>
+	<span class="smallfont shade">$imtitle</span>
+	<a href="#" dir="ltr" class="im_txt_link" onclick="imwindow('$imserviceid', '$userinfo[userid]', 500, 450); return false;">$imusername</a>
+</li>

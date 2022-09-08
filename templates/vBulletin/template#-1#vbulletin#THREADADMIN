@@ -1,0 +1,48 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $pagetitle</title>
+<script type="text/javascript">
+<!--
+$parentpostassoc
+
+function CheckChildren(postid, value)
+{
+	// check this box
+	fetch_object("checkpost" + postid).checked = value;
+
+	// check check children
+	for (i in parentassoc)
+	{
+		if (parentassoc[i] == postid)
+		{
+			CheckChildren(i, value);
+		}
+	}
+
+	return false;
+}
+function CheckAllPosts(formobj)
+{
+	for (var i = 0; i < formobj.elements.length; i++)
+	{
+		element = formobj.elements[i];
+		if (element.type == "checkbox" && element.name.indexOf("checkpost") == 0)
+		{
+			element.checked = formobj.allbox.checked;
+		}
+	}
+}
+//-->
+</script>
+</head>
+<body$onload>
+$header
+$navbar
+
+$HTML
+
+$footer
+</body>
+</html>

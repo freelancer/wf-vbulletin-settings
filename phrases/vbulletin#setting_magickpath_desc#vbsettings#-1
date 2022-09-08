@@ -1,0 +1,3 @@
+Path to the ImageMagick 6 binaries (<i>convert</i> and <i>identify</i>). Example:<br /><br />
+Unix: /usr/local/bin/<br />
+Windows: C:\imagemagick\

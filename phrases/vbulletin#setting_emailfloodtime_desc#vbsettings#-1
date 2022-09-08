@@ -1,0 +1,3 @@
+Specify in seconds how much time must elapse before a user may send consecutive emails.<br />
+<br />
+Set to 0 to disable this flood check. Admins are always exempt from this floodcheck.

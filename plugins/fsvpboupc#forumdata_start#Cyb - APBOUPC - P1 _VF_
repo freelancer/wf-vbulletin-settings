@@ -1,0 +1,8 @@
+
+		$this->validfields['accessf_nb'] = array(TYPE_INT, REQ_NO);
+		$this->validfields['accesst_nb'] = array(TYPE_INT, REQ_NO);
+		$this->validfields['create_nb'] = array(TYPE_INT, REQ_NO);
+		$this->validfields['reply_nb'] = array(TYPE_INT, REQ_NO);
+		$this->validfields['attach_nb'] = array(TYPE_INT, REQ_NO);
+		$this->validfields['linkview_nb'] = array(TYPE_INT, REQ_NO);
+		$this->validfields['linkpost_nb'] = array(TYPE_INT, REQ_NO);

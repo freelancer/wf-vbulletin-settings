@@ -1,0 +1,51 @@
+<script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js?v=$vboptions[simpleversion]"></script>
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<span class="smallfont" style="float:$stylevar[right]"><a href="#" onclick="self.close()">$vbphrase[close_this_window]</a></span>
+		$vbphrase[skype]
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]">
+
+		<table cellpadding="0" cellspacing="6" border="0">
+		<tr>
+			<td><img src="$stylevar[imgdir_misc]/im_skype.gif" class="inlineimg" alt="$vbphrase[skype]" /></td>
+			<td colspan="3" class="fieldset" style="padding:0px"><phrase 1="member.php?$session[sessionurl]u=$userinfo[userid]" 2="$userinfo[username]">$vbphrase[send_message_via_skype_to_x_link]</phrase> (<strong dir="ltr">$userinfo[skype]</strong>)</td>
+		</tr>
+		<tr>
+			<td colspan="4" style="color:black;background-color:white;border:1px inset; text-align:center">
+				<a href="http://www.skype.com" target="_blank"><img src="http://mystatus.skype.com/$userinfo[skype_link].png$userinfo[skype_suffix]" alt="$vbphrase[online_status]" border="0" /></a>
+			</td>
+		</tr>
+		<tr valign="bottom">
+			<td><a href="skype:$userinfo[skype]?userinfo" onclick="return skypeCheck();"><img src="$stylevar[imgdir_misc]/skype_info.gif" alt="$vbphrase[skype_view_profile]" border="0" /></a></td>
+			<td class="smallfont"><a href="skype:$userinfo[skype]?userinfo" onclick="return skypeCheck();">$vbphrase[skype_view_profile]</a></td>
+			<td><a href="skype:$userinfo[skype]?add" onclick="return skypeCheck();"><img src="$stylevar[imgdir_misc]/skype_addcontact.gif" alt="$vbphrase[skype_add_contact]" border="0" /></a></td>
+			<td class="smallfont"><a href="skype:$userinfo[skype]?add" onclick="return skypeCheck();">$vbphrase[skype_add_contact]</a></td>
+		</tr>
+		<tr valign="bottom">
+			<td><a href="skype:$userinfo[skype]?call" onclick="return skypeCheck();"><img src="$stylevar[imgdir_misc]/skype_callstart.gif" alt="$vbphrase[skype_start_call]" border="0" /></a></td>
+			<td class="smallfont"><a href="skype:$userinfo[skype]?call" onclick="return skypeCheck();">$vbphrase[skype_start_call]</a></td>
+			<td><a href="skype:$userinfo[skype]?chat" onclick="return skypeCheck();"><img src="$stylevar[imgdir_misc]/skype_message.gif" alt="$vbphrase[skype_start_chat]" border="0" /></a></td>
+			<td class="smallfont"><a href="skype:$userinfo[skype]?chat" onclick="return skypeCheck();">$vbphrase[skype_start_chat]</a></td>
+		</tr>
+		<tr valign="bottom">
+			<td><a href="skype:$userinfo[skype]?voicemail" onclick="return skypeCheck();"><img src="$stylevar[imgdir_misc]/skype_voicemail.gif" alt="$vbphrase[skype_leave_voicemail]" border="0" /></a></td>
+			<td class="smallfont"><a href="skype:$userinfo[skype]?voicemail" onclick="return skypeCheck();">$vbphrase[skype_leave_voicemail]</a></td>
+			<td><a href="skype:$userinfo[skype]?sendfile" onclick="return skypeCheck();"><img src="$stylevar[imgdir_misc]/skype_fileupload.gif" alt="$vbphrase[skype_send_file]" border="0" /></a></td>
+			<td class="smallfont"><a href="skype:$userinfo[skype]?sendfile" onclick="return skypeCheck();">$vbphrase[skype_send_file]</a></td>
+		</tr>
+		<tr>
+			<td colspan="4" class="fieldset">$vbphrase[these_functions_require_skype]</td>
+		</tr>
+		</table>
+
+		</div>
+	</div>
+	</td>
+</tr>
+</table>

@@ -1,0 +1,1 @@
+<div><label for="rb_optionnumber_$option[number]"><input type="radio" name="optionnumber" value="$option[number]" id="rb_optionnumber_$option[number]" />$option[question]</label></div>

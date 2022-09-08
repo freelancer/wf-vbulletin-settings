@@ -1,0 +1,54 @@
+
+
+if($vbulletin->options['EZsociallinks_enable'] && $vbulletin->options['EZsociallinks_mienable'])
+{
+
+        $blocklist = array_merge($blocklist, array(
+        'EZsociallinks_mitab' => array(
+        'class' => 'EZsociallinks_mitab',
+        'title' => 'Social Networking Links',
+        'hook_location' => 'profile_left_last'
+        )
+        ));
+
+	//field6 Myspace.com
+	$ezmyspace = $userinfo['field6'];
+	//field7 Facebook.com
+	$ezfacebook = $userinfo['field7'];
+	//field8 twitter.com
+	$eztwitter = $userinfo['field8'];
+	//field9 Youtube.com
+	$ezyoutube = $userinfo['field9'];
+	
+		//$ezmyspace = $userinfo['field7'];	
+		
+		
+		eval('$exsl_mitab = "' . fetch_template('EZsociallinks_mitab_bits') . '";');
+
+		class vB_ProfileBlock_EZsociallinks_mitab extends vB_ProfileBlock
+        {
+            var $template_name = 'memberinfo_block_EZsociallinks_mitab';
+
+
+            function confirm_empty_wrap()
+            {
+            return false;
+			}
+
+            function confirm_display()
+            {
+                return ($this->block_data['EZsociallinks_mitab'] != '');
+            }
+
+            function prepare_output($id = '', $options = array())
+            {
+    
+            global $exsl_mitab;
+            $this->block_data['EZsociallinks_mitab'] = $exsl_mitab;
+            }
+        }
+
+}
+
+
+

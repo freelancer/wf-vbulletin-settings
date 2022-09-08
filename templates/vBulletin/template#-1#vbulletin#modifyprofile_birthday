@@ -1,0 +1,118 @@
+<if condition="$show['birthday_readonly']">
+		<fieldset class="fieldset">
+				<legend>$vbphrase[birth_date] - $birthdate</legend>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+				<tr>
+					<td>
+						$vbphrase[your_date_of_birth]<br />
+						$vbphrase[contact_admin_to_modify_birthday]<br /><br />
+						$vbphrase[privacy]:<br />
+						<select name="showbirthday">
+						<option value="0" $sbselected[0]>$vbphrase[hide_age_and_dob]</option>
+						<option value="1" $sbselected[1]>$vbphrase[display_age]</option>
+						<option value="3" $sbselected[3]>$vbphrase[display_day_and_month]</option>
+						<option value="2" $sbselected[2]>$vbphrase[display_age_and_dob]</option>
+
+						</select>
+					</td>
+				</tr>
+				</table>
+			</fieldset>
+<else />
+<script type="text/javascript">
+<!--
+function clear_birthday()
+{
+	fetch_object('bd_month').selectedIndex = 0;
+	fetch_object('bd_day').selectedIndex = 0;
+	fetch_object('bd_year').value = '';
+}
+//-->
+</script>
+		<fieldset class="fieldset">
+				<legend>$vbphrase[birth_date]</legend>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+				<tr>
+					<td colspan="3">
+						$vbphrase[your_date_of_birth]
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table cellpadding="0" cellspacing="0" border="0">
+						<tr>
+							<td>$vbphrase[month]</td>
+							<td>$vbphrase[day]</td>
+							<td><if condition="$show['birthday_optional']">$vbphrase[year_optional]<else />$vbphrase[year]</if></td>
+						</tr>
+						<tr>
+							<td><select name="month" id="bd_month">
+								<option value="-1" $monthselected[default]></option>
+								<option value="01" $monthselected[01]>$vbphrase[january]</option>
+								<option value="02" $monthselected[02]>$vbphrase[february]</option>
+								<option value="03" $monthselected[03]>$vbphrase[march]</option>
+								<option value="04" $monthselected[04]>$vbphrase[april]</option>
+								<option value="05" $monthselected[05]>$vbphrase[may]</option>
+								<option value="06" $monthselected[06]>$vbphrase[june]</option>
+								<option value="07" $monthselected[07]>$vbphrase[july]</option>
+								<option value="08" $monthselected[08]>$vbphrase[august]</option>
+								<option value="09" $monthselected[09]>$vbphrase[september]</option>
+								<option value="10" $monthselected[10]>$vbphrase[october]</option>
+								<option value="11" $monthselected[11]>$vbphrase[november]</option>
+								<option value="12" $monthselected[12]>$vbphrase[december]</option>
+							</select> &nbsp;</td>
+							<td><select name="day" id="bd_day">
+								<option value="-1" $dayselected[default]></option>
+								<option value="01" $dayselected[01]>1</option>
+								<option value="02" $dayselected[02]>2</option>
+								<option value="03" $dayselected[03]>3</option>
+								<option value="04" $dayselected[04]>4</option>
+								<option value="05" $dayselected[05]>5</option>
+								<option value="06" $dayselected[06]>6</option>
+								<option value="07" $dayselected[07]>7</option>
+								<option value="08" $dayselected[08]>8</option>
+								<option value="09" $dayselected[09]>9</option>
+								<option value="10" $dayselected[10]>10</option>
+								<option value="11" $dayselected[11]>11</option>
+								<option value="12" $dayselected[12]>12</option>
+								<option value="13" $dayselected[13]>13</option>
+								<option value="14" $dayselected[14]>14</option>
+								<option value="15" $dayselected[15]>15</option>
+								<option value="16" $dayselected[16]>16</option>
+								<option value="17" $dayselected[17]>17</option>
+								<option value="18" $dayselected[18]>18</option>
+								<option value="19" $dayselected[19]>19</option>
+								<option value="20" $dayselected[20]>20</option>
+								<option value="21" $dayselected[21]>21</option>
+								<option value="22" $dayselected[22]>22</option>
+								<option value="23" $dayselected[23]>23</option>
+								<option value="24" $dayselected[24]>24</option>
+								<option value="25" $dayselected[25]>25</option>
+								<option value="26" $dayselected[26]>26</option>
+								<option value="27" $dayselected[27]>27</option>
+								<option value="28" $dayselected[28]>28</option>
+								<option value="29" $dayselected[29]>29</option>
+								<option value="30" $dayselected[30]>30</option>
+								<option value="31" $dayselected[31]>31</option>
+							</select> &nbsp;</td>
+							<td><input type="text" class="bginput" name="year" value="$year" size="4" maxlength="4" id="bd_year" /></td>
+							<td rowspan="2">&nbsp; <input type="button" class="button" value="$vbphrase[clear]" onclick="clear_birthday()" /></td>
+						</tr>
+						</table>
+						<input type="hidden" name="oldbirthday" value="$bbuserinfo[birthday]" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						$vbphrase[privacy]<br />
+						<select name="showbirthday">
+						<option value="0" $sbselected[0]>$vbphrase[hide_age_and_dob]</option>
+						<option value="1" $sbselected[1]>$vbphrase[display_age]</option>
+						<option value="3" $sbselected[3]>$vbphrase[display_day_and_month]</option>
+						<option value="2" $sbselected[2]>$vbphrase[display_age_and_dob]</option>
+						</select>
+					</td>
+				</tr>
+				</table>
+			</fieldset>
+</if>

@@ -1,0 +1,1 @@
+The username {1} is already in use. You can edit that user <a href="user.php?{2}do=edit&amp;u={3}">here</a>

@@ -1,0 +1,54 @@
+$postpreview
+
+<form action="blog_usercp.php?do=updateprofile" method="post" name="vbform"<if condition="!is_browser('webtv')"> onsubmit="return vB_Editor['$editorid'].prepare_submit('1', 0)"</if>>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[blog_title_and_description]</td>
+</tr>
+<tr>
+	<td class="thead">
+		$vbphrase[edit_the_title_and_description_for_your_blog]
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+		<div class="panel">
+			<div align="$stylevar[left]" style="max-width:$stylevar[formwidth]; width:auto !important; width:$stylevar[formwidth_blog]">
+				<!-- title field -->
+				<div class="smallfont">
+						<label for="text_blog_title">$vbphrase[blog_title] <input type="text" class="bginput" name="title" id="text_blog_title" value="$bloguserinfo[title]" size="50" style="display:block" tabindex="1" /></label>
+						<div class="shade">$vbphrase[blank_blog_title_note]</div>
+				</div>
+				<!-- / title field -->
+
+				<!-- message area -->
+				<div class="smallfont" style="margin-top:$stylevar[cellpadding]px">
+					$vbphrase[blog_description]
+				</div>
+				$messagearea
+				<!-- / message area -->
+
+				<if condition="$show['miscoptions']">
+				<fieldset class="fieldset" style="margin:10px 0px 0px 0px">
+					<legend>$vbphrase[miscellaneous_options]</legend>
+					<div style="padding:$stylevar[formspacer]px;">
+						<if condition="$show['parseurl']"><div><label for="cb_parseurl"><input type="checkbox" name="parseurl" id="cb_parseurl" value="1" tabindex="1" $checked[parseurl] />$vbphrase[automatically_parse_links_in_text]</label></div></if>
+						$disablesmiliesoption
+					</div>
+				</fieldset>
+				</if>
+
+			</div>
+		</div>
+		<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="hidden" name="s" value="$session[sessionhash]" />
+		<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+		<input type="hidden" name="do" value="updateprofile" />
+		<input type="submit" class="button" name="sbutton" id="{$editorid}_save" value="$vbphrase[submit]" accesskey="s" tabindex="1" />
+		<input type="submit" class="button" name="preview" value="$vbphrase[preview]" accesskey="r" tabindex="1" />
+		</div>
+	</td>
+</tr>
+</table>
+</form>

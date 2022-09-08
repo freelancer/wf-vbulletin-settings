@@ -1,0 +1,31 @@
+<form action="private.php?do=deletepmreceipt" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="deletepmreceipt" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat" colspan="4">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('$tableid')"><img id="collapseimg_$tableid" src="$stylevar[imgdir_button]/collapse_tcat{$collapseimg_tableid}.gif" alt="" border="0" /></a>
+			$tabletitle <span class="normal">($numreceipts)</span>
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_$tableid" style="{$collapseobj_tableid}">
+<tr>
+	<td class="thead" width="60%">$vbphrase[message]</td>
+	<td class="thead" width="20%">$vbphrase[sent_date]</td>
+	<td class="thead" width="20%">$vbphrase[read_date]</td>
+	<td class="thead" align="center"><input type="checkbox" name="allbox" onclick="checkall(this.form);" title="$vbphrase[check_uncheck_all]" /></td>
+</tr>
+$receiptbits
+<tr>
+	<td class="thead" colspan="4" align="$stylevar[right]"><input type="submit" class="button" value="$vbphrase[delete_selected]" /></td>
+</tr>
+</tbody>
+</table>
+
+</form>
+
+<br />

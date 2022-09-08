@@ -1,0 +1,5 @@
+print_table_header($vbphrase['ada_forum_article']);
+
+print_yes_no_row($vbphrase['ada_forum_active'], 'forum[ada_forum]', $forum['ada_forum']);
+
+print_select_row($vbphrase['ada_forum_article_style'], 'forum[ada_style]', array($vbphrase['ada_forum_article_style1'], $vbphrase['ada_forum_article_style2'], $vbphrase['ada_forum_article_style3'], $vbphrase['ada_forum_article_style4']), $forum['ada_style']);

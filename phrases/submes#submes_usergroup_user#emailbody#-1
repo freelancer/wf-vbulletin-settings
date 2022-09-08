@@ -1,0 +1,7 @@
+Hello $userinfo[username]!
+
+You have been added to the usergroup(s):
+
+$usergroups
+
+Thank you!

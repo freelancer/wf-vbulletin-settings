@@ -1,0 +1,173 @@
+<if condition="($show['quickcomment'] AND $show['post_visitor_message']) OR $show['hasedit']">
+	$block_data[clientscript]
+</if>
+
+<if condition="$show['quickcomment'] AND $show['post_visitor_message']">
+	<div class="alt1 smallfont block_row">
+		<form action="visitormessage.php?$session[sessionurl]do=message" method="post" name="vbform" id="message_form">
+			<div align="center">
+				<div style="max-width:$stylevar[formwidth]; width:auto !important; width:95%">
+
+					<div style="display:none" id="qc_error_div" class="tborder">
+						<div class="alt1 block_title">
+							<div id="qc_error_header">$vbphrase[errors_occured_when_submitted]</div>
+							<div id="qc_error_list">&nbsp;</div>
+							<div id="qc_error_okay"><input type="button" class="button" value="$vbphrase[okay]" id="qc_hide_errors" /></div>
+						</div>
+					</div>
+
+					<div class="smallfont messagetext">
+						<if condition="$show['view_conversation']"><a href="converse.php?$session[sessionurl]u=$userinfo[userid]&amp;u2=$bbuserinfo[userid]" id="view_my_conversation_link"><phrase 1="$userinfo[username]">$vbphrase[view_your_conversation_with_x]</phrase></a></if>
+						$vbphrase[message]:
+					</div>
+					<div id="$block_data[editorid]" class="vBulletin_editor">$block_data[messagearea]</div>
+					<if condition="$block_data['allowed_bbcode']"><div class="allowed_bbcode">$block_data[allowed_bbcode]</div></if>
+					<div class="submit_button">
+						<input type="hidden" name="fromquickcomment" value="1" />
+						<input type="hidden" name="s" value="$session[sessionhash]" />
+						<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+						<input type="hidden" name="do" value="message" />
+						<input type="hidden" name="u" value="$userinfo[userid]" />
+						<input type="hidden" name="u2" value="$userinfo2[userid]" />
+						<input type="hidden" name="loggedinuser" value="$bbuserinfo[userid]" />
+						<input type="hidden" name="parseurl" value="1" />
+						<input type="hidden" name="lastcomment" value="$block_data[lastcomment]" />
+						<input type="hidden" name="allow_ajax_qc" value="$show[allow_ajax_qc]" />
+						<input type="hidden" name="fromconverse" value="$block_data[fromconverse]" />
+
+						<input type="submit" id="qr_submit" value="$vbphrase[post_message]" name="sbutton" class="button" accesskey="s" onclick="clickedelm = this.value" />
+						<input type="submit" id="qr_preview" value="$vbphrase[go_advanced]" name="preview" class="button" accesskey="x" onclick="clickedelm = this.value" />
+					</div>
+				</div>
+			</div>
+
+			<div align="center" id="qc_posting_msg" style="display:none; margin-top:$stylevar[cellpadding]px">
+				<img class="inlineimg" src="$stylevar[imgdir_misc]/progress.gif" alt="$vbphrase[posting_comment] - $vbphrase[please_wait]" />
+				<strong>$vbphrase[posting_message_please_wait]</strong>
+			</div>
+		</form>
+	</div>
+</if>
+
+<if condition="$block_data['messagebits']">
+	<div class="thead block_row" id="visitor_message_counters">
+		<if condition="$show['inlinemod']"><a id="inlinemodsel">&nbsp;</a></if>
+		<phrase 1="$block_data[messagestart]" 2="$block_data[messageend]" 3="$prepared[vm_total]">$vbphrase[showing_vms_x_to_y_of_z]</phrase>
+	</div>
+	<!-- inline moderation form -->
+<if condition="$show['inlinemod']">
+	<form action="member_inlinemod.php?u=$userinfo[userid]" method="post" id="visitor_message_inlinemod_form">
+</if>
+	<ol class="alt1 block_row list_no_decoration" id="message_list">
+		$block_data[messagebits]
+	</ol>
+
+	<if condition="$show['inlinemod'] OR $block_data['pagenav']">
+		<div class="alt2 block_row" id="visitor_message_tab_footer">
+			<table cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr valign="bottom">
+				<if condition="$show['inlinemod']">
+				<td class="smallfont" id="inlinemod_comment_controls">
+					<div><label for="moderation_select_comments">$vbphrase[moderation]</label></div>
+					<select id="moderation_select_comments" name="do">
+						<if condition="$show['delete'] OR $show['undelete'] OR $show['approve']">
+						<optgroup label="$vbphrase[option]" id="moderation_select_comments_optgroup">
+							<if condition="$show['delete']">
+								<option value="inlinedelete" id="inlinemod_comment_controls_delete">$vbphrase[delete_messages]</option>
+							</if>
+							<if condition="$show['undelete']">
+								<option value="inlineundelete" id="inlinemod_comment_controls_undelete">$vbphrase[undelete_messages]</option>
+							</if>
+							<if condition="$show['approve']">
+								<option value="inlineapprove" id="inlinemod_comment_controls_approve">$vbphrase[approve_messages]</option>
+								<option value="inlineunapprove" id="inlinemod_comment_controls_unapprove">$vbphrase[unapprove_messages]</option>
+							</if>
+						</optgroup>
+						</if>
+						<optgroup label="____________________">
+							<option value="clearmessage">$vbphrase[deselect_all_messages]</option>
+						</optgroup>
+					</select>
+					<input type="submit" value="$vbphrase[go]" id="vmessage_inlinego" class="button" />
+					<input type="hidden" name="s" value="$session[sessionhash]" />
+					<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+					<input type="hidden" name="u" value="$userinfo[userid]" />
+				</td>
+				</if>
+				<if condition="$block_data['pagenav']">
+				<td class="smallfont" align="$stylevar[right]">
+					$block_data[pagenav]
+				</td>
+				</if>
+			</tr>
+			</table>
+		</div>
+	</if>
+</if>
+
+<if condition="$show['quickcomment']">
+	<script type="text/javascript" src="clientscript/vbulletin_quick_comment.js?v=$vboptions[simpleversion]"></script>
+	<script type="text/javascript">
+	<!--
+	var quick_comment = new vB_QuickComment("message_form", $vboptions[postminchars]);
+	//-->
+	</script>
+</if>
+
+<if condition="$block_data['messagebits']">
+	<if condition="$show['inlinemod']">
+		<script type="text/javascript" src="clientscript/vbulletin_inlinemod.js?v=$vboptions[simpleversion]"></script>
+		<script type="text/javascript">
+		<!--
+		inlineMod_comment = new vB_Inline_Mod('inlineMod_comment', 'vmessage', 'visitor_message_inlinemod_form', '$vbphrase[go_x]', 'vbulletin_inline', 'message');
+		//-->
+		</script>
+	</if>
+	<if condition="$show['inlinemod']">
+		<script type="text/javascript">
+		<!--
+		vBmenu.register("inlinemodsel");
+		//-->
+		</script>
+
+		</form>
+		<!-- / inline moderation form -->
+
+		<!-- inline mod selection popup -->
+		<ul id="inlinemodsel_menu" class="vbmenu_popup list_no_decoration" style="display:none">
+			<li class="thead first">$vbphrase[from_this_page]</li>
+			<li class="vbmenu_option" onclick="inlineMod_comment.check_all(true)">$vbphrase[select_all]</li>
+			<li class="vbmenu_option" onclick="inlineMod_comment.check_all(false)">$vbphrase[deselect_all]</li>
+			<li class="vbmenu_option" onclick="inlineMod_comment.check_all('invert')">$vbphrase[invert_selection]</li>
+			<if condition="$show['approve'] OR $show['undelete']"><li class="thead notext"><img src="$vboptions[cleargifurl]" alt="" width="1" height="1" /></li></if>
+			<if condition="$show['approve']"><li class="vbmenu_option" onclick="inlineMod_comment.check_all(true, 1)">$vbphrase[select_unapproved_posts]</li></if>
+			<if condition="$show['undelete']"><li class="vbmenu_option" onclick="inlineMod_comment.check_all(true, 2)">$vbphrase[select_deleted_posts]</li></if>
+		</ul>
+		<!-- / inline mod selection popup -->
+	</if>
+<else />
+	<if condition="$block_data['fromconverse']">
+		<div class="alt2 block_row">$vbphrase[no_visitor_messages_between_members]</div>
+	<else />
+		<div class="alt2 block_row"><phrase 1="$prepared[username]">$vbphrase[x_has_no_visitor_messages]</phrase></div>
+	</if>
+</if>
+
+<if condition="$show['hasedit'] AND $show['popups']">
+<!-- ajax errors table -->
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" style="display:none; position:absolute" id="ajax_post_errors">
+	<tr>
+		<td class="thead">
+			<span style="float:$stylevar[right]"><input type="button" class="button" value=" X " onclick="vB_QuickEditor_Watcher.hide_errors()" id="ajax_post_errors_closebtn" /></span>
+			$vbphrase[vbulletin_message]
+		</td>
+	</tr>
+	<tr>
+		<td class="alt2" colspan="2" id="ajax_post_errors_message">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="tfoot" colspan="2" align="center"><a href="#" onclick="vB_QuickEditor_Watcher.close_all(); return false;">$vbphrase[cancel_changes]</a></td>
+	</tr>
+	</table>
+<!-- / ajax errors table -->
+</if>

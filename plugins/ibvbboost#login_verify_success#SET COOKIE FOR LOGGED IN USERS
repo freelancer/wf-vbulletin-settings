@@ -1,0 +1,10 @@
+if ($send_cookies AND $cookieuser)
+{
+// Cookie user
+vbsetcookie('imloggedin', 'yes', true, true, true);
+}
+else
+{
+// Not permanent
+vbsetcookie('imloggedin', 'yes', false, true, true);
+}

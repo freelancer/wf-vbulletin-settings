@@ -1,0 +1,16 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=attachment&amp;pageaction=&amp;option=">Attachments</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=moderate&amp;pageaction=&amp;option=">Moderating Content</a><br /><br />
+
+<b>Attachments:</b><br />
+vBulletin supports file uploads to posts, called post attachments.  Post attachments are useful in attaching any kind of file that relates to a post including images, text files, pdfs, zips, and any other file type you allow to be attached to posts.<br /><br />
+
+vBulletin provides you with two options for storing post attachments: 1) you can store them in the database or 2) you can store them in the file system on your web server.  Both methods have advantages and disadvantages.  The database is more efficient with storage space and is easier to backup than individual files.  However, storing attachments in the database is also an extra burden on the database when users download attachments.  Other considerations include how you want to restrict access to attachments, whether you want to use vBulletin's permission system or directory permissions like htaccess.<br /><br />
+
+vBulletin's attachment system allows you to specify maximum file sizes for each type of file you allow to be attached.  Some file types tend to belong to larger files (videos and images versus text for example) and this ability allows you to take that into consideration.<br /><br />
+
+On the topic of maximum file sizes, vBulletin allows you to limit the total size of all of a user's attachments at the group level (see the <a href="usergroup.php?do=modify" target="_blank">Usergroup Manager</a>).  This is useful in preventing any one user from taking up too much storage with their attachments.<br /><br />
+
+Another nice feature of vBulletin's attachment system is its support for thumbnails.  When a user posts an image attachment you can configure vBulletin to generate a miniature version of the image (called a thumbnail) that is linked to the larger version of the image.  This is useful in preventing large inline image attachments from stretching your forum layout.  You can configure thumbnails and many other attachment options in your <a href="options.php?dogroup=attachment&amp;do=options" target="_blank">vBulletin options</a>.  If you are using the ImageMagick library, then you may be able to create thumbnails from additional image types: BMP, TIF, PSD, and PDF.  You should have the latest versions of ImageMagick and Ghostscript installed for creating thumbnails from PDF files. Thumbnailing large PDF files may still cause problems so use this option with caution.<br /><br />
+
+Like other forum permissions in vBulletin, the ability of a user to post attachments can be set at the group level (see the <a href="usergroup.php?do=modify" target="_blank">Usergroup Manager</a>), and at the group level for a specific forum (see <a href="forumpermission.php?do=modify" target="_blank">Forum Permissions</a>).

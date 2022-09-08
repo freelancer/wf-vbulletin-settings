@@ -1,0 +1,50 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $vbphrase[avatar_list]</title>
+</head>
+<body>
+$header
+$navbar
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[avatars]</td>
+</tr>
+<tr>
+	<td class="alt1">
+		$vbphrase[avatars_small_images]
+	</td>
+</tr>
+</table>
+
+<br />
+
+<if condition="$show['pagenav']">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tr valign="bottom">
+	<td align="$stylevar[right]">$pagenav</td>
+</tr>
+</table>
+</if>
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="$vboptions[numavatarswide]">
+		<if condition="$totalavatars"><span style="float:$stylevar[right]"><phrase 1="$first" 2="$last" 3="$totalavatars">$vbphrase[showing_avatars_x_to_y_of_z]</phrase></span></if>
+		$vbphrase[avatar_list]
+	</td>
+</tr>
+<if condition=" $avatarbits != '' ">
+$avatarbits
+<else />
+<tr>
+	<td class="alt1" align="center" colspan="$vboptions[numavatarswide]">$vbphrase[no_predefined_avatars_available]</td>
+</tr>
+</if>
+</table>
+
+$footer
+
+</body>
+</html>

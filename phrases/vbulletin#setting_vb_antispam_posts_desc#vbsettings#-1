@@ -1,0 +1,1 @@
+This setting controls how many of a user's posts will be scanned by the Anti-Spam Service. Once a user's post count exceeds this threshold, his or her posts will not be scanned for spam content. To always scan posts set this value to 0.

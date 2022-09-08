@@ -1,0 +1,6 @@
+<tr>
+	<td class="$bgclass"><img src="$stylevar[imgdir_attach]/$extension[extension].gif" class="inlineimg" alt="" /> <span class="smallfont"><strong>$extension[extension]</strong></span></td>
+	<td class="$bgclass"><span class="smallfont">$extension[size]</span></td>
+	<td class="$bgclass"><span class="smallfont">$extension[width]</span></td>
+	<td class="$bgclass"><span class="smallfont">$extension[height]</span></td>
+</tr>

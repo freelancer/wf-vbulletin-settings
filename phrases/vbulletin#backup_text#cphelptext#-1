@@ -1,0 +1,11 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=backup&amp;pageaction=&amp;option=">Database Backup</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=repair&amp;pageaction=&amp;option=">Repair / Optimize</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=misc&amp;pageaction=&amp;option=">Update Counters</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=diagnostic&amp;pageaction=&amp;option=">Diagnostics</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=queries&amp;pageaction=&amp;option=">Execute SQL Query</a><br /><br />
+
+<b>Database Backup:</b><br />
+vBulletin's backup script can be used to backup your forum's database.  Please note, this backup script is not the recommended way to backup your database because it is subject to PHP timeouts, especially on large databases.  If you use this script to backup your database you might get an incomplete backup.<br /><br />
+
+The recommended backup method is to use the mysqldump command via telnet / SSH.  Please view <a href="help.php?do=answer&amp;page=backup.php&amp;pageaction=mysqldump">these instructions</a> on how to make a backup of your database using the command line via Telnet or SSH.

@@ -1,0 +1,7 @@
+If this setting is enabled each post is saved prior to being updated, this allows for a history to be shown for edited posts.<br />
+<br />
+Edits will not be logged if an 'edited by' notice is not displayed or updated. This occurs in the following situations:
+<ul>
+<li>The editing user is in a group that does not show edited by notices and no reason for editing is specified.</li>
+<li>The post is edited quickly enough after being posted to trigger the <em>Time to Wait Before Starting to Display 'Last Edited by...'</em> option.</li>
+</ul>

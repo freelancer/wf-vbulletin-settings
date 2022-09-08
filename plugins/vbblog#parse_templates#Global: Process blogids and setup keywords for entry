@@ -1,0 +1,33 @@
+if (defined('VBBLOG_SCRIPT'))
+{
+	$blogtextinfo = array();
+	$bloginfo = array();
+	// get core functions
+	if (!empty($db->explain))
+	{
+		$db->timer_start('Including blog_functions.php');
+		require_once(DIR . '/includes/blog_functions.php');
+		$db->timer_stop(false);
+	}
+	else
+	{
+		require_once(DIR . '/includes/blog_functions.php');
+	}
+	$vbulletin->input->clean_array_gpc('r', array(
+		'blogid'     => TYPE_UINT,
+		'blogtextid' => TYPE_UINT,
+	));
+	
+	if ($vbulletin->GPC['blogtextid'] AND $blogtextinfo = fetch_blog_textinfo($vbulletin->GPC['blogtextid'], false, false))
+	{
+		$blogtextid =& $blogtextinfo['blogtextid'];
+		$vbulletin->GPC['blogid'] =& $blogtextinfo['blogid'];
+	}
+	
+	if ($vbulletin->GPC['blogid'] AND $bloginfo = verify_blog($vbulletin->GPC['blogid'], false, false))
+	{
+		$blogid =& $bloginfo['blogid'];
+		$vbulletin->options['keywords'] = ($bloginfo['taglist'] ? "$bloginfo[taglist], " : "") . "$bloginfo[title], " . $vbulletin->options['keywords'];
+		$vbulletin->options['description'] = "$bloginfo[title] $bloginfo[blog_title]";
+	}
+}

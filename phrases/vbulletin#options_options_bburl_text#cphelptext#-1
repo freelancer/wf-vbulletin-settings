@@ -1,0 +1,9 @@
+This is the URL to your vBulletin forum, without the final "/" or "index.php". Examples of correct URLs:<br /><br />
+
+<i>http://www.example.com</i><br />
+<i>http://www.example.com/forum</i><br /><br />
+
+Examples of incorrect URLs:<br /><br />
+
+<i>http://www.example.com/</i> (should not have final slash)<br />
+<i>http://www.example.com/forum/index.php</i> (should not have final slash or index.php)

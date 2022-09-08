@@ -1,0 +1,11 @@
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">$vbphrase[code]:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: $stylevar[cellpadding]px;
+		border: 1px inset;
+		width: $stylevar[codeblockwidth];
+		height: {$blockheight}px;
+		text-align: left;
+		overflow: auto">$code</pre>
+</div>

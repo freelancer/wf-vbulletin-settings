@@ -1,0 +1,3 @@
+Enter a full server path.  You might want to record database errors to a file if you chose not to have them emailed to you.<br />
+<br />
+Any errors that occur when connecting to the database server will not be logged with this option. To receive notifications of these errors, you will have to have them emailed to you via the option in config.php.

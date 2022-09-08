@@ -1,0 +1,1 @@
+Some IIS servers may need this turned on; for most web servers, it will cause the server to not function correctly. This sends HTTP 200 OK headers if turned on.

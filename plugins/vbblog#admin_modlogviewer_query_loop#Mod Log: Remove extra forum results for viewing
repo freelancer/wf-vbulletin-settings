@@ -1,0 +1,12 @@
+if ($log['product'] == 'vbblog')
+{
+	unset($log['post_title'], $log['thread_title'], $log['poll_question'], $log['forum_title'], $log['attachment_title']);
+	if ($log['blogentry_title'] == '' AND $log['threadtitle'] != '')
+	{
+		$log['blogentry_title'] =& $log['threadtitle'];
+	}
+}
+else
+{
+	unset($log['blog_title'], $log['blogentry_title'], $log['comment_title'], $log['blogattachment_title']);
+}

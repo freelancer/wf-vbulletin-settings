@@ -1,0 +1,1 @@
+This script sends reminder emails to users in the Awaiting Confirmation usergroup. An email is sent one day after the user has registered and again at five days.

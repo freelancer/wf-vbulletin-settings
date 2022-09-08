@@ -1,0 +1,6 @@
+
+			if ($vbulletin->options['angadver_enabled'])
+			{
+				$globaltemplates[] = 'angular_advertisement_css';
+			}
+			

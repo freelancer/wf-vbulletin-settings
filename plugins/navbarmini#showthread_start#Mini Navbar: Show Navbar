@@ -1,0 +1,5 @@
+if ($vbulletin->options['mnbon'])
+{
+	$search_text = '<!-- / controls below postbits -->';
+	$vbulletin->templatecache['SHOWTHREAD'] = str_replace($search_text,$search_text . fetch_template('navbar_mini'),$vbulletin->templatecache['SHOWTHREAD']);
+}

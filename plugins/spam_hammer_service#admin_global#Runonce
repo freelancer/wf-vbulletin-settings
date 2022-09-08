@@ -1,0 +1,81 @@
+if (!$vbulletin->options['vbresults_service_auth_token']) {
+	$vbulletin->db->query_write(vsprintf('UPDATE `%1$sphrase` SET `text` = "%3$s" WHERE `varname` IN (%2$s) AND `languageid` = -1', array(
+		TABLE_PREFIX,
+		'"spam_hammer_service", "settinggroup_spam_hammer_service"',
+		$vbphrase["spam_hammer_service_1s"]
+	)));
+
+	$vbulletin->db->query_write(vsprintf('UPDATE `%1$sproduct` SET `title` = "%2$s", `description` = "%3$s", `version` = "%4$s" WHERE `productid` = "%5$s"', array(
+		TABLE_PREFIX,
+		$vbphrase["spam_hammer_service_1s"],
+		$vbphrase["spam_hammer_service_1s_desc"],
+		"1.7",
+		"spam_hammer_service"
+	)));
+}
+
+if ($vbulletin->options['vbresults_service_auth_token']) {
+	$vbulletin->db->query_write(vsprintf('UPDATE `%1$sphrase` SET `text` = "%3$s" WHERE `varname` IN (%2$s) AND `languageid` = -1', array(
+		TABLE_PREFIX,
+		'"spam_hammer_service", "settinggroup_spam_hammer_service"',
+		$vbphrase["spam_hammer_service_3s"]
+	)));
+
+	$vbulletin->db->query_write(vsprintf('UPDATE `%1$sproduct` SET `title` = "%2$s", `description` = "%3$s", `version` = "%4$s" WHERE `productid` = "%5$s"', array(
+		TABLE_PREFIX,
+		$vbphrase["spam_hammer_service_3s"],
+		$vbphrase["spam_hammer_service_3s_desc"],
+		"3.4",
+		"spam_hammer_service"
+	)));
+}
+
+if (can_administer() && !$vbulletin->options['vbresults_service_auth_token']) {
+	if ((!$vbulletin->options['spam_hammer_service_runonce'] && $_REQUEST['do'] == 'product') || isset($_REQUEST['authentication_token_form'])) {
+		$_HIDDENFIELDS = array(
+			'meta_web_form_id' => '317459914',
+			'meta_split_id' => '',
+			'listname' => 'vbresults',
+			'redirect' => 'http://vbresults.com/blog/confirm/',
+			'meta_adtracking' => 'spam_hammer',
+			'meta_message' => '1',
+			'meta_required' => 'email',
+			'meta_tooltip' => '',
+			'meta_admin_referer' => "{$vbulletin->options['bburl']}/{$vbulletin->config['Misc']['admincpdir']}/plugin.php?do=product"
+		);
+
+		$query = 'SELECT `template` FROM `%1$stemplate`
+			WHERE `title` = "spam_hammer_service_runonce_js"
+				AND `styleid` = -1';
+
+		if (($template = $vbulletin->db->query_first_slave(sprintf($query, TABLE_PREFIX))) != false) {
+			$vbulletin->templatecache['spam_hammer_service_runonce_js'] = $template['template'];
+		}
+
+		$query = 'UPDATE `%1$ssetting` SET `value` = "1" WHERE `varname` = "spam_hammer_service_runonce" AND `product` = "spam_hammer_service"';
+		$vbulletin->db->query_write(sprintf($query, TABLE_PREFIX));
+
+		require_once DIR . '/includes/adminfunctions.php';
+		build_options();
+
+		$suffix = isset($_REQUEST['authentication_token_form']) ? '_after' : '';
+
+		if (version_compare(FILE_VERSION, '4.0.0', '>=') && version_compare(FILE_VERSION, '4.9.9', '<=')) {
+			$templater = vB_Template::create('spam_hammer_service_runonce_js');
+			$render = $templater->render();
+		}
+
+		if (version_compare(FILE_VERSION, '3.0.0', '>=') && version_compare(FILE_VERSION, '3.9.9', '<=')) {
+			$render = str_replace('{vb:raw vboptions.webmasteremail}', $vbulletin->options['webmasteremail'], eval('return "' . fetch_template('spam_hammer_service_runonce_js') . '";'));
+		}
+
+		print_cp_header($vbphrase['welcome_to_the_vbulletin_admin_control_panel'], '', $render);
+		print_form_header('spam_hammer_service', '', false, true, 'cpform', '40%', '_blank', true, 'POST', 0, false, 'aweber-form');
+		print_table_header($vbphrase['spam_hammer_service_runonce_table_header' . $suffix]);
+		print_description_row($vbphrase['spam_hammer_service_runonce_form_desc' . $suffix], false, 2, '', 'center');
+		print_input_row($vbphrase['spam_hammer_service_runonce_email'], 'email');
+		print_hidden_fields();
+		print_submit_row($vbphrase['spam_hammer_service_runonce_submit'], $vbphrase['spam_hammer_service_runonce_decline' . $suffix]);
+		print_cp_footer();
+	}
+}

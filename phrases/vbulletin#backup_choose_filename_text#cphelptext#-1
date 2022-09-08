@@ -1,0 +1,5 @@
+Enter a file name and path.  This path is relative to your web user's home directory which is usually one level above your web root directory.  It is recommended you save your backup file in a directory that is not web accessable.<br /><br />
+
+For example, if you want to save the backup file in your user's home directory then just enter a file name here, like "forumbackup.sql".  If you want to save the file in a directory below your user's home directory then enter the path in front of the file name, like "/path/to/directory/forumbackup.sql".<br /><br />
+
+The filename must end with the .sql extension.

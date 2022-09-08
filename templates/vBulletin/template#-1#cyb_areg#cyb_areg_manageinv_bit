@@ -1,0 +1,9 @@
+
+		<tr class="$bgclass">
+			<td class="smallfont" align="center" nowrap="nowrap">$cybareguser_rowid</td>
+			<td class="smallfont" align="$stylevar[left]" nowrap="nowrap">$cybareg_inviter</td>
+			<td class="smallfont" align="$stylevar[left]" nowrap="nowrap">$cybareguser[invited]<if condition="($cybareguser[accepted]>0)"> (<a href="member.php?u=$cybareguser[accepted]">$cybareguser[username_done]</a>)</if></td>
+			<td class="smallfont" align="center" nowrap="nowrap">$cybareguser_sent</td>
+			<td class="smallfont" align="center" nowrap="nowrap">$cybareguser_accept_date</td>
+			<td class="smallfont" align="center" nowrap="nowrap"><input type="checkbox" name="armultibiti[$cybareguser_id]" value="$cybareguser[id]" /></td>
+		</tr>

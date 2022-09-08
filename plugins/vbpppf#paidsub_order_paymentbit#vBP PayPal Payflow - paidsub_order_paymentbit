@@ -1,0 +1,5 @@
+
+				$vbpppf_lasthook='paidsub_order_paymentbit';
+				include(DIR.'/includes/vbpppf_hooks.php');
+			
+			

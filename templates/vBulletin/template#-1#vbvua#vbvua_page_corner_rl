@@ -1,0 +1,13 @@
+
+<style type=\"text/css\">
+.vbvua_rl_corner
+{
+	position:fixed;
+	right:0;
+	bottom:0;
+}
+</style>
+<div class=\"vbvua_rl_corner\">
+	$banner_content
+</div>
+     

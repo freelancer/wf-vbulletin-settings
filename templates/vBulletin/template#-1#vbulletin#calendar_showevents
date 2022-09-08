@@ -1,0 +1,40 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $pagetitle</title>
+</head>
+<body>
+$header
+$navbar
+
+<if condition="$show['birthdays']">
+<div style="padding:0px 0px $stylevar[cellpadding]px 0px">
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat"><phrase 1="$pagetitle">$vbphrase[members_with_birthdays_on_x]</phrase></td>
+	</tr>
+	<tr>
+		<td class="alt1">$userbdays</td>
+	</tr>
+	</table>
+</div>
+</if>
+
+$spacer_close
+
+$caldaybits
+
+$spacer_open
+
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+	<td width="100%">&nbsp;</td>
+	<td nowrap="nowrap">$calendarjump</td>
+</tr>
+</table>
+
+$footer
+
+</body>
+</html>

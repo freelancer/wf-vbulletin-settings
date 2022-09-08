@@ -1,0 +1,2 @@
+if(@include_once(DIR . '/vbseo/includes/functions_vbseo.php'))
+    $output = make_crawlable($output);

@@ -1,0 +1,5 @@
+This is a comma-separated list of currency abbreviations.  There are abbreviations available on <a href="http://www.xe.com/" target="_blank">this site</a>.<br /><br />
+
+For example, if you want to accept US dollars, UK pounds, and Canadian dollars, then you would enter this value into this field:<br /><br />
+
+<i>usd,gbp,cad</i>

@@ -1,0 +1,15 @@
+Dear $infraction[username],
+
+You have received a warning at $vboptions[bbtitle].
+
+Reason:
+-------
+$infraction[reason]
+
+$infraction[message]
+-------
+
+Warnings serve as a reminder to you of the forum's rules, which you are expected to understand and follow.
+
+All the best,
+$vboptions[bbtitle]

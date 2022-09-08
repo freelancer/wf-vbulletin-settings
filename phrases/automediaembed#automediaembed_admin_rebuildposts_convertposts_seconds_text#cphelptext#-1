@@ -1,0 +1,1 @@
+When there is more than 1 page of results, AME will pause between pages to give your server a bit of a rest. This is how many seconds to wait before using javascript to automatically transfer to the next page.

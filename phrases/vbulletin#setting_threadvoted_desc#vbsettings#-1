@@ -1,0 +1,1 @@
+If enabled, this option will check if a user voted on a thread and show their vote if they have. Otherwise, they will see the voting options even if they are not able to vote again. <b>This can have an effect on performance.</b>

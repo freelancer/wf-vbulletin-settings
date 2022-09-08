@@ -1,0 +1,36 @@
+<div class="alt1" id="pcomment$comment[usercommentid]">
+
+	<div valign="top" align="$stylevar[right]" style="float:$stylevar[right]" class="smallfont">
+		<a href="member.php?$session[sessionurl]u=$comment[postuserid]">$comment[username]</a>
+
+		<if condition="$show['inlinemod']">
+			<input class="inlineimg" type="checkbox" name="pcommentlist[$comment[usercommentid]]" id="pcommentlist_$comment[usercommentid]" value="$response[checkbox_value]" title="$vbphrase[select_this_item_for_inline_moderation]" style="margin:-2px" />
+		</if>
+
+		<br />
+		$comment[date]<if condition="!$show['detailedtime']">, $comment[time]</if>
+		<br />
+		<if condition="$show['edit']">
+			<a href="member.php?$session[sessionurl]u=$userinfo[userid]&amp;do=comment&amp;uc=$comment[usercommentid]"><img src="$stylevar[imgdir_misc]/blog/edit.gif" alt="$vbphrase[edit_post]" border="0" class="inlineimg" /></a>
+		</if>
+		<if condition="$show['reportlink']">
+			<a href="blog_report.php?$session[sessionurl]uc=$comment[usercommentid]"><img src="$stylevar[imgdir_misc]/blog/report.gif" alt="$vbphrase[report_comment]" border="0" class="inlineimg" /></a>
+		</if>
+		<if condition="$show['moderation']">
+			<div style="float:$stylevar[left]"><img class="inlineimg" src="$stylevar[imgdir_misc]/moderated.gif" alt="$vbphrase[moderated_comment]" border="0" /></div>
+		</if>
+		<if condition="$comment['commentipaddress']">
+			<a href="blog.php?do=viewip&amp;uc=$comment[usercommentid]"><img src="$stylevar[imgdir_misc]/blog/computer.gif" alt="$vbphrase[ip_address]: $comment[commentipaddress]" border="0" class="inlineimg" /></a>
+		</if>
+	</div>
+
+	<div class="smallfont shade" style="padding-bottom:10px"><phrase 1="member.php?u=$comment[del_userid]" 2="$comment[del_username]">$vbphrase[this_comment_has_been_deleted_by_user]</phrase></div>
+	<if condition="$comment['del_reason']">
+		<div class="smallfont"><em>$comment[del_reason]</em></div>
+	</if>
+
+
+
+</div>
+<div style="clear:both"></div>
+<hr />

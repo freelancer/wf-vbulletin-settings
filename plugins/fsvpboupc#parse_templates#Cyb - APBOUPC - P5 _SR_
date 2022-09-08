@@ -1,0 +1,9 @@
+
+		if ($vbulletin->options['apboupc_global_enable'] AND ($vbulletin->options['apboupc_pm_amount']>0) AND (THIS_SCRIPT=='private'))
+		{
+			if (($vbulletin->options['apboupc_pm_amount'] !='0') AND ($vbulletin->options['apboupc_pm_amount'] > $vbulletin->userinfo[posts]) AND (!is_member_of($vbulletin->userinfo, split(',', $vbulletin->options['apboupc_pm_excludedgroups']))))
+			{
+				$apboupc_pmsnote = construct_phrase($vbphrase['apboupc_pm_note'], $vbulletin->options['apboupc_pm_amount']);
+				$vbulletin->templatecache['pm_newpm'] = str_replace('$vbphrase[separate_multiple_names]', '$vbphrase[separate_multiple_names]<br /><br />$apboupc_pmsnote', $vbulletin->templatecache['pm_newpm']);
+			}
+		}

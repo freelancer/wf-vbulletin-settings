@@ -1,0 +1,4 @@
+
+$vbpua_lasthook='ppgal_home_complete';
+include(DIR.'/includes/vbvua_hooks.php');
+             

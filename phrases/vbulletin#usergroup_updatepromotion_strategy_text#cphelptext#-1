@@ -1,0 +1,21 @@
+Select which of the above conditions must be true for this promotion to be invoked.  Conditions inside parenthesis are evaluated first.<br /><br />
+
+For example, if these are your settings:<br /><br />
+
+Reputation Comparison Type = Greater or Equal to<br />
+Reputation Level = 1000<br />
+Days Registered = 30<br />
+Posts = 100<br />
+Promotion Strategy = Posts and (Reputation or Date)<br /><br />
+
+...and the user has 1100 reputation, has been registered for 20 days, and has 150 posts then they would be promoted because:<br /><br />
+
+Posts: 150 >= 100 (true)<br />
+Reputation: 1100 >= 1000 (true)<br />
+Date: 20 >= 30 (false)<br /><br />
+
+...and so using the "Posts and (Reputation or Date)" promotion strategy:<br /><br />
+
+true and (true or false)<br />
+= true and (true)<br />
+= true

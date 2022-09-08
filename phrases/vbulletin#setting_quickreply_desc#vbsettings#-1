@@ -1,0 +1,7 @@
+If you enable Quick Reply, a box will appear on the showthread.php page allowing users to reply to the current thread without needing to load the full newreply.php page.<br />
+<br />
+When Quick Reply is enabled, you may specify whether or not users must click the Quick Reply icon in order to start typing in the Quick Reply editor.<br />
+<br />
+If you choose <b>not</b> to require a click, the system will <b>not know</b> to which post a user is replying, making both the threaded and hybrid display modes nonsensical.<br />
+<br />
+We strongly recommend that you set the option to require a click if you use Quick Reply and have Threaded Mode available on your forums.

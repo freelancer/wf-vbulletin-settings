@@ -1,0 +1,1 @@
+User ID to Subscription ID mapping. Use format userid=>subscriptionid to assign user to a paid subscription. Place each rule on a new line. Specified user will get email notification on each subsciption to specified paid subscription and will be allowed to see transactions with dates and amount in subsciption owner's special page.

@@ -1,0 +1,5 @@
+
+$vbppb_lasthook='vbvua_build_banner_array';
+include(DIR.'/includes/vbppb_hooks.php');
+			
+			

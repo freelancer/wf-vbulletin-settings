@@ -1,0 +1,50 @@
+{
+  "spiderstring": "http\\://www\\.almaden\\.ibm\\.com/cs/crawler|Ask Jeeves|Googlebot|Mediapartners\\-Google|slurp@inktomi|Lycos|MSNBOT|NPBot|turnitinbot|Yahoo\\! Slurp|scooter", 
+  "lu": 1426036194, 
+  "agents": {
+    "googlebot": {
+      "type": null, 
+      "name": "Google"
+    }, 
+    "scooter": {
+      "type": null, 
+      "name": "AltaVista"
+    }, 
+    "msnbot": {
+      "type": null, 
+      "name": "MSNBot"
+    }, 
+    "http://www.almaden.ibm.com/cs/crawler": {
+      "type": null, 
+      "name": "Almaden Crawler"
+    }, 
+    "lycos": {
+      "type": null, 
+      "name": "Lycos"
+    }, 
+    "npbot": {
+      "type": null, 
+      "name": "NameProtect"
+    }, 
+    "mediapartners-google": {
+      "type": null, 
+      "name": "Google AdSense"
+    }, 
+    "yahoo! slurp": {
+      "type": null, 
+      "name": "Yahoo! Slurp"
+    }, 
+    "slurp@inktomi": {
+      "type": null, 
+      "name": "Inktomi"
+    }, 
+    "turnitinbot": {
+      "type": null, 
+      "name": "Turnitin.com"
+    }, 
+    "ask jeeves": {
+      "type": null, 
+      "name": "AskJeeves"
+    }
+  }
+}

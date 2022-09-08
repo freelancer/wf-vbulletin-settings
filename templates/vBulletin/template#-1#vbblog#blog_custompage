@@ -1,0 +1,18 @@
+<div class="tborder" style="padding:$stylevar[cellspacing]px" id="block_custom_page">
+	<div class="thead" style="padding:$stylevar[cellpadding]px">
+		$blockinfo[title]
+	</div>
+	<div class="alt1" style="padding:$stylevar[cellpadding]px; margin-top:$stylevar[cellspacing]px">
+		$blockinfo[page]
+	</div>
+	<div class="alt2" style="padding:$stylevar[cellpadding]px; margin-top:$stylevar[cellspacing]px">
+		<div align="$stylevar[right]">
+			<if condition="$show['edit']">
+				<a href="blog_usercp.php?$session[sessionurl]do=modifyblock&amp;customblockid=$blockinfo[customblockid]"><img src="$stylevar[imgdir_misc]/blog/block_edit.gif" alt="$vbphrase[edit_custom_page]" border="0" class="inlineimg" /></a>
+			</if>
+			<if condition="$show['reportlink']">
+				<a href="blog_report.php?$session[sessionurl]cp=$blockinfo[customblockid]"><img src="$stylevar[imgdir_misc]/blog/report.gif" alt="$vbphrase[report_custom_page]" border="0" class="inlineimg" /></a>
+			</if>
+		</div>
+	</div>
+</div>

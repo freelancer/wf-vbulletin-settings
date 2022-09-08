@@ -1,0 +1,1 @@
+<b>Warning:</b> vBulletin API is currently globally disabled in your options. In order for vBulletin API to function correctly, you must <a href="options.php?do=options&amp;dogroup=api">enable the API system</a>.

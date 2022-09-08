@@ -1,0 +1,9 @@
+Enter a path here. For example, on a Windows server the path might be something like:<br />
+<br />
+C:\logs\vbulletin.log<br />
+<br />
+Or on a *nix server it might be something like:<br />
+<br />
+/home/yoursite/logs/vbulletin.log<br />
+<br />
+This option should only be enabled to troubleshoot email issues.  Your server performance can decrease while this option is enabled.

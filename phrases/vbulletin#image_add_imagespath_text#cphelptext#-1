@@ -1,0 +1,9 @@
+This is the path to the images you are adding. This should be relative from your main vBulletin directory. For example, if your directory structure looks like this:<br />
+- vBulletin<br />
+-- images<br />
+--- avatars<br />
+--- icons<br />
+--- smilies<br />
+and you were uploading a smiley, you would type<br />
+images/smilies<br />
+Do not put a filename on this path, and do not put a trailing slash on it either.

@@ -1,0 +1,6 @@
+If you are using the built-in contact form at sendmessage.php you can specify subjects for users to pick from. An "other" option will be added to any options you specify here.<br /><br />
+Each subject must be placed one per line, meaning that you need to enter a carriage return between subject (press &lt;Enter&gt;).  If you wish to direct the email from a subject to a particular user, you can either specify the user's userid on the forum or their email address.  You do this by placing the item in brackets at the start of the subject.<br /><br />Example:<br /><br />
+{1} Site Feedback<br />
+{example@example.com} Help<br />
+Registration<br /><br />
+Feedback sent to the first option "Site Feedback" would be directed to the email address of Userid #1.  Feedback sent to the second option "Help" would be directed to the email address "example@example.com". Feedback sent to the third option "Registration" would be directed to the Webmaster's email address.

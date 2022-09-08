@@ -1,0 +1,1 @@
+Enter the threadid of the thread with the poll you want to remove.  You can get a thread's threadid by looking at its URL.  For example, a thread with this URL - http://www.domain.com/forum/showthread.php?t=5323 - has a thredid of 5323.

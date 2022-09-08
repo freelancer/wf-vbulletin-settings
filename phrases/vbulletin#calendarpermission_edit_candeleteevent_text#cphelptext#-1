@@ -1,0 +1,1 @@
+If this is set to No, users from this usergroup will not be allowed to remove events they posted on this calendar. This is overridden if the user is also a moderator of this calendar and has his moderator permissions set to allow him to remove events.

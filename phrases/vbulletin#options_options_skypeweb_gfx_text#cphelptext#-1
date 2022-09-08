@@ -1,0 +1,25 @@
+This is a three-way setting. Setting <em>No</em> will cause the Skype&trade; icon (used in the <em>im_skype</em> template) to be loaded from the local webserver. This can be useful as the SkypeWeb server has proven to be a little flakey at present.<br />
+<br />
+If set to <em>Yes</em>, the icon will be loaded from the SkypeWeb server and will show the Skype&trade; online-status of the user in question.<br />
+<br />
+Additionally, SkypeWeb offers the ability to display online status in non-English languages. This ability can be used on the 'Send message using Skype to user' page, to show whether or not the selected user is logged-in to Skype and available.<br />
+<br />
+In order for this to work, this option must be set to <em>Use Language-Specific SkypeWeb Graphics</em> and the Language Code specified for vBulletin languages must be one of the following:
+<ul>
+	<li>En</li>
+	<li>De</li>
+	<li>fr</li>
+	<li>it</li>
+	<li>pl</li>
+	<li>Ja</li>
+	<li>Pt</li>
+	<li>Pt/br</li>
+	<li>Se</li>
+	<li>zh</li>
+	<li>Cn</li>
+	<li>Zh/cn</li>
+	<li>hk</li>
+	<li>tw</li>
+	<li>Zh/tw</li>
+</ul>
+These language codes are not case-sensitive, and you may use a dash instead of a slash if you wish (<em>pt-br</em> instead of <em>Pt/br</em>).

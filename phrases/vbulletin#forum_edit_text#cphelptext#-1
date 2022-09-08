@@ -1,0 +1,3 @@
+On this screen you edit an existing forum. Options and properties are described below.<br /><br />
+
+If you change any of the posting options at the bottom of this page then you should <a href="misc.php?do=chooser" target="_blank">rebuild your post cache</a> to update the existing posts in this forum.

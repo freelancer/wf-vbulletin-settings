@@ -1,0 +1,3 @@
+Specify a pixel size or percentage.<br /><br />
+
+For example, if you want your forum content to always fill the entire browser window regardless of window size / screen resolution then you would set this to <b>100%</b>.  On the other hand, if you want your forum content to exist within a fixed box then you would enter a pixel value here... for example, <b>800</b> or a little less is optimal for 800x600 resolution.

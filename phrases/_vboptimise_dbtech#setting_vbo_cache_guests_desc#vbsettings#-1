@@ -1,0 +1,3 @@
+This option if enabled will allow entire pages of content to be cached for Guests. This is recommended for forums who usually have a lot of Guests online, HTML output will be saved for X minutes which results in faster page loading (for guests only) and a dramatic reduction in queries executed.
+<br /><br />
+<strong>How to enable:</strong> To enable this setting simply enter an integer to specify the cache lifespan of content in <strong>minutes</strong>, the higher the value the more "stale" content will be. Recommended values are between 1-5. To disable the setting simply enter 0.

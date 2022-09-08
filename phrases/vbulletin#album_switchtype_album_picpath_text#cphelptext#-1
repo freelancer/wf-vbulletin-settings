@@ -1,0 +1,5 @@
+This is the path where full pictures will be stored if you choose to allow direct access to thumbnails <em>or</em> where pictures and thumbnails will be stored if you do not.<br />
+<br />
+This folder should be outside of your web root (usually the public_html or www folder). If you put this inside your web root, people will be able to bypass permissions and download any pictures that have been uploaded.<br />
+<br />
+This folder must be writeable by PHP. The easiest way to do this is CHMOD it 777 (consult your FTP, Telnet, or SSH documentation for more info on how to do this).

@@ -1,0 +1,5 @@
+
+				$vbpfts_lasthook='global_setup_complete';
+				include(DIR.'/includes/vbpfts_hooks.php');
+			
+			

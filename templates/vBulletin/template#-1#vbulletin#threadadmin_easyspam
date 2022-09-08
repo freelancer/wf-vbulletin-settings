@@ -1,0 +1,136 @@
+<form action="inlinemod.php?do=spamconfirm" method="post" name="vbform">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="url" value="$url" />
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[spam_management]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+			<fieldset class="fieldset">
+				<if condition="$threadids">
+					<input type="hidden" name="do" value="spamconfirm" />
+					<input type="hidden" name="threadids" value="$threadids" />
+					<input type="hidden" name="type" value="thread" />
+					$threadid_hiddenfields
+					<legend>$vbphrase[delete_threads_as_spam]</legend>
+					<div style="padding:$stylevar[cellpadding]px">
+						<div><phrase 1="$threadcount" 2="$forumcount">$vbphrase[deleting_x_threads_from_y_forums]</phrase></div>
+						<div class="shade">$vbphrase[only_first_post_is_spam]</div>
+						
+						<if condition="$show['delete_others_option'] OR $show['akismet_option']">
+						<ul class="spamoptions">
+							<if condition="$show['delete_others_option']"><li><label for="deleteother"><input type="checkbox" name="deleteother" id="deleteother" value="1" />$vbphrase[delete_other_posts_and_threads_by_affected_users]</label></li></if>
+							<if condition="$show['akismet_option']"><li><label for="report"><input type="checkbox" name="report" id="report" value="1" checked="checked" />$vbphrase[submit_data_to_antispam_service]</label></li></if>
+						</ul>
+						</if>
+					</div>
+				<else />
+					<input type="hidden" name="do" value="spamconfirm" />
+					<input type="hidden" name="postids" value="$postids" />
+					<input type="hidden" name="t" value="$threadinfo[threadid]" />
+					<input type="hidden" name="type" value="post" />
+					$postid_hiddenfields
+					<legend>$vbphrase[delete_posts_as_spam]</legend>
+					<div style="padding:$stylevar[cellpadding]px">
+						<div><phrase 1="$postcount" 2="$threadcount" 3="$forumcount">$vbphrase[deleting_x_posts_from_y_threads_in_z_forums]</phrase></div>
+						
+						<if condition="$show['delete_others_option'] OR $show['akismet_option']">
+						<ul class="spamoptions">
+							<if condition="$show['delete_others_option']"><li><label for="deleteother"><input type="checkbox" name="deleteother" id="deleteother" value="1" />$vbphrase[delete_other_posts_and_threads_by_affected_users]</label></li></if>
+							<if condition="$show['akismet_option']"><li><label for="report"><input type="checkbox" name="report" id="report" value="1" checked="checked" />$vbphrase[submit_data_to_antispam_service]</label></li></if>
+						</ul>
+						</if>
+					</div>
+				</if>
+			</fieldset>
+			
+	
+			<fieldset class="fieldset">
+				<legend>$vbphrase[deletion_options]</legend>
+				<div style="padding:$stylevar[cellpadding]px">
+					<if condition="$show['deleteoption']">
+						<div class="fieldset">$vbphrase[how_would_you_like_to_delete]</div>
+					</if>
+		
+					<if condition="$show['deleteitems']">
+						<div class="fieldset">
+							<label for="rb_deletetype_1"><input type="radio" name="deletetype" value="1" id="rb_deletetype_1" $checked[delete] />$vbphrase[soft_delete_leave_deleted_message]</label>
+							<br /><img class="inlineimg" src="$stylevar[imgdir_misc]/tree_$stylevar[textdirection].gif" alt="" border="0" /><label for="cb_keepattachments"><input type="checkbox" name="keepattachments" class="inlineimg" value="1" id="cb_keepattachments" />$vbphrase[keep_attachments]</label>
+						</div>
+					</if>
+		
+					<if condition="$show['removeitems']">
+						<div class="fieldset">
+							<label for="rb_deletetype_2"><input type="radio" name="deletetype" value="2" id="rb_deletetype_2" $checked[remove] />$vbphrase[physically_remove]</label>
+						</div>
+					</if>
+		
+					<if condition="$show['deleteitems']">
+						<div class="fieldset">
+							$vbphrase[reason_for_deletion]:<br />
+							<input type="text" class="bginput" name="deletereason" value="" size="50" maxlength="125" />
+						</div>
+					</if>
+				</div>
+			</fieldset>	
+	
+			
+			
+			<if condition="$show['punitive_action']">
+			<fieldset class="fieldset">
+				<legend>$vbphrase[punitive_action]</legend>
+				<div style="padding:$stylevar[cellpadding]px">
+					<div><phrase 1="$usercount">$vbphrase[do_what_with_affected_users]</phrase></div>
+					<ul class="spamoptions">
+						<li><label for="useraction_none"><input type="radio" name="useraction" value="" id="useraction_none" checked="checked" />$vbphrase[do_nothing]</label></li>
+						<li><label for="useraction_ban"><input type="radio" name="useraction" value="ban" id="useraction_ban" />$vbphrase[ban_users]</label></li>
+					</ul>
+				</div>
+			</fieldset>
+			</if>
+			<table cellpadding="0" cellspacing="0" border="0" width="100%" id="usersandips">
+			<col width="50%" />
+			<col width="50%" />
+			<tr valign="top">
+				<td class="leftcell">
+					<fieldset class="fieldset">
+						<legend>$vbphrase[affected_users]</legend>
+						<div style="padding:$stylevar[cellpadding]px">
+							<div>$vbphrase[affected_users_are]</div>
+							<if condition="$show['users']">
+							<ol id="userlist">$users</ol>
+							<else />
+							<ol id="userlist"><li class="shade">$vbphrase[n_a]</li></ol>
+							</if>
+						</div>
+					</fieldset>
+				</td>
+				<td class="rightcell">
+					<fieldset class="fieldset">
+						<legend>$vbphrase[affected_ips]</legend>
+						<div style="padding:$stylevar[cellpadding]px">
+							<div>$vbphrase[affected_ips_are]</div>
+							<if condition="$show['ips']">
+							<ol id="iplist">$ips</ol>
+							<else />
+							<ol id="iplist"><li class="shade">$vbphrase[n_a]</li></ol>
+							</if>
+						</div>
+					</fieldset>
+				</td>
+			</tr>
+			</table>
+		</div>
+	</div>
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" value="$vbphrase[proceed]" accesskey="s" />
+	</div>
+	</td>
+</tr>
+</table>
+
+</form>

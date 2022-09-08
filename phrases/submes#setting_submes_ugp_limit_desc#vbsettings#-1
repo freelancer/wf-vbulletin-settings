@@ -1,0 +1,1 @@
+Enter a comma separated list of usergroup IDs that will trigger the new usergroup notification. If a user is added to one of these usergroups, he will receive a notification.

@@ -1,0 +1,6 @@
+if ($this->post['pagetext'])
+{
+require_once(DIR . '/includes/ame_bbcode.php');
+$value = ame_prep_text($this->post['pagetext']);
+        $this->do_set('ame_flag', intval($value));
+}

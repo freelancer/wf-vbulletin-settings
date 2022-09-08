@@ -1,0 +1,14 @@
+
+<p><img src="vbseo/resources/images/forum/refback.gif" alt="Refback" width="347" height="110" style="float:right" />A Refback is also a link. However in this case, Site A (link originator) does not need to &quot;tell&quot; anything to Site B (receptor). Instead, the receptor Site &quot;discovers&quot; this link immediately after the first web visitor gets to the site by clicking on the link. This is done by analyzing information carried by this web visitor's browser referer header.</p>
+<p>This is an easier method than Pingbacks since the Site originating the link doesn't have to be Pingback enabled (Posting a link back within any webpage is good enough).</p>
+<p><strong><a onclick="return   toggle_collapse('rforum')" href="#">Refback our Forums from another Site</a></strong></p>
+<div id="collapseobj_rforum" style="display:none">
+<p>A Refback will be registered in our forums by simply linking back to a thread or post from anywhere on the internet.</p>
+<p>Note: If the forum administrator requires moderation for Incoming Refbacks, a link-back to the site originating the Refback will be published only after the Refback has been manually approved by a moderator.</p>
+<p>Once a Refback has been published, an automated notification email will be sent to the thread contributors.</p>
+</div>
+<p><strong><a onclick="return toggle_collapse('rsite')" href="#">Refback other Sites from our Forums</a></strong></p>
+<div id="collapseobj_rsite" style="display:none">
+<p>Refback other sites from our forums by simply including an outgoing link to a Refback enabled site within your post.</p>
+<p>Note: If the Refback recipient site requires moderation for Refbacks, a link-back to the thread originating the Refback will be published only after the Refback has been manually approved by the recipient's site administrator.</p>
+</div>

@@ -1,0 +1,4 @@
+global $rmq_helper;
+$lasthook='new_paid_thread';
+$body = get_defined_vars();
+$rmq_helper->publish($body, '', 'vb', array('x-ha-policy' => array('S', 'all')), 'topic', 'vb.' . $lasthook);

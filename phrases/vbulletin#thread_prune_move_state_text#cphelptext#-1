@@ -1,0 +1,8 @@
+<b>Visible</b>:<br />
+A visible thread is one that is not awaiting moderation by an admin or mod.  An invisible thread is one that is awaiting moderation of some kind.  You can use this option to select only visible threads, invisible threads, or both.<br /><br />
+
+<b>Awaiting Moderation</b>:<br />
+A thread that is "awaiting moderation" is one that still needs to be approved by an admin or mod before it will show up in the thread listing.<br /><br />
+
+<b>Deleted</b>:<br />
+When an admin or mod deletes a thread, they are given the option to "effectively" delete or "physically" delete.  "Effective" deletion will remove the thread from public view and leave a "deletion notice" in its place.  This option refers to "effective" deletion where the thread can still be undeleted.  You can use this option to select only "effectively" deleted threads, nondeleted threads, or both.

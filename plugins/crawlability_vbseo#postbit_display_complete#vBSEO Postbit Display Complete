@@ -1,0 +1,12 @@
+if(defined('VBSEO_ENABLED') && VBSEO_ENABLED)
+{
+@vbseo_complete_sec('postbit_display_complete', $post);
+$post['message'] = vbseo_prepare_int_replace($post['message']);
+$post['message'] = vbseo_process_content_area($post['message']);
+
+if(class_exists(vBSEO_UI))
+{
+vBSEO_UI::postbit_hook($post, $template_hook);
+}
+
+}

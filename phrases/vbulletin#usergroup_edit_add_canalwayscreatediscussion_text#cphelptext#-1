@@ -1,0 +1,8 @@
+If this is set to 'yes' the user will be able to create new discussions in groups, even if:
+<ul>
+<li>The user is not a member of the group.</li>
+<li>The group is configured with 'Must Join Group to View Content' option.</li>
+<li>The group is configured with 'Only Owner Can Create New Discussions' option.</li>
+</ul>
+
+Note: If the user has this permission, they will always be able to see the contents of groups configured with 'Invite Only' and 'Users must join to view the content'.

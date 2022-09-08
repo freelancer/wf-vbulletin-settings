@@ -1,0 +1,8 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=stats&amp;pageaction=&amp;option=">Statistics</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=adminlog&amp;pageaction=&amp;option=">Control Panel Log</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=modlog&amp;pageaction=&amp;option=">Moderator Log</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=cronlog&amp;pageaction=&amp;option=">Scheduled Task Log</a><br /><br />
+
+<b>Moderator Log:</b><br />
+The moderator log allows you to view the activities of your moderators.  Each time a moderator action is performed on your forums it is recorded in the moderator log.  The information stored includes the moderator's username, the date, the action performed, and additional information which varies depending on the action being performed.

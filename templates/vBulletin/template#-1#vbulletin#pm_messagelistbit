@@ -1,0 +1,16 @@
+<tr>
+	<td class="alt1"><img src="$stylevar[imgdir_statusicon]/pm_$pm[statusicon].gif" alt="" border="0" /></td>
+	<if condition="$show['pmicons']"><td class="alt2"><if condition="$show['pmicon']"><img src="$pm[iconpath]" alt="$pm[icontitle]" /><else />&nbsp;</if></td></if>
+	<td class="alt1 alt1Active" id="m$pm[pmid]" width="100%">
+		<div>
+			<span style="float:$stylevar[right]" class="smallfont">$pm[senddate]</span>
+			<a href="private.php?$session[sessionurl]do=showpm&amp;pmid=$pm[pmid]"><if condition="$show['unread']"><strong>$pm[title]</strong><else />$pm[title]</if></a>
+		</div>
+		<div class="smallfont">
+			<span style="float:$stylevar[right]" class="time">$pm[sendtime]</span>
+			<if condition="$show['unread']"><strong>$userbit</strong><else />$userbit</if>
+		</div>
+
+	</td>
+	<if condition="$show['pmcheckbox']"><td class="alt2" align="center" style="padding:0px"><input type="checkbox" name="pm[$pmid]" id="pmlist_$pmid" value="$groupid" /></td></if>
+</tr>

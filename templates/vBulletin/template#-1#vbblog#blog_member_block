@@ -1,0 +1,33 @@
+<if condition="$block_data['groupblogs']">
+<div class="thead block_row"><phrase 1="$prepared[username]">$vbphrase[xs_blog_membership]</phrase></div>
+<div class="alt1 block_row">
+<div class="block_row">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="0" border="0" width="100%" align="center">
+	<td class="thead" nowrap="nowrap">
+		$sortarrow[rating]
+		$vbphrase[title] / $vbphrase[user]
+	</td>
+	<td class="thead" align="center" nowrap="nowrap">$vbphrase[entries]</td>
+	<td class="thead" align="center" nowrap="nowrap">$vbphrase[comments]</td>
+	<td class="thead" align="center" nowrap="nowrap">$vbphrase[last_post]</td>
+	$block_data[groupblogs]
+</table>
+</div>
+</div>
+</if>
+
+<div class="thead block_row"><span style="float:$stylevar[right]"><a href="blog.php?$session[sessionurl]u=$prepared[userid]"><phrase 1="$prepared[username]">$vbphrase[view_xs_blog]</phrase></a></span>$vbphrase[recent_blog_entries]</div>
+<div class="alt1 block_row">
+	<if condition="$block_data['latestentries']">
+		$block_data[latestentries]
+	<else />
+	<phrase 1="$prepared[username]">$vbphrase[user_has_no_blog_entries]</phrase>
+	</if>
+</div>
+
+<if condition="$block_data['commentsreceived']">
+	<div class="thead block_row">$vbphrase[recent_comments]</div>
+	<div class="alt1 block_row">
+		$block_data[commentsreceived]
+	</div>
+</if>

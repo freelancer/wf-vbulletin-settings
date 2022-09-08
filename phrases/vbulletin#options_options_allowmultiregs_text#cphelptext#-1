@@ -1,0 +1,1 @@
+vBulletin will, by default, stop people from signing up for multiple accounts by checking for a vB cookie on their machine; if one is found, they will not be able to sign up again. If you wish for users to be allowed to have multiple accounts, disable this setting. Keep in mind that a user can log out and remove all vB cookies for your site and then reregister if they wish.

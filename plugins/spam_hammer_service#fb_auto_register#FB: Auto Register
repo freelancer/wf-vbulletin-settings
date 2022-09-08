@@ -1,0 +1,1 @@
+define('SPAM_HAMMER_FB_AUTO_REGISTER', true);

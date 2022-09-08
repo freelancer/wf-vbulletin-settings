@@ -1,0 +1,22 @@
+// Remove accesstoken from apiclient table so that a new one will be generated
+if (defined('VB_API') AND VB_API === true AND $vbulletin->apiclient['apiclientid'])
+{
+	$vbulletin->db->query_write("UPDATE " . TABLE_PREFIX . "apiclient SET apiaccesstoken = '', userid = 0
+		WHERE apiclientid = " . intval($vbulletin->apiclient['apiclientid']));
+	$vbulletin->apiclient['apiaccesstoken'] = '';
+}
+
+if ($vbulletin->session->created == true AND !VB_API)
+{
+	// if we just created a session on this page, there's no reason not to use it
+	$newsession =& $vbulletin->session;
+}
+else
+{
+	// API should always create a new session here to generate a new accesstoken
+	$newsession =& new vB_Session_API($vbulletin, '', 0, '', $vbulletin->session->vars['styleid']);
+}
+$newsession->set('userid', 0);
+$newsession->set('loggedin', 0);
+$newsession->set_session_visibility(($vbulletin->superglobal_size['_COOKIE'] > 0));
+$vbulletin->session =& $newsession;

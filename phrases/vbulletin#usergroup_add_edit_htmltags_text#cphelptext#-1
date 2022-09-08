@@ -1,0 +1,15 @@
+The first field is the opening tag.  The second field is the closing tag.  These tags will be inserted around the user's username like this:<br /><br />
+
+[opening tag]username[closing tag]<br /><br />
+
+Some HTML tags you might want to use here include:<br /><br />
+
+&lt;span style="font-weight: bold;"&gt;username&lt;/span&gt; = <span style="font-weight: bold;">username</span><br />
+&lt;span style="font-style: italic;"&gt;username&lt;/span&gt; = <span style="font-style: italic;">username</span><br />
+&lt;span style="text-decoration: underline;"&gt;username&lt;/span&gt; = <span style="text-decoration: underline;">username</span><br />
+&lt;span style="color: red;"&gt;username&lt;/span&gt; = <span style="color: red;">username</span><br />
+&lt;span style="font: 20px verdana;"&gt;username&lt;/span&gt; = <span style="font: 20px verdana;">username</span><br /><br />
+
+You can also do combinations by using more than one attribute in the style property:<br /><br />
+
+&lt;span style="font: 20px verdana; color: red;"&gt;username&lt;/span&gt; = <span style="font: 20px verdana; color: red;">username</span>

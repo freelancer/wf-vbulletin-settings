@@ -1,0 +1,42 @@
+<form action="blog_report.php?do=$forminfo[action]" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<span class="smallfont" style="float:$stylevar[right]"><strong>$forminfo[reporttype]</strong>: <a href="$forminfo[itemlink]">$forminfo[itemname]</a></span>
+		$forminfo[reportphrase]
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]">
+
+			$usernamecode
+
+			<!-- report field -->
+			<div class="fieldset">
+				<div class="smallfont">$vbphrase[message]:</div>
+				<textarea name="reason" rows="6" cols="$textareacols" wrap="virtual" style="width:<if condition="is_browser('ie') AND !is_browser('ie', 7)">450px<else />100%</if>"></textarea>
+			</div>
+			<!-- / report field -->
+
+			<div class="fieldset">
+				$forminfo[description]
+			</div>
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		$forminfo[hiddenfields]
+		<input type="hidden" name="do" value="$forminfo[action]" />
+		<input type="hidden" name="url" value="$url" />
+		<input type="submit" class="button" value="$vbphrase[send_report]" accesskey="s" />
+	</div>
+	</td>
+</tr>
+</table>
+</form>

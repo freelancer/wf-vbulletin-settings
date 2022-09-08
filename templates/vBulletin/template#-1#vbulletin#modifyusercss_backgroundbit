@@ -1,0 +1,5 @@
+<li id="usercss_background_image_$picture[pictureid]"><if condition="$picture['thumburl']">
+	<img src="$picture[thumburl]" alt="$picture[caption_preview]" id="usercss_background_item_$picture[pictureid]" class="box" border="0" $picture[dimensions] />
+<else />
+	<span class="box" id="usercss_background_item_$picture[pictureid]"><if condition="$picture['caption_preview']">$picture[caption_preview]<else />$vbphrase[picture]</if></span>
+</if></li>

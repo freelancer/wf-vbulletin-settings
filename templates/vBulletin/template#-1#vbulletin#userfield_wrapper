@@ -1,0 +1,4 @@
+<fieldset class="fieldset">
+	<legend>$profilefield[title]</legend>
+	$custom_field_holder
+</fieldset>

@@ -1,0 +1,86 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $custompagetitle</title>
+$socialgroups_css
+</head>
+<body>
+$header
+$navbar
+
+<form action="group.php?$session[sessionurl]do=grouplist" method="post">
+<table class="tborder" id="sg_grouplist" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" style="clear: both">
+<tr>
+	<td class="tcat" width="100%" colspan="6">
+		<div style="float:$stylevar[right]" class="normal">$vbphrase[search_groups] <input type="text" class="bginput" name="filtertext" value="$filters[text]" style="font-size: 11px;" />&nbsp;<input type="submit" class="button" value="$vbphrase[go]" /></div>
+		$grouplisttitle
+		<if condition="$category_name">
+			<span style="font-weight:normal"><phrase 1="$category_name">$vbphrase[in_category_x]</phrase></span>
+		</if>
+	</td>
+</tr>
+<if condition="$grouplist">
+	<tr>
+		<td class="thead" width="100%">
+			<if condition="$show['category_names']"><span style="float:$stylevar[right]"><a href="$orderlinks[category]">$vbphrase[category]</a> $sortarrow[category]</span></if>
+			<a href="$orderlinks[name]">$vbphrase[group_name]</a> $sortarrow[name]
+		</td>
+		<td class="thead" align="center" nowrap="nowrap">
+			<a href="$orderlinks[members]">$vbphrase[group_members]</a> $sortarrow[members]
+		</td>
+		<if condition="$show['gminfo']">
+			<td class="thead" align="center" nowrap="nowrap">
+				<a href="$orderlinks[discussions]">$vbphrase[discussions]</a> $sortarrow[discussions]
+			</td>
+			<td class="thead" align="center" nowrap="nowrap">
+			<a href="$orderlinks[messages]">$vbphrase[messages]</a> $sortarrow[messages]
+			</td>
+		</if>
+		<if condition="$show['pictureinfo']"><td class="thead" align="center" nowrap="nowrap">
+			<a href="$orderlinks[pictures]">$vbphrase[pictures]</a> $sortarrow[pictures]
+		</td></if>
+		<if condition="$show['gminfo']"><td class="thead" align="center" nowrap="nowrap">
+			<a href="$orderlinks[lastpost]">$vbphrase[last_post]</a> $sortarrow[lastpost]
+		</td></if>
+	</tr>
+	$grouplist
+	<else />
+	<tr>
+		<td class="alt1" align="center" colspan="6">$vbphrase[no_groups_to_display]</td>
+	</tr>
+</if>
+
+<tr>
+	<td colspan="6" align="center" class="tfoot smallfont">
+		<strong><a href="group.php?$session[sessionurl]do=search">$vbphrase[advanced_search]</a></strong>
+		 &nbsp;
+		<strong><a href="groupsubscription.php$session[sessionurl_q]">$vbphrase[group_subscriptions]</a></strong>
+	</td>
+</tr>
+</table>
+
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="dofilter" value="1" />
+</form>
+
+<br />
+
+<div class="floatcontainer">
+	<if condition="$pagenav">
+	<div id="discussion_pagenav">
+		$pagenav
+	</div>
+	</if>
+
+	<if condition="$show['creategroup']">
+	<div class="action_links">
+		<a href="group.php?$session[sessionurl]do=create" rel="nofollow">$vbphrase[create_a_new_group]</a>
+	</div>
+	</if>
+</div>
+
+$footer
+</body>
+</html>

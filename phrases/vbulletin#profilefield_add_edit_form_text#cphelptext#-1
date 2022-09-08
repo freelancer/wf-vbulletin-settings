@@ -1,0 +1,9 @@
+This controls what page the profile field is displayed on. Most likely you want to leave this on "Edit Your Details" but if you wish to create your own user options that can be manipulated via template conditionals then select "Options". This field will then appear on the "Options" page of the User CP. Also, this field will not appear when viewing a user's profile.<br /><br />
+
+As mentioned, you can use template conditionals to add additional options for your users. For example, you can make this profile field a "one option" check box field under one of the "Options" categories.  You can then use the field as a conditional to display something in your postbit template.  If the "Name" of this profile field is field1 then you can use this code in your postbit template:<br /><br />
+
+<i>&lt;if condition="$post['field1']"&gt;<br />
+<font color="green">code to display if the user has checked the profile field</font><br />
+&lt;/if&gt;</i><br /><br />
+
+The <font color="green">green</font> code in the middle will only be displayed if the user has checked the profile field in their options.

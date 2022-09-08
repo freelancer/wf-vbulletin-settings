@@ -1,0 +1,30 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+	$headinclude
+	<title>$vboptions[bbtitle] - $custompagetitle</title>
+	$memberinfo_css
+</head>
+<body>
+$header
+$navbar
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+<tr>
+	<td colspan="2" class="tcat">
+		<phrase 1="$group[name]">$vbphrase[members_in_group_x]</phrase>
+	</td>
+</tr>
+<tr>
+	<td class="alt1">
+		<ul class="list_no_decoration">$member_list</ul>
+	</td>
+</tr>
+</table>
+<if condition="$pagenav">
+	<div style="margin-top: $stylevar[cellpadding]px">$pagenav</div>
+</if>
+
+$footer
+</body>
+</html>

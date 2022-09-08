@@ -1,0 +1,58 @@
+{
+  "57": {
+    "eventsX": {
+      "aX": {
+        "restrictions": {}, 
+        "prefixid": "aX"
+      }, 
+      "bX": {
+        "restrictions": {}, 
+        "prefixid": "bX"
+      }
+    }
+  }, 
+  "46": {
+    "A": {
+      "A": {
+        "restrictions": {}, 
+        "prefixid": "A"
+      }
+    }, 
+    "C": {
+      "C": {
+        "restrictions": {}, 
+        "prefixid": "C"
+      }
+    }, 
+    "B": {
+      "B": {
+        "restrictions": {}, 
+        "prefixid": "B"
+      }
+    }, 
+    "E": {
+      "E": {
+        "restrictions": {}, 
+        "prefixid": "E"
+      }
+    }, 
+    "D": {
+      "4": {
+        "restrictions": {}, 
+        "prefixid": "4"
+      }
+    }, 
+    "G": {
+      "Ga": {
+        "restrictions": {}, 
+        "prefixid": "Ga"
+      }
+    }, 
+    "F": {
+      "F": {
+        "restrictions": {}, 
+        "prefixid": "F"
+      }
+    }
+  }
+}

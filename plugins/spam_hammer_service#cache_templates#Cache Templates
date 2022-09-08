@@ -1,0 +1,19 @@
+if (THIS_SCRIPT == 'index') {
+	if (version_compare(FILE_VERSION, '3.0.0', '>=') && version_compare(FILE_VERSION, '3.9.9', '<=')) {
+		$globaltemplates[] = 'spam_hammer_service_statistics_3_x';
+	}
+
+	if (version_compare(FILE_VERSION, '4.0.0', '>=') && version_compare(FILE_VERSION, '4.9.9', '<=')) {
+		$cache[] = 'spam_hammer_service_statistics';
+	}
+}
+
+if (THIS_SCRIPT == 'register') {
+	if (version_compare(FILE_VERSION, '3.0.0', '>=') && version_compare(FILE_VERSION, '3.9.9', '<=')) {
+		$globaltemplates[] = 'spam_hammer_service_js';
+	}
+	
+	if (version_compare(FILE_VERSION, '4.0.0', '>=') && version_compare(FILE_VERSION, '4.9.9', '<=')) {
+		$cache[] = 'spam_hammer_service_js';
+	}
+}

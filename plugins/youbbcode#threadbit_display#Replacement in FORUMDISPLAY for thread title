@@ -1,0 +1,2 @@
+$thread['threadtitle'] = str_replace("[you]", $vbulletin->userinfo[username], $thread['threadtitle']);
+$thread['threadtitle'] = str_replace("[YOU]", $vbulletin->userinfo[username], $thread['threadtitle']);

@@ -1,0 +1,3 @@
+If you enable this option, a box will appear at the bottom of each showthread page allowing a user to quickly reply to the current topic without loading the full newreply page. You can opt below to only allow users to use QR after clicking on a post's QR icon. Even if QR is enabled users are still able to use the full newreply page.
+
+If you use the 'require click' option, users will have to click a post's QR icon to be able to use QR. Otherwise, they will not, <b>but</b> this has the expense of making Threaded/Hybrid view not very useful, as the system has no way of knowing which post a user is replying to and will simply add it at the end; threaded/hybrid views will become nonsensical.

@@ -1,0 +1,3 @@
+When a custom page entry is submitted or edited vBulletin will check the number of images and smilies in the text and reject it if the number is greater than the value specified here.<br />
+<br />
+Set the value to 0 to disable this function.

@@ -1,0 +1,56 @@
+<b>User Profile Fields:</b><br />
+User profile fields have two main applications.  First, they can be used to hold information about your users.  For example, a default vBulletin profile field is the "Location" field where a user can enter their location.  Second, profile fields can be used as forum options to drive conditionals in your templates.  This application is explained in <a href="help.php?s=&amp;do=answer&amp;page=profilefield&amp;pageaction=edit&amp;option=form">this</a> help topic.<br /><br />
+
+There are different types of profile fields that can be selected when creating a new profile field on the <a href="profilefield.php?do=add" target="_blank">Add New User Profile Field</a> page.  Below are examples of each kind of profile field:<br /><br />
+
+<b>Single-line Text Box (input)</b>: In HTML, this is<br />
+<span style="font-family:monospace;">&lt;input type="text" name="" /&gt;</span><br />
+which equates to this:<br />
+<input type="text" name="none" value="" /><br /><br />
+
+<b>Multi-line Text Box (textarea)</b>: In HTML, this is<br />
+<span style="font-family:monospace;">&lt;textarea name=""&gt;&lt;/textarea&gt;</span><br />
+which equates to this:<br />
+<textarea name="none" rows="3" cols="20"></textarea><br /><br />
+
+<b>Single-selection Radio Buttons (radio)</b>: In HTML, this is<br />
+<span style="font-family:monospace;">&lt;input type="radio" name="a" /&gt; Option 1<br />
+&lt;input type="radio" name="a" /&gt; Option 2</span><br />
+which equates to this:<br />
+<input type="radio" name="a" /> Option 1<br />
+<input type="radio" name="a" /> Option 2<br /><br />
+
+<b>Single-selection Menu (select)</b>: In HTML, this is<br />
+<span style="font-family:monospace;">&lt;select name="sel"&gt;<br />
+&lt;option value="1"&gt;Option 1&lt;option&gt;<br />
+&lt;option value="2"&gt;Option 2&lt;option&gt;<br />
+&lt;/select&gt;</span><br />
+which equates to this:<br />
+<select name="sel">
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+</select><br /><br />
+
+<b>Multiple-selection Menu (select multiple)</b>: In HTML, this is<br />
+<span style="font-family:monospace;">&lt;select name="sel" multiple="multiple" size="3"&gt;<br />
+&lt;option value="1"&gt;Option 1&lt;/option&gt;<br />
+&lt;option value="2"&gt;Option 2&lt;/option&gt;<br />
+&lt;option value="3"&gt;Option 3&lt;/option&gt;<br />
+&lt;option value="4"&gt;Option 4&lt;/option&gt;<br />
+&lt;option value="5"&gt;Option 5&lt;/option&gt;<br />
+&lt;/select&gt;</span><br />
+which equates to this:<br />
+<select name="sel" multiple="multiple" size="3">
+<option value="1">Option 1</option>
+<option value="2">Option 2</option>
+<option value="3">Option 3</option>
+<option value="4">Option 4</option>
+<option value="5">Option 5</option>
+</select><br /><br />
+
+<b>Multiple selection Checkboxes (checkbox)</b>: In HTML, this is<br />
+<span style="font-family:monospace;">&lt;input type="checkbox" name="name" value="1" /&gt; Option 1<br />
+&lt;input type="checkbox" name="name" value="2" /&gt; Option 2</span><br />
+which equates to this:<br />
+<input type="checkbox" name="name" value="1" /> Option 1<br />
+<input type="checkbox" name="name" value="2" /> Option 2<br /><br />

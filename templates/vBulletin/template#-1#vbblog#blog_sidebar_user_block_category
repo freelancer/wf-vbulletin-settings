@@ -1,0 +1,29 @@
+<if condition="$sidebar['localcategorybits'] OR $sidebar['globalcategorybits']">
+	<li id="block_category">
+		<div class="tborder" style="margin-top:$stylevar[cellpadding]px; padding:$stylevar[cellspacing]px" id="block_category_div">
+			<div class="thead" style="padding:$stylevar[cellpadding]px"<if condition="$show['moveable']"> id="block_category_handle"</if>>
+				<a style="float:$stylevar[right]; padding-$stylevar[left]:$stylevar[cellspacing]px" href="#top" onclick="return toggle_collapse('blog_categories')"><img id="collapseimg_blog_categories" src="$stylevar[imgdir_button]/collapse_generic$vbcollapse[collapseimg_blog_categories].gif" alt="" border="0" /></a>
+				<if condition="$show['editcat']"><a style="float:$stylevar[right]" href="blog_usercp.php?$session[sessionurl]do=editcat<if condition="$show['editcat_userid']">&amp;u=$userinfo[userid]</if>"><img src="$stylevar[imgdir_misc]/blog/edit_generic.gif" alt="$vbphrase[edit_blog_category]" border="0" /></a></if>
+				$vbphrase[blog_categories]
+			</div>
+			<div class="alt1 smallfont" style="padding:$stylevar[cellpadding]px; margin-top:$stylevar[cellspacing]px; $vbcollapse[collapseobj_blog_categories]" id="collapseobj_blog_categories">
+				<if condition="$show['globalcats']">
+					<div class="alt2" style="margin-bottom:4px" align="center">$vbphrase[global_categories]</div>
+					<div class="block_category_list">
+						<ul class="list_no_decoration">
+							$sidebar[globalcategorybits]
+						</ul>
+					</div>
+				</if>
+				<if condition="$show['localcats']">
+					<div class="alt2" style="margin-bottom:4px; margin-top:4px" align="center">$vbphrase[local_categories]</div>
+					<div class="block_category_list">
+						<ul class="list_no_decoration">
+							$sidebar[localcategorybits]
+						</ul>
+					</div>
+				</if>				
+			</div>
+		</div>
+	</li>
+</if>

@@ -1,0 +1,3 @@
+This option enabled will cause users to fetch all content on a page directly from the server on every page request, this can be heavy on bandwidth and load.
+<br /><br />
+Unless there is a strong reason for enabling this, vB Optimise recommends disabling this option.

@@ -1,0 +1,25 @@
+<p><b>What is the Public Profile Page?</b></p>
+
+<p>Every member has a publicly viewable profile page. This page includes information provided by the member, either during the registration process or later on via the User Control Panel.</p>
+
+<p>There are a number of ways to view a member's profile. Whenever you see a member's name, clicking on it will usually take you to view their profile page.</p>
+
+<p>The <a href="memberlist.php$session[sessionurl_q]">members list</a> allows you to browse all registered members, and quickly click through to public profiles.</p>
+
+<p>When logged in, you can also view your own public profile by logging into the forums and clicking on your username shown in the header at the top of the page.</p>
+
+<p>You can also go straight to a profile if you know the username of the member by typing in the following into your web browser: http://www.example.com/member.php?username=&lt;username of the member&gt;</p>
+
+<p><b>What's on the Public Profile Page?</b></p>
+
+<p>The public profile lists information about the member under the 'About Me' tab. It also includes statistical information, such as the number of posts they have made and their registration date. This information is shown under the 'Statistics' tab.</p>
+
+<p>Other information includes a list of Friends <a href="faq.php?$session[sessionurl]faq=vb3_user_profile#faq_vb3_friends_contacts">(?)</a>, their profile picture (if set by the member), and a list of members who have recently visited the profile page.</p>
+
+<p>A list of the members' albums <a href="faq.php?$session[sessionurl]faq=vb3_user_profile#faq_vb3_albums">(?)</a> and social group <a href="faq.php?$session[sessionurl]faq=vb3_user_profile#faq_vb3_social_groups">(?)</a> memberships are also shown.</p>
+
+<p><b>What are Visitor Messages?</b></p>
+
+<p>Visitor messages are publicly viewable messages posted on member profile pages. To post a message, click on the 'Visitor messages' tab, and use the form at the top of the section. You will only be able to use certain formatting in these messages, as described underneath the edit box. This message will be viewable by all visitors to this profile, including guest users and search engine robots if the administrator has allowed this. To communicate privately with a member, send a Private Message instead.</p>
+
+<p>Visitor messages can be edited or deleted by site moderators or the member who owns the profile. If you see a visitor message that is not appropriate, you can alert the moderators by clicking on the 'Report' link. The 'View Conversation' link allows you to view all visitor messages between the member and the owner of the profile.</p>

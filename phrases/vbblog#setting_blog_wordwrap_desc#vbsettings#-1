@@ -1,0 +1,2 @@
+The blog often needs to wrap long unbroken text strings at a lower value than vBulletin does for posts.  If you want the blog to automatically insert spaces into long words to make them wrap after a certain number of characters, set the number of characters in the box above.<br />
+<br />To disable word wrap, enter 0.

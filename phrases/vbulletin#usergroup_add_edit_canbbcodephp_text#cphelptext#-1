@@ -1,0 +1,1 @@
+This controls whether [php] tag may be used in signatures by users of this group. If they attempt to use this tag and this setting is set to "No", they will receive an error while saving their signature.

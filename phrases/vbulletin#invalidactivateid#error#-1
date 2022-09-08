@@ -1,0 +1,8 @@
+We could not activate your account because this web address is not valid. Make sure that you have the entire address from the email, and that your email client has not split the address over several lines.<br />
+<br />Please try again with the full address from the email that you received. If it still does not work, try filling in the activation form:<br />
+<a href="register.php?{1}a=ver">Activation form</a></p>
+
+<p>If you do not know your activation code, you can find it in the email that was sent to you when you first registered. To have it sent again, please click here:<br />
+<a href="register.php?{1}do=requestemail">Send new email with activation code.</a></p>
+
+<p>If all else fails, email the <a href="{2}">administrator</a>, making sure that you include your registered email address and username.

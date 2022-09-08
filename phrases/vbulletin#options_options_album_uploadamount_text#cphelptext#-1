@@ -1,0 +1,5 @@
+This controls the number of pictures users can upload simultaneously. They will not be able to violate any album- or usergroup-implied size limits if you set this value too large.<br />
+<br />
+However, setting this to a large value may cause strain on your server if the uploaded pictures need to be resized or recompressed.<br />
+<br />
+This value cannot go below 1.

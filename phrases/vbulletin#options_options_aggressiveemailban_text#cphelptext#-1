@@ -1,0 +1,5 @@
+This changes email banning to use a method that catches more email addresses. If you enable this option, any email address that contains one of the entries in the "Banned Email Addresses" option will be considered a banned email.<br />
+<br />
+If you do not enable this option, emails will only be banned if the entry is matched at the end of the email address. For example:<br />
+<strong>Enabled:</strong> Banning "example" bans example@something.com and something@example.com.<br />
+<strong>Disabled:</strong> Banning "example" effectively bans nothing. If you wish to ban something@example.com, you must enter "example.com".

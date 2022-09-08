@@ -1,0 +1,3 @@
+This setting determines whether an admin will be able to view the moderator log via the Statistics & Logs section.<br />
+<br />
+The ability to prune the moderator logs is still limited by the "users with admin log pruning permissions" setting in includes/config.php.

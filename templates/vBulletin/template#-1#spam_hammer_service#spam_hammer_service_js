@@ -1,0 +1,23 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script>
+(function ($) {
+	$(document).ready(function() {
+		s = '#registerform input[type="submit"], form[name="register"] input[type="submit"], form[action="sendmessage.php?do=contactus"] input[type="submit"]';
+
+		if (SPAM_HAMMER_PROTECT) {
+			$(s).prop('disabled', true);
+
+			var iterations = 0;
+			var label = $(s).attr('value');
+			var interval = setInterval(function() {
+				if (iterations >= SPAM_HAMMER_MATURITY) {
+					$(s).prop('disabled', false).val(label);
+					return clearInterval(interval);
+				}
+
+				$(s).val(SPAM_HAMMER_COUNTDOWN.replace('{n}', (SPAM_HAMMER_MATURITY - iterations++)));
+			}, 1000);
+		}
+	});
+})(jQuery);
+</script>

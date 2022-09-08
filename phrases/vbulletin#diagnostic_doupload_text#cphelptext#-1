@@ -1,0 +1,8 @@
+On this screen you are shown the results of the Upload Settings test. The relevant PHP settings are listed, and if there are any errors they will be listed.<br /><br />
+
+For more information on the various PHP settings, please visit the following links:<br />
+<a href="http://www.php.net/manual/en/configuration.php#ini.file-uploads" target="_blank">file_uploads</a><br />
+<a href="http://www.php.net/manual/en/configuration.php#ini.open-basedir" target="_blank">open_basedir</a><br />
+<a href="http://www.php.net/manual/en/configuration.php#ini.safe-mode" target="_blank">safe_mode</a><br />
+<a href="http://www.php.net/manual/en/configuration.php#ini.upload-tmp-dir" target="_blank">upload_tmp_dir</a><br />
+<a href="http://www.php.net/manual/en/configuration.php#ini.upload-max-filesize" target="_blank">upload_max_filesize</a><br />

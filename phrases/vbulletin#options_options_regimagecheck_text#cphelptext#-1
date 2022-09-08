@@ -1,0 +1,1 @@
+If you enable this option, users will be required to pass a test during registration where an image is displayed that has a random number on it, and the user must type in the number they see in order to prove they are not an automated system attempting to register. PHP must have GD support enabled for this option to work.

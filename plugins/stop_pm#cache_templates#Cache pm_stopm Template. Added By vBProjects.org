@@ -1,0 +1,1 @@
+$globaltemplates = array_merge($globaltemplates, array('pm_stopm'));

@@ -1,0 +1,5 @@
+Within forumdisplay.php, vBulletin executes a query to fetch the count of threads/new threads. vB Optimise can adjust this query to use a better alternative that will yeild the same results but faster.
+<br /><br />
+<strong>Note:</strong> If this results in a MySQL error you may be using an old version of MySQL, you can disable the option or upgrade your MySQL installation to resolve the issue.
+<br /><br />
+Special thanks to <a href="http://forums.digitalpoint.com/" target="_blank">Digital Point</a> for permission to use their optimisation suggestion.

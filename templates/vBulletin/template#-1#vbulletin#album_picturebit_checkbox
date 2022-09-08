@@ -1,0 +1,19 @@
+<table style="width:{$picturebit_width}px; height:{$picturebit_height}px; margin:5px; float:$stylevar[left]" border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td class="smallfont" align="center" valign="middle"><a name="page$page_anchor"></a>
+	<if condition="$picture['thumburl']">
+		<div class="alt2" style="
+			position:relative;
+			width:$picture[thumbnail_width]px;
+			padding:$stylevar[cellpadding]px;
+			<if condition="!$usercss">border:solid $stylevar[cellspacing]px $stylevar[tborder_bgcolor];</if>
+		">
+			<label for="cb_picture_$picture[pictureid]"><img src="$picture[thumburl]" alt="$picture[caption_preview]" border="0" $picture[dimensions] /></label>
+			<input type="checkbox" name="pictureids[]" id="cb_picture_$picture[pictureid]" style="position:absolute; $stylevar[left]: 0px; top: 0px; padding: 0px" value="$picture[pictureid]" />
+		</div>
+	<else />
+		<input type="checkbox" name="pictureids[]" id="cb_picture_$picture[pictureid]" value="$picture[pictureid]" /><label for="cb_picture_$picture[pictureid]"><if condition="$picture['caption_preview']">$picture[caption_preview]<else />$vbphrase[picture]</if></label>
+	</if>
+	</td>
+</tr>
+</table>

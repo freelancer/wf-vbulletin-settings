@@ -1,0 +1,8 @@
+[url=$vboptions[bburl]/member.php?u=$reportinfo[ruserid]]$reportinfo[rusername][/url] has reported a visitor message.
+
+Reason:[quote]$reportinfo[reason][/quote]
+Profile: [url=$vboptions[bburl]/member.php?u=$reportinfo[userid]&tab=visitor_messaging&vmid=$reportinfo[vmid]#vmessage$reportinfo[vmid]]$reportinfo[username][/url][url=$vboptions[bburl]/member.php?vmid=$reportinfo[vmid]#message$reportinfo[vmid]]$reportinfo[prefix_plain]$reportinfo[messagetitle][/url]
+Assigned Moderators: $reportinfo[modlist]
+
+Posted by: [url=$vboptions[bburl]/member.php?u=$reportinfo[puserid]]$reportinfo[pusername][/url]
+Original Content: [quote]$reportinfo[pagetext][/quote]

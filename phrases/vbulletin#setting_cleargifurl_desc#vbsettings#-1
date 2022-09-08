@@ -1,0 +1,4 @@
+Please enter the path of your <i>clear.gif</i> image, relative to your forum directory.<br />
+By default, the value of this setting is 'clear.gif', meaning that the image is located in the base directory of your vBulletin installation (in the same folder as forumdisplay.php).<br />
+<br />
+<b>This URL must be relative, <i>NOT</i> beginning with 'http://'</b>.

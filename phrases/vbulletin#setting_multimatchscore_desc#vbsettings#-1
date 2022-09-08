@@ -1,0 +1,1 @@
+If the search query is for multiple words, this number will be added to the score for the item each time another word from the query is found.

@@ -1,0 +1,29 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+	$headinclude
+	<title>$vbphrase[who_posted] - $vboptions[bbtitle]</title>
+</head>
+<body onload="self.focus()" style="margin:0px">
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+<tr>
+	<td class="tcat" colspan="2">
+		$vbphrase[who_posted]
+		<div class="smallfont"><phrase 1="$totalposts">$vbphrase[total_posts_x]</phrase></div>
+	</td>
+</tr>
+<tr>
+	<td class="thead" width="100%">$vbphrase[username]</td>
+	<td class="thead">$vbphrase[posts]</td>
+</tr>
+$posters
+<tr>
+	<td class="tfoot" colspan="2" align="center"><div class="smallfont">
+		<a href="showthread.php?$session[sessionurl]t=$threadid" onclick="opener.location=('showthread.php?$session[sessionurl]t=$threadid'); self.close();"><strong>$vbphrase[show_thread_and_close_window]</strong></a>
+	</div></td>
+</tr>
+</table>
+
+</body>
+</html>

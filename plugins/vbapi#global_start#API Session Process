@@ -1,0 +1,64 @@
+// #############################################################################
+// Replace session class with vB_Session_API
+if (!VB_API)
+{
+	// build the session and setup the environment
+	$vbulletin->session =& new vB_Session_API($vbulletin, $sessionhash, $vbulletin->GPC[COOKIE_PREFIX . 'userid'], $vbulletin->GPC[COOKIE_PREFIX . 'password'], $styleid, $languageid);
+	$vbulletin->session->do_lastvisit_update($vbulletin->GPC[COOKIE_PREFIX . 'lastvisit'], $vbulletin->GPC[COOKIE_PREFIX . 'lastactivity']);
+}
+else
+{
+	// Need to unset $vbphrase to get new ones
+	unset($vbphrase);
+	
+	// build the session and setup the environment
+	$vbulletin->session =& new vB_Session_API($vbulletin);
+	$vbulletin->userinfo =& $vbulletin->session->fetch_userinfo();
+	
+	// #############################################################################
+	// Get date / time info
+	// override date/time settings if specified
+	fetch_options_overrides($vbulletin->userinfo);
+	fetch_time_data();
+
+	// global $vbulletin->userinfo setup -- this has to happen after fetch_options_overrides
+	if ($vbulletin->userinfo['lastvisit'])
+	{
+		$vbulletin->userinfo['lastvisitdate'] = vbdate($vbulletin->options['dateformat'] . ' ' . $vbulletin->options['timeformat'], $vbulletin->userinfo['lastvisit']);
+	}
+	else
+	{
+		$vbulletin->userinfo['lastvisitdate'] = -1;
+	}
+
+	// get some useful info
+	$templateversion =& $vbulletin->options['templateversion'];
+
+	// #############################################################################
+	// initialize $vbphrase and set language constants
+	$vbphrase = init_language();
+
+	// set a default username
+	if ($vbulletin->userinfo['username'] == '')
+	{
+		$vbulletin->userinfo['username'] = $vbphrase['unregistered'];
+	}
+
+	// #############################################################################
+	// CACHE PERMISSIONS AND GRAB $permissions
+	// get the combined permissions for the current user
+	// this also creates the $fpermscache containing the user's forum permissions
+
+	$permissions = cache_permissions($vbulletin->userinfo);
+	
+	// vboptions overwrite for API
+	$vbulletin->options['dateformat'] = 'm-d-Y';
+	$vbulletin->options['timeformat'] = 'h:i A';
+	$vbulletin->options['registereddateformat'] = 'm-d-Y';
+	
+	// Disable updateprofilefields error
+	$vbulletin->session->vars['profileupdate'] = false;
+}
+
+// Hide sessionid in url if we are a search engine or if we have a cookie
+$vbulletin->session->set_session_visibility(($show['search_engine'] OR $vbulletin->superglobal_size['_COOKIE'] > 0) AND !VB_API);

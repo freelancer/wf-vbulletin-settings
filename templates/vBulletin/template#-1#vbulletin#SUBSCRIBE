@@ -1,0 +1,178 @@
+<!-- topic table -->
+<form action="subscription.php?do=viewsubscription&amp;type=thread" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="viewsubscription" />
+<input type="hidden" name="type" value="thread" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('subslistinfo')"><img id="collapseimg_subslistinfo" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_subslistinfo].gif" alt="" border="0" /></a>
+			$vbphrase[subscribed_threads_in_folder]<span class="normal">: <span id="nav_subsfolders.listinfo"><if condition="$show['allfolders']">$vbphrase[all]<else />$folder</if> <script type="text/javascript"> vbmenu_register("nav_subsfolders.listinfo"); </script></span></span>
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_subslistinfo" style="$vbcollapse[collapseobj_subslistinfo]">
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth_usercp]" align="$stylevar[left]">
+
+		<fieldset class="fieldset">
+			<legend>$vbphrase[folder_controls]</legend>
+			<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+			<tr>
+				<td>
+					$vbphrase[jump_to_folder]:<br />
+					<select name="folderid" onchange="window.location=('subscription.php?$session[sessionurl]do=viewsubscription&amp;folderid='+this.options[this.selectedIndex].value)">
+					$folderjump
+					</select>$gobutton
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="subscription.php?$session[sessionurl]do=viewsubscription&amp;daysprune=-1&amp;folderid=all">$vbphrase[view_all_subscribed_threads]</a> |
+					<a href="subscription.php?$session[sessionurl]do=editfolders">$vbphrase[edit_folders]</a> | <a href="subscription.php?$session[sessionurl]do=emptyfolder&folderid=$folderid">$vbphrase[empty_current_folder]</a>
+				</td>
+			</tr>
+			</table>
+		</fieldset>
+
+		</div>
+	</div>
+	</td>
+</tr>
+</tbody>
+</table>
+</form>
+
+<br />
+
+<if condition="$show['pagenav']">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tr valign="bottom">
+	<td align="$stylevar[right]">$pagenav</td>
+</tr>
+</table>
+</if>
+
+<!-- topic table -->
+<form action="subscription.php?do=dostuff&amp;folderid=$folderid" method="post" name="form">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="dostuff" />
+<input type="hidden" name="folderid" value="$folderid" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="$colspan">
+		<span class="smallfont" style="float:$stylevar[right]"><strong>$vbphrase[threads]</strong>: $totalallthreads</span>
+		$vbphrase[subscribed_threads_in_folder]<span class="normal">: <span id="nav_subsfolders.threadlist"><if condition="$show['allfolders']">$vbphrase[all]<else />$folder</if> <script type="text/javascript"> vbmenu_register("nav_subsfolders.threadlist"); </script></span></span>
+	</td>
+</tr>
+<if condition="$show['havethreads']">
+<tr>
+	<if condition="$show['threadicons']">
+		<td class="thead" colspan="2">&nbsp;</td>
+	<else />
+		<td class="thead">&nbsp;</td>
+	</if>
+	<td class="thead" width="100%">
+		<a href="$sorturl&amp;order=asc&amp;sort=title">$vbphrase[thread]</a> $sortarrow[title] /
+		<a href="$sorturl&amp;order=asc&amp;sort=postusername">$vbphrase[thread_starter]</a> $sortarrow[postusername]
+	</td>
+	<td class="thead" width="150" align="center" nowrap="nowrap"><span style="white-space:nowrap"><a href="$sorturl&amp;order=desc&amp;sort=lastpost">$vbphrase[last_post]</a> $sortarrow[lastpost]</span></td>
+	<!--<td class="thead" align="center" nowrap="nowrap"><a href="$sorturl&amp;order=desc&amp;sort=replycount">$vbphrase[replies]</a> $sortarrow[replycount]</td>-->
+	<!--<td class="thead" align="center" nowrap="nowrap"><a href="$sorturl&amp;order=desc&amp;sort=views">$vbphrase[views]</a> $sortarrow[views]</td>-->
+	<td class="thead">$vbphrase[notification]</td>
+	<td class="thead"><input name="allbox" type="checkbox" value="Check All" title="$vbphrase[check_uncheck_all]" onclick="checkall(this.form);" /></td>
+</tr>
+$threadbits
+<tr>
+	<td class="tfoot" colspan="$colspan" align="$stylevar[right]"><div class="smallfont">
+
+		$vbphrase[selected_threads]:
+		<select name="what">
+			<optgroup label="$vbphrase[move_delete_subscriptions]">
+				<option value="move">$vbphrase[move_to_folder]...</option>
+				<option value="delete">$vbphrase[delete_subscription]</option>
+			</optgroup>
+			<optgroup label="$vbphrase[update_subscription_type]">
+				<option value="update0">$vbphrase[no_email_notification]</option>
+				<option value="update1">$vbphrase[instant_email_notification]</option>
+				<option value="update2">$vbphrase[daily_email_notification]</option>
+				<option value="update3">$vbphrase[weekly_email_notification]</option>
+			</optgroup>
+		</select>$gobutton
+
+	</div></td>
+</tr>
+<else />
+	<tr>
+		<td class="alt1" align="center" colspan="6">
+			<br />
+			$vbphrase[folder_is_currently_empty]
+			<br />
+			<br />
+		</td>
+	</tr>
+</if>
+</table>
+
+</form>
+<!-- / topic table -->
+
+<if condition="$show['pagenav']">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:3px">
+<tr valign="top">
+	<td align="$stylevar[right]">$pagenav</td>
+</tr>
+</table>
+</if>
+
+<br />
+
+<!-- icon key and forum jump -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tr valign="bottom">
+	<td width="100%">
+		<!-- icon key -->
+		<table cellpadding="2" cellspacing="0" border="0">
+		<tr align="$stylevar[left]">
+			<td><img src="$stylevar[imgdir_statusicon]/thread_new.gif" alt="$vbphrase[new_posts]" border="0" /></td>
+			<td class="smallfont">$vbphrase[new_posts]</td>
+		</tr>
+		<tr>
+			<td><img src="$stylevar[imgdir_statusicon]/thread.gif" alt="$vbphrase[no_new_posts]" border="0" /></td>
+			<td class="smallfont">$vbphrase[no_new_posts]</td>
+		</tr>
+		<if condition="$vboptions['usehotthreads']">
+		<tr>
+			<td><img src="$stylevar[imgdir_statusicon]/thread_hot_new.gif" alt="$vbphrase[hot_thread_with_new_posts]" border="0" /></td>
+			<td class="smallfont"><phrase 1="$vboptions[hotnumberposts]" 2="$vboptions[hotnumberviews]">$vbphrase[more_than_x_replies_or_y_views]</phrase></td>
+		</tr>
+		<tr>
+			<td><img src="$stylevar[imgdir_statusicon]/thread_hot.gif" alt="$vbphrase[hot_thread_with_no_new_posts]" border="0" /></td>
+			<td class="smallfont"><phrase 1="$vboptions[hotnumberposts]" 2="$vboptions[hotnumberviews]">$vbphrase[more_than_x_replies_or_y_views]</phrase></td>
+		</tr>
+		</if>
+		<tr>
+			<td><img src="$stylevar[imgdir_statusicon]/thread_lock.gif" alt="$vbphrase[closed_thread]" border="0" /></td>
+			<td class="smallfont">$vbphrase[thread_is_closed]</td>
+		</tr>
+		<if condition="$show['dotthreads']">
+		<tr>
+			<td><img src="$stylevar[imgdir_statusicon]/thread_dot.gif" alt="$vbphrase[thread_contains_a_message_written_by_you]" border="0" /></td>
+			<td class="smallfont">$vbphrase[you_have_posted_in_this_thread]</td>
+		</tr>
+		</if>
+		</table>
+		<!-- / icon key -->
+	</td>
+
+	<td>$forumjump</td>
+</tr>
+</table>
+<!-- / icon key and forum jump -->

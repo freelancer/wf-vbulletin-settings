@@ -1,0 +1,48 @@
+<form action="blog_subscription.php?do=dosubscribe&amp;b=$bloginfo[blogid]" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="dosubscribe" />
+<input type="hidden" name="b" value="$bloginfo[blogid]"  />
+<input type="hidden" name="userid" value="$userinfo[userid]"  />
+<input type="hidden" name="url" value="$url"  />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat smallfont">
+			<if condition="$bloginfo['blogid']">
+				<span style="float:$stylevar[right]"><strong>$vbphrase[blog_entry]</strong> <a href="blog.php?$session[sessionurl]b=$bloginfo[blogid]" title="$bloginfo[title]">$bloginfo[title_trimmed]</a></span>
+				<strong>$vbphrase[subscribe_to_blog_entry]</strong>
+			<else />
+				<span style="float:$stylevar[right]" title="$userinfo[blog_title]"><strong>$vbphrase[blog]</strong> <a href="blog.php?$session[sessionurl]u=$userinfo[userid]">$userinfo[blog_title]</a></span>
+				<strong>$vbphrase[subscribe_to_this_blog]</strong>
+			</if>
+	</td>
+</tr>
+<tr valign="top">
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="max-width:$stylevar[formwidth]; width:auto !important; width:$stylevar[formwidth_blog]" align="$stylevar[left]">
+
+			<table class="fieldset" cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" align="center">
+			<tr>
+				<td>
+					$vbphrase[notification_type]<br />
+					<select name="emailupdate">
+						<option value="usercp">$vbphrase[no_email_notification]</option>
+						<option value="email">$vbphrase[instant_notification_by_email]</option>
+					</select>
+				</td>
+			</tr>
+			</table>
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" value="$vbphrase[add_subscription]" accesskey="s" />
+	</div>
+	</td>
+</tr>
+</table>
+
+</form>		

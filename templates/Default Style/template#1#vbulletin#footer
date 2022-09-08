@@ -1,0 +1,62 @@
+$ad_location[ad_footer_start]
+
+<br />
+<div class="smallfont" align="center">$vbphrase[all_times_are_gmt_x_time_now_is_y]</div>
+<br />
+<div align="center" class="smallfont"><div class="smallfont"><a href="#" onclick="MM_openBrWindow('http://www.warriorforum.com/tos.html','tos','scrollbars=yes,width=1024,height=650')">Terms of Use</a> - <a href="#" onclick="MM_openBrWindow('http://www.warriorforum.com/privacy.html','privacy','scrollbars=yes,width=1024,height=600')">Privacy Policy</a> - <a href="#" onclick="MM_openBrWindow('http://www.warriorforum.com/dmca.html','dmca','scrollbars=yes,width=1024,height=600')">DMCA Notice</a></div>
+<script type="text/javascript">
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+</script>
+<br />
+<div align="center">
+	<div class="smallfont" align="center">
+	<!-- Do not remove this copyright notice -->
+	$vbphrase[powered_by_vbulletin]
+	<!-- Do not remove this copyright notice -->
+	</div>
+	<div class="smallfont" align="center">
+	<!-- Do not remove $cronimage or your scheduled tasks will cease to function -->
+	$cronimage
+	<!-- Do not remove $cronimage or your scheduled tasks will cease to function -->
+	$vboptions[copyrighttext]
+	</div>
+</div>
+
+$spacer_close
+<!-- /content area table -->
+<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td></td>
+  </tr>
+</table>
+
+$ad_location[ad_footer_end]
+
+<if condition="$show['dst_correction']">
+<!-- auto DST correction code -->
+<form action="profile.php?do=dst" method="post" name="dstform">
+	<input type="hidden" name="s" value="$session[sessionhash]" />
+	<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+	<input type="hidden" name="do" value="dst" />
+</form>
+<script type="text/javascript">
+<!--
+	var tzOffset = $bbuserinfo[timezoneoffset] + $bbuserinfo[dstonoff];
+	var utcOffset = new Date().getTimezoneOffset() / 60;
+	if (Math.abs(tzOffset + utcOffset) == 1)
+	{	// Dst offset is 1 so its changed
+		document.forms.dstform.submit();
+	}
+//-->
+</script>
+<!-- / auto DST correction code -->
+
+</if>
+<script type="text/javascript">
+<!--
+	// Main vBulletin Javascript Initialization
+	vBulletin_init();
+//-->
+</script>

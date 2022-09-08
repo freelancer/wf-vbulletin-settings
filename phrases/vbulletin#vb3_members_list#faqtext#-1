@@ -1,0 +1,11 @@
+<p><b>What is the Members List?</b></p>
+
+<p>The members list shows the registered members of the board. Providing the administrator allows this, you can view the member list ordered alphabetically by username, by the date they joined, by the number of posts they have made or by reputation <a href="faq.php?$session[sessionurl]faq=vb3_user_profile#faq_vb3_reputation">(?)</a>.</p>
+
+<p>To view the members list, click on '<a href="memberlist.php$session[sessionurl_q]">Member List</a>' on main navigation bar at the top of the page.</p>
+
+<p>To quickly find a particular member, click on the '<a href="memberlist.php?$session[sessionurl]do=search">Search Members</a>' link and type a username (or partial username) into the box. For further search options - including searching based on join date, post count or home page - click on 'Advanced Search' on the search menu.</p>
+
+<p><b>Are all members listed?</b></p>
+
+<p>Some members may not be on the list. The administrator has options over who is shown on the list. They may, for example, omit members who have not made many posts or who belong to certain user groups.</p>

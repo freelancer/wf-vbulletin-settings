@@ -1,0 +1,1 @@
+Use this option as a toggle to temporarily disable links without actually deleting them from the database. An inactive link will not appear on thread pages at all until it is made active again by an administrator.

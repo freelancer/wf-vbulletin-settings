@@ -1,0 +1,4 @@
+<b>Managing Threads &amp; Posts:</b><br />
+This section of the Admin CP allows you to mass manage threads and posts.  You can mass prune and mass move threads and posts based on several criteria, mass unsubscribe users from threads, strip polls from threads, and see who voted for poll options in polls.<br /><br />
+
+Possible applications for mass pruning threads include removing a spammer's threads and freeing up space in your database by deleting old threads.  Applications for mass moving threads include reorganizing your forums and archiving old threads in an archive forum.  You can unsubscribe users from threads to stop email notifications as a result of current thread subscriptions.  You can strip a poll from a thread if you want to delete a poll but not the thread that contains it.  Lastly, the "Who Voted" feature is useful in checking for "stuffed vote boxes."

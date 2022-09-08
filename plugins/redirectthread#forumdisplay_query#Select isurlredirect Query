@@ -1,0 +1,1 @@
+$hook_query_fields .= ", isurlredirect ";

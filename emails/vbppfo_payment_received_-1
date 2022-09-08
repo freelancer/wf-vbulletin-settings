@@ -1,0 +1,14 @@
+A paid subscription has just been purchased by $username at  $vboptions[bbtitle]
+
+To view their profile, go here:
+
+$vboptions[bburl]/member.php?u=$userid
+
+Username : $username
+Subscription : $subscription
+Amount: $amount
+
+To view complete list of ordered subscriptions go to $vboptions[bburl]/misc.php?do=subinfo
+
+Best Regards,
+$vboptions[bbtitle]

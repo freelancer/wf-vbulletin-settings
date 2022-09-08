@@ -1,0 +1,20 @@
+<tr align="center">
+	<td class="alt1Active" align="$stylevar[left]" id="u$userinfo[userid]">
+		<a href="member.php?$session[sessionurl]u=$userinfo[userid]">$userinfo[musername]</a>
+		<if condition="$show['usertitlecol']"><div class="smallfont">$userinfo[usertitle]</div></if>
+	</td>
+	<if condition="$show['emailcol'] AND exec_switch_bg()"><td class="$bgclass"><if condition="$show['emaillink']"><a href="sendmessage.php?$session[sessionurl]do=mailmember&amp;u=$userinfo[userid]" target="_blank" rel="nofollow"><img src="$stylevar[imgdir_button]/email.gif" alt="email.gif" title="<phrase 1="$userinfo[username]">$vbphrase[click_here_to_email_x]</phrase>" border="0" /></a></if>&nbsp;<if condition="$show['pmlink']"><a href="private.php?$session[sessionurl]do=newpm&amp;username=$userinfo[username]" target="_blank" rel="nofollow"><img src="$stylevar[imgdir_button]/sendpm.gif" alt="sendpm.gif" title="<phrase 1="$userinfo[username]">$vbphrase[send_private_message_to_x]</phrase>" border="0" /></a></if></td></if>
+	<if condition="$show['imicons'] AND exec_switch_bg()"><td class="$bgclass">$userinfo[icqicon] $userinfo[aimicon] $userinfo[msnicon] $userinfo[yahooicon] $userinfo[skypeicon]</td></if>
+	<if condition="$show['homepagecol'] AND exec_switch_bg()"><td class="$bgclass"><if condition="$show['homepagelink']"><a href="$userinfo[homepage]" target="_blank"><img src="$stylevar[imgdir_button]/home.gif" alt="home.gif" title="<phrase 1="$userinfo[username]">$vbphrase[visit_xs_homepage]</phrase>"  border="0" /></a><else />&nbsp;</if></td></if>
+	<if condition="$show['searchcol'] AND exec_switch_bg()"><td class="$bgclass"><if condition="$show['searchlink']"><a href="search.php?$session[sessionurl]do=finduser&amp;u=$userinfo[userid]" rel="nofollow"><img src="$stylevar[imgdir_button]/find.gif" alt="find.gif" title="<phrase 1="$userinfo[username]">$vbphrase[find_all_posts_by_x]</phrase>" border="0" /></a><else />&nbsp;</if></td></if>
+	<if condition="$show['datejoinedcol'] AND exec_switch_bg()"><td class="$bgclass">$userinfo[datejoined]</td></if>
+	<if condition="$show['postscol'] AND exec_switch_bg()"><td class="$bgclass">$userinfo[posts]</td></if>
+	<if condition="$show['lastvisitcol'] AND exec_switch_bg()"><td class="$bgclass">$userinfo[lastvisit]</td></if>
+	<if condition="$show['reputationcol'] AND exec_switch_bg()"><td class="$bgclass">$userinfo[reputationdisplay]</td></if>
+	<if condition="$show['avatarcol'] AND exec_switch_bg()"><td class="$bgclass"><if condition="$show['avatar']"><img src="$avatarurl" border="0" $avwidth $avheight alt="<phrase 1="$userinfo[username]">$vbphrase[xs_avatar]</phrase>" hspace="4" vspace="4" /><else />&nbsp;</if></td></if>
+	<if condition="$show['profilepiccol'] AND exec_switch_bg()"><td class="$bgclass">$userinfo[profilepic]</td></if>
+	<if condition="$show['birthdaycol'] AND exec_switch_bg()"><td class="$bgclass">$userinfo[birthday]</td></if>
+	<if condition="$show['agecol'] AND exec_switch_bg()"><td class="$bgclass">$userinfo[age]</td></if>
+	<if condition="$show['customfields']">$customfields</if>
+	<if condition="$show['usergroup'] AND exec_switch_bg()"><td class="$bgclass"><if condition="$show['hideleader']">&nbsp;<else /><input type="checkbox" name="deletebox[$userinfo[userid]]" value="yes" /></if></td></if>
+</tr>

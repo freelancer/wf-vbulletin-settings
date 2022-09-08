@@ -1,0 +1,28 @@
+<li class="forum-feed-item">
+    <a class="forum-feed-item-title" href="showthread.php?t=$thread[threadid]"><h3 class="forum-feed-item-title">$thread[threadtitle]</h3></a>
+    <div class="forum-feed-item-info">
+        posted <time>$thread[date] $thread[time]</time> - <a href="showthread.php?t=$thread[threadid]">$thread[commentinfo]</a>
+    </div>
+    <div class"author-summary">
+        <if condition="$thread['avatar']">
+            <figure class="author-image">
+                <img src="$thread[avatar]">
+            </figure>
+            <a href="/members/$thread[postusername].html"><span class="author-name">$thread[postusername]</span></a>
+        <else />
+            by <a href="/members/$thread[postusername].html">$thread[postusername]</span></a>
+        </if>
+        in <span class="forum-feed-item-category"><a href="forumdisplay.php?f=$thread[forumid]">$thread[forumtitle]</a></span>
+    </div>
+    <p>$thread[preview]<a href="showthread.php?t=$thread[threadid]" class="more-link">more&hellip;</a></p>
+    <if condition="$vbulletin->userinfo['userid']">
+        <button class="action-btn" wf-thread-upvote="$thread[threadid]" wf-thread-upvoted="$thread[upvoted]" wf-thread-upvote-count="$thread[upvote]" >Upvote</button>
+    <else />
+        <span class="forum-feed-item-upvote">
+            $thread[upvote] <if condition="$thread[upvote] == 1">Upvote<else />Upvotes</if>
+        </span>
+    </if>
+    <ul class="tags-list">
+        $tag_list
+    </ul>
+</li>

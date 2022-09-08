@@ -1,0 +1,23 @@
+<div class="block_row">
+		<div class="tborder">
+		<if condition="$show['latestentry']"><div class="thead block_row" align="center">$vbphrase[latest_blog_entry]</div></if>
+		<div class="alt2 block_row">
+			<div align="center"><a href="blog.php?$session[sessionurl]b=$blog[blogid]">$blog[title]</a></div>
+			<hr />
+			<div class="smallfont" align="center">
+				<span class="shade"><phrase 1="$blog[date]" 2="$blog[time]" 3="$blog[postedby_username]">$vbphrase[posted_date_at_time_by_guest]</phrase></span>
+				<img src="$stylevar[imgdir_misc]/blog/user_comment.gif" border="0" class="inlineimg" alt="" />
+				<span class="shade"><a href="blog.php?b=$blog[blogid]#comments" class="shade">$vbphrase[comments]</a></span> $blog[comments_visible]
+			</div>
+			<if condition="$blog[categorybits]">
+				<div align="center" class="smallfont"><span class="shade">$vbphrase[posted_in]</span> $blog[categorybits]</div>
+			</if>
+
+			<div  style="margin-top:10px" >
+				$blog[message]<if condition="$show['readmore']">...
+					<div class="smallfont" style="text-align:$stylevar[right]; margin-top:$stylevar[cellpadding]px"><a href="blog.php?$session[sessionurl]b=$blog[blogid]">$vbphrase[continue_reading]</a></div>
+				</if>
+			</div>
+		</div>
+	</div>
+</div>

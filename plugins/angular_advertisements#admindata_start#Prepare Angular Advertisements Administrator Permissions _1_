@@ -1,0 +1,3 @@
+
+				$this->validfields['canadminangularadver'] = array(TYPE_BOOL, REQ_NO);
+			

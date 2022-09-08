@@ -1,0 +1,6 @@
+vBulletin can read the overall load of the server on certain *NIX setups (including Linux).<br />
+<br />
+This allows vBulletin to determine the load on the server and processor, and to turn away further users if the load becomes too high.<br />
+<br />
+If you do not want to use this option, set it to 0.<br />
+A typical level would be 5.00 for a reasonable warning level.

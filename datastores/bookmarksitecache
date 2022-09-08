@@ -1,0 +1,11 @@
+{
+  "6": {
+    "title": "Facebook", 
+    "url": "http://www.facebook.com/share.php?u={URL}", 
+    "utf8encode": "0", 
+    "iconpath": "facebook.png", 
+    "active": "1", 
+    "bookmarksiteid": "6", 
+    "displayorder": "60"
+  }
+}

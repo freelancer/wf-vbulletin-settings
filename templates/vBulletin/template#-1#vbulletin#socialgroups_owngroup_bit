@@ -1,0 +1,68 @@
+<script type="text/javascript" src="clientscript/vbulletin_ajax_htmlloader.js?v=$vboptions[simpleversion]"></script>
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" align="center" width="100%">
+<tr>
+	<td class="tcat">
+		$vbphrase[groups_you_created]
+	</td>
+</tr>
+<tr>
+	<td class="alt1">
+		<span class="smallfont <if condition="!$owngroup[is_read]">unread</if>" style="float:$stylevar[right]">$vbphrase[last_updated]: $owngroup[lastupdatedate] <em class="time">$owngroup[lastupdatetime]</em></span>
+		<a href="group.php?$session[sessionurl]groupid=$owngroup[groupid]" <if condition="!$owngroup[is_read]">class="unread"</if>>$owngroup[name]</a>
+		<img src="$stylevar[imgdir_misc]/11x11progress.gif" style="display:none" id="owngroup_progress" />
+		<br />
+	</td>
+</tr>
+<tr>
+	<td class="alt1">
+		<if condition="$show['sgicons']"><div class="sgicon"><a href="group.php?$session[sessionurl]groupid=$owngroup[groupid]"><img class="sgicon" src="$owngroup[iconurl]" alt="$owngroup[shortdescription]" /></a></div></if>
+
+		<div id="sg_owngroups_info">
+			<table cellspacing="0" cellpadding="0" border="0">
+			<tr>
+				<td nowrap="nowrap" align="$stylevar[left]" valign="top">
+					<div><a href="group.php?$session[sessionid]groupid=$owngroup[groupid]">$vbphrase[group_members]:</a> <strong>$owngroup[members]</strong></div>
+				<if condition="$show['pictureinfo'] AND $show['messageinfo']">
+					<div><a href="group.php?$session[sessionid]do=grouppictures&amp;groupid=$owngroup[groupid]">$vbphrase[pictures]:</a> <strong>$owngroup[picturecount]</strong></div>
+				</if>
+					<div><a href="group.php?$session[sessionurl]do=manage&amp;groupid=$owngroup[groupid]">$vbphrase[pending_members]:</a> <strong>$owngroup[moderatedmembers]</strong></div>
+				</td>
+				<td nowrap="nowrap" align="$stylevar[left]" valign="top">
+				<if condition="$show['pictureinfo'] AND !$show['messageinfo']">
+					<div><a href="group.php?$session[sessionid]do=grouppictures&amp;groupid=$owngroup[groupid]">$vbphrase[pictures]:</a> <strong>$owngroup[picturecount]</strong></div>
+				</if>
+				<if condition="$show['messageinfo']">
+					<div><a href="group.php?$session[sessionurl]groupid=$owngroup[groupid]">$vbphrase[discussions]:</a> <strong>$owngroup[discussions]</strong></div>
+					<div><a href="group.php?$session[sessionid]groupid=$owngroup[groupid]">$vbphrase[messages]:</a> <strong>$owngroup[visible]</strong></div>
+					<div><a href="group.php?$session[sessionurl]groupid=$owngroup[groupid]&amp;do=moderatedgms">$vbphrase[moderation]:</a> <strong>$owngroup[moderation]</strong></div>
+				</if>
+				</td>
+			</tr>
+			</table>
+		</div>
+		$template_hook[group_own_group_info]
+	</td>
+</tr>
+<tr>
+	<td class="tfoot smallfont">
+		<if condition="$owngroup[shownext] OR $owngroup[showprevious]">
+		<span style="float:$stylevar[right]">
+			<if condition="$owngroup[shownext]">
+			&nbsp; <strong><a id="sg_nextgroup" href="group.php?$session[sessionurl]owngrouppage=$owngroup[next]" onclick="return load_html('sg_owngroups', 'group.php?$session[sessionurl]do=owngroup&amp;owngrouppage=$owngroup[next]', '', 'owngroup_progress')">$vbphrase[view_next]</a></strong>
+			<else />
+			&nbsp; <strong>$vbphrase[view_next]</strong>
+			</if>
+		</span>
+		<span style="float:$stylevar[right]">
+			<if condition="$owngroup[showprevious]">
+			<strong><a id="sg_previousgroup" href="group.php?$session[sessionurl]owngrouppage=$owngroup[previous]" onclick="return load_html('sg_owngroups', 'group.php?$session[sessionurl]do=owngroup&amp;owngrouppage=$owngroup[previous]', '', 'owngroup_progress')">$vbphrase[view_previous]</a></strong>
+			<else />
+			<strong>$vbphrase[view_previous]</strong>
+			</if>
+		</span>
+		</if>
+		<strong><a href="group.php?$session[sessionurl]do=edit&amp;groupid=$owngroup[groupid]">$vbphrase[edit_group]</a></strong> &nbsp;
+		<strong><a href="group.php?$session[sessionurl]do=delete&amp;groupid=$owngroup[groupid]">$vbphrase[delete_group]</a></strong>
+	</td>
+</tr>
+</table>

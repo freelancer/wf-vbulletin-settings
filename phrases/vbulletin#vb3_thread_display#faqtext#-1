@@ -1,0 +1,11 @@
+<p><b>Can I change the order of posts?</b></p>
+
+<p>You have a choice over how you view threads. When you're in a thread, look at the top bar. On the right hand side you'll see 'Display Mode'. Click on this and it lets you change how posts are ordered.</p>
+
+<p>You have three choices:</p>
+
+<p><b>Linear Mode</b> - posts are displayed chronologically, usually from oldest to newest. Posts are shown in a flat mode so that many posts can be viewed simultaneously. It is possible to change the ordering by changing your preferences in the <a href="usercp.php$session[sessionurl_q]">User CP</a></p>
+
+<p><b>Threaded Mode</b> - a tree is shown along with every post. This shows you the relationship each post has to the others. It's easy to see who responded to whom. Only one post is shown at a time. By clicking on a single post in the post tree, the page will show that post and all posts made in response to it.</p>
+
+<p><b>Hybrid Mode</b> - This is a mixture of the linear and threaded modes. The post tree is displayed as in the threaded mode, but many posts are shown at the same time as in the linear modes.</p>

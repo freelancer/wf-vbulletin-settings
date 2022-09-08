@@ -1,0 +1,1 @@
+Displays those users that have been active in the last XXX seconds on the home page, where XXX is the value specified by your Cookie Time-Out option (Default is last 15 minutes). Not recommended for sites with hundreds of simultaneous users. The Alphabetical option requires more resources than the random option.

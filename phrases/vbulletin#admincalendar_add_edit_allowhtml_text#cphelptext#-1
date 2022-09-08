@@ -1,0 +1,1 @@
+This allows users to use HTML while posting an event. It is strongly recommended that you DO NOT turn this on as it can severely compromise security and/or severely mess up layout if users insert malformed HTML. Even if you set this to Yes, users still cannot use certain tags, including javascript: and about:.

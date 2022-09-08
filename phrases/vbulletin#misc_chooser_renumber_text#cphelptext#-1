@@ -1,0 +1,1 @@
+Renumbers the template IDs to be in consecutive sequential order.  This has no functional purpose except for freeing up template IDs so you don't run out.

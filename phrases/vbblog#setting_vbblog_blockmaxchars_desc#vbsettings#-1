@@ -1,0 +1,3 @@
+Blocks that contain more characters than the value specified here will be rejected with a message telling the user to shorten their block.<br />
+<br />
+Set the value to 0 to disable this function.

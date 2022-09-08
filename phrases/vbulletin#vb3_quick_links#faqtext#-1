@@ -1,0 +1,38 @@
+<p><b>What is the Quick Links menu?</b></p>
+
+<p>The navigation bar at the top of each page has several helpful links. One of them is a dropdown menu called Quick Links. (It appears only to registered members who are logged in). Clicking it once with the mouse will make it drop down and show the following options:</p>
+
+<ul>
+	<li><b>Quick Links</b>
+		<ul>
+			<li>Today's Posts (shows posts created in the past 24 hours)</li>
+			<li>Mark Forums Read (marks all the threads and posts as read for your session - this is a shortcut alternative to actually reading the threads and posts)</li>
+			<li>Open Contacts Popup (opens a new window with a list of all your contacts)</li>
+		</ul>
+	</li>
+	
+	<li><b>Networking</b>
+		<ul>
+			<li>Contacts and Friends (a page from where you can manage your contacts and friends)</li>
+			<li>Social Groups (where you can manage your social groups)</li>
+			<li>Pictures and Albums (where you can manage your pictures and albums)</li>
+		</ul>
+	</li>
+	
+	<li><b>User Control Panel (clicking this takes you to your personal user control panel)</b>
+		<ul>
+			<li>Edit Signature (edit your personal signature that appears below posts)</li>
+			<li>Edit Your Details (edit your personal profile details)</li>
+			<li>Edit Options (manage your community settings)</li>
+		</ul>
+	</li>
+	
+	<li><b>Miscellaneous</b>
+		<ul>
+			<li>Private Messages (manage your private messages, read your inbox, create new messages, etc)</li>
+			<li>Subscribed Threads (get an overview of your free subscriptions and options to manage them)</li>
+			<li>Your Profile (loads your social profile)</li>
+			<li>Who's Online (see which users who are currently online on the board and what they are doing)</li>
+		</ul>
+	</li>
+</ul>

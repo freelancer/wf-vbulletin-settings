@@ -1,0 +1,24 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=template&amp;pageaction=&amp;option=">Styles &amp; Templates</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=css&amp;pageaction=&amp;option=">Common Templates, StyleVars, and CSS</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=replacement&amp;pageaction=&amp;option=">Replacement Variables</a><br /><br />
+
+<b>Inheritance:</b><br />
+vBulletin's styles use inheritance to manage templates and style settings.  A child style inherits the templates and settings of its parent.  For example, if a template is customized in a parent style then its children will inherit that customized template as their default.<br /><br />
+
+Possible applications of style inheritance include creating variations on a theme.  Let's say you have a style with a customized template set that creates a specific physical layout of your forums, but you want your users to be able to choose from different colors while using the same layout.  In that situation you could create child styles for the style with the customized template set.  The children would inherit all of the parent's templates, thereby keeping the same layout, but they would have their own color settings which would override the colors of the parent.<br /><br />
+
+The power of inheritance can be seen in the above example.  To create variations on a theme without inheritance you would need to duplicate the template set for each style which would make changing the layout very cumbersome as you would need to edit the templates in each style.  With inheritance you only have to edit the parent's template set.<br /><br />
+
+<b>Template Conditionals:</b><br />
+vBulletin supports conditionals in its templates.  Conditionals allow you to display code in the templates or not based on a condition that evaluates to boolean true or false.  Here is an example of the syntax:<br /><br />
+
+<i>&lt;if condition="$bbuserinfo[userid]"&gt;<br />
+<font color="green">code that is displayed if the user is registered and logged in (not a guest)</font><br />
+&lt;else /&gt;<br />
+<font color="red">code that is displayed if the user is not registered and/or not logged in (is a guest)</font><br />
+&lt;/if&gt;</i><br /><br />
+
+In the above example, the condition checks for whether or not the logged in user is registered by checking their userid (guests have a userid of 0 which evaluates to false).  The <font color="green">green</font> code is included in the page output if the user is logged in (the condition is true).  Else the <font color="red">red</font> code is included if the user is <b>not</b> logged in (the condition is false).  The <i>&lt;else /&gt;</i> tag and <font color="red">red</font> code are optional in the syntax shown above.<br /><br />
+
+The $bbuserinfo array in the above example contains all of the current logged in user's information and is global to all vBulletin templates.  The $vboptions array is another such global array that holds the values for your <a href="options.php?null=0" target="_blank">vBulletin options</a>.  If you need help creating conditions using vBulletin variables please post on the <a href="http://www.vbulletin.com/forum/" target="_blank">vBulletin.com forums</a> or the <a href="http://www.vbulletin.org/forum/" target="_blank">vBulletin.org forums</a>.

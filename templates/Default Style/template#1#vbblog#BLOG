@@ -1,0 +1,102 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+
+<if condition="$vboptions['externalrss']">
+	<if condition="$show['bloguserinfo']">
+		<link rel="alternate" type="application/rss+xml" title="<phrase 1="$vboptions[bbtitle]" 2="$blogrssinfo[blog_title]">$vbphrase[blog_user_rss_feed]</phrase>" href="blog_external.php?type=RSS2&amp;bloguserid=$blogrssinfo[bloguserid]" />
+	</if>
+	<link rel="alternate" type="application/rss+xml" title="<phrase 1="$vboptions[bbtitle]">$vbphrase[blog_rss_feed]</phrase>" href="blog_external.php?type=RSS2" />
+</if>
+
+<if condition="$show['pingbacklink']"><link rel="pingback" href="$pingbackurl" /></if>
+<if condition="$show['trackbackrdf']">
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+<rdf:Description
+	rdf:about="$abouturl"
+	dc:identifier="$abouturl"
+	dc:title="$bloginfo[title]"
+	trackback:ping="$trackbackurl" />
+</rdf:RDF>
+-->
+</if>
+
+$headinclude
+<if condition="$usercss_profile_preview">
+<style type="text/css" id="vbulletin_user_css">
+<!--
+$usercss_profile_preview
+-->
+</style>
+</if>
+
+<if condition="$show['inlinemod'] OR $show['inlinemod_trackback'] OR $show['quickcomment']">
+	<script type="text/javascript" src="clientscript/vbulletin_inlinemod.js?v=$vboptions[simpleversion]"></script>
+	<script type="text/javascript" src="clientscript/blog_inlinemod.js?v=$vboptions[simpleversion]"></script>
+</if>
+<if condition="$show['datepicker']">
+	<script type="text/javascript" src="clientscript/vbulletin_date_picker.js?v=$vboptions[simpleversion]"></script>
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_date_picker.css?v=$vboptions[simpleversion]" />
+	<script type="text/javascript">
+	<!--
+	vbphrase['sunday']    = '$vbphrase[sunday]';
+	vbphrase['monday']    = '$vbphrase[monday]';
+	vbphrase['tuesday']   = '$vbphrase[tuesday]';
+	vbphrase['wednesday'] = '$vbphrase[wednesday]';
+	vbphrase['thursday']  = '$vbphrase[thursday]';
+	vbphrase['friday']    = '$vbphrase[friday]';
+	vbphrase['saturday']  = '$vbphrase[saturday]';
+	-->
+</script>
+</if>
+<if condition="$show['registeruserid']">
+<script type="text/javascript">
+<!--
+	vBulletin.register_control("vB_Blog_Userid", "$bloguserid");
+//-->
+</script>
+</if>
+<if condition="$show['titlefirst']">
+	<title>$pagetitle </title>
+<else />
+	<title>$vboptions[bbtitle] - $pagetitle</title>
+</if>
+</head>
+<body $onload>
+$header
+$navbar
+
+<div <if condition="!$show['nousercss']">id="usercss"</if>>
+	<div class="cleardiv"></div>
+	<div id="content_container">
+		<div id="content">
+
+			<if condition="$blogheader['custompages']">
+				<div class="tborder" style="padding:$stylevar[cellspacing]px; margin-bottom:$stylevar[cellpadding]px">
+					<div class="thead" style="padding:$stylevar[cellpadding]px">
+						<if condition="$show['cpbloglink']"><a href="blog.php?$session[sessionurl]u=$blogheader[userid]">$blogheader[title]</a><else />$blogheader[title]</if> | $blogheader[custompages]
+					</div>
+				</div>
+			</if>
+
+			<!-- Description -->
+			<if condition="$blogheader['description']">
+				<div id="blog_description">$blogheader[description]</div>
+			</if>
+			<!-- End Description -->
+
+			<!-- main content -->
+			$content
+			<!-- End main content -->
+		</div>
+	</div>
+	<div id="sidebar_container">$sidebar</div>
+	<div class="cleardiv"></div>
+</div>
+
+$footer
+</body>
+</html>

@@ -1,0 +1,3 @@
+The tag cloud pulls together data from threads in many forums. Users may not be able to see all the threads that make up the tag cloud results. With this option, you can force the tag cloud to be built as if it were viewed by a particular usergroup.<br />
+<br />
+Live permission checking is the most accurate, but disables the above specified caching.

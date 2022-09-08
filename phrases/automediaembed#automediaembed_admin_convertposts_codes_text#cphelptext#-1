@@ -1,0 +1,2 @@
+This is a comma seperated list of bbcodes that you want to try and convert back into [url] tags.<p>AME will only be able to convert bbcodes without options (i.e. <strong>[mytag]data[/mytag]</strong>).</p>
+<p>For example, you would convert the following tags:<ul><li>[youtubevid]</li><li>[myspacevid]</li><li>[media]</li></ul>By entering:<ul><li>youtubevid, myspacevid, media</li></ul>Into this box.</p><p>It is also worth pointing out now that each entry must have a correspinding entry in the conversions list below.</p?

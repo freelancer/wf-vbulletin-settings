@@ -1,0 +1,7 @@
+<tr class="$bgclass">
+    <td><input type="radio" name="oldver" value="$history[postedithistoryid]" $oldver_selected /></td>
+    <td><input type="radio" name="newver" value="$history[postedithistoryid]" $newver_selected /></td>
+    <td><if condition="$history['reason'] != ''">$history[reason]<else />$vbphrase[n_a]</if></td>
+    <td><a href="member.php?$session[sessionurl]u=$history[userid]">$history[username]</a></td>
+    <td>$history[strdate] <span class="time">$history[strtime]</span></td>
+</tr>

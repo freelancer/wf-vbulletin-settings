@@ -1,0 +1,13 @@
+<if condition="$sidebar['entrybits']">
+<li id="block_entries">
+		<div class="tborder" style="margin-top:$stylevar[cellpadding]px; padding:$stylevar[cellspacing]px"  id="block_entries_div">
+			<div class="thead" style="padding:$stylevar[cellpadding]px"<if condition="$show['moveable']"> id="block_entries_handle"</if>>
+				<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('blog_entries')"><img id="collapseimg_blog_entries" src="$stylevar[imgdir_button]/collapse_generic$vbcollapse[collapseimg_blog_entries].gif" alt="" border="0" /></a>
+				<a href="blog.php?$session[sessionurl]u=$userinfo[userid]">$vbphrase[recent_entries]</a>
+			</div>
+			<div class="alt1" style="padding:$stylevar[cellpadding]px; margin-top:$stylevar[cellspacing]px; $vbcollapse[collapseobj_blog_entries]" id="collapseobj_blog_entries">
+				<ul style="list-style:none; padding:0px; margin:0px">$sidebar[entrybits]</ul>
+			</div>
+		</div>
+</li>
+</if>

@@ -1,0 +1,1 @@
+<a href="$sorturl&amp;order=$oppositesort&amp;sort=$sortfield&amp;pp=$perpage&amp;page=$pagenumber" rel="nofollow"><img class="inlineimg" src="$stylevar[imgdir_button]/sort$oppositesort.gif" alt="$vbphrase[reverse_sort_order]" border="0" /></a>

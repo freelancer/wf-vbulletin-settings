@@ -1,0 +1,35 @@
+<li id="vmessage$message[vmid]" class="floatcontainer">
+	<div class="tborder info_bar">
+		<div class="alt2 smallfont">
+			<if condition="$show['inlinemod']"><input type="checkbox" class="inlinemod_checkbox" name="vmessagelist[$message[vmid]]" id="vmessagelist_$message[vmid]" value="$message[checkbox_value]" title="$vbphrase[select_this_item_for_inline_moderation]"  /></if>
+			<div class="visitor_message_date">$message[date]<if condition="!$show['detailedtime']"> <span class="time">$message[time]</span></if></div>
+			<if condition="$message['postuserid']">
+				<a href="member.php?$session[sessionurl]u=$message[postuserid]" class="smallfont username">$message[musername]</a>
+			<else />
+				<span class="smallfont username">$message[musername]</span>
+			</if>
+
+			<if condition="$show['profile']">
+				<div><phrase 1="member.php?$session[sessionurl]u=$message[profileuserid]&amp;vmid=$message[vmid]#vmessage$message[vmid]" 2="$message[profileusername]">$vbphrase[profile_x]</phrase></div>
+			</if>
+		</div>
+	</div>
+
+	<if condition="$show['deleted']"><div class="visitor_message_body">$message[message]</div><br /></if>
+
+	<div class="smallfont deletedmessage">
+		<phrase 1="member.php?$session[sessionurl]u=$message[del_userid]" 2="$message[del_username]">$vbphrase[message_deleted_by_x]</phrase>
+		<if condition="$message['del_reason']"><span class="shade">$vbphrase[reason]</span> <em>$message[del_reason]</em></if>
+	</div>
+
+	<if condition="$show['edit'] OR $show['reportlink']">
+		<ul class="list_no_decoration controls">
+			<if condition="$show['edit']">
+				<li class="smallfont"><a href="visitormessage.php?$session[sessionurl]u=$userinfo[userid]&amp;do=message&amp;vmid=$message[vmid]">$vbphrase[edit]</a></li>
+			</if>
+			<if condition="$show['reportlink']">
+				<li class="smallfont"><a href="visitormessage.php?$session[sessionurl]u=$userinfo[userid]&amp;do=report&amp;vmid=$message[vmid]">$vbphrase[report]</a></li>
+			</if>
+		</ul>
+	</if>
+</li>

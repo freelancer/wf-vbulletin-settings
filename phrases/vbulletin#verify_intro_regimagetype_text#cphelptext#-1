@@ -1,0 +1,7 @@
+<p>In order to generate verification images, vBulletin must have access to an image processing library. There are currently two libraries with which vBulletin can work: GD and ImageMagick.</p>
+
+<p>Of these, ImageMagick is generally preferred, but in order to use it you must ensure that it is installed on your server.</p>
+
+<p>If you can see both the GD and the ImageMagick versions of the image, you can choose either library.</p>
+
+<p>If you are unable to see the ImageMagick image, it either means that you do not have ImageMagick available on your server, or that you have not entered a valid path to the ImageMagick binaries in your <a href="options.php?dogroup=imagesettings" target="_blank">Image Settings</a>.</p>

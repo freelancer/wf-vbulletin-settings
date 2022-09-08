@@ -1,0 +1,7 @@
+On this screen you can see at a glance which forums have access masks. (Remember, inheritance applies here! If a user is granted or denied permission to a parent forum, this will be inherited through all child forums of that parent unless there is an opposite access mask somewhere in the lineage.)<br /><br />
+
+You can also view a list of the users who are granted access, denied access, or all users with access masks related to a given forum. You can remove all access masks from a forum by clicking the Reset link next to it.<br /><br />
+
+At the top of the page you can use the 'Delete All Access Masks' link to remove every access mask from all forums. (You will be prompted for confirmation, but be careful as this is not undoable!)<br /><br />
+
+The 'Access Masks Quick Editor' allows you to list every access on a page, with Yes, No, and Default buttons for each mask to quickly mass-modify masks.

@@ -1,0 +1,17 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=backup&amp;pageaction=&amp;option=">Database Backup</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=repair&amp;pageaction=&amp;option=">Repair / Optimize</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=misc&amp;pageaction=&amp;option=">Update Counters</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=diagnostic&amp;pageaction=&amp;option=">Diagnostics</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=queries&amp;pageaction=&amp;option=">Execute SQL Query</a><br /><br />
+
+<b>Diagnostics:</b><br />
+The diagnostics page contains several diagnostics that are useful for troubleshooting problems with your forums.<br /><br />
+
+The "Upload" diagnostic tests file uploading functionality on your server.  If your server isn't configured correctly for file uploads then several vBulletin features will not work including custom avatar uploads and post attachments.<br /><br />
+
+The "Email" diagnostic will send a test email to the address you specify.  If you receive the test email then PHP and your mail server are configured correctly.  Otherwise they are not configured correctly and you need to contact your host.  Without email functionality you will not be able to use any email features on your forums including email verification on registration and "send to friend."<br /><br />
+
+The "Suspect File Versions" diagnostic checks the version of every PHP file in your forum directory and tells you which ones are for different versions of vBulletin than the one you are running.  Running files that are not meant for your version of vBulletin can cause any number of problems.  If any files are for different versions then you should upload the originals from the vBulletin zip file for the version you are running.<br /><br />
+
+The "System Information" diagnostics report on your MySQL configuration and the status of your database.  vBulletin team members may ask you to give them the output of these reports to help them troubleshoot problems with your server and forums.

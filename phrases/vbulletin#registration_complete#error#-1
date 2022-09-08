@@ -1,0 +1,5 @@
+Thank you, <strong>{1}</strong>. Your registration is now complete.<br />
+<br />
+You may now proceed to edit your <a href="profile.php?{2}do=editprofile"><strong>Profile</strong></a> in order to fill in additional personal details about yourself, or you could modify your <a href="profile.php?{2}do=editoptions"><strong>Options</strong></a> to customize your browsing experience of this site. If you would rather do these things later, you can do so by following the links around the site to your <a href="usercp.php?{2}"><strong>User Control Panel</strong></a>.<br />
+<br />
+Alternatively, you can simply go back to the <a href="{3}"><strong>Forums</strong></a> and start posting in threads.

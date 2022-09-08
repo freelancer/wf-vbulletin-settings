@@ -1,0 +1,1 @@
+The [list] tag allows you to create advanced lists by specifying an option. The option should have a value of 1 (for a numbered list) or A (for an alphabetic with capital letters list) or a (for an alphabetic with lowercase letters list) or I (for a numbered with capital Roman numeral list) or i (for a numbered with small Roman numeral list).

@@ -1,0 +1,1 @@
+When modifying templates, it is often helpful to have this setting enabled so you can view the source of a page to determine what template(s) control it. In the course of normal usage, however, you will usually want this disabled as it will increase your page sizes and therefore bandwidth usage.

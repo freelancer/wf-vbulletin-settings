@@ -1,0 +1,5 @@
+if ($text)
+{
+require_once(DIR . '/includes/ame_bbcode.php');
+$text = ame_strip($text);
+}

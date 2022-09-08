@@ -1,0 +1,8 @@
+Use this option to prevent certain IP addresses from accessing any part of your board.<br />
+<br />
+If you enter a complete IP address (242.21.11.7), only that IP will be banned.<br />
+If you enter a partial IP (243.21.11. or 243.21.11), any IPs that begin with the partial IP will be banned. For example, banning 243.21.11 will prevent 243.21.11.7 from accessing your board. However, 243.21.115.7 would still be able to access your board.<br />
+<br />
+You may also use an '*' as a wildcard for increased flexibility. For example, if you enter 243.21.11*, many IPs will be banned including: 243.21.11.7, 243.21.115.7, 243.21.119.225.<br />
+<br />
+Place a space or a line break between each IP address.

@@ -1,0 +1,3 @@
+This option does not work with some combinations of web server, so it is off by default. However, some IIS setups may need it turned on.<br />
+<br />
+It will send the 200 OK HTTP headers if turned on.

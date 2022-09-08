@@ -1,0 +1,5 @@
+<strong>As of vBulletin 3.6.0 RC1</strong>
+<ul>
+	<li>The <strong>Allow Signatures</strong> option has been removed. If you had this option disabled, you should use signature permissions to deny signatures for specific usergroups.</li>
+	<li>Apple&trade; has updated the iTunes podcast categories. We have followed suit and updated the categories within vBulletin. You will need to edit any podcasting forums and update to the proper category</li>
+</ul>

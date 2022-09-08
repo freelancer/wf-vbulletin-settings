@@ -1,0 +1,1 @@
+vb_optimise::cache('style', $style, $styleid, $userselect);

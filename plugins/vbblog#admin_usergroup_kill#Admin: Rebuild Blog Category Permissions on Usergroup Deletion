@@ -1,0 +1,4 @@
+require_once(DIR . '/includes/blog_functions.php');
+require_once(DIR . '/includes/blog_adminfunctions.php');
+
+build_category_permissions();

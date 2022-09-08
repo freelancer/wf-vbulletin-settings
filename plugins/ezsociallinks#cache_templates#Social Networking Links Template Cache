@@ -1,0 +1,11 @@
+
+		
+if(THIS_SCRIPT=='showthread' && $vbulletin->options['EZsociallinks_enable'] && $vbulletin->options['EZsociallinks_pbenable'])
+{
+    $globaltemplates = array_merge($globaltemplates, array('EZsociallinks_postbit_bit'));
+}
+if(THIS_SCRIPT=='member' && $vbulletin->options['EZsociallinks_enable'] && $vbulletin->options['EZsociallinks_mienable'])
+{
+    $globaltemplates = array_merge($globaltemplates, array('memberinfo_block_EZsociallinks_mitab','EZsociallinks_mitab_data', 'EZsociallinks_mitab_bits'));
+}
+

@@ -1,0 +1,4 @@
+<tr>
+	<td><img class="inlineimg" src="$stylevar[imgdir_attach]/$attachment[attachmentextension].gif" alt="<phrase 1="$attachment[attachmentextension]">$vbphrase[file_type_x]</phrase>" width="16" height="16" border="0" style="vertical-align:baseline" /></td>
+	<td><if condition="$show['modattachmentlink']"><a href="attachment.php?$session[sessionurl]attachmentid=$attachment[attachmentid]&amp;d=$attachment[dateline]"<if condition="$show['newwindow']"> target="_blank"</if>>$attachment[filename]</a> ($attachment[filesize])<else />$attachment[filename]</if></td>
+</tr>

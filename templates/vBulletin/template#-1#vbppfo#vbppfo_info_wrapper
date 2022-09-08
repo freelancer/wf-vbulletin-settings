@@ -1,0 +1,30 @@
+
+			$pagenav<br />
+			<table cellspacing="$stylevar[cellspacing]" cellpadding="$stylevar[cellpadding]" width="100%" class="tborder">
+<tr>
+	<td colspan="5" class="tcat">
+		$vbphrase[vbppfo_subscription_reports]
+	</td>
+</tr>
+<tr>
+	<td class="thead">
+		$vbphrase[vbppfo_subscription]
+	</td>
+	<td class="thead">
+		$vbphrase[vbppfo_username]
+	</td>
+	<td class="thead">
+		$vbphrase[vbppfo_cost]
+	</td>
+	<td class="thead">
+		$vbphrase[vbppfo_length]
+	</td>
+	<td class="thead">
+		$vbphrase[vbppfo_date]
+	</td>
+</tr>
+$paymentbits
+</table>
+<br />
+$pagenav
+		

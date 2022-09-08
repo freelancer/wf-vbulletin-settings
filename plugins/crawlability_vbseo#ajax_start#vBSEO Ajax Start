@@ -1,0 +1,2 @@
+if(defined('VBSEO_ENABLED'))
+vbseo_complete_sec('ajax_start');

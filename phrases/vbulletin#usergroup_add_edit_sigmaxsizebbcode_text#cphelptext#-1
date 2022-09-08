@@ -1,0 +1,1 @@
+This controls the maximum font size that users in this group may use in their signatures. If they attempt to exceed this size, they will receive an error. The largest size possible is 7; default is 2.

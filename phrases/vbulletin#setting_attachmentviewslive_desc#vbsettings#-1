@@ -1,0 +1,1 @@
+Option to update attachment views immediately, or once an hour. If you have a large number of inline graphic attachments, you will probably want to disable immediate updates, since they are quite server intensive.

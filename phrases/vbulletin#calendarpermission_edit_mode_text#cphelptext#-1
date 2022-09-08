@@ -1,0 +1,1 @@
+If you select Use Usergroup Default, the group will be reverted to default permissions for this calendar. If you select any custom permissions and have not set this to Use Custom Settings you will be warned. If you ignore the warning and set custom permissions without setting this to Use Custom Settings, the settings will not be saved.

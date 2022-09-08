@@ -1,0 +1,13 @@
+Dear $group[username],
+
+You are subscribed to the group $group[name], there have been $new_discussions new discussion(s) and $updated_discussions updated discussions(s).
+$vboptions[bburl]/group.php?groupid=$group[groupid]
+
+The following discussions are new:
+$new_discussion_bits
+
+The following discussions have been updated:
+$updated_discussion_bits
+
+All the best,
+$vboptions[bbtitle]

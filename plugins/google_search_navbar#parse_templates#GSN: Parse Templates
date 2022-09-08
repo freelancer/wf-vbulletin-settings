@@ -1,0 +1,7 @@
+if($vbulletin->options['google_search_on'])
+			{
+						$place = '$template_hook[navbar_search_menu]';
+						$fechttemplate = 'navbar';
+
+			$vbulletin->templatecache[$fechttemplate] = str_replace($place, $place . '\n' . fetch_template('navbar_google_search'), $vbulletin->templatecache[$fechttemplate]);
+			}

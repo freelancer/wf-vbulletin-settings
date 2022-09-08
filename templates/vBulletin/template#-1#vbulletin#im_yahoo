@@ -1,0 +1,1 @@
+<a href="#" onclick="imwindow('yahoo', '$userinfo[userid]', 400, 200); return false;"><img src="$stylevar[imgdir_misc]/im_yahoo.gif" alt="<phrase 1="$userinfo[username]">$vbphrase[send_message_via_yahoo_to_x]</phrase>" border="0" /></a>

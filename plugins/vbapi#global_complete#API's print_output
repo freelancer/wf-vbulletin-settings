@@ -1,0 +1,144 @@
+global $registered_templates;
+
+if (defined('VB_API') AND VB_API === true)
+{
+	$value = null;
+
+	list($templatename, $index) = explode(':', str_replace(array(VB_API_TOKEN_PREFIX, ',', ' '), '', $vartext));
+	$index = intval($index);
+
+	if (isset($registered_templates['vars'][$templatename][$index]))
+	{
+		$value = $registered_templates['vars'][$templatename][$index];
+		parse_api_token($value);
+
+		// Add 'response' to $value
+		foreach ($value as $k => $v)
+		{
+			if (!in_array($k, array('bbuserinfo', 'vboptions', 'vbphrase', 'show')))
+			{
+				$response[$k] = $v;
+				unset($value[$k]);
+			}
+		}
+
+		$value['response'] =& $response;
+		// Unset common show variables
+		unset(
+			$show['old_explorer'], $show['rtl'], $show['admincplink'], $show['modcplink'],
+			$show['registerbutton'], $show['searchbuttons'], $show['quicksearch'],
+			$show['memberslist'], $show['guest'], $show['member'], $show['popups'],
+			$show['nojs_link'], $show['pmwarning'], $show['pmstats'], $show['pmmainlink'],
+			$show['pmtracklink'], $show['pmsendlink'], $show['siglink'], $show['avatarlink'],
+			$show['detailedtime'], $show['profilepiclink'], $show['wollink'], $show['spacer'],
+			$show['dst_correction'], $show['contactus'], $show['nopasswordempty'],
+			$show['quick_links_groups'], $show['quick_links_albums'], $show['friends_and_contacts'],
+			$show['communitylink'], $show['search_engine'], $show['editor_css']
+		);
+		$value['show'] =& $show;
+		$value['session'] =& $vbulletin->session->vars;
+		$value['bbuserinfo'] =& $vbulletin->userinfo;
+		$value['vboptions'] =& $vbulletin->options;
+		$value['vbphrase'] =& $vbphrase;
+	}
+
+	$vbulletin->input->clean_array_gpc('r', array(
+		'debug'         => TYPE_BOOL,
+		'showall'       => TYPE_BOOL,
+	));
+
+	$callback = vB_APICallback::instance();
+
+	$callback->setname('result_prewhitelist');
+	$callback->addParamRef(0, $value);
+	$callback->callback();
+
+	if (!($vbulletin->debug AND $vbulletin->GPC['showall']))
+	{
+		whitelist_filter($value);
+	}
+
+	$callback->setname('result_overwrite');
+	$callback->addParamRef(0, $value);
+	$callback->callback();
+
+	if ($vbulletin->debug AND $vbulletin->GPC['debug'])
+	{
+		$vartext = '<pre>'.htmlspecialchars(var_export($value, true)).'</pre>' . '<br />' . number_format((memory_get_usage() / 1024)) . 'KB';
+	}
+	else
+	{
+		global $stylevar;
+		// json_encode requires utf-8
+		if (!($charset = $stylevar['charset']))
+		{
+			$charset = $vbulletin->userinfo['lang_charset'];
+		}
+
+		$lower_charset = strtolower($charset);
+		if ($lower_charset != 'utf-8')
+		{
+			// Browsers tend to interpret character set iso-8859-1 as windows-1252
+			if ($lower_charset == 'iso-8859-1')
+			{
+				$lower_charset = 'windows-1252';
+			}
+			processregistered($value, $lower_charset);
+		}
+
+		$vartext = json_encode($value);
+	}
+	
+	$output = process_replacement_vars($vartext);
+}
+
+// API Verification
+if (VB_API === true AND !headers_sent() AND $sendheader)
+{
+	global $VB_API_REQUESTS;
+	if (!in_array($VB_API_REQUESTS['api_m'], array('login_login', 'login_logout')))
+	{
+		$sign = md5($output . $vbulletin->apiclient['apiaccesstoken'] . $vbulletin->apiclient['apiclientid'] . $vbulletin->apiclient['secret'] . $vbulletin->options['apikey']);
+		@header('Authorization: ' . $sign);
+	}
+
+	if (!$vbulletin->debug OR !$vbulletin->GPC['debug'])
+	{
+		//  JSON header
+		@header('Content-Type: application/json');
+	}
+}
+
+if ($vbulletin->options['gzipoutput'] AND !headers_sent())
+{
+	$output = fetch_gzipped_text($output, $vbulletin->options['gziplevel']);
+
+	if ($sendheader AND $vbulletin->donegzip)
+	{
+		@header('Content-Length: ' . strlen($output));
+	}
+}
+
+if (defined('NOSHUTDOWNFUNC'))
+{
+	exec_shut_down();
+}
+
+// show regular page
+if (empty($vbulletin->db->explain) OR (defined('VB_API') AND VB_API === true))
+{
+	echo $output;
+}
+// show explain
+elseif (!VB_API)
+{
+	$querytime = $vbulletin->db->time_total;
+	echo "\n<b>Page generated in $totaltime seconds with " . $vbulletin->db->querycount . " queries,\nspending $querytime doing MySQL queries and " . ($totaltime - $querytime) . " doing PHP things.\n\n<hr />Shutdown Queries:</b>" . (defined('NOSHUTDOWNFUNC') ? " <b>DISABLED</b>" : '') . "<hr />\n\n";
+}
+
+// broken if zlib.output_compression is on with Apache 2
+if (SAPI_NAME != 'apache2handler' AND SAPI_NAME != 'apache2filter')
+{
+	flush();
+}
+exit;

@@ -1,0 +1,1 @@
+<a href="#" onclick="imwindow('skype', '$userinfo[userid]', 400, 285); return false;"><img src="<if condition="$vboptions['skypeweb_gfx']">http://mystatus.skype.com/smallicon/$userinfo[skypeencoded]<else />$stylevar[imgdir_misc]/im_skype.gif</if>" alt="<phrase 1="$userinfo[username]">$vbphrase[send_message_via_skype_to_x]</phrase>" border="0" /></a>

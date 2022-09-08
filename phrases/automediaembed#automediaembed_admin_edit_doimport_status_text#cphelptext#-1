@@ -1,0 +1,1 @@
+If this option is set to 'yes' then new/edited/rebuilt posts will use this AME code to replace relevant matching url codes.<p>Remember that because of vBulletins post cache, changes to this setting may not appear right away unless you rebuild posts</p>

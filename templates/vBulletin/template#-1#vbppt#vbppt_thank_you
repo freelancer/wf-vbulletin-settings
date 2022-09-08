@@ -1,0 +1,21 @@
+ 
+			
+<script type="text/javascript">
+	setTimeout(function(){
+		window.top.location.assign('$url');
+	}, 5000);
+</script>
+<center>
+	<h1>$vbphrase[vbppt_payment_completed]</h1>
+	<br />
+	Please contact site administrator if you have any questions.<br /><br />
+	<if condition="$_REQUEST['SkyDev_PaymentMethod']=='clickbank'">
+		Please note, that this purchase will be shown in your bank account history as charge by ClickBank or CLKBANK*COM.
+		<br /><br />
+	</if>
+	<div>
+		<a href="$url" target="_top">$vbphrase[vbppt_click_if_no_redirect]</a>
+	</div>
+</center>
+			
+		

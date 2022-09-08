@@ -1,0 +1,636 @@
+{
+  "count": 70, 
+  "dateline": 1426571883, 
+  "tags": {
+    "0": {
+      "deviation": 34.37142857142857, 
+      "sds": 1.4583039512303504, 
+      "tagid": "11496", 
+      "level": 3.0, 
+      "tagtext_url": "2015", 
+      "tagtext": "2015", 
+      "searchcount": "55"
+    }, 
+    "1": {
+      "deviation": -9.62857142857143, 
+      "sds": -0.40851906198223464, 
+      "tagid": "691", 
+      "level": 1.0, 
+      "tagtext_url": "ads", 
+      "tagtext": "ads", 
+      "searchcount": "11"
+    }, 
+    "2": {
+      "deviation": -11.62857142857143, 
+      "sds": -0.4933746534918976, 
+      "tagid": "89", 
+      "level": 1.0, 
+      "tagtext_url": "adsense", 
+      "tagtext": "adsense", 
+      "searchcount": "9"
+    }, 
+    "3": {
+      "deviation": 2.37142857142857, 
+      "sds": 0.10061448707574318, 
+      "tagid": "155", 
+      "level": 2.0, 
+      "tagtext_url": "affiliate", 
+      "tagtext": "affiliate", 
+      "searchcount": "23"
+    }, 
+    "4": {
+      "deviation": 98.37142857142857, 
+      "sds": 4.173682879539565, 
+      "tagid": "135", 
+      "level": 5.0, 
+      "tagtext_url": "affiliate+marketing", 
+      "tagtext": "affiliate marketing", 
+      "searchcount": "119"
+    }, 
+    "5": {
+      "deviation": -11.62857142857143, 
+      "sds": -0.4933746534918976, 
+      "tagid": "29", 
+      "level": 1.0, 
+      "tagtext_url": "affiliate+program", 
+      "tagtext": "affiliate program", 
+      "searchcount": "9"
+    }, 
+    "6": {
+      "deviation": -14.62857142857143, 
+      "sds": -0.6206580407563921, 
+      "tagid": "334", 
+      "level": 1.0, 
+      "tagtext_url": "affiliate+programs", 
+      "tagtext": "affiliate programs", 
+      "searchcount": "6"
+    }, 
+    "7": {
+      "deviation": -13.62857142857143, 
+      "sds": -0.5782302450015605, 
+      "tagid": "1143", 
+      "level": 1.0, 
+      "tagtext_url": "amazon", 
+      "tagtext": "amazon", 
+      "searchcount": "7"
+    }, 
+    "8": {
+      "deviation": -8.62857142857143, 
+      "sds": -0.3660912662274031, 
+      "tagid": "375", 
+      "level": 1.0, 
+      "tagtext_url": "article+marketing", 
+      "tagtext": "article marketing", 
+      "searchcount": "12"
+    }, 
+    "9": {
+      "deviation": -11.62857142857143, 
+      "sds": -0.4933746534918976, 
+      "tagid": "9", 
+      "level": 1.0, 
+      "tagtext_url": "blog", 
+      "tagtext": "blog", 
+      "searchcount": "9"
+    }, 
+    "10": {
+      "deviation": 54.37142857142857, 
+      "sds": 2.30685986632698, 
+      "tagid": "67", 
+      "level": 3.0, 
+      "tagtext_url": "blogging", 
+      "tagtext": "blogging", 
+      "searchcount": "75"
+    }, 
+    "11": {
+      "deviation": 15.37142857142857, 
+      "sds": 0.6521758318885524, 
+      "tagid": "948", 
+      "level": 2.0, 
+      "tagtext_url": "business", 
+      "tagtext": "business", 
+      "searchcount": "36"
+    }, 
+    "12": {
+      "deviation": -15.62857142857143, 
+      "sds": -0.6630858365112235, 
+      "tagid": "167", 
+      "level": 1.0, 
+      "tagtext_url": "clickbank", 
+      "tagtext": "clickbank", 
+      "searchcount": "5"
+    }, 
+    "13": {
+      "deviation": -10.62857142857143, 
+      "sds": -0.4509468577370661, 
+      "tagid": "191", 
+      "level": 1.0, 
+      "tagtext_url": "ecommerce", 
+      "tagtext": "ecommerce", 
+      "searchcount": "10"
+    }, 
+    "14": {
+      "deviation": 7.37142857142857, 
+      "sds": 0.3127534658499006, 
+      "tagid": "451", 
+      "level": 2.0, 
+      "tagtext_url": "email+marketing", 
+      "tagtext": "email marketing", 
+      "searchcount": "28"
+    }, 
+    "15": {
+      "deviation": -10.62857142857143, 
+      "sds": -0.4509468577370661, 
+      "tagid": "218", 
+      "level": 1.0, 
+      "tagtext_url": "entrepreneur", 
+      "tagtext": "entrepreneur", 
+      "searchcount": "10"
+    }, 
+    "16": {
+      "deviation": 1.37142857142857, 
+      "sds": 0.05818669132091169, 
+      "tagid": "343", 
+      "level": 2.0, 
+      "tagtext_url": "facebook", 
+      "tagtext": "facebook", 
+      "searchcount": "22"
+    }, 
+    "17": {
+      "deviation": -15.62857142857143, 
+      "sds": -0.6630858365112235, 
+      "tagid": "4399", 
+      "level": 1.0, 
+      "tagtext_url": "facebook+marketing", 
+      "tagtext": "facebook marketing", 
+      "searchcount": "5"
+    }, 
+    "18": {
+      "deviation": -9.62857142857143, 
+      "sds": -0.40851906198223464, 
+      "tagid": "11", 
+      "level": 1.0, 
+      "tagtext_url": "google", 
+      "tagtext": "google", 
+      "searchcount": "11"
+    }, 
+    "19": {
+      "deviation": -6.62857142857143, 
+      "sds": -0.2812356747177402, 
+      "tagid": "1393", 
+      "level": 1.0, 
+      "tagtext_url": "home", 
+      "tagtext": "home", 
+      "searchcount": "14"
+    }, 
+    "20": {
+      "deviation": -11.62857142857143, 
+      "sds": -0.4933746534918976, 
+      "tagid": "173", 
+      "level": 1.0, 
+      "tagtext_url": "home+business", 
+      "tagtext": "home business", 
+      "searchcount": "9"
+    }, 
+    "21": {
+      "deviation": -15.62857142857143, 
+      "sds": -0.6630858365112235, 
+      "tagid": "104", 
+      "level": 1.0, 
+      "tagtext_url": "how+to", 
+      "tagtext": "how to", 
+      "searchcount": "5"
+    }, 
+    "22": {
+      "deviation": -4.62857142857143, 
+      "sds": -0.1963800832080772, 
+      "tagid": "391", 
+      "level": 1.0, 
+      "tagtext_url": "internet", 
+      "tagtext": "internet", 
+      "searchcount": "16"
+    }, 
+    "23": {
+      "deviation": 87.37142857142857, 
+      "sds": 3.7069771262364193, 
+      "tagid": "22", 
+      "level": 5.0, 
+      "tagtext_url": "internet+marketing", 
+      "tagtext": "internet marketing", 
+      "searchcount": "108"
+    }, 
+    "24": {
+      "deviation": -6.62857142857143, 
+      "sds": -0.2812356747177402, 
+      "tagid": "8088", 
+      "level": 1.0, 
+      "tagtext_url": "john+di+lemme", 
+      "tagtext": "john di lemme", 
+      "searchcount": "14"
+    }, 
+    "25": {
+      "deviation": 14.37142857142857, 
+      "sds": 0.609748036133721, 
+      "tagid": "72", 
+      "level": 2.0, 
+      "tagtext_url": "list+building", 
+      "tagtext": "list building", 
+      "searchcount": "35"
+    }, 
+    "26": {
+      "deviation": -4.62857142857143, 
+      "sds": -0.1963800832080772, 
+      "tagid": "1891", 
+      "level": 1.0, 
+      "tagtext_url": "make", 
+      "tagtext": "make", 
+      "searchcount": "16"
+    }, 
+    "27": {
+      "deviation": -5.62857142857143, 
+      "sds": -0.2388078789629087, 
+      "tagid": "90", 
+      "level": 1.0, 
+      "tagtext_url": "make+money", 
+      "tagtext": "make money", 
+      "searchcount": "15"
+    }, 
+    "28": {
+      "deviation": 17.37142857142857, 
+      "sds": 0.7370314233982155, 
+      "tagid": "128", 
+      "level": 2.0, 
+      "tagtext_url": "make+money+online", 
+      "tagtext": "make money online", 
+      "searchcount": "38"
+    }, 
+    "29": {
+      "deviation": -14.62857142857143, 
+      "sds": -0.6206580407563921, 
+      "tagid": "957", 
+      "level": 1.0, 
+      "tagtext_url": "making+money", 
+      "tagtext": "making money", 
+      "searchcount": "6"
+    }, 
+    "30": {
+      "deviation": 44.37142857142857, 
+      "sds": 1.8825819087786653, 
+      "tagid": "74", 
+      "level": 3.0, 
+      "tagtext_url": "marketing", 
+      "tagtext": "marketing", 
+      "searchcount": "65"
+    }, 
+    "31": {
+      "deviation": 2.37142857142857, 
+      "sds": 0.10061448707574318, 
+      "tagid": "46", 
+      "level": 2.0, 
+      "tagtext_url": "money", 
+      "tagtext": "money", 
+      "searchcount": "23"
+    }, 
+    "32": {
+      "deviation": -9.62857142857143, 
+      "sds": -0.40851906198223464, 
+      "tagid": "362", 
+      "level": 1.0, 
+      "tagtext_url": "motivation", 
+      "tagtext": "motivation", 
+      "searchcount": "11"
+    }, 
+    "33": {
+      "deviation": -14.62857142857143, 
+      "sds": -0.6206580407563921, 
+      "tagid": "194", 
+      "level": 1.0, 
+      "tagtext_url": "network+marketing", 
+      "tagtext": "network marketing", 
+      "searchcount": "6"
+    }, 
+    "34": {
+      "deviation": 3.37142857142857, 
+      "sds": 0.14304228283057466, 
+      "tagid": "879", 
+      "level": 2.0, 
+      "tagtext_url": "online", 
+      "tagtext": "online", 
+      "searchcount": "24"
+    }, 
+    "35": {
+      "deviation": -14.62857142857143, 
+      "sds": -0.6206580407563921, 
+      "tagid": "2855", 
+      "level": 1.0, 
+      "tagtext_url": "online+advertising", 
+      "tagtext": "online advertising", 
+      "searchcount": "6"
+    }, 
+    "36": {
+      "deviation": -1.62857142857143, 
+      "sds": -0.06909669594358275, 
+      "tagid": "349", 
+      "level": 1.0, 
+      "tagtext_url": "online+business", 
+      "tagtext": "online business", 
+      "searchcount": "19"
+    }, 
+    "37": {
+      "deviation": 11.37142857142857, 
+      "sds": 0.4824646488692265, 
+      "tagid": "163", 
+      "level": 2.0, 
+      "tagtext_url": "online+marketing", 
+      "tagtext": "online marketing", 
+      "searchcount": "32"
+    }, 
+    "38": {
+      "deviation": -5.62857142857143, 
+      "sds": -0.2388078789629087, 
+      "tagid": "494", 
+      "level": 1.0, 
+      "tagtext_url": "opportunities", 
+      "tagtext": "opportunities", 
+      "searchcount": "15"
+    }, 
+    "39": {
+      "deviation": -14.62857142857143, 
+      "sds": -0.6206580407563921, 
+      "tagid": "10930", 
+      "level": 1.0, 
+      "tagtext_url": "positive+mental+attitude", 
+      "tagtext": "positive mental attitude", 
+      "searchcount": "6"
+    }, 
+    "40": {
+      "deviation": -14.62857142857143, 
+      "sds": -0.6206580407563921, 
+      "tagid": "1038", 
+      "level": 1.0, 
+      "tagtext_url": "positive+thinking", 
+      "tagtext": "positive thinking", 
+      "searchcount": "6"
+    }, 
+    "41": {
+      "deviation": -10.62857142857143, 
+      "sds": -0.4509468577370661, 
+      "tagid": "235", 
+      "level": 1.0, 
+      "tagtext_url": "ppc", 
+      "tagtext": "ppc", 
+      "searchcount": "10"
+    }, 
+    "42": {
+      "deviation": -13.62857142857143, 
+      "sds": -0.5782302450015605, 
+      "tagid": "513", 
+      "level": 1.0, 
+      "tagtext_url": "product+creation", 
+      "tagtext": "product creation", 
+      "searchcount": "7"
+    }, 
+    "43": {
+      "deviation": -11.62857142857143, 
+      "sds": -0.4933746534918976, 
+      "tagid": "1735", 
+      "level": 1.0, 
+      "tagtext_url": "programs", 
+      "tagtext": "programs", 
+      "searchcount": "9"
+    }, 
+    "44": {
+      "deviation": -9.62857142857143, 
+      "sds": -0.40851906198223464, 
+      "tagid": "599", 
+      "level": 1.0, 
+      "tagtext_url": "review", 
+      "tagtext": "review", 
+      "searchcount": "11"
+    }, 
+    "45": {
+      "deviation": -10.62857142857143, 
+      "sds": -0.4509468577370661, 
+      "tagid": "50", 
+      "level": 1.0, 
+      "tagtext_url": "sales", 
+      "tagtext": "sales", 
+      "searchcount": "10"
+    }, 
+    "46": {
+      "deviation": -13.62857142857143, 
+      "sds": -0.5782302450015605, 
+      "tagid": "151", 
+      "level": 1.0, 
+      "tagtext_url": "search+engine", 
+      "tagtext": "search engine", 
+      "searchcount": "7"
+    }, 
+    "47": {
+      "deviation": 56.37142857142857, 
+      "sds": 2.3917154578366433, 
+      "tagid": "147", 
+      "level": 4.0, 
+      "tagtext_url": "seo", 
+      "tagtext": "seo", 
+      "searchcount": "77"
+    }, 
+    "48": {
+      "deviation": -14.62857142857143, 
+      "sds": -0.6206580407563921, 
+      "tagid": "8761", 
+      "level": 1.0, 
+      "tagtext_url": "seo+advice", 
+      "tagtext": "seo advice", 
+      "searchcount": "6"
+    }, 
+    "49": {
+      "deviation": -12.62857142857143, 
+      "sds": -0.535802449246729, 
+      "tagid": "852", 
+      "level": 1.0, 
+      "tagtext_url": "small+business", 
+      "tagtext": "small business", 
+      "searchcount": "8"
+    }, 
+    "50": {
+      "deviation": -15.62857142857143, 
+      "sds": -0.6630858365112235, 
+      "tagid": "11385", 
+      "level": 1.0, 
+      "tagtext_url": "small+business+seo", 
+      "tagtext": "small business seo", 
+      "searchcount": "5"
+    }, 
+    "51": {
+      "deviation": -14.62857142857143, 
+      "sds": -0.6206580407563921, 
+      "tagid": "398", 
+      "level": 1.0, 
+      "tagtext_url": "social+marketing", 
+      "tagtext": "social marketing", 
+      "searchcount": "6"
+    }, 
+    "52": {
+      "deviation": 13.37142857142857, 
+      "sds": 0.5673202403788895, 
+      "tagid": "2161", 
+      "level": 2.0, 
+      "tagtext_url": "social+media", 
+      "tagtext": "social media", 
+      "searchcount": "34"
+    }, 
+    "53": {
+      "deviation": -9.62857142857143, 
+      "sds": -0.40851906198223464, 
+      "tagid": "1465", 
+      "level": 1.0, 
+      "tagtext_url": "social+media+marketing", 
+      "tagtext": "social media marketing", 
+      "searchcount": "11"
+    }, 
+    "54": {
+      "deviation": -11.62857142857143, 
+      "sds": -0.4933746534918976, 
+      "tagid": "10251", 
+      "level": 1.0, 
+      "tagtext_url": "solo", 
+      "tagtext": "solo", 
+      "searchcount": "9"
+    }, 
+    "55": {
+      "deviation": 57.37142857142857, 
+      "sds": 2.4341432535914747, 
+      "tagid": "285", 
+      "level": 4.0, 
+      "tagtext_url": "success", 
+      "tagtext": "success", 
+      "searchcount": "78"
+    }, 
+    "56": {
+      "deviation": -6.62857142857143, 
+      "sds": -0.2812356747177402, 
+      "tagid": "11180", 
+      "level": 1.0, 
+      "tagtext_url": "success+coaching", 
+      "tagtext": "success coaching", 
+      "searchcount": "14"
+    }, 
+    "57": {
+      "deviation": 24.37142857142857, 
+      "sds": 1.0340259936820357, 
+      "tagid": "11179", 
+      "level": 2.0, 
+      "tagtext_url": "success+strategy", 
+      "tagtext": "success strategy", 
+      "searchcount": "45"
+    }, 
+    "58": {
+      "deviation": -15.62857142857143, 
+      "sds": -0.6630858365112235, 
+      "tagid": "875", 
+      "level": 1.0, 
+      "tagtext_url": "system", 
+      "tagtext": "system", 
+      "searchcount": "5"
+    }, 
+    "59": {
+      "deviation": -14.62857142857143, 
+      "sds": -0.6206580407563921, 
+      "tagid": "10140", 
+      "level": 1.0, 
+      "tagtext_url": "top", 
+      "tagtext": "top", 
+      "searchcount": "6"
+    }, 
+    "60": {
+      "deviation": -1.62857142857143, 
+      "sds": -0.06909669594358275, 
+      "tagid": "73", 
+      "level": 1.0, 
+      "tagtext_url": "traffic", 
+      "tagtext": "traffic", 
+      "searchcount": "19"
+    }, 
+    "61": {
+      "deviation": -11.62857142857143, 
+      "sds": -0.4933746534918976, 
+      "tagid": "251", 
+      "level": 1.0, 
+      "tagtext_url": "traffic+generation", 
+      "tagtext": "traffic generation", 
+      "searchcount": "9"
+    }, 
+    "62": {
+      "deviation": -8.62857142857143, 
+      "sds": -0.3660912662274031, 
+      "tagid": "397", 
+      "level": 1.0, 
+      "tagtext_url": "twitter", 
+      "tagtext": "twitter", 
+      "searchcount": "12"
+    }, 
+    "63": {
+      "deviation": -13.62857142857143, 
+      "sds": -0.5782302450015605, 
+      "tagid": "115", 
+      "level": 1.0, 
+      "tagtext_url": "website", 
+      "tagtext": "website", 
+      "searchcount": "7"
+    }, 
+    "64": {
+      "deviation": -8.62857142857143, 
+      "sds": -0.3660912662274031, 
+      "tagid": "250", 
+      "level": 1.0, 
+      "tagtext_url": "website+traffic", 
+      "tagtext": "website traffic", 
+      "searchcount": "12"
+    }, 
+    "65": {
+      "deviation": -2.62857142857143, 
+      "sds": -0.11152449169841425, 
+      "tagid": "7", 
+      "level": 1.0, 
+      "tagtext_url": "wordpress", 
+      "tagtext": "wordpress", 
+      "searchcount": "18"
+    }, 
+    "66": {
+      "deviation": -14.62857142857143, 
+      "sds": -0.6206580407563921, 
+      "tagid": "792", 
+      "level": 1.0, 
+      "tagtext_url": "work", 
+      "tagtext": "work", 
+      "searchcount": "6"
+    }, 
+    "67": {
+      "deviation": -12.62857142857143, 
+      "sds": -0.535802449246729, 
+      "tagid": "206", 
+      "level": 1.0, 
+      "tagtext_url": "work+at+home", 
+      "tagtext": "work at home", 
+      "searchcount": "8"
+    }, 
+    "68": {
+      "deviation": -14.62857142857143, 
+      "sds": -0.6206580407563921, 
+      "tagid": "20", 
+      "level": 1.0, 
+      "tagtext_url": "work+from+home", 
+      "tagtext": "work from home", 
+      "searchcount": "6"
+    }, 
+    "69": {
+      "deviation": 17.37142857142857, 
+      "sds": 0.7370314233982155, 
+      "tagid": "670", 
+      "level": 2.0, 
+      "tagtext_url": "youtube", 
+      "tagtext": "youtube", 
+      "searchcount": "38"
+    }
+  }
+}

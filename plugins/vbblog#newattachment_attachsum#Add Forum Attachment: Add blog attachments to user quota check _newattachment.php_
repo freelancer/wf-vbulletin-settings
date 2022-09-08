@@ -1,0 +1,9 @@
+$attachdata = $db->query_first("
+	SELECT SUM(blog_attachment.filesize) AS sum
+	FROM " . TABLE_PREFIX . "blog_attachment AS blog_attachment
+	LEFT JOIN " . TABLE_PREFIX . "blog AS blog ON (blog_attachment.blogid = blog.blogid)
+	WHERE blog_attachment.userid = " . ($postid ? $postinfo['userid'] : $vbulletin->userinfo['userid']) . "
+			AND	(blog.state IN ('moderation', 'visible', 'draft')
+			OR blog_attachment.blogid = 0)
+");
+$attachsum += intval($attachdata['sum']);

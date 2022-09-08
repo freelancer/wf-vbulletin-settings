@@ -1,0 +1,114 @@
+<form action="profile.php?do=deleteattachments&amp;userid=$userid" method="post">
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+<tr>
+	<td class="tcat" colspan="4">
+		<if condition="$show['attachquota']">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('attachinfo')"><img id="collapseimg_attachinfo" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_attachinfo].gif" alt="$vbphrase[attachment_statistics]" border="0" /></a>
+		</if>
+		<phrase 1="$username">$vbphrase[attachments_posted_by_x]</phrase>
+	</td>
+</tr>
+</thead>
+<if condition="$show['attachquota']">
+<tbody id="collapseobj_attachinfo" style="$vbcollapse[collapseobj_attachinfo]">
+	<tr>
+		<td class="panelsurround" align="center" colspan="4">
+		<div class="panel">
+			<div style="width:$stylevar[formwidth_usercp]" align="$stylevar[left]">
+				<fieldset class="fieldset">
+					<legend>$vbphrase[attachment_statistics]</legend>
+					<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" width="100%">
+					<tr>
+						<td><phrase 1="$attachsum" 2="$totalattachments">$vbphrase[currently_using_x_to_store_y_attachments]</phrase></td>
+					</tr>
+					<if condition="$show['attachlimit']">
+					<tr>
+						<td>
+							<table style="border:2px groove" cellpadding="0" cellspacing="1" border="0" width="100%">
+							<tr>
+								<if condition="$show['currentattachsize']"><td width="$attachsize" style="background-color:red; font-size:10px" title="<phrase 1="$attachsum">$vbphrase[current_attachment_total_x]</phrase>">&nbsp;</td></if>
+								<if condition="$show['totalattachsize']"><td width="$totalsize" style="background-color:green; font-size:10px" title="<phrase 1="$attachlimit">$vbphrase[maximum_attachment_storage_x]</phrase>">&nbsp;</td></if>
+							</tr>
+							</table>
+						</td>
+					</tr>
+					</if>
+					</table>
+				</fieldset>
+			</div>
+		</div>
+		</td>
+	</tr>
+</tbody>
+</if>
+<if condition="$show['attachment_list']">
+<tbody>
+<tr align="center">
+	<td class="thead">$vbphrase[attachment]</td>
+	<td class="thead">$vbphrase[title]</td>
+	<if condition="$show['deleteoption']">
+		<td class="thead">$vbphrase[date]</td>
+		<td class="thead" style="padding:0px"><input name="allbox" type="checkbox" value="Check All" title="$vbphrase[check_uncheck_all]" onclick="checkall(this.form);"  /></td>
+	<else />
+		<td class="thead" colspan="2">$vbphrase[date]</td>
+	</if>
+
+</tr>
+
+$template[attachmentlistbits]
+
+<tr>
+	<td class="tfoot" colspan="4" align="$stylevar[right]">
+		<span class="smallfont" style="float:$stylevar[left]">
+			<if condition="$show['thumbnails']">
+				<a href="profile.php?$session[sessionurl]do=editattachments&amp;pp=$perpage&amp;page=$pagenumber<if condition="$show['otheruserid']">&amp;u=$userid</if>"><strong>$vbphrase[hide_thumbnails]</strong></a>
+			<else />
+				<a href="profile.php?$session[sessionurl]do=editattachments&amp;pp=$perpage&amp;page=$pagenumber&amp;showthumbs=1<if condition="$show['otheruserid']">&amp;u=$userid</if>"><strong>$vbphrase[show_thumbnails]</strong></a>
+			</if>
+		</span>
+		<if condition="$show['deleteoption']">
+			<input type="hidden" name="perpage" value="$perpage" />
+			<input type="hidden" name="pagenumber" value="$pagenumber" />
+			<input type="hidden" name="showthumbs" value="$showthumbs" />
+			<input type="hidden" name="do" value="deleteattachments" />
+			<input type="hidden" name="s" value="$session[sessionhash]" />
+			<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+			<input type="hidden" name="userid" value="$userid" />
+			<input type="submit" class="button" value="$vbphrase[delete_selected]" />
+		</if>
+	</td>
+</tr>
+</tbody>
+<else />
+<tbody>
+<tr>
+	<td class="alt1" colspan="4" align="center">
+		<p>$vbphrase[you_have_no_attachments]</p>
+	</td>
+</tr>
+</tbody>
+</if>
+</table>
+
+</form>
+
+<if condition="$show['lightbox']">
+<!-- lightbox scripts -->
+	<script type="text/javascript" src="clientscript/vbulletin_lightbox.js?v=$vboptions[simpleversion]"></script>
+	<script type="text/javascript">
+	<!--
+	vBulletin.register_control("vB_Lightbox_Container", "attachmentlist", $vboptions[lightboxenabled]);
+	//-->
+	</script>
+<!-- / lightbox scripts -->
+</if>
+
+<if condition="$pagenav">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:3px">
+<tr valign="top">
+	<td align="$stylevar[right]">$pagenav</td>
+</tr>
+</table>
+</if>

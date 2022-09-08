@@ -1,0 +1,21 @@
+
+			<if condition="$show['recurring']">
+<input type="hidden" name="ap_purchasetype" value="subscription" />
+<else />
+<input type="hidden" name="ap_purchasetype" value="service" />
+</if>
+<input type="hidden" name="ap_merchant" value="$settings[apmerchant]" />
+<input type="hidden" name="ap_itemname" value="<phrase 1="$subinfo[title]">$vbphrase[x_subscription]</phrase>" />
+<input type="hidden" name="ap_itemcode" value="$item" />
+<input type="hidden" name="ap_amount" value="$cost" />
+<input type="hidden" name="ap_quantity" value="1" />
+<input type="hidden" name="ap_currency" value="$currency" />
+<if condition="$show['recurring']">
+<input type="hidden" name="ap_periodlength" value="$timeinfo[length]">
+<input type="hidden" name="ap_timeunit" value="$timespan">
+<input type="hidden" name="ap_periodcount" value="0">
+</if>
+<input type="hidden" name="ap_returnurl" value="$vboptions[bburl]/$vboptions[forumhome].php" />
+<input type="hidden" name="ap_cancelurl" value="$vboptions[bburl]/$vboptions[forumhome].php" />
+<input type="hidden" name="ap_description" value="$userinfo[username]" />
+		

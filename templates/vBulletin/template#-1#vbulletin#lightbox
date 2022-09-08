@@ -1,0 +1,27 @@
+<table cellpadding="0" cellspacing="0" border="0" id="lightbox$uniqueid" style="position:absolute; left:0px; top:0px">
+<tr>
+	<td>
+		<div style="text-align:$stylevar[right]">
+			<input type="button" class="button" value="X" id="lightboxbutton$uniqueid" style="padding:4px; background-color:black; color:white; width:30px; border:solid 1px white; position:relative; top:12px; $stylevar[left]:-12px; font-weight:bold; cursor:pointer" />
+		</div>
+		<table cellpadding="0" cellspacing="0" border="0" width="100%" style="border:solid 1px white; background-color:black">
+		<tr valign="middle">
+			<td colspan="2" style="text-align:center; <if condition="$width AND $height">width:{$width}px; height:{$height}px</if>" align="center" valign="middle" id="lightboxholder">
+				<if condition="$show['newwindow']">
+				 <a href="$imagelink" id="lightboxlink$uniqueid" target="_blank"><else /><a href="$imagelink" id="lightboxlink$uniqueid"></if><img src="$stylevar[imgdir_misc]/lightbox_progress.gif" alt="" border="0" id="lightboximg$uniqueid" width="300" height="200" style="border:solid 4px black; border-bottom-width:0px;" /></a>
+			</td>
+		</tr>
+		<tr class="lightboxtextrow">
+			<td class="smallfont" style="padding:4px; background-color:black; color:white">$attachmentinfo[filename] (<phrase 1="$current" 2="$total">$vbphrase[x_of_y]</phrase>)</td>
+			<td class="smallfont" style="padding:4px; background-color:black; color:white; text-align:$stylevar[right]">$attachmentinfo[date_string] $attachmentinfo[time_string]</td>
+		</tr>
+		<tr>
+			<td style="background-color:black; color:white" align="center" colspan="2">
+				<input type="button" class="button" value="<if condition="$first">$vbphrase[lightbox_last]<else />$vbphrase[lightbox_previous]</if>" id="lightboxprevbutton$uniqueid" style="padding:4px; background-color:black; color:white; border:solid 1px white; position:relative; top:12px; font-weight:bold; cursor:pointer" />
+				<input type="button" class="button" value="<if condition="$last">$vbphrase[lightbox_first]<else />$vbphrase[lightbox_next]</if>" id="lightboxnextbutton$uniqueid" style="padding:4px; background-color:black; color:white; border:solid 1px white; position:relative; top:12px; font-weight:bold; cursor:pointer" />
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>

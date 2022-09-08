@@ -1,0 +1,11 @@
+<p><b>How can I see the latest posts?</b></p>
+
+<p>There are two ways to quickly view recently created or updated threads.</p>
+
+<p>If you are not logged in, the 'today's posts' link will show a list of all threads that have been created or updated in the last 24 hours.</p>
+
+<p>If you are logged in, the 'Today's Posts' link will change to 'New Posts', which gives you a listing of all threads that have been created or updated since your last visit.</p>
+
+<p>The administrator can also set up the forums so that each thread you read is marked in the database. If this option is set, then new threads (or threads with new posts) will not be marked as read until you have actually read them.</p>
+
+<p>There is a built-in time limit to this, however, that will automatically mark all threads as 'read' after a set number of day, whether you really have read them or not. The default setting is 10 days, but the administrator could make this higher or lower.</p>

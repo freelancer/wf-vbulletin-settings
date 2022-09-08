@@ -1,0 +1,3 @@
+The number of posts to display on a thread page in linear or hybrid mode before splitting it over multiple pages.<br />
+<br />
+<b>Note: </b>This number must be at least 1.

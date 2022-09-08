@@ -1,0 +1,14 @@
+$pictureurl = create_full_url("picture.php?"  . $vbulletin->session->vars['sessionurl'] . "albumid=$albuminfo[albumid]&pictureid=$pictureinfo[pictureid]");
+if (!preg_match('#^[a-z]+://#i', $pictureurl))
+{
+	$pictureurl = $vbulletin->options['bburl'] . "/picture.php?albumid=$albuminfo[albumid]&pictureid=$pictureinfo[pictureid]";
+
+}
+if (!VB_API)
+{
+	$pictureinfo['pictureurl'] = htmlspecialchars_uni($pictureurl);
+}
+else
+{
+	$pictureinfo['pictureurl'] = $pictureurl;
+}

@@ -1,0 +1,1 @@
+$stylevar[dirmark]<a href="group.php?$session[sessionurl]groupid=$group[groupid]&amp;do=manage">$group[name]</a> ($group[moderatedmembers])

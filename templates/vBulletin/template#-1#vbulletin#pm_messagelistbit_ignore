@@ -1,0 +1,9 @@
+<tr>
+	<td class="alt1" colspan="3">
+		<div class="smallfont">
+			<span style="float:$stylevar[right]"><a href="private.php?$session[sessionurl]do=showpm&amp;pmid=$pm[pmid]">$vbphrase[view_message]</a></span>
+			<phrase 1="$pm[fromusername]" 2="profile.php?$session[sessionurl]do=ignorelist">$vbphrase[x_is_on_your_ignore_list]</phrase>
+		</div>
+	</td>
+	<if condition="$show['pmcheckbox']"><td class="alt2" align="center" style="padding:0px"><input type="checkbox" name="pm[$pmid]" value="$groupid" checked="checked" /></td></if>
+</tr>

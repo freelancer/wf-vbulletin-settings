@@ -1,0 +1,1 @@
+<img src="$prepared[profilepicurl]" $prepared[profilepicsize] alt="<phrase 1="$prepared[username]">$vbphrase[xs_picture]</phrase>" />

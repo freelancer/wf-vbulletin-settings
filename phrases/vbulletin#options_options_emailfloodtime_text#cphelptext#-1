@@ -1,0 +1,1 @@
+This is the number of seconds that must elapse between emails that a user can send to other members. This is primarily to prevent a user from easily spamming members. Set it to 0 to disable this option.

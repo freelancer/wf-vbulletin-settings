@@ -1,0 +1,59 @@
+<form action="subscription.php?do=doaddsubscription&amp;{$type}id=$id" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="doaddsubscription" />
+<input type="hidden" name="{$type}id" value="$id"  />
+<input type="hidden" name="url" value="$url"  />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<if condition="$show['subscribetothread']">
+			$vbphrase[subscribe_to_thread]<span class="normal">: $threadinfo[prefix_plain_html] $threadinfo[title]</span>
+		<else />
+			$vbphrase[subscribe_to_forum]<span class="normal">: $foruminfo[title]</span>
+		</if>
+	</td>
+</tr>
+<tr valign="top">
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth_usercp]" align="$stylevar[left]">
+
+			<table class="fieldset" cellpadding="0" cellspacing="$stylevar[formspacer]" border="0" align="center">
+			<tr>
+				<td>
+					$vbphrase[notification_type]:<br />
+					<select name="emailupdate">
+						<option value="0" $emailselected[0]>$vbphrase[no_email_notification]</option>
+						<if condition="$show['subscribetothread']">
+						<option value="1" $emailselected[1]>$vbphrase[instant_notification_by_email]</option>
+						</if>
+						<option value="2" $emailselected[2]>$vbphrase[daily_updates_by_email]</option>
+						<option value="3" $emailselected[3]>$vbphrase[weekly_updates_by_email]</option>
+					</select>
+				</td>
+			</tr>
+			<if condition="$show['folders']">
+			<tr>
+				<td>
+					$vbphrase[folder]:<br />
+					<select name="folderid">
+						$folderbits
+					</select>
+				</td>
+			</tr>
+			</if>
+			</table>
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" value="$vbphrase[add_subscription]" accesskey="s" />
+	</div>
+	</td>
+</tr>
+</table>
+
+</form>

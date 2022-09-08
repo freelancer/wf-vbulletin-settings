@@ -1,0 +1,4 @@
+Social bookmarking is a way for users to store and organise bookmarks of web pages. In a social bookmarking system, a user will save a link to a web page that they want to remember and/or share.<br />
+<br />There are a number of third-party services offering social bookmarking facilities. vBulletin provides the ability to link directly to an "add page" for multiple services and pre-populate some of the data.<br />
+<br />
+Links to the social bookmarking services will be shown when viewing a thread, below the posts. These links will only be shown in threads that guests have permissions to view.

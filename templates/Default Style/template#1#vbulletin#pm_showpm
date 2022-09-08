@@ -1,0 +1,212 @@
+<if condition="$show['receiptprompt']">
+<script type="text/javascript">
+<!--
+<if condition="$show['receiptpopup']">
+if (window.attachEvent)
+{
+	window.attachEvent('onload', askReceipt);
+}
+else if(window.addEventListener)
+{
+	window.addEventListener('load', askReceipt, false);
+}
+function askReceipt()
+{
+	doReceipt(confirm("$receipt_question_js"));
+}
+</if>
+function doReceipt(yesno)
+{
+	// do image method too to get around popup blockers
+	var img_obj = new Image();
+	img_obj.src = "private.php?$session[sessionurl]do=dopmreceipt&type=img&pmid=$pm[pmid]&confirm=" + (yesno ? 1 : 0);
+	if (yesno)
+	{
+		fetch_object('receipt').style.display = 'none';
+	}
+}
+// -->
+</script>
+</if>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center" style="border-bottom-width:0px">
+<tr>
+	<td class="tcat">
+		<div class="normal" style="float:$stylevar[right]">
+		<if condition="$show['reportlink']"><a href="private.php?$session[sessionurl]do=report&amp;pmid=$pm[pmid]" rel="nofollow"><img class="inlineimg" src="$stylevar[imgdir_button]/report.gif" alt="$vbphrase[report_bad_private_message]" border="0" /></a> &nbsp;</if>
+		</div>
+		$vbphrase[private_message]<span class="normal">: $pm[original_title]</span>
+	</td>
+</tr>
+<if condition="$show['recipients']">
+<tr>
+	<td class="alt1"><if condition="$ccrecipients"><strong>$vbphrase[recipients]</strong>: $ccrecipients<br /></if><if condition="$bccrecipients"><strong>$vbphrase[recipients] <span class="smallfont">($vbphrase[bcc])</span></strong>: $bccrecipients</if></td>
+</tr>
+</if>
+</table>
+
+$postbit
+
+<br />
+
+<if condition="$show['receiptprompt']">
+	<form action="private.php?do=managepm&amp;dowhat=delete&amp;pmid=$pm[pmid]" method="post">
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center" id="receipt">
+	<tr>
+		<td class="thead"><strong>$vbphrase[confirm_outstanding_receipt]</strong></td>
+	</tr>
+	<tr>
+		<td class="panelsurround" align="center">
+		<div class="panel">
+			<div style="width:$stylevar[formwidth_usercp]" align="$stylevar[left]">
+
+				<table class="fieldset" cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+				<tr>
+					<td><phrase 1="$pm[fromusername]">$vbphrase[x_requested_read_receipt]</phrase></td>
+					<td>
+						<input type="hidden" name="s" value="$session[sessionhash]" />
+						<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+						<input type="hidden" name="do" value="managepm" />
+						<input type="hidden" name="dowhat" value="delete" />
+						<input type="hidden" name="folderid" value="$pm[folderid]" />
+						<input type="button" class="button" style="font-weight:normal" value="$vbphrase[okay]" onclick="doReceipt(1);this.disabled=true;" />
+					</td>
+				</tr>
+				</table>
+
+			</div>
+		</div>
+		</td>
+	</tr>
+	</table>
+
+
+	<br />
+	</form>
+</if>
+
+<if condition="$show['quickreply']">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('pm_quickreply')"><img id="collapseimg_pm_quickreply" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_pm_quickreply].gif" alt="" border="0" /></a>
+			$vbphrase[quick_reply]
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_pm_quickreply" style="$vbcollapse[collapseobj_pm_quickreply]">
+	<tr>
+		<td class="panelsurround" align="center">
+			$vBeditTemplate[clientscript]
+
+			<form action="private.php?do=insertpm&amp;pmid=$pm[pmid]" method="post" id="message_form"<if condition="!is_browser('webtv')"> onsubmit="return vB_Editor['$editorid'].prepare_submit(0, 0)"</if>>
+				<div class="panel">
+					<div align="center">
+						<div style="max-width:$stylevar[formwidth]; width:auto !important; width:$stylevar[formwidth_usercp]">
+
+							<div class="smallfont messagetext" style="text-align:$stylevar[left]">$vbphrase[message]: </div>
+							<div id="$editorid" class="vBulletin_editor">$messagearea</div>
+							<if condition="$allowed_bbcode"><div class="allowed_bbcode">$allowed_bbcode</div></if>
+							<div class="submit_button">
+								<input type="hidden" name="fromquickreply" value="1" />
+								<input type="hidden" name="s" value="$session[sessionhash]" />
+								<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+								<input type="hidden" name="do" value="insertpm" />
+								<input type="hidden" name="pmid" value="$pm[pmid]" />
+								<input type="hidden" name="loggedinuser" value="$bbuserinfo[userid]" />
+								<input type="hidden" name="parseurl" value="1" />
+								<input type="hidden" name="signature" value="1" />
+								<input type="hidden" name="title" value="$pm[title]" />
+								<input type="hidden" name="recipients" value="$pm[recipients]" />
+								<input type="hidden" name="forward" value="0" />
+								<input type="hidden" name="savecopy" value="$pm[savecopy]" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="floatcontainer quick_reply_controls" style="padding-top:$stylevar[cellpadding]px">
+					<input type="submit" value="$vbphrase[submit_message]" name="sbutton" id="qr_submit" class="button" accesskey="s" tabindex="1" />
+					<input type="submit" value="$vbphrase[go_advanced]" name="preview" class="button" accesskey="x" tabindex="1"  />
+				</div>
+			</form>
+		</td>
+	</tr>
+</tbody>
+</table>
+</if>
+
+<br />
+
+<if condition="$pm['parentpmid']">
+<script type="text/javascript" src="clientscript/vbulletin_ajax_htmlloader.js?v=$vboptions[simpleversion]"></script>
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="2">
+		<div class="normal" style="float:$stylevar[right]">
+		<a id="pm_historylink" href="private.php?$session[sessionurl]do=showpm&amp;pmid=$pm[pmid]&amp;showhistory=1" onclick="return pmhistory_loader.load()"><span class="smallfont">$vbphrase[view_history]</span></a>
+		</div>
+		$vbphrase[message_history]
+		<img src="$stylevar[imgdir_misc]/11x11progress.gif" style="display:none" id="pmhistory_progress" />
+	</td>
+</tr>
+</table>
+<div id="threadpms" style="margin-top:-1px">
+$threadpms
+</div>
+
+<script type="text/javascript">
+<!--
+var pmhistory_loader = new vB_AJAX_HtmlLoader('threadpms', 'private.php?$session[sessionurl]do=showhistory&pmid=$pm[pmid]', false, 'pmhistory_progress', function(){fetch_object('pm_historylink').style.display = 'none';});
+//-->
+</script>
+
+<br />
+</if>
+
+<form action="private.php?do=managepm&amp;dowhat=delete&amp;pmid=$pm[pmid]" method="post">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('pm_delete')"><img id="collapseimg_pm_delete" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_pm_delete].gif" alt="" border="0" /></a>
+			$vbphrase[delete_this_message]
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_pm_delete" style="$vbcollapse[collapseobj_pm_delete]">
+	<tr>
+		<td class="panelsurround" align="center">
+		<div class="panel">
+			<div style="width:$stylevar[formwidth_usercp]" align="$stylevar[left]">
+
+			<fieldset class="fieldset">
+				<legend>$vbphrase[delete_message]</legend>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+				<tr>
+					<td>$vbphrase[delete_message_click_button]</td>
+				</tr>
+				<tr>
+					<td><label for="deletepm"><input type="checkbox" name="pm[$pm[pmid]]" id="deletepm" value="true" />$vbphrase[delete_this_message]</label></td>
+				</tr>
+				</table>
+			</fieldset>
+
+			</div>
+		</div>
+
+		<div style="margin-top:$stylevar[cellpadding]px">
+			<input type="hidden" name="s" value="$session[sessionhash]" />
+			<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+			<input type="hidden" name="do" value="managepm" />
+			<input type="hidden" name="dowhat" value="delete" />
+			<input type="hidden" name="folderid" value="$pm[folderid]" />
+			<input type="submit" class="button" value="$vbphrase[delete_this_message]" />
+		</div>
+		</td>
+	</tr>
+</tbody>
+</table>
+
+</form>

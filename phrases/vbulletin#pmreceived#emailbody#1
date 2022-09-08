@@ -1,0 +1,23 @@
+DO NOT REPLY TO THIS EMAIL!
+***************************
+
+Dear $touserinfo[username],
+
+You have received a new private message at $vboptions[bbtitle] from $fromusername, entitled "$plaintext_title".
+
+To read the original version, respond to, or delete this message, you must log in here:
+$vboptions[bburl]/private.php
+
+This is the message that was sent:
+***************
+$plaintext_message
+***************
+
+All the best,
+$vboptions[bbtitle]
+
+
+Become a member of the private War Room today.
+I've never seen a product get such positive reviews.
+
+$vboptions[bburl]/warrior-forum-news/115638-war-room-threads.html

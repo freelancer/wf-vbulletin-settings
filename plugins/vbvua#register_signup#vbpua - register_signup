@@ -1,0 +1,5 @@
+
+$vbpua_lasthook='register_signup';
+include(DIR.'/includes/vbvua_hooks.php');
+			
+			

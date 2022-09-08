@@ -1,0 +1,3 @@
+This permission will allow members of this group to upload a profile picture on the <a href="../profile.php?do=editprofilepic" target="_blank">Edit Profile Picture</a> page in their User CP.  Profile pictures are uploaded from the user's computer or from a URL and are stored on your web server.<br /><br />
+
+Profile pictures must be enabled in your <a href="options.php?dogroup=userpix&amp;do=options" target="_blank">vBulletin options</a> for this setting to have any effect.

@@ -1,0 +1,1 @@
+This option requires that the user sending an infraction include a message.  The message format, either PM or Email, will depend on your forum's settings.  If this option is disabled, the user may choose to not include a message with their infraction. The recipient will still receive a generic PM or Email in regards to their infraction.

@@ -1,0 +1,1 @@
+If a thread has a prefix, this option controls whether the prefix is shown in the "Last Post" column in the forum listing. The prefix will always be shown in full along with the first {$vbulletin->options[lastthreadchars]} characters of the thread's title. This may increase the width of this column.

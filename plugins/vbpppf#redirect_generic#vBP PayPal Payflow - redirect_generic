@@ -1,0 +1,5 @@
+
+$vbpppf_lasthook='redirect_generic';
+include(DIR.'/includes/vbpppf_hooks.php');
+			
+			

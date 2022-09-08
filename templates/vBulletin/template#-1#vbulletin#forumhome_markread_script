@@ -1,0 +1,7 @@
+<script type="text/javascript" src="clientscript/vbulletin_read_marker.js?v=$vboptions[simpleversion]"></script>
+<script type="text/javascript">
+<!--
+vbphrase['doubleclick_forum_markread'] = "$vbphrase[doubleclick_forum_markread]";
+init_forum_readmarker_system();
+//-->
+</script>

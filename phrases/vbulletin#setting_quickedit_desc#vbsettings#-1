@@ -1,0 +1,3 @@
+By enabling Quick Edit, a click on the Edit button in a post will open an editor within that post via AJAX if the visitor's browser is compatible.<br />
+<br />
+Users may use the full editor by clicking the 'Go Advanced' button in the inline editor.

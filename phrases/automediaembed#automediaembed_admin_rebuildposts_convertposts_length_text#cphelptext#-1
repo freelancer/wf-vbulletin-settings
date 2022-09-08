@@ -1,0 +1,1 @@
+This is how far back to go checking posts. The further back you go and the larger your posts table, the longer the process will take and the more overhead will be created while searching and changing.

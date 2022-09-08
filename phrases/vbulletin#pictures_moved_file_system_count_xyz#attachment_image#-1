@@ -1,0 +1,2 @@
+<p>Pictures have been moved to the file system. Of the {1} pictures in the database, {2} were processed. {3} had errors.</p>
+<p>Selecting finalize below will remove the duplicate data from the database and begin serving pictures from the file system. Any pictures that did not convert successfully will be lost.</p>

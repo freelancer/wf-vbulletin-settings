@@ -1,0 +1,7 @@
+This option allows the user to keep their custom avatar in the event that they lose permission to upload custom avatars.
+
+If the user is moved to an usergroup that doesn't allow custom avatars; the user's avatar will not be visible in posts, their profile, and the member's list unless this option is enabled.
+
+This option does not allow the user to change their avatar. Usergroup permission is required to accomplish that task.
+
+If the admin changes or gives an a user a custom avatar when the user doesn't have usergroup permission to have one, this option will be automatically enabled.

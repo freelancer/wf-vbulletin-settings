@@ -1,0 +1,7 @@
+<td height="50" width="$daywidth" style="padding:0px" class="alt1">
+	<div class="thead">
+		<span style="float:$stylevar[right]">$otherday$day</span>
+		$otherdayname$dayname
+	</div>
+	&nbsp;
+</td>

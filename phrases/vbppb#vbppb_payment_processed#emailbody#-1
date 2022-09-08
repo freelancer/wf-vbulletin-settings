@@ -1,0 +1,9 @@
+Dear $userinfo[username],
+
+Your payment is successfully processed. Please click the link below to see your ads:
+
+$url
+
+Best Regards,
+$vboptions[bbtitle]
+			

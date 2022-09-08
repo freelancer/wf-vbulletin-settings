@@ -1,0 +1,28 @@
+if ($forum['ada_forum'])
+{
+    $ids .= ",$thread[firstpostid]";
+    $postids = "post.postid IN (0" . $ids . ")"; 
+    if ($thread['hasattach'])
+    {
+        $attachments = $db->query_read("
+            SELECT dateline, thumbnail_dateline, filename, filesize, visible, attachmentid, counter,
+                postid, IF(thumbnail_filesize > 0, 1, 0) AS hasthumbnail, thumbnail_filesize,
+                attachmenttype.thumbnail AS build_thumbnail, attachmenttype.newwindow
+            FROM " . TABLE_PREFIX . "attachment
+            LEFT JOIN " . TABLE_PREFIX . "attachmenttype AS attachmenttype USING (extension)
+            WHERE postid IN (-1" . $ids . ")
+            ORDER BY attachmentid
+        ");
+        $postattach = array();
+        while ($attachment = $db->fetch_array($attachments))
+        {
+            if (!$attachment['build_thumbnail'])
+            {
+                $attachment['hasthumbnail'] = false;
+            }
+            $postattach["$attachment[postid]"]["$attachment[attachmentid]"] = $attachment;
+        }      
+        $thread['attach'] = $thread['hasattach'];
+        unset($thread['hasattach']);
+    }
+}

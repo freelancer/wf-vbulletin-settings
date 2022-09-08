@@ -1,0 +1,6 @@
+
+if(THIS_SCRIPT=='payments') {
+	$globaltemplates[]='subscription_paymentbit_payflow';
+}
+			
+			

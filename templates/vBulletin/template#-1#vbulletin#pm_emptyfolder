@@ -1,0 +1,35 @@
+<form action="private.php?do=confirmemptyfolder&amp;folderid=$folderid" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="confirmemptyfolder" />
+<input type="hidden" name="folderid" value="$folderid" />
+<input type="hidden" name="dateline" value="$dateline" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[confirm_deletion]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth_usercp]" align="$stylevar[left]">
+
+		<fieldset class="fieldset">
+			<legend>$vbphrase[confirm_deletion]</legend>
+			<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+			<tr>
+				<td><phrase 1="$folder">$vbphrase[delete_items_in_x]</phrase></td>
+			</tr>
+			</table>
+		</fieldset>
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" value="$vbphrase[yes]" accesskey="s" />
+	</div>
+	</td>
+</tr>
+</table>
+
+</form>

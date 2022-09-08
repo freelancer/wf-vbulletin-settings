@@ -1,0 +1,4 @@
+This is the HTML that will be shown to visitors when the conditions set below are met.<br />
+<br />
+You may include the following special variables in the HTML:<br />
+<code>{userid}, {username}, {musername}, {sessionurl}</code>

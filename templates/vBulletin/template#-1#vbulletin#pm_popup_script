@@ -1,0 +1,24 @@
+<script type="text/javascript">
+<!--
+// script to show new private message popup
+
+if (confirm("<phrase 1="$newpm[username]" 2="$newpm[title]">$vbphrase[have_new_pm_popup_x_y]</phrase>"))
+{
+	// Output when OK is clicked
+	if (confirm("$vbphrase[open_message_in_new_window]"))
+	{
+		var winobj = window.open("$pmpopupurl", "pmnew", "statusbar=yes,menubar=yes,scrollbars=yes,toolbar=yes,location=yes,directories=yes,resizable=yes,top=50,left=50");
+		if (winobj == null)
+		{
+			alert("$vbphrase[window_open_failed_blocker]");
+		}
+	}
+	else
+	{
+		window.location = "$pmpopupurl";
+	}
+}
+
+// end pm popup script
+//-->
+</script>

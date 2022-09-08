@@ -1,0 +1,3 @@
+Search results are scored by relevance.  This setting defines the minimum score a thread must have in a "similar threads" search to qualify as a similar thread.<br /><br />
+
+You can see and change the scoring system <a href="options.php?dogroup=searchfunc&amp;do=options" target="_blank">here</a>.

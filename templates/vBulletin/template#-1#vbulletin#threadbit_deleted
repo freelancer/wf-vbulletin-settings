@@ -1,0 +1,45 @@
+<tr>
+	<td class="alt1"><img src="$stylevar[imgdir_statusicon]/thread$thread[statusicon].gif" alt="" /></td>
+
+	<if condition="$show['threadicons']">
+		<td class="alt2"><if condition="$show['threadicon']"><img src="$thread[threadiconpath]" alt="$thread[threadicontitle]" border="0" /><else />&nbsp;</if></td>
+	</if>
+
+	<td class="alt1">
+
+		<div>
+			<if condition="$show['moderated']"><span style="float:$stylevar[right]">&nbsp;<img class="inlineimg" src="$stylevar[imgdir_misc]/moderated_small.gif" alt="<phrase 1="$thread[hiddencount]">$vbphrase[x_moderated_posts]</phrase>" /></span></if>
+			<span style="float:$stylevar[right]">&nbsp;<img class="inlineimg" src="$stylevar[imgdir_misc]/trashcan_small.gif" alt="<phrase 1="$thread[deletedcount]">$vbphrase[x_deleted_posts]</phrase>" /></span>
+			<if condition="$show['viewthread']"><span style="float:$stylevar[right]" class="smallfont"><a href="showthread.php?$session[sessionurl]t=$thread[threadid]">$vbphrase[view]</a></span></if>
+			$thread[typeprefix]
+			$thread[prefix_rich]
+			<if condition="$show['threadtitle']"><em>$thread[threadtitle]</em></if>
+		</div>
+
+		<div class="smallfont">
+			<if condition="$show['managethread']"><span style="float:$stylevar[right]"><a href="postings.php?$session[sessionurl]do=editthread&amp;t=$thread[threadid]">$vbphrase[manage]</a></span></if>
+			<if condition="$show['guestuser']">
+				$thread[postusername]
+			<else />
+				<span style="cursor:pointer" onclick="window.open('member.php?$session[sessionurl]u=$thread[postuserid]', '_self')">$thread[postusername]</span>
+			</if>
+		</div>
+	</td>
+
+	<td class="alt2" colspan="3" align="center">
+		<div class="smallfont"><phrase 1="member.php?$session[sessionurl]u=$thread[del_userid]" 2="$thread[del_username]">$vbphrase[thread_deleted_by_x]</phrase></div>
+		<if condition="$show['deletereason']">
+			<div class="smallfont">$vbphrase[reason]: <em>$thread[del_reason]</em></div>
+		</if>
+	</td>
+
+	<if condition="$show['forumlink']">
+		<td class="alt1"><a href="forumdisplay.php?$session[sessionurl]f=$thread[forumid]">$thread[forumtitle]</a></td>
+	</if>
+
+	<if condition="$show['inlinemod']">
+		<td class="alt1">
+			<input type="checkbox" name="tlist[$thread[threadid]]" id="tlist_$thread[threadid]" value="$thread[checkbox_value]" <if condition="$show['disabled']">disabled="disabled"</if> />
+		</td>
+	</if>
+</tr>

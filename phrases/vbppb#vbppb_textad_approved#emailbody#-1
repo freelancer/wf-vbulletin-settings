@@ -1,0 +1,11 @@
+Dear $userinfo[username],
+			
+Your text ad request at  $vboptions[bbtitle] is approved.
+
+Please follow the link below to complete the payment and to activate the ad:
+
+$vboptions[bburl]/paidbanners.php?pageid=textads&amp;do=activate&amp;bannerid=$bannerInfo[bannerid]
+
+Please note that banner slots are limited and you should activate your banner as soon as possible.
+
+Thank you!

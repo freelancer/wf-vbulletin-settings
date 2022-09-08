@@ -1,0 +1,7 @@
+You have the option to display datestamps in one of three ways on your forum.<br /><br />
+
+Set this to Normal and set the Format For Date and Format For Time options below to show the full date and time.<br /><br />
+
+Set this to Yesterday/Today and for dates which fall into those two periods, the words will be shown, otherwise the full date and time will be shown.<br /><br />
+
+Set this to Detailed to show "friendly" times such as "1 Minute Ago", "2 Hours Ago", or "3 Weeks Ago".

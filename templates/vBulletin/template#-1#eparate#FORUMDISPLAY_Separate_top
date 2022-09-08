@@ -1,0 +1,3 @@
+<tr>
+<td class="thead" colspan="<if condition="$show['threadicons']">7<else />6</if>"><strong>$vbphrase[delim_sticky]</strong></td>
+</tr>

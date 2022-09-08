@@ -1,0 +1,26 @@
+
+		if ($this->registry->options['apboupc_global_enable'] AND $this->registry->options['apboupc_attachments'])
+		{
+			if ($GLOBALS['vbulletin']->userinfo[userid])
+			{
+				$cyb_attach_postcount = $GLOBALS['vbulletin']->userinfo[posts];
+			}
+			else
+			{
+				$cyb_attach_postcount = '0';
+			}
+
+			$apboupc_message_attachments = fetch_error('error_postcount_too_low_attachment', $forum['attach_nb'], $cyb_attach_postcount);
+
+			if (($forum['attach_nb'] > $this->registry->userinfo['posts']) AND (!is_member_of($this->registry->userinfo, split(',', $this->registry->options['apboupc_attachments_excludedgroups']))))
+			{
+				eval('$this->post[\'imageattachments\'] = construct_phrase("$apboupc_message_attachments");');
+				if (!$this->registry->options['apboupc_attachments_allowth'])
+				{
+					eval('$this->post[\'thumbnailattachments\'] = construct_phrase("$apboupc_message_attachments");');
+				}
+				eval('$this->post[\'imageattachmentlinks\'] = construct_phrase("$apboupc_message_attachments");');
+				eval('$this->post[\'otherattachments\'] = construct_phrase("$apboupc_message_attachments");');
+				eval('$this->post[\'moderatedattachments\'] = construct_phrase("$apboupc_message_attachments");');
+			}
+		}

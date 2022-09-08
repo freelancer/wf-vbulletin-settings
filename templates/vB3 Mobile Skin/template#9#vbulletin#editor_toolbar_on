@@ -1,0 +1,116 @@
+$vBeditTemplate[clientscript]
+
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+	<td id="$editorid" class="vBulletin_editor" width="100%">
+		<div id="{$editorid}_controls" class="controlbar">
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td><div class="imagebutton" id="{$editorid}_cmd_removeformat"><img src="$stylevar[imgdir_editor]/removeformat.gif" width="21" height="20" alt="$vbphrase[remove_text_formatting]" /></div></td>
+			<if condition="$show['font_bbcode'] OR $show['size_bbcode']">
+				<td><img src="$stylevar[imgdir_editor]/separator.gif" width="6" height="20" alt="" /></td>
+			</if>
+			<if condition="$show['font_bbcode']">
+				<td><div class="imagebutton" id="{$editorid}_popup_fontname" title="$vbphrase[fonts]">
+					<table cellpadding="0" cellspacing="0" border="0">
+					<tr>
+						<td class="popup_feedback"><div id="{$editorid}_font_out" style="width:91px">&nbsp;</div></td>
+						<td class="popup_pickbutton"><img src="$stylevar[imgdir_editor]/menupop.gif" width="11" height="16" alt="" /></td>
+					</tr>
+					</table>
+				</div></td>
+			</if>
+			<if condition="$show['size_bbcode']">
+				<td><div class="imagebutton" id="{$editorid}_popup_fontsize" title="$vbphrase[sizes]">
+					<table cellpadding="0" cellspacing="0" border="0">
+					<tr>
+						<td class="popup_feedback"><div id="{$editorid}_size_out" style="width:25px">&nbsp;</div></td>
+						<td class="popup_pickbutton"><img src="$stylevar[imgdir_editor]/menupop.gif" width="11" height="16" alt="" /></td>
+					</tr>
+					</table>
+				</div></td>
+			</if>
+			<if condition="$show['color_bbcode']">
+				<td><img src="$stylevar[imgdir_editor]/separator.gif" width="6" height="20" alt="" /></td>
+				<td><div class="imagebutton" id="{$editorid}_popup_forecolor" title="$vbphrase[colors]">
+					<table cellpadding="0" cellspacing="0" border="0">
+					<tr>
+						<td id="{$editorid}_color_out"><img src="$stylevar[imgdir_editor]/color.gif" width="21" height="16" alt="" /><br /><img src="$vboptions[cleargifurl]" id="{$editorid}_color_bar" alt="" style="background-color:black" width="21" height="4" /></td>
+						<td class="alt_pickbutton"><img src="$stylevar[imgdir_editor]/menupop.gif" width="11" height="16" alt="" /></td>
+					</tr>
+					</table>
+				</div></td>
+			</if>
+		
+			
+			
+			<if condition="is_browser('ie') AND !is_browser('mac')">
+				<td><div class="imagebutton" id="{$editorid}_cmd_spelling"><img src="$stylevar[imgdir_editor]/spelling.gif" width="21" height="20" alt="$vbphrase[check_spelling]" /></div></td>
+			</if>
+				
+		
+			</tr>
+			</table>
+
+			<if condition="!$show['basicbbcodeonly']">
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tr>
+			<if condition="$show['basic_bbcode']">
+				<td><div class="imagebutton" id="{$editorid}_cmd_bold"><img src="$stylevar[imgdir_editor]/bold.gif" width="21" height="20" alt="$vbphrase[bold]" /></div></td>
+				<td><div class="imagebutton" id="{$editorid}_cmd_italic"><img src="$stylevar[imgdir_editor]/italic.gif" width="21" height="20" alt="$vbphrase[italic]" /></div></td>
+				<td><div class="imagebutton" id="{$editorid}_cmd_underline"><img src="$stylevar[imgdir_editor]/underline.gif" width="21" height="20" alt="$vbphrase[underline]" /></div></td>
+			</if>
+		
+			<if condition="$show['align_bbcode'] OR $show['list_bbcode']">
+				<td><img src="$stylevar[imgdir_editor]/separator.gif" width="6" height="20" alt="" /></td>
+			</if>
+			<if condition="$show['list_bbcode']">
+				<td><div class="imagebutton" id="{$editorid}_cmd_insertorderedlist"><img src="$stylevar[imgdir_editor]/insertorderedlist.gif" width="21" height="20" alt="$vbphrase[ordered_list]" /></div></td>
+				<td><div class="imagebutton" id="{$editorid}_cmd_insertunorderedlist"><img src="$stylevar[imgdir_editor]/insertunorderedlist.gif" width="21" height="20" alt="$vbphrase[unordered_list]" /></div></td>
+			</if>
+	
+			<if condition="$show['url_bbcode'] OR $show['img_bbcode']">
+				<td><img src="$stylevar[imgdir_editor]/separator.gif" width="6" height="20" alt="" /></td>
+				<if condition="$show['url_bbcode']">
+					<td><div class="imagebutton" id="{$editorid}_cmd_createlink"><img src="$stylevar[imgdir_editor]/createlink.gif" width="21" height="20" alt="$vbphrase[insert_link]" /></div></td>
+					<td><div class="imagebutton" id="{$editorid}_cmd_unlink"><img src="$stylevar[imgdir_editor]/unlink.gif" width="21" height="20" alt="$vbphrase[remove_link]" /></div></td>
+					<td><div class="imagebutton" id="{$editorid}_cmd_email"><img src="$stylevar[imgdir_editor]/email.gif" width="21" height="20" alt="$vbphrase[insert_email_link]" /></div></td>
+				</if>
+				<if condition="$show['img_bbcode']">
+					<td><div class="imagebutton" id="{$editorid}_cmd_insertimage"><img src="$stylevar[imgdir_editor]/insertimage.gif" width="21" height="20" alt="$vbphrase[insert_image]" /></div></td>
+				</if>
+			</if>
+			<if condition="$show['quote_bbcode']">
+				<td><img src="$stylevar[imgdir_editor]/separator.gif" width="6" height="20" alt="" /></td>
+				<td><div class="imagebutton" id="{$editorid}_cmd_wrap0_quote"><img src="$stylevar[imgdir_editor]/quote.gif" width="21" height="20" alt="$vbphrase[wrap_quote_tags]" /></div></td>
+			</if>
+	
+			<if condition="$vBeditTemplate['extrabuttons'] != '' ">
+				<td><img src="$stylevar[imgdir_editor]/separator.gif" width="6" height="20" alt="" /></td>	
+				$vBeditTemplate[extrabuttons]
+			</if>
+			</tr>
+			</table>
+			</if>
+
+		</div>
+
+		<table cellpadding="0" cellspacing="0" border="0" width="100%">
+		<tr valign="top">
+			<td class="controlbar">
+				<textarea name="message" id="{$editorid}_textarea" rows="10" cols="60" style="display:block; width:260px; height:{$editor_height}px" tabindex="1" dir="$stylevar[textdirection]">$newpost[message]</textarea>
+			</td>
+
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+<input type="hidden" name="wysiwyg" id="{$editorid}_mode" value="$editortype" />
+
+<script type="text/javascript">
+<!--
+vB_Editor['$editorid'] = new vB_Text_Editor('$editorid', $editortype, '$forumid', '$parsesmilie', undefined, '$ajax_extra');
+//-->
+</script>

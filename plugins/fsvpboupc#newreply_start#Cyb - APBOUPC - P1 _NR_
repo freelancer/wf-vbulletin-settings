@@ -1,0 +1,9 @@
+
+		if ($vbulletin->options['apboupc_global_enable'] AND $vbulletin->options['apboupc_forum'])
+		{
+			$forumperms = fetch_permissions($foruminfo['forumid']);
+			if ($vbulletin->userinfo['userid'] AND ($forumperms & $vbulletin->bf_ugp_forumpermissions['canreplyothers']) AND ($forumperms & $vbulletin->bf_ugp_forumpermissions['canreplyown']) AND ($foruminfo[reply_nb] !='0') AND ($foruminfo[reply_nb] > $vbulletin->userinfo[posts]) AND (!is_member_of($vbulletin->userinfo, split(',', $vbulletin->options['apboupc_forum_excludedgroups']))))
+			{
+				eval(standard_error(fetch_error('error_postcount_too_low_reply', intval($foruminfo['reply_nb']), intval($vbulletin->userinfo['posts']))));
+			}
+		}

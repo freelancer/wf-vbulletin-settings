@@ -1,0 +1,17 @@
+if ($vbulletin->options['skm_threadbump_onoff'])
+{ 
+
+$ugroups = explode(',',$vbulletin->options['skm_threadbump_displaygroups']); 
+    if (is_member_of($vbulletin->userinfo,$ugroups) OR $ugroups[0] == 0) 
+ {
+        $show['skm_threadbump'] = true;        
+    }
+    else 
+    {
+        $show['skm_threadbump']= false;
+    }
+}
+else
+{
+    $show['skm_threadbump']= false;
+}

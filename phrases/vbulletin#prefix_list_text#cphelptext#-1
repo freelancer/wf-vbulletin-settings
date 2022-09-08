@@ -1,0 +1,5 @@
+Thread prefixes are a structured way to specify how certain topics are discussed within a forum. You create prefix sets which contain many prefixes and can be tied to any number of forums.<br />
+<br />
+When a user creates a thread, he or she will have the option of specifying a prefix to the thread title. This prefix can be used to filter threads within the forum or searched on.<br />
+<br />
+For example, you may wish to use prefixes in a marketplace forum, where people post "Wanted" and "For Sale" entries. Alternatively, if you have multiple products and only one announcement forum, you could have prefix threads in that forum depending on the product they relate to.

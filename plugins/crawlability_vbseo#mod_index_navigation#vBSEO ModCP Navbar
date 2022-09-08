@@ -1,0 +1,6 @@
+if (can_moderate(0, 'vbseo_linkbacks'))
+	{
+	construct_nav_option($vbphrase['vbseo_moderate_linkbacks'], 'vbseo_moderate.php?do=linkbacks');
+	construct_nav_group($vbphrase['vbseo_linkbacks']);
+	construct_nav_spacer();
+	}

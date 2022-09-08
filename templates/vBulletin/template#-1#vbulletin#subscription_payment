@@ -1,0 +1,37 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[select_payment_method]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]">
+
+			<div class="fieldset">
+				$vbphrase[to_pay_for_your_subscription]
+			</div>
+
+			<div class="fieldset">
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+				<tr>
+					<td>$vbphrase[subscription]:</td>
+					<td><strong>$subscription_title</strong></td>
+				</tr>
+				<tr>
+					<td>$vbphrase[duration]:</td>
+					<td><strong>$subscription_length</strong></td>
+				</tr>
+				<tr>
+					<td>$vbphrase[cost]:</td>
+					<td><strong>$subscription_cost</strong></td>
+				</tr>
+				</table>
+			</div>
+
+			$orderbits
+
+		</div>
+	</div>
+	</td>
+</tr>
+</table>

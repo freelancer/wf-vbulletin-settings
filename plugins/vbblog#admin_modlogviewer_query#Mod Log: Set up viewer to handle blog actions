@@ -1,0 +1,30 @@
+// if unserialize(moderatorlog.action) contains 'blog' = 1 then this record is a blog action
+// moderatorlog.id1 corresponds to the owner of the blog (userid)
+// moderatorlog.id2 corresponds to the blog entry (blogid)
+// moderatorlog.id3 corresponds to a comment (blogtextid)
+// moderatorlog.id4 corresponds to an attachment (attachmentid)
+// moderatorlog.id5 corresponds to a trackback (blogtrackbackid)
+
+$blogprincids = array(
+	'blog_title'           => $vbphrase['blog'],
+	'blogentry_title'      => $vbphrase['blog_entry'],
+	'comment_title'        => $vbphrase['comment'],
+	'blogattachment_title' => $vbphrase['attachment'],
+	'trackback_title'      => $vbphrase['trackback'],
+);
+
+$princids = array_merge($princids, $blogprincids);
+
+$hook_query_fields .=	"
+	,IF(blog_user.title <> '', blog_user.title, user2.username) AS blog_title,
+	blog.title AS blogentry_title, blog_text.title AS comment_title, blog_attachment.filename AS blogattachment_title, blog_trackback.title AS trackback_title
+";
+
+$hook_join_fields .= "
+	LEFT JOIN " . TABLE_PREFIX . "user AS user2 ON (user2.userid = moderatorlog.id1)
+	LEFT JOIN " . TABLE_PREFIX . "blog_user AS blog_user ON (blog_user.bloguserid = moderatorlog.id1)
+	LEFT JOIN " . TABLE_PREFIX . "blog AS blog ON (blog.blogid = moderatorlog.id2)
+	LEFT JOIN " . TABLE_PREFIX . "blog_text AS blog_text ON (blog_text.blogtextid = moderatorlog.id3)
+	LEFT JOIN " . TABLE_PREFIX . "blog_attachment AS blog_attachment ON (blog_attachment.attachmentid = moderatorlog.id4)
+	LEFT JOIN " . TABLE_PREFIX . "blog_trackback AS blog_trackback ON (blog_trackback.blogtrackbackid = moderatorlog.id5)
+";

@@ -1,0 +1,239 @@
+
+		$stylevar[htmldoctype]
+		<html dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+		<head>
+			$headinclude
+		<title>$vboptions[bbtitle] - $vbphrase[cybareg_title]</title>
+		<script language="Javascript" type="text/javascript">
+			function CybChAregAll(obj) {
+				var arrInput = document.getElementsByTagName("input");
+				for (i=0; i<arrInput.length; i++) {
+					if (arrInput[i].type == 'checkbox') {
+						arrInput[i].checked = obj.checked;
+					}
+				}
+			}
+			function Cyb_SwitchAreg(target)
+			{
+				if (target=="users_mod")
+				{
+					document.getElementById("cybareg_tu_mod").style.display = "block";
+					document.getElementById("cybareg_tu_act").style.display = "none";
+					document.getElementById("cybareg_tu_inv").style.display = "none";
+					document.getElementById("cybareg_tq").style.display = "none";
+				}
+				if (target=="users_act")
+				{
+					document.getElementById("cybareg_tu_mod").style.display = "none";
+					document.getElementById("cybareg_tu_act").style.display = "block";
+					document.getElementById("cybareg_tu_inv").style.display = "none";
+					document.getElementById("cybareg_tq").style.display = "none";
+				}
+				if (target=="users_inv")
+				{
+					document.getElementById("cybareg_tu_mod").style.display = "none";
+					document.getElementById("cybareg_tu_act").style.display = "none";
+					document.getElementById("cybareg_tu_inv").style.display = "block";
+					document.getElementById("cybareg_tq").style.display = "none";
+				}
+				if (target=="questions")
+				{
+					document.getElementById("cybareg_tu_mod").style.display = "none";
+					document.getElementById("cybareg_tu_act").style.display = "none";
+					document.getElementById("cybareg_tu_inv").style.display = "none";
+					document.getElementById("cybareg_tq").style.display = "block";
+				}
+			}
+		</script>
+		</head>
+		<body>
+		$header
+		$navbar
+
+		<form action="" id="cybareg_pp" name="cybareg_pp" method="post">
+			<input type="hidden" name="securitytoken" value="$cybareg_sectok" />
+			<div class="smallfont" style="margin-bottom:3px;float:$stylevar[left]">
+				<phrase 1='<select id="rpp" name="rpp" onchange="cybareg_pp.submit();">$cybareg_perpageitems</select>'>$vbphrase[cybareg_perpage]</phrase>&nbsp;<input type="submit" class="button" value="$vbphrase[cybareg_update]" />
+			</div>
+		</form>
+		
+		<div id="cybareg_tu_mod" style="display:$cybareg_display_mod;">
+		<div style="margin-bottom:3px;float:$stylevar[right]">
+			$pagenav_m
+		</div><br /><br />
+		<form id="cybaregmdfu_mod" name="cybaregmdfu_mod" action="" method="post">
+		<input type="hidden" name="securitytoken" value="$cybareg_sectok" />
+		<input type="hidden" name="cybareg_page" value="mm" />
+		<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+			<tr>
+				<td class="tcat" colspan="7">$vbphrase[cybareg_manage]: <a class="smallfont" style="font-weight:bold;text-decoration:underline;" href="javascript:void(0);" onclick="return Cyb_SwitchAreg('users_mod');"><phrase 1="$cyb_areg_totalu_mod">$vbphrase[cybareg_manage_users_mod]</phrase></a> | <a class="smallfont" href="javascript:void(0);" onclick="return Cyb_SwitchAreg('users_act');"><phrase 1="$cyb_areg_totalu_act">$vbphrase[cybareg_manage_users_act]</phrase></a> | <a class="smallfont" href="javascript:void(0);" onclick="return Cyb_SwitchAreg('users_inv');"><phrase 1="$cyb_areg_totalu_inv">$vbphrase[cybareg_manage_users_inv]</phrase></a> | <a class="smallfont" href="javascript:void(0);" onclick="return Cyb_SwitchAreg('questions');"><phrase 1="$cyb_areg_totalq">$vbphrase[cybareg_manage_questions]</phrase></a>
+				</td>
+			</tr>
+
+			<tr>
+				<td class="thead" align="$stylevar[right]" nowrap="nowrap">#</td>
+				<td class="thead" align="$stylevar[left]" nowrap="nowrap" width="25%">$vbphrase[username]</td>
+				<td class="thead" align="$stylevar[left]" nowrap="nowrap" width="25%">$vbphrase[email]</td>
+				<td class="thead" align="$stylevar[left]" nowrap="nowrap" width="25%">$vbphrase[ip_address]</td>
+				<td class="thead" align="$stylevar[left]" nowrap="nowrap" width="25%">$vbphrase[join_date]</td>
+				<td class="thead" align="center" nowrap="nowrap">$vbphrase[edit]</td>
+				<td class="vbmenu_control" align="center" nowrap="nowrap"><input type="checkbox" name="cybaregm_check_all" id="cybaregm_check_all" value="" onclick="CybChAregAll(this);" /></td>
+			</tr>
+			<if condition="($cybaregusers_mod!='')">
+				$cybaregusers_mod
+			<else />
+			<tr>
+				<td class="alt1" align="center" style="width:100%;" colspan="7">$vbphrase[cybareg_nomodusers]</td>
+			</tr>
+			</if>
+			<tr>
+				<td class="tfoot" colspan="7"><span class="smallfont" style="float:$stylevar[right]">
+				<select name="cybareg_mdfu">
+				<option value="active">$vbphrase[cybareg_user_accept]</option>
+				<option value="delete">$vbphrase[delete]</option>
+				</select>&nbsp;<input name="cybaregdmsbum" class="smallfont" type="submit" value="&nbsp;$vbphrase[go]&nbsp;" /></span><if condition="($cybaregusers_mod!='')"><span class="smallfont"><input type="checkbox" name="cybareg_doemail" id="cybareg_doemail" value="1" checked="checked" /> $vbphrase[cybareg_user_email]</span></if></td>
+			</tr>
+		</table>
+		</form>
+		</div>
+		<div id="cybareg_tu_act" style="display:$cybareg_display_act;">
+		<div style="margin-bottom:3px;float:$stylevar[right]">
+			$pagenav_a
+		</div><br /><br />
+		<form id="cybaregmdfu_act" name="cybaregmdfu_act" action="" method="post">
+		<input type="hidden" name="securitytoken" value="$cybareg_sectok" />
+		<input type="hidden" name="cybareg_page" value="ma" />
+		<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+			<tr>
+				<td class="tcat" colspan="7">$vbphrase[cybareg_manage]: <a class="smallfont" href="javascript:void(0);" onclick="return Cyb_SwitchAreg('users_mod');"><phrase 1="$cyb_areg_totalu_mod">$vbphrase[cybareg_manage_users_mod]</phrase></a> | <a class="smallfont" style="font-weight:bold;text-decoration:underline;" href="javascript:void(0);" onclick="return Cyb_SwitchAreg('users_act');"><phrase 1="$cyb_areg_totalu_act">$vbphrase[cybareg_manage_users_act]</phrase></a> | <a class="smallfont" href="javascript:void(0);" onclick="return Cyb_SwitchAreg('users_inv');"><phrase 1="$cyb_areg_totalu_inv">$vbphrase[cybareg_manage_users_inv]</phrase></a> | <a class="smallfont" href="javascript:void(0);" onclick="return Cyb_SwitchAreg('questions');"><phrase 1="$cyb_areg_totalq">$vbphrase[cybareg_manage_questions]</phrase></a>
+				</td>
+			</tr>
+			<if condition="(($vboptions[cybareg_prune_days]>0) AND ($cybaregusers_act!=''))">
+				<tr class="alt1"><td class="smallfont" colspan="7"><phrase 1="$vboptions[cybareg_prune_days]">$vbphrase[cybareg_noactusers_delinfo]</phrase></td></tr>
+			</if>
+			<tr>
+				<td class="thead" align="$stylevar[right]" nowrap="nowrap">#</td>
+				<td class="thead" align="$stylevar[left]" nowrap="nowrap" width="25%">$vbphrase[username]</td>
+				<td class="thead" align="$stylevar[left]" nowrap="nowrap" width="25%">$vbphrase[email]</td>
+				<td class="thead" align="$stylevar[left]" nowrap="nowrap" width="25%">$vbphrase[ip_address]</td>
+				<td class="thead" align="$stylevar[left]" nowrap="nowrap" width="25%">$vbphrase[join_date]</td>
+				<td class="thead" align="center" nowrap="nowrap">$vbphrase[edit]</td>
+				<td class="vbmenu_control" align="center" nowrap="nowrap"><input type="checkbox" name="cybarega_check_all" id="cybarega_check_all" value="" onclick="CybChAregAll(this);" /></td>
+			</tr>
+			<if condition="($cybaregusers_act!='')">
+				$cybaregusers_act
+			<else />
+			<tr>
+				<td class="alt1" align="center" style="width:100%;" colspan="7">$vbphrase[cybareg_noactusers]</td>
+			</tr>
+			</if>
+			<tr>
+				<td class="tfoot" colspan="7"><span class="smallfont" style="float:$stylevar[right]">
+				<select name="cybareg_mdfu">
+				<option value="active">$vbphrase[cybareg_user_accept]</option>
+				<option value="delete">$vbphrase[delete]</option>
+				</select>&nbsp;<input name="cybaregdmsbua" class="smallfont" type="submit" value="&nbsp;$vbphrase[go]&nbsp;" /></span></td>
+			</tr>
+		</table>
+		</form>
+		</div>
+		<div id="cybareg_tu_inv" style="display:$cybareg_display_i;">
+		<div style="margin-bottom:3px;float:$stylevar[right]">
+			$pagenav_i
+		</div><br /><br />
+		<form id="cybaregmdfu_inv" name="cybaregmdfu_inv" action="" method="post">
+		<input type="hidden" name="securitytoken" value="$cybareg_sectok" />
+		<input type="hidden" name="cybareg_page" value="mi" />
+		<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+			<tr>
+				<td class="tcat" colspan="6">$vbphrase[cybareg_manage]: <a class="smallfont" href="javascript:void(0);" onclick="return Cyb_SwitchAreg('users_mod');"><phrase 1="$cyb_areg_totalu_mod">$vbphrase[cybareg_manage_users_mod]</phrase></a> | <a class="smallfont" href="javascript:void(0);" onclick="return Cyb_SwitchAreg('users_act');"><phrase 1="$cyb_areg_totalu_act">$vbphrase[cybareg_manage_users_act]</phrase></a> | <a class="smallfont" style="font-weight:bold;text-decoration:underline;" href="javascript:void(0);" onclick="return Cyb_SwitchAreg('users_inv');"><phrase 1="$cyb_areg_totalu_inv">$vbphrase[cybareg_manage_users_inv]</phrase></a> | <a class="smallfont" href="javascript:void(0);" onclick="return Cyb_SwitchAreg('questions');"><phrase 1="$cyb_areg_totalq">$vbphrase[cybareg_manage_questions]</phrase></a>
+				</td>
+			</tr>
+			<tr>
+				<td class="thead" align="$stylevar[right]" nowrap="nowrap">#</td>
+				<td class="thead" align="$stylevar[left]" nowrap="nowrap" width="25%">$vbphrase[cybareg_inviter]</td>
+				<td class="thead" align="$stylevar[left]" nowrap="nowrap" width="25%">$vbphrase[cybareg_invited]</td>
+				<td class="thead" align="center" nowrap="nowrap" width="25%">$vbphrase[cybareg_sent]</td>
+				<td class="thead" align="center" nowrap="nowrap" width="25%">$vbphrase[cybareg_accepted]</td>
+				<td class="vbmenu_control" align="center" nowrap="nowrap"><input type="checkbox" name="cybaregi_check_all" id="cybaregi_check_all" value="" onclick="CybChAregAll(this);" /></td>
+			</tr>
+			<if condition="($cybaregusers_inv!='')">
+				$cybaregusers_inv
+			<else />
+			<tr>
+				<td class="alt1" align="center" style="width:100%;" colspan="6">$vbphrase[cybareg_noinvusers]</td>
+			</tr>
+			</if>
+			<tr>
+				<td class="tfoot" colspan="6"><span class="smallfont" style="float:$stylevar[right]"><input name="cybaregdmsbui" class="smallfont" type="submit" value="&nbsp;$vbphrase[delete]&nbsp;" /></span></td>
+			</tr>
+		</table>
+		</form>
+		</div>
+		<div id="cybareg_tq" style="display:$cybareg_display_q;">
+		<div style="margin-bottom:3px;float:$stylevar[right]">
+			$pagenav_q
+		</div><br /><br />
+		<form id="cybaregmdf" name="cybaregmdf" action="" method="post">
+		<input type="hidden" name="securitytoken" value="$cybareg_sectok" />
+		<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+			<tr>
+				<td class="tcat" colspan="5">$vbphrase[cybareg_manage]: <a class="smallfont" href="javascript:void(0);" onclick="return Cyb_SwitchAreg('users_mod');"><phrase 1="$cyb_areg_totalu_mod">$vbphrase[cybareg_manage_users_mod]</phrase></a> | <a class="smallfont" href="javascript:void(0);" onclick="return Cyb_SwitchAreg('users_act');"><phrase 1="$cyb_areg_totalu_act">$vbphrase[cybareg_manage_users_act]</phrase></a> | <a class="smallfont" href="javascript:void(0);" onclick="return Cyb_SwitchAreg('users_inv');"><phrase 1="$cyb_areg_totalu_inv">$vbphrase[cybareg_manage_users_inv]</phrase></a> | <a class="smallfont" style="font-weight:bold;text-decoration:underline;" href="javascript:void(0);" onclick="return Cyb_SwitchAreg('questions');"><phrase 1="$cyb_areg_totalq">$vbphrase[cybareg_manage_questions]</phrase></a>
+				</td>
+			</tr>
+			<tr>
+				<td class="thead" align="$stylevar[right]" nowrap="nowrap">#</td>
+				<td class="thead" align="$stylevar[left]" nowrap="nowrap" width="50%">$vbphrase[cybareg_question]</td>
+				<td class="thead" align="$stylevar[left]" nowrap="nowrap" width="50%">$vbphrase[cybareg_answer]</td>
+				<td class="thead" align="center" nowrap="nowrap">$vbphrase[edit]</td>
+				<td class="vbmenu_control" align="center" nowrap="nowrap"><input type="checkbox" name="cybaregq_check_all" id="cybaregq_check_all" value="" onclick="CybChAregAll(this);" /></td>
+			</tr>
+			<if condition="($cybaregs!='')">
+				$cybaregs
+			<else />
+			<tr>
+				<td class="alt1" align="center" style="width:100%;" colspan="5">$vbphrase[cybareg_noquestions]</td>
+			</tr>
+			</if>
+			<tr>
+				<td class="tfoot" colspan="5"><span class="smallfont" style="float:$stylevar[right]">
+				<select name="cybareg_mdf">
+				<option value="active">$vbphrase[cybareg_mark_active]</option>
+				<option value="inactive">$vbphrase[cybareg_mark_inactive]</option>
+				<option value="delete">$vbphrase[delete]</option>
+				</select>&nbsp;<input name="cybaregdmsb" class="smallfont" type="submit" value="&nbsp;$vbphrase[go]&nbsp;" /></span></td>
+			</tr>
+		</table>
+		</form>
+		<br />
+		<form id="cybaregadd" name="cybaregadd" action="misc.php?do=cybaregadddo" method="post">
+			<input type="hidden" name="securitytoken" value="$cybareg_sectok" />
+			<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+				<thead>
+					<tr>
+						<td class="tcat" colspan="4"><a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('cyb_areg_swa')"><img id="collapseimg_cyb_areg_swa" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_cyb_areg_swa].gif" alt="" border="0" /></a>$vbphrase[cybareg_add_question]</td>
+					</tr>
+				</thead>
+				<tbody id="collapseobj_cyb_areg_swa" style="$vbcollapse[collapseobj_cyb_areg_swa]">
+				<tr valign="top">
+					<td class="thead" align="center" nowrap="nowrap" width="50%">$vbphrase[cybareg_question]</td>
+					<td class="thead" align="center" nowrap="nowrap" width="50%">$vbphrase[cybareg_answer]</td>
+					<td class="thead" align="center" nowrap="nowrap">$vbphrase[cybareg_active]</td>
+					<td class="thead" align="center" nowrap="nowrap">$vbphrase[go]</td>
+				</tr>
+				<tr valign="top">
+					<td class="alt1" align="center" nowrap="nowrap"><input type="text" class="smallfont" style="text-align:center" name="question" value="" size="40" /></td>
+					<td class="alt2" align="center" nowrap="nowrap"><input type="text" class="smallfont" style="text-align:center" name="answer" value="" size="40" /></td>
+					<td class="alt1" align="center" nowrap="nowrap"><input type="checkbox" name="active" value="1" checked="checked" /></td>
+					<td class="alt2" align="center" nowrap="nowrap"><input class="smallfont" type="submit" value="&nbsp;$vbphrase[go]&nbsp;" /></td>
+				</tr>
+				</tbody>
+			</table>
+		</form>
+		</div>
+		<br />		
+		<div class="smallfont" style="float:$stylevar[right];"><a href="$admincpdir/options.php?do=options&amp;dogroup=cybareg" target="_blank">$vbphrase[cybareg_more_options]</a> | <a href="$admincpdir/options.php?do=options&amp;dogroup=register" target="_blank">$vbphrase[cybareg_reg_options]</a></div>
+		<br />
+		$footer
+		</body>
+		</html>

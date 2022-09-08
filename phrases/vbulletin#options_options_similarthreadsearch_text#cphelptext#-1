@@ -1,0 +1,3 @@
+Enabling this option will build a list of similar threads for a thread when it is posted.  To actually show the similar threads you need to have the "Show Similar Threads" option enabled <a href="options.php?dogroup=showthread&amp;do=options" target="_blank">here</a>.<br /><br />
+
+If you are concerned about server load you can disable this feature.

@@ -1,0 +1,10 @@
+<b>Explanations:</b><br /><br />
+<b>Title:</b> The title of your tag, which will be used to generate the <a href="../misc.php?do=bbcode">BB code list</a>.<br /><br />
+<b>Tag:</b> This is the text for the BB code, which goes inside the square brackets.<br />
+e.g. you would use 'b' for [b] tags, 'url' (without quotes) for [url] tags.<br /><br />
+<b>Replacement:</b> This is the HTML code for the BB code replacement. Make sure that you include '{param}' (without the quotes) to insert the text between the opening and closing BB code tags, and '{option}' for the parameter within the BB code tag. You can only use {option} if 'Use Option' is set to yes.<br />
+e.g. you would use &lt;b>{param}&lt;/b> for tags, &lt;a href="{option}">{param}&lt;/a> for [url=xxx] . You will always use '{param}', but you will only use '{option}' when "Use Option?" is "yes."<br /><br />
+<b>Example:</b> This is a sample piece of BB code to use as an example for this particular BB code.<br />
+e.g. you would use [b]Bold[/b] for [b] tags, [url=http://www.example.com]Example Web Site[/url] for [url] tags<br /><br />
+<b>Description:</b> This is a piece of text to describe the BB code tag. This can include HTML tags if you wish.<br /><br />
+<b>Use Option:</b> Setting this option to yes will allow you to create a [tag=option][/tag] style tag, rather than just a [tag][/tag] style tag.

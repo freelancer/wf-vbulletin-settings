@@ -1,0 +1,3 @@
+This is the first incompatible version. All versions newer than this are also incompatible. If you wish to only require a minimum version, you may leave this field blank.<br />
+<br />
+This version is not considered compatible. For example, if you specify that your product is incompatible with PHP 5.0.0, a user with PHP 5.0.0 Beta 1 will be able to install your product, while a user with PHP 5.0.0 or 5.0.1 would not.

@@ -1,0 +1,3 @@
+This is the title of the prefix, using no special markup. This will be shown in the prefix list menu, when the thread title is shown in the navigation bar, or when the thread title is used in an email.<br />
+<br />
+This title will be placed before the thread title with a space only. You will probably want to include some sort of delimiter character to make it more obvious that the prefix is being used. For example, if you use the prefix "For Sale", you may wish to enter "For Sale:" or "[For Sale]" here.

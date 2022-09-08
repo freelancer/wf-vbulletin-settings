@@ -1,0 +1,36 @@
+require_once('./includes/class_bbcode.php');
+new vB_BbCodeParser($vbulletin, fetch_tag_list());
+
+print_table_header($vbphrase['advanced_bbcode_permissions']);
+print_yes_no_row($vbphrase['advanced_bbcode_usergroup_on'], 'usergroup[advanced_bbcode_usergroup_on]', $usergroup['advanced_bbcode_usergroup_on']);
+
+$advanced_bbcode_permissions = explode('|||', $usergroup['advanced_bbcode_permissions']);
+foreach ($advanced_bbcode_permissions AS $key => $bbcode)
+{
+	list($core, $bbcode, $yesno) = split("\|\|", $bbcode);
+	$abe1_bbcode[$core][$bbcode] = $yesno;
+}
+
+print_yes_no_row($vbphrase['allow_bbcode_basic'], 'abe1_bbcode[core][allow_bbcode_basic]', $abe1_bbcode['core']['allow_bbcode_basic']);
+print_yes_no_row($vbphrase['allow_bbcode_color'], 'abe1_bbcode[core][allow_bbcode_color]', $abe1_bbcode['core']['allow_bbcode_color']);
+print_yes_no_row($vbphrase['allow_bbcode_size'], 'abe1_bbcode[core][allow_bbcode_size]', $abe1_bbcode['core']['allow_bbcode_size']);
+print_yes_no_row($vbphrase['allow_bbcode_font'], 'abe1_bbcode[core][allow_bbcode_font]', $abe1_bbcode['core']['allow_bbcode_font']);
+print_yes_no_row($vbphrase['allow_bbcode_align'], 'abe1_bbcode[core][allow_bbcode_align]', $abe1_bbcode['core']['allow_bbcode_align']);
+print_yes_no_row($vbphrase['allow_bbcode_list'], 'abe1_bbcode[core][allow_bbcode_list]', $abe1_bbcode['core']['allow_bbcode_list']);
+print_yes_no_row($vbphrase['allow_bbcode_url'], 'abe1_bbcode[core][allow_bbcode_url]', $abe1_bbcode['core']['allow_bbcode_url']);
+print_yes_no_row($vbphrase['allow_bbcode_code'], 'abe1_bbcode[core][allow_bbcode_code]', $abe1_bbcode['core']['allow_bbcode_code']);
+print_yes_no_row($vbphrase['allow_bbcode_php'], 'abe1_bbcode[core][allow_bbcode_php]', $abe1_bbcode['core']['allow_bbcode_php']);
+print_yes_no_row($vbphrase['allow_bbcode_html'], 'abe1_bbcode[core][allow_bbcode_html]', $abe1_bbcode['core']['allow_bbcode_html']);
+
+foreach($vbulletin->bbcodecache AS $custom_bbcode)
+{
+	$custom_bbcodes[$custom_bbcode['bbcodetag']] = $custom_bbcode['bbcodetag'];
+}
+
+foreach ($custom_bbcodes AS $bbcode)
+{
+	print_yes_no_row("[" . strtoupper($bbcode) . "]", "abe1_bbcode[non_core][$bbcode]", $abe1_bbcode[non_core][$bbcode]);
+}
+
+print_table_break();
+print_column_style_code(array('width: 70%', 'width: 30%'));

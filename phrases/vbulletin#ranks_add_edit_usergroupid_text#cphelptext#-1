@@ -1,0 +1,3 @@
+This is the usergroup to which this rank applies.  The users to whom is applied depends on the value of the "Display Type" setting. If you select "Always", all users with this usergroup in his/her primary <strong>or</strong> secondary groups will receive this rank. If you select "If Displaygroup = This Group", then only users that identify themselves as this group will receive this rank.<br />
+<br />
+Select "All Usergroups" to have this rank apply to everyone regardless of their usergroup.

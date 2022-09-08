@@ -1,0 +1,10 @@
+<tr>
+	<td class="$bgclass" nowrap="nowrap">
+		<div><a href="member.php?$session[sessionurl]u=$request[userid]" target="_blank">$request[musername]</a></div>
+		<div class="smallfont">$request[date] <span class="time">$request[time]</span></div>
+	</td>
+	<td class="$bgclass" width="100%">$request[reason]</td>
+	<td class="$bgclass"><span class="smallfont"><label for="rb_req_$request[usergrouprequestid]_1"><input type="radio" name="request[$request[usergrouprequestid]]" value="1" id="rb_req_$request[usergrouprequestid]_1" />$vbphrase[accept]</label></span></td>
+	<td class="$bgclass"><span class="smallfont"><label for="rb_req_$request[usergrouprequestid]_0"><input type="radio" name="request[$request[usergrouprequestid]]" value="0" id="rb_req_$request[usergrouprequestid]_0" />$vbphrase[deny]</label></span></td>
+	<td class="$bgclass"><span class="smallfont"><label for="rb_req_$request[usergrouprequestid]_ignore"><input type="radio" name="request[$request[usergrouprequestid]]" value="-1" id="rb_req_$request[usergrouprequestid]_ignore" checked="checked" />$vbphrase[ignore]</label></span></td>
+</tr>

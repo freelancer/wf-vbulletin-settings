@@ -1,0 +1,382 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$foruminfo[title_clean]<if condition="$pagenumber>1"> - <phrase 1="$pagenumber">$vbphrase[page_x]</phrase></if> - $vboptions[bbtitle]</title>
+<if condition="$show['inlinemod']"><script type="text/javascript" src="clientscript/vbulletin_inlinemod.js?v=$vboptions[simpleversion]"></script></if>
+</head>
+<body>
+$header
+$navbar
+<if condition="$show['removed_thread']">
+<div class="Nibiru">
+    <p class="Alert Alert--error" id="AlertBox">
+        The thread you were looking for has been removed. Check other discussions on the $foruminfo[title] below.
+        <span class="Alert-close">
+            <close-on-click target="AlertBox"></close-on-click>
+        </span>
+    </p>
+</div>
+</if>
+
+<if condition="$show['threadslist']">
+<!-- threads list  -->
+
+<form action="inlinemod.php?forumid=$forumid" method="post" id="inlinemodform">
+<input type="hidden" name="url" value="$url" />
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="forumid" value="$forumid" />
+
+<!-- controls above thread list -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tr valign="bottom">
+
+        <if condition="in_array($foruminfo[forumid], array(17))">
+        <td class="wso-buttons">
+            <a href="https://payments.warriorforum.com/post-wso"><img src="$stylevar[imgdir_button]/wso-regular-button.png" alt="Post a WSO" border="0" style="height:30px" /></a>
+            <a href="https://payments.warriorforum.com/affiliate-marketplace"><img src="$stylevar[imgdir_button]/earn-as-affiliate-regular-button.png" alt="Earn as an affiliate" border="0" style="height:30px" /></a>
+        </td>
+        <if condition="$pagenav"><td class="wso-pagination" align="$stylevar[left]">$pagenav</td></if>
+        <else />
+        <td class="smallfont">
+            <if condition="$show['newthreadlink']">
+                <a href="newthread.php?$session[sessionurl]do=newthread&amp;f=$foruminfo[forumid]" rel="nofollow"><img src="$stylevar[imgdir_button]/newthread.png?6b79968a" width="105" height="30" alt="$vbphrase[post_new_thread]" border="0" /></a><else />&nbsp;
+            </if>
+        </td>
+        <if condition="$pagenav"><td align="$stylevar[left]">$pagenav</td></if>
+        </if>
+</tr>
+</table>
+<!-- / controls above thread list -->
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center" style="border-bottom-width:0px">
+<tr>
+    <td class="tcat" width="100%">$vbphrase[threads_in_forum]<span class="normal"> : $foruminfo[title]</span></td>
+</tr>
+</table>
+
+<table class="tborder cellLink" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center" id="threadslist">
+<tbody>
+$announcebits
+
+</tbody>
+
+<if condition="$show['threads']">
+    <!-- show threads -->
+    <tbody id="threadbits_forum_$foruminfo[forumid]">
+    <if condition="$show['stickies']">
+    $threadbits_sticky
+    </if>
+    $threadbits
+    </tbody>
+    <!-- end show threads -->
+<else />
+    <!-- show no threads message -->
+    <tbody>
+    <tr>
+        <td class="alt1" colspan="$foruminfo[bottomcolspan]" align="center">
+            <div style="padding: 16px">
+                <if condition="$show['noposts']"><strong>$vbphrase[no_posts_in_this_forum]</strong><else /><strong><phrase 1="$daysprune">$vbphrase[no_posts_last_x_days_forum]</phrase></strong><br />
+                <span class="smallfont">$vbphrase[try_controls_below_for_older_posts]</span></if>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+    <!-- end show no threads message -->
+</if>
+</table>
+<div class="bottom"></div>
+
+<!-- controls below thread list -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:3px">
+<tr valign="top">
+    <td class="smallfont"><if condition="$show['newthreadlink']"><a href="newthread.php?$session[sessionurl]do=newthread&amp;f=$foruminfo[forumid]" rel="nofollow"><img src="$stylevar[imgdir_button]/newthread.png?6b79968a" width="105" height="30" alt="$vbphrase[post_new_thread]" border="0" /></a><else />&nbsp;</if></td>
+
+</tr>
+</table>
+<!-- / controls below thread list -->
+
+</form>
+<br />
+
+<if condition="$show['forumslist']">
+<!-- sub-forum list  -->
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center" style="border-bottom-width:0px">
+<tr>
+    <td class="tcat" width="100%">$vbphrase[subforums]<span class="normal"> : $foruminfo[title]</span></td>
+    <if condition="$show['forumsearch']">
+    <td class="vbmenu_control" id="forumsearch.subforums" nowrap="nowrap"><a href="search.php?$session[sessionurl]f=$foruminfo[forumid]" rel="nofollow">$vbphrase[search_this_forum]</a> <if condition="$show['quicksearch']"><script type="text/javascript"> vbmenu_register("forumsearch.subforums"); </script></if></td>
+    </if>
+</tr>
+</table>
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+    <tr align="center">
+      <td class="thead">&nbsp;</td>
+      <td class="thead" width="100%" align="$stylevar[left]">$vbphrase[forum]</td>
+      <td class="thead">$vbphrase[last_post]</td>
+      <td class="thead">$vbphrase[threads]</td>
+      <td class="thead">$vbphrase[posts]</td>
+      <if condition="$vboptions[showmoderatorcolumn]">
+      <td class="thead">$vbphrase[moderator]</td>
+      </if>
+    </tr>
+</thead>
+$forumbits
+</table>
+<div class="bottom"></div>
+<br />
+<!-- / sub-forum list  -->
+</if>
+
+$ad_location[ad_forumdisplay_afterthreads]
+
+
+<if condition="$show['popups']">
+<br />
+<!-- popup menu contents -->
+
+
+<!-- forum tools menu -->
+<div class="vbmenu_popup" id="forumtools_menu" style="display:none">
+<form action="moderator.php?f=$forumid" method="post" name="forumadminform">
+    <table cellpadding="4" cellspacing="1" border="0">
+    <tr><td class="thead">$vbphrase[forum_tools]<a name="goto_forumtools"></a></td></tr>
+    <if condition="$show['newthreadlink']"><tr><td class="vbmenu_option"><a href="newthread.php?$session[sessionurl]do=newthread&amp;f=$foruminfo[forumid]" rel="nofollow">$vbphrase[post_a_new_thread]</a></td></tr></if>
+    <tr><td class="vbmenu_option"><a href="forumdisplay.php?$session[sessionurl]do=markread&amp;f=$foruminfo[forumid]" rel="nofollow" onclick="return mark_forum_read($foruminfo[forumid]);">$vbphrase[mark_this_forum_read]</a></td></tr>
+    <tr>
+        <td class="vbmenu_option">
+        <if condition="$show['subscribed_to_forum']">
+            <a href="subscription.php?$session[sessionurl]do=removesubscription&amp;f=$foruminfo[forumid]" rel="nofollow">$vbphrase[unsubscribe_from_this_forum]</a>
+        <else />
+            <a href="subscription.php?$session[sessionurl]do=addsubscription&amp;f=$foruminfo[forumid]" rel="nofollow">$vbphrase[subscribe_to_this_forum]</a>
+        </if>
+        </td>
+    </tr>
+    <tr><td class="vbmenu_option"><a href="forumdisplay.php?$session[sessionurl]f=$foruminfo[parentid]" rel="nofollow">$vbphrase[view_parent_forum]</a></td></tr>
+    <if condition="$show['adminoptions']">
+    <tr>
+        <td class="thead">$vbphrase[admin_tools]<a name="goto_forumadmin"></a></td>
+    </tr>
+    <tr>
+        <td class="vbmenu_option" title="nohilite">
+        <if condition="$show['post_queue']"><div><label for="fa_mpo"><input type="radio" name="do" id="fa_mpo" value="modposts" checked="checked" />$vbphrase[view_posts_queue]</label></div></if>
+        <if condition="$show['attachment_queue']"><div><label for="fa_mat"><input type="radio" name="do" id="fa_mat" value="modattach" />$vbphrase[view_attachment_queue]</label></div></if>
+        <if condition="$show['mass_move']"><div><label for="fa_mov"><input type="radio" name="do" id="fa_mov" value="move" />$vbphrase[massmove_threads]</label></div></if>
+        <if condition="$show['mass_prune']"><div><label for="fa_prn"><input type="radio" name="do" id="fa_prn" value="prune" />$vbphrase[massprune_threads]</label></div></if>
+        <if condition="$show['addmoderator']">
+        <div><label for="fa_amd"><input type="radio" name="do" id="fa_amd" value="addmoderator" />$vbphrase[add_moderator]</label></div>
+        </if>
+        <if condition="$show['post_new_announcement']">
+        <div><label for="fa_pan"><input type="radio" name="do" id="fa_pan" value="postannouncement" />$vbphrase[post_new_announcement]</label></div>
+        </if>
+        </td>
+    </tr>
+    <tr>
+        <td class="vbmenu_option" title="nohilite" align="center">
+            <input type="hidden" name="s" value="$session[sessionhash]" />
+            <input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+            <input type="hidden" name="f" value="$forumid" />
+            <input type="submit" class="button" value="$vbphrase[perform_action]" />
+        </td>
+    </tr>
+    </if>
+    </table>
+</form>
+</div>
+<!-- / forum tools menu -->
+
+<!-- inline mod menu -->
+<if condition="$show['inlinemod']">
+    <div class="vbmenu_popup" id="imod_menu" style="display:none" align="$stylevar[left]">
+        $threadadmin_imod_menu_thread
+    </div>
+</if>
+<!-- / inline mod menu -->
+
+<!-- / popup menu contents -->
+<else />
+<!-- controls for non-popup browsers -->
+
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center" style="border-top-width:0px">
+<tr>
+    <td class="thead">$vbphrase[forum_tools]<a name="goto_forumtools"></a></td>
+    <td class="thead">$vbphrase[search_this_forum]<a name="goto_forumsearch"></a></td>
+</tr>
+<tr valign="top">
+    <!-- forum tools -->
+    <td class="alt1">
+        <div class="smallfont">
+            <div><img class="inlineimg" src="$stylevar[imgdir_button]/subscribe.gif" alt="$vbphrase[mark_this_forum_read]" vspace="1" /> <a href="forumdisplay.php?$session[sessionurl]do=markread&amp;f=$foruminfo[forumid]" rel="nofollow">$vbphrase[mark_this_forum_read]</a></div>
+            <if condition="$show['member']"><div><img class="inlineimg" src="$stylevar[imgdir_button]/subscribe.gif" alt="$vbphrase[subscription]" vspace="1" />
+                <if condition="$show['subscribed_to_forum']">
+                    <a href="subscription.php?$session[sessionurl]do=removesubscription&amp;f=$foruminfo[forumid]" rel="nofollow">$vbphrase[unsubscribe_from_this_forum]</a>
+                <else />
+                    <a href="subscription.php?$session[sessionurl]do=addsubscription&amp;f=$foruminfo[forumid]" rel="nofollow">$vbphrase[subscribe_to_this_forum]</a>
+                </if>
+            </div></if>
+            <div><img class="inlineimg" src="$stylevar[imgdir_button]/subscribe.gif" alt="$vbphrase[view_parent_forum]" vspace="1" /> <a href="forumdisplay.php?$session[sessionurl]f=$foruminfo[parentid]" rel="nofollow">$vbphrase[view_parent_forum]</a></div>
+        </div>
+    </td>
+    <!-- / forum tools -->
+
+    <!-- search this forum -->
+    <td class="alt1">
+    <form action="search.php?do=process" method="post">
+    <div class="smallfont">
+        <input type="hidden" name="s" value="$session[sessionhash]" />
+        <input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+        <input type="hidden" name="do" value="process" />
+        <input type="hidden" name="forumchoice[]" value="$forumid" />
+        <input type="hidden" name="childforums" value="1" />
+        <input type="hidden" name="exactname" value="1" />
+        <strong>$vbphrase[search_this_forum]</strong> :<br />
+        <input type="text" class="bginput" name="query" size="20" style="width:175px" />$gobutton<br />
+        <a href="search.php?$session[sessionurl]f=$forumid" rel="nofollow">$vbphrase[advanced_search]</a>
+    </div>
+    </form>
+    </td>
+    <!-- / search this forum -->
+</tr>
+</table>
+<br />
+
+
+<!-- / controls for non-popup browsers -->
+</if>
+
+<if condition="$show['ajax_js']">
+    <script type="text/javascript" src="clientscript/vbulletin_ajax_threadslist.js?v=$vboptions[simpleversion]"></script>
+    <script type="text/javascript">
+    <!--
+    vB_AJAX_Threadlist_Init('threadslist');
+    var titlemaxchars = parseInt("$vboptions[titlemaxchars]");
+    //-->
+    </script>
+</if>
+
+<!-- ############## END THREADS LIST ##############  -->
+</if>
+
+$forumhome_markread_script
+
+<if condition="$show['popups'] AND $show['forumsearch']">
+<!-- forum search menu -->
+<div class="vbmenu_popup" id="forumsearch_menu" style="display:none">
+<form action="search.php?do=process" method="post">
+    <table cellpadding="4" cellspacing="1" border="0">
+    <tr>
+        <td class="thead">$vbphrase[search_this_forum]<a name="goto_forumsearch"></a></td>
+    </tr>
+    <tr>
+        <td class="vbmenu_option" title="nohilite">
+            <input type="hidden" name="s" value="$session[sessionhash]" />
+            <input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+            <input type="hidden" name="do" value="process" />
+            <input type="hidden" name="forumchoice[]" value="$forumid" />
+            <input type="hidden" name="childforums" value="1" />
+            <input type="hidden" name="exactname" value="1" />
+            <div><input type="text" class="bginput" name="query" size="25" tabindex="1001" /><input type="submit" class="button" value="$vbphrase[go]" accesskey="s" tabindex="1004" /></div>
+        </td>
+    </tr>
+    <tr>
+        <td class="vbmenu_option" title="nohilite">
+            <label for="rb_fd_sp0"><input type="radio" name="showposts" value="0" id="rb_fd_sp0" tabindex="1002" checked="checked" />$vbphrase[show_threads]</label>
+            &nbsp;
+            <label for="rb_fd_sp1"><input type="radio" name="showposts" value="1" id="rb_fd_sp1" tabindex="1003" />$vbphrase[show_posts]</label>
+        </td>
+    </tr>
+    <tr>
+        <td class="vbmenu_option"><a href="search.php?$session[sessionurl]f=$forumid" rel="nofollow">$vbphrase[advanced_search]</a></td>
+    </tr>
+    </table>
+</form>
+</div>
+<!-- / forum search menu -->
+</if>
+
+
+<!-- forum rules & forum jump -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tr valign="bottom">
+<if condition="$show['pagenav'] OR $show['inlinemod']">
+        <td align="center">$pagenav
+        <if condition="$show['inlinemod']">
+            <div class="smallfont" style="text-align:$stylevar[left]; white-space:nowrap; float:$stylevar[left]">
+            <if condition="$show['pagenav']"><br /></if><strong>$vbphrase[moderation]</strong><br />
+            <select name="do">
+                <if condition="$show['deletethread'] OR $show['spamctrls'] OR $show['openthread'] OR $show['approvethread'] OR $show['movethread'] OR $template_hook['inlinemod_thread_bottom']">
+                <optgroup label="$vbphrase[option]">
+                    <if condition="$show['deletethread']">
+                    <option value="deletethread">$vbphrase[delete_threads]</option>
+                    <option value="undeletethread">$vbphrase[undelete_threads]</option>
+                    </if>
+                    <if condition="$show['spamctrls']">
+                    <option value="spamthread">$vbphrase[delete_threads_as_spam]</option>
+                    </if>
+                    <if condition="$show['openthread']">
+                    <option value="open">$vbphrase[open_threads]</option>
+                    <option value="close">$vbphrase[close_threads]</option>
+                    </if>
+                    <if condition="$show['approvethread']">
+                    <option value="approvethread">$vbphrase[approve_threads]</option>
+                    <option value="unapprovethread">$vbphrase[unapprove_threads]</option>
+                    </if>
+                    <if condition="$show['movethread']">
+                    <option value="stick">$vbphrase[stick_threads]</option>
+                    <option value="unstick">$vbphrase[unstick_threads]</option>
+                    <option value="movethread">$vbphrase[move_threads]</option>
+                    <option value="mergethread">$vbphrase[merge_threads]</option>
+                    </if>
+                    $template_hook[inlinemod_thread_bottom]
+                </optgroup>
+                </if>
+                <optgroup label="____________________">
+                    <option value="viewthread">$vbphrase[view_selected_threads]</option>
+                    <option value="clearthread">$vbphrase[clear_thread_list]</option>
+                </optgroup>
+            </select><input type="submit" class="button" id="inlinego" value="$vbphrase[go]" />
+            </div>
+            <script type="text/javascript">
+            <!--
+            inlineMod = new vB_Inline_Mod('inlineMod', 'thread', 'inlinemodform', '$vbphrase[go_x]');
+            //-->
+            </script>
+        </if>
+        </td>
+    </if></tr>
+<tr valign="bottom">
+
+    <td align="center">
+        $forumjump
+        <if condition="!$show['popups'] AND $show['adminoptions']">
+            <br />
+            <form action="moderator.php" method="get">
+            <input type="hidden" name="s" value="$session[sessionhash]" />
+            <input type="hidden" name="f" value="$forumid" />
+            <div class="smallfont"><strong>$vbphrase[admin_tools]</strong> :</div>
+            <select name="do" onchange="this.form.submit();">
+                <optgroup label="$vbphrase[admin_tools]">
+                    <option value="modposts" selected="selected">$vbphrase[view_posts_queue]</option>
+                    <option value="modattach">$vbphrase[view_attachment_queue]</option>
+                    <option value="move">$vbphrase[mass_move]</option>
+                    <option value="prune">$vbphrase[mass_prune]</option>
+                    <if condition="$show['addmoderator']">
+                        <option value="addmoderator">$vbphrase[add_moderator]</option>
+                    </if>
+                    <if condition="$show['post_new_announcement']">
+                        <option value="postannouncement">$vbphrase[post_new_announcement]</option>
+                    </if>
+                </optgroup>
+            </select>$gobutton
+            </form>
+        </if>
+    </td>
+</tr>
+</table>
+<!-- / forum rules & forum jump -->
+
+$footer
+</body>
+</html>

@@ -1,0 +1,3 @@
+The number of threads to display on a forum page before splitting it over multiple pages.<br />
+<br />
+<b>Note: </b>This number must be at least 1.

@@ -1,0 +1,9 @@
+[url=$vboptions[bburl]/member.php?u=$bbuserinfo[userid]]$reportinfo[rusername][/url] has reported a blog comment.
+
+Reason:[quote]$reportinfo[reason][/quote]
+Comment: [url=$vboptions[bburl]/blog.php?bt=$reportinfo[blogtextid]]$reportinfo[entrytitle][/url]
+Blog: $reportinfo[blogtitle]
+Assigned Moderators: $reportinfo[modlist]
+
+Posted by: [url=$vboptions[bburl]/member.php?u=$reportinfo[puserid]]$reportinfo[pusername][/url]
+Original Content: [quote]$reportinfo[pagetext][/quote]

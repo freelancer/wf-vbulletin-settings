@@ -1,0 +1,6 @@
+We have completed moving attachments to the filesystem.  Presently, the attachments still remain in the database and are being read from there.  If you are sure that the process completed without incident, go ahead and select yes below to remove the attachments from the database.  This step cannot be reversed and may take a few minutes depending on the size of your database. Please be patient.<br /><br />
+Attachments in Database: {1}<br />
+Total Attachments Processed: {2}<br /><br />
+<b>The above two values should be the same!</b><br /><br />
+Number of Attachments that could not be created or are 0 bytes: {3}<br />
+<b>The above value should be 0</b>! Having 0 byte attachments is not uncommon so a few is nothing to worry about but if the number equals the number of attachments in the database then DO NOT FINALIZE this step or you will lose all of your attachments.

@@ -1,0 +1,8 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=cronadmin&amp;pageaction=&amp;option=">Scheduled Tasks</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=cronlog&amp;pageaction=&amp;option=">Scheduled Tasks Log</a><br /><br />
+
+<b>Scheduled Tasks:</b><br />
+vBulletin's scheduled tasks system is used to perform regularly needed tasks at certain time intervals.  Scheduled tasks are basically vBulletin cron jobs.<br /><br />
+
+One benefit of the scheduled tasks system is that common vBulletin tasks, like updating view counters and sending emails, can be queued up and performed all at once which reduces the average server load.  This can make a huge difference on high traffic forums.  You can choose to schedule common vBulletin tasks in your <a href="options.php?dogroup=server&amp;do=options" target="_blank">vBulletin options</a>.

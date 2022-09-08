@@ -1,0 +1,11 @@
+<tr align="center">
+  <td class="alt2" align="$stylevar[left]" id="f$forum[forumid]">
+    <div>
+<a class="aflink" href="forumdisplay.php&$session[sessionurl]f=$forum[forumid]">$forum[title]</a>
+</div>
+  $forum[subforums]
+  </td>
+<!-- <td class="alt2" width="24" align=right"><a href="showthread.php?$session[sessionurl]p=$lastpostinfo[lastpostid]#post$lastpostinfo[lastpostid]"><img class="inlineimg" width="24" height="24" src="$stylevar[imgdir_button]/lastpost.png" alt="$vbphrase[go_to_last_post]" border="0" /></a></td> -->
+
+</tr>
+$childforumbits

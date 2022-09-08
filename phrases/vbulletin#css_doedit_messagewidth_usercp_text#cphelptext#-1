@@ -1,0 +1,3 @@
+This setting allows you to set the width of the message area in user control panel.  The <a href="../private.php?do=newpm" target="_blank">Send New Private Message</a> form, for example (if you have the PM feature enabled).<br /><br />
+
+Enter a number of pixels followed by a "px" (e.g., <b>380px</b>).

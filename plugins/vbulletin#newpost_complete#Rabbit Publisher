@@ -1,0 +1,4 @@
+global $rmq_helper;
+$lasthook='newpost_complete';
+$body = get_defined_vars();
+$rmq_helper->publish($body, '', 'vb', array('x-ha-policy' => array('S', 'all')), 'topic', 'vb.' . $lasthook);

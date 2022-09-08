@@ -1,0 +1,2 @@
+$blogattachdata = $this->registry->db->query_first_slave("SELECT SUM(filesize) AS sum FROM " . TABLE_PREFIX . "blog_attachment");
+$attachdata['sum'] += $blogattachdata['sum'];

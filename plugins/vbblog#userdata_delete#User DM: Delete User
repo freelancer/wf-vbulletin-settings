@@ -1,0 +1,8 @@
+$vbulletin =& $this->registry;
+require_once(DIR . '/includes/blog_functions.php');
+
+$userdm =& datamanager_init('Blog_User', $this->registry, ERRTYPE_SILENT);
+$existing = array('bloguserid' => $this->existing['userid']);
+$userdm->set_existing($existing);
+$userdm->delete();
+unset($userdm);

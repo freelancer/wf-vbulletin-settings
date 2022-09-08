@@ -1,0 +1,3 @@
+This permission allows members of this group to deny read receipts on PMs.  In this way the recipient can not tell the sender that their message was read.<br /><br />
+
+Private Messaging must be enabled in your <a href="options.php?dogroup=pm&amp;do=options" target="_blank">vBulletin options</a> for this permission to have any effect.  The "Maximum Stored Messages" permission above must also be set to a positive number for members of this group to use the PM feature.

@@ -1,0 +1,20 @@
+{
+  "0": {
+    "d": "0", 
+    "i": "<span  style=\"font-weight: bold; color: rgb(202, 0, 0); font-size: 10px; font-family: Arial;\">Registered Member</span>", 
+    "m": "1", 
+    "l": "1", 
+    "s": "1", 
+    "u": "36", 
+    "t": "1"
+  }, 
+  "1": {
+    "d": "0", 
+    "i": "<span  style=\"font-weight: bold; color: rgb(202, 0, 0); font-size: 10px; font-family: Arial;\">War Room Member</span>", 
+    "m": "1", 
+    "l": "1", 
+    "s": "1", 
+    "u": "9", 
+    "t": "1"
+  }
+}

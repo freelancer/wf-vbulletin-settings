@@ -1,0 +1,11 @@
+Dear $username,
+
+Your WSO thread was approved to be published. It will be published after you set it as visible.
+To set your thread as visible, visit the  <a href="$vboptions[bburl]/showthread.php?t=$threadid">wso thread</a> and click 'Launch'
+
+
+You can promote your WSO by advertising on Warrior Forum. <a href="https://wso.warriorforum.com/add-banner">Advertise with us now!</a>
+
+Best Regards
+
+<a href="$vboptions[bburl]">$vboptions[bbtitle]</a>

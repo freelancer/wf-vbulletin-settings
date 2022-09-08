@@ -1,0 +1,5 @@
+If you set this option to Disable Controls, no one will be able to use the enhanced toolbar that assists users in using BB codes, or the <span style="cursor:help; border: 1px dotted black;" title="What You See Is What You Get">WYSIWYG</span> editor, which allows users to use a Word-like editing box. Using Disable Controls will also keep the Clickable Smilies box from showing.<br /><br />
+
+Setting this option to Enable Standard Controls will allow users to opt to use a vB2-style toolbar for quick use of BB codes.<br /><br />
+
+Setting this option to Enable Standard &amp; WYSIWYG Controls will allow users to choose between the standard and WYSIWYG controls.

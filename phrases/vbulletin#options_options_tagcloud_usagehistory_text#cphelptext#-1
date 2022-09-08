@@ -1,0 +1,3 @@
+This option controls the number of days worth of data that will be used to create the usage-based tag cloud shown <a href="../tags.php" target="_blank">here</a>. Any tags added outside this range will not be taken into account for the tag cloud.<br />
+<br />
+The tag cloud can serve as a list of what's popular on your site. You can use this option to prevent what was popular earlier from skewing against what's popular now.

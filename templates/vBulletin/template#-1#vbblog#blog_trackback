@@ -1,0 +1,25 @@
+<!-- blog_response_trackback -->
+<table id="trackback$response[blogtrackbackid]" class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" style="margin-top:$stylevar[cellpadding]px; clear:both" width="100%">
+<tr>
+	<if condition="$show['inlinemod_trackback']">
+		<td class="thead" align="center" valign="bottom">
+			<input type="checkbox" name="trackbacklist[$response[blogtrackbackid]]" id="trackbacklist_$response[blogtrackbackid]" value="$response[checkbox_value]" title="$vbphrase[select_this_item_for_inline_moderation]" style="margin:-2px" />
+		</td>
+	</if>
+	<td class="alt1" width="100%"><!-- class="$bgclass" -->
+		<if condition="$show['moderation']">
+			<span style="float:$stylevar[right]">
+				<img src="$stylevar[imgdir_misc]/moderated.gif" class="inlineimg" alt="$vbphrase[moderated_trackback]"  border="0" />
+			</span>
+		</if>
+		<h4 style="font-size:10pt; font-weight:normal; margin:0px"><a href="$response[url]" rel="nofollow">$response[title]</a></h4>
+		<div class="smallfont shade" style="margin-bottom:$stylevar[cellpadding]px">$response[date]<if condition="!$show['detailedtime']">, $response[time]</if></div>
+		<if condition="$show['edit_trackback']">
+			<div style="float:$stylevar[right]" class="smallfont">
+				<a href="blog_post.php?$session[sessionurl]do=edittrackback&amp;blogtrackbackid=$response[blogtrackbackid]"><img class="inlineimg" src="$stylevar[imgdir_misc]/blog/edit.gif" alt="$vbphrase[edit_comment]" border="0" /></a>
+			</div>
+		</if>
+		<div class="smallfont">$response[snippet]</div>
+	</td>
+</tr>
+</table>

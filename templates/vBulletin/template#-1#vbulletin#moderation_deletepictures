@@ -1,0 +1,45 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $vbphrase[delete_pictures]</title>
+</head>
+<body>
+$header
+$navbar
+
+<form action="picture_inlinemod.php?pictureids=$pictureids" method="post" name="vbform">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="pictureids" value="$pictureids" />
+<input type="hidden" name="do" value="dopicturedelete" />
+<input type="hidden" name="url" value="$url"  />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[delete_pictures]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+
+		<div class="fieldset shade"><phrase 1="$picturecount" 2="$albumcount">$vbphrase[deleting_x_pictures_from_y_albums]</phrase></div>
+
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" value="$vbphrase[delete]" accesskey="s" />
+		<input type="button" class="button" value="$vbphrase[cancel]" accesskey="c" onclick="history.back(1)" />
+	</div>
+	</td>
+</tr>
+</table>
+
+</form>
+
+<br />
+
+$footer
+
+</body>
+</html>

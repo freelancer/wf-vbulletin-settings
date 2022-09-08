@@ -1,0 +1,26 @@
+$fallback = Spam_Hammer_Fallback::html();
+
+if ($vbulletin->options['vbresults_service_auth_token']) {
+	$markup = vB_Forum_Results_Service::get('spamhammer', 'render_form', array(
+		'type' => 'register',
+
+		/** Hashing **/
+		'time' => TIMENOW,
+		'ip_address' => $_SERVER['REMOTE_ADDR'],
+		'session_hash' => $vbulletin->session->vars['dbsessionhash'],
+
+		/** User Options **/
+		'countdown' => $vbulletin->options['spam_hammer_service_timer'],
+		'protect' => $vbulletin->options['spam_hammer_service_protect']
+	));
+
+	if (!$markup || is_array($markup)) {
+		$markup = $fallback;
+	}
+}
+
+if (version_compare(FILE_VERSION, '3.7.0', '>=')) {
+	$human_verify .= isset($markup) ? $markup : $fallback;
+} else {
+	$imagereg .= isset($markup) ? $markup : $fallback;
+}

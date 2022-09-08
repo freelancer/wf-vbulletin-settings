@@ -1,0 +1,78 @@
+
+		$stylevar[htmldoctype]
+		<html dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+			<head>
+			$headinclude
+			<title>$vboptions[bbtitle] - $vbphrase[Cyb_APBOUPC]</title>
+			<script language="JavaScript" type="text/javascript">
+			<!--
+			function CybValidateFormSubmit()
+			{
+			    if ((document.submitform.forumpermupdate.value == "")
+					&& (document.submitform.threadpermupdate.value == "")
+					&& (document.submitform.createpermupdate.value == "")
+					&& (document.submitform.replypermupdate.value == "")
+					&& (document.submitform.attachpermupdate.value == "")
+					&& (document.submitform.linkviewpermupdate.value == "")
+					&& (document.submitform.linkpostpermupdate.value == ""))
+			    {
+			        alert ('$vbphrase[apboupc_nothingtodo]');
+			        valid = false;
+			    }
+				else
+				{
+					valid = true;
+					var agree=confirm('$vbphrase[cyb_apboupc_form_submit_confirm]');
+					if (agree) { return true ; } else { return false ; }
+				}
+			    return valid;
+			}
+			// -->
+			</script>
+			</head>
+			<body>
+				$header
+				$navbar
+				<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+					<tr>
+						<td class="tcat" colspan="9">$vbphrase[Cyb_APBOUPC]</td>
+					</tr>
+					<tr class="alt2">
+						<td class="smallfont" colspan="9"><phrase 1="$cyb_admincpdir/forum.php?do=modify" 2="$vbphrase[apboupc_edit_forum]" 3="$cyb_admincpdir/options.php?do=options&dogroup=APBOUPC" 4="http://www.vbulletin.org/forum/showthread.php?t=123002" 5="http://www.vbulletin.org/forum/member.php?u=108756">$vbphrase[apboupc_setglobal_note]</phrase></td>
+					</tr>
+					<tr class="alt1">
+					<form action="misc.php?do=apboupcpermupdate" method="post" onsubmit="return CybValidateFormSubmit();" id="submitform" name="submitform">
+						<input type="hidden" name="securitytoken" value="$cybapboupc_sectok" />
+						<td class="smallfont" nowrap="nowrap" align="center" width="20%">$vbphrase[apboupc_change_pc_req]</td>
+						<td class="smallfont" nowrap="nowrap" align="center" width="10%"><input class="smallfont" name="forumpermupdate" type="text" value="" size="2" tabindex="1" /></td>
+						<td class="smallfont" nowrap="nowrap" align="center" width="10%"><input class="smallfont" name="threadpermupdate" type="text" value="" size="2" tabindex="2" /></td>
+						<td class="smallfont" nowrap="nowrap" align="center" width="10%"><input class="smallfont" name="createpermupdate" type="text" value="" size="2" tabindex="3" /></td>
+						<td class="smallfont" nowrap="nowrap" align="center" width="10%"><input class="smallfont" name="replypermupdate" type="text" value="" size="2" tabindex="4" /></td>
+						<td class="smallfont" nowrap="nowrap" align="center" width="10%"><input class="smallfont" name="attachpermupdate" type="text" value="" size="2" tabindex="5" /></td>
+						<td class="smallfont" nowrap="nowrap" align="center" width="10%"><input class="smallfont" name="linkviewpermupdate" type="text" value="" size="2" tabindex="6" /></td>
+						<td class="smallfont" nowrap="nowrap" align="center" width="10%"><input class="smallfont" name="linkpostpermupdate" type="text" value="" size="2" tabindex="7" /></td>
+						<td class="smallfont" nowrap="nowrap" align="center" width="10%"><input type="submit" class="button" value="$vbphrase[apboupc_change]" style="width:80px" tabindex="8" /></td>
+					</form>
+					</tr>
+					<tr>
+						<td class="thead" nowrap="nowrap" align="center" width="20%" rowspan="2">
+							$vbphrase[forum] <a href="misc.php?do=cyb_apboupc_setall&amp;cyb_order=<if condition="$cyb_order=='1'">2<else />1</if>"><img class="inlineimg" src="$stylevar[imgdir_button]/<if condition="$cyb_order=='1'">sortdesc.gif<else />sortasc.gif</if>" border="0" /></a>
+						</td>
+						<td class="thead" nowrap="nowrap" align="center" colspan="7">$vbphrase[apboupc_pc_req_to]</td>	
+						<td class="thead" nowrap="nowrap" align="center" width="10%" rowspan="2">$vbphrase[apboupc_edit_forum]</td>					
+					</tr>
+					<tr>
+						<td class="thead" nowrap="nowrap" align="center" width="10%">$vbphrase[apboupc_current_forum]</td>
+						<td class="thead" nowrap="nowrap" align="center" width="10%">$vbphrase[apboupc_current_thread]</td>
+						<td class="thead" nowrap="nowrap" align="center" width="10%">$vbphrase[apboupc_current_create]</td>
+						<td class="thead" nowrap="nowrap" align="center" width="10%">$vbphrase[apboupc_current_reply]</td>
+						<td class="thead" nowrap="nowrap" align="center" width="10%">$vbphrase[apboupc_current_attach]</td>
+						<td class="thead" nowrap="nowrap" align="center" width="10%">$vbphrase[apboupc_current_linkview]</td>
+						<td class="thead" nowrap="nowrap" align="center" width="10%">$vbphrase[apboupc_current_linkpost]</td>
+					</tr>
+					$cybapboupc_current_permissions
+				</table>
+				<br />
+				$footer
+			</body>
+		</html>

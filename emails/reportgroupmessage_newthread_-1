@@ -1,0 +1,10 @@
+[url=$vboptions[bburl]/member.php?u=$reportinfo[ruserid]]$reportinfo[rusername][/url] has reported a social group message.
+
+Reason:[quote]$reportinfo[reason][/quote]
+Message: [url]$vboptions[bburl]/group.php?gmid=$reportinfo[gmid]#gmessage$reportinfo[gmid][/url]
+Social Group: [url=$vboptions[bburl]/group.php?groupid=$reportinfo[groupid]]$reportinfo[groupname][/url]
+Discussion: [url=$vboptions[bburl]/group.php?discussionid=$reportinfo[discussionid]]$reportinfo[discussiontitle][/url]
+Assigned Moderators: $reportinfo[modlist]
+
+Posted by: [url=$vboptions[bburl]/member.php?u=$reportinfo[puserid]]$reportinfo[pusername][/url]
+Original Content: [quote]$reportinfo[pagetext][/quote]

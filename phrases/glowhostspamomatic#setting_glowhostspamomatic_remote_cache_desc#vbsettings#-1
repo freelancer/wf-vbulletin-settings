@@ -1,0 +1,1 @@
+Duration in minutes that remote queries should be cached to reduce query traffic / lookup duration and load on the remote server

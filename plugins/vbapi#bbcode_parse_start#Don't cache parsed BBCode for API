@@ -1,0 +1,4 @@
+if (VB_API === true)
+{
+	return $this->do_parse($text, $dohtml, $dosmilies, $dobbcode, $dobbimagecode, $donl2br, $cachable);
+}

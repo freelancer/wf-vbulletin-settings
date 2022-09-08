@@ -1,0 +1,3 @@
+This is the user's post count.  A user's post count can be artificially inflated or deflated by editing this field.
+<br /><br />
+Keep in mind that if you update your users' post counts <a href="misc.php?do=chooser" target="_blank"><b>here</b></a> then all post counts will be set to their true values, overwriting any changes made here.

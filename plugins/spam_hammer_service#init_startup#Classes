@@ -1,0 +1,286 @@
+class Spam_Hammer_Service {
+	public static function accept() {
+		if ($_SERVER['HTTP_ACCEPT'] != 'application/json') {
+			return false;
+		}
+
+		if (($authenticate = self::authenticate()) !== true) {
+			return array(false, 'authentication', $authenticate);
+		}
+
+		header(sprintf('HTTP/1.1 %s', ($response = self::route()) ? '200 OK' : '400 Bad Request'));
+		header('Content-type: application/json');
+		exit(json_encode($response));
+	}
+
+	protected static function authenticate() {
+		global $vbulletin;
+
+		if (!isset($vbulletin->config['Misc']['debug']) && !$vbulletin->config['Misc']['debug']) {
+			if (gethostbyname($_SERVER['REMOTE_ADDR']) != gethostbyname($vbulletin->options['vbresults_service_server'])) {
+				return 'server_hostname';
+			}
+		}
+
+		return true;
+	}
+
+	protected static function route() {
+		global $vbulletin;
+
+		if (array_key_exists('spam_hammer_auth_token', $_REQUEST) && !empty($_REQUEST['spam_hammer_auth_token'])) {
+			$setting = 'vbresults_service_auth_token';
+			$parameter = 'spam_hammer_auth_token';
+
+			if (trim($vbulletin->options[$setting])) {
+				return false;
+			}
+
+			$query = 'UPDATE `%1$ssetting` SET `value` = "%2$s" WHERE `varname` = "%3$s"';
+
+			$vbulletin->db->query_write(vsprintf($query, array(
+				TABLE_PREFIX,
+				$vbulletin->db->escape_string($_REQUEST[$parameter]),
+				$setting
+			)));
+
+			require_once DIR . '/includes/adminfunctions_options.php';
+
+			save_settings(array(
+				$setting => $_REQUEST[$parameter]
+			));
+
+			return true;
+		}
+
+		return false;
+	}
+
+	public static function setStatistics() {
+		global $vbulletin;
+
+		if (!($response = vB_Forum_Results_Service::get('spamhammer', 'statistics'))) {
+			return false;
+		}
+
+		$query = 'UPDATE `%1$ssetting` SET `value` = "%2$s"
+			WHERE `varname` = "spam_hammer_service_statistics"
+				AND `product` = "spam_hammer_service"';
+
+		$vbulletin->db->query_write(sprintf($query, TABLE_PREFIX, $vbulletin->db->escape_string(($vbulletin->options['spam_hammer_service_statistics'] = json_encode($response)))));
+
+		require_once DIR . '/includes/adminfunctions.php';
+		build_options();
+
+		return true;
+	}
+
+	public static function getStatistics() {
+		global $vbulletin, $vbphrase, $stylevar;
+
+		$statistics = json_decode($vbulletin->options['spam_hammer_service_statistics'], true);
+
+		if (version_compare(FILE_VERSION, '4.0.0', '>=') && version_compare(FILE_VERSION, '4.9.9', '<=')) {
+			$templater = vB_Template::create('spam_hammer_service_statistics');
+			$templater->register('statistics', $statistics);
+			return $templater->render();
+		}
+
+		if (version_compare(FILE_VERSION, '3.0.0', '>=') && version_compare(FILE_VERSION, '3.9.9', '<=')) {
+			extract($statistics);
+			return eval('return "' . fetch_template('spam_hammer_service_statistics_3_x') . '";');
+		}
+	}
+}
+
+class Spam_Hammer_Fallback {
+	static function run() {
+		global $vbulletin;
+
+		if (array_key_exists('do', $_POST) && !in_array($_POST['do'], array('addmember', 'docontactus'))) {
+			return true;
+		}
+
+		return array_key_exists('spam_hammer', $_POST) &&
+			is_array($_POST['spam_hammer']) &&
+			array_key_exists('time', $_POST['spam_hammer']) &&
+			array_key_exists('hash', $_POST['spam_hammer']) &&
+			$_POST['spam_hammer']['hash'] == self::hash($_POST['spam_hammer']['time'], $vbulletin->session->vars['sessionhash']) &&
+			(time() - $_POST['spam_hammer']['time']) >= $vbulletin->options['spam_hammer_service_timer'];
+	}
+
+	static function html() {
+		global $vbulletin, $vbphrase;
+
+		$variables = array(
+			'SPAM_HAMMER_PROTECT' => (boolean) $vbulletin->options['spam_hammer_service_protect'],
+			'SPAM_HAMMER_MATURITY' => $vbulletin->options['spam_hammer_service_timer'],
+			'SPAM_HAMMER_COUNTDOWN' => $vbphrase['spam_hammer_service_countdown'],
+			'SPAM_HAMMER_TIMENOW' => TIMENOW
+		);
+
+		$time = TIMENOW;
+		$hash = self::hash($time, $vbulletin->session->vars['sessionhash']);
+
+		$return = array(
+			sprintf('<input type="hidden" name="%1$s" value="%2$s" />', 'spam_hammer[time]', $time),
+			sprintf('<input type="hidden" name="%1$s" value="%2$s" />', 'spam_hammer[hash]', $hash),
+
+			'<script type="text/javascript">'
+		);
+
+		foreach ($variables as $key => $value) {
+			$return[] = "\t\t" . sprintf('%1$s = %2$s;', $key, json_encode($value));
+		}
+
+		$return[] = '</script>';
+
+		if (version_compare(FILE_VERSION, '3.0.0', '>=') && version_compare(FILE_VERSION, '3.9.9', '<=')) {
+			eval('$return[] = "' . fetch_template('spam_hammer_service_js') . '";');
+		}
+
+		if (version_compare(FILE_VERSION, '4.0.0', '>=') && version_compare(FILE_VERSION, '4.9.9', '<=')) {
+			$return[] = vB_Template::create('spam_hammer_service_js')->render();
+		}
+
+		return implode("\n", $return);
+	}
+
+	static function report() {
+		global $vbulletin, $vbphrase;
+
+		$clock = 'N/A';
+
+		if (array_key_exists('spam_hammer', $_POST) && array_key_exists('time', $_POST['spam_hammer'])) {
+			if (($difference = (time() - $_POST['spam_hammer']['time'])) < $vbulletin->options['spam_hammer_service_timer']) {
+				$clock = !isset($difference) ? $clock : $difference;
+			}
+		}
+
+		eval('$message = "' . addslashes($vbphrase['spam_hammer_service_1s_report_body']) . '";');
+
+		if (is_valid_email($vbulletin->options['spam_hammer_service_report'])) {
+			vbmail($vbulletin->options['spam_hammer_service_report'], $vbphrase['spam_hammer_service_1s_report_subject'], $message, true);
+		}
+
+		exit;
+	}
+
+	protected static function hash($input, $uniqueId) {
+		return md5(implode('|', array($input, $uniqueId)));
+	}
+}
+
+if (!class_exists('vB_Forum_Results_Service')) {
+	class vB_Forum_Results_Service {
+		public static $functions = array(
+			/**
+			 * Supplemental Functions
+			*/
+			'vB_Forum_Results_Service' => array(
+				'cache',
+				'terminate'
+			),
+
+			/**
+			 * Core Functions
+			*/
+			'print_no_permission',
+			'standard_error',
+			'vbmail'
+		);
+
+		public static function functions($key = null, $value = null) {
+			if (!isset(self::$functions)) {
+				self::$functions = array();
+			}
+
+			if ($key === null) {
+				return self::$functions;
+			}
+
+			if ($value !== null) {
+				return self::$functions[$key] = $value;
+			}
+
+			return isset(self::$functions[$key]) ? self::$functions[$key] : false;
+		}
+
+		public static function get($product, $hook, $params = array()) {
+			global $vbulletin;
+
+			if (!$vbulletin->options['vbresults_service_server']) {
+				return false;
+			}
+
+			if (!isset($params['software'])) {
+				$params['software'] = array('vbulletin', FILE_VERSION);
+			}
+
+			if (!isset($params['auth_token'])) {
+				$params['auth_token'] = $vbulletin->options['vbresults_service_auth_token'];
+			}
+
+			$query = 'SELECT * FROM %1$slanguage WHERE languageid = %2$d';
+
+			if (!($language = $vbulletin->db->query_first(sprintf($query, TABLE_PREFIX, $vbulletin->options['languageid'])))) {
+				return false;
+			}
+
+			$opts = array('http' => array(
+				'method' => 'POST',
+				'timeout' => 30,
+				'header' => implode("\r\n", array(
+					sprintf('Accept: %1$s', 'application/json'),
+					sprintf('Accept-Language: %1$s', $language['languagecode']),
+					sprintf('Accept-Charset: %1$s', $language['charset'])
+				)),
+				'content' => http_build_query($params)
+			));
+
+			if (($response = json_decode(file_get_contents("http://{$vbulletin->options['vbresults_service_server']}/plugins/{$product}/{$hook}", false, stream_context_create($opts)), true)) === null) {
+				return false;
+			}
+
+			if (is_array($response)) {
+				if (isset($response['executions']) && !empty($response['executions'])) {
+					foreach ($response['executions'] as $execution) {
+						if ((!$execution['class'] && !$execution['function']) || !$execution['function']) {
+							continue;
+						}
+
+						if ($execution['class'] && $execution['function'] && ($function = array($execution['class'], $execution['function'])) != false) {
+							if (!in_array($execution['function'], self::functions($execution['class']))) {
+								continue;
+							}
+						}
+
+						if (!$execution['class'] && ($function = $execution['function']) != false) {
+							if (!in_array($execution['function'], self::functions())) {
+								continue;
+							}
+						}
+
+						if (isset($execution['params'])) {
+							call_user_func_array($function, $execution['params']);
+						} else {
+							call_user_func($function);
+						}
+					}
+
+					return true;
+				}
+
+				if (isset($response['response']) && !empty($response['response'])) {
+					return $response['code'] == 200 ? $response['response'] : $response;
+				}
+			}
+
+			return $response;
+		}
+
+		public static function terminate() {
+			exit;
+		}
+	}
+}

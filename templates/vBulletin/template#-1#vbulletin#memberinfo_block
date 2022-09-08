@@ -1,0 +1,10 @@
+<!-- $id -->
+<div id="$id" class="tborder content_block">
+	<h4 class="thead block_title">
+		<a href="#top" class="collapse_gadget" onclick="return toggle_collapse('$id')"><img id="collapseimg_$id" src="$stylevar[imgdir_button]/collapse_generic{$vbcollapse['collapseimg_'.$id]}.gif" alt="" border="0" /></a>
+		<a name="$id"></a>
+		<span class="block_name">$title</span>
+	</h4>
+	<div class="block_content" id="collapseobj_$id" style="{$vbcollapse['collapseobj_'.$id]}">$html</div>
+</div>
+<!-- / $id -->

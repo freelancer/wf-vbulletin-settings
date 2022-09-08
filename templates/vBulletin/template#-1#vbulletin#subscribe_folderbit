@@ -1,0 +1,3 @@
+<tr>
+	<td>$vbphrase[folder_name] <!--$foldercount--><br /><input type="text" class="bginput" name="folderlist[$folderid]" value="$title" size="50" maxlength="25" /></td>
+</tr>

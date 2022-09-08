@@ -1,0 +1,5 @@
+When Resource Saving Statistics are enabled, your forum provides a public XML feed for this data which can be read both by the Resource Statistics section in the ACP, but also if you've requested it can be shown on vB Optimise Public Statistics located <a href="http://www.dragonbyte-tech.com/vboptimisesites.php" target="_blank">here</a>.
+<br /><br />
+With this feed being public, you may want to restrict access. By setting a password here, the feed will require an additional URL parameter to gain access.
+<br /><br />
+<strong>Notice:</strong> If you are part of vBO Public Statistics and assign/change the password here, you will need to notify <a href="http://www.dragonbyte-tech.com/members/7-Deceptor" target="_blank">Deceptor</a> of the changes so your statistics can continue to be collected. You can also contact the same member if you wish to become part of the public statistics.

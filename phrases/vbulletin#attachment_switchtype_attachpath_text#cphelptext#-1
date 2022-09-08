@@ -1,0 +1,3 @@
+This is the file path to store attachments in.
+
+This file path should be readable AND writeable by your web server (usually CHMOD 777). It should be above your web documents root or users will be able to bypass vBulletin's permissions system and download attachments anyway.

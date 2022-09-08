@@ -1,0 +1,7 @@
+
+if (THIS_SCRIPT === newthread) {
+	if ($vbulletin->options['autotag_enabled_ajax'] AND $vbulletin->options['autotag_enabled_all'])
+	{
+		$vbulletin->templatecache['headinclude'].=$vbulletin->templatecache['autotag_ajax'];
+	}
+}

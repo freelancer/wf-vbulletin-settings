@@ -1,0 +1,3 @@
+Enable this option to display attached images inline, meaning attached images are displayed within the posts themselves instead of having to click a link within the posts to view the attached images.<br /><br />
+
+Enabling this option makes for convenient viewing of attached images but also increases the load time of threads with lots of attached images, increases bandwidth usage, and increases server resource usage when a user loads a thread with lots of attached images.

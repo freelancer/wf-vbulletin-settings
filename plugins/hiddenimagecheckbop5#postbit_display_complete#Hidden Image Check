@@ -1,0 +1,48 @@
+global $vbulletin, $vbphrase;
+
+//debug
+//echo "<pre>"; print_r ($post); echo"</pre>"; die();
+
+if ($vbulletin->options['bop5hic_en'] AND is_member_of($vbulletin->userinfo, explode(",", $vbulletin->options['bop5hic_groups'])) AND !is_member_of($post, explode(",", $vbulletin->options['bop5hic_nogroups'])))
+{
+  $bopnumpics = 0;
+  $imgchk =  '[/IMG]';
+  $bopnumpics = substr_count(strtolower($post['bop5hic']), strtolower($imgchk));
+  $bop_clean_posts = (int) str_replace (array(".",",") , "" , $post['posts']); 
+
+  if ($bopnumpics)
+  {
+    if ($vbulletin->options['bop5hic_checktype'] == 1) //Count Posts
+    {  
+       if ($bop_clean_posts < $vbulletin->options['bop5hic_check'])
+          $showicount = true;
+       else 
+          $showicount = false;
+    }
+    elseif ($vbulletin->options['bop5hic_checktype'] == 2) //Count Days
+    {
+       //echo " Username: " . $post['username'] . " : " . $post['joindate'] . "<br />";
+       if (floor((TIMENOW - $post['joindateline'])/86400) < $vbulletin->options['bop5hic_check'])
+          $showicount = true;
+       else 
+          $showicount = false; 
+    }
+
+    if (!$vbulletin->options['bop5hic_checktype'] OR $showicount)
+    {
+
+      if (version_compare($vbulletin->versionnumber, "4.0.0", "ge")) //If VB4
+      { 
+        $templater = vB_Template::create('postbit_hiddenpics_bop5_vb4');
+          $templater->register('bopnumpics', $bopnumpics);
+          $bop_hid_template_rendered = $templater->render();  
+        $post['message'] .= $bop_hid_template_rendered;
+      }
+      else  // Else VB 3.x
+      {
+        eval('$bop_hid_template_rendered .= "' . fetch_template('postbit_hiddenpics_bop5_vb3') . '";'); 
+        $post['message'] .= $bop_hid_template_rendered;
+      }
+    }
+  }
+}

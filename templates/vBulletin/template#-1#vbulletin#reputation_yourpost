@@ -1,0 +1,21 @@
+<tr>
+	<td class="thead"><phrase 1="showthread.php?$session[sessionurl]p=$postid#post$postid" 2="$reputation">$vbphrase[reputation_on_post_is_x]</phrase></td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div <if condition="!$show['ajax']">style="width:$stylevar[formwidth]"</if> align="$stylevar[left]">
+
+		<fieldset class="fieldset">
+			<legend>$vbphrase[comments_on_this_post]</legend>
+			<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+			$reputation_reasonbits
+			</table>
+		</fieldset>
+
+		<div class="fieldset"><strong><phrase 1="$bbuserinfo[reputation]">$vbphrase[you_have_x_reputation_points]</phrase></strong></div>
+
+		</div>
+	</div>
+	</td>
+</tr>

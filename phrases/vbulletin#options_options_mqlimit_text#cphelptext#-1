@@ -1,0 +1,2 @@
+The Multi-Quote Quote Limit is used to restrict the amount of quotes that can be added by a user via the Multi-Quote button. This is intended to restrict the potential for abuse to the system.<br /><br />
+It should be noted that this will not restrict the number of quotes that can be added to a post, potentially a user could enter the Quote tags manually.

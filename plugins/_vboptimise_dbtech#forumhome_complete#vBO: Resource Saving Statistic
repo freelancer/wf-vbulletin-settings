@@ -1,0 +1,12 @@
+if ($vbulletin->options['vbo_online'] && $vbulletin->options['vbo_showresource'])
+{
+	if (!class_exists('vB_Template'))
+	{
+		require_once(DIR . '/vboptimise/core/class_vboptimise_template.php');
+	}
+
+	$vbo = vB_Template::create('forumhome_vbo');
+	$vbo->register('num', isset($vbulletin->vbo_resource_savings) ? vb_number_format($vbulletin->vbo_resource_savings) : 0);
+
+	$template_hook["forumhome_wgo_stats"] .= str_replace('{vb:raw num}', isset($vbulletin->vbo_resource_savings) ? vb_number_format($vbulletin->vbo_resource_savings) : 0, $vbo->render());
+}

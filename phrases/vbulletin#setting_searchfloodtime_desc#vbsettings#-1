@@ -1,0 +1,3 @@
+The minimum time (in seconds) that must expire before the user can perform a new search.<br />
+<br />
+Set this to 0 to allow users to search as frequently as they want.

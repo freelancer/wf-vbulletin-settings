@@ -1,0 +1,10 @@
+<p><b>What are thread tools?</b></p>
+
+<p>At the top of each thread, there is a link called 'Thread Tools'. By clicking on this link, a menu will appear with a number of options:</p>
+
+<ul>
+<li><b>Show Printable Version</b> - this will show you a page with the thread post content in a reduced graphics format that is more 'printer friendly'.</li>
+<li><b>Email this Page</b> - if you think the thread may be interesting to someone else, you can forward a link to it to their email address.</li>
+<li><b>Subscribe (or Unsubscribe) from this Thread</b> - by subscribing to a thread, you will receive periodic email updates on recent activity within it. Click <a href="faq.php?$session[sessionurl]faq=vb3_user_profile#faq_vb3_subscriptions">here</a> for more information on subscriptions.</li>
+<li><b>Adding a Poll</b> - if you started the thread, you can add a poll to it with this option. Click <a href="faq.php?$session[sessionurl]faq=vb3_reading_posting#faq_vb3_polls">here</a> for more information on polls.</li>
+</ul>

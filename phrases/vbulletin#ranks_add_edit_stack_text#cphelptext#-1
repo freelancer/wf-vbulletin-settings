@@ -1,0 +1,1 @@
+If chosen, the rank will be stacked when appearing with other ranks.  Otherwise the rank will be placed to the left of other ranks.  In HTML terms, this option controls whether or not a &lt;br /&gt; tag is inserted before the rank.

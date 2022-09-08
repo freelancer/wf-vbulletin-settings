@@ -1,0 +1,29 @@
+On this screen you are given several "top 5s" about the attachments on your forum as well as some general statistics.<br /><br />
+
+From top to bottom:
+<b>Statistics:</b><br />
+<b>Total Attachments</b>: This is the total number of attachments on your forum.<br /><br />
+
+<b>Disk Space Used</b>: This is how much disk space is consumed by all attachments combined.<br /><br />
+
+<b>Storage Type</b>: Where the attachments are being stored, either in the database or the file system, and if they are in the file system, the actual path to them.<br /><br />
+
+<b>Average Attachment Filesize</b>: This is the average size of an attachment, determined by dividing the number of attachments into the total disk space used.<br /><br />
+
+Under <b>Five Most Popular Attachments</b>, the columns are:<br />
+<b>Rank</b>: The rank of the attachment.<br /><br />
+
+<b>Filename</b>: The filename of the attachment. Clicking on it will show you the attachment, if it is an image, or prompt you to download it if it is another file type.<br /><br />
+
+<b>User Name</b>: This is who posted the attachment. Clicking on the username will bring up the edit user page for that individual.<br /><br />
+
+<b>Downloads</b>: This is how many times the attachment has been downloaded by users.<br /><br />
+
+To the left are several other options.<br />
+<b>View Post</b> shows you the post that the attachment was attached to.<br /><br />
+
+<b>Delete</b>: Choose this to remove the attachment.<br /><br />
+
+The <b>Five Largest Attachments</b> is nearly identical, save for having a Size column instead of a Downloads column. The Size column indicates the actual byte size of the attachment, in KB (KiloBytes).<br /><br />
+
+<b>Five Users Whose Attachments Take Up The Most Space</b> shows you at a glance who is attachment-happy. For each user in the top five (if there are not five users who have made attachments, only those who have will be shown) their name, number of attachments, and the total size of those attachments is displayed. Clicking View Attachments at the end of each row will find all of the attachments that the user has posted. (see <a href="help.php?do=answer&amp;page=attachment&amp;pageaction=search">Searching Attachments</a>)

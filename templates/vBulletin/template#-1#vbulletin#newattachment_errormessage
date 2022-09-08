@@ -1,0 +1,6 @@
+<tr valign="top">
+	<td class="alt1"><div class="smallfont">
+		<strong>$filename</strong>:<br />
+		$errormessage
+	</div></td>
+</tr>

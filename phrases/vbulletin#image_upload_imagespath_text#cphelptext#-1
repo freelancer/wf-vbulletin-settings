@@ -1,0 +1,1 @@
+This is the file path that smilies will be uploaded to and read from.  This file path should be readable AND writeable by your web server (usually chmod 0777) so that they may be uploaded and displayed.

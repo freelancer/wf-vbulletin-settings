@@ -1,0 +1,27 @@
+if (($userinfo['canviewmyblog'] AND $userinfo['userid'] != $this->registry->userinfo['userid'] AND $this->registry->userinfo['permissions']['vbblog_general_permissions'] & $this->registry->bf_ugp_vbblog_general_permissions['blog_canviewothers'])
+			OR
+		($userinfo['userid'] == $this->registry->userinfo['userid'] AND $this->registry->userinfo['permissions']['vbblog_general_permissions'] & $this->registry->bf_ugp_vbblog_general_permissions['blog_canviewown']))
+{
+	if ($id == 'stats_mini')
+	{
+		$this->profile->prepared['blog_entries'] = $prepared['blog_entries'] = vb_number_format($userinfo['entries']);
+		eval('$template_hook[\'profile_ministats_list\'] .= "' . fetch_template('blog_member_ministats') . '";');
+	}
+	else if ($id == 'stats')
+	{
+		$show['lastentry'] = true;
+		$userinfo['entries'] = vb_number_format($userinfo['entries']);
+		if (!in_coventry($userinfo['userid']) AND $userinfo['lastblog'])
+		{
+			$userinfo['lastblogdate'] = vbdate($this->registry->options['dateformat'], $userinfo['lastblog']);
+			$userinfo['lastblogtime'] = vbdate($this->registry->options['timeformat'], $userinfo['lastblog'], true);
+		}
+		else
+		{
+			$userinfo['lastblogtitle'] = '';
+			$userinfo['lastblogdate'] = $vbphrase['never'];
+			$userinfo['lastblogtime'] = '';
+		}
+		eval('$template_hook[\'profile_stats_pregeneral\'] .= "' . fetch_template('blog_member_stats') . '";');
+	}
+}

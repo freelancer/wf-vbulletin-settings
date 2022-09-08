@@ -1,0 +1,14 @@
+$vbulletin->input->clean_array_gpc('p', array(
+	'blogpermissions' => TYPE_ARRAY_INT
+));
+
+$blogperms = 0;
+foreach ($vbulletin->GPC['blogpermissions'] AS $bit => $value)
+{
+	if ($value)
+	{
+		$blogperms += $bit;
+	}
+}
+
+$admindm->set('blogpermissions', $blogperms);

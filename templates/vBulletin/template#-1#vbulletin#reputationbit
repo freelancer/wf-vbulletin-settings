@@ -1,0 +1,39 @@
+<tr>
+	<td class="thead">$vbphrase[add_to_reputation]: <span style="font-weight:normal">$userinfo[username]</span></td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div <if condition="!$show['ajax']">style="width:$stylevar[formwidth]"</if> align="$stylevar[left]">
+
+		<fieldset class="fieldset">
+			<legend><phrase 1="$userinfo[username]">$vbphrase[what_do_you_think_of_xs_post]</phrase></legend>
+			<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+			<tr>
+				<td>
+					<div><label for="rb_reputation_pos_$postid"><input type="radio" name="reputation" value="pos" id="rb_reputation_pos_$postid" checked="checked" />$vbphrase[i_approve]</label></div>
+					<if condition="$show['negativerep']"><div><label for="rb_reputation_neg_$postid"><input type="radio" name="reputation" value="neg" id="rb_reputation_neg_$postid" />$vbphrase[i_disapprove]</label></div></if>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					$vbphrase[your_comments_on_this_post]:<br />
+					<input type="text" class="bginput" size="40" maxlength="250" name="reason" id="reason_$postid"/>
+				</td>
+			</tr>
+			</table>
+		</fieldset>
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="hidden" name="do" value="addreputation" />
+		<input type="hidden" name="s" value="$session[sessionhash]" />
+		<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+		<input type="hidden" name="p" value="$postid" />
+		<input type="hidden" name="url" value="$url" />
+		<input type="submit" name="reputationsubmit" class="button" value="$vbphrase[add_to_reputation]" accesskey="s" />
+	</div>
+	</td>
+</tr>

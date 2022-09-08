@@ -1,0 +1,32 @@
+
+		if ($vbulletin->options['apboupc_global_enable'] AND $vbulletin->options['apboupc_attachments'])
+		{
+			if ($vbulletin->userinfo[userid])
+			{
+				$cyb_attach_postcount = $vbulletin->userinfo[posts];
+			}
+			else
+			{
+				$cyb_attach_postcount = '0';
+			}
+
+			if (!$vbulletin->GPC['attachmentid'])
+			{
+				$vbulletin->input->clean_gpc('r', 'attachmentid', TYPE_UINT);
+			}
+			$db->hide_errors();
+			$getattachinfo = $vbulletin->db->query_first("
+				SELECT attachment.attachmentid, thread.forumid
+				FROM " . TABLE_PREFIX . "attachment AS attachment
+				LEFT JOIN " . TABLE_PREFIX . "post AS post ON (post.postid = attachment.postid)
+				LEFT JOIN " . TABLE_PREFIX . "thread AS thread ON (post.threadid = thread.threadid)
+				WHERE attachment.attachmentid = '".$vbulletin->GPC['attachmentid']."'
+			");
+			$db->show_errors();
+			$forum = fetch_foruminfo($getattachinfo['forumid']);
+
+			if (($forum['attach_nb'] > $vbulletin->userinfo['posts']) AND (!is_member_of($vbulletin->userinfo, split(',', $vbulletin->options['apboupc_attachments_excludedgroups']))))
+			{
+				eval(standard_error(fetch_error('error_postcount_too_low_attachment', $forum['attach_nb'], $cyb_attach_postcount)));
+			}
+		}

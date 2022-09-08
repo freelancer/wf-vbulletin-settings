@@ -1,0 +1,1 @@
+SMTP servers usually serve from port 25.  If the SMTP host uses a different port, then you can specify that here.

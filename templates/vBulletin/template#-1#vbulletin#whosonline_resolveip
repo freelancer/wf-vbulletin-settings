@@ -1,0 +1,31 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+$metarefresh
+<title>$vboptions[bbtitle] - $vbphrase[whos_online]</title>
+</head>
+<body>
+$header
+$navbar
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="2"><strong>$vbphrase[resolve_ip_address]</strong></td>
+</tr>
+<tr>
+	<td class="alt1">$vbphrase[ip_address]</td>
+	<td class="alt1">$ipaddress</td>
+</tr>
+<tr>
+	<td class="alt2">$vbphrase[resolved_host_name]</td>
+	<td class="alt2"><if condition="$resolved_host">$resolved_host<else /><i>$vbphrase[unable_resolve_ip]</i></if></td>
+</tr>
+</table>
+
+$forumjump
+
+$footer
+
+</body>
+</html>

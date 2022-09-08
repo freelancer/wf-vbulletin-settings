@@ -1,0 +1,1 @@
+Set this to the specific day of the month the task should run. This is overridden by the Day of the Week setting above. Set this to * to have it not apply.

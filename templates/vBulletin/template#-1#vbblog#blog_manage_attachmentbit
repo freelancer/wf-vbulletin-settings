@@ -1,0 +1,4 @@
+<tr>
+	<td><img class="inlineimg" src="$stylevar[imgdir_attach]/$attach[extension].gif" alt="$attach[extension].gif" width="16" height="16" border="0" /> <a href="blog_attachment.php?$session[sessionurl]attachmentid=$attach[attachmentid]&amp;stc=1&amp;d=$attach[dateline]" target="_blank">$attach[filename]</a> ($attach[filesize])</td>
+	<td align="$stylevar[right]"><input type="submit" class="button" value="$vbphrase[remove]" name="delete[$attach[attachmentid]]" style="width:70px" /></td>
+</tr>

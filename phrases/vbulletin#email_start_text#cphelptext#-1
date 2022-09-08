@@ -1,0 +1,2 @@
+On this screen you select criteria to determine who your email is sent to. These criteria are described below.<br /><br />
+Keep in mind all criteria are cumulative; that is, if you enter a username string to match and select a usergroup, users that match the username string AND are in the selected group will be found, but those that match only one of the above will not.

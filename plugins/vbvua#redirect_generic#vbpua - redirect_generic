@@ -1,0 +1,4 @@
+
+$vbpua_lasthook='redirect_generic';
+include(DIR.'/includes/vbvua_hooks.php');
+             

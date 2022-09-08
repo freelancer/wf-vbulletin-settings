@@ -1,0 +1,13 @@
+$repl = array(
+		array(
+			'<td class=\"vbmenu_control\"><a href=\"usercp.php" . $GLOBALS[\'vbulletin\']->session->vars[\'sessionurl_q\'] . "\">$vbphrase[user_cp]</a></td>',
+			'<td id=\"usercpnmenu\" class=\"vbmenu_control\"><a href=\"usercp.php" . $GLOBALS[\'vbulletin\']->session->vars[\'sessionurl_q\'] . "\">$vbphrase[user_cp]</a> <script type=\"text/javascript\"> vbmenu_register(\"usercpnmenu\"); </script></td>'
+		));
+		
+	foreach ($repl as $r)
+	{
+		$vbulletin->templatecache['navbar'] = str_replace($r[0],$r[1],$vbulletin->templatecache['navbar']);
+	}
+	unset($repl, $r);
+
+$vbulletin->templatecache['navbar'] = $vbulletin->templatecache['navbar'].$vbulletin->templatecache['navbar_usercp_menu'];

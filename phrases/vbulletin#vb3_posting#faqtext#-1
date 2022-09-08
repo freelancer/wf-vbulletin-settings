@@ -1,0 +1,16 @@
+<p><b>How do I format my posts and messages?</b></p>
+
+<p>When posting messages you may wish to include some formatting such as <b>bold text</b>, <i>italic text</i> and <u>underlined text</u>.</p>
+
+<p>Adding formatting to your post can be done in two ways:</p>
+
+<ul>
+<li>Using clickable controls similar to those found in most word processors</li>
+<li>Typing formatting commands in BB code</li>
+</ul>
+
+<p>Clickable controls are available in the Standard and Enhanced WYSIWYG (What You See Is What You Get) editors. The difference between these is that the standard editor will show the BB code in your message and be processed when it is displayed. The enhanced WYSIWYG editor will show your message as it will be displayed while you are typing.</p>
+
+<p>To use these, simply click the button, for example the <b>B</b> (bold) button and then type to get bold text. Click the button again to stop using that formatting. You can also highlight text that you have already typed then click the formatting button to format existing text.</p>
+
+<p>BB code is a special set of codes similar to HTML that can be used in posts to the board. To see the full list of BB code tags that can be used on this site and examples of their use, <a href="misc.php?$session[sessionurl]do=bbcode">click here</a>.</p>

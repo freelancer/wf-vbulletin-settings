@@ -1,0 +1,10 @@
+Attachments in Database: {1}<br />
+Total Attachments Processed: {2}<br /><br />
+<b>The above two values should be the same!</b><br /><br />
+Number of Attachments that could not be read or are 0 bytes: {3}<br /><br />
+We have completed moving attachments to the database. Presently, the attachments still remain in the filesystem but are being read from the database.
+If you are sure that the process completed without incident, go ahead and select yes below to remove the attachments from the filesystem.<br /><br />
+This step cannot be reversed and may take a few minutes depending on the number of attachments. Please be patient.<br /><br />
+We will only be able to remove attachments and attachment directories that we have write permission to.  Normally this should be every attachment
+but sometimes the permissions are not correct and the removal will fail. You will need to manually remove the attachments from the filesystem
+in this event.

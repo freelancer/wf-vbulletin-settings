@@ -1,0 +1,1 @@
+If this is set to 'yes' then users with the 'Can Limit Discussions in Own Groups to the Group Owner' permission will be able to create Social Groups where only they can create new discussions.  Other users will still be able to post messages in the discussions as normal.

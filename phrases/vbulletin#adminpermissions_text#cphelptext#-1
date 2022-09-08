@@ -1,0 +1,9 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=usergroup&amp;pageaction=&amp;option=">Usergroups</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=forumpermission&amp;pageaction=&amp;option=">Forum Permissions</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=adminpermissions&amp;pageaction=&amp;option=">Administrator Permissions</a><br /><br />
+
+<b>Administrator Permissions:</b><br />
+vBulletin allows you to restrict administrator access to the Admin CP on a per-admin basis.  In this way you can create co-administrators without giving them total access to mess up your forums.<br /><br />
+
+Your userid # must be given access in the config.php file in order for you to access this page.  Please see <a href="help.php?s=&amp;do=answer&amp;page=adminlog&amp;pageaction=restrict&amp;option=">this</a> help topic for instructions.

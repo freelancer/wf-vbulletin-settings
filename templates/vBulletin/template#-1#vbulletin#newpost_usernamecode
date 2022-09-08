@@ -1,0 +1,16 @@
+<if condition="$show['member']">
+	<!-- user is logged in -->
+	<div class="smallfont" style="float:$stylevar[right]">
+		<phrase 1="member.php?$session[sessionurl]u=$bbuserinfo[userid]" 2="$bbuserinfo[username]">$vbphrase[logged_in_as_x]</phrase>
+	</div>
+<else />
+	<table cellpadding="0" cellspacing="0" border="0" style="margin-bottom:$stylevar[formspacer]px">
+	<tr>
+		<td class="smallfont">$vbphrase[your_username]:</td>
+		<td class="smallfont" align="$stylevar[right]"><if condition="$_SERVER['REQUEST_METHOD'] != 'POST'"><a href="#" onclick="return highlight_login_box();">$vbphrase[click_here_to_log_in]</a></if></td>
+	</tr>
+	<tr>
+		<td class="smallfont" colspan="2"><input type="text" class="bginput" name="username" value="$bbuserinfo[username]" size="50" style="margin-top:1px" tabindex="1" /></td>
+	</tr>
+	</table>
+</if>

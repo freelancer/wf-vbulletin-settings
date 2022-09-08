@@ -1,0 +1,1 @@
+Infractions can either be set to expire within a defined timeframe or they can be set to never expire.  When an infraction expires, any associated points that were given with the infraction will be removed from the user's points total and the user's infraction groups will be recalculated.

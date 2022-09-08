@@ -1,0 +1,3 @@
+This is a global social bookmarking switch. If you disable this option, social bookmarking sites will not be listed at the bottom of the thread, regardless of the settings in the <a href="bookmarksite.php?do=modify" target="_blank">Social Bookmark Manager</a>.<br />
+<br />
+If you find that no social bookmarking links are being displayed in a thread, check the permissions for guests in that thread. The links will only be shown in guest-viewable threads.

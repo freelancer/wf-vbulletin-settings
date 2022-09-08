@@ -1,0 +1,1 @@
+Number of days to maintain a cached copy of a post. This makes threads faster to display, but means that each post takes approximately twice the storage space.

@@ -1,0 +1,3 @@
+Enter a file path to an image for this rank.  The path should be relative to your main forum directory.  For example, if the image you want for this rank is named rank.gif and you upload it to the images directory within your forum directory then you would enter: images/rank.gif<br /><br />
+
+Alternately, you can leave this field blank and fill in the next one instead.

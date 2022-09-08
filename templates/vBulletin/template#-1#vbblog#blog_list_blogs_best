@@ -1,0 +1,9 @@
+<if condition="$blogbits">
+	$blogbits
+
+	$pagenav
+<else />
+	<div class="tborder">
+		<div align="center" style="padding: 20px" class="alt1">$vbphrase[no_blogs_were_found]</div>
+	</div>
+</if>

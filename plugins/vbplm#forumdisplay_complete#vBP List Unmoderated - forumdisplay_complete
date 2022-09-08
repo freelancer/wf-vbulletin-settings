@@ -1,0 +1,20 @@
+
+if($vbulletin->options['vbplm_on']==1)
+{	
+	if($show['approvethread']==true)
+	{
+		$show['list_unmoderated']=!$vbulletin->input->clean_gpc('g', 'unmoderated', TYPE_BOOL);
+		
+		$find_list_position='<tr><td class=\"vbmenu_option\"><a href=\"forumdisplay.php?" . $GLOBALS[\'vbulletin\']->session->vars[\'sessionurl\'] . "f=$foruminfo[parentid]\" rel=\"nofollow\">$vbphrase[view_parent_forum]</a></td></tr>';
+		eval('$add_list_link = "' . fetch_template('vbplm_link') . '";');
+		
+		$vbulletin->templatecache['FORUMDISPLAY']=str_replace($find_list_position, $find_list_position.' $add_list_link', $vbulletin->templatecache['FORUMDISPLAY']);
+		
+		if($show['list_unmoderated']==false)
+		{
+			$pagenav=preg_replace('#forumdisplay.php\?f=\d+#', "$0&amp;unmoderated=true", $pagenav);
+		}
+	} 
+}				
+			
+			

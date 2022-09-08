@@ -1,0 +1,1 @@
+When in the threaded display mode, a list of posts within the current thread is displayed at the bottom of the page. This option allows you to set how 'deep' into the tree of posts that vBulletin uses the Javascript 'caching' mechanism. This makes the initial download larger, but means that the page does not have to be reloaded for every post that is viewed.

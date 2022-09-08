@@ -1,0 +1,57 @@
+<tr>
+	$template_hook[group_discussionbit_start]
+	<td class="alt1" width="100%" id="gdiscussion$discussion[gmid]" title="$discussion[title]">
+		<div class="smallfont" style="float:$stylevar[right];text-align:$stylevar[right]">
+			<if condition="$discussion['lastposterid']">
+				<span class="smallfont username"><phrase 1="member.php?$session[sessionurl]u=$discussion[postuserid]" 2="$discussion[postusername]">$vbphrase[by_x]</phrase></span>
+			<else />
+				<span class="smallfont username">$discussion[musername]</span>
+			</if>
+				<br /><div class="push_down">$discussion[date]<if condition="!$show['detailedtime']"> <span class="time">$discussion[time]</span></if></div>
+		</div>
+
+		<if condition="!$discussion[is_read]">
+			<span class="unread">
+				<a href="group.php?$session[sessionurl]do=discuss&amp;discussionid=$discussion[discussionid]&amp;goto=$discussion[readtime]#newmessage" id="thread_gotonew_$discussion[discussionid]" class="id_goto_unread"><img class="inlineimg" src="$stylevar[imgdir_button]/firstnew.gif" alt="$vbphrase[go_to_first_new_post]" border="0" /></a> 
+				<if condition="$discussion[moderated]"><span class="normal">$vbphrase[moderated_discussion_prefix] </span></if>
+				<a href="group.php?do=discuss&amp;discussionid=$discussion[discussionid]">$discussion[title]</a>
+			</span>
+		<else />
+			<if condition="$discussion[moderated]">$vbphrase[moderated_discussion_prefix] </if>
+			<a href="group.php?do=discuss&amp;group=$group[groupid]&amp;discussionid=$discussion[discussionid]">$discussion[title]</a>
+		</if>
+		<div class="floatcontainer">
+			<if condition="$show[group]">
+				<div class="smallfont" style="padding-top:4px"><phrase 1="group.php?$session[sessionurl]gmid=$discussion[gmid]#gmessage$discussion[gmid]" 2="$discussion[groupname]">$vbphrase[group_x]</phrase></div>
+			<else />
+				<div class="smallfont discussion_bit_preview">$discussion[trimmessage]</div>
+			</if>
+		</div>
+	</td>
+
+	<td class="alt2" align="center">$discussion[replies]</td>
+
+	<td class="alt1 smallfont" align="center" nowrap="nowrap">
+
+		<div style="text-align:$stylevar[right]">$discussion[lastpostdate] <span class="time">$discussion[lastposttime]</span></div>
+		<div style="text-align:$stylevar[right]">
+			<if condition="$discussion['lastposterid']">
+				<span class="smallfont username"><phrase 1="member.php?$session[sessionurl]u=$discussion[lastposterid]" 2="$discussion[lastposter]">$vbphrase[by_x]</phrase></span>
+			<else />
+				<span class="smallfont username">$discussion[musername]</span>
+			</if>
+			<a href="group.php?$session[sessionurl]do=discuss&amp;gmid=$discussion[lastpostid]#gmessage$discussion[lastpostid]"><img class="inlineimg" src="$stylevar[imgdir_button]/lastpost.gif" alt="$vbphrase[go_to_last_post]" border="0" /></a>
+		</div>
+	</td>
+
+	<if condition="$discussion[showsubsinfo]">
+		<td class="alt2 smallfont" style="text-align:center">
+			<label for="gdiscussionlist[$discussion[$discussionid]]">$discussion[notification]</label>
+		</td>
+	</if>
+		
+	<if condition="$show[inlinemod]">
+		<td class="<if condition="$discussion[showsubsinfo]">alt1<else />alt2</if>"><if condition="$discussion[inlinemod]"><input type="checkbox" class="inlinemod_checkbox" name="gdiscussionlist[$discussion[discussionid]]" id="gdiscussionlist_$discussion[discussionid]" value="$discussion[checkbox_value]" title="$vbphrase[select_this_item_for_inline_moderation]"  /></if></td>
+	</if>
+	$template_hook[group_discussionbit_end]
+</tr>

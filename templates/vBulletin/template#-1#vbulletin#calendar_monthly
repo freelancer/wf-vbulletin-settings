@@ -1,0 +1,59 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+$calendarbits
+</table>
+
+<br />
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tr valign="top">
+	<td rowspan="2" style="padding-$stylevar[right]:$stylevar[cellpadding]px">
+
+		<table class="tborder" cellpadding="2" cellspacing="$stylevar[cellspacing]" border="0" width="170">
+		$prevmonth
+		</table>
+
+	</td>
+	<td rowspan="2">
+
+		<table class="tborder" cellpadding="2" cellspacing="$stylevar[cellspacing]" border="0" width="170">
+		$nextmonth
+		</table>
+
+	</td>
+	<td rowspan="2" width="100%">&nbsp;</td>
+	<td>
+
+		<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0">
+		<tr>
+			<td class="thead" colspan="3" nowrap="nowrap">$vbphrase[add_new_event]<a name="goto_newevent"></a></td>
+		</tr>
+		<tr>
+			<td class="alt1" nowrap="nowrap">
+				<div class="smallfont">
+					<div>
+						<img class="inlineimg" src="$stylevar[imgdir_misc]/calendar_icon.gif" alt="$vbphrase[single_all_day_event]" border="0" />
+						<a href="calendar.php?$session[sessionurl]do=add&amp;type=single&amp;c=$calendarinfo[calendarid]">$vbphrase[single_all_day_event]</a>
+					</div>
+					<div>
+						<img class="inlineimg" src="$stylevar[imgdir_misc]/calendar_icon.gif" alt="$vbphrase[ranged_event]" border="0" />
+						<a href="calendar.php?$session[sessionurl]do=add&amp;c=$calendarinfo[calendarid]">$vbphrase[ranged_event]</a>
+					</div>
+					<div>
+						<img class="inlineimg" src="$stylevar[imgdir_misc]/calendar_icon.gif" alt="$vbphrase[recurring_event]" border="0" />
+						<a href="calendar.php?$session[sessionurl]do=add&amp;type=recur&amp;c=$calendarinfo[calendarid]">$vbphrase[recurring_event]</a>
+					</div>
+				</div>
+			</td>
+		</tr>
+		</table>
+
+	</td>
+</tr>
+<tr>
+	<td valign="bottom" nowrap="nowrap">
+
+	$calendarjump
+
+	</td>
+</tr>
+</table>

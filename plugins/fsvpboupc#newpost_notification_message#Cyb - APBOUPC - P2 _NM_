@@ -1,0 +1,11 @@
+
+		if ($vbulletin->options['apboupc_global_enable'] AND $vbulletin->options['apboupc_viewlinks'])
+		{
+			global $foruminfo;
+			if ($foruminfo[linkview_nb] > $touser[posts])
+			{
+				$cyb_apboupc_viewlinkspatte = array('!<a[^>]*(http|www|mailto)(.*)</a>|(http:\/\/)?www(.*)[\s]\b|<img(.*)(</img>|\/>)|\b[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,4}\b!siU',
+								'/\\[(url|email|img)(.*)\\[\/(url|email|img)\\]/siU');
+				$pagetext = preg_replace($cyb_apboupc_viewlinkspatte, '<link> ', $pagetext.' ');
+			}
+		}

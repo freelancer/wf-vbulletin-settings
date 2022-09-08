@@ -1,0 +1,5 @@
+Some feeds may list many items. If you would like to limit the number of items to read from a feed, enter a maximum number in this box.<br />
+<br />
+For example, if you specify '5', any items over this number will be ignored.<br />
+<br />
+Enter '0' to fetch all items.

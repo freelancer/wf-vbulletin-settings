@@ -1,0 +1,107 @@
+if (empty($parsedtext) && $_POST['do'] != 'editorswitch')
+{
+	global $eventinfo, $pm, $post, $postinfo;
+
+	if (!empty($eventinfo['userid']))
+	{
+		$userinfo = fetch_userinfo($eventinfo['userid']);
+		$permissions = fetch_permissions(0, $userinfo['userid'], $userinfo);
+	}
+	else if (!empty($pm['fromuserid']))
+	{
+		$userinfo = fetch_userinfo($pm['fromuserid']);
+		$permissions = fetch_permissions(0, $userinfo['userid'], $userinfo);
+	}
+	else if (!empty($post['userid']))
+	{
+		$userinfo = fetch_userinfo($post['userid']);
+		$permissions = fetch_permissions(0, $userinfo['userid'], $userinfo);
+	}
+	else if (!empty($postinfo['userid']))
+	{
+		$userinfo = fetch_userinfo($postinfo['userid']);
+		$permissions = fetch_permissions(0, $userinfo['userid'], $userinfo);
+	}
+	else
+	{
+		$permissions = $this->registry->userinfo['permissions'];
+	}
+
+	$this->bbcode_tag_list = $this->tag_list;
+
+	if ($permissions['advanced_bbcode_usergroup_on'])
+	{
+		$advanced_bbcode_permissions = explode('|||', $permissions['advanced_bbcode_permissions']);
+		foreach ($advanced_bbcode_permissions AS $key => $bbcode)
+		{
+			list($core, $bbcode, $yesno) = split("\|\|", $bbcode);
+			$abe1_bbcode[$core][$bbcode] = $yesno;
+		}
+
+		if ($abe1_bbcode[core][allow_bbcode_basic] == 0)
+		{
+			unset($this->tag_list['no_option']['b']);
+			unset($this->tag_list['no_option']['i']);
+			unset($this->tag_list['no_option']['u']);
+		}
+		if ($abe1_bbcode[core][allow_bbcode_color] == 0)
+		{
+			unset($this->tag_list['option']['color']);
+		}
+		if ($abe1_bbcode[core][allow_bbcode_size] == 0)
+		{
+			unset($this->tag_list['option']['size']);
+		}
+		if ($abe1_bbcode[core][allow_bbcode_font] == 0)
+		{
+			unset($this->tag_list['option']['font']);
+		}
+		if ($abe1_bbcode[core][allow_bbcode_align] == 0)
+		{
+			unset($this->tag_list['no_option']['left']);
+			unset($this->tag_list['no_option']['center']);
+			unset($this->tag_list['no_option']['right']);
+		}
+		if ($abe1_bbcode[core][allow_bbcode_align] == 0 && $abe1_bbcode[core][allow_bbcode_list] == 0)
+		{
+			unset($this->tag_list['no_option']['indent']);
+		}
+		if ($abe1_bbcode[core][allow_bbcode_list] == 0)
+		{
+			unset($this->tag_list['no_option']['list']);
+			unset($this->tag_list['option']['list']);
+		}
+		if ($abe1_bbcode[core][allow_bbcode_url] == 0)
+		{
+			unset($this->tag_list['no_option']['email']);
+			unset($this->tag_list['option']['email']);
+			unset($this->tag_list['no_option']['url']);
+			unset($this->tag_list['option']['url']);
+			unset($this->tag_list['no_option']['thread']);
+			unset($this->tag_list['option']['thread']);
+			unset($this->tag_list['no_option']['post']);
+			unset($this->tag_list['option']['post']);
+		}
+		if ($abe1_bbcode[core][allow_bbcode_code] == 0)
+		{
+			unset($this->tag_list['no_option']['code']);
+		}
+		if ($abe1_bbcode[core][allow_bbcode_php] == 0)
+		{
+			unset($this->tag_list['no_option']['php']);
+		}
+		if ($abe1_bbcode[core][allow_bbcode_html] == 0)
+		{
+			unset($this->tag_list['no_option']['html']);
+		}
+
+		foreach ($abe1_bbcode[non_core] AS $bbcode => $yesno)
+		{
+			if ($yesno == 0)
+			{
+				unset($this->tag_list['no_option']["$bbcode"]);
+				unset($this->tag_list['option']["$bbcode"]);
+			}
+		}
+	}
+}

@@ -1,0 +1,5 @@
+The version of Microsoft Internet Explorer 8 available at the time of writing has numerous issues when it comes to rendering vBulletin pages correctly.<br />
+<br />
+Thankfully, Microsoft has provided a means that allows developers to instruct IE8 to render pages in the way that IE7 does.<br />
+<br />
+Switching this option to 'Yes' will cause IE8 to behave like IE7, eliminating the IE8 page rendering problems.

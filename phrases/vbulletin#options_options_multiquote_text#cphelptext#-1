@@ -1,0 +1,3 @@
+Multi-quote allows a user to select multiple posts by clicking a button on each post. When the user clicks a button to reply, the text of each selected post will be quoted in the reply box.<br />
+<br />
+Since this feature allows users to respond to multiple posts at once, any posts made using this feature will not fit into a threaded hierarchy so beware!

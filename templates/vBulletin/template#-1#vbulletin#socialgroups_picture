@@ -1,0 +1,81 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+	$headinclude
+	$picturecomment_css
+	<title>$vboptions[bbtitle] - $custompagetitle</title>
+<script type="text/javascript" src="clientscript/vbulletin_quick_edit_generic.js?v=$vboptions[simpleversion]"></script>
+<script type="text/javascript" src="clientscript/vbulletin_quick_edit_picturecomment.js?v=$vboptions[simpleversion]"></script>
+
+</head>
+<body>
+$header
+$navbar
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<if condition="$show['picture_nav']">
+			<div class="smallfont" style="float: $stylevar[right]">
+				<a href="group.php?$session[sessionurl]do=picture&amp;groupid=$group[groupid]&amp;pictureid=$pic_location[prev_pictureid]">$pic_location[prev_text_short]</a> |
+				<a href="group.php?$session[sessionurl]do=picture&amp;groupid=$group[groupid]&amp;pictureid=$pic_location[next_pictureid]">$pic_location[next_text_short]</a>
+			</div>
+		</if>
+
+		<phrase 1="$pic_location[pic_position]" 2="$group[picturecount]" 3="$group[name]">$vbphrase[picture_x_of_y_from_group_z]</phrase>
+	</td>
+</tr>
+<tr>
+	<td class="alt1" align="center">
+		<table width="<if condition="$pictureinfo['width'] < 450">450<else />$pictureinfo[width]</if>" cellpadding="$stylevar[cellpadding]">
+		<tr>
+			<td align="center"><img src="picture.php?$session[sessionurl]groupid=$group[groupid]&amp;pictureid=$pictureinfo[pictureid]" alt="$vbphrase[picture]" /></td>
+		</tr>
+		<if condition="$pictureinfo['caption_html']">
+			<tr>
+				<td align="$stylevar[left]"><em>$pictureinfo[caption_html]</em></td>
+			</tr>
+		</if>
+		<tr>
+			<td align="$stylevar[left]" class="smallfont" nowrap="nowrap">
+				<if condition="$show['edit_picture_option'] OR $show['reportlink']">
+					<div class="smallfont normal" style="float: $stylevar[right]">
+					<if condition="$show['edit_picture_option']">
+						<div><a href="album.php?$session[sessionurl]do=editpictures&amp;albumid=$album[albumid]&amp;pictureid=$pictureinfo[pictureid]&amp;frompicture=1">$vbphrase[edit_picture]</a></div>
+					</if>
+					<if condition="$show['remove_picture_option']">
+						<div><a href="group.php?$session[sessionurl]do=removepicture&amp;groupid=$group[groupid]&amp;pictureid=$pictureinfo[pictureid]">$vbphrase[remove_from_group]</a></div>
+					</if>
+					<if condition="$show['reportlink']">
+						<div><a href="group.php?$session[sessionurl]do=reportpicture&amp;groupid=$group[groupid]&amp;pictureid=$pictureinfo[pictureid]">$vbphrase[report_picture]</a></div>
+					</if>
+					</div>
+				</if>
+				<div><span class="shade">$vbphrase[picture_added]:</span> $pictureinfo[adddate] <if condition="!$show['detailedtime']"><span class="time">$pictureinfo[addtime]</span></if></div>
+				<div><span class="shade">$vbphrase[picture_by]:</span> <a href="member.php?$session[sessionurl]u=$pictureinfo[userid]">$pictureinfo[username]</a></div>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+<if condition="$show['picture_nav']">
+	<div class="smallfont" align="center" style="margin-top: $stylevar[cellpadding]px">
+		<a href="group.php?$session[sessionurl]do=picture&amp;groupid=$group[groupid]&amp;pictureid=$pic_location[prev_pictureid]">$pic_location[prev_text]</a> |
+		<a href="group.php?$session[sessionurl]do=picture&amp;groupid=$group[groupid]&amp;pictureid=$pic_location[next_pictureid]">$pic_location[next_text]</a>
+	</div>
+</if>
+
+$picturecomment_commentarea
+
+<if condition="$show['picturecomment_options'] AND $show['picture_nav']">
+	<div class="smallfont" align="center" style="margin-top: $stylevar[cellpadding]px">
+		<a href="group.php?$session[sessionurl]do=picture&amp;groupid=$group[groupid]&amp;pictureid=$pic_location[prev_pictureid]">$pic_location[prev_text]</a> |
+		<a href="group.php?$session[sessionurl]do=picture&amp;groupid=$group[groupid]&amp;pictureid=$pic_location[next_pictureid]">$pic_location[next_text]</a>
+	</div>
+</if>
+
+$footer
+</body>
+</html>

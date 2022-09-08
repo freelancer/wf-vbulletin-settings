@@ -1,0 +1,3 @@
+This permission allows members of this group to rate threads.  Average thread ratings are shown as a row of stars next to a thread's title.<br /><br />
+
+Thread ratings must also be allowed for the forum in question for this group to be able to rate threads.  Choose the "Edit Forum" option in the <a href="forum.php?do=modify" target="_blank">Forum Manager</a> to view this setting.  Additionally, there are some thread rating options in your <a href="options.php?dogroup=poll&amp;do=options" target="_blank">vBulletin options</a>.

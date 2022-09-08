@@ -1,0 +1,7 @@
+Enter a path here.  For example, on a Windows server the path might be something like:<br /><br />
+
+<i>C:\logs\vbulletin.log</i><br /><br />
+
+Or on a *nix server it might be something like:<br /><br />
+
+<i>/home/yoursite/logs/vbulletin.log</i>

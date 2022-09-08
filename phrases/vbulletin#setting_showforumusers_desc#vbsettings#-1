@@ -1,0 +1,1 @@
+Enabling this option will show the current users browsing a particular forum on forumdisplay.php while adding one query. This can have an effect on performance. The Alphabetical option requires more resources than the random option.

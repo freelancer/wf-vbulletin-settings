@@ -1,0 +1,34 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<div style="float:$stylevar[right]; text-align:$stylevar[right]" class="smallfont"><phrase 1="$membercount">
+			$vbphrase[members_x]</phrase>
+			<if condition="$show['removeself']"><br /><a href="blog_usercp.php?do=leaveblog&bloguserid=$userinfo[userid]">$vbphrase[leave_blog]</a></if>
+		</div>
+		<phrase 1="$userinfo[username]">$vbphrase[members_of_x_blog]</phrase>
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]" class="fieldset">
+
+			<if condition="$show['avatars']">
+				<ul class="userlist userlist_showavatars floatcontainer">
+			<else />
+				<ul class="userlist userlist_hideavatars floatcontainer">
+			</if>
+				$memberlist
+				<li style="display:none">&nbsp;</li>
+			</ul>
+
+		</div>
+	</div>
+	</td>
+</tr>
+</table>
+<if condition="$show['pagenav']">
+<div style="margin-top:3px">
+	$pagenav
+</div>
+</if>

@@ -1,0 +1,1 @@
+Enter the username of the source user.  This user's posts, threads, calendar events, private messages, post count, reputation, contacts, friends and ignore list will be written over to the destination user's account.  The source user's permissions will be thrown out in favor of the destination user's permissions.

@@ -1,0 +1,128 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+	$headinclude
+	<title>$vboptions[bbtitle] - $custompagetitle</title>
+	$memberinfo_css
+	$socialgroups_css
+	<script type="text/javascript" src="clientscript/vbulletin_ajax_namesugg.js?v=$vboptions[simpleversion]"></script>
+	<script type="text/javascript" src="clientscript/vbulletin_ajax_userlist.js?v=$vboptions[simpleversion]"></script>
+</head>
+<body>
+$header
+$navbar
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<span style="float:$stylevar[right]" class="smallfont"><b>$vbphrase[social_group]</b>: <a href="group.php?$session[sessionurl]groupid=$group[groupid]">$group[name]</a></span>
+		<if condition="$show['manage_members']">
+			$vbphrase[manage_members]
+		<else />
+			$vbphrase[pending_and_invited_members]
+		</if>
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+		<div class="panel">
+			<div align="center">
+				<if condition="$moderatebits">
+					<fieldset class="fieldset" id="moderatedlist_container" style="width: $stylevar[formwidth]; text-align: $stylevar[left];">
+						<legend>$vbphrase[members_pending_moderation]</legend>
+
+						<form action="group.php?$session[sessionurl]do=pendingmembers&amp;groupid=$group[groupid]" method="post" id="moderatedlist_change_form">
+							<input type="hidden" name="do" value="pendingmembers" />
+							<input type="hidden" name="s" value="$session[sessionhash]" />
+							<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+							<input type="hidden" name="groupid" value="$group[groupid]" />
+
+							<div class="checkbox_ctrls floatcontainer">
+								<label class="check_all_ctrl shade"><input type="checkbox" id="moderatedlist_checkall" />$vbphrase[check_uncheck_all]</label>
+							</div>
+							<div class="userlist_title">$vbphrase[members_pending_moderation]</div>
+							<div class="userlist_description">$vbphrase[members_pending_moderation_description]:</div>
+							<ul class="userlist userlist_hiddenavatars floatcontainer" id="moderatedlist">
+								$moderatebits
+							</ul>
+							<div class="submitrow smallfont" style="margin-top: $stylevar[cellpadding]px;">
+								<div id="moderatedlist_action">
+									<div><label for="action_accept"><input type="radio" name="action" value="accept" id="action_accept" checked="checked" />$vbphrase[accept]</label></div>
+									<div><label for="action_deny"><input type="radio" name="action" value="deny" id="action_deny" />$vbphrase[deny]</label></div>
+								</div>
+								<input type="submit" class="button" id="moderated_submit" value="$vbphrase[save_changes]" />
+							</div>
+						</form>
+
+						<script type="text/javascript">
+						<!--
+						vBulletin.register_control("vB_UserList_Highlighter", "moderatedlist");
+						//-->
+						</script>
+					</fieldset>
+				</if>
+
+
+
+				<fieldset class="fieldset" id="invitedlist_container" style="width: $stylevar[formwidth]; text-align: $stylevar[left];">
+					<legend>$vbphrase[invited_users]</legend>
+					<if condition="$invitebits">
+						<form action="group.php?$session[sessionurl]do=pendingmembers&amp;groupid=$group[groupid]" method="post" id="invitedlist_change_form">
+							<input type="hidden" name="do" value="cancelinvites" />
+							<input type="hidden" name="s" value="$session[sessionhash]" />
+							<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+							<input type="hidden" name="groupid" value="$group[groupid]" />
+
+							<div class="checkbox_ctrls floatcontainer">
+								<label class="check_all_ctrl shade"><input type="checkbox" id="invitedlist_checkall" />$vbphrase[check_uncheck_all]</label>
+							</div>
+							<div class="userlist_title">$vbphrase[invited_members]</div>
+							<div class="userlist_description">$vbphrase[invited_users_description]:</div>
+							<ul class="userlist userlist_hiddenavatars floatcontainer" id="invitedlist">
+								$invitebits
+							</ul>
+							<div class="submitrow smallfont" style="margin-top: $stylevar[cellpadding]px;">
+								<input type="submit" class="button" id="moderated_submit" value="$vbphrase[cancel_invitation]" />
+							</div>
+						</form>
+
+						<script type="text/javascript">
+						<!--
+						vBulletin.register_control("vB_UserList_Highlighter", "invitedlist");
+						//-->
+						</script>
+						<hr />
+					</if>
+
+					<form action="group.php?do=sendinvite&amp;groupid=$group[groupid]" method="post">
+						<input type="hidden" name="s" value="$session[sessionhash]" />
+						<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+						<input type="hidden" name="do" value="sendinvite" />
+						<input type="hidden" name="groupid" value="$group[groupid]" />
+
+						<if condition="$errormsg">
+							<div><img src="$stylevar[imgdir_statusicon]/wol_error.gif" class="inlineimg" alt="" /> $errormsg</div>
+						</if>
+
+						$vbphrase[invite_user]
+						<div>
+							<span id="group_invite"><input type="text" class="bginput" name="username" id="group_invite_txt" size="40" value="$invite_username" /></span>
+							<input type="submit" class="button" value="$vbphrase[invite]" />
+						</div>
+						<div id="group_invite_menu" class="vbmenu_popup" style="display:none"></div>
+					</form>
+					<script type="text/javascript">
+						vBmenu.register("group_invite", true);
+						snc_invite = new vB_AJAX_NameSuggest("snc_invite", "group_invite_txt", "group_invite");
+					</script>
+				</fieldset>
+
+			</div>
+		</div>
+	</td>
+</tr>
+</table>
+
+$footer
+</body>
+</html>

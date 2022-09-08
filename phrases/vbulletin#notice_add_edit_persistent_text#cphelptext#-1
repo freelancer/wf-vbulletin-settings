@@ -1,0 +1,3 @@
+A notice that is not persistent will be displayed the first time a user visits the board and will then disappear until they visit again (it is displayed once per browser-session).<br />
+<br />
+On the other hand, a Persistent notice is displayed whenever all of its conditions have been fulfilled.

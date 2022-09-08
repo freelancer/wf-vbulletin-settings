@@ -1,0 +1,51 @@
+<form action="blog_usercp.php?do=stats" method="post" name="form">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="stats" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="4">
+		$vbphrase[blog_stats]
+	</td>
+</tr>
+<if condition="$statbits">
+<tr>
+	<td class="thead"><a href="$sorturl&amp;order=asc&amp;sort=date&amp;pp=$perpage&amp;page=$pagenumber">$vbphrase[date]</a> $sortarrow[date]</td>
+	<td class="thead" align="center" nowrap="nowrap"><a href="$sorturl&amp;order=desc&amp;sort=entry&amp;pp=$perpage&amp;page=$pagenumber">$vbphrase[blog_entries]</a> $sortarrow[entry]</td>
+	<td class="thead" align="center" nowrap="nowrap"><a href="$sorturl&amp;order=desc&amp;sort=comment&amp;pp=$perpage&amp;page=$pagenumber">$vbphrase[comments]</a> $sortarrow[comment]</td>
+	<td class="thead" align="center" nowrap="nowrap"><a href="$sorturl&amp;order=desc&amp;sort=visit&amp;pp=$perpage&amp;page=$pagenumber">$vbphrase[visitors]</a> $sortarrow[visit]</td>
+</tr>
+$statbits
+<tr>
+	<td class="tfoot" colspan="4" align="$stylevar[right]">
+		<div class="smallfont">
+
+		$vbphrase[scope]
+		<select name="scope">
+				<option value="daily" $scopeselected[daily]>$vbphrase[daily]</option>
+				<option value="weekly" $scopeselected[weekly]>$vbphrase[weekly]</option>
+				<option value="monthly" $scopeselected[monthly]>$vbphrase[monthly]</option>
+		</select>$gobutton
+
+		</div>
+	</td>
+</tr>
+<else />
+	<tr>
+		<td class="alt1" align="center">
+			$vbphrase[your_blog_has_no_stats]
+		</td>
+	</tr>
+</if>
+</table>
+
+</form>
+
+<if condition="$show['pagenav']">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:3px">
+<tr valign="top">
+	<td align="$stylevar[right]">$pagenav</td>
+</tr>
+</table>
+</if>

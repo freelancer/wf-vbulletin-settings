@@ -1,0 +1,7 @@
+<p>On some boards you might be able to post and reply as a guest user. But most communities require registration.</p>
+
+<p>As a registered user you can go to a forum on a board where you have permission to view threads and leave replies. To reply you have a few options. You can click on the 'Post Reply' button <img class="inlineimg" src="$stylevar[imgdir_button]/reply.gif" alt="Post Reply" border="0" /> and add a new post to the end of the thread. Alternatively, you can leave a quick reply in a quick editor box listed below the posts in the thread.</p>
+
+<p>When using 'Quick Reply' you can choose to quote a particular post if you are replying to something someone wrote. You may need to click the quick reply button <img class="inlineimg" src="$stylevar[imgdir_button]/quickreply.gif" alt="Quick Reply" border="0" /> in a post to activate the quick reply box before you can type into it.</p>
+
+<p>If you want to post replies to multiple posts you can select them by clicking the multi quote button <img class="inlineimg" src="$stylevar[imgdir_button]/multiquote_off.gif" alt="Multi quote" border="0" />. This button will change to indicate that you've selected it. Clicking post reply will then bring you to the full editor with all the posts quoted.</p>

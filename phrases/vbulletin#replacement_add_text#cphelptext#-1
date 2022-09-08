@@ -1,0 +1,3 @@
+Here you can add a new replacement variable.  Replacement variables are useful in representing commonly used values in templates.  For example, the images directory path is used in many vBulletin templates and so it is represented by a replacement variable.  The images directory replacement variable can be edited to change the images path in every template.<br /><br />
+
+First you need to select a style to which you want this replacement variable to belong.  The "Search for Text" field is the variable you will use in the templates.  The "Replace with Text" field is the value that will be substituted in for the replacement variable everywhere it is used.

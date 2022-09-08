@@ -1,0 +1,12 @@
+<tr id="linkback_$vbseoping[t_id]">	
+	<td id="linkbacktitle_$vbseoping[t_id]" ondblclick="if(!dblhandled) vbseo_linkback_ondblclick(this);dblhandled=false;" <if condition="$vbseoping[t_approve]">class="alt1"<else />class="inlinemod"</if> align="$stylevar[left]" title="$vbseoping[t_text_nohtml]"><span class="smallfont"><if condition="$vbseoping[ismod]"><img src="$stylevar[imgdir_misc]/moderated_small.gif" border="0" ondblclick="dblhandled=true;return vBSEO_linkback_mod_Init('$vbseoping[t_id]', 'mod')" id="linkbackimg_$vbseoping[t_id]" alt="<if condition="$vbseoping[t_approve]">$vbphrase[vbseo_mod_unapprove]<else />$vbphrase[vbseo_mod_approve]</if>" style="cursor:pointer"> 
+<img src="$stylevar[imgdir_misc]/trashcan_small.gif" border="0" ondblclick="dblhandled=true;return vBSEO_linkback_mod_Init('$vbseoping[t_id]', 'del')" id="linkbackdelimg_$vbseoping[t_id]" alt="$vbphrase[vbseo_mod_delete]" style="cursor:pointer"> 
+<img src="$stylevar[imgdir_misc]/redcard_small.gif" border="0" ondblclick="dblhandled=true;return vBSEO_linkback_mod_Init('$vbseoping[t_id]', 'ban')" id="linkbackbanimg_$vbseoping[t_id]" alt="$vbphrase[vbseo_mod_ban]" style="cursor:pointer"> 
+</if><a id="linkback_title_$vbseoping[t_id]" href="$vbseoping[t_src_url]" target="_blank"><if condition="$vbseoping[t_title_html]">$vbseoping[t_title_html]<else />$vbphrase[vbseo_untitled_document]</if></a></span></td>
+	<td <if condition="$vbseoping[t_approve]">class="alt2"<else />class="inlinemod"</if> nowrap="nowrap"><span class="smallfont"><a href="$vbseoping[t_dest_url]"><if condition="$vbseoping[t_postid]>0">$vbphrase[vbseo_post_no]$vbseoping[postno]<else />$vbphrase[vbseo_this_thread]</if></a></span></td>
+	<td <if condition="$vbseoping[t_approve]">class="alt1"<else />class="inlinemod"</if> nowrap="nowrap"><span class="smallfont"><if condition="$vbseoping[t_type]==0">$vbphrase[vbseo_pingback]<else /><if condition="$vbseoping[t_type]==2">$vbphrase[vbseo_refback]<else />$vbphrase[vbseo_trackback]</if></if></span></td>
+	<td <if condition="$vbseoping[t_approve]">class="alt2"<else />class="inlinemod"</if> align="$stylevar[right]"><span class="smallfont">$vbseoping[date] <span class="time">$vbseoping[time]</span></span></td>
+<if condition="$vbseo_showhits">
+<td <if condition="$vbseoping[t_approve]">class="alt2"<else />class="inlinemod"</if> align="$stylevar[right]"><span class="smallfont">$vbseoping[t_hits]</span></td>
+</if>
+</tr>

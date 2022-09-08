@@ -1,0 +1,1 @@
+The maximum number of tags the users other than the entry author can apply. Even if this setting allows it, the number of tags in an entry cannot exceed the "Maximum Tags per Entry" setting. 0 disables this limit. To prevent a user from tagging an entry, use user group permissions.

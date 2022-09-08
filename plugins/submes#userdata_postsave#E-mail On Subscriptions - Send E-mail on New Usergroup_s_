@@ -1,0 +1,51 @@
+if(defined('IN_CONTROL_PANEL') && $usergroups_changed && (basename($_SERVER['SCRIPT_NAME'])=='user.php'))		
+      {
+         // Get new usergroups		   
+         $newusergroupids = array();
+         if(isset($this->user['usergroupid']) AND $this->user['usergroupid'] != $this->existing['usergroupid'])
+         {
+            $newusergroupids[] = $this->user['usergroupid'];
+         }
+         if(isset($this->user['membergroupids']) AND $this->user['membergroupids'] != $this->existing['membergroupids'])
+         {
+            $newmembergroupids = array_diff(explode(',',$this->user['membergroupids']),explode(',',$this->existing['membergroupids']));
+            if(count($newmembergroupids)>0)
+            {
+               $newusergroupids = array_merge($newusergroupids,$newmembergroupids);
+            }
+         }        
+         if(count($newusergroupids) > 0)
+         {
+            if($this->registry->options['submes_ugp_limit'])
+            {
+               $submit_ugp_limit = explode(',',$this->registry->options['submes_ugp_limit']);
+               foreach($submit_ugp_limit as $submit_ugp_key => $submit_ugp_value)
+               {
+                  $submit_ugp_value = trim($submit_ugp_value);
+                  if($submit_ugp_value) $submit_ugp_limit["$submit_ugp_key"] = intval($submit_ugp_value);
+               }
+               $newusergroupids  = array_intersect($newusergroupids,$submit_ugp_limit);
+            }       
+            if(count($newusergroupids) > 0)
+            {
+               // Get usergroup names
+               $usergroups = '';
+               foreach($newusergroupids as $newusergorupid)
+               {
+                  $usergroups .= $this->registry->usergroupcache["$newusergorupid"]['title']."\n";
+               }
+               // E-mail
+               if(!empty($usergroups))
+               {
+                  // site info
+                  $bbtitle   = $this->registry->options['bbtitle'];
+                  $bburl     = $this->registry->options['bburl'];
+                  $sitetitle = $this->registry->options['homeurl'];
+                  $sitename  = $this->registry->options['hometitle'];
+                  $userinfo  = fetch_userinfo($userid);
+                  eval(fetch_email_phrases('submes_usergroup_user'));
+                  vbmail($userinfo['email'], $subject, $message, true, $this->registry->options['submes_email_from']);                  
+               }            
+            }
+         }
+      }

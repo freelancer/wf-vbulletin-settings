@@ -1,0 +1,4 @@
+
+$vbpua_lasthook='postbit_display_complete';
+include(DIR.'/includes/vbvua_hooks.php');
+             

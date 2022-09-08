@@ -1,0 +1,3 @@
+<td align="center" id="vb_blogcalendar_day_{$currentmonth}_$day" class="<if condition="$show['thismonth']">alt1<else />alt2</if> smallfont"<if condition="$show['highlighttoday']"> style="padding: 0px; border:1px solid red; font-weight:bold;" title="$vbphrase[today]"</if>>
+	<if condition="$show['daylink']"><a id="vb_blogcalendar_href_{$currentmonth}_$day" href="blog.php?$session[sessionurl]<if condition="$userid">u=$userid<else />do=list</if>&amp;m=$currentmonth&amp;y=$currentyear&amp;d=$day" title="$vbphrase[total_blog_entries] $total"><strong>$day</strong></a><else />$day</if>
+</td>

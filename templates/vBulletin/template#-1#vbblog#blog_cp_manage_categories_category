@@ -1,0 +1,6 @@
+<tr>
+	<td class="alt1"><span style="float:$stylevar[right]"><a href="blog_usercp.php?$session[sessionurl]do=modifycat&amp;blogcategoryid=$blogcategoryid"><img src="$stylevar[imgdir_misc]/blog/folder_edit.gif" border="0" class="inlineimg" alt="$vbphrase[edit]" /></a></span></span>$depthmark<a href="blog.php?$session[sessionurl]u=$bbuserinfo[userid]&amp;blogcategoryid=$category[blogcategoryid]">$category[title]</a></td>
+	<td class="alt2">$category[description]</td>
+	<td class="alt1" align="center"><input class="bginput" type="text" size="2" maxlength="3" name="displayorder[$blogcategoryid]" value="$category[displayorder]" /></td>
+	<td class="alt2" align="center">$category[entrycount]</td>
+</tr>

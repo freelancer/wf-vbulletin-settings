@@ -1,0 +1,1 @@
+This value controls how many days in the past that updated threads will be chosen from.  Busy forums will want a smaller number. The smallest valid value is 1 day; the default is 30 days.

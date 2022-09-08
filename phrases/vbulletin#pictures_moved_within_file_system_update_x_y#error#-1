@@ -1,0 +1,4 @@
+Your vBulletin settings have been updated to read your album pictures or thumbnails from a new location. The following path or paths were changed:
+<ul>{1}</ul>
+You must now manually move your pictures to the new folders using an FTP client or shell commands, such as:
+<ul>{2}</ul>

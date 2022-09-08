@@ -1,0 +1,6 @@
+<b>FAQs:</b><br />
+The vBulletin FAQ system allows you to create infinitely nestable sets of entries, or questions, and additionally allows end-users to search the FAQs.  FAQs are typically a collection of Frequently Asked Questions, while vBulletin's FAQ system is something of a FAQ / Knowledge Base hybrid because of its searchability.<br /><br />
+
+vBulletin ships with a number of default sets and entries that are focused on using vBulletin from the end-user's perspective.  You may wish to add additional FAQs that answer questions about your specific forum configuration - forum permissions for example.<br /><br />
+
+The FAQ system also supports multiple languages.  Each FAQ entry can have a translation for each language in the <a href="language.php?do=modify" target="_blank">Language Manager</a>.  When a user loads a FAQ page vBulletin will display its FAQ entries in the language in which the current logged in user is viewing your forums.

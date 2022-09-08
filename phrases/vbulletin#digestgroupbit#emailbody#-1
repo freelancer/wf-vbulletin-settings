@@ -1,0 +1,6 @@
+************
+$discussion[title]
+$vboptions[bburl]/group.php?do=discuss&discussionid=$discussion[discussionid]
+In group: $group[name]
+Started by: $discussion[postusername]
+Last post: $discussion[lastreplydate] $discussion[lastreplytime]

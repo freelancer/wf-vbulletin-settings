@@ -1,0 +1,188 @@
+<if condition="$show['delete']">
+<form action="blog_post.php?do=deleteblog&amp;blogid=$bloginfo[blogid]" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="b" value="$bloginfo[blogid]" />
+<input type="hidden" name="bt" value="$blogtextinfo[blogtextid]" />
+<input type="hidden" name="url" value="$url" />
+<input type="hidden" name="do" value="deleteblog" />
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('editentry_delete')"><img id="collapseimg_editentry_delete" src="$stylevar[imgdir_button]/collapse_generic$vbcollapse[collapseimg_editentry_delete].gif" alt="" border="0" /></a>
+		$vbphrase[delete_comment]
+	</td>
+</tr>
+<tbody id="collapseobj_editentry_delete" style="$vbcollapse[collapseobj_editentry_delete]">
+	<tr>
+		<td class="panelsurround" align="center">
+		<div class="panel">
+			<div align="$stylevar[left]" style="max-width:$stylevar[formwidth]; width:auto !important; width:$stylevar[formwidth_blog]">
+
+			<div class="fieldset">$vbphrase[to_delete_comment_description]</div>
+
+			<fieldset class="fieldset">
+				<legend>$vbphrase[deletion_options]</legend>
+				<div style="padding:$stylevar[formspacer]px">
+					<div>
+						<label for="rb_del_leave"><input type="radio" name="deleteblog" value="" id="rb_del_leave" tabindex="1" checked="checked" />$vbphrase[do_not_delete_message]</label>
+					</div>
+					<div>
+						<label for="rb_del_soft"><input type="radio" name="deleteblog" value="soft" id="rb_del_soft" tabindex="1" />$vbphrase[delete_message]</label>
+					</div>
+					<if condition="$show['physicaldeleteoption']">
+					<div>
+						<label for="rb_del_hard"><input type="radio" name="deleteblog" value="remove" id="rb_del_hard" tabindex="1" />$vbphrase[physically_remove_message]</label>
+					</div>
+					</if>
+				</div>
+			</fieldset>
+
+			<div class="smallfont">
+				<div>$vbphrase[reason_for_deletion]:</div>
+				<input type="text" class="bginput" name="reason" size="50" tabindex="1" title="$vbphrase[optional]" />
+			</div>
+
+			</div>
+		</div>
+
+		<div style="margin-top:$stylevar[cellpadding]px">
+			<input type="submit" class="button" value="$vbphrase[delete]" tabindex="1" accesskey="d" />
+		</div>
+
+		</td>
+	</tr>
+</tbody>
+</table>
+</form>
+<br />
+</if>
+
+$postpreview
+
+<form action="blog_post.php?do=comment" name="vbform" method="post"<if condition="!is_browser('webtv')"> onsubmit="return vB_Editor['$editorid'].prepare_submit(0, $vboptions[postminchars])"</if>>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<span class="smallfont" style="float:$stylevar[right]"><strong>$vbphrase[blog_entry]</strong> <a href="blog.php?$session[sessionurl]b=$bloginfo[blogid]" title="$bloginfo[title]">$bloginfo[title_trimmed]</a></span>
+		<span style="white-space:nowrap"><if condition="$show['edit']">$vbphrase[edit_comment]<else />$vbphrase[post_a_comment]</if></span>
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]" style="max-width:$stylevar[formwidth]; width:auto !important; width:$stylevar[formwidth_blog]">
+
+			<if condition="$vbulletin->userinfo['userid'] == 0">
+				$usernamecode
+				$imagereg$human_verify
+			</if>
+
+			<if condition="$show['edit']">
+				<!-- edit reason field -->
+				<div class="smallfont" style="margin-top:$stylevar[cellpadding]px; clear:both">
+					<label>$vbphrase[reason_for_editing]
+						<input type="text" class="bginput" name="reason" value="$reason" size="50" maxlength="200" tabindex="1" title="$vbphrase[optional]" style="display:block" />
+					</label>
+				</div>
+				<!-- / edit reason field -->
+			</if>
+
+			<!-- subject field -->
+			<div class="smallfont" style="margin-top:$stylevar[cellpadding]px; clear:both">
+				<label>$vbphrase[title]
+					<input type="text" class="bginput" name="title" value="$title" size="50" maxlength="$vboptions[titlemaxchars]" tabindex="1" title="$vbphrase[optional]" style="display:block" />
+				</label>
+			</div>
+			<!-- / subject field -->
+
+			<!-- message area -->
+			<div class="smallfont" style="margin-top:$stylevar[cellpadding]px">$vbphrase[message]</div>
+			$messagearea
+			<!-- / message area -->
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="hidden" name="s" value="$session[sessionhash]" />
+		<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+		<input type="hidden" name="do" value="postcomment" />
+		<input type="hidden" name="b" value="$bloginfo[blogid]" />
+		<input type="hidden" name="bt" value="$blogtextinfo[blogtextid]" />
+		<input type="hidden" name="posthash" value="$posthash" />
+		<input type="hidden" name="loggedinuser" value="$bbuserinfo[userid]" />
+		<if condition="!$show['edit']">
+			<input type="submit" class="button" name="sbutton" id="{$editorid}_save" value="$vbphrase[post_now]" accesskey="s" tabindex="1" />
+		<else />
+			<input type="submit" class="button" name="sbutton" id="{$editorid}_save" value="$vbphrase[save_changes]" accesskey="s" tabindex="1" />
+		</if>
+		<input type="submit" class="button" name="preview" value="$vbphrase[preview]" accesskey="r" tabindex="1" />
+	</div>
+	</td>
+</tr>
+</table>
+
+<if condition="$show['additional_options']">
+<br />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('newentry_options')"><img id="collapseimg_newentry_options" src="$stylevar[imgdir_button]/collapse_generic$vbcollapse[collapseimg_newentry_options].gif" alt="" border="0" /></a>
+			$vbphrase[additional_options]
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_newentry_options" style="$vbcollapse[collapseobj_newentry_options]">
+	<tr valign="top">
+		<td class="panelsurround" align="center">
+		<div class="panel">
+			<div align="$stylevar[left]" style="max-width:$stylevar[formwidth]; width:auto !important; width:$stylevar[formwidth_blog]">
+
+				<if condition="$show['misc_options']">
+				<fieldset class="fieldset">
+					<legend>$vbphrase[miscellaneous_options]</legend>
+					<div style="padding:$stylevar[formspacer]px">
+						<if condition="$show['parseurl']"><div><label for="cb_parseurl"><input type="checkbox" name="parseurl" value="1" id="cb_parseurl" tabindex="1" $checked[parseurl] />$vbphrase[automatically_parse_links_in_text]</label></div></if>
+						$disablesmiliesoption
+					</div>
+				</fieldset>
+				</if>
+
+				<if condition="$show['member']">
+				<fieldset class="fieldset">
+					<legend>$vbphrase[blog_entry_subscription]</legend>
+					<div style="padding:$stylevar[formspacer]px">
+						$vbphrase[notification_type]<br />
+						<select name="emailupdate" tabindex="1">
+							<option value="none" $notification[none]>$vbphrase[do_not_subscribe]</option>
+							<option value="usercp" $notification[usercp]>$vbphrase[no_email_notification]</option>
+							<option value="email" $notification[email]>$vbphrase[instant_email_notification]</option>
+						</select>
+					</div>
+				</fieldset>
+				</if>
+
+				$attachmentoption
+
+				</div>
+			</div>
+
+			<div style="margin-top:$stylevar[cellpadding]px">
+				<if condition="!$show['edit']">
+					<input type="submit" class="button" name="sbutton" id="{$editorid}_save" value="$vbphrase[post_now]" accesskey="s" tabindex="1" />
+				<else />
+					<input type="submit" class="button" name="sbutton" id="{$editorid}_save" value="$vbphrase[save_changes]" accesskey="s" tabindex="1" />
+				</if>
+				<input type="submit" class="button" name="preview" value="$vbphrase[preview]" accesskey="r" tabindex="1" />
+			</div>
+		</td>
+	</tr>
+</tbody>
+</table>
+</if>
+
+</form>

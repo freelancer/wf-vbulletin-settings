@@ -1,0 +1,9 @@
+
+<tbody>
+        <tr>
+                <td colspan="$colspan" style="padding:0px; background-image:none">
+                        $variable
+                </td>
+        </tr>
+</tbody>
+     

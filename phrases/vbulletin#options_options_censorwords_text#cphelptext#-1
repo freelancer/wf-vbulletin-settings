@@ -1,0 +1,14 @@
+Here are some examples of what a censor list will do to a sentence:<br /><br />
+
+<b>Sentence:</b><br />
+Dogs and cats fight when it's raining.<br />
+<b>Censor List:</b><br />
+{dog} cat rain<br />
+<b>Censor Result:</b><br />
+Dogs and ***s fight when it's ****ing.<br />
+<b>Censor List:</b><br />
+dog {cat} {rain}<br />
+<b>Censor Result:</b><br />
+***s and cats fight when it's raining.<br /><br />
+
+Do *not* use quotation marks or the results may be unexpected or it may cause errors.  Make sure you are using curly brackets {} and not parentheses () when specifying exact words.  Also note that you cannot censor phrases here because spaces are used as delimiters.

@@ -1,0 +1,14 @@
+<div style="padding-top: 10px">
+	<a href="blog.php?$session[sessionurl]do=bloglist">$vbphrase[blogs]</a>: $blogstats[total_blog_users],
+	<a href="blog.php?$session[sessionurl]do=list">$vbphrase[entries]</a>: $blogstats[total_blog_entries],
+	<a href="blog.php?$session[sessionurl]do=list&amp;span=24">$vbphrase[last_24_hours]</a>: $blogstats[entries_in_24hours]
+</div>
+<if condition="$latestentry['title']">
+	<div>
+		<if condition="$show['blogtitle']">
+			<phrase 1="blog.php?$session[sessionurl]b=$latestentry[blogid]" 2="$latestentry[title]" 3="member.php?$session[sessionurl]u=$latestentry[postedby_userid]" 4="$latestentry[postedby_username]" 5="blog.php?$session[sessionurl]u=$latestentry[userid]" 6="$latestentry[blogtitle]">$vbphrase[latest_blog_entry_by_x_in_blog_y]</phrase>
+		<else />
+			<phrase 1="blog.php?$session[sessionurl]b=$latestentry[blogid]" 2="$latestentry[title]" 3="member.php?$session[sessionurl]u=$latestentry[postedby_userid]" 4="$latestentry[postedby_username]">$vbphrase[latest_blog_entry_by_x]</phrase>
+		</if>
+	</div>
+</if>

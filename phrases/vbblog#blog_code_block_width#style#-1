@@ -1,0 +1,1 @@
+Blog Code Block Width (pixels) <dfn>This value controls the width of [code], [php] and [html] bbcode blocks in blog entries and blog comments. The value specified here is designed to work best with a fixed-width style. Alter it carefully if you must.</dfn>

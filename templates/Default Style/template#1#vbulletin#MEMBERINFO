@@ -1,0 +1,244 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+
+$usercss
+$memberinfo_css
+<style type="text/css" id="vbulletin_tabctrl_css">
+@import url("clientscript/vbulletin_tabctrl.css?v=$vboptions[simpleversion]");
+<if condition="$show['rtl']">@import url("clientscript/vbulletin_tabctrl_rtl.css?v=$vboptions[simpleversion]");</if>
+</style>
+
+<script type="text/javascript" src="clientscript/vbulletin_tabctrl.js?v=$vboptions[simpleversion]"></script>
+<script type="text/javascript" src="clientscript/vbulletin_quick_edit_generic.js?v=$vboptions[simpleversion]"></script>
+<script type="text/javascript" src="clientscript/vbulletin_quick_edit_visitormessage.js?v=$vboptions[simpleversion]"></script>
+
+<title>$vbphrase[view_profile]: $userinfo[username]</title>
+
+<if condition="$userinfo['userid'] == $bbuserinfo['userid']">
+<script type="text/javascript" src="clientscript/vbulletin_profilefield_edit.js?v=$vboptions[simpleversion]"></script>
+</if>
+<script type="text/javascript">
+<!--
+vbphrase['server_failed_respond_try_again'] = "$vbphrase[server_failed_respond_try_again]";
+vbphrase['edit_value'] = "$vbphrase[edit_value_js]";
+
+<if condition="$show['post_visitor_message']">
+function goto_post_pm()
+{
+	vB_TabCtrls['profile_tabs'].switch_tab('visitor_messaging');
+	fetch_object('visitor_messaging').scrollIntoView();
+
+	var textarea = fetch_object('visitor_message_form_textarea');
+	if (textarea)
+	{
+		textarea.focus();
+		textarea.select();
+	}
+	return false;
+}
+</if>
+-->
+</script>
+
+</head>
+<body>
+
+$header
+$navbar
+
+
+<!-- begin user css -->
+<div id="usercss" class="floatcontainer">
+
+<div id="content_container">
+	<div id="content">
+
+		<div id="main_userinfo" class="floatcontainer">
+			<table cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<if condition="$prepared['profilepicurl']">
+					<td id="profilepic_cell" class="tborder alt2"><img src="$prepared[profilepicurl]" $prepared[profilepicsize] alt="<phrase 1="$prepared[username]">$vbphrase[xs_picture]</phrase>" /></td>
+				</if>
+				<td valign="top" width="100%" id="username_box"<if condition="$prepared['profilepicurl']"> class="profilepic_adjacent"</if>>
+					<if condition="$prepared['rank'] OR $prepared['reputationdisplay']">
+						<div id="reputation_rank">
+							<if condition="$prepared['reputationdisplay']">
+								<div id="reputation">$prepared[reputationdisplay]</div>
+							</if>
+							<if condition="$prepared['rank']">
+								<div id="rank">$prepared[rank]</div>
+							</if>
+						</div>
+					</if>
+					<h1>$prepared[musername] $prepared[onlinestatus]</h1>
+					<if condition="$prepared['usertitle']">
+						<h2>$prepared[usertitle]</h2>
+					</if>
+				</td>
+			</tr>
+			</table>
+
+			<!-- link bar -->
+			<div class="tborder content_block" id="link_bar">
+				<if condition="$prepared['myprofile'] OR $show['contactlinks'] OR $show['userlists'] OR $show['usernotes'] OR can_moderate()">
+					<ul class="thead block_row block_title list_no_decoration floatcontainer">
+						<if condition="$prepared['myprofile']">
+							<if condition="$show['can_customize_profile']">
+								<li class="thead" id="usercss_switch_link"><a href="profile.php?$session[sessionurl]do=customize">$vbphrase[customize_profile]</a></li>
+							</if>
+						<else />
+							<if condition="$show['usercss_switch']">
+								<li class="thead" id="usercss_switch_link"><a href="profile.php?$session[sessionurl]do=switchusercss&amp;hash=$bbuserinfo[logouthash]&amp;u=$prepared[userid]">$usercss_switch_phrase</a></li>
+							</if>
+						</if>
+
+						<if condition="$show['contactlinks']">
+							<li class="thead" id="minicontact"><a href="#contactinfo">$vbphrase[send_message]</a> <script type="text/javascript">vBmenu.register("minicontact");</script></li>
+						</if>
+
+						<if condition="$show['userlists']">
+							<li class="thead" id="userlists"><a href="profile.php?$session[sessionurl]do=buddylist&amp;nojs=1">$vbphrase[user_lists]</a> <script type="text/javascript">vBmenu.register("userlists");</script></li>
+						</if>
+
+						<if condition="$show['usernotes']">
+							<li class="thead"><a href="usernote.php?$session[sessionurl]u=$prepared[userid]">$vbphrase[user_notes] ($prepared[usernotecount])</a></li>
+						</if>
+
+						<if condition="can_moderate()">
+							<li class="thead"><a href="moderator.php?$session[sessionurl]do=useroptions&amp;u=$userinfo[userid]">$vbphrase[edit_user_profile]</a></li>
+						</if>
+<!-- Start Admin Log In As User -->
+$admin_log_in_as_user_link
+<!-- End Admin Log In As User -->
+
+					</ul>
+				</if>
+
+				<!-- current activity -->
+				<if condition="$prepared['lastactivitydate'] OR $prepared['action']">
+					<div class="alt2 smallfont block_row" id="activity_info">
+						<if condition="$prepared['lastactivitydate']">
+							<div id="last_online">
+								<span class="shade">$vbphrase[last_activity]:</span> $prepared[lastactivitydate]<if condition="!$show['detailedtime']"> <span class="time">$prepared[lastactivitytime]</span></if>
+							</div>
+						</if>
+						<if condition="$prepared['action']">
+							<span class="shade">$vbphrase[current_activity]:</span> $prepared[action] $prepared[where]
+						</if>
+					</div>
+				</if>
+				<!-- / current activity -->
+
+			</div>
+			<!-- / link bar -->
+
+			<!-- user list menu -->
+			<ul id="userlists_menu" class="vbmenu_popup list_no_decoration" style="display: none">
+				<li class="thead first"><phrase 1="$prepared[username]">$vbphrase[user_lists]</phrase></li>
+				<if condition="$prepared['canbefriend']">
+					<li class="vbmenu_option">
+						<a href="profile.php?$session[sessionurl]do=addlist&amp;userlist=friend&amp;u=$prepared[userid]"><if condition="$prepared['requestedfriend']">$vbphrase[confirm_friendship_request]<else />$vbphrase[add_to_friends_list]</if></a>
+					</li>
+				</if>
+				<if condition="$prepared['isfriend']">
+					<li class="vbmenu_option">
+						<a href="profile.php?$session[sessionurl]do=removelist&amp;userlist=friend&amp;u=$prepared[userid]">$vbphrase[remove_from_friends_list]</a>
+					</li>
+				</if>
+				<if condition="$show['addbuddylist']">
+					<li class="vbmenu_option">
+						<a href="profile.php?$session[sessionurl]do=addlist&amp;userlist=buddy&amp;u=$prepared[userid]">$vbphrase[add_to_contacts]</a>
+					</li>
+				</if>
+				<if condition="$show['removebuddylist']">
+					<li class="vbmenu_option">
+						<a href="profile.php?$session[sessionurl]do=removelist&amp;userlist=buddy&amp;u=$prepared[userid]">$vbphrase[remove_from_contacts]</a>
+					</li>
+				</if>
+				<if condition="$show['addignorelist']">
+					<li class="vbmenu_option">
+						<a href="profile.php?$session[sessionurl]do=addlist&amp;userlist=ignore&amp;u=$prepared[userid]">$vbphrase[add_to_ignore_list]</a>
+					</li>
+				</if>
+				<if condition="$show['removeignorelist']">
+					<li class="vbmenu_option">
+						<a href="profile.php?$session[sessionurl]do=removelist&amp;userlist=ignore&amp;u=$prepared[userid]">$vbphrase[remove_from_ignore_list]</a>
+					</li>
+				</if>
+			</ul>
+
+			<if condition="$show['post_visitor_message'] OR $show['pm'] OR $show['email'] OR $prepared['hasimdetails']">
+				<!-- contact popup menu -->
+				<ul id="minicontact_menu" class="vbmenu_popup list_no_decoration" style="display:none">
+					<if condition="$show['post_visitor_message'] OR $show['pm'] OR $show['email']">
+						<li class="thead first"><phrase 1="$prepared[username]">$vbphrase[send_message_to_x]</phrase></li>
+					</if>
+					<if condition="$show['post_visitor_message']"><li class="vbmenu_option"><img src="$stylevar[imgdir_button]/sendtofriend.gif" alt="" class="alt2 inlineimg" /> <a href="visitormessage.php?$session[sessionurl]do=message&amp;u=$prepared[userid]" onclick="return goto_post_pm();"><phrase 1="$prepared[username]">$vbphrase[post_a_visitor_message_for_x]</phrase></a></li></if>
+					<if condition="$show['pm']">
+						<li class="vbmenu_option"><img src="$stylevar[imgdir_button]/sendtofriend.gif" alt="" class="alt2 inlineimg" /> <a href="private.php?$session[sessionurl]do=newpm&amp;u=$prepared[userid]" rel="nofollow"><phrase 1="$prepared[username]">$vbphrase[send_private_message_to_x]</phrase></a></li>
+					</if>
+					<if condition="$show['email']"><li class="vbmenu_option"><img src="$stylevar[imgdir_button]/sendtofriend.gif" alt="" class="alt2 inlineimg" /> <a href="sendmessage.php?$session[sessionurl]do=mailmember&amp;u=$prepared[userid]" rel="nofollow"><phrase 1="$prepared[username]">$vbphrase[send_message_via_email_to_x]</phrase></a></li></if>
+					<if condition="$prepared['hasimdetails']">
+						<li class="thead<if condition="!$show['post_visitor_message'] AND !$show['pm'] AND !$show['email']"> first</if>">$vbphrase[instant_messaging]</li>
+						<if condition="$prepared['icq']">
+							<li class="vbmenu_option"><img class="alt2 inlineimg" alt="" src="$stylevar[imgdir_misc]/im_icq.gif" />  <a href="#" dir="ltr" onclick="imwindow('icq', '$prepared[userid]', 500, 450); return false;"><phrase 1="$prepared[username]">$vbphrase[send_icq_message_to_x]</phrase></a></li>
+						</if>
+						<if condition="$prepared['aim']">
+							<li class="vbmenu_option"><img class="alt2 inlineimg" alt="" src="$stylevar[imgdir_misc]/im_aim.gif" /> <a href="#" dir="ltr" onclick="imwindow('aim', '$prepared[userid]', 400, 200); return false;"><phrase 1="$prepared[username]">$vbphrase[send_aim_message_to_x]</phrase></a></li>
+						</if>
+						<if condition="$prepared['msn']">
+							<li class="vbmenu_option"><img class="alt2 inlineimg" alt="" src="$stylevar[imgdir_misc]/im_msn.gif" /> <a href="#" dir="ltr" onclick="imwindow('msn', '$prepared[userid]', 400, 200); return false;"><phrase 1="$prepared[username]">$vbphrase[send_msn_message_to_x]</phrase></a></li>
+						</if>
+						<if condition="$prepared['yahoo']">
+							<li class="vbmenu_option"><img src="$stylevar[imgdir_misc]/im_yahoo.gif" alt="" class="alt2 inlineimg" /> <a href="#" dir="ltr" onclick="imwindow('yahoo', '$prepared[userid]', 400, 200); return false;"><phrase 1="$prepared[username]">$vbphrase[send_yahoo_message_to_x]</phrase></a></li>
+						</if>
+						
+					</if>
+				</ul>
+				<!-- / contact popup menu -->
+			</if>
+	</div>
+
+	<div id="profile_tabs">
+		$template_hook[profile_left_first]
+		$blocks[visitor_messaging]
+		$blocks[aboutme]
+		$blocks[stats]
+		$blocks[friends]
+		$blocks[infractions]
+		$blocks[contactinfo]
+		$template_hook[profile_left_last]
+	</div>
+
+	<script type="text/javascript">
+	<!--
+	vBulletin.register_control("vB_TabCtrl", "profile_tabs", "$selected_tab", "&raquo;", "profile.php?u=2&do=loadtab&tabid={1:tabid}");
+	//-->
+	</script>
+
+</div>
+</div>
+
+<div id="sidebar_container">
+	<!-- sidebar -->
+	$template_hook[profile_right_first]
+	$blocks[stats_mini]
+	$template_hook[profile_right_mini]
+	$blocks[friends_mini]
+	$blocks[albums]
+	$template_hook[profile_right_album]
+	$blocks[groups]
+	$blocks[visitors]
+	$template_hook[profile_right_last]
+	<!-- / sidebar -->
+</div>
+
+<!-- end usercss -->
+</div>
+
+$footer
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+				
+<style type="text/css">
+	td.nowrap {
+		white-space:nowrap;
+	}
+</style>			
+<div class="uploadButton">
+	<a href="https://wso.warriorforum.com/add-banner">$vbphrase[vbppb_upload_new_banner]</a> (<a href="http://www.warriorforum.com/warrior-forum-news/284313-warrior-forum-banner-ad-details.html" target="_blank">Banner Ad Details</a>)
+</div>
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat" colspan="$bannerListSpan">$vbphrase[vbppb_uploaded_banners]</td>
+	</tr>
+	<tr>
+		<td width="30%" class="thead">
+			$vbphrase[vbppb_title]
+		</td>
+		<td class="thead" align="center">
+			$vbphrase[vbppb_banner]
+		</td>
+		<td class="thead" align="center">
+			$vbphrase[vbppb_status]
+		</td>
+		<td class="thead" align="center">
+			$vbphrase[vbppb_startdate]
+		</td>
+		<td class="thead" align="center">
+			$vbphrase[vbppb_length]
+		</td>
+		<if condition="$show['username']">
+			<td class="thead" align="center">
+				$vbphrase[vbppb_username]
+			</td>
+		</if>
+		<if condition="$show['controls']">
+			<td class="thead" align="center">
+				$vbphrase[vbppb_controls]
+			</td>
+		</if>
+	</tr>
+	<if condition="$bannerList">
+		$bannerList
+	<else />
+		<td class="alt1" align="center" colspan="$bannerListSpan">
+			$vbphrase[vbppb_not_uploaded]
+		</td>
+	</if>
+</table>
+<div class="uploadButton">
+	<a href="paidbanners.php?do=add">$vbphrase[vbppb_upload_new_banner]</a> (<a href="http://www.warriorforum.com/warrior-forum-news/284313-warrior-forum-banner-ad-details.html" target="_blank">Banner Ad Details</a>)
+</div>
+			
+		

@@ -1,0 +1,1 @@
+Selecting yes will cause vBulletin to add no-cache HTTP headers. These are very effective, so adding them may cause server load to increase due to an increase in page requests.

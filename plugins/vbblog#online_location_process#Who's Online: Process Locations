@@ -1,0 +1,1 @@
+blog_online_location_process($userinfo, $values, $filename);

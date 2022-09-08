@@ -1,0 +1,5 @@
+<input type="hidden" name="sid" value="$settings[twocheckout_id]" />
+<input type="hidden" name="cart_order_id" value="$item" />
+<input type="hidden" name="total" value="$cost" />
+<input type="hidden" name="id_type" value="2" />
+<input type="hidden" name="c_prod" value="$subinfo[twocheckout_prodid]" />

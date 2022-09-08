@@ -1,0 +1,39 @@
+switch(THIS_SCRIPT)
+{
+	case 'member':
+		if (!defined('VBBLOG_PERMS'))
+		{
+		   define('VBBLOG_PERMS', 1);
+		}
+	
+		$phrasegroups[] = 'vbblogglobal';
+	
+		$addtemplates = array(
+			'blog_blog_row',
+			'blog_member_block',
+			'blog_member_css',
+			'blog_home_list_entry',
+			'blog_entry_category',
+			'blog_entry_profile',
+			'blog_entry_profile_featured',
+			'blog_comment_profile',
+			'blog_member_ministats',
+			'blog_member_stats',
+			'blog_tagbit',
+		);
+	
+		$globaltemplates = array_merge($addtemplates, $globaltemplates);
+	
+		$datastore_fetch[] = "'blogcategorycache'";
+		break;
+
+	case 'index':
+		$globaltemplates[] = 'blog_forumhome_stats';
+		$datastore_fetch[] = "'blogcategorycache'";
+		$datastore_fetch[] = "'blogstats'";
+		break;
+		
+	case 'online':
+		require_once(DIR . '/includes/blog_functions_online.php');
+		break;
+}

@@ -1,0 +1,5 @@
+
+				$vbpets_lasthook='mail_send';
+				include(DIR.'/includes/vbpets_hooks.php');
+			
+			

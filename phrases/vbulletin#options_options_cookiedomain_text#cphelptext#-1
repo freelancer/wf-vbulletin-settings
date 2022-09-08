@@ -1,0 +1,7 @@
+This setting controls the domain scope of your forum cookies.  If you have multiple cookies interacting on your site, then it may be necessary to restrict the scope of your forum cookies.<br /><br />
+
+For example, leaving this setting blank will allow your forum cookies to operate on any domain on your site.  If you have multiple domains parked on your site, then a forum cookie can be recorded for any of those domains depending on which domain is used to login to your forum.<br /><br />
+
+You can use a value of ".yoursite.com" (no quotes, using your domain name) to allow your forum cookies to operate anywhere within that specific domain.  That includes "yoursite.com", and "*.yoursite.com" (where * is any subdomain).<br /><br />
+
+You can use a value of "subdomain.yoursite.com" (no quotes, using your domain and any subdomain) to allow your forum cookies to operate on that specific domain and subdomain.

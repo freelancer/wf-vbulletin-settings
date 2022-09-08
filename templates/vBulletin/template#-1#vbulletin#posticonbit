@@ -1,0 +1,2 @@
+<td><input type="radio" name="iconid" value="$iconid" id="rb_iconid_$iconid" tabindex="1" onclick="swap_posticon('pi_$iconid')" $iconchecked /></td>
+<td width="12%"><label for="rb_iconid_$iconid"><img src="$iconpath" alt="$alttext" id="pi_$iconid" onclick="rb_iconid_$iconid.click()" /></label></td>

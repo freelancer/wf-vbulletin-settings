@@ -1,0 +1,11 @@
+
+			<div class="textadcolumn">
+	<div class="adbit">
+		<span class="adtitle"><a href="http://$banner[url]" target="_blank">$banner[title]</a></span>
+		<div class="adtext">
+			$banner[lines]
+		</div>
+		<span class="adurl"><a href="http://$banner[url]" target="_blank">$banner[url]</a></span>
+	</div>
+</div> 
+		

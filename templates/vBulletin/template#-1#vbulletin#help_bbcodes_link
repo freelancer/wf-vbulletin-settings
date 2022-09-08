@@ -1,0 +1,4 @@
+<tr align="center">
+	<td class="alt2"><a href="#$bbcode[bbcodetag]">[$bbcode[bbcodetag]]</a></td>
+	<td class="alt1">$bbcode[title]</td>
+</tr>

@@ -1,0 +1,1 @@
+The tag that you enter is the tag that all of the selected tags will be merged with.  If this tag does not already exist then it will be created.  If the specified tag is already selected for merging then it will be preserved.  If you have only selected a single tag for merging and specify a new tag that does not exist, then you are essentially renaming the tag.

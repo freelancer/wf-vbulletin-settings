@@ -1,0 +1,8 @@
+
+		 if (($vbulletin->options['apboupc_groups_viewgroups']>0) AND !is_member_of($vbulletin->userinfo, split(',', $vbulletin->options['apboupc_groups_excl_groups'])))
+		 {
+			if ($vbulletin->userinfo[posts] < $vbulletin->options['apboupc_groups_viewgroups'])
+			{
+				eval(standard_error(fetch_error('error_postcount_too_low_view_groups', intval($vbulletin->options['apboupc_groups_viewgroups']), intval($vbulletin->userinfo['posts']))));
+			}
+		 }

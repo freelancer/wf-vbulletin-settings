@@ -1,0 +1,1 @@
+<a href="member.php?$session[sessionurl]u=$userid">$username</a><if condition="$show['age']"> $age</if>

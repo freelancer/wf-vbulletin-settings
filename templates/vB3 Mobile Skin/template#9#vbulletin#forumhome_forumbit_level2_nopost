@@ -1,0 +1,9 @@
+<tr>
+  <td class="tcat"><span class="smallfont">&nbsp;</span></td>
+  <td class="tcat" colspan="<if condition="$vboptions['showmoderatorcolumn']">5<else />4</if>">
+    <a href="forumdisplay.php?$session[sessionurl]f=$forum[forumid]">$forum[title]</a>
+    <if condition="$show['forumdescription']"><div class="smallfont">$forum[description]</div></if>
+    <if condition="$show['subforums'] AND $forum[forumid] != 34"><div class="smallfont"><strong>$vbphrase[subforums]</strong>: $forum[subforums]</div></if>
+  </td>
+</tr>
+$childforumbits

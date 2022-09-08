@@ -1,0 +1,3 @@
+If you enable this option, any HTML in RSS feed items will be allowed <em>as HTML</em> in announcements posted by the feed.<br />
+<br />
+<strong>Do not enable this option unless you trust the RSS feed source completely, as your board could be hacked if the RSS feed source contains malicious HTML.</strong>

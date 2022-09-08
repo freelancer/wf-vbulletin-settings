@@ -1,0 +1,1 @@
+<b>Warning:</b> Plugins are currently globally disabled in your options. In order for plugins and products to function correctly, you must <a href="options.php?do=options&amp;dogroup=plugin">enable the plugin system</a>. Importing a product will do this for you automatically.

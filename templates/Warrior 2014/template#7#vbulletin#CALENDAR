@@ -1,0 +1,180 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $vbphrase[calendar]</title>
+</head>
+<body>
+$header
+$navbar
+
+<div style="padding:0px 0px $stylevar[cellpadding]px 0px">
+
+  <table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+  <tr>
+    <td class="tcat" width="100%">$calendarinfo[title]</td>
+
+    <if condition="$show['popups']">
+      <td class="vbmenu_control"><a href="calendar.php?$session[sessionurl]c=$calendarinfo[calendarid]&amp;month=$today[mon]&amp;year=$today[year]">$vbphrase[show_today]</a></td>
+      <td class="vbmenu_control" id="cal_mode">
+        <if condition="$show['weeklyview']">
+          <a href="$show[nojs_link]#goto_viewtype">$vbphrase[weekly_view]</a>
+        </if>
+        <if condition="$show['monthlyview']">
+          <a href="$show[nojs_link]#goto_viewtype">$vbphrase[monthly_view]</a>
+        </if>
+        <if condition="$show['yearlyview']">
+          <a href="$show[nojs_link]#goto_viewtype">$vbphrase[yearly_view]</a>
+        </if>
+        <script type="text/javascript"> vbmenu_register("cal_mode"); </script>
+      </td>
+      <td class="vbmenu_control" id="add_event"><a href="#goto_newevent">$vbphrase[add_new_event]</a> <script type="text/javascript"> vbmenu_register("add_event"); </script></td>
+    </if>
+
+  </tr>
+  </table>
+
+  <if condition="!$show['popups']">
+  <a name="goto_viewtype"></a>
+  <table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center" style="border-top-width:0px">
+  <tr align="center">
+    <td class="alt1"><span class="smallfont"><a href="calendar.php?$session[sessionurl]c=$calendarinfo[calendarid]&amp;month=$today[mon]&amp;year=$today[year]">$vbphrase[show_today]</a></span></td>
+    <if condition="$show['weeklyview']">
+      <td class="alt2"><span class="smallfont"><strong>$vbphrase[weekly_view]</strong></span></td>
+    <else />
+      <td class="alt1"><span class="smallfont"><a href="calendar.php?$session[sessionurl]c=$calendarid&amp;do=displayweek">$vbphrase[weekly_view]</a></span></td>
+    </if>
+    <if condition="$show['monthlyview']">
+      <td class="alt2"><span class="smallfont"><strong>$vbphrase[monthly_view]</strong></span></td>
+    <else />
+      <td class="alt1"><span class="smallfont"><a href="calendar.php?$session[sessionurl]c=$calendarid&amp;do=displaymonth">$vbphrase[monthly_view]</a></span></td>
+    </if>
+    <if condition="$show['yearlyview']">
+      <td class="alt2"><span class="smallfont"><strong>$vbphrase[yearly_view]</strong></span></td>
+    <else />
+      <td class="alt1"><span class="smallfont"><a href="calendar.php?$session[sessionurl]c=$calendarid&amp;do=displayyear&amp;year=$year">$vbphrase[yearly_view]</a></span></td>
+    </if>
+  </tr>
+  </table>
+  </if>
+
+</div>
+
+<if condition="$show['popups']">
+<!-- popup menus -->
+
+<!-- mode menu -->
+<div class="vbmenu_popup" id="cal_mode_menu" style="display:none">
+  <table cellpadding="4" cellspacing="1" border="0">
+  <tr>
+    <td class="thead">$vbphrase[calendar_mode]</td>
+  </tr>
+  <tr>
+    <if condition="$show['weeklyview']">
+      <td class="vbmenu_option" title="nohilite">
+        <img class="inlineimg" src="$stylevar[imgdir_misc]/calendar_icon.gif" alt="$vbphrase[weekly_view]" border="0" />
+        <strong>$vbphrase[weekly_view]</strong>
+      </td>
+    <else />
+      <td class="vbmenu_option">
+        <img class="inlineimg" src="$stylevar[imgdir_misc]/calendar_icon.gif" alt="$vbphrase[weekly_view]" border="0" />
+        <a href="calendar.php?$session[sessionurl]c=$calendarid&amp;do=displayweek">$vbphrase[weekly_view]</a>
+      </td>
+    </if>
+  </tr>
+  <tr>
+    <if condition="$show['monthlyview']">
+      <td class="vbmenu_option" title="nohilite">
+        <img class="inlineimg" src="$stylevar[imgdir_misc]/calendar_icon.gif" alt="$vbphrase[monthly_view]" border="0" />
+        <strong>$vbphrase[monthly_view]</strong>
+      </td>
+    <else />
+      <td class="vbmenu_option">
+        <img class="inlineimg" src="$stylevar[imgdir_misc]/calendar_icon.gif" alt="$vbphrase[monthly_view]" border="0" />
+        <a href="calendar.php?$session[sessionurl]c=$calendarid&amp;do=displaymonth">$vbphrase[monthly_view]</a>
+      </td>
+    </if>
+  </tr>
+  <tr>
+    <if condition="$show['yearlyview']">
+      <td class="vbmenu_option" title="nohilite">
+        <img class="inlineimg" src="$stylevar[imgdir_misc]/calendar_icon.gif" alt="$vbphrase[yearly_view]" border="0" />
+        <strong>$vbphrase[yearly_view]</strong>
+      </td>
+    <else />
+      <td class="vbmenu_option">
+        <img class="inlineimg" src="$stylevar[imgdir_misc]/calendar_icon.gif" alt="$vbphrase[yearly_view]" border="0" />
+        <a href="calendar.php?$session[sessionurl]c=$calendarid&amp;do=displayyear&amp;year=$year">$vbphrase[yearly_view]</a>
+      </td>
+    </if>
+  </tr>
+  </table>
+</div>
+<!-- / mode menu -->
+
+<!-- add event menu -->
+<div class="vbmenu_popup" id="add_event_menu" style="display:none">
+  <table cellpadding="4" cellspacing="1" border="0">
+  <tr>
+    <td class="thead">$vbphrase[add_new_event]</td>
+  </tr>
+  <tr>
+    <td class="vbmenu_option">
+      <img class="inlineimg" src="$stylevar[imgdir_misc]/calendar_icon.gif" alt="$vbphrase[single_all_day_event]" border="0" />
+      <a rel="nofollow" href="calendar.php?do=add&amp;type=single&amp;c=$calendarinfo[calendarid]">$vbphrase[single_all_day_event]</a>
+    </td>
+  </tr>
+  <tr>
+    <td class="vbmenu_option">
+      <img class="inlineimg" src="$stylevar[imgdir_misc]/calendar_icon.gif" alt="$vbphrase[ranged_event]" border="0" />
+      <a rel="nofollow" href="calendar.php?do=add&amp;c=$calendarinfo[calendarid]">$vbphrase[ranged_event]</a>
+    </td>
+  </tr>
+  <tr>
+    <td class="vbmenu_option">
+      <img class="inlineimg" src="$stylevar[imgdir_misc]/calendar_icon.gif" alt="$vbphrase[recurring_event]" border="0" />
+      <a rel="nofollow" href="calendar.php?do=add&amp;type=recur&amp;c=$calendarinfo[calendarid]">$vbphrase[recurring_event]</a>
+    </td>
+  </tr>
+  </table>
+</div>
+<!-- / add event menu -->
+
+<!-- / popup menus -->
+</if>
+
+
+
+
+
+
+
+
+
+<if condition="$show['weeklydisplay']">
+<!-- show a week -->
+<!-- / show a week -->
+</if>
+
+<if condition="$show['monthlydisplay']">
+<!-- show a month -->
+<!-- / show a month -->
+</if>
+
+<if condition="$show['yearlydisplay']">
+<!-- show a year -->
+<!-- / show a year -->
+</if>
+
+$spacer_close
+$spacer_open
+
+$HTML
+
+$spacer_close
+$spacer_open
+
+$footer
+
+</body>
+</html>

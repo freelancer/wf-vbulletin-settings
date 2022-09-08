@@ -1,0 +1,10 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=forum&amp;pageaction=&amp;option=">Forums</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=forumpermission&amp;pageaction=&amp;option=">Forum Permissions</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=moderator&amp;pageaction=&amp;option=">Moderators</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=resources&amp;pageaction=&amp;option=">Viewing Permissions</a><br /><br />
+
+<b>Forums:</b><br />
+There are two kinds of forums, a forum and a category.  Forums can allow new threads and posts while categories cannot.  Categories are used to group forums by topic.  Forums of related topics are typically created as children of a parent category to group them by topic.<br /><br />
+
+When adding / editing a forum there is an option called "Act as Forum".  When this option is set to "Yes" the forum will act as a forum.  When this option is set to "No" the forum will act as a category.

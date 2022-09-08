@@ -1,0 +1,1 @@
+If set to yes, custom tags will be erased from tags field by leaving the title field (doing cleaner tags), otherwise it will add new tags to existing. No will retain deleted subjects in tags.

@@ -1,0 +1,142 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+	<title>$vboptions[bbtitle] - $vbphrase[members_list]</title>
+</head>
+<body>
+$header
+$navbar
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr align="center">
+	$letterbits
+</tr>
+</table>
+
+<if condition="$show['popups'] AND !$show['usergroup']">
+<!-- memberlist quick search form -->
+<div class="vbmenu_popup" id="memberlist_search_menu" style="display:none">
+<form action="memberlist.php?do=getall" method="post">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">$vbphrase[search_members]</td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option" title="nohilite">
+			<input type="hidden" name="s" value="$session[sessionhash]" />
+			<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+			<input type="hidden" name="do" value="getall" />
+			<input type="text" class="bginput" name="ausername" size="20" value="$ltr" title="$vbphrase[username]" />$gobutton
+		</td>
+	</tr>
+	<if condition="$show['advancedlink']">
+	<tr>
+		<td class="vbmenu_option"><a href="memberlist.php?$session[sessionurl]do=search">$vbphrase[advanced_search]</a></td>
+	</tr>
+	</if>
+	</table>
+</form>
+</div>
+<!-- / memberlist quick search form -->
+</if>
+
+<br />
+
+$spacer_close
+$spacer_open
+
+<if condition="$pagenav">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tr valign="bottom">
+	<td align="$stylevar[right]">$pagenav</td>
+</tr>
+</table>
+</if>
+
+<form action="profile.php?do=deleteusergroups&amp;usergroupid=$usergroupid" method="post">
+<input type="hidden" name="do" value="deleteusergroups" />
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="usergroupid" value="$usergroupid" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center" style="border-bottom-width:0px">
+<tr>
+	<td class="tcat" width="100%">
+		<span class="smallfont" style="float:$stylevar[right]">
+			<phrase 1="$first" 2="$last" 3="$totalusers">$vbphrase[showing_results_x_to_y_of_z]</phrase>
+			<br />
+			<phrase 1="$searchtime">$vbphrase[search_took_x_seconds]</phrase>
+		</span>
+		<if condition="$show['usergroup']">
+		$vbphrase[members_of_usergroup]<span class="normal">: $leadergroup[title]</span>
+		<else />
+		$vboptions[bbtitle]: $vbphrase[members_list]
+		</if>
+	</td>
+	<if condition="!$show['usergroup']">
+	<td class="vbmenu_control" id="memberlist_search"><a href="memberlist.php?$session[sessionurl]do=search">$vbphrase[search_members]</a> <script type="text/javascript"> vbmenu_register("memberlist_search"); </script></td>
+	</if>
+
+</tr>
+</table>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr align="center">
+	<td class="thead" align="$stylevar[left]" nowrap="nowrap"><a href="$sorturl<if condition="!$show['sorturlnoargs']">&amp;</if>order=ASC&amp;sort=username&amp;pp=$perpage$usergrouplink">$vbphrase[username]</a> $sortarrow[username]</td>
+	<if condition="$show['emailcol']"><td class="thead" nowrap="nowrap">$vbphrase[contact]</td></if>
+	<if condition="$show['imicons']"><td class="thead" nowrap="nowrap">$vbphrase[instant_messaging]</td></if>
+	<if condition="$show['homepagecol']"><td class="thead" nowrap="nowrap">$vbphrase[home_page]</td></if>
+	<if condition="$show['searchcol']"><td class="thead" nowrap="nowrap">$vbphrase[find_posts]</td></if>
+	<if condition="$show['datejoinedcol']"><td class="thead" nowrap="nowrap"><a href="$sorturl<if condition="!$show['sorturlnoargs']">&amp;</if>order=ASC&amp;sort=joindate&amp;pp=$perpage$usergrouplink">$vbphrase[join_date]</a> $sortarrow[joindate]</td></if>
+	<if condition="$show['postscol']"><td class="thead" nowrap="nowrap"><a href="$sorturl<if condition="!$show['sorturlnoargs']">&amp;</if>order=DESC&amp;sort=posts&amp;pp=$perpage$usergrouplink">$vbphrase[posts]</a> $sortarrow[posts]</td></if>
+
+	<if condition="$show['lastvisitcol']"><td class="thead" nowrap="nowrap"><a href="$sorturl<if condition="!$show['sorturlnoargs']">&amp;</if>order=DESC&amp;sort=lastvisit&amp;pp=$perpage$usergrouplink">$vbphrase[last_visit]</a> $sortarrow[lastvisit]</td></if>
+	<if condition="$show['reputationcol']"><td class="thead" nowrap="nowrap"><a href="$sorturl<if condition="!$show['sorturlnoargs']">&amp;</if>order=DESC&amp;sort=reputation&amp;pp=$perpage$usergrouplink">$vbphrase[reputation]</a> $sortarrow[reputation]</td></if>
+	<if condition="$show['avatarcol']"><td class="thead" nowrap="nowrap">$vbphrase[avatar]</td></if>
+	<if condition="$show['profilepiccol']"><td class="thead" nowrap="nowrap">$vbphrase[profile_picture]</td></if>
+	<if condition="$show['birthdaycol']"><td class="thead" nowrap="nowrap">$vbphrase[birthday]</td></if>
+	<if condition="$show['agecol']"><td class="thead" nowrap="nowrap"><a href="$sorturl<if condition="!$show['sorturlnoargs']">&amp;</if>order=ASC&amp;sort=age&amp;pp=$perpage$usergrouplink">$vbphrase[age]</a> $sortarrow[age]</td></if>
+	<if condition="$show['customfields']">$customfieldsheader</if>
+	<if condition="$show['usergroup']"><td class="thead"><input name="allbox" type="checkbox" value="Check All" title="$vbphrase[check_uncheck_all]" onclick="checkall(this.form);" /></td></if>
+</tr>
+$memberlistbits
+<tr>
+	<td class="tfoot" colspan="$totalcols" align="$stylevar[right]">
+		<span class="smallfont">
+		<if condition="$show['usergroup']">
+			<input type="submit" class="button" value="$vbphrase[remove_selected_users]" />
+		<else />
+			<phrase 1="$first" 2="$last" 3="$totalusers">$vbphrase[showing_results_x_to_y_of_z]</phrase>
+		</if>
+		</span>
+	</td>
+</tr>
+</table>
+
+</form>
+
+<if condition="$pagenav">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:3px">
+<tr valign="top">
+	<td align="$stylevar[right]">$pagenav</td>
+</tr>
+</table>
+</if>
+
+$spacer_close
+$spacer_open
+
+<br />
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr>
+	<td width="100%">&nbsp;</td>
+	<td>$forumjump</td>
+</tr>
+</table>
+
+$footer
+
+</body>
+</html>

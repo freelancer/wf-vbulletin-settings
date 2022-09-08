@@ -1,0 +1,4 @@
+$postbits = str_replace("[you]", $vbulletin->userinfo[username], $postbits);
+$postbits = str_replace("[YOU]", $vbulletin->userinfo[username], $postbits);
+$threadinfo[title] = str_replace("[you]", $vbulletin->userinfo[username], $threadinfo[title]);
+$threadinfo[title] = str_replace("[YOU]", $vbulletin->userinfo[username], $threadinfo[title]);

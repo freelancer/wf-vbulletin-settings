@@ -1,0 +1,6 @@
+$refcount = $db->query_first("SELECT COUNT(*) AS count FROM " . TABLE_PREFIX . "user WHERE referrerid = '".$vbulletin->userinfo['userid']."'"); 
+$referrals = vb_number_format($refcount['count']);
+
+eval('$usercprefs = "' . fetch_template('usercp_referrals') . '";');
+
+$vbulletin->templatecache['USERCP'] = str_replace('<!-- ############## SUBSCRIBED THREADS ##############  -->', '<!-- ############## SUBSCRIBED THREADS ##############  -->' . '$usercprefs', $vbulletin->templatecache['USERCP']);

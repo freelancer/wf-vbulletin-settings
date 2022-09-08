@@ -1,0 +1,5 @@
+
+				$vbppt_lasthook='showthread_complete';
+				include(DIR.'/includes/vbppt_hooks.php');
+			
+			

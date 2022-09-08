@@ -1,0 +1,27 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+$usercss
+<title>$vboptions[bbtitle] - $vbphrase[unread_picture_comments]</title>
+</head>
+<body>
+$header
+$navbar
+
+<div id="usercss">
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[unread_picture_comments]</td>
+</tr>
+<tr>
+	<td class="alt1">$picturebits</td>
+</tr>
+</table>
+
+</div>
+
+$footer
+</body>
+</html>

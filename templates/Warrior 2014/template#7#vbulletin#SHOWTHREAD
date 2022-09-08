@@ -1,0 +1,996 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]" prefix="og: http://ogp.me/ns#">
+<head>
+	$headinclude
+	<title>$thread[prefix_plain_html] $thread[title]<if condition="$pagenumber>1"> - <phrase 1="$pagenumber">$vbphrase[page_x]</phrase></if> </title>
+    
+    <!-- Open Graph -->
+    <if condition="$thread_meta">
+	<meta property="og:title" content="$thread_meta[title]" />
+	<meta property="og:description" content="$thread_meta[description]"/>
+	<meta property="og:type" content="$thread_meta[type]" />
+	<meta property="og:url" content="$thread_meta[url]"/>
+	<meta property="og:image" content="$thread_meta[image_url]"/>
+	<meta property="og:image:secure_url" content="$thread_meta[image_url]" />
+    </if>
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@warriorforum">
+    <if condition="$thread_meta">
+	<meta name="twitter:title" content="$thread_meta[title]">
+	<meta name="twitter:description" content="$thread_meta[description]">
+	<meta name="twitter:image" content="$thread_meta[image_url]">
+    </if>
+
+	<script type="text/javascript" src="clientscript/vbulletin_post_loader.js?v=$vboptions[simpleversion]"></script>
+	<script type="text/javascript" src="clientscript/quick_delete_posts.js"></script>
+	<script type="text/javascript" src="clientscript/post_thanks.js"></script>
+	<style type="text/css" id="vbulletin_showthread_css">
+	<!--
+	<if condition="$show['tag_box']">
+	#tag_edit_list { list-style:none; margin:0px; padding:0px; }
+	#tag_edit_list li { float:$stylevar[left]; display:block; width:200px; }
+	#tag_edit_list li.mine { font-weight:bold; }
+	</if>
+	#links div { white-space: nowrap; }
+	#links img { vertical-align: middle; }
+	-->
+	</style>
+</head>
+<body onload="$onload">
+<script>
+    var VIEW_TYPE="classic";
+    var REF_NAME="thread";
+    var REF_ID=$threadinfo[threadid];
+</script>
+<wf-view-increment type="'thread'" id="$threadinfo[threadid]"></wf-view-increment>
+$header
+$navbar
+
+$poll
+
+<!-- AddThis Smart Layers BEGIN -->
+<script type="text/javascript">
+function setAddThis() {
+  addthis.layers({
+	'theme' : 'transparent',
+	'thankyou' : false,
+	'share' : {
+	  'position' : 'left',
+	  'numPreferredServices' : 4,
+	  'services': "facebook,twitter,email,more"
+	}
+  });
+};
+</script>
+<!-- AddThis Smart Layers END -->
+<script onload="setAddThis();" type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-537c36fd1c0bfe8c&async=1" defer>
+<script type="text/javascript">
+var addthis_share = addthis_share || {}
+addthis_share = {
+	passthrough : {
+		twitter: {
+			via: "warriorforum"
+		}
+	}
+}
+</script>
+
+<if condition="$show['inlinemod']">
+$spacer_close
+<form action="inlinemod.php?threadid=$threadinfo[threadid]&amp;p=$postid" method="post" id="inlinemodform">
+$spacer_open
+</if>
+
+<if condition="$show['largereplybutton']">
+	<div class="Nibiru">
+		<div class="ThreadView-actions">
+			<div class="ThreadView-actions-main">
+				<ul class="ThreadView-actions-list">
+					<if condition="$show[thread_actions]">
+						<li class="ThreadView-actions-item">
+								<a class="Btn Btn--small"
+								   href="newreply.php?$session[sessionurl]do=newreply&amp;noquote=1&amp;p=$FIRSTPOSTID"
+								   rel="nofollow">
+									Post Reply
+								</a>
+						</li>
+						<if condition="$show[upvote_button]">
+						<li class="ThreadView-actions-item">
+							<span wf-thread-upvote threadid="$threadinfo[threadid]"
+								<if condition="$threadinfo[upvoted]">upvoted="true"</if>>
+							</span>
+						</li>
+						</if>
+						<li class="ThreadView-actions-item">
+							<span wf-thread-subscription threadid="$threadinfo[threadid]"
+								<if condition="$threadinfo[issubscribed]">subscribed="true"</if>>
+							</span>
+						</li>
+					</if>
+				</ul>
+			</div>
+
+			<div class="ThreadView-actions-promotional">
+				<ul class="ThreadView-actions-list">
+					<if condition="$show[pay_now_button]">
+						<li>
+							<button
+								wf-payment-choice
+								<if condition="$redirecturl">redirect-url="$redirecturl"</if>
+								item-id=$threadinfo[threadid]
+								item-class='thread'
+								style="cursor:pointer;"
+								auto-open=1
+								fl-analytics-section="wf-paymentbutton" fl-analytics="thread-page-show-paynewmodal"
+								<if condition="$threadinfo[forumid] == 77">
+									fixed-charge-item-id=6
+								<else />
+									<if condition="$threadinfo[forumid] == 79">
+										fixed-charge-item-id=7
+									<else />
+										fixed-charge-item-id=1
+									</if>
+								</if>
+								class="Btn Btn--secondary Btn--small">
+								Pay Now
+							</button>
+						</li>
+					</if>
+					<if condition="$show['set_visible_button']">
+						<li>
+							<thread-publish-button id="${threadinfo[threadid]}"></thread-publish-button>
+						</li>
+					</if>
+
+					<li class="ThreadView-actions-item">
+						<if condition="$show[bump_button]">
+							<button
+								wf-payment-choice
+								fixed-charge-item-id=2
+								item-id=$threadinfo[threadid]
+								item-class='thread'
+								<if condition="$threadinfo[show_bump_auto]">auto-open=1</if>
+								fl-analytics-section="wf-paymentbutton" fl-analytics="thread-page-show-bumpmodal"
+								class="Btn Btn--secondary Btn--small">Bump Post</button>
+						</if>
+					</li>
+
+					<li class="ThreadView-actions-item">
+						<if condition="$show[sticky_button]">
+							<button
+							   wf-payment-choice
+							   alt="$vbphrase[vbppt_sticky]"
+							   <if condition="$redirecturl">redirect-url="$redirecturl" </if>
+							   item-id=$threadinfo[threadid]
+							   item-class='thread'
+							   <if condition="$threadinfo[forumid] == 17">
+									fixed-charge-item-id=2001
+							   <else />
+									  fixed-charge-item-id=2002
+							   </if>
+							   <if condition="$threadinfo[show_sticky_auto]">auto-open=1 </if>
+							   fl-analytics-section="wf-paymentbutton"
+							   fl-analytics="thread-page-show-stickymodal"
+							   class="Btn Btn--secondary Btn--small">Sticky to the Top</button>
+						</if>
+					</li>
+                    <if condition="$show['pagenav']">
+                    <li class="ThreadView-actions-item">
+                    	<table cellpadding="0" cellspacing="0" border="0" width="100%">
+                            <tr valign="top">
+                                <td>$pagenav</td>
+                            </tr>
+                        </table>
+                    </li>
+                    </if>
+				</ul>
+			</div>
+		</div>
+	</div>
+</if>
+
+<a name="poststop" id="poststop"></a>
+
+<!-- controls above postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tr valign="bottom">
+	<if condition="$show['largereplybutton']">
+		<td class="smallfont">
+			<if condition="!$show['closethread']">
+				<img src="$stylevar[imgdir_button]/threadclosed.gif" alt="$vbphrase[closed_thread]" border="0" />
+			</if>
+		</td>
+	<else />
+		<td class="smallfont">&nbsp;</td>
+	</if>
+</tr>
+</table>
+<!-- / controls above postbits -->
+<!-- toolbar -->
+
+<table <if condition="$threadinfo[opacify_thread]">style="opacity:0.4"</if> class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center" style="border-bottom-width:0px">
+<tr>
+	<td class="tcat" width="100%">
+		<div class="smallfont">
+		<if condition="$show['firstunreadlink']">
+			<a href="$firstunread"><img class="inlineimg" src="$stylevar[imgdir_button]/firstnew.gif" alt="$vbphrase[view_first_unread]" border="0" /></a>
+			<a href="$firstunread"><strong>$vbphrase[view_first_unread]</strong></a>
+		</if>
+		&nbsp;
+		</div>
+	</td>
+
+	<td class="vbmenu_control" id="threadtools" nowrap="nowrap">
+		<a href="$show[nojs_link]#goto_threadtools"<if condition="is_browser('ie')"> accesskey="3"</if>>$vbphrase[thread_tools]</a>
+		<if condition="$show['popups']"><script type="text/javascript"> vbmenu_register("threadtools"); </script></if>
+	</td>
+	<if condition="$show['search']">
+		<td class="vbmenu_control" id="threadsearch" nowrap="nowrap">
+			<a href="$show[nojs_link]#goto_threadsearch">$vbphrase[search_this_thread]</a>
+			<if condition="$show['popups']"><script type="text/javascript"> vbmenu_register("threadsearch"); </script></if>
+		</td>
+	</if>
+	<if condition="$show['threadrating']">
+		<td class="vbmenu_control" id="threadrating" nowrap="nowrap">
+			<a href="$show[nojs_link]#goto_threadrating"><span id="threadrating_current"><if condition="$show['rating']">$vbphrase[rating]: <img class="inlineimg" src="$stylevar[imgdir_rating]/rating_$thread[rating].gif" alt="<phrase 1="$thread[votenum]" 2="$thread[voteavg]">$vbphrase[thread_rating_x_votes_y_average]</phrase>" border="0" /><else />$vbphrase[rate_thread]</if></span></a>
+			<if condition="$show['popups']"><script type="text/javascript"> vbmenu_register("threadrating"); </script></if>
+		</td>
+	</if>
+	<if condition="$vboptions['allowthreadedmode']">
+	<td class="vbmenu_control" id="displaymodes" nowrap="nowrap">
+		<a href="$show[nojs_link]#goto_displaymodes">$vbphrase[display_modes]</a>
+		<if condition="$show['popups']"><script type="text/javascript"> vbmenu_register("displaymodes"); </script></if>
+	</td>
+	</if>
+
+	<if condition="$show['inlinemod']">
+		<if condition="$show['popups']">
+			<td class="vbmenu_control" id="imod" align="center" title="$vbphrase[moderation]"><script type="text/javascript"> vbmenu_register('imod'); </script></td>
+		<else />
+			<td class="thead" align="center">
+				<input type="checkbox" name="allbox" id="checkall_all" title="$vbphrase[check_uncheck_all]" onclick="inlineMod.check_all()" />
+			</td>
+		</if>
+	</if>
+
+</tr>
+</table>
+<!-- / toolbar -->
+
+<if condition="$show['inlinemod'] AND $show['popups']">
+	<div class="vbmenu_popup" id="imod_menu" style="display:none" align="$stylevar[left]">
+		$threadadmin_imod_menu_post
+	</div>
+</if>
+
+<!-- end content table -->
+$spacer_close
+<!-- / end content table -->
+
+<if condition="$show['threadedmode'] OR $show['hybridmode']">
+<!-- thread posts list -->
+$threadlist
+<!-- /thread posts list -->
+</if>
+
+<if condition="$show['reputation']">
+<script type="text/javascript" src="clientscript/vbulletin_ajax_reputation.js?v=$vboptions[simpleversion]"></script>
+</if>
+
+
+<div
+	<if condition="$threadinfo[opacify_thread]">style="opacity:0.4"</if>
+	id="posts">$postbits<div id="lastpost"></div></div>
+
+<!-- start content table -->
+$spacer_open
+<!-- / start content table -->
+
+<!-- controls below postbits -->
+<if condition="$show['largereplybutton']">
+	<div class="Nibiru">
+		<div class="ThreadView-actions">
+			<div class="ThreadView-actions-main">
+				<ul class="ThreadView-actions-list">
+					<li class="ThreadView-actions-item">
+							<a class="Btn Btn--small"
+							   href="newreply.php?$session[sessionurl]do=newreply&amp;noquote=1&amp;p=$FIRSTPOSTID"
+							   rel="nofollow">
+								Post Reply
+							</a>
+					</li>
+				</ul>
+			</div>
+			<div class="ThreadView-actions-promotional">
+				<ul class="ThreadView-actions-list">
+					<li class="ThreadView-actions-item">
+						<if condition="$show[bump_button]">
+							<button
+								wf-payment-choice
+								fixed-charge-item-id=2
+								item-id=$threadinfo[threadid]
+								item-class='thread'
+								<if condition="$threadinfo[show_bump_auto]">auto-open=1</if>
+								fl-analytics-section="wf-paymentbutton" fl-analytics="thread-page-show-bumpmodal"
+								class="Btn Btn--secondary Btn--small">Bump Post</button>
+						</if>
+					</li>
+					<li class="ThreadView-actions-item">
+						<if condition="$show[sticky_button]">
+							<button
+							   wf-payment-choice
+							   alt="$vbphrase[vbppt_sticky]"
+							   <if condition="$redirecturl">redirect-url="$redirecturl" </if>
+							   item-id=$threadinfo[threadid]
+							   item-class='thread'
+							   <if condition="$threadinfo[forumid] == 17">
+									fixed-charge-item-id=2001
+							   <else />
+									  fixed-charge-item-id=2002
+							   </if>
+							   <if condition="$threadinfo[show_sticky_auto]">auto-open=1 </if>
+							   fl-analytics-section="wf-paymentbutton"
+							   fl-analytics="thread-page-show-stickymodal"
+							   class="Btn Btn--secondary Btn--small">Sticky to the Top</button>
+						</if>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</if>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:$stylevar[margin_3px_fix]px">
+<tr valign="top">
+	<if condition="$show['largereplybutton']">
+		<td class="smallfont">
+			<if condition="!$show['closethread']">
+				<img src="$stylevar[imgdir_button]/threadclosed.gif" alt="$vbphrase[closed_thread]" border="0" />
+			</if>
+		</td>
+	<else />
+		<td class="smallfont">&nbsp;</td>
+	</if>
+	<if condition="$show['pagenav'] OR $show['inlinemod']">
+		<td align="$stylevar[right]">$pagenav
+		<if condition="$show['inlinemod']">
+			<div class="smallfont" style="text-align:$stylevar[left]; white-space:nowrap; float:$stylevar[right]">
+			<if condition="$show['pagenav']"><br /></if><strong>$vbphrase[moderation]</strong><br />
+			<select name="do">
+				<if condition="$show['managethread'] OR $show['spamctrls'] OR $show['managepost'] OR $show['approvepost'] OR $show['approveattachment'] OR $template_hook['inlinemod_post_bottom']">
+				<optgroup label="$vbphrase[option]">
+					<if condition="$show['managethread']">
+					<option value="mergeposts">$vbphrase[merge_posts]</option>
+					<option value="moveposts">$vbphrase[move_posts]</option>
+					<option value="copyposts">$vbphrase[copy_posts]</option>
+					</if>
+					<if condition="$show['spamctrls']">
+					<option value="spampost">$vbphrase[delete_posts_as_spam]</option>
+					</if>
+					<if condition="$show['managepost']">
+					<option value="deleteposts">$vbphrase[delete_posts]</option>
+					<option value="undeleteposts">$vbphrase[undelete_posts]</option>
+					</if>
+					<if condition="$show['approvepost']">
+					<option value="approveposts">$vbphrase[approve_posts]</option>
+					<option value="unapproveposts">$vbphrase[unapprove_posts]</option>
+					</if>
+					<if condition="$show['approveattachment']">
+					<option value="approveattachments">$vbphrase[approve_attachments]</option>
+					<option value="unapproveattachments">$vbphrase[unapprove_attachments]</option>
+					</if>
+					$template_hook[inlinemod_post_bottom]
+				</optgroup>
+				</if>
+				<optgroup label="____________________">
+					<option value="viewpost">$vbphrase[view_selected_posts]</option>
+					<option value="clearpost">$vbphrase[clear_post_list]</option>
+				</optgroup>
+			</select><input type="submit" class="button" id="inlinego" value="$vbphrase[go]" />
+			<input type="hidden" name="s" value="$session[sessionhash]" />
+			<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+			<input type="hidden" name="threadid" value="$threadinfo[threadid]" />
+			<input type="hidden" name="p" value="$postid" />
+			<input type="hidden" name="url" value="$url" />
+			</div>
+			<script type="text/javascript" src="clientscript/vbulletin_inlinemod.js?v=$vboptions[simpleversion]"></script>
+			<script type="text/javascript">
+			<!--
+			inlineMod = new vB_Inline_Mod('inlineMod', 'post', 'inlinemodform', '$vbphrase[go_x]');
+			//-->
+			</script>
+
+
+
+
+		</if>
+		</td>
+	</if>
+</tr>
+</table>
+<!-- / controls below postbits -->
+
+<if condition="$show['inlinemod']">
+$spacer_close
+</form>
+$spacer_open
+</if>
+
+<if condition="$bookmarksites">
+<!-- social bookmarking links -->
+	<br />
+	<table cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" class="tborder" align="center">
+	<tr>
+		<td class="thead">$vbphrase[bookmarks]</td>
+	</tr>
+	<tr>
+		<td class="alt2" style="padding-top:0px"><div style="clear:both"></div><ul style="list-style-type:none; margin:0px; padding:0px">$bookmarksites</ul><div style="clear:both"></div></td>
+	</tr>
+	</table>
+<!-- / social bookmarking links -->
+</if>
+
+<if condition="$show['tag_box']">
+<!-- thread tags -->
+	<br />
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="thead">
+			<if condition="$show['manage_tag']"><div style="float: $stylevar[right]" class="normal">
+				<a href="threadtag.php?$session[sessionurl]t=$thread[threadid]" id="tag_edit_link">$vbphrase[edit_tags]</a>
+			</div></if>
+			<a name="taglist"></a>
+			<a href="tags.php$session[sessionurl_q]">$vbphrase[tags]</a>
+		</td>
+	</tr>
+	<tr>
+		<td class="alt1 smallfont" id="tag_list_cell">$tag_list</td>
+	</tr>
+	</table>
+
+	<script type="text/javascript" src="clientscript/vbulletin_ajax_taglist.js?v=$vboptions[simpleversion]"></script>
+		<script type="text/javascript" src="clientscript/vbulletin_ajax_tagsugg.js?v=$vboptions[simpleversion]"></script>
+<!-- / thread tags -->
+</if>
+
+$ad_location[ad_showthread_beforeqr]
+
+<if condition="$show['lightbox']">
+<!-- lightbox scripts -->
+	<script type="text/javascript" src="clientscript/vbulletin_lightbox.js?v=$vboptions[simpleversion]"></script>
+	<script type="text/javascript">
+	<!--
+	vBulletin.register_control("vB_Lightbox_Container", "posts", $vboptions[lightboxenabled]);
+	//-->
+	</script>
+<!-- / lightbox scripts -->
+</if>
+
+<if condition="$show['multiquote_global']">
+<!-- multiquote scripts -->
+	<script type="text/javascript" src="clientscript/vbulletin_multi_quote.js?v=$vboptions[simpleversion]"></script>
+	<script type="text/javascript">
+	<!--
+	var mqlimit = $vboptions[mqlimit];
+	//-->
+	</script>
+<!-- / multiquote scripts -->
+</if>
+
+<if condition="$show['quickreply'] OR $show['ajax_js']">
+<!-- ajax errors table -->
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" style="display:none; position:absolute" id="ajax_post_errors">
+	<tr>
+		<td class="thead">
+			<span style="float:$stylevar[right]"><input type="button" class="button" value=" X " onclick="vB_QuickEditor.hide_errors()" id="ajax_post_errors_closebtn" /></span>
+			$vbphrase[vbulletin_message]
+		</td>
+	</tr>
+	<tr>
+		<td class="alt2" colspan="2" id="ajax_post_errors_message">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="tfoot" colspan="2" align="center"><a href="#" onclick="vB_QuickEditor.abort(); return false;">$vbphrase[cancel_changes]</a></td>
+	</tr>
+	</table>
+<!-- / ajax errors table -->
+
+<!-- scripts for quick reply and quick edit -->
+	$vBeditTemplate[clientscript]
+	<if condition="$show['quickedit']">
+		<script type="text/javascript" src="clientscript/vbulletin_quick_edit.js?v=$vboptions[simpleversion]"></script>
+		<script type="text/javascript">
+		<!--
+		vB_AJAX_QuickEdit_Init('posts');
+		//-->
+		</script>
+	</if>
+<!-- / scripts for quick reply and quick edit -->
+</if>
+
+
+<if condition="$show['quickreply']">
+<!-- quick reply -->
+	<br />
+	<script type="text/javascript" src="clientscript/vbulletin_quick_reply.js?v=$vboptions[simpleversion]"></script>
+	<form action="newreply.php?do=postreply&amp;t=$threadid" method="post" name="vbform" onsubmit="return qr_prepare_submit(this, $vboptions[postminchars]);" id="qrform">
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<thead>
+		<tr>
+			<td class="tcat" colspan="2">
+				<if condition="$show['quickreply_collapse']"><a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('quickreply');"><img id="collapseimg_quickreply" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_quickreply].gif" alt="" border="0" /></a></if>
+				$vbphrase[quick_reply]
+			</td>
+		</tr>
+	</thead>
+	<tbody id="qr_error_tbody" style="display:none">
+	<tr>
+		<td class="thead">$vbphrase[errors_occured_when_submitted]</td>
+	</tr>
+	<tr>
+		<td class="alt1" id="qr_error_td"></td>
+	</tr>
+	<tr>
+		<td class="tfoot" align="center"><span class="smallfont"><a href="#" onclick="return qr_hide_errors()">$vbphrase[okay]</a></span></td>
+	</tr>
+	</tbody>
+	<tbody id="collapseobj_quickreply" style="$vbcollapse[collapseobj_quickreply]">
+	<tr>
+		<td class="panelsurround" align="center">
+			<div class="panel">
+				<div align="$stylevar[left]" style="max-width:$stylevar[formwidth]; width:auto !important; width:$stylevar[formwidth]">
+					<div class="smallfont">$vbphrase[message]:</div>
+					<div id="$editorid" class="vBulletin_editor">$messagearea</div>
+
+					<fieldset class="fieldset" style="margin:$stylevar[formspacer]px 0px 0px 0px">
+						<legend>$vbphrase[options]</legend>
+						<div style="padding:$stylevar[formspacer]px">
+							<if condition="$bbuserinfo['signature']">
+								<div style="float:$stylevar[right]"><label for="cb_signature"><input type="checkbox" name="signature" value="1" id="cb_signature" tabindex="5" checked="checked" />$vbphrase[show_your_signature]</label></div>
+							</if>
+							<label for="qr_quickreply"><input type="checkbox" name="quickreply" value="1" id="qr_quickreply" accesskey="w" tabindex="4" />$vbphrase[quote_message_in_reply]</label>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+
+			<div style="margin-top:$stylevar[cellpadding]px">
+				<input type="hidden" name="fromquickreply" value="1" />
+				<input type="hidden" name="s" value="$session[sessionhash]" />
+				<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+				<input type="hidden" name="do" value="postreply" />
+				<input type="hidden" name="t" value="$threadid" id="qr_threadid" />
+				<input type="hidden" name="p" value="$qrpostid" id="qr_postid" />
+				<input type="hidden" name="specifiedpost" value="0" id="qr_specifiedpost" />
+				<input type="hidden" name="parseurl" value="1" />
+				<input type="hidden" name="loggedinuser" value="$bbuserinfo[userid]" />
+				<input type="submit" class="button" value="$vbphrase[post_quick_reply]" accesskey="s" title="(Alt + S)" name="sbutton" tabindex="2" id="qr_submit" onclick="clickedelm = this.value" />
+				<input type="submit" class="button" value="$vbphrase[go_advanced]" accesskey="x" title="(Alt + X)" name="preview" tabindex="3" id="qr_preview" onclick="clickedelm = this.value" />
+			</div>
+
+			<div align="center" id="qr_posting_msg" style="display:none; margin-top:6px">
+				<img style="vertical-align: middle;" src="$stylevar[imgdir_misc]/progress.gif" alt="$vbphrase[posting_quick_reply_please_wait]" />&nbsp;<strong>$vbphrase[posting_quick_reply_please_wait]</strong>
+			</div>
+		</td>
+	</tr>
+	</tbody>
+	</table>
+	</form>
+
+	<if condition="!is_browser('ie') AND $show['wysiwyg']">
+		<!-- Mozilla work around for focusing on QR in WYSIWYG mode -->
+		<div id="qr_scroll"></div>
+	</if>
+
+	<script type="text/javascript">
+	<!--
+		// initialize quick reply
+		qr_init();
+	//-->
+	</script>
+<!-- / quick reply -->
+</if>
+
+<if condition="$show['next_prev_links']">
+<!-- next / previous links -->
+	<br />
+	<div class="smallfont" align="center">
+		<strong>&laquo;</strong>
+			<a href="showthread.php?$session[sessionurl]t=$threadid&amp;goto=nextoldest" rel="nofollow">$vbphrase[prev_thread]</a>
+| <a href="#top" onclick="scroll(0,0); return false;"> Top</a>
+			|
+			<a href="showthread.php?$session[sessionurl]t=$threadid&amp;goto=nextnewest" rel="nofollow">$vbphrase[next_thread]</a>
+		<strong>&raquo;</strong>
+	</div>
+<!-- / next / previous links -->
+</if>
+
+<if condition="$show['activeusers']">
+<!-- currently active users -->
+	<br />
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat" colspan="2">
+			<phrase 1="$totalonline" 2="$numberregistered" 3="$numberguest">$vbphrase[users_viewing_this_thread_x_y_z]</phrase>
+		</td>
+	</tr>
+	<tr>
+		<td class="alt1" colspan="2">
+			<span class="smallfont">$activeusers</span>
+		</td>
+	</tr>
+	</table>
+<!-- end currently active users -->
+</if>
+$template_hook[showthread_after_activeusers]
+<if condition="$show['popups']">
+<!-- popup menu contents -->
+<br />
+
+<!-- thread tools menu -->
+<div class="vbmenu_popup" id="threadtools_menu" style="display:none">
+<form action="postings.php?t=$threadid&amp;pollid=$pollid" method="post" name="threadadminform">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">$vbphrase[thread_tools]<a name="goto_threadtools"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="$stylevar[imgdir_button]/printer.gif" alt="$vbphrase[show_printable_version]" /> <a href="printthread.php?$session[sessionurl]t=$threadid" accesskey="3" rel="nofollow">$vbphrase[show_printable_version]</a></td>
+	</tr>
+<if condition="$show['sendtofriend']">
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="$stylevar[imgdir_button]/sendtofriend.gif" alt="$vbphrase[email_this_page]" /> <a href="sendmessage.php?$session[sessionurl]do=sendtofriend&amp;t=$threadid" rel="nofollow">$vbphrase[email_this_page]</a></td>
+	</tr></if>
+	<if condition="$show['member']">
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="$stylevar[imgdir_button]/subscribe.gif" alt="$vbphrase[subscription]" />
+		<if condition="$show['subscribed']">
+			<a href="subscription.php?$session[sessionurl]do=removesubscription&amp;t=$threadid" rel="nofollow">$vbphrase[unsubscribe_from_this_thread]</a>
+		<else />
+			<a href="subscription.php?$session[sessionurl]do=addsubscription&amp;t=$threadid" rel="nofollow">$vbphrase[subscribe_to_this_thread]</a>
+		</if>
+		</td>
+	</tr>
+	</if>
+	<if condition="$show['skm_threadbump']">
+		<tr><td class="vbmenu_option"><a href="postings.php?$session[sessionurl]do=bump&amp;t=$threadid" rel="nofollow">$vbphrase[bump_thread]</a></td></tr>
+	</if>
+
+	<if condition="$show['addpoll']">
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="$stylevar[imgdir_button]/addpoll.gif" alt="$vbphrase[add_a_poll]" /> <a href="poll.php?$session[sessionurl]do=newpoll&amp;t=$threadinfo[threadid]">$vbphrase[add_a_poll_to_this_thread]</a></td>
+	</tr>
+	</if>
+	<if condition="$show['adminoptions']">
+	<tr>
+		<td class="thead">$vbphrase[admin_tools]<a name="goto_threadadmin"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option" title="nohilite">
+		<if condition="$show['openclose']"><div><label for="ao_oct"><input type="radio" name="do" id="ao_oct" value="openclosethread" checked="checked" /><if condition="$show['closethread']">$vbphrase[close_thread]<else />$vbphrase[open_thread]</if></label></div></if>
+  <if condition="$show['moderatethread']"><div><label for="ao_apr"><input type="radio" name="do" id="ao_apr" value="moderatethread" /><if condition="$show['approvethread']">$vbphrase[approve_thread]<else />$vbphrase[unapprove_thread]</if></label></div></if>
+		<if condition="$show['movethread']"><div><label for="ao_mvt"><input type="radio" name="do" id="ao_mvt" value="movethread" />$vbphrase[move_thread]</label></div>
+		<div><label for="ao_cpt"><input type="radio" name="do" id="ao_cpt" value="copythread" />$vbphrase[copy_thread]</label></div></if>
+		<if condition="$show['editthread']"><div><label for="ao_edt"><input type="radio" name="do" id="ao_edt" value="editthread" />$vbphrase[edit_thread]</label></div></if>
+<if condition="!$threadinfo['visible']"><div><label for="ap_payment"><input type="radio" name="do" id="ap_payment" value="approve_for_payment" />$vbphrase[approveforpayment]</label></div></if>
+		<if condition="$show['deletethread']"><div><label for="ao_dlt"><input type="radio" name="do" id="ao_dlt" value="deletethread" />$vbphrase[delete_thread]</label></div></if>
+		<if condition="$show['managethread']">
+			<div><label for="ao_sut"><input type="radio" name="do" id="ao_sut" value="stick" /><if condition="$show['unstick']">$vbphrase[unstick_thread]<else />$vbphrase[stick_thread]</if></label></div>
+			<div><label for="ao_mgt"><input type="radio" name="do" id="ao_mgt" value="mergethread" />$vbphrase[merge_threads]</label></div>
+			<div><label for="ao_rrd"><input type="radio" name="do" id="ao_rrd" value="removeredirect" />$vbphrase[remove_redirects]</label></div>
+		</if>
+		</td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option" title="nohilite" align="center">
+			<input type="hidden" name="s" value="$session[sessionhash]" />
+			<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+			<input type="hidden" name="t" value="$threadid" />
+			<input type="hidden" name="pollid" value="$pollid" />
+			<input type="submit" class="button" value="$vbphrase[perform_action]" />
+		</td>
+	</tr>
+	</if>
+	</table>
+</form>
+</div>
+<!-- / thread tools menu -->
+<if condition="$vboptions['allowthreadedmode']">
+<!-- **************************************************** -->
+
+<!-- thread display mode menu -->
+<div class="vbmenu_popup" id="displaymodes_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">$vbphrase[display_modes]<a name="goto_displaymodes"></a></td>
+	</tr>
+	<tr>
+	<if condition="$show['linearmode']">
+		<td class="vbmenu_option" title="nohilite"><img class="inlineimg" src="$stylevar[imgdir_button]/mode_linear.gif" alt="$vbphrase[linear_mode]" /> <strong>$vbphrase[linear_mode]</strong></td>
+	<else />
+		<td class="vbmenu_option"><img class="inlineimg" src="$stylevar[imgdir_button]/mode_linear.gif" alt="$vbphrase[linear_mode]" /> <a href="showthread.php?$session[sessionurl]p=$FIRSTPOSTID&amp;mode=linear$highlightwords#post$FIRSTPOSTID">$vbphrase[switch_to_linear_mode]</a></td>
+	</if>
+	</tr>
+	<tr>
+	<if condition="$show['hybridmode']">
+		<td class="vbmenu_option" title="nohilite"><img class="inlineimg" src="$stylevar[imgdir_button]/mode_hybrid.gif" alt="$vbphrase[hybrid_mode]" /> <strong>$vbphrase[hybrid_mode]</strong></td>
+	<else />
+		<td class="vbmenu_option"><img class="inlineimg" src="$stylevar[imgdir_button]/mode_hybrid.gif" alt="$vbphrase[hybrid_mode]" /> <a href="showthread.php?$session[sessionurl]mode=hybrid&amp;t=$thread[threadid]$highlightwords">$vbphrase[switch_to_hybrid_mode]</a></td>
+	</if>
+	</tr>
+	<tr>
+	<if condition="$show['threadedmode']">
+		<td class="vbmenu_option" title="nohilite"><img class="inlineimg" src="$stylevar[imgdir_button]/mode_threaded.gif" alt="$vbphrase[threaded_mode]" /> <strong>$vbphrase[threaded_mode]</strong></td>
+	<else />
+		<td class="vbmenu_option"><img class="inlineimg" src="$stylevar[imgdir_button]/mode_threaded.gif" alt="$vbphrase[threaded_mode]" /> <a href="showthread.php?$session[sessionurl]p=$FIRSTPOSTID&amp;mode=threaded$highlightwords#post$FIRSTPOSTID">$vbphrase[switch_to_threaded_mode]</a></td>
+	</if>
+	</tr>
+	</table>
+</div>
+<!-- / thread display mode menu -->
+</if>
+<!-- **************************************************** -->
+
+<if condition="$show['search']">
+<!-- thread search menu -->
+<div class="vbmenu_popup" id="threadsearch_menu" style="display:none">
+<form action="search.php?do=process&amp;searchthreadid=$threadid" method="post">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">$vbphrase[search_this_thread]<a name="goto_threadsearch"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option" title="nohilite">
+			<input type="hidden" name="s" value="$session[sessionhash]" />
+			<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+			<input type="hidden" name="do" value="process" />
+			<input type="hidden" name="searchthreadid" value="$threadid" />
+			<input type="text" class="bginput" name="query" size="25" />$gobutton<br />
+		</td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><a href="search.php?$session[sessionurl]searchthreadid=$threadid">$vbphrase[advanced_search]</a></td>
+	</tr>
+	</table>
+</form>
+</div>
+<!-- / thread search menu -->
+</if>
+
+<!-- **************************************************** -->
+
+<if condition="$show['threadrating']">
+	<!-- thread rating menu -->
+	<div class="vbmenu_popup" id="threadrating_menu" style="display:none">
+	<form action="threadrate.php?t=$threadid" method="post" id="showthread_threadrate_form">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tr>
+			<td class="thead">$vbphrase[rate_this_thread]<a name="goto_threadrating"></a></td>
+		</tr>
+		<if condition="$show['ratethread']">
+		<tr>
+			<td class="vbmenu_option" title="nohilite" id="threadrating_options">
+
+			<div><img class="inlineimg" src="$stylevar[imgdir_rating]/rating_5.gif" alt="$vbphrase[excellent]" /><label for="vote5"><input type="radio" name="vote" id="vote5" value="5" $votechecked[5] />$vbphrase[excellent]</label></div>
+			<div><img class="inlineimg" src="$stylevar[imgdir_rating]/rating_4.gif" alt="$vbphrase[good]" /><label for="vote4"><input type="radio" name="vote" id="vote4" value="4" $votechecked[4] />$vbphrase[good]</label></div>
+			<div><img class="inlineimg" src="$stylevar[imgdir_rating]/rating_3.gif" alt="$vbphrase[average]" /><label for="vote3"><input type="radio" name="vote" id="vote3" value="3" $votechecked[3] />$vbphrase[average]</label></div>
+			<div><img class="inlineimg" src="$stylevar[imgdir_rating]/rating_2.gif" alt="$vbphrase[bad]" /><label for="vote2"><input type="radio" name="vote" id="vote2" value="2" $votechecked[2] />$vbphrase[bad]</label></div>
+			<div><img class="inlineimg" src="$stylevar[imgdir_rating]/rating_1.gif" alt="$vbphrase[terrible]" /><label for="vote1"><input type="radio" name="vote" id="vote1" value="1" $votechecked[1] />$vbphrase[terrible]</label></div>
+			</td>
+		</tr>
+		<tr id="threadrating_submit">
+			<td class="vbmenu_option" title="nohilite" align="center">
+				<input type="hidden" name="s" value="$session[sessionhash]" />
+				<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+				<input type="hidden" name="t" value="$threadid" />
+				<input type="hidden" name="pp" value="$perpage" />
+				<input type="hidden" name="page" value="$pagenumber" />
+				<input type="submit" class="button" value="$vbphrase[vote_now]" />
+			</td>
+		</tr>
+		<else />
+		<tr>
+			<td class="vbmenu_option" title="nohilite">$vbphrase[already_rated_this_thread]</td>
+		</tr>
+		</if>
+		</table>
+	</form>
+	</div>
+	<!-- / thread rating menu -->
+
+	<script type="text/javascript" src="clientscript/vbulletin_ajax_threadrate.js?v=$vboptions[simpleversion]"></script>
+	<script type="text/javascript">
+	<!--
+	vB_AJAX_ThreadRate_Init('showthread_threadrate_form');
+	var threadid = $threadinfo[threadid];
+	//-->
+	</script>
+</if>
+
+<!-- / popup menu contents -->
+<else />
+<!-- controls for non-popup browsers -->
+
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center" style="border-top-width:0px">
+<tr>
+	<td class="thead" <if condition="!$show['search']">colspan="2"</if>>$vbphrase[thread_tools]<a name="goto_threadtools"></a></td>
+	<if condition="$show['search']"><td class="thead">$vbphrase[search_this_thread]<a name="goto_threadsearch"></a></td></if>
+</tr>
+<tr valign="top">
+	<td class="alt1" <if condition="!$show['search']">colspan="2"</if>>
+
+	<!-- thread tools -->
+	<div class="smallfont">
+		<if condition="!$show['search_engine']">
+
+			<div><img class="inlineimg" src="$stylevar[imgdir_button]/printer.gif" alt="$vbphrase[show_printable_version]" vspace="1" /> <a href="printthread.php?$session[sessionurl]t=$threadid" rel="nofollow">$vbphrase[show_printable_version]</a></div>
+			<div><img class="inlineimg" src="$stylevar[imgdir_button]/sendtofriend.gif" alt="$vbphrase[email_this_page]" vspace="1" /> <a href="sendmessage.php?$session[sessionurl]do=sendtofriend&amp;t=$threadid" rel="nofollow">$vbphrase[email_this_page]</a></div>
+		</if>
+		<if condition="$show['member']">
+			<div><img class="inlineimg" src="$stylevar[imgdir_button]/subscribe.gif" alt="$vbphrase[subscription]" vspace="1" />
+				<if condition="$show['subscribed']">
+					<a href="subscription.php?$session[sessionurl]do=removesubscription&amp;t=$threadid">$vbphrase[unsubscribe_from_this_thread]</a>
+				<else />
+					<a href="subscription.php?$session[sessionurl]do=addsubscription&amp;t=$threadid">$vbphrase[subscribe_to_this_thread]</a>
+				</if>
+			</div>
+		</if>
+	<if condition="$show['addpoll']">
+			<div><img class="inlineimg" src="$stylevar[imgdir_button]/addpoll.gif" alt="$vbphrase[add_a_poll]" vspace="1" /> <a href="poll.php?$session[sessionurl]do=newpoll&amp;t=$threadinfo[threadid]">$vbphrase[add_a_poll_to_this_thread]</a></div>
+		</if>
+	</div>
+	<!-- / thread tools -->
+
+	</td>
+	<if condition="$show['search']">
+	<td class="alt1">
+
+	<!-- search this thread -->
+	<form action="search.php?do=process&amp;searchthreadid=$threadid" method="post">
+	<div class="smallfont">
+		<input type="hidden" name="s" value="$session[sessionhash]" />
+		<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+		<input type="hidden" name="do" value="process" />
+		<input type="hidden" name="searchthreadid" value="$threadid" />
+		<strong>$vbphrase[search_this_thread]</strong>:<br />
+		<input type="text" class="bginput" name="query" size="20" style="width:175px" />$gobutton<br />
+		<a href="search.php?$session[sessionurl]searchthreadid=$threadid">$vbphrase[advanced_search]</a>
+	</div>
+	</form>
+	<!-- /  search this thread -->
+
+	</td>
+	</if>
+</tr>
+<if condition="$vboptions['allowthreadedmode'] OR $show['threadrating']">
+<tr>
+	<if condition="$vboptions['allowthreadedmode']"><td class="thead" $nodhtmlcolspan>$vbphrase[display_modes]<a name="goto_displaymodes"></a></td></if>
+	<if condition="$show['threadrating']"><td class="thead" $nodhtmlcolspan>$vbphrase[rate_this_thread]<a name="goto_threadrating"></a></td></if>
+</tr>
+<tr valign="top">
+	<if condition="$vboptions['allowthreadedmode']">
+	<td class="alt2" $nodhtmlcolspan>
+
+	<!-- thread display modes -->
+
+	<div class="smallfont">
+		<div><img class="inlineimg" src="$stylevar[imgdir_button]/mode_linear.gif" alt="$vbphrase[linear_mode]" vspace="1" /> <if condition="$show['linearmode']"><strong>$vbphrase[linear_mode]</strong><else /><a href="showthread.php?$session[sessionurl]p=$FIRSTPOSTID&amp;mode=linear$highlightwords#post$FIRSTPOSTID">$vbphrase[switch_to_linear_mode]</a></if></div>
+		<div><img class="inlineimg" src="$stylevar[imgdir_button]/mode_hybrid.gif" alt="$vbphrase[hybrid_mode]" vspace="1" /> <if condition="$show['hybridmode']"><strong>$vbphrase[hybrid_mode]</strong><else /><a href="showthread.php?$session[sessionurl]mode=hybrid&amp;t=$thread[threadid]$highlightwords">$vbphrase[switch_to_hybrid_mode]</a></if></div>
+		<div><img class="inlineimg" src="$stylevar[imgdir_button]/mode_threaded.gif" alt="$vbphrase[threaded_mode]" vspace="1" /> <if condition="$show['threadedmode']"><strong>$vbphrase[threaded_mode]</strong><else /><a href="showthread.php?$session[sessionurl]p=$FIRSTPOSTID&amp;mode=threaded$highlightwords#post$FIRSTPOSTID">$vbphrase[switch_to_threaded_mode]</a></if></div>
+	</div>
+
+	<!-- / thread display modes -->
+
+	</td>
+	</if>
+	<if condition="$show['threadrating']">
+	<td class="alt2" $nodhtmlcolspan>
+
+	<!-- rate this thread -->
+	<form action="threadrate.php?t=$threadid" method="post">
+	<div class="smallfont">
+		<input type="hidden" name="s" value="$session[sessionhash]" />
+		<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+		<input type="hidden" name="t" value="$threadid" />
+		<input type="hidden" name="pp" value="$perpage" />
+		<input type="hidden" name="page" value="$pagenumber" />
+		<strong>$vbphrase[rate_this_thread]</strong>:<br />
+		<select name="vote" onchange="this.form.submit()" style="width:175px">
+			<optgroup label="$vbphrase[choose_a_rating]">
+				<option value="5" $voteselected[5]>5 : $vbphrase[excellent]</option>
+				<option value="4" $voteselected[4]>4 : $vbphrase[good]</option>
+				<option value="3" $voteselected[3]>3 : $vbphrase[average]</option>
+				<option value="2" $voteselected[2]>2 : $vbphrase[bad]</option>
+				<option value="1" $voteselected[1]>1 : $vbphrase[terrible]</option>
+			</optgroup>
+		</select>$gobutton
+	</div>
+	</form>
+	<!-- / rate this thread -->
+
+	</td>
+	</if>
+</tr>
+</if>
+</table>
+<br />
+
+
+<!-- / controls for non-popup browsers -->
+</if>
+
+<!-- forum rules and admin links -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tr valign="bottom">
+	<td width="100%" valign="top">
+		$forumrules
+	</td>
+	<td class="smallfont" align="$stylevar[right]">
+		<table cellpadding="0" cellspacing="0" border="0">
+		<if condition="!$show['popups'] AND $show['adminoptions']">
+		<tr>
+			<td>
+			<div class="smallfont" style="text-align:$stylevar[left]; white-space:nowrap">
+			<form action="postings.php?t=$threadid" method="post" name="adminoptionsform">
+			<input type="hidden" name="s" value="$session[sessionhash]" />
+			<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+			<input type="hidden" name="t" value="$threadid" />
+			<strong>$vbphrase[admin_tools]</strong>:<br />
+			<select name="do" onchange="this.form.submit()">
+				<if condition="$show['openclose']"><option value="openclosethread" selected="selected"><if condition="$show['closethread']">$vbphrase[close_thread]<else />$vbphrase[open_thread]</if></option></if>
+<if condition="$show['moderatethread']"><option value="moderatethread"><if condition="$show['approvethread']">$vbphrase[approve_thread]<else />$vbphrase[unapprove_thread]</if></option></if>
+				<if condition="$show['editthread']"><option value="editthread">$vbphrase[edit_thread]</option></if>
+				<if condition="$show['deletethread']"><option value="deletethread">$vbphrase[delete_thread]</option></if>
+				<if condition="$show['movethread']"><option value="movethread">$vbphrase[move_thread]</option>
+				<option value="copythread">$vbphrase[copy_thread]</option></if>
+				<if condition="$show['managethread']">
+						<option value="stick"><if condition="$show['unstick']">$vbphrase[unstick_thread]<else />$vbphrase[stick_thread]</if></option>
+					<option value="mergethread">$vbphrase[merge_threads]</option>
+					<option value="removeredirect">$vbphrase[remove_redirects]</option>
+				</if>
+				<if condition="$show['editpoll']"><option value="editpoll">$vbphrase[edit_poll]</option></if>
+			</select>$gobutton
+			</form>
+			</div>
+			</td>
+		</tr>
+		<br />
+		</if>
+		<tr>
+			<td>
+			$forumjump
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<!-- /forum rules and admin links -->
+
+<br />
+
+$similarthreads
+
+$footer
+
+<!-- temp -->
+<div style="display:none">
+	<!-- thread rate -->
+	<if condition="$show['ratethread']">
+		<!-- thread ratings form here -->
+	<else />
+		<if condition="$show['threadrating']">
+			$vbphrase[you_rated_this_thread]: <strong>$threadinfo[vote]</strong>
+		</if>
+	</if>
+	<!-- / thread rate -->
+</div>
+
+<if condition="$show[upvote]">
+	<button wf-thread-upvote="$thread[threadid]" <if condition="$upvoted">wf-thread-upvoted="true"</if>>Upvote</button>
+</if>
+
+</body>
+</html>

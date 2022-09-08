@@ -1,0 +1,5 @@
+If there are special words that are important for your forum but are outside the word length limits you specified above, you may enter them here so that they will be included in the search index.<br />
+<br />
+For example, a web-programming forum with a minimum word length of 4 characters might want to include 'PHP' in the search index, even though the word is only 3 characters long.<br />
+<br />
+Separate each word with a space.

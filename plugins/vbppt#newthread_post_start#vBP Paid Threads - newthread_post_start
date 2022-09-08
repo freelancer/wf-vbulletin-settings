@@ -1,0 +1,5 @@
+
+				$vbppt_lasthook='newthread_post_start';
+				include(DIR.'/includes/vbppt_hooks.php');
+			
+			

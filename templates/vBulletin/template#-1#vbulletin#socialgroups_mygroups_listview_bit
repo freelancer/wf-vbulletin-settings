@@ -1,0 +1,26 @@
+<tr>
+	<td class="alt1" width="100%">
+		<span style="float:$stylevar[right]" class="smallfont"><a href="group.php?$session[sessionurl]do=grouplist&amp;cat=$mygroup[categoryid]" style="font-weight:normal">$mygroup[categoryname]</a></span>
+		<div style="margin-bottom:$stylevar[cellpadding]px; margin-$stylevar[left]:$stylevar[cellspacing]px">
+			<a href="group.php?$session[sessionurl]groupid=$mygroup[groupid]" <if condition="!$mygroup['is_read']">class="unread"</if>>$mygroup[name]</a>
+			<div class="smallfont">$mygroup[shortdescription]</div>
+		</div>
+	</td>
+	
+	<td class="alt2" align="center" nowrap="nowrap">$mygroup[joindate]</td>
+	<td class="alt1 smallfont" align="center" nowrap="nowrap">
+		<if condition="$mygroup['group_options']">
+		<if condition="$mygroup['edit_group']">
+			<div><a href="group.php?$session[sessionurl]do=edit&amp;groupid=$mygroup[groupid]">$vbphrase[edit_group]</a></div>
+		</if>
+		<if condition="$mygroup['delete_group']">
+			<div><a href="group.php?$session[sessionurl]do=delete&amp;groupid=$mygroup[groupid]">$vbphrase[delete_group]</a></div>
+		</if>
+		<if condition="$mygroup['leave_group']">
+			<a href="group.php?$session[sessionurl]do=leave&amp;groupid=$mygroup[groupid]">$vbphrase[leave_social_group]</a>
+		</if>
+		<else />
+			$vbphrase[n_a]
+		</if>
+	</td>
+</tr>

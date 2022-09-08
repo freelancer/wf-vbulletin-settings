@@ -1,0 +1,11 @@
+<li id="block_archive">
+	<div id="vb_blogcalendar">
+	$calendar
+	</div>
+	<script type="text/javascript" src="clientscript/blog_ajax_calendar.js?v=$vboptions[simpleversion]"></script>
+	<script type="text/javascript">
+	<!--
+		blogCalendar = new vB_AJAX_BlogCalendar('blogCalendar', 'vb_blogcalendar', $month, $year, $userinfo[userid]);
+	//-->
+	</script>
+</li>

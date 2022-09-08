@@ -1,0 +1,1 @@
+This setting is the usernames, or parts of usernames, that you do not wish users to be able to register, separated by spaces. If you enter John, for example, no one will be able to register John, but the name Johnathan will also be disallowed.

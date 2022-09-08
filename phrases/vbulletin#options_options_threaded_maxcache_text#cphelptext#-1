@@ -1,0 +1,1 @@
+This is basically like the <a href="options.php?dogroup=showthread&amp;do=options" target="_blank">Maximum Displayed Posts Before Page Split</a> setting in terms of thread load time.  If this setting is set to 40 then vBulletin will load a maximum of 40 posts "in the background" so the page doesn't have to reload for each of those 40 posts.

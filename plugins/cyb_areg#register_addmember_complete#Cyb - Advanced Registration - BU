@@ -1,0 +1,16 @@
+
+		if ($vbulletin->options['cybareg_enable'] AND $vbulletin->options['cybareg_enable_invite'])
+		{
+			$db->hide_errors();
+			$cyb_areg_inviteduser = $vbulletin->db->query_read("
+				SELECT cyb_advreg_invite.invited, cyb_advreg_invite.accepted, user.userid, user.email
+				FROM " . TABLE_PREFIX . "cyb_advreg_invite AS cyb_advreg_invite
+				LEFT JOIN " . TABLE_PREFIX . "user AS user ON (user.email = cyb_advreg_invite.invited)
+				WHERE accepted < 1 AND email != ''
+			");
+			while ($cybareguser = $db->fetch_array($cyb_areg_inviteduser))
+			{
+				$vbulletin->db->query_write(" UPDATE " . TABLE_PREFIX . "cyb_advreg_invite SET accepted = '".$db->escape_string($cybareguser['userid'])."', done = '1' WHERE invited = '".$db->escape_string($cybareguser['email'])."' ");
+			}
+			$db->show_errors();
+		}

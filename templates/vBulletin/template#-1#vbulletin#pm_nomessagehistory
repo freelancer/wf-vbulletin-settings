@@ -1,0 +1,7 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="alt2" align="center">
+		$vbphrase[no_message_history]
+	</td>
+</tr>
+</table>

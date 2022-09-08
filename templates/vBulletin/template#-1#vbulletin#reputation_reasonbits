@@ -1,0 +1,4 @@
+<tr>
+	<td><img src="$stylevar[imgdir_reputation]/reputation_$posneg.gif" alt="" /></td>
+	<td>$reason</td>
+</tr>

@@ -1,0 +1,1 @@
+The [php] tag performs the same function as the [code] tag, but also adds syntax highlighting for PHP code. Although it is designed for PHP, it may correctly highlight some other C-like languages.

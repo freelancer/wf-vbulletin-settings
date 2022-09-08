@@ -1,0 +1,1 @@
+$only = array_merge($only, array('vbseo' => 'vBSEO'));

@@ -1,0 +1,22 @@
+if (empty($modlogtypes['trackback_x_edited']))
+{
+	$blogmodlogtypes = array(
+		'blogentry_removed'                     => 100,
+		'blogentry_softdeleted'                 => 101,
+		'blogentry_undeleted'                   => 102,
+		'blogentry_approved'                    => 103,
+		'blogentry_unapproved'                  => 104,
+		'blogentry_title_x_changed_to_y'        => 105,
+		'blogentry_x_edited'                    => 106,
+		'comment_x_by_y_removed'                => 107,
+		'comment_x_by_y_softdeleted'            => 108,
+		'comment_x_by_y_undeleted'              => 109,
+		'comment_merged_from_multiple_comments' => 110,
+		'comments_copied_to_x'                  => 111,
+		'trackback_approved'                    => 112,
+		'trackback_unapproved'                  => 113,
+		'trackback_x_edited'                    => 114,
+	);
+
+	$modlogtypes = array_merge($modlogtypes, $blogmodlogtypes);
+}

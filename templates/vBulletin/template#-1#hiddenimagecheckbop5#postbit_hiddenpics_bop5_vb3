@@ -1,0 +1,10 @@
+<br />
+<br />
+<div style="width:95%; background-color:yellow; padding:4px; border: 2px black inset;">
+   <if condition="$bopnumpics == 1">
+      $vbphrase[bop5_num_hidden_image]
+   <else />
+      <phrase 1="$bopnumpics">$vbphrase[bop5_num_hidden_images]</phrase>
+   </if>
+</div>
+

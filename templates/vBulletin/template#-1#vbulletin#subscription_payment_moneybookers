@@ -1,0 +1,9 @@
+<input type="hidden" name="pay_to_email" value="$settings[mbemail]" />
+<input type="hidden" name="transaction_id" value="$hash" />
+<input type="hidden" name="amount" value="$cost" />
+<input type="hidden" name="currency" value="$currency" />
+<input type="hidden" name="return_url" value="$vboptions[bburl]/$vboptions[forumhome].php" />
+<input type="hidden" name="cancel_url" value="$vboptions[bburl]/$vboptions[forumhome].php" />
+<input type="hidden" name="status_url" value="$vboptions[bburl]/payment_gateway.php?method=moneybookers" />
+<input type="hidden" name="detail1_description" value="$vbphrase[username]" />
+<input type="hidden" name="detail1_text" value="$userinfo[username]" />

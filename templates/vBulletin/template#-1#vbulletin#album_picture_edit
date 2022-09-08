@@ -1,0 +1,77 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+$usercss
+<title>$vboptions[bbtitle] - $vbphrase[edit_pictures]</title>
+</head>
+<body>
+$header
+$navbar
+
+<div id="usercss">
+
+<if condition="$pagenav"><div style="margin-bottom: 3px">$pagenav</div></if>
+
+<form action="album.php?do=updatepictures&amp;albumid=$albuminfo[albumid]" method="post">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<if condition="$show['usercss_switch']">
+			<div class="smallfont" style="float: $stylevar[right]">
+				<a href="profile.php?$session[sessionurl]do=switchusercss&amp;hash=$bbuserinfo[logouthash]&amp;u=$userinfo[userid]">$usercss_switch_phrase</a>
+				</div>
+		</if>
+		$vbphrase[edit_pictures]
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+			<if condition="$error_message">
+				<fieldset class="fieldset">
+					<legend>$vbphrase[vbulletin_message]</legend>
+					<div class="smallfont">$error_message</div>
+				</fieldset>
+			</if>
+
+			<fieldset style="border-style: none">
+			<table width="100%" border="0" cellspacing="0" cellpadding="$stylevar[cellpadding]">
+			<tr>
+				<td valign="top">
+					<strong>$albuminfo[title_html]</strong>
+					<if condition="$albuminfo['description_html']"><div class="smallfont">$albuminfo[description_html]</div></if>
+				</td>
+				<if condition="$show['leave_cover']">
+				<td class="smallfont" width="<if condition="$vboptions['album_thumbsize'] > 170">$vboptions[album_thumbsize]<else />170</if>" valign="bottom">
+					<input type="radio" name="coverpictureid" id="rb_coverpictureid_0" value="0" checked="checked" tabindex="1" /><label for="rb_coverpictureid_0">$vbphrase[leave_cover_unchanged]</label>
+				</td>
+				</if>
+			</tr>
+			</table>
+			</fieldset>
+
+			$picturebits
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="hidden" name="s" value="$session[sessionhash]" />
+		<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+		<input type="hidden" name="do" value="updatepictures" />
+		<input type="hidden" name="albumid" value="$albuminfo[albumid]" />
+		<input type="hidden" name="frompicture" value="$frompicture" />
+		<input type="submit" class="button" value="$vbphrase[save_changes]" accesskey="s" tabindex="1" />
+	</div>
+	</td>
+</tr>
+
+</table>
+</form>
+
+</div>
+
+$footer
+</body>
+</html>

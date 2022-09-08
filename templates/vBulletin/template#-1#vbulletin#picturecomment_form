@@ -1,0 +1,47 @@
+<if condition="$show['quickcomment']">
+	$vBeditTemplate[clientscript]
+
+	<div class="alt1 smallfont block_row">
+	<form action="picturecomment.php?$session[sessionurl]do=message" method="post" id="message_form">
+	<div align="center">
+		<div style="width:$stylevar[formwidth]">
+			<div style="display:none" id="qc_error_div" class="tborder">
+				<div class="alt1 block_title">
+					<div id="qc_error_header">$vbphrase[errors_occured_when_submitted]</div>
+					<div id="qc_error_list">&nbsp;</div>
+					<div id="qc_error_okay"><input type="button" class="button" value="$vbphrase[okay]" id="qc_hide_errors" /></div>
+				</div>
+			</div>
+
+			<div class="smallfont messagetext">
+				$vbphrase[comment]:
+				<span class="shade">$vbphrase[note_comment_may_be_visible_locations]</span>
+			</div>
+			<div id="$editorid" class="vBulletin_editor">$messagearea</div>
+			<if condition="$allowed_bbcode"><div class="allowed_bbcode">$allowed_bbcode</div></if>
+			<div class="submit_button">
+				<input type="hidden" name="fromquickcomment" value="1" />
+				<input type="hidden" name="s" value="$session[sessionhash]" />
+				<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+				<input type="hidden" name="do" value="message" />
+				<input type="hidden" name="pictureid" value="$pictureinfo[pictureid]" />
+				<input type="hidden" name="albumid" value="$albuminfo[albumid]" />
+				<input type="hidden" name="groupid" value="$group[groupid]" />
+				<input type="hidden" name="loggedinuser" value="$bbuserinfo[userid]" />
+				<input type="hidden" name="parseurl" value="1" />
+				<input type="hidden" name="lastcomment" value="$messagestats[lastcomment]" />
+				<input type="hidden" name="allow_ajax_qc" value="$show[allow_ajax_qc]" />
+
+				<input type="submit" id="qr_submit" value="$vbphrase[post_comment]" name="sbutton" class="button" accesskey="s" onclick="clickedelm = this.value" />
+						<input type="submit" id="qr_preview" value="$vbphrase[go_advanced]" name="preview" class="button" accesskey="x" onclick="clickedelm = this.value" />
+			</div>
+		</div>
+	</div>
+
+	<div align="center" id="qc_posting_msg" style="display:none; margin-top:$stylevar[cellpadding]px">
+		<img class="inlineimg" src="$stylevar[imgdir_misc]/progress.gif" alt="$vbphrase[posting_comment] - $vbphrase[please_wait]" />
+		<strong>$vbphrase[posting_message_please_wait]</strong>
+	</div>
+	</form>
+</div>
+</if>

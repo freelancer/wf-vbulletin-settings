@@ -1,0 +1,5 @@
+This is the user rank manager.  Here you can manage ranks based on post count for one or all usergroups.  Ranks can be represented by images or text (HTML is allowed).<br /><br />
+
+Below is a list of all existing ranks (if any).  The ranks below are grouped by the usergroups to which they apply.  The "User Rank" column shows the image or text that is granted to the user when they qualify for the corresponding rank.  The "Minimum Posts" column shows you the post count that is needed to acquire the corresponding rank.<br /><br />
+
+Click the [Edit] link to the right of a rank to change its target usergroup, minimum required post count, and the image / text that is the rank.  Click the [Delete] link to delete the rank completely.

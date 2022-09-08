@@ -1,0 +1,10 @@
+The product ID you have specified is invalid.<br />
+<br />
+Product IDs must be no more than 25 characters long and must consist of <strong>only</strong> lowercase characters a-z, numbers 0-9 and underscores.<br />
+<br />
+Therefore, we suggest that you alter your specified product ID from this:
+
+<pre>{1}</pre>
+
+to this:
+<pre>{2}</pre>

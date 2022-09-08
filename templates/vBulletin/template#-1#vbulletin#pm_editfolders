@@ -1,0 +1,63 @@
+<form action="private.php?do=updatefolders" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="updatefolders" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[edit_folders]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth_usercp]" align="$stylevar[left]">
+
+		<fieldset class="fieldset">
+			<legend>$vbphrase[standard_folders]</legend>
+			<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+			<tr>
+				<td><phrase 1="private.php?$session[sessionurl]folderid=0" 2="$vbphrase[inbox]" 3="$inboxtotal">$vbphrase[x_contains_y_messages]</phrase> <a href="private.php?do=emptyfolder&amp;folderid=0"><em>$vbphrase[empty_folder]</em></a></td>
+			</tr>
+			<tr>
+				<td><phrase 1="private.php?$session[sessionurl]folderid=-1" 2="$vbphrase[sent_items]" 3="$sentitemstotal">$vbphrase[x_contains_y_messages]</phrase> <a href="private.php?do=emptyfolder&amp;folderid=-1"><em>$vbphrase[empty_folder]</em></a></td>
+			</tr>
+			</table>
+		</fieldset>
+
+		<if condition="$show['customfolders']">
+			<fieldset class="fieldset">
+				<legend>$vbphrase[your_custom_folders]</legend>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+				$editfolderbits
+				<tr>
+					<td>$vbphrase[to_rename_a_folder]</td>
+				</tr>
+				<tr>
+					<td>$vbphrase[to_delete_a_folder]</td>
+				</tr>
+				</table>
+			</fieldset>
+		</if>
+
+		<fieldset class="fieldset">
+			<legend>$vbphrase[add_new_folders]</legend>
+			<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+			$addfolderbits
+			<tr>
+				<td>$vbphrase[to_add_a_new_folder]</td>
+			</tr>
+			</table>
+		</fieldset>
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="submit" class="button" value="$vbphrase[save_folders]" accesskey="s" />
+		<input type="reset" class="button" value="$vbphrase[reset_fields]" accesskey="r" />
+	</div>
+	</td>
+</tr>
+</table>
+
+</form>

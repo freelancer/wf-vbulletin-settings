@@ -1,0 +1,1 @@
+If this is set to 'yes' then the user can configure their social groups where discussions can only be created by the group owner.  This permission only has any effect if the 'Allow Group Owners to Limit New Discussions to Themselves' option is enabled.

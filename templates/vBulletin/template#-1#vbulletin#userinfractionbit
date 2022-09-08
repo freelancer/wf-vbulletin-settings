@@ -1,0 +1,7 @@
+<tr align="center">
+	<td align="$stylevar[left]"><label for="il_$infraction[infractionlevelid]"><input id="il_$infraction[infractionlevelid]" type="radio" name="infractionlevelid" value="$infraction[infractionlevelid]" $checked_inf tabindex="1" />$title</label></td>
+	<if condition="$show['count']"><td>$count</td></if>
+	<td>$infraction[points]</td>
+	<td>$expires</td>
+	<td align="$stylevar[left]"><if condition="$show['warning']"><input type="checkbox" name="warning[$infraction[infractionlevelid]]" value="1" $checked_warn tabindex="1" /><else />&nbsp;</if></td>
+</tr>

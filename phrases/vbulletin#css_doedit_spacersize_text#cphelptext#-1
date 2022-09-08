@@ -1,0 +1,1 @@
+On your <a href="../{$vbulletin->options[forumhome]}.php" target="_blank">forumhome</a> page, for example, you will notice there is a gap between the boxes that contain your forums and the outside border of your forum layout.  This setting controls how large that gap is.

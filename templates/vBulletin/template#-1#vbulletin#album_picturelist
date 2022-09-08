@@ -1,0 +1,127 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+$usercss
+<title>$vboptions[bbtitle] - <phrase 1="$userinfo[username]" 2="$albuminfo[title_html]">$vbphrase[xs_album_y]</phrase></title>
+<if condition="$show['add_group_form']">
+	<script type="text/javascript" src="clientscript/vbulletin_album.js?v=$vboptions[simpleversion]"></script>
+</if>
+</head>
+<body>
+$header
+$navbar
+
+<div id="usercss">
+
+<if condition="$show['add_picture_option'] OR $pagenav">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tr valign="bottom">
+	<td>
+		<if condition="$show['add_picture_option']">
+			<a href="album.php?$session[sessionurl]do=addpictures&amp;albumid=$albuminfo[albumid]"><img src="$stylevar[imgdir_button]/upload_pictures.png" border="0" class="inlineimg" alt="$vbphrase[upload_pictures]" /></a> <a href="album.php?$session[sessionurl]do=addpictures&amp;albumid=$albuminfo[albumid]">$vbphrase[upload_pictures]</a>
+		<else />
+			&nbsp;
+		</if>
+	</td>
+	<if condition="$pagenav"><td align="$stylevar[right]">$pagenav</td></if>
+</tr>
+</table>
+</if>
+
+<if condition="$show['add_group_form']">
+	<form action="album.php?do=doaddgroupmult&amp;albumid=$albuminfo[albumid]" method="post">
+	<input type="hidden" name="do" value="doaddgroupmult" />
+	<input type="hidden" name="albumid" value="$albuminfo[albumid]" />
+	<input type="hidden" name="page" value="$input_pagenumber" />
+	<input type="hidden" name="s" value="$session[sessionhash]" />
+	<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+</if>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<if condition="$show['edit_album_option'] OR $show['usercss_switch']">
+		<div class="smallfont" style="float: $stylevar[right]">
+			<if condition="$show['edit_album_option']">
+				<a href="album.php?$session[sessionurl]do=editalbum&amp;albumid=$albuminfo[albumid]">$vbphrase[edit_album]</a>
+				<if condition="$albuminfo['picturecount']">| <a href="album.php?$session[sessionurl]do=editpictures&amp;albumid=$albuminfo[albumid]">$vbphrase[edit_pictures]</a></if>
+			</if>
+			<if condition="$show['usercss_switch']">
+				<if condition="$show['edit_album_option']">|</if>
+				<a href="profile.php?$session[sessionurl]do=switchusercss&amp;hash=$bbuserinfo[logouthash]&amp;u=$userinfo[userid]">$usercss_switch_phrase</a>
+			</if>
+		</div>
+		</if>
+		$albuminfo[title_html]<if condition="$show['personalalbum']"><span class="shade smallfont"> $albumtype</span></if>
+	</td>
+</tr>
+
+<if condition="$albuminfo['description_html']">
+<tr>
+	<td class="alt2">$albuminfo[description_html]</td>
+</tr>
+</if>
+
+<tr>
+	<td class="alt1" id="picturebits">
+		<if condition="$picturebits">
+			$picturebits
+		<else />
+			<div align="center">
+			<if condition="$show['add_picture_option']">
+				<a href="album.php?$session[sessionurl]do=addpictures&amp;albumid=$albuminfo[albumid]">$vbphrase[click_here_to_upload_pictures]</a>
+			<else />
+				$vbphrase[this_album_has_no_pictures]
+			</if>
+			</div>
+		</if>
+	</td>
+</tr>
+
+<if condition="$show['add_group_form']">
+	<tr>
+		<td class="tfoot" align="center">
+			$vbphrase[add_selected_pictures_to]:
+			<select name="groupid">
+				<option value="0">&nbsp;</option>
+				$group_options
+			</select>
+			<input type="submit" class="button" value="$vbphrase[add_pictures]" />
+			<input type="submit" class="button" name="cancel" value="$vbphrase[cancel]" />
+			<if condition="$show['private_notice']"><div class="smallfont shade" align="center">$vbphrase[pictures_from_this_private_album]</div></if>
+		</td>
+	</tr>
+<else /><if condition="$show['add_group_row']">
+	<tr>
+		<td class="tfoot smallfont" align="center">
+			<a href="album.php?$session[sessionurl]albumid=$albuminfo[albumid]&amp;addgroup=1<if condition="$pagenumber > 1">&amp;page=$pagenumber</if>#page$pagenumber">$vbphrase[add_pictures_to_a_group]</a>
+		</td>
+	</tr>
+</if></if>
+</table>
+
+<if condition="$show['add_group_form']">
+	</form>
+</if>
+
+<if condition="$show['add_picture_option'] OR $pagenav">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:3px">
+<tr valign="top">
+	<td>
+		<if condition="$show['add_picture_option']">
+			<a href="album.php?$session[sessionurl]do=addpictures&amp;albumid=$albuminfo[albumid]"><img src="$stylevar[imgdir_button]/upload_pictures.png" border="0" class="inlineimg" alt="$vbphrase[upload_pictures]" /></a> <a href="album.php?$session[sessionurl]do=addpictures&amp;albumid=$albuminfo[albumid]">$vbphrase[upload_pictures]</a>
+		<else />
+			&nbsp;
+		</if>
+	</td>
+	<if condition="$pagenav"><td align="$stylevar[right]">$pagenav</td></if>
+</tr>
+</table>
+</if>
+
+</div>
+
+$footer
+</body>
+</html>

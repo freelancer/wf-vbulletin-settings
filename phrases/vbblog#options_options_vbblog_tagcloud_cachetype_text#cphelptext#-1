@@ -1,0 +1,5 @@
+In order to prevent tags in private blogs for modifying the data in the tag cloud, you may force the tag cloud to be built only from blogs that are visible to all users. Tags will be only be counted for blogs where that user can view entries.<br />
+<br />
+Choosing 'Permission Check' will prevent the tag cloud from being cached, but it will respect the permissions of the browsing user.<br />
+<br />
+'No Permission Check' will skip the permission checking entirely. This effectively ignores that private status of a blog.

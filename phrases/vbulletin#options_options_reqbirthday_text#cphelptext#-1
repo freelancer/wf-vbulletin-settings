@@ -1,0 +1,1 @@
+When this option is enabled, users will be required to enter a valid date of birth when registering.  Any users without a birthday will be required to enter one when modifying their profile.  A valid birth year is from 1902 to the current year.  Once a date of birth has been entered, the user will not be allowed to change it.

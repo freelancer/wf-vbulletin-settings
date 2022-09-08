@@ -1,0 +1,1 @@
+This setting ensures that your newly created usergroup will have the same forum permissions as an existing usergroup. This is especially important when creating new usergroups that won't have permission to all forums.

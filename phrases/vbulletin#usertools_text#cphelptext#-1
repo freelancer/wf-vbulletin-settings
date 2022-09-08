@@ -1,0 +1,17 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=user">Users</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=usertools">User Tools</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=banning">User Banning</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=email">Emailing Users</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=accessmask">Access Masks</a><br /><br />
+
+<b>User Tools:</b><br />
+The user tools pages in the Users tab of the Admin CP provide you with the ability to merge users, view and manage private messages, view referral information, and search user IP addresses.<br /><br />
+
+The ability to merge users can be very useful when dealing with users who have multiple accounts.  The "Merge Users" feature literally signs over all of a user's posts, private messages, etc to another user account.  You can see the "Merge Users" page <a href="usertools.php?do=merge" target="_blank">here</a>.<br /><br />
+
+You can view your forum's private message statistics <a href="usertools.php?do=pmstats" target="_blank">here</a>.  This section allows you to view private message statistics for your users according to how many private messages they have stored.  You are also given the option to delete a user's private messages from this section of the Admin CP.<br /><br />
+
+If you have referrals enabled in your <a href="options.php?dogroup=register&amp;do=options" target="_blank">vBulletin options</a> then users will be able to link to your forums using their referral id to get credit for referring users to your forums.  You can run a report showing referrals on your forums on the <a href="usertools.php?do=referrers" target="_blank">Referrals</a> page.  This is useful in seeing which users are referring people to your forums.<br /><br />
+
+Lastly, you can search for users based on IP address or search for IP addresses based on a username on the <a href="usertools.php?do=doips" target="_blank">Search IP Addresses</a> page.  vBulletin logs the IP addresses of users who visit your forum.  Everyone on the internet has an IP address.  Some internet services assign a new IP address every time a user connects, while some assign just one IP address.  Users with dynamic IPs can be more elusive than those with static IPs, but either way, IP addresses can be used to identify and target users.  Possible applications for searching for IP addresses include identifying other accounts of a person who has a specific IP address and <a href="options.php?dogroup=banning&amp;do=options" target="_blank">IP banning</a> problem users.

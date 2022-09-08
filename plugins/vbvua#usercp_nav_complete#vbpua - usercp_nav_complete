@@ -1,0 +1,4 @@
+
+$vbpua_lasthook='usercp_nav_complete';
+include(DIR.'/includes/vbvua_hooks.php');
+             

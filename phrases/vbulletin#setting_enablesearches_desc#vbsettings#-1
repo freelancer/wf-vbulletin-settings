@@ -1,0 +1,3 @@
+Allow searching for posts and threads within the forums. This is a relatively server-intensive process so you may want to disable it if you have problems.<br />
+<br />
+To disable searching of all forums, delete the option from the search_forums template.

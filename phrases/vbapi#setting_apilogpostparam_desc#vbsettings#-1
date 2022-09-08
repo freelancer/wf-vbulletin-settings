@@ -1,0 +1,1 @@
+If "Enable API Log" is set to "Yes", use this opinion to decide whether to log API POST parameters. Usually API POST parameters contain large data and occupy many database space.

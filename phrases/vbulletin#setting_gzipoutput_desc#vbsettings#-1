@@ -1,0 +1,5 @@
+Selecting yes will enable vBulletin to GZIP compress the HTML output of pages, thus reducing bandwidth requirements. This will be only used on clients that support it, and are HTTP 1.1 compliant. There will be a small performance overhead.<br />
+<br />
+This feature requires the ZLIB library.<br />
+<br />
+If you are already using <b>mod_gzip</b> or <b>mod_deflate</b> on your server, do not enable this option.

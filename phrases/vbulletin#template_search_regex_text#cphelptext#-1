@@ -1,0 +1,5 @@
+The regular expression option is for <b>advanced users only</b>! Setting this option to 'yes' will use <a href="http://www.php.net/manual-lookup.php?function=preg-replace" target="_blank">preg_replace()</a> instead of <a href="http://www.php.net/manual-lookup.php?function=str-replace" target="_blank">str_replace()</a> for your find/replace operation. Do not use this option if you are not sure how to use PCRE regular expressions!<br /><br />
+
+Example usage: Find <b>&lt;img (.*)/?&gt;</b> and replace with <b>&lt;img \1 /&gt;</b> would find all &lt;img&gt; tags and make them XHTML compliant by adding the closing slash. The actual command executed from this would be:<br /><br />
+
+preg_replace('#&lt;img (.*)/?&gt;#siU', '&lt;img \1 /&gt;', $template);

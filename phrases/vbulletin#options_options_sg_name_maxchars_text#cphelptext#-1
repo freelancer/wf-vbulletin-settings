@@ -1,0 +1,3 @@
+Enter a number of characters that define the maximum length for the name of user-created social groups.<br />
+<br />
+If a user enters a name longer than this limit, an error will be generated and the name will be rejected.

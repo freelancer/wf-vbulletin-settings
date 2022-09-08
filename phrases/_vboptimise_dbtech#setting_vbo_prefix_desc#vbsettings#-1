@@ -1,0 +1,3 @@
+This is a customisable Prefix that vB Optimise will use when storing data within cache. This is handy if you have multiple installations of vBulletin or multiple applications using the same cacher so they don't collide.
+<br /><br />
+You may use any a-z character and underscores.

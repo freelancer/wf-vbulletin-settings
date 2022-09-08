@@ -1,0 +1,27 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=template&amp;pageaction=&amp;option=">Styles &amp; Templates</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=css&amp;pageaction=&amp;option=">Common Templates, StyleVars, and CSS</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=replacement&amp;pageaction=&amp;option=">Replacement Variables</a><br /><br />
+
+<b>Common Templates:</b><br />
+The header, headinclude, and footer templates are considered common templates because they are included / parsed on every forum page.<br /><br />
+
+The header, headinclude, and footer templates are respectively represented in the templates by the $header, $headinclude, and $footer variables.  The parsed contents of these three templates are substituted in for these variables when a forum page is loaded.<br /><br />
+
+The header template contains the HTML code that makes up the top portion of your forum layout, including the title image and opening table code for the content table in which your forum content is displayed.<br /><br />
+
+The contents of the headinclude template are inserted within the &lt;head&gt;&lt;/head&gt; tags on each forum page. Meta tags, style sheets, scripts, etc are added here.<br /><br />
+
+The footer template contains the HTML code that makes up the bottom portion of your forum layout, including the closing table tags for the content table in which your forum content is displayed and the vBulletin copyright notice.<br /><br />
+
+<b>StyleVars:</b><br />
+The StyleVars on this page include the "Size and Dimensions", "Image Paths", and "Miscellaneous" tables below.  These settings control various style related aspects of your forum pages.  These stylevars are represented in the templates as:<br /><br />
+
+<i>$stylevar[var_name]</i><br /><br />
+
+These stylevar variables are parsed into their corresponding values when a forum page is loaded.  By representing commonly used stylevars as variables in the templates it is very easy to change them - just edit their values on this page and the changes will take effect for all forum pages.<br /><br />
+
+<b>CSS:</b><br />
+vBulletin uses CSS classes for its various page elements.  These page elements all call on the various CSS classes defined here.  Therefore, you can change the attributes of all page elements that use a CSS class by editing the class on this page.  A good site to learn CSS is <a href="http://www.w3.org/" target="_blank">w3.org</a>.<br /><br />
+
+Note that several CSS attributes are color fields which use standard HTML color codes.  You can click on the color box to the right to pull up the color picker window where you can visually pick a color by clicking on it.  vBulletin will automatically insert the corresponding color code for the color you pick.  The small button to the left of the close box allows you to switch color palettes for more choices.  The dotted box on the top left represents no color (transparent).

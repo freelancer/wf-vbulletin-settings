@@ -1,0 +1,8 @@
+if (VB_API === true)
+{
+	if (!$post['pagetext'])
+	{
+		$post['pagetext'] = $post['message']; // PM doesn't have $post['pagetext']
+	}
+	$post['joindateline'] = $post['joindate'];
+}

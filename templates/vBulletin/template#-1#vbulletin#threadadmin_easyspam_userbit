@@ -1,0 +1,1 @@
+<li><a href="member.php?$session[sessionurl]u=$user[userid]" target="userinfo">$user[username]</a><input type="hidden" name="userid[]" value="$user[userid]" /></li>

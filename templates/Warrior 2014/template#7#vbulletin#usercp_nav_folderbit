@@ -1,0 +1,3 @@
+<tr>
+    <td class="vbmenu_option"><a href="$linkurl" ng-non-bindable>$foldername</a></td>
+</tr>

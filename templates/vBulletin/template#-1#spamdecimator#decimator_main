@@ -1,0 +1,56 @@
+$stylevar[htmldoctype]
+<html dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+<title>Spam Decimator: Version $decimatorVersion</title>
+$headinclude
+</head>
+
+<body style="margin:0px">
+<form action="decimator.php" method="post" name="vbform">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+<tr>
+	<td class="tcat">Spam Decimator Version $decimatorVersion</td>
+</tr>
+<if condition="$error">
+<tr><td>$error</td></tr>
+<else />
+<if condition="$do">
+<tr><td><strong>Spam Decimator has done the following:</strong>
+</td></tr>
+<tr><td class="alt2">$donethusfar</td></tr>
+<tr><td class="alt1">Thank you for using Spam Decimator Version $decimatorVersion, have a nice spamless day :D</td></tr>
+<else />
+<tr class="alt1"><td>
+Welcome $bbuserinfo[username]!<br><br>
+To run Spam Decimator, please confirm the options below and click "Decimate" to proeceed with ridding your forums of the spam created by the member in question, whose info appears below. Note to the wise: in this version, the undo feature has NOT yet been implemented, so please be careful not to decimate, oh, I don't know, administrators, non-test users, or general passers by.
+<br><hr>
+</td>
+</tr>
+<tr class="alt1"><td>
+<b>The Spammer (and all his/her info):</b>
+<br>Username: $spammerinfo[username]
+<br>User ID Number: $spammerinfo[userid]
+<br>User Registration IP Address: $spammerinfo[ipaddress]
+<br>User IP Address for Selected Post: $postinfo[ipaddress]
+<br>User Email: $spammerinfo[email]
+</td></tr>
+<tr class="alt1"><td>
+<input type="checkbox" value="1" name="DOBAN" checked>Ban User<br>
+<input type="checkbox" value="1" name="DODELTHREAD" checked>Delete Threads  (possibly move threads to a specified private forum, settings dependent)<br>
+<input type="checkbox" value="1" name="DODELPOST" checked>Delete Posts<br>
+<input type="checkbox" value="1" name="DOIP" checked>Check IP Addresses<br>
+<input type="checkbox" value="1" name="DOESPAMMER" checked>Email Spammer<br>
+<textarea cols="30" rows="8" name="emailtext">
+$vboptions[settingdefaultemail]
+</textarea><br>
+<input type="checkbox" value="1" name="DOWEMAS" checked>Email Webmaster<br>
+<input type="hidden" name="do" value="decimate">
+<input type="hidden" name="postid" value="$spammerpostid">
+<input type="hidden" name="threadid" value="$spammerthreadid">
+<input type="hidden" name="userid" value="$spammerinfo[userid]">
+<input type="hidden" name="reason" value="Spamming $vboptions[bbtitle]">
+<input type="submit" value="Decimate">
+<br>
+</td></tr>
+</if></if>
+</table>

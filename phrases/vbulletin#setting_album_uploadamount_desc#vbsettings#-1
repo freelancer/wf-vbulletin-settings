@@ -1,0 +1,1 @@
+This controls the number of pictures users can upload simultaneously.  They will not be able to violate any album- or usergroup-implied size limits if you set this value too large.

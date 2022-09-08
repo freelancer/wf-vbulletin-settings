@@ -1,0 +1,1 @@
+If debug mode is enabled PayPal Sandbox will be used instead of real PayPal site. Test mode should be still activated in Paypal Manager -> Service Settings.

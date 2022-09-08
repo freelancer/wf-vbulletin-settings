@@ -1,0 +1,3 @@
+Some sendmail servers may require the '-f' parameter to be sent with email calls from PHP.  If you are having problems with users not receiving email, try enabling this option.  In all likelihood, your problem will not be caused by this setting.<br />
+<br />
+<span style="color: red">This setting does not work when PHP SAFE MODE is enabled.</span>

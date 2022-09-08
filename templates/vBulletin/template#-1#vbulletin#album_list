@@ -1,0 +1,147 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+$usercss
+<style type="text/css">
+<!--
+.albumthumb {
+	border: 1px solid rgb(133,103,29);
+	border-top: 0px;
+	background: url('$stylevar[imgdir_misc]/album_folder_bg.png') top repeat-x;
+	background-color: #FFD677
+}
+.albumtitle {
+	font-weight:bold
+}
+.albumtitle a:link, .albumtitle a:visited {
+	text-decoration:none
+}
+.albumtitle a:hover, .albumtitle a:active {
+	text-decoration:underline
+}
+.albumusername a:link, .albumusername a:visited {
+	text-decoration:none
+}
+.albumusername a:hover, .albumusername a:active {
+	text-decoration:underline
+}
+table.album {
+	width:{$album_width}px;
+	overflow: hidden;
+	height:{$album_height}px;
+	margin:16px;
+	float:$stylevar[left];
+}
+td.album_tab {
+	background: url('$stylevar[imgdir_misc]/album_folder_top_bg.gif');
+}
+.album_details {
+	display:block;
+	width:{$album_width}px;
+	height: 40px;
+	overflow:hidden
+}
+img.album_cover
+{
+	margin:$stylevar[cellpadding]px;
+	border:1px solid rgb(133,103,29)
+}
+-->
+</style>
+<title>$vboptions[bbtitle] - $custompagetitle</title>
+</head>
+<body>
+$header
+$navbar
+
+$template_hook[album_overview_before_latest]
+
+<if condition="$latestbits">
+<table width="100%" border="0" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" class="tborder">
+	<tr>
+		<td class="tcat">
+			<span style="float:$stylevar[right]"><a href="album.php?$session[sessionurl]do=addalbum" class="smallfont">$vbphrase[create_new_album]</a></span>
+			<strong>$vbphrase[recently_updated_albums]</strong>
+		</td>
+	</tr>
+	<tr>
+		<td class="alt1">
+			<div id="thumbcontainer">
+				$latestbits
+			</div>
+		</td>
+	</tr>
+</table>
+
+<if condition="$latest_pagenav">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:3px">
+<tr valign="top">
+	<td align="$stylevar[right]">$latest_pagenav</td>
+</tr>
+</table>
+</if>
+
+</if>
+
+<if condition="$show['user_albums'] AND $latestbits">
+<br />
+</if>
+
+$template_hook[album_overview_after_latest]
+
+<div id="usercss">
+<if condition="$show['user_albums']">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="4">
+		<phrase 1="$userinfo[username]">$vbphrase[xs_albums]</phrase>
+	</td>
+</tr>
+<tr>
+	$template_hook[album_overview_user_start_col]
+	<td class="thead">&nbsp;</td>
+	<td class="thead" width="80%">$vbphrase[album_title]</td>
+	<td class="thead" width="5%" align="center">$vbphrase[pictures]</td>
+	<td class="thead" width="15%" nowrap="nowrap">$vbphrase[last_picture]</td>
+	$template_hook[album_overview_user_end_column]
+</tr>
+
+<if condition="$albumbits">
+	$albumbits
+<else />
+	<tr>
+	<td colspan="4" class="alt1" align="center">
+		<if condition="$show['add_album_option']">
+			<a href="album.php?$session[sessionurl]do=addalbum">$vbphrase[click_here_add_album_upload_pictures]</a>
+		<else />
+			$vbphrase[this_user_has_no_albums]
+		</if>
+	</td>
+	</tr>
+</if>
+
+</table>
+
+<if condition="$show['add_album_option'] OR $pagenav">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:3px">
+<tr valign="top">
+	<td>
+		<if condition="$show['add_album_option']">
+			<a href="album.php?$session[sessionurl]do=addalbum"><img src="$stylevar[imgdir_button]/add_album.png" border="0" class="inlineimg" alt="$vbphrase[add_album]" /></a> <a href="album.php?$session[sessionurl]do=addalbum">$vbphrase[add_album]</a>
+		<else />
+			&nbsp;
+		</if>
+	</td>
+	<if condition="$pagenav"><td align="$stylevar[right]">$pagenav</td></if>
+</tr>
+</table>
+</if>
+</if>
+</div>
+
+$template_hook[album_overview_after_user]
+
+$footer
+</body>
+</html>

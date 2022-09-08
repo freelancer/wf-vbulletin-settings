@@ -1,0 +1,1 @@
+If this is set to No, users in this usergroup will not be able to edit events they have posted on this calendar. This is overridden when a user in this usergroup is a moderator of this calendar and is allowed to edit events according to his moderator permissions.

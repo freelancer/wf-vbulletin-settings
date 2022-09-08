@@ -1,0 +1,14 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=language&amp;pageaction=&amp;option=">Languages</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=phrase&amp;pageaction=&amp;option=">Phrases</a><br /><br />
+
+<b>Phrases:</b><br />
+vBulletin's phrase system is used to make the templates language-independent.  Everywhere there would normally be a hard coded, language-specific phrase there is a variable that parses to the value of the phrase for the language in which the user is viewing your forums.  Some phrases will be represented in the templates like this:<br /><br />
+
+<i>$vbphrase[phrase_identifier]</i><br /><br />
+
+While other phrases that have variables in them will be represented like this:<br /><br />
+
+<i>&lt;phrase 1="value for variable 1" 2="value for variable 2"&gt;$vbphrase[phrase_identifier]&lt;/phrase&gt;</i><br /><br />
+
+In the above example, the variables {1} and {2} in the phrase "phrase_identifier" will be replaced with the values you see defined in the template.

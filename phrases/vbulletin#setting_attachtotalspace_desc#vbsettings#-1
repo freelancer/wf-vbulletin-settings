@@ -1,0 +1,3 @@
+Use this option to limit the total combined amount of disk space in bytes that <i>all</i> attachments can occupy.<br />
+<br />
+Set the option to 0 to have no disk space limit.

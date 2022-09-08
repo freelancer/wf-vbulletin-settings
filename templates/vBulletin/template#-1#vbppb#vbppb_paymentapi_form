@@ -1,0 +1,7 @@
+
+			<form action="$form[action]" method="$form[method]" style="display:inline;">
+					$form[hidden]
+					<input type="submit" value="$formTitle" class="button" />
+				</form>
+			
+		

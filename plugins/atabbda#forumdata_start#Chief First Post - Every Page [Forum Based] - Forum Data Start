@@ -1,0 +1,2 @@
+$this->validfields['ada_forum'] = array(TYPE_INT, REQ_NO);
+$this->validfields['ada_style'] = array(TYPE_INT, REQ_NO);

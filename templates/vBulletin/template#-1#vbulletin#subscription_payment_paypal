@@ -1,0 +1,28 @@
+<if condition="$show['recurring']">
+<input type="hidden" name="cmd" value="_xclick-subscriptions" />
+<else />
+<input type="hidden" name="cmd" value="_xclick" />
+</if>
+<input type="hidden" name="business" value="$settings[ppemail]" />
+<input type="hidden" name="item_name" value="<phrase 1="$subinfo[title]">$vbphrase[x_subscription]</phrase>" />
+<input type="hidden" name="item_number" value="$item" />
+<input type="hidden" name="currency_code" value="$currency" />
+<if condition="$show['recurring']">
+<input type="hidden" name="a3" value="$cost" />
+<input type="hidden" name="p3" value="$timeinfo[length]">
+<input type="hidden" name="t3" value="$timeinfo[units]">
+<input type="hidden" name="src" value="1">
+<input type="hidden" name="sra" value="1">
+<else />
+<input type="hidden" name="amount" value="$cost" />
+</if>
+<input type="hidden" name="no_shipping" value="$no_shipping" />
+<input type="hidden" name="shipping" value="0.00" />
+<input type="hidden" name="return" value="$vboptions[bburl]/$vboptions[forumhome].php" />
+<input type="hidden" name="cancel_return" value="$vboptions[bburl]/$vboptions[forumhome].php" />
+<input type="hidden" name="notify_url" value="$vboptions[bburl]/payment_gateway.php?method=paypal" />
+<input type="hidden" name="custom" value="$userinfo[username]" />
+<input type="hidden" name="no_note" value="1" />
+<if condition="$show['notax']">
+<input type="hidden" name="tax" value="0.00" />
+</if>

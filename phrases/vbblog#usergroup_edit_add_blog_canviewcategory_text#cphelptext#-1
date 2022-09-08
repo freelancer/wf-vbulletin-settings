@@ -1,0 +1,1 @@
+This permission allows users to view admin defined categories. The way that you will want to utilize this permission is to grant this all usergroups, then use custom category permission to take it away from specific usergroups for specific categories.

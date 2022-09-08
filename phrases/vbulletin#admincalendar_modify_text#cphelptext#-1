@@ -1,0 +1,13 @@
+On this screen, all of your calendars are listed. You can perform various actions on them from here, including changing display order and viewing the calendar.<br /><br />
+
+Next to each calendar, in the Controls column, is a drop-down menu with a number of options. These are:<br />
+<b>Edit Calendar</b>: This will link you to the Edit Calendar page to change your calendar's settings. You can also edit a calendar by clicking on its title. (see <a href="help.php?do=answer&amp;page=admincalendar&amp;pageaction=edit">Editing Calendars</a>)<br />
+<b>View Calendar</b>: This will take you to view your calendar as your users see it.<br />
+<b>Remove Calendar</b>: After confirming your choice, this will remove the selected calendar and all of its' custom profile fields and moderator list.<br />
+<b>Edit Permissions</b>: This allows you to set per-calendar, per-usergroup permissions for various functions of the calendar. (see <a href="help.php?do=answer&amp;page=calendarpermission&amp;pageaction=modify">Modifying Calendar Permissions</a>)<br /><br />
+
+Next to the options are the display order of your calendars. The display order affects the order in which the calendars are displayed in the "Jump To" menu in the frontend, and on this screen in the backend. Setting a display order to 0 will prevent that calendar from showing in the Jump To menu, but a user will still be able to access it by typing in the direct URL to it. If you modify the display orders, be sure to click Update Display Order at the bottom of the screen to save the changes.<br /><br />
+
+On the extreme right are a list of each calendar's moderators. You can modify the moderator by selecting their name, or add a new moderator by selecting "Add New Moderator". (see <a href="help.php?do=answer&amp;page=admincalendar&amp;pageaction=editmod">Editing Calendar Moderators</a> and <a href="help.php?do=answer&amp;page=admincalendar&amp;pageaction=addmod">Adding Calendar Moderators</a>)<br /><br />
+
+At the bottom of the screen is a link to add a new calendar.

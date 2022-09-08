@@ -1,0 +1,1 @@
+If a non moderator usergroup has less than this number of posts then all content will be scanned by the Anti-Spam service for possible signs of spam. A value of <em>0</em> will scan all posts.

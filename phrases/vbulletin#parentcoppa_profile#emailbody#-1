@@ -1,0 +1,22 @@
+Dear Parent/Guardian of $username,
+
+$username has just modified their account at $vboptions[bbtitle]. This can be found at:
+
+$vboptions[bburl]/$vboptions[forumhome].php
+
+This email has been sent to you because $username has stated that they are younger than 13 years of age and $vboptions[bbtitle] is in compliance with the Children's Online Privacy Protection Act of 1998 (COPPA).
+
+To find out more about COPPA, please visit this page:
+http://www.ftc.gov/opa/1999/10/childfinal.htm
+
+Please read the $vboptions[bbtitle] Privacy Statement also:
+$vboptions[privacyurl]
+
+$username's profile can be viewed at:
+
+$vboptions[bburl]/member.php?u=$userid
+
+We thank you for helping us in keeping the privacy of children on the internet.
+
+All the best,
+$vboptions[bbtitle]

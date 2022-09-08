@@ -1,0 +1,1 @@
+This setting is the number of minutes in which a user may add a poll to a thread he just created. Administrators and moderators with 'caneditpoll' permission may always add a poll to a thread after creation.

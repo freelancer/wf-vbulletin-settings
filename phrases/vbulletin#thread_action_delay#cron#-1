@@ -1,0 +1,2 @@
+Thread Action Delay (Hours)
+<dfn>If you specify a number of hours here, the actions checked below will be performed on the inserted thread after the delay specified. Set to 0 to disable this feature.</dfn>

@@ -1,0 +1,26 @@
+Dear $touser[username],
+
+$bbuserinfo[username] has just replied to a thread you have subscribed to entitled - $threadinfo[prefix_plain]$threadinfo[title] - in the $foruminfo[title_clean] forum of $vboptions[bbtitle].
+
+This thread is located at:
+$vboptions[bburl]/showthread.php?t=$threadinfo[threadid]&goto=newpost
+
+Here is the message that has just been posted:
+***************
+$pagetext
+***************
+
+
+There may also be other replies, but you will not receive any more notifications until you visit the forum again.
+
+All the best,
+$vboptions[bbtitle]
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unsubscription information:
+
+To unsubscribe from this thread, please visit this page:
+$vboptions[bburl]/subscription.php?do=removesubscription&type=thread&subscriptionid=$touser[subscribethreadid]&auth=$touser[auth]
+
+To unsubscribe from ALL threads, please visit this page:
+$vboptions[bburl]/subscription.php?do=viewsubscription&folderid=all

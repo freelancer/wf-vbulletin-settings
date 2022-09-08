@@ -1,0 +1,5 @@
+
+$vbppb_lasthook='showthread_complete';
+include(DIR.'/includes/vbppb_hooks.php');
+			
+			

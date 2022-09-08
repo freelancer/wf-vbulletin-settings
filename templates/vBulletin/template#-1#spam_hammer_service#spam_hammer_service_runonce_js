@@ -1,0 +1,27 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+(function ($) {
+	$(window).load(function() {
+		$('#aweber-form, form[name="cpform"]').on('submit', function() {
+			$(this).attr('action', 'http://www.aweber.com/scripts/addlead.pl');
+
+			if (!$('#it_email_1').val().length) {
+				alert('Please enter your email address.');
+				return false;
+			}
+
+			setTimeout(function() { window.location.href = 'options.php?do=options&dogroup=spam_hammer_service'; }, 1000);
+			return true;
+		});
+
+		$('input[type="reset"]').on('click', function() {
+			window.location.href = 'options.php?do=options&dogroup=spam_hammer_service';
+		});
+
+		$('#webmaster-email').on('click', function() {
+			$('#it_email_1').val("{vb:raw vboptions.webmasteremail}");
+			return false;
+		});
+	});
+})(jQuery);
+</script>

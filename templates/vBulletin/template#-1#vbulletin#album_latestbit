@@ -1,0 +1,38 @@
+<table class="album" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td valign="middle">
+						<table border="0" cellspacing="0" cellpadding="0" width="1px" align="center">
+						<tr style="border-bottom:1px solid rgb(133,103,29)">
+							<td class="album_tab">
+								<img src="$stylevar[imgdir_misc]/album_folder_tab.png" alt="tab" /><br />
+							</td>
+						</tr>
+						<tr>
+							<td class="smallfont albumthumb" align="center" valign="middle">
+							<if condition="$album['coverthumburl']">
+								<a href="album.php?$session[sessionurl]albumid=$album[albumid]">
+								<img class="album_cover" src="$album[coverthumburl]" alt="$vbphrase[picture]" $album[coverdimensions] /></a><br />
+							<else />
+								<a href="album.php?$session[sessionurl]albumid=$albuminfo[albumid]">$vbphrase[picture]</a>
+							</if>
+							<if condition="$show['moderation']"><br /><span class="shade">$vbphrase[picture_moderated]</span></if>
+							</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td class="album_details" valign="top" align="center">
+					<div class="album_details">
+						<div class="albumtitle smallfont"><a href="album.php?$session[sessionurl]albumid=$album[albumid]">$album[title_html]</a></div>
+						<div class="albumusername smallfont"><a href="member.php?$session[sessionurl]u=$album[userid]">$album[username]</a>, $album[picturedate]</div>
+					</div>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>

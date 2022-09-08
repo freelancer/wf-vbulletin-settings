@@ -1,0 +1,3 @@
+vBulletin 3.7 removes the "Simple Type" option for GD-based image verification as it was not reliable at stopping bots. An alternative method for image verification is available, but your server does not appear to be compatible with this method.<br />
+<br />
+Human verification is currently disabled. If you wish to verify that visitors are human, please select an alternative verification method by clicking "Address".

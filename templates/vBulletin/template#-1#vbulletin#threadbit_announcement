@@ -1,0 +1,16 @@
+<tr>
+	<td class="alt1"><img src="$stylevar[imgdir_statusicon]/announcement_$announcement[statusicon].gif" border="0" alt="$vbphrase[announcement]" /></td>
+	<td class="alt2" colspan="$announcecolspan">
+		<div>
+			<span class="smallfont" style="float:$stylevar[right]">$vbphrase[views]: <strong>$announcement[views]</strong> <a href="announcement.php?$session[sessionurl]f=$foruminfo[forumid]$announcementidlink"><img class="inlineimg" src="$stylevar[imgdir_button]/lastpost.gif" alt="$vbphrase[view_announcement]" border="0" /></a></span>
+			<strong>$vbphrase[announcement]</strong>: <a href="announcement.php?$session[sessionurl]f=$foruminfo[forumid]$announcementidlink">$announcement[title]</a>
+		</div>
+		<div>
+			<span style="float:$stylevar[right]"><if condition="$show['forumtitle']"><a href="forumdisplay.php?$session[sessionurl]f=$announcement[forumid]">$announcement[forumtitle]</a> </if><span class="smallfont">$announcement[postdate]</span></span>
+			<span class="smallfont">
+				<a href="member.php?$session[sessionurl]u=$announcement[userid]">$announcement[username]</a>
+				<if condition="$announcement['usertitle'] != ''">($announcement[usertitle])</if>
+			</span>
+		</div>
+	</td>
+</tr>

@@ -1,0 +1,55 @@
+<if condition="$show['pagenav']">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tr valign="bottom">
+	<td align="$stylevar[right]">$pagenav</td>
+</tr>
+</table>
+</if>
+
+<!-- topic table -->
+<form action="blog_usercp.php?do=updatecat" method="post" name="form">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="u" value="$userinfo[userid]" />
+<input type="hidden" name="do" value="updatecat" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="4">
+		<span class="smallfont" style="float:$stylevar[right]"><strong>$vbphrase[blog_categories]</strong> $categorycount</span>
+		$vbphrase[blog_categories]
+	</td>
+</tr>
+<tr>
+	<td class="thead"><span style="float:$stylevar[right]">$vbphrase[edit]</span>$vbphrase[blog_category]</td>
+	<td class="thead">$vbphrase[category_description]</td>
+	<td class="thead" nowrap="nowrap">$vbphrase[display_order]</td>
+	<td class="thead" nowrap="nowrap" align="center">$vbphrase[blog_entries]</td>
+</tr>
+<if condition="$catbits">
+$catbits
+<else />
+<tr>
+	<td colspan="4" class="alt1" align="center">$vbphrase[you_have_no_blog_categories]</td>
+</tr>
+</if>
+<tr>
+	<td class="tfoot" colspan="4" align="center">
+		&nbsp;
+		<if condition="$catbits"><input type="submit" name="display" class="button" value="$vbphrase[save_display_order]" />&nbsp;</if>
+		<input type="submit" name="addcat" class="button" value="$vbphrase[add_new_blog_category]" />
+		&nbsp;
+	</td>
+</tr>
+</table>
+
+</form>
+<!-- / topic table -->
+
+<if condition="$show['pagenav']">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:3px">
+<tr valign="top">
+	<td align="$stylevar[right]">$pagenav</td>
+</tr>
+</table>
+</if>

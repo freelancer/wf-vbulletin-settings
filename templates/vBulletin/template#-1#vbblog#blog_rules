@@ -1,0 +1,12 @@
+<div class="tborder" style="margin-top:$stylevar[cellpadding]px; padding:$stylevar[cellspacing]px">
+	<div class="thead" style="padding:$stylevar[cellpadding]px">
+		<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('forumrules')"><img id="collapseimg_forumrules" src="$stylevar[imgdir_button]/collapse_generic$vbcollapse[collapseimg_forumrules].gif" alt="" border="0" /></a>
+		$vbphrase[posting_rules]
+	</div>
+	<div class="alt1 smallfont" style="padding:$stylevar[cellpadding]px; margin-top:$stylevar[cellspacing]px; $vbcollapse[collapseobj_forumrules]" id="collapseobj_forumrules">
+		<div><phrase 1="misc.php?$session[sessionurl]do=bbcode" 2="$bbcodeon">$vbphrase[bb_code_is_x]</phrase></div>
+		<div><phrase 1="misc.php?$session[sessionurl]do=showsmilies" 2="$smilieson">$vbphrase[smilies_are_x]</phrase></div>
+		<div><phrase 1="misc.php?$session[sessionurl]do=bbcode#imgcode" 2="$imgcodeon">$vbphrase[img_code_is_x]</phrase></div>
+		<div><phrase 1="$htmlcodeon">$vbphrase[html_code_is_x]</phrase></div>
+	</div>
+</div>

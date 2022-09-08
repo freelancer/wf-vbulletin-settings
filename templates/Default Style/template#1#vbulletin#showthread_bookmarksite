@@ -1,0 +1,6 @@
+<li class="smallfont" style="min-width:25px; float:$stylevar[left]; margin-top:$stylevar[cellpadding]px">
+    <if condition="$bookmarksite['iconpath']">
+        <a href="$bookmarksite[link]" target="socialbookmark"><img src="$stylevar[imgdir_misc]/$bookmarksite[iconpath]" border="0" title="Bookmark Thread to $bookmarksite[title]" class="inlineimg" /></a>
+    </if>
+    <!-- <a href="$bookmarksite[link]" target="socialbookmark" style="text-decoration:none">$bookmarksite[title]</a> -->
+</li>

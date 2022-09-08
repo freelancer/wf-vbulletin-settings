@@ -1,0 +1,7 @@
+If you are using the "Normal" or "Yesterday/Today" settings for Datestamp Display, enter the format you wish to use for the display of dates here. This follows PHP's <a href="http://www.php.net/date" target="_blank">date function formatting options</a>.<br /><br />
+
+Some examples:<br />
+m-d-y becomes 04-25-98 (Standard short US format)<br />
+F jS, Y becomes April 25th, 1998 (Standard long US format)<br />
+d-m-Y becomes 25-04-98 (Standard short European format)<br />
+jS F Y becomes 25th April 1998 (Standard long European format)

@@ -1,0 +1,5 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center" style="margin:$stylevar[cellpadding]px 0px $stylevar[cellpadding]px 0px">
+<tr>
+	<td class="alt1" align="center"><span class="smallfont"><strong>$vbphrase[all_posts_below_here]</strong></span></td>
+</tr>
+</table>

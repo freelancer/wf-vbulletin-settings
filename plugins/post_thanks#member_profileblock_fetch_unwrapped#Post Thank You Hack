@@ -1,0 +1,8 @@
+if ($this->registry->options[post_thanks_show_stats_profile])
+{
+	$userinfo['post_thanks_user_amount_formatted'] = vb_number_format($userinfo['post_thanks_user_amount']);
+	$userinfo['post_thanks_thanked_times_formatted'] = vb_number_format($userinfo['post_thanks_thanked_times']);
+	$userinfo['post_thanks_thanked_posts_formatted'] = vb_number_format($userinfo['post_thanks_thanked_posts']);
+
+	eval('$template_hook[profile_stats_pregeneral] .= "' . fetch_template('post_thanks_memberinfo_block') . '";');
+}

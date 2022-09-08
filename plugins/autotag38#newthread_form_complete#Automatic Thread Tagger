@@ -1,0 +1,7 @@
+
+if ($vbulletin->options['autotag_enabled_ajax'] AND $vbulletin->options['autotag_enabled_all'])
+{
+	$vbulletin->templatecache["newthread"] = str_replace('name=\"subject\"','id=\"subjecttitle\" name=\"subject\" onblur=\"UpdateTitle('.$foruminfo["forumid"].','.$vbulletin->userinfo["userid"].', '.$tags_remain.')\"',$vbulletin->templatecache["newthread"]);
+	$vbulletin->templatecache["newthread"] = str_replace('name=\"prefixid\"','id=\"prefixid\" name=\"prefixid\"',$vbulletin->templatecache["newthread"]);
+}
+			

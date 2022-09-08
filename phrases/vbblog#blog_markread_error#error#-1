@@ -1,0 +1,3 @@
+An error occurred while attempting to mark all entries in this blog as read.
+
+<a href="blog.php?{1}do=markread&amp;u={2}&amp;readhash={3}">Click here to mark {4}'s blog as read.</a>

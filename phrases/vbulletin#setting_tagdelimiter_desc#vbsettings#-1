@@ -1,0 +1,3 @@
+This option allows you to specify additional tag separators. Regardless of the value here, a comma will always be used as a separator.<br />
+<br />
+Separate each tag separators with a space. If you would like to use a space in a tag separator, click the '?' for information on the advanced separator syntax. 

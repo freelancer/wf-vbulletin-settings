@@ -1,0 +1,243 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+<title>$vboptions[bbtitle] - $vbphrase[post_new_thread]</title>
+</head>
+<body$onload>
+$header
+$navbar
+
+$postpreview
+
+<form action="newthread.php?do=postthread&amp;f=$forumid" method="post" name="vbform"<if condition="!is_browser('webtv')"> onsubmit="return vB_Editor['$editorid'].prepare_submit(this.subject.value, $vboptions[postminchars])"</if>>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<span class="smallfont" style="float:$stylevar[right]"><strong>$vbphrase[forum]</strong>: <a href="forumdisplay.php?$session[sessionurl]f=$foruminfo[forumid]">$foruminfo[title]</a></span>
+		$vbphrase[post_new_thread]
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+		$usernamecode
+
+		$human_verify
+
+		<!-- subject field -->
+		<table cellpadding="0" cellspacing="0" border="0" class="fieldset">
+		<tr>
+			<if condition="$prefix_options">
+				<td class="smallfont">$vbphrase[prefix]:</td>
+				<td class="smallfont" colspan="3">$vbphrase[title]:</td>
+			<else />
+				<td class="smallfont" colspan="4">$vbphrase[title]:</td>
+			</if>
+		</tr>
+		<tr>
+			<if condition="$prefix_options">
+				<td style="padding-right: 1px">
+					<select name="prefixid" class="bginput">
+						<option value="">$vbphrase[no_prefix_meta]</option>
+						$prefix_options
+					</select>
+				</td>
+			</if>
+			<td>
+				<input type="text" class="bginput" name="subject" value="$subject" size="40" maxlength="$vboptions[titlemaxchars]" tabindex="1" />
+			</td>
+			<td>&nbsp;&nbsp;</td>
+			<td><img id="display_posticon" src="$selectedicon[src]" alt="$selectedicon[alt]" /></td>
+		</tr>
+		</table>
+		<!-- / subject field -->
+
+		<!-- message area -->
+		<div class="smallfont">$vbphrase[message]:</div>
+		$messagearea
+		<!-- / message area -->
+
+		<if condition="$show['tag_option']">
+		<fieldset class="fieldset" style="margin-top: $stylevar[cellpadding]px">
+			<legend>$vbphrase[tags]</legend>
+			<div style="padding:$stylevar[formspacer]px">
+				<div>$vbphrase[separate_tags_using_comma]</div>
+				<span id="tag_add"><input type="text" class="bginput" name="taglist" id="tag_add_input" value="$newpost[taglist]" size="40" tabindex="1" /></span>
+				<if condition="$show['tags_remain']"><div><phrase 1="$tags_remain">$vbphrase[you_may_add_x_tags_to_thread]</phrase></div></if>
+			</div>
+
+			<if condition="$show['moderation_note']">
+			<p>
+				<strong>Note:</strong> New threads now require approval, this usually happens within 60 seconds
+			</p>
+			</if>
+			<if condition="$show['popups']">
+				<div id="tag_add_menu" class="vbmenu_popup" style="display:none"></div>
+				<script type="text/javascript" src="clientscript/vbulletin_ajax_tagsugg.js?v=$vboptions[simpleversion]"></script>
+				<script type="text/javascript">
+				<!--
+				vbmenu_register('tag_add', true);
+				tag_add_comp = new vB_AJAX_TagSuggest('tag_add_comp', 'tag_add_input', 'tag_add');
+				tag_add_comp.allow_multiple = true;
+				tag_add_comp.set_delimiters('$tag_delimiters');
+				//-->
+				</script>
+			</if>
+		</fieldset>
+		</if>
+
+		$posticons
+	</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="hidden" name="s" value="$session[sessionhash]" />
+		<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+		<input type="hidden" name="f" value="$forumid" />
+		<input type="hidden" name="do" value="postthread" />
+		<input type="hidden" name="posthash" value="$posthash" />
+		<input type="hidden" name="poststarttime" value="$poststarttime" />
+		<input type="hidden" name="loggedinuser" value="$bbuserinfo[userid]" />
+
+
+<if condition="$showtermsconditions=='1'">
+<div style="position: relative; width: 80%; text-align: justify;">
+
+<!-- conditions go here -->
+
+</div>
+
+</if>
+
+
+
+		<input type="submit" class="button" name="sbutton" id="{$editorid}_save" value="$vbphrase[submit_new_thread]" accesskey="s" tabindex="1" />
+		<input type="submit" class="button" name="preview" value="$vbphrase[preview_post]" accesskey="r" tabindex="1" />
+	</div>
+	</td>
+</tr>
+</table>
+
+<if condition="$show['additional_options']">
+<br />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('newpost_options')"><img id="collapseimg_newpost_options" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_newpost_options].gif" alt="" border="0" /></a>
+			$vbphrase[additional_options]
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_newpost_options" style="$vbcollapse[collapseobj_newpost_options]; display: none;">
+	<tr valign="top">
+		<td class="panelsurround" align="center">
+		<div class="panel">
+			<div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+
+				<if condition="$show['podcasturl']">
+				<!-- podcast stuff -->
+				<fieldset class="fieldset">
+					<legend>$vbphrase[podcast_options]</legend>
+
+					<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+					<tr>
+						<td class="smallfont">$vbphrase[podcast_url]:</td>
+						<td class="smallfont">&nbsp;$vbphrase[filesize_bytes]:</td>
+					</tr>
+					<tr>
+						<td><input type="text" class="bginput" name="podcasturl" value="$podcasturl" size="50" maxlength="255" tabindex="1" title="$vbphrase[podcast_url]" /></td>
+						<td>&nbsp;<input type="text" class="bginput" name="podcastsize" value="$podcastsize" size="10" tabindex="1" title="$vbphrase[podcast_size]" /></td>
+					</tr>
+					<tr>
+						<td class="smallfont">$vbphrase[subtitle]:</td>
+						<td class="smallfont">&nbsp;$vbphrase[explicit]:</td>
+					</tr>
+					<tr>
+						<td><input type="text" class="bginput" name="podcastsubtitle" value="$podcastsubtitle" size="50" maxlength="255" tabindex="1" title="$vbphrase[subtitle]" /></td>
+						<td><input type="checkbox" name="podcastexplicit" value="1" tabindex="1" $explicitchecked title="$vbphrase[explicit]" /></td>
+					</tr>
+					<tr>
+						<td class="smallfont">$vbphrase[keywords]:</td>
+						<td class="smallfont">$vbphrase[author]:</td>
+					</tr>
+					<tr>
+						<td><input type="text" class="bginput" name="podcastkeywords" value="$podcastkeywords" size="50" maxlength="255" tabindex="1" title="$vbphrase[keywords]" /></td>
+						<td><input type="text" class="bginput" name="podcastauthor" value="$podcastauthor" size="25" maxlength="255" tabindex="1" title="$vbphrase[author]" /></td>
+					</tr>
+					</table>
+				</fieldset>
+				<!-- / podcast stuff -->
+				</if>
+
+				<if condition="$show['misc_options']">
+				<fieldset class="fieldset">
+					<legend>$vbphrase[miscellaneous_options]</legend>
+					<div style="padding:$stylevar[formspacer]px">
+						<if condition="$bbuserinfo['signature'] != ''"><div><label for="cb_signature"><input type="checkbox" name="signature" value="1" id="cb_signature" tabindex="1" $checked[signature] />$vbphrase[show_your_signature]</label></div></if>
+						<if condition="$show['parseurl']"><div><label for="cb_parseurl"><input type="checkbox" name="parseurl" value="1" id="cb_parseurl" tabindex="1" $checked[parseurl] />$vbphrase[automatically_parse_links_in_text]</label></div></if>
+						$disablesmiliesoption
+					</div>
+				</fieldset>
+				</if>
+
+				$attachmentoption
+
+				<if condition="$show['member']">
+				<fieldset class="fieldset">
+					<legend>$vbphrase[thread_subscription]</legend>
+					<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+					<tr>
+						<td>$vbphrase[notification_type]:<br /><select name="emailupdate" tabindex="1">
+							<option value="9999" $emailchecked[9999]>$vbphrase[do_not_subscribe]</option>
+							<option value="0" $emailchecked[0]>$vbphrase[no_email_notification]</option>
+							<option value="1" $emailchecked[1]>$vbphrase[instant_email_notification]</option>
+							<option value="2" $emailchecked[2]>$vbphrase[daily_email_notification]</option>
+							<option value="3" $emailchecked[3]>$vbphrase[weekly_email_notification]</option>
+						</select></td>
+						<if condition="$show['subscribefolders']"><td>$vbphrase[folder]:<br /><select name="folderid" tabindex="1">$folderbits</select></td></if>
+					</tr>
+					</table>
+				</fieldset>
+				</if>
+
+				<if condition="$show['poll']">
+				<fieldset class="fieldset">
+					<legend>$vbphrase[post_a_poll]</legend>
+					<div style="padding:$stylevar[formspacer]px">
+						<div><label for="cb_postpoll"><input type="checkbox" name="postpoll" value="yes" id="cb_postpoll" tabindex="1" $checked[postpoll] />$vbphrase[yes_post_a_poll_thread]</label></div>
+						<div><label for="polloptnum">$vbphrase[number_of_poll_options]: <input type="text" class="bginput" size="5" name="polloptions" value="$polloptions" id="polloptnum" tabindex="1" /></label> <if condition="$vboptions['maxpolloptions']">($vbphrase[maximum]: $vboptions[maxpolloptions])</if></div>
+					</div>
+				</fieldset>
+				</if>
+
+				$threadmanagement
+
+				</div>
+			</div>
+
+			<div style="margin-top:$stylevar[cellpadding]px">
+				<input type="submit" class="button" name="sbutton" value="$vbphrase[submit_new_thread]" accesskey="s" tabindex="1" />
+				<input type="submit" class="button" name="preview" value="$vbphrase[preview_post]" accesskey="r" tabindex="1" />
+			</div>
+		</td>
+	</tr>
+</tbody>
+</table>
+</if>
+
+</form>
+
+<br />
+
+$forumrules
+
+$footer
+
+</body>
+</html>

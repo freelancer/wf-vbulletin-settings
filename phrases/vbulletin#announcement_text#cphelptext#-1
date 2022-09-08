@@ -1,0 +1,12 @@
+<b>Announcements:</b><br />
+vBulletin's announcement system allows you to communicate important information to your users. While there are other methods for doing this (such as Sticky threads), announcements have several distinct advantages: you can use HTML without enabling it in a forum (which is <b>very dangerous</b>), you can set the announcement to not appear until sometime in the future and automatically disappear on a certain date, and you can add an announcement to show up in all forums.<br /><br />
+
+If you have multiple announcements in a forum, global announcements included, they will all be displayed in one thread, which can be accessed by clicking on the title of the most recent announcement on forumdisplay.<br /><br />
+
+Announcements are never automatically removed. When the End Date set for an announcement is reached, it will disappear from end-user view. It can be removed or reactivated from the Admin CP at any time. To reactivate an expired announcement, simply change the End Date to some date in the future.<br /><br />
+
+To add an announcement, click Add New Announcement under Announcements in the left navigation bar, or click New across from the forum it should apply to. (see <a href="help.php?do=answer&amp;page=announcement&amp;pageaction=add">Adding Announcements</a>)<br /><br />
+
+Once you have one or more announcements, you can view a list of them and the forums they belong to. Click Announcement Manager under Announcements in the left navigation bar to see a list of your forums and announcements. From here you can create a new global or forum-specific announcement, or modify or remove an existing one. (see <a href="help.php?do=answer&amp;page=announcement&amp;pageaction=modify">Modifying Announcements</a>)<br /><br />
+
+From here, click Edit to modify the properties or text of an announcement, or Delete to remove it. (see <a href="help.php?do=answer&amp;page=announcement&amp;pageaction=edit">Editing Announcements</a>)

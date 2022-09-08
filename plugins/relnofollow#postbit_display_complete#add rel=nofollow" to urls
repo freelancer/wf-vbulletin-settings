@@ -1,0 +1,4 @@
+$this->post['message'] = str_replace('target=', 'rel="nofollow" target=', $this->post['message']);
+if($vbulletin->options[reldofollowsig] == 'Yes'){
+$this->post['signature'] = str_replace('target=', 'rel="nofollow" target=', $this->post['signature']);
+}

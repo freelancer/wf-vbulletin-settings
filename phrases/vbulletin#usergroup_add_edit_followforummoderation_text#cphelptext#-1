@@ -1,0 +1,1 @@
+If you disable this option then all posts made by members of this group will go into the <a href="../{$vbulletin->config[Misc][modcpdir]}/moderate.php?do=posts" target="_blank">moderation queue</a>.  You will need to validate their posts before they show up on the forums.

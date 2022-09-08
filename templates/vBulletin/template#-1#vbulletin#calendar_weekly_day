@@ -1,0 +1,43 @@
+<if condition="$show['monthname']">
+<tr>
+	<td class="tcat" colspan="2">
+		<span style="float:$stylevar[right]" class="smallfont">
+			<a href="calendar.php?$session[sessionurl]c=$calendarid&amp;week=$prevweek"><strong>&laquo;</strong> $vbphrase[week]</a>
+			|
+			<a href="calendar.php?$session[sessionurl]c=$calendarid&amp;week=$nextweek">$vbphrase[week] <strong>&raquo;</strong></a>
+		</span>
+		$weekmonth $weekyear
+	</td>
+</tr>
+</if>
+<tr>
+	<td class="thead" colspan="2">
+		<a style="float:$stylevar[right]; font-weight:normal" href="calendar.php?$session[sessionurl]do=add&amp;c=$calendarinfo[calendarid]&amp;day={$weekyear}-{$month}-{$weekday}">$vbphrase[add_new_event]</a>
+		$weekdayname
+	</td>
+</tr>
+<tr valign="top">
+	<td class="alt2" align="center"><span style="font-size:14pt">
+		<if condition="$show['events']">
+			<div style="cursor:pointer" onclick="window.location='calendar.php?$session[sessionurl]do=getinfo&amp;day={$weekyear}-{$month}-{$weekday}&amp;c=$calendarinfo[calendarid]';">$weekday</div>
+		<else />
+			$weekday
+		</if>
+	</span></td>
+	<if condition="$show['highlighttoday']">
+		<td class="alt1" width="100%" style="border:1px solid red" title="$weekmonth $weekday $weekyear">
+	<else />
+		<td class="alt1" width="100%" title="$weekmonth $weekday $weekyear">
+	</if>
+		<if condition="$show['events']">
+			$userevents
+		</if>
+		<if condition="$show['birthdays']">
+			<div class="smallfont">
+				<img class="inlineimg" src="$stylevar[imgdir_misc]/birthday_small.gif" alt="" />
+				<strong><phrase 1="$userbdays">$vbphrase[x_birthdays]</phrase></strong>
+			</div>
+		</if>
+		<if condition="!$show['events'] AND !$show['birthdays']">&nbsp;</if>
+	</td>
+</tr>

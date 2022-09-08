@@ -1,0 +1,80 @@
+<tr>
+	<td width="20" class="alt2" id="td_threadstatusicon_$thread[realthreadid]">
+		$thread[openclose_editable]
+		<img src="$stylevar[imgdir_statusicon]/thread$thread[statusicon].gif" id="thread_statusicon_$thread[realthreadid]" alt="<if condition="$show['threadcount']"><phrase 1="$thread[dot_count]" 2="$thread[dot_lastpost]">$vbphrase[have_x_posts_in_thread_last_y]</phrase></if>" border="" />
+	</td>
+	
+	<td class="alt1" id="td_threadtitle_$thread[realthreadid]" title="$thread[preview]">
+
+		$thread[title_editable]
+	
+			<if condition="$show['taglist'] OR $show['moderated'] OR $show['deletedthread'] OR $show['paperclip'] OR $show['subscribed'] OR $show['sticky'] OR $show['rexpires']">
+				<span style="float:$stylevar[right]">
+					<if condition="$show['taglist']"> <img class="inlineimg" src="$stylevar[imgdir_misc]/tag.png" alt="$thread[taglist]" /> </if>
+					<if condition="$show['rexpires']"> <img class="inlineimg" src="$stylevar[imgdir_misc]/expires.gif" alt="<phrase 1="$thread[expiredate]" 2="$thread[expiretime]">$vbphrase[expires_on_x_y]</phrase>" /> </if>
+					<if condition="$show['moderated']"> <img class="inlineimg" src="$stylevar[imgdir_misc]/moderated_small.gif" alt="<phrase 1="$thread[hiddencount]">$vbphrase[x_moderated_posts]</phrase>" /> </if>
+					<if condition="$show['deletedthread']"> <img class="inlineimg" src="$stylevar[imgdir_misc]/trashcan_small.gif" alt="<phrase 1="$thread[deletedcount]">$vbphrase[x_deleted_posts]</phrase>" /> </if>
+					<if condition="$show['paperclip']"> <a href="#" onclick="attachments($thread[threadid]); return false"> <img class="inlineimg" src="$stylevar[imgdir_misc]/paperclip.gif" border="0" alt="<phrase 1="$thread[attach]">$vbphrase[x_attachments]</phrase>" /></a> </if>
+					<if condition="$show['subscribed']"> <img class="inlineimg" src="$stylevar[imgdir_misc]/subscribed.gif" alt="$vbphrase[you_are_subscribed_to_this_thread]" /> </if>
+					<if condition="$show['sticky']"> <img class="inlineimg" src="$stylevar[imgdir_misc]/sticky.gif" alt="$vbphrase[sticky_thread]" /> </if>
+				</span>
+			</if>
+            <div>
+			<a href="showthread.php?$session[sessionurl]t=$thread[threadid]$thread[highlight]" id="thread_title_$thread[realthreadid]"<if condition="$show['gotonewpost']"> style="font-weight:bold"</if>>$thread[threadtitle]</a>
+
+                    <span class="smallfont" style="white-space:nowrap; display: block;">
+
+			<if condition="$show['gotonewpost']"><a href="showthread.php?$session[sessionurl]goto=newpost&amp;t=$thread[threadid]$thread[highlight]" id="thread_gotonew_$thread[realthreadid]" style="display: inline"><img class="inlineimg" src="$stylevar[imgdir_button]/firstnew.gif" alt="$vbphrase[go_to_first_new_post]" border="0" /></a>&nbsp;</if>
+
+			<if condition="$thread['pagenav']">$stylevar[dirmark] (<img class="inlineimg" src="$stylevar[imgdir_misc]/multipage.gif" alt="$vbphrase[multipage_thread]" border="0" /> $thread[pagenav]<if condition="$show[pagenavmore]"> ... <a href="showthread.php?$session[sessionurl]t=$thread[threadid]&amp;page=$thread[totalpages]$thread[highlight]" style="display: inline;">$vbphrase[last_page]</a></if>)</if>
+
+                    </span>
+		</div>
+
+		<if condition="$show['rmanage']"><div class="smallfont"><span style="float:$stylevar[right]"><a href="postings.php?$session[sessionurl]do=editthread&amp;t=$thread[redirectthreadid]">$vbphrase[manage]</a></span></div></if>
+
+		<div class="smallfont">
+			<if condition="$show['threadratings'] AND $show['threadrating']"><span style="float:$stylevar[right]"><img class="inlineimg" src="$stylevar[imgdir_rating]/rating_$thread[rating].gif" border="0" alt="<phrase 1="$thread[votenum]" 2="$thread[voteavg]">$vbphrase[thread_rating_x_votes_y_average]</phrase>" /></span></if>
+			<if condition="$show['guestuser']">
+				$thread[postusername]
+			<else />
+				<span>$thread[postusername]</span>
+			</if>
+		</div>
+      
+        
+        
+        
+        
+        
+
+		<if condition="$show['unsubscribe']">
+			<div class="smallfont">
+				<a href="newreply.php?$session[sessionurl]do=newreply&amp;t=$thread[threadid]" rel="nofollow">$vbphrase[reply]</a> |
+				<a href="subscription.php?$session[sessionurl]do=removesubscription&amp;return=ucp&amp;t=$thread[threadid]" rel="nofollow">$vbphrase[unsubscribe]</a>
+			</div>
+		</if>
+
+	</td>
+
+
+
+	<if condition="$show['notificationtype']">
+		<td class="alt1"><div class="smallfont">
+			<label for="sub$subscribethread[$threadid]">$thread[notification]</label>
+		</div></td>
+		<td class="alt2"><input type="checkbox" name="deletebox[$subscribethread[$threadid]]" id="sub$subscribethread[$threadid]" value="yes" /></td>
+	<else />
+		
+
+		<if condition="$show['forumlink']">
+			<td class="alt1"><a href="forumdisplay.php?$session[sessionurl]f=$thread[forumid]">$thread[forumtitle]</a></td>
+		</if>
+	</if>
+
+	<if condition="$show['inlinemod']">
+		<td  width="20" align="right" class="<if condition="$show['forumlink']">alt2<else />alt1</if>">
+			<input type="checkbox" name="tlist[$thread[realthreadid]]" id="tlist_$thread[realthreadid]" value="$thread[checkbox_value]" <if condition="$show['disabled']">disabled="disabled"</if> />
+		</td>
+	</if>
+</tr>

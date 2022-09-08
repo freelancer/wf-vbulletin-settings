@@ -1,0 +1,6 @@
+<tr>
+	<td>&nbsp;$bangroup</td>
+	<td align="center">$points</td>
+	<td align="center">$infractions</td>
+	<td align="$stylevar[right]">$period</td>
+</tr>

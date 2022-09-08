@@ -1,0 +1,9 @@
+<br />
+<br />
+<div style="width:95%; background-color:yellow; padding:4px; border: 2px black inset;">
+   <vb:if condition="$bopnumpics == 1">
+      {vb:rawphrase bop5_num_hidden_image}
+   <vb:else />
+      {vb:rawphrase bop5_num_hidden_images, {vb:raw bopnumpics}}
+   </vb:if>
+</div>

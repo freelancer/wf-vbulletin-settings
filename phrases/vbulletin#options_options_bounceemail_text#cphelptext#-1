@@ -1,0 +1,5 @@
+When an email sent from vBulletin is returned (bounced) back from a server for whatever reason, internet standards dictate that there must be a valid email address to receive those bounce messages. This option should be used to provide that address.<br />
+<br />
+If this field is left empty, the previously-specified 'Webmaster Email' address will be used automatically.<br />
+<br />
+This email is used when using an SMTP server, or when the "Enable -f Parameter" email for sendmail is switched on.

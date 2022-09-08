@@ -1,0 +1,39 @@
+<div id="vbseo-likes">
+      <span class="vbseo-likes-count" onclick="vbseoui.tree_dropdown()"><img src="vbseo/resources/images/forum/vbseo_likes_heart.png" class="vbseo-likes-count-image" alt="$vbphrase[vbseo_like_tree]" />$like_total<em>$vbphrase[vbseo_likes]</em></span>
+      
+      <div id="liketree_$ctype.$cgroup" class="vbseo-likes-container">
+
+		<ul class="vbseo-likes-tabs">
+			<li><a href="#" onclick="return vbseoui.treetab_click(0)">$vbphrase[vbseo_like_top]</a></li>
+			<li><a href="#" onclick="return vbseoui.treetab_click(1)">$vbphrase[vbseo_like_all]</a></li>
+			<if condition="$like_page">
+			<li><a href="#" onclick="return vbseoui.treetab_click(2)">$vbphrase[vbseo_thispage]</a></li>
+			</if>
+			<li class="vbseo-likes-fusion"></li>
+		</ul>
+
+		<ul class="vbseo-likes-list">
+		<vb:each from="alikes" key="ind" value="like">
+			<li>
+                <div class="vbseo-likes-tipsy">
+                	<div class="vbseo-likes-tipsy-arrow"></div>
+	                <div class="vbseo-likes-tipsy-inner">$like[pagetext]</div>
+				</div>
+
+				<img src="$like[avatarurl]" class="vbseo-likes-avatar" alt="" />
+				<span class="vbseo-likes-hearts"><strong>$like[count]</strong></span>
+				<span class="vbseo-likes-postby">$vbphrase[vbseo_post_by] <strong>$like[username]</strong></span>
+			<a href="$like[url]" class="vbseo-likes-link">
+			</a>
+			</li>
+        </vb:each>
+		</ul>
+	
+	
+	  </div>
+</div>
+<if condition="$page_ids">
+<script type="text/javascript">
+var vbseoui_pageids = "$page_ids";
+</script><br />
+</if>

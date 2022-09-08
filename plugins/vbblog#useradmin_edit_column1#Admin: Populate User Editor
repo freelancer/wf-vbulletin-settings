@@ -1,0 +1,2 @@
+define('BLOG_ADMIN_USER_EDIT', true);
+require_once(DIR . '/includes/blog_plugin_useradmin.php');

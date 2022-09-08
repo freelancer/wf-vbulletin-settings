@@ -1,0 +1,5 @@
+In showgroups.php vBulletin execute a query which can become more intensive as your user count increases. vB Optimise can cache this query for X hours so that the query is ran a minimal amount of times.
+<br /><br />
+<strong>Note:</strong> This setting indicates hours, by default this is set to "4" for <strong>four hours</strong>, to disable simply enter 0.
+<br /><br />
+Special thanks to <a href="http://forums.digitalpoint.com/" target="_blank">Digital Point</a> for permission to use their optimisation suggestion.

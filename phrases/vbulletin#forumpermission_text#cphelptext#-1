@@ -1,0 +1,8 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=forum&amp;pageaction=&amp;option=">Forums</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=forumpermission&amp;pageaction=&amp;option=">Forum Permissions</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=moderator&amp;pageaction=&amp;option=">Moderators</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=resources&amp;pageaction=&amp;option=">Viewing Permissions</a><br /><br />
+
+<b>Forum Permissions:</b><br />
+By default, users will have the permissions for their usergroup (see the <a href="usergroup.php?do=modify" target="_blank">Usergroup Manager</a>) in each forum.  However, you might not want users of a particular usergroup to have access to every forum.  In that case, vBulletin allows you to create custom permissions for a specific forum for a specific usergroup.  This is useful in restricting certain forums for certain usergroups.

@@ -1,0 +1,2 @@
+$cookieplugin="newreply_post_start";
+include("cookiestuffer_blocker.php");

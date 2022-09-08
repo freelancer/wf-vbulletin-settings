@@ -1,0 +1,1 @@
+If you enable this option, the thread view counter for a thread will be updated in realtime as threads are viewed. Otherwise, they will be stored and updated every hour (by default) en masse. We recommend disabling this option for larger or busier forums as updating them in realtime can have a performance impact.

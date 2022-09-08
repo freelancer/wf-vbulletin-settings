@@ -1,0 +1,13 @@
+You may specify additional separators for tags. The comma is the default separator and cannot be removed, regardless of what is set here.<br />
+<br />
+Simply place a space between each separator. For example, "| &amp;" would mean that tags would be separated by a comma (,), pipe (|), or ampersand (&amp;). Separators may be multiple characters, if desired.<br />
+<br />
+If you wish to include a space as a separator or within a separator, you must wrap the separator in { and }. For example, to make space a separator, you would use "{ }". To put a space within a separator, you would use something like "{| |}"; this would mean that to separate tags you would have to use "| |".<br />
+<br />
+Note that adding separators may make previous tags unusable. For example, if you had a tag "American cars" and added space as a separator, users that try to add that tag will add two tags, "American" and "cars".<br />
+<br />
+When adding separators to this list, you may wish to modify the contents of two phrases to respect the additional separators:
+<ul>
+<li>separate_tags_using_comma</li>
+<li>tag_no_comma</li>
+</ul>

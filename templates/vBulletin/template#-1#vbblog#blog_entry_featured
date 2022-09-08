@@ -1,0 +1,78 @@
+<!--blog_entry_featured - TABLE-->
+<div class="thead" style="margin:$stylevar[cellspacing]px; margin-top:0px">
+	<phrase 1="blog.php?$session[sessionurl]u=$blog[bloguserid]" 2="$blog[blogtitle]">$vbphrase[featured_blog_entry_from_blogtitle]</phrase>
+</div>
+<div class="alt1" style="margin:$stylevar[cellspacing]px">
+	<table cellpadding="$stylevar[cellpadding]" cellspacing="0" border="0" width="100%">
+	<tr valign="top">
+	<if condition="$show['profilepic']">
+		<td>
+			<a href="member.php?$session[sessionurl]u=$blog[postedby_userid]"><img src="$blog[profilepicurl]" $blog[ppwidth] $blog[ppheight] alt="<phrase 1="$blog[postedby_username]">$vbphrase[xs_profilepic]</phrase>" border="0" class="alt2" style="<if condition="$blog['ppwidthpx'] > 180">max-width:180px; height:auto; width:auto !important; width:180px<else />display:inline</if>" /></a>
+		</td>
+	<else /><if condition="$show['avatar']">
+		<td>
+			<a href="member.php?$session[sessionurl]u=$blog[postedby_userid]"><img src="$blog[avatarurl]" $blog[avwidth] $blog[avheight] alt="<phrase 1="$blog[postedby_username]">$vbphrase[xs_avatar]</phrase>" border="0" class="alt2" style="<if condition="$blog['avwidthpx'] > 180">max-width:180px; height:auto; width:auto !important; width:180px<else />display:inline</if>" /></a>
+		</td>
+	</if></if>
+		<td width="100%">
+			<h2 style="font-size:14pt; font-weight:normal; margin:0px"><a href="blog.php?$session[sessionurl]b=$blog[blogid]">$blog[title]</a></h2>
+			<div class="smallfont shade" style="margin-bottom:10px"><phrase 1="$blog[date]" 2="$blog[time]" 3="blog.php?$session[sessionurl]u=$blog[postedby_userid]" 4="$blog[postedby_username]">$vbphrase[posted_date_at_time_by_user]</phrase></div>
+			<div>
+				$blog[message]<if condition="$show['readmore']">...
+					<div class="smallfont" style="text-align:$stylevar[right]; margin-top:$stylevar[cellpadding]px"><a href="blog.php?$session[sessionurl]b=$blog[blogid]">$vbphrase[continue_reading]</a></div>
+				</if>
+
+				<if condition="$show['attachments']">
+				<!-- attachments -->
+					<div style="margin-top:10px">
+
+						<if condition="$show['thumbnailattachment']">
+							<fieldset class="fieldset">
+								<legend>$vbphrase[attached_thumbnails]</legend>
+								<div style="padding:$stylevar[formspacer]px">
+								$blog[thumbnailattachments]
+								</div>
+							</fieldset>
+						</if>
+						<if condition="$show['imageattachment']">
+							<fieldset class="fieldset">
+								<legend>$vbphrase[attached_images]</legend>
+								<div style="padding:$stylevar[formspacer]px">
+								$blog[imageattachments]
+								</div>
+							</fieldset>
+						</if>
+						<if condition="$show['imageattachmentlink']">
+							<fieldset class="fieldset">
+								<legend>$vbphrase[attached_images]</legend>
+								<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+								$blog[imageattachmentlinks]
+								</table>
+								</fieldset>
+						</if>
+						<if condition="$show['otherattachment']">
+							<fieldset class="fieldset">
+								<legend>$vbphrase[attached_files]</legend>
+								<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+								$blog[otherattachments]
+								</table>
+							</fieldset>
+						</if>
+
+					</div>
+				<!-- / attachments -->
+				</if>
+
+			</div>
+		</td>
+	</tr>
+	</table>
+</div>
+<div class="alt2 smallfont" align="$stylevar[right]" style="margin:0px $stylevar[cellspacing]px 0px $stylevar[cellspacing]px; padding:$stylevar[cellpadding]px">
+	<if condition="$blog[categorybits]">
+		<div style="float:$stylevar[left]"><span class="shade">$vbphrase[posted_in]</span> $blog[categorybits]</div>
+	</if>
+	<span class="shade">$vbphrase[views]</span> $blog[views]
+	<span class="shade"><a href="blog.php?b=$blog[blogid]#comments" class="shade">$vbphrase[comments]</a></span> $blog[comments_visible]
+	<span class="shade"><a href="blog.php?b=$blog[blogid]#trackbacks" class="shade">$vbphrase[trackbacks]</a></span> $blog[trackback_visible]
+</div>

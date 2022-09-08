@@ -1,0 +1,2 @@
+YUI (Yahoo! User Interface Library) script files are hosted locally on your server, you may however have them served from Yahoo or Google servers, saving you some bandwidth and potentially decreasing load times.<br />
+<br />More information about this service can be found for <a href="http://developer.yahoo.com/yui/articles/hosting/">Yahoo!</a> and <a href="http://code.google.com/apis/ajaxlibs/">Google</a>.

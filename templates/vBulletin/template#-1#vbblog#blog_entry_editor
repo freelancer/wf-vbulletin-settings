@@ -1,0 +1,365 @@
+<if condition="$show['delete']">
+<form action="blog_post.php?do=deleteblog&amp;b=$bloginfo[blogid]" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="b" value="$bloginfo[blogid]" />
+<input type="hidden" name="url" value="$url" />
+<input type="hidden" name="do" value="deleteblog" />
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('editentry_delete')"><img id="collapseimg_editentry_delete" src="$stylevar[imgdir_button]/collapse_generic$vbcollapse[collapseimg_editentry_delete].gif" alt="" border="0" /></a>
+		$vbphrase[delete_blog_entry]
+	</td>
+</tr>
+<tbody id="collapseobj_editentry_delete" style="$vbcollapse[collapseobj_editentry_delete]">
+	<tr>
+		<td class="panelsurround" align="center">
+		<div class="panel">
+			<div align="$stylevar[left]" style="max-width:$stylevar[formwidth]; width:auto !important; width:$stylevar[formwidth_blog]">
+
+			<div class="fieldset">
+				<div>$vbphrase[delete_message_check_appropriate_option]</div>
+			</div>
+
+			<fieldset class="fieldset">
+				<legend>$vbphrase[deletion_options]</legend>
+				<div style="padding:$stylevar[formspacer]px">
+					<ul class="list_no_decoration">
+						<li><label for="rb_del_leave"><input type="radio" name="deleteblog" value="" id="rb_del_leave" tabindex="1" checked="checked" />$vbphrase[do_not_delete_message]</label></li>
+						<if condition="$show['softdeleteoption']">
+							<li><label for="rb_del_soft"><input type="radio" name="deleteblog" value="soft" id="rb_del_soft" tabindex="1" />$vbphrase[delete_message]</label>
+								<if condition="$show['physicaldeleteoption'] AND $show['keepattachmentsoption']">(<label for="cb_keepattachments"><input type="checkbox" name="keepattachments" value="1" id="cb_keepattachments" tabindex="1" />$vbphrase[keep_attachments]</label>)</if>
+							</li>
+						</if>
+						<if condition="$show['physicaldeleteoption']">
+							<li><label for="rb_del_hard"><input type="radio" name="deleteblog" value="remove" id="rb_del_hard" tabindex="1" />$vbphrase[physically_remove_message]</label></li>
+						</if>
+					</ul>
+				</div>
+			</fieldset>
+
+			<div class="smallfont">
+				<div>$vbphrase[reason_for_deletion]</div>
+				<input type="text" class="bginput" name="reason" size="50" tabindex="1" />
+			</div>
+
+			</div>
+		</div>
+
+		<div style="margin-top:$stylevar[cellpadding]px">
+			<input type="submit" class="button" value="$vbphrase[delete]" tabindex="1" accesskey="d" />
+		</div>
+
+		</td>
+	</tr>
+</tbody>
+</table>
+</form>
+<br />
+</if>
+
+$postpreview
+
+<if condition="$show['drafts']">
+<form action="blog_post.php?do=editblog" method="get">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="editblog" />
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('newentry_draft')"><img id="collapseimg_newentry_draft" src="$stylevar[imgdir_button]/collapse_generic$vbcollapse[collapseimg_newentry_draft].gif" alt="" border="0" /></a>
+		$vbphrase[draft_blog_entries]
+	</td>
+</tr>
+<tbody id="collapseobj_newentry_draft" style="$vbcollapse[collapseobj_newentry_draft]">
+<tr>
+	<td class="panelsurround" align="center">
+		<div class="panel">
+			<div align="$stylevar[left]" style="max-width:$stylevar[formwidth]; width:auto !important; width:$stylevar[formwidth_blog]" class="fieldset">
+				<div style="margin-bottom:$stylevar[cellpadding]px">$vbphrase[select_draft_title_to_load_previous_options]</div>
+				<ul class="list_no_decoration">$draft_options</ul>
+			</div>
+		</div>
+		<div style="margin-top:$stylevar[cellpadding]px">
+			<input type="submit" class="button" value="$vbphrase[go_to_draft]" tabindex="1" accesskey="d" />
+		</div>
+	</td>
+</tr>
+</tbody>
+</table>
+</form>
+<br />
+</if>
+
+
+<form action="blog_post.php?do=updateblog&amp;blogid=$bloginfo[blogid]" name="vbform" method="post"<if condition="!is_browser('webtv')"> onsubmit="return vB_Editor['$editorid'].prepare_submit(0, $vboptions[postminchars])"</if>>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<if condition="$show['edit']"><span class="smallfont" style="float:$stylevar[right]"><strong>$vbphrase[blog_entry]</strong> <a href="blog.php?$session[sessionurl]b=$bloginfo[blogid]" title="$bloginfo[title]">$bloginfo[title_trimmed]</a></span>
+		$vbphrase[edit_blog_entry]
+		<else />
+		<if condition="$show['postgroupblog']">$vbphrase[post_to_this_blog]<else />$vbphrase[post_to_your_blog]</if>
+		</if>
+	</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]" style="max-width:$stylevar[formwidth]; width:auto !important; width:$stylevar[formwidth_blog]">
+
+			<if condition="$show['edit']">
+				<!-- edit reason field -->
+				<div class="smallfont" style="margin-top:$stylevar[cellpadding]px; clear:both">
+					<label>$vbphrase[reason_for_editing]
+						<input type="text" class="bginput" name="reason" value="$reason" size="50" maxlength="200" tabindex="1" style="display:block" />
+					</label>
+				</div>
+				<!-- / edit reason field -->
+			</if>
+
+			<!-- subject field -->
+			<div class="smallfont" style="margin-top:$stylevar[cellpadding]px; clear:both">
+				<label>$vbphrase[title]
+					<input type="text" class="bginput" name="title" value="$title" size="50" maxlength="$vboptions[titlemaxchars]" tabindex="1" style="display:block" />
+				</label>
+			</div>
+			<!-- / subject field -->
+
+			<!-- message area -->
+			<div class="smallfont" style="margin-top:$stylevar[cellpadding]px">
+				<if condition="!$show['edit']">
+					$vbphrase[message]
+				<else />
+					<phrase 1="member.php?$session[sessionurl]u=$bloginfo[userid]" 2="$bloginfo[username]" 3="$bloginfo[entrydate]" 4="$bloginfo[entrytime]">$vbphrase[message_by_x_on_y_at_z]</phrase>:
+				</if>
+			</div>
+			$messagearea
+			<!-- / message area -->
+
+		</div>
+	</div>
+
+	<div style="margin-top:$stylevar[cellpadding]px">
+		<input type="hidden" name="s" value="$session[sessionhash]" />
+		<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+		<input type="hidden" name="do" value="updateblog" />
+		<input type="hidden" name="b" value="$bloginfo[blogid]" />
+		<input type="hidden" name="posthash" value="$posthash" />
+		<input type="hidden" name="poststarttime" value="$poststarttime" />
+		<input type="hidden" name="loggedinuser" value="$bbuserinfo[userid]" />
+		<input type="hidden" name="u" value="$userid" />
+		<if condition="!$show['edit']">
+			<input type="submit" class="button" name="sbutton" value="$vbphrase[post_now]" tabindex="1" id="{$editorid}_save" accesskey="s" />
+		<else />
+			<input type="submit" class="button" name="sbutton" value="$vbphrase[save_changes]" tabindex="1" id="{$editorid}_save" accesskey="s" />
+		</if>
+		<input type="submit" class="button" name="preview" value="$vbphrase[preview]" tabindex="1" accesskey="r" />
+		<if condition="!$show['edit']"><input type="submit" class="button" name="draft" value="$vbphrase[save_draft]" tabindex="1" /></if>
+	</div>
+	</td>
+</tr>
+</table>
+
+<if condition="$show['additional_options']">
+<br />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat">
+			<a style="float:$stylevar[right]" href="#top" onclick="return toggle_collapse('newentry_options')"><img id="collapseimg_newentry_options" src="$stylevar[imgdir_button]/collapse_generic$vbcollapse[collapseimg_newentry_options].gif" alt="" border="0" /></a>
+			$vbphrase[additional_options]
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_newentry_options" style="$vbcollapse[collapseobj_newentry_options]">
+	<tr valign="top">
+		<td class="panelsurround" align="center">
+		<div class="panel">
+			<div align="$stylevar[left]" style="max-width:$stylevar[formwidth]; width:auto !important; width:$stylevar[formwidth_blog]">
+
+				<!-- Tags -->
+				<if condition="$show['tag_option']">
+					<fieldset class="fieldset" style="margin-top: $stylevar[cellpadding]px">
+						<legend>$vbphrase[tags]</legend>
+						<div style="padding:$stylevar[formspacer]px">
+							<div>$vbphrase[separate_tags_using_comma]</div>
+							<span id="tag_add"><input type="text" class="bginput" name="taglist" id="tag_input" value="$taglist" size="40" /></span>
+							<if condition="$show['tags_remain']"><div><phrase 1="$tags_remain">$vbphrase[you_may_add_x_tags_to_entry]</phrase></div></if>
+						</div>
+					</fieldset>
+					<if condition="$show['popups']">
+						<div id="tag_add_menu" class="vbmenu_popup" style="display:none"></div>
+						<script type="text/javascript" src="clientscript/vbulletin_ajax_tagsugg.js?v=$vboptions[simpleversion]"></script>
+						<script type="text/javascript" src="clientscript/blog_ajax_tagsugg.js?v=$vboptions[simpleversion]"></script>
+						<script type="text/javascript">
+						<!--
+						vbmenu_register('tag_add', true);
+						tag_comp = new vB_Blog_AJAX_TagSuggest('tag_comp', 'tag_input', 'tag_add');
+						tag_comp.allow_multiple = true;
+						tag_comp.set_delimiters('$tag_delimiters');
+						//-->
+						</script>
+					</if>
+				</if>
+				<!-- / Tags -->
+
+				<if condition="$show['category']">
+				<fieldset class="fieldset">
+					<legend>$vbphrase[blog_categories]</legend>
+					<div style="padding:$stylevar[formspacer]px">
+						<if condition="$globalcategorybits">
+							<div class="alt2" style="padding:$stylevar[formspacer]px; margin-bottom:4px" align="center">$vbphrase[global_categories]</div>
+							<ul class="list_no_decoration">
+								$globalcategorybits
+							</ul>
+						</if>
+						<if condition="$localcategorybits">
+							<div class="alt2" style="padding:$stylevar[formspacer]px; margin-bottom:4px" align="center">$vbphrase[local_categories]</div>
+							<ul class="list_no_decoration">
+								$localcategorybits
+							</ul>
+						</if>
+						<div class="shade" style="margin-top:$stylevar[cellpadding]px">$vbphrase[selecting_child_category_includes_parent]</div>
+					</div>
+				</fieldset>
+				</if>
+
+				<fieldset class="fieldset">
+					<legend>$vbphrase[options]</legend>
+					<div style="padding:$stylevar[formspacer]px">
+						<ul class="list_no_decoration">
+							<li><label for="cb_comments"><input type="checkbox" name="allowcomments" value="1" id="cb_comments" tabindex="1" $checked[allowcomments] />$vbphrase[allow_comments_to_be_posted]</label>
+									<a href="faq.php?$session[sessionurl]faq=vbblog_faq_reading_and_posting_options#faq_vbblog_faq_reading_and_posting_options_allow_comments" target="_blank">[?]</a></li>
+							<if condition="$show['moderatecomments']">
+								<li><label for="cb_moderate"><input type="checkbox" name="moderatecomments" value="1" id="cb_moderate" tabindex="1" $checked[moderatecomments] />$vbphrase[moderate_comments_before_displaying]</label>
+									<a href="faq.php?$session[sessionurl]faq=vbblog_faq_reading_and_posting_options#faq_vbblog_faq_reading_and_posting_options_moderate_comments" target="_blank">[?]</a></li>
+							</if>
+							<if condition="$show['pingback'] OR $show['trackback']">
+								<li><label for="cb_pingback"><input type="checkbox" name="allowpingback" value="1" id="cb_pingback" $checked[allowpingback] /><if condition="!$show['pingback']">$vbphrase[allow_trackback]<else /><if condition="!$show['trackback']">$vbphrase[allow_pingback]<else />$vbphrase[allow_trackback_pingback]</if></if></label>
+									<a href="faq.php?$session[sessionurl]faq=vbblog_faq_reading_and_posting_options#faq_vbblog_faq_reading_and_posting_options_pingback" target="_blank">[?]</a></li>
+							</if>
+							<if condition="$show['notify']">
+								<li><label for="cb_notify"><input type="checkbox" name="notify" value="1" id="cb_notify" tabindex="1" $checked[notify] />$vbphrase[notify_linked_blogs]</label>
+								<a href="faq.php?$session[sessionurl]faq=vbblog_faq_reading_and_posting_options#faq_vbblog_faq_reading_and_posting_options_notify" target="_blank">[?]</a></li>
+							</if>
+							<li><label for="cb_private"><input type="checkbox" name="private" value="1" id="cb_private" tabindex="1" $checked[private] />$vbphrase[restrict_entry_viewing_to_contacts]</label>
+								<a href="faq.php?$session[sessionurl]faq=vbblog_faq_reading_and_posting_options#faq_vbblog_faq_reading_and_posting_options_private" target="_blank">[?]</a></li>
+						</ul>
+					</div>
+				</fieldset>
+
+				<if condition="$show['misc_options']">
+					<fieldset class="fieldset">
+						<legend>$vbphrase[miscellaneous_options]</legend>
+						<table cellpadding="$stylevar[formspacer]" cellspacing="0" border="0">
+						<tbody>
+						<tr>
+							<td><label for="publish_status">$vbphrase[publish_status]</label></td>
+							<td>
+								<select name="status" id="publish_status">
+									<if condition="$show['draftpublish']">
+										<option value="draft"$publish_selected[draft]>$vbphrase[draft_blog_entry]</option>
+									</if>
+									<option value="publish_on"$publish_selected[publish_on]>$vbphrase[publish_on]</option>
+									<option value="publish_now"$publish_selected[publish_now]>$vbphrase[publish_now]</option>
+								</select>
+							</td>
+						</tr>
+						</tbody>
+						<tbody id="publish_on">
+						<tr>
+							<td><label for="publish_month">$vbphrase[date_to_publish]</label></td>
+							<td>
+								<select name="publish[month]" tabindex="1" id="publish_month">
+									<option value="1"$publish_selected[1]>$vbphrase[january]</option>
+									<option value="2"$publish_selected[2]>$vbphrase[february]</option>
+									<option value="3"$publish_selected[3]>$vbphrase[march]</option>
+									<option value="4"$publish_selected[4]>$vbphrase[april]</option>
+									<option value="5"$publish_selected[5]>$vbphrase[may]</option>
+									<option value="6"$publish_selected[6]>$vbphrase[june]</option>
+									<option value="7"$publish_selected[7]>$vbphrase[july]</option>
+									<option value="8"$publish_selected[8]>$vbphrase[august]</option>
+									<option value="9"$publish_selected[9]>$vbphrase[september]</option>
+									<option value="10"$publish_selected[10]>$vbphrase[october]</option>
+									<option value="11"$publish_selected[11]>$vbphrase[november]</option>
+									<option value="12"$publish_selected[12]>$vbphrase[december]</option>
+								</select>
+								<input type="text" name="publish[day]" style="text-align:$stylevar[right]" size="2" class="bginput smallfont" value="$publish_selected[date]" tabindex="1" id="publish_date" />
+								<input type="text" name="publish[year]" style="text-align:$stylevar[right]" size="4" class="bginput smallfont vB_DatePicker[$bbuserinfo[startofweek],publish_]" value="$publish_selected[year]" tabindex="1" id="publish_year" />
+							</td>
+						</tr>
+						<tr>
+							<td><label for="publish_hour">$vbphrase[time_to_publish]</label></td>
+							<td>
+								<input type="text" name="publish[hour]" id="publish_hour" style="text-align:$stylevar[right]" size="2" class="bginput smallfont" value="$publish_selected[hour]" />
+								:
+								<input type="text" name="publish[minute]" style="text-align:$stylevar[left]" size="2" class="bginput smallfont" value="$publish_selected[minute]" />
+							</td>
+						</tr>
+						</tbody>
+						</table>
+
+						<script type="text/javascript">
+						<!--
+						vBulletin.register_control("vB_DatePicker", "publish_year", "publish_", "$bbuserinfo[startofweek]");
+
+						function publish_on()
+						{
+							YAHOO.util.Dom.setStyle('publish_on', 'display', (YAHOO.util.Dom.get('publish_status').value != 'publish_on' ? 'none' : ''));
+						}
+
+						publish_on();
+
+						YAHOO.util.Event.on('publish_status', 'change', publish_on);
+						//-->
+						</script>
+
+						<div style="padding:$stylevar[formspacer]px">
+							<if condition="$show['parseurl']">
+								<div>
+									<label for="cb_parseurl"><input type="checkbox" name="parseurl" value="1" id="cb_parseurl" tabindex="1" $checked[parseurl] />$vbphrase[automatically_parse_links_in_text]</label>
+								</div>
+							</if>
+							$disablesmiliesoption
+						</div>
+					</fieldset>
+				</if>
+
+				<fieldset class="fieldset">
+					<legend>$vbphrase[blog_entry_subscription]</legend>
+						<div style="padding:$stylevar[formspacer]px">
+							<label for="select_emailupdate">$vbphrase[blog_entry_subscription_type]
+							<select name="emailupdate" id="select_emailupdate">
+								<option value="none" $notification[none]>$vbphrase[do_not_subscribe]</option>
+								<option value="usercp" $notification[usercp]>$vbphrase[no_email_notification]</option>
+								<option value="email" $notification[email]>$vbphrase[instant_email_notification]</option>
+							</select></label>
+					</div>
+				</fieldset>
+
+				$attachmentoption
+
+				</div>
+			</div>
+
+			<div style="margin-top:$stylevar[cellpadding]px">
+				<if condition="!$show['edit']">
+					<input type="submit" class="button" name="sbutton" value="$vbphrase[post_now]" tabindex="1" accesskey="s" />
+				<else />
+					<input type="submit" class="button" name="sbutton" value="$vbphrase[save_changes]" tabindex="1" accesskey="s" />
+				</if>
+				<input type="submit" class="button" name="preview" value="$vbphrase[preview]" accesskey="r" tabindex="1" />
+				<if condition="!$show['edit']"><input type="submit" class="button" name="draft" value="$vbphrase[save_draft]" tabindex="1" /></if>
+			</div>
+		</td>
+	</tr>
+</tbody>
+</table>
+</if>
+
+</form>

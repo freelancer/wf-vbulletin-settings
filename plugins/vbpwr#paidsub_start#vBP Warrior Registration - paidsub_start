@@ -1,0 +1,5 @@
+
+				$vbpwr_lasthook='paidsub_start';
+				include(DIR.'/includes/vbpwr_hooks.php');
+			
+			

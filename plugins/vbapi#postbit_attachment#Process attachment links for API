@@ -1,0 +1,18 @@
+$url = create_full_url("attachment.php?{$this->registry->session->vars['sessionurl']}attachmentid=$attachment[attachmentid]&d=$attachment[dateline]");
+$imageurl = create_full_url("attachment.php?{$this->registry->session->vars['sessionurl']}attachmentid=$attachment[attachmentid]&stc=1&d=$attachment[dateline]");
+$thumburl = create_full_url("attachment.php?{$this->registry->session->vars['sessionurl']}attachmentid=$attachment[attachmentid]&stc=1&thumb=1&d=$attachment[thumbnail_dateline]");
+if ($this->registry->options['attachthumbs'])
+{
+	if ($attachment['hasthumbnail'])
+	{
+		$pictureurl =& $thumburl;
+	}
+	else if (!in_array($attachment['attachmentextension'], array('tiff', 'tif', 'psd', 'pdf')) AND $attachment['forceimage'])
+	{
+		$pictureurl =& $imageurl;
+	}
+}
+else if (!in_array($attachment['attachmentextension'], array('tiff', 'tif', 'psd', 'pdf')) AND ($this->registry->options['viewattachedimages'] == 1 OR ($this->registry->options['viewattachedimages'] == 2 AND $attachcount == 1)))
+{
+	$pictureurl =& $imageurl;
+}

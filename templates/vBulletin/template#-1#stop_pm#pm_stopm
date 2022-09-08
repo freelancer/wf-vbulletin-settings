@@ -1,0 +1,18 @@
+
+  		 
+		<b>Note</b>
+
+		<if condition="is_member_of($bbuserinfo, array(1, 2, 3, 4))">
+
+		<p>The Administrator or Moderators may not respond to technical questions through PM's. Please post your technical question in the appropriate forum.</p>
+		<p>For questions on how to use the forum please visit our <a href="faq.php">Frequently Ask Question</a></p>
+
+		<p>Forum usage problems please <a href="sendmessage.php">contact webmaster</a></p>
+
+		<p>Thank you for your understanding!</p>
+		<p></p>
+
+		</if>
+
+  		 
+		

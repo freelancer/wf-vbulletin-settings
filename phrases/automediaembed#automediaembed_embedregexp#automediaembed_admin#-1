@@ -1,0 +1,1 @@
+Embedding Regexp<dfn>This is an optional regular expression for special pages. The regexp should extract the embed URL from the destination pages content. Note that this option will only work if the <b>Extract Destination Data</b> setting is enabled (and working).</dfn>

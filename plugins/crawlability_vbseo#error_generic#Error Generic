@@ -1,0 +1,7 @@
+if( defined('VBSEO_ENABLED') && VBSEO_ENABLED && VBSEO_INVALIDID_404 && 
+	in_array($GLOBALS['vbseo_errortype'], array('noid', 'invalidid'))
+	)
+{
+	vbseo_complete_sec('error_invalidid');
+    header ("HTTP/1.1 404 Not Found");
+}

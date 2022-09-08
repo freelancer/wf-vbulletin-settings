@@ -1,0 +1,1 @@
+Date / Time Formatting<dfn>If a locale is defined, you must use the formatting found <a href="http://www.php.net/manual/en/function.strftime.php" target="_blank">here</a>, otherwise use the formatting found <a href="http://www.php.net/manual/en/function.date.php" target="_blank">here</a></dfn>

@@ -1,0 +1,202 @@
+<fieldset class="fieldset">
+	<legend>$vbphrase[recurrence_pattern]</legend>
+	<table cellpadding="0" cellspacing="0" border="0">
+	<tr valign="top">
+		<td id="select_event" style="display:none; border-$stylevar[right]:2px groove">
+			<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+			<tr>
+				<td><label for="rb_event_1"><input type="radio" name="eventtype" value="1" id="rb_event_1" tabindex="1" $eventtypecheck[1] onclick="toggle_pattern('daily', 'rb_pattern_1')" />$vbphrase[daily]</label></td>
+			</tr>
+			<tr>
+				<td><label for="rb_event_2"><input type="radio" name="eventtype" value="2" id="rb_event_2" tabindex="1" $eventtypecheck[2] onclick="toggle_pattern('weekly', 'rb_pattern_3')" />$vbphrase[weekly]</label></td>
+			</tr>
+			<tr>
+				<td><label for="rb_event_3"><input type="radio" name="eventtype" value="3" id="rb_event_3" tabindex="1" $eventtypecheck[3] onclick="toggle_pattern('monthly', 'rb_pattern_4')" />$vbphrase[monthly]</label></td>
+			</tr>
+			<tr>
+				<td><label for="rb_event_4"><input type="radio" name="eventtype" value="4" id="rb_event_4" tabindex="1" $eventtypecheck[4] onclick="toggle_pattern('yearly', 'rb_pattern_6')" />$vbphrase[yearly]</label></td>
+			</tr>
+			</table>
+		</td>
+		<td>
+
+			<!-- daily recurrence -->
+			<div class="fieldset" id="daily_event">
+				<div id="daily_legend"><strong>$vbphrase[daily]</strong></div>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+				<tr>
+					<td>
+						<phrase 1="$patterncheck[1]" 2="$dailybox">$vbphrase[every_x_days]</phrase>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="rb_pattern_2"><input type="radio" name="recur[pattern]" value="2" id="rb_pattern_2" tabindex="1" $patterncheck[2] />$vbphrase[every_weekday]</label>
+					</td>
+				</tr>
+				</table>
+			</div>
+
+			<!-- weekly recurrence -->
+			<div class="fieldset" id="weekly_event">
+				<div id="weekly_legend"><strong>$vbphrase[daily]</strong></div>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+				<tr>
+					<td colspan="4">
+						<phrase 1="$patterncheck[3]" 2="$weeklybox">$vbphrase[recur_every_x_weeks]</phrase>
+					</td>
+				</tr>
+				<tr>
+					<td><label for="cb_monbox"><input type="checkbox" name="recur[weeklymon]" value="1" id="cb_monbox" tabindex="1" $monboxchecked />$vbphrase[monday]</label></td>
+					<td><label for="cb_tuebox"><input type="checkbox" name="recur[weeklytue]" value="1" id="cb_tuebox" tabindex="1" $tueboxchecked />$vbphrase[tuesday]</label></td>
+					<td><label for="cb_wedbox"><input type="checkbox" name="recur[weeklywed]" value="1" id="cb_wedbox" tabindex="1" $wedboxchecked />$vbphrase[wednesday]</label></td>
+					<td><label for="cb_thubox"><input type="checkbox" name="recur[weeklythu]" value="1" id="cb_thubox" tabindex="1" $thuboxchecked />$vbphrase[thursday]</label></td>
+				</tr>
+				<tr>
+					<td><label for="cb_fribox"><input type="checkbox" name="recur[weeklyfri]" value="1" id="cb_fribox" tabindex="1" $friboxchecked />$vbphrase[friday]</label></td>
+					<td><label for="cb_satbox"><input type="checkbox" name="recur[weeklysat]" value="1" id="cb_satbox" tabindex="1" $satboxchecked />$vbphrase[saturday]</label></td>
+					<td><label for="cb_sunbox"><input type="checkbox" name="recur[weeklysun]" value="1" id="cb_sunbox" tabindex="1" $sunboxchecked />$vbphrase[sunday]</label></td>
+					<td>&nbsp;</td>
+				</tr>
+				</table>
+			</div>
+
+			<!-- monthly recurrence -->
+			<div class="fieldset" id="monthly_event">
+				<div id="monthly_legend"><strong>$vbphrase[monthly]</strong></div>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+				<tr>
+					<td>
+						<label for="rb_pattern_4"><input type="radio" name="recur[pattern]" value="4" id="rb_pattern_4" tabindex="1" $patterncheck[4] />$vbphrase[day]</label>
+						<input type="text" class="bginput" style="font-size:11px" name="recur[monthly1]" value="$monthlycombo1" size="3" maxlength="2" tabindex="1" />
+						<phrase 1="recur[monthlybox1]" 2="$monthlybox1">$vbphrase[of_every_x_months]</phrase>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="rb_pattern_5"><input type="radio" name="recur[pattern]" value="5" id="rb_pattern_5" tabindex="1" $patterncheck[5] />$vbphrase[the_dropdown]</label>
+						<select name="recur[monthly2]" tabindex="1">
+							<option value="1" $monthlycombo2[1]>$vbphrase[date_first]</option>
+							<option value="2" $monthlycombo2[2]>$vbphrase[second]</option>
+							<option value="3" $monthlycombo2[3]>$vbphrase[third]</option>
+							<option value="4" $monthlycombo2[4]>$vbphrase[fourth]</option>
+							<option value="5" $monthlycombo2[5]>$vbphrase[date_last]</option>
+						</select>
+						<select name="recur[monthly3]" tabindex="1">
+							<option value="1" $monthlycombo3[1]>$vbphrase[sunday]</option>
+							<option value="2" $monthlycombo3[2]>$vbphrase[monday]</option>
+							<option value="3" $monthlycombo3[3]>$vbphrase[tuesday]</option>
+							<option value="4" $monthlycombo3[4]>$vbphrase[wednesday]</option>
+							<option value="5" $monthlycombo3[5]>$vbphrase[thursday]</option>
+							<option value="6" $monthlycombo3[6]>$vbphrase[friday]</option>
+							<option value="7" $monthlycombo3[7]>$vbphrase[saturday]</option>
+						</select>
+						<phrase 1="recur[monthlybox2]" 2="$monthlybox2">$vbphrase[of_every_x_months]</phrase>
+					</td>
+				</tr>
+				</table>
+			</div>
+
+			<div class="fieldset" id="yearly_event">
+				<div id="yearly_legend"><strong>$vbphrase[yearly]</strong></div>
+				<table cellpadding="0" cellspacing="$stylevar[formspacer]" border="0">
+				<tr>
+					<td>
+						<label for="rb_pattern_6"><input type="radio" name="recur[pattern]" value="6" id="rb_pattern_6" tabindex="1" $patterncheck[6] />$vbphrase[every]</label>
+						<select name="recur[yearly1]" tabindex="1">
+							<option value="1" $yearlycombo1[1]>$vbphrase[january]</option>
+							<option value="2" $yearlycombo1[2]>$vbphrase[february]</option>
+							<option value="3" $yearlycombo1[3]>$vbphrase[march]</option>
+							<option value="4" $yearlycombo1[4]>$vbphrase[april]</option>
+							<option value="5" $yearlycombo1[5]>$vbphrase[may]</option>
+							<option value="6" $yearlycombo1[6]>$vbphrase[june]</option>
+							<option value="7" $yearlycombo1[7]>$vbphrase[july]</option>
+							<option value="8" $yearlycombo1[8]>$vbphrase[august]</option>
+							<option value="9" $yearlycombo1[9]>$vbphrase[september]</option>
+							<option value="10" $yearlycombo1[10]>$vbphrase[october]</option>
+							<option value="11" $yearlycombo1[11]>$vbphrase[november]</option>
+							<option value="12" $yearlycombo1[12]>$vbphrase[december]</option>
+						</select>
+						<input type="text" class="bginput" style="font-size:11px" name="recur[yearly2]" value="$yearlycombo2" size="3" maxlength="2" tabindex="1" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="rb_pattern_7"><input type="radio" name="recur[pattern]" value="7" id="rb_pattern_7" tabindex="1" $patterncheck[7] />$vbphrase[the_dropdown]</label>
+						<select name="recur[yearly3]" tabindex="1">
+							<option value="1" $yearlycombo3[1]>$vbphrase[date_first]</option>
+							<option value="2" $yearlycombo3[2]>$vbphrase[second]</option>
+							<option value="3" $yearlycombo3[3]>$vbphrase[third]</option>
+							<option value="4" $yearlycombo3[4]>$vbphrase[fourth]</option>
+							<option value="5" $yearlycombo3[5]>$vbphrase[date_last]</option>
+						</select>
+						<select name="recur[yearly4]" tabindex="1">
+							<option value="1" $yearlycombo4[1]>$vbphrase[sunday]</option>
+							<option value="2" $yearlycombo4[2]>$vbphrase[monday]</option>
+							<option value="3" $yearlycombo4[3]>$vbphrase[tuesday]</option>
+							<option value="4" $yearlycombo4[4]>$vbphrase[wednesday]</option>
+							<option value="5" $yearlycombo4[5]>$vbphrase[thursday]</option>
+							<option value="6" $yearlycombo4[6]>$vbphrase[friday]</option>
+							<option value="7" $yearlycombo4[7]>$vbphrase[saturday]</option>
+						</select>
+						$vbphrase[of]
+						<select name="recur[yearly5]" tabindex="1">
+							<option value="1" $yearlycombo5[1]>$vbphrase[january]</option>
+							<option value="2" $yearlycombo5[2]>$vbphrase[february]</option>
+							<option value="3" $yearlycombo5[3]>$vbphrase[march]</option>
+							<option value="4" $yearlycombo5[4]>$vbphrase[april]</option>
+							<option value="5" $yearlycombo5[5]>$vbphrase[may]</option>
+							<option value="6" $yearlycombo5[6]>$vbphrase[june]</option>
+							<option value="7" $yearlycombo5[7]>$vbphrase[july]</option>
+							<option value="8" $yearlycombo5[8]>$vbphrase[august]</option>
+							<option value="9" $yearlycombo5[9]>$vbphrase[september]</option>
+							<option value="10" $yearlycombo5[10]>$vbphrase[october]</option>
+							<option value="11" $yearlycombo5[11]>$vbphrase[november]</option>
+							<option value="12" $yearlycombo5[12]>$vbphrase[december]</option>
+						</select>
+					</td>
+				</tr>
+				</table>
+			</div>
+
+
+		</td>
+	</tr>
+	</table>
+</fieldset>
+
+<script type="text/javascript">
+<!--
+var rec_optionsets  = {
+	"daily" : fetch_object("daily_event"),
+	"weekly" : fetch_object("weekly_event"),
+	"monthly" : fetch_object("monthly_event"),
+	"yearly" : fetch_object("yearly_event")
+};
+var selectdiv = fetch_object("select_event");
+
+function toggle_pattern(objtype, radioselection)
+{
+	if (radioselection)
+	{
+		fetch_object(radioselection).checked = true;
+	}
+	for (key in rec_optionsets)
+	{
+		rec_optionsets[key].style.display = "none";
+	}
+	rec_optionsets[objtype].style.display = "";
+}
+
+// show the correct recurrence pattern
+toggle_pattern("$thistype", false);
+
+// hide non-javascript controls
+selectdiv.style.display = "";
+fetch_object("daily_legend").style.display = "none";
+fetch_object("weekly_legend").style.display = "none";
+fetch_object("monthly_legend").style.display = "none";
+fetch_object("yearly_legend").style.display = "none";
+
+//-->
+</script>

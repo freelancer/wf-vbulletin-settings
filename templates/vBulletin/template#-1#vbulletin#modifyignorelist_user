@@ -1,0 +1,3 @@
+<li id="user$user[userid]">
+	<input type="checkbox" name="listbits[ignore][$user[userid]]" id="usercheck_$user[userid]" value="$user[userid]" checked="checked" /><a href="member.php?$session[sessionurl]u=$user[userid]">$user[username]</a><input type="hidden" name="listbits[ignore_original][$user[userid]]" value="$user[userid]" />
+</li>

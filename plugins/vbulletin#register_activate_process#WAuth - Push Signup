@@ -1,0 +1,2 @@
+$wauth_lasthook='register_activate_process';
+include(DIR.'/includes/wauth_hooks.php');

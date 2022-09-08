@@ -1,0 +1,4 @@
+if (VB_API === true)
+{
+	$counter = 0;
+}

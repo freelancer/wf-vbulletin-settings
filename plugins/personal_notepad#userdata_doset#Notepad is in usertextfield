@@ -1,0 +1,4 @@
+if ($fieldname == 'notepad')
+{
+   $tables = array('usertextfield');
+}

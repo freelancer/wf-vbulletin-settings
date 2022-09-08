@@ -1,0 +1,33 @@
+<p><b>What are subscriptions?</b></p>
+
+<p>Subscriptions are a way of keeping track of different threads or forums. You can choose how you are notified about updates - for example by having them listed in your <a href="usercp.php$session[sessionurl_q]">User CP</a> and receiving email updates for each one.</p>
+
+<p><b>How do I subscribe to a thread or forum?</b></p>
+
+<p>To subscribe to a forum, click the 'Forum Tools' link above the list of threads then select 'Subscribe to Forum'. You will then have the option to choose the subscription mode for this forum. If the forum that you are subscribing to has any child forums (forums within a forum) then your subscription will be extended to these automatically.</p>
+
+<p>To subscribe to a thread, click the 'Thread Tools' link at the top of the list of posts then click 'Subscribe to Thread'. You can then choose the subscription mode that you wish to use for that thread.</p>
+
+<p><b>What subscription modes are available?</b></p>
+
+<p>There are a number of different forum subscription modes available.</p>
+
+<ul>
+<li><b>No Email Notification</b> - lists the subscription in your User CP only. You do not receive any notifications about new posts or threads in the forum.</li>
+<li><b>Daily Email Notification</b> - sends one email a day with the new and updated threads in the forum and any sub-forums. If there are no new or updated threads in the forum or its sub-forums then you will not receive an email.</li>
+<li><b>Weekly Email Notification</b> - sends one email per week in the same way as the Daily Email Notification.</li>
+</ul>
+
+<p>Thread Subscriptions have the same options as forum subscriptions with the following additional option:</p>
+
+<ul>
+<li><b>Instant Email Notification</b> - sends an email as soon as a new post is added to the thread. This is not sent for every reply and will only be sent once until you revisit the forums.</li>
+</ul>
+
+<p><b>How do I manage Subscriptions and Folders?</b></p>
+
+<p>Thread subscriptions can be sorted into folders for easy management. You can create as many folders as you wish by going to '<a href="subscription.php?$session[sessionurl]do=editfolders">Edit Folders</a>' in the 'Subscribed Threads' section of your User CP. To add a new folder, enter the folder name into one of the blank boxes and save the page. To delete a folder, delete the folder name. Editing a folder is done by simply editing the folder name in the list.</p>
+
+<p>You can also manage your individual subscriptions by clicking '<a href="subscription.php?$session[sessionurl]do=viewsubscription">List Subscriptions</a>' under 'Subscribed Threads' in your User CP. Here you can select which subscriptions you wish to manage and delete them, move them to another folder, or change their subscription type.</p>
+
+<p>Forum subscriptions are not managed through the List Subscriptions page and are shown on the User CP page where they contain the option to unsubscribe from the forum.</p>

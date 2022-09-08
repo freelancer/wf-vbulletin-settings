@@ -1,0 +1,1 @@
+This name is used in calling this API's class file.  Look at the class files in the <i>includes/paymentapi</i> directory.  For example, if the class name is "blah" then the class file would be located at <i>includes/paymentapi/class_blah.php</i>

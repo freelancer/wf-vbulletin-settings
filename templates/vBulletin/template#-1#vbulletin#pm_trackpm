@@ -1,0 +1,24 @@
+<if condition="$show['receipts']">
+$confirmedreceipts
+
+<if condition="$confirmed_pagenav">$confirmed_pagenav<br /></if>
+
+$unconfirmedreceipts
+$unconfirmed_pagenav
+<else />
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		$vbphrase[message_tracking]
+	</td>
+</tr>
+<tr>
+	<td class="alt1" align="center">
+		<br />
+		$vbphrase[not_tracking_any_messages]
+		<br />
+		<br />
+	</td>
+</tr>
+</table>
+</if>

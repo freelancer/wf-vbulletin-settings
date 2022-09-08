@@ -1,0 +1,10 @@
+<li class="smallfont" style="margin-bottom:$stylevar[cellpadding]px">
+	<if condition="$show['moderation']"><img class="inlineimg" src="$stylevar[imgdir_misc]/moderated_small.gif" alt="$vbphrase[moderated_comment]"  border="0" /></if>
+	<if condition="$show['deleted']"><img class="inlineimg" src="$stylevar[imgdir_misc]/trashcan_small.gif" alt="$vbphrase[deleted_comment]"  border="0" /></if>
+	<a href="blog.php?$session[sessionurl]bt=$comment[blogtextid]">$comment[title]</a>
+	<if condition="$comment['userid']">
+		<phrase 1="member.php?$session[sessionurl]u=$comment[userid]" 2="$comment[username]">$vbphrase[by_x_shade]</phrase>
+	<else />
+		<span class="shade"><phrase 1="$comment[username]">$vbphrase[by_x_nolink]</phrase></span>
+	</if>
+</li>

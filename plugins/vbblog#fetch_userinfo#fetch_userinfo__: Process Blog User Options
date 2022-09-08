@@ -1,0 +1,121 @@
+if (defined('VBBLOG_PERMS'))
+{
+	foreach($vbulletin->bf_misc_vbbloguseroptions AS $optionname => $optionval)
+	{
+		$user['blog_' . $optionname] = ($user['blog_options'] & $optionval ? 1 : 0);
+	}
+
+	cache_permissions($user, false);
+
+	if (!$user['bloguserid'])
+	{
+		$user['blog_allowcomments'] = $vbulletin->bf_misc_vbblogregoptions['allowcomments'] & $vbulletin->options['vbblog_defaultoptions'] ? true : false;
+		$user['blog_allowpingback'] = $vbulletin->bf_misc_vbblogregoptions['allowpingback'] & $vbulletin->options['vbblog_defaultoptions'] ? true : false;
+		$user['blog_moderatecomments'] = $vbulletin->bf_misc_vbblogregoptions['moderatecomments'] & $vbulletin->options['vbblog_defaultoptions'] ? true : false;
+		if ($vbulletin->bf_misc_vbblogregoptions['subscribe_none_entry'] & $vbulletin->options['vbblog_defaultoptions'])
+		{
+			$user['blog_subscribeown'] = 'none';
+		}
+		else if ($vbulletin->bf_misc_vbblogregoptions['subscribe_nonotify_entry'] & $vbulletin->options['vbblog_defaultoptions'])
+		{
+			$user['blog_subscribeown'] = 'usercp';
+		}
+		else
+		{
+			$user['blog_subscribeown'] = 'email';
+		}
+
+		if ($vbulletin->bf_misc_vbblogregoptions['subscribe_none_comment'] & $vbulletin->options['vbblog_defaultoptions'])
+		{
+			$user['blog_subscribeothers'] = 'none';
+		}
+		else if ($vbulletin->bf_misc_vbblogregoptions['subscribe_nonotify_comment'] & $vbulletin->options['vbblog_defaultoptions'])
+		{
+			$user['blog_subscribeothers'] = 'usercp';
+		}
+		else
+		{
+			$user['blog_subscribeothers'] = 'email';
+		}
+
+		$user['options_member'] += ($vbulletin->bf_misc_vbblogregoptions['viewblog_member'] & $vbulletin->options['vbblog_defaultoptions']) ? $vbulletin->bf_misc_vbblogsocnetoptions['canviewmyblog'] : 0;
+		$user['options_guest'] += ($vbulletin->bf_misc_vbblogregoptions['viewblog_guest'] & $vbulletin->options['vbblog_defaultoptions']) ? $vbulletin->bf_misc_vbblogsocnetoptions['canviewmyblog'] : 0;
+		$user['options_buddy'] += ($vbulletin->bf_misc_vbblogregoptions['viewblog_buddy'] & $vbulletin->options['vbblog_defaultoptions']) ? $vbulletin->bf_misc_vbblogsocnetoptions['canviewmyblog'] : 0;
+		$user['options_ignore'] += ($vbulletin->bf_misc_vbblogregoptions['viewblog_ignore'] & $vbulletin->options['vbblog_defaultoptions']) ? $vbulletin->bf_misc_vbblogsocnetoptions['canviewmyblog'] : 0;
+		$user['options_member'] += ($vbulletin->bf_misc_vbblogregoptions['commentblog_member'] & $vbulletin->options['vbblog_defaultoptions']) ? $vbulletin->bf_misc_vbblogsocnetoptions['cancommentmyblog'] : 0;
+		$user['options_guest'] += ($vbulletin->bf_misc_vbblogregoptions['commentblog_guest'] & $vbulletin->options['vbblog_defaultoptions']) ? $vbulletin->bf_misc_vbblogsocnetoptions['cancommentmyblog'] : 0;
+		$user['options_buddy'] += ($vbulletin->bf_misc_vbblogregoptions['commentblog_buddy'] & $vbulletin->options['vbblog_defaultoptions']) ? $vbulletin->bf_misc_vbblogsocnetoptions['cancommentmyblog'] : 0;
+		$user['options_ignore'] += ($vbulletin->bf_misc_vbblogregoptions['commentblog_ignore'] & $vbulletin->options['vbblog_defaultoptions']) ? $vbulletin->bf_misc_vbblogsocnetoptions['cancommentmyblog'] : 0;
+
+		$user['memberblogids'] = $user['userid'];
+		$user['memberids'] = $user['userid'];
+	}
+
+	require_once(DIR . '/includes/blog_functions_shared.php');
+	foreach($vbulletin->bf_misc_vbblogsocnetoptions AS $optionname => $optionval)
+	{
+		$user["member_$optionname"] = ($user['options_member'] & $optionval ? 1 : 0);
+		$user["guest_$optionname"] = ($user['options_guest'] & $optionval ? 1 : 0);
+		$user["buddy_$optionname"] = ($user['options_buddy'] & $optionval ? 1 : 0);
+		$user["ignore_$optionname"] = ($user['options_ignore'] & $optionval ? 1 : 0);
+
+		$user["$optionname"] = (
+			(
+				(
+					!$user['buddyid']
+						OR
+					$user["buddy_$optionname"]
+				)
+				AND
+				(
+					!$user['ignoreid']
+						OR
+					$user["ignore_$optionname"]
+				)
+				AND
+					(
+						(
+							$user["member_$optionname"]
+								AND
+							$vbulletin->userinfo['userid']
+						)
+						OR
+						(
+							$user["guest_$optionname"]
+								AND
+							!$vbulletin->userinfo['userid']
+						)
+					)
+			)
+			OR
+			(
+				$user["ignore_$optionname"]
+					AND
+				$user['ignoreid']
+			)
+			OR
+			(
+				$user["buddy_$optionname"]
+					AND
+				$user['buddyid']
+			)
+				OR
+			($vbulletin->userinfo AND is_member_of_blog($vbulletin->userinfo, $user))
+				OR
+			can_moderate_blog()
+				OR
+			!$vbulletin->userinfo
+		) ? true : false;
+	}
+
+	if (!$user['blog_title'])
+	{
+		$user['blog_title'] = $user['username'];
+	}
+
+	$user['categorycache'] = !empty($user['categorycache']) ? @unserialize($user['categorycache']) : array();
+	$user['sidebar'] = !empty($user['sidebar']) ? @unserialize($user['sidebar']) : array();
+	$user['sidebar_customblocks'] = !empty($user['blocktext']) ? @unserialize($user['blocktext']) : array();
+	$user['custompages'] = !empty($user['custompages']) ? @unserialize($user['custompages']) : array();
+	prepare_blog_category_permissions($user);
+}

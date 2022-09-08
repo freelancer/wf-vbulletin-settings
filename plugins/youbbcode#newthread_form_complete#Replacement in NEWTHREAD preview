@@ -1,0 +1,2 @@
+$postpreview = str_replace("[you]", $vbulletin->userinfo[username], $postpreview);
+$postpreview = str_replace("[YOU]", $vbulletin->userinfo[username], $postpreview);

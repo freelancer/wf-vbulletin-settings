@@ -1,0 +1,3 @@
+This is the path where your thumbnails are being stored. Unlike the "Full Picture File Path" setting, this path <strong>must</strong> be within your web root. Users will need to be able to access the files in this directory directly.<br />
+<br />
+It must be writeable by PHP. The easiest way to do this is CHMOD it 777 (consult your FTP, Telnet, or SSH documentation for more info on how to do this).

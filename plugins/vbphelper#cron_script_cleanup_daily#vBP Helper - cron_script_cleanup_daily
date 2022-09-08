@@ -1,0 +1,5 @@
+
+$vbp_helper_hook='cron_script_cleanup_daily';
+include DIR.'/includes/vbp_helper.php';
+			
+			

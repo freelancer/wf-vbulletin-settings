@@ -1,0 +1,19 @@
+<li id="{$container}_user$user[userid]" class="alt1">
+	<div class="username">
+			<input type="hidden" name="listbits[$user[type]_original][$user[userid]]" value="$user[userid]" />
+			<input type="checkbox" name="listbits[$user[type]][$user[userid]]" id="{$container}_usercheck_$user[userid]" value="$user[userid]"$user[checked]
+			/><label class="avatar_label" for="{$container}_usercheck_$user[userid]"
+			><img src="$user[avatarurl]"<if condition="$user['avatarwidth']"> width="$user[avatarwidth]"</if><if condition="$user['avatarheight']"> height="$user[avatarheight]"</if> id="{$container}_avatar_$user[userid]" alt="<phrase 1="$user[username]">$vbphrase[xs_avatar]</phrase>" border="0"
+			/></label
+			><a href="member.php?$session[sessionurl]u=$user[userid]" title="$vbphrase[view_profile]">$user[username]</a>
+	</div>
+	<if condition="$show['outgoingrequest']">
+		<div class="friend shade"><label for="{$container}_friendcheck_$user[userid]"><input type="checkbox" id="{$container}_friendcheck_$user[userid]" checked="checked" disabled="disabled" />$vbphrase[friendship_requested]</label></div>
+	<else /><if condition="$show['friend_checkbox']">
+		<div class="friend">
+			<label for="{$container}_friendcheck_$user[userid]"><input type="checkbox" name="listbits[friend][$user[userid]]" id="{$container}_friendcheck_$user[userid]" value="$user[userid]"$friendcheck_checked title="<phrase 1="$user[username]">$vbphrase[tick_box_to_make_friends_with_x]</phrase>" />$vbphrase[friend]</label>
+			<if condition="$user['extended_type'] == 'friend'"><input type="hidden" name="listbits[friend_original][$user[userid]]" value="$user[userid]" /></if>
+		</div>
+	</if></if>
+	<hr />
+</li>

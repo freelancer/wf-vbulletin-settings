@@ -1,0 +1,5 @@
+Enter names in here that you do not want people to be able to register.<br />
+<br />
+If any of the names here are included within the username, the user will be told that there is an error. For example, if you make the name <b>John</b> illegal, the name <b>John</b>athan will also be disallowed.<br />
+<br />
+Separate names by spaces.

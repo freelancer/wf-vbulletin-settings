@@ -1,0 +1,5 @@
+You are running MySQL version <b>{1}</b> which supports a new table format called <i>MyISAM</i>.<br />
+<br />
+The <i>ISAM</i>format does not support repair/optimize so you will need to convert tables to <i>MyISAM</i> before they can be repaired/optimized.<br />
+<br />
+The following tables are using the obsolete <i>ISAM</i> format.

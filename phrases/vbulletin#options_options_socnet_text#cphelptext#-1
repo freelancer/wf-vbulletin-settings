@@ -1,0 +1,13 @@
+These options are "on/off" switches for the different features within the Profile Page, including:<br />
+<dl>
+<dt>Social Groups</dt>
+<dd>Enables or Disables the "Social Groups" feature Board Wide</dd>
+<dt>Albums</dt>
+<dd>Enables or Disables the "User Albums" feature within Board Wide</dd>
+<dt>Friends</dt>
+<dd>Enables or Disables the "Friends" feature Board Wide <em>(Does not disable contacts and the ignore list feature)</em></dd>
+<dt>Visitor Tracking</dt>
+<dd>Enables or Disables the "Visitor Tracking" for User's Profiles</dd>
+<dt>Visitor Messaging</dt>
+<dd>Disables "Visitor Messaging" for User's Profiles</dd>
+</dl>

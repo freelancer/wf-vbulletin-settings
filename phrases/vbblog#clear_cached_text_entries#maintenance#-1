@@ -1,0 +1,1 @@
+This function will clear any cached text entries, these will be rebuilt next time they are accessed.

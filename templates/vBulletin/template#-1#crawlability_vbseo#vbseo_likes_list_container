@@ -1,0 +1,30 @@
+
+<style type="text/css">
+#above_postlist .paginat3ion {position:absolute;right:0px;}
+#likelist {margin-top:0;position:relative;width:100%;}
+#likes_list div.fixed_width_avatar {
+	margin-right: 6px;
+	float: left;
+}
+#likes_list div.visitor_message_avatar_margin {
+	margin-left: 66px;
+}
+#likes_list div.info_bar div.alt2 {
+	padding: 6px;
+}
+#likes_list div.info_bar {
+border-width: 1px 0px 0px 0px;
+margin-bottom: 6px;
+}
+#likes_list div.visitor_message_body {
+overflow: auto;
+}
+</style>
+<div class="thead block_row block_title">$block_data[total] $vbphrase[vbseo_likes]</div>
+
+<ol class="alt1 block_row list_no_decoration" id="likes_list">
+	$block_data[likebits]
+</ol>
+<div class="alt2 block_row">
+	$block_data[pagenav]
+</div>

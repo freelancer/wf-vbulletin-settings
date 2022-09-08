@@ -1,0 +1,25 @@
+// Process API login
+if (VB_API === true)
+{
+	$newsession =& new vB_Session_API($vbulletin, '', $vbulletin->userinfo['userid'], '', $vbulletin->session->vars['styleid'], $vbulletin->session->vars['languageid']);
+
+	$newsession->set('userid', $vbulletin->userinfo['userid']);
+	$newsession->set('loggedin', 1);
+	if ($logintype == 'cplogin')
+	{
+		$newsession->set('bypass', 1);
+	}
+	else
+	{
+		$newsession->set('bypass', 0);
+	}
+	$newsession->set_session_visibility(true);
+	$newsession->fetch_userinfo();
+	$vbulletin->session =& $newsession;
+	
+	// API cookieuser
+	if ($vbulletin->apiclient['apiclientid'] AND $cookieuser)
+	{
+		$vbulletin->db->query_write("UPDATE " . TABLE_PREFIX . "apiclient SET userid = " . intval($vbulletin->userinfo['userid']) . " WHERE apiclientid = " . intval($vbulletin->apiclient['apiclientid']));
+	}
+}

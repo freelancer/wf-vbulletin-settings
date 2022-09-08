@@ -1,0 +1,8 @@
+@include_once(DIR . '/vbseo/includes/functions_vbseo.php');
+
+$GLOBALS['VBSEO_REWRITE_TEXTURLS'] = 1;
+
+if(function_exists('make_crawlable') && VBSEO_REWRITE_EMAILS)
+ $message = make_crawlable($message);
+
+unset($GLOBALS['VBSEO_REWRITE_TEXTURLS']);

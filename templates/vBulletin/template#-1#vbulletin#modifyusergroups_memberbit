@@ -1,0 +1,14 @@
+<tr>
+	<td class="$bgclass">
+		$usergroup[opentag]$usergroup[title]$usergroup[closetag]
+		<div class="smallfont">$usergroup[description]</div>
+	</td>
+	<td class="$bgclass">$usergroup[usertitle]</td>
+	<td class="$bgclass"><span class="smallfont">
+	<if condition="$show['isleader']">
+	($vbphrase[leader_of_this_group])<br />
+	<else />
+	<label for="rb_leave_$usergroup[usergroupid]"><input type="radio" name="usergroupid" id="rb_leave_$usergroup[usergroupid]" value="$usergroup[usergroupid]" />$vbphrase[leave_group]</label>
+	</if>
+	</span></td>
+</tr>

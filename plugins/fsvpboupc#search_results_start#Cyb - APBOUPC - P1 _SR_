@@ -1,0 +1,11 @@
+
+		if ($vbulletin->options['apboupc_global_enable'] AND $vbulletin->options['apboupc_forum'])
+		{
+			foreach ($vbulletin->forumcache as $forumid => $foruminfo)
+			{
+				if (($foruminfo[accessf_nb] !='0') AND ($foruminfo[accessf_nb] > $vbulletin->userinfo[posts]) AND (!is_member_of($vbulletin->userinfo, split(',', $vbulletin->options['apboupc_forum_excludedgroups']))))
+				{
+					$vbulletin->userinfo['forumpermissions'][$forumid] = $vbulletin->userinfo['forumpermissions'][$forumid] ^ $vbulletin->bf_ugp_forumpermissions['canview'];
+				}
+			}
+		}

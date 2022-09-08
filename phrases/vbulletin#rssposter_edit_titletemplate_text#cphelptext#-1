@@ -1,0 +1,14 @@
+The title template controls how thread or announcement titles will appear when items are posted.<br />
+<br />
+You may use any node from the feed XML by entering {feed:<strong>x</strong>} into the template, where 'x' corresponds to:
+<ul>
+<li>title</li>
+<li>description</li>
+<li>link</li>
+<li>id</li>
+<li>date</li>
+<li>enclosure_href</li>
+<li>content:encoded.</li>
+</ul>
+<br />
+For the most part, you will use {feed:title} to show the title for the current feed item.

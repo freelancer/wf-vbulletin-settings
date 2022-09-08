@@ -1,0 +1,11 @@
+<b>Field Length (<i>Input, Textarea only</i>)</b><br />
+This is how many characters long the input should appear on the forms. This should be less than or equal to the maximum number of characters allowed to be entered into this field.<br />
+<br />
+<b>Field Length (for Optional Field, <i>Select, Radio only</i>)</b><br />
+This setting is how many characters long the input field should appear as on the form. It is recommended that you set this to be equal to or less than the maximum number of characters the user may enter as set above.<br />
+<br />
+<b>Limit Boxes (<i>Select Multiple only</i>)</b><br />
+This is how many options the user may choose. Set to 0 to allow the user to select all options.<br />
+<br />
+<b>Limit Boxes (<i>Checkbox only</i>)</b><br />
+This setting is how many checkboxes the user may check total for this field. Enter 0 to allow them to select all checkboxes.

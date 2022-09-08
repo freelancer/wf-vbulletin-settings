@@ -1,0 +1,1 @@
+Usergroup where all unpaid members will be added. Users in this usergroup will be redirected back to paid subscriptions page until they purchase a subscription. Users from this usergroup will be deleted once per day (having any post will not be deleted).

@@ -1,0 +1,3 @@
+Enter a file name complete with a server path that is relative to your main forum directory.<br /><br />
+
+For example, if the name of the language file is vbulletin-language.xml and you uploaded it to the install directory inside your main forum directory then you would enter this value: ./install/vbulletin-language.xml

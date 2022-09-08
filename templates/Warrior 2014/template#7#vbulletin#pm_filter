@@ -1,0 +1,131 @@
+<form action="private.php" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="pp" value="$perpage" />
+<input type="hidden" name="do" value="messagelist" />
+<input type="hidden" name="order" value="$order" />
+<input type="hidden" name="sort" value="$sortfield" />
+
+<script type="text/javascript" src="clientscript/vbulletin_date_picker.js?v=$vboptions[simpleversion]"></script>
+<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_date_picker.css?v=$vboptions[simpleversion]" />
+
+<script type="text/javascript">
+<!--
+vbphrase['sunday']    = '$vbphrase[sunday]';
+vbphrase['monday']    = '$vbphrase[monday]';
+vbphrase['tuesday']   = '$vbphrase[tuesday]';
+vbphrase['wednesday'] = '$vbphrase[wednesday]';
+vbphrase['thursday']  = '$vbphrase[thursday]';
+vbphrase['friday']    = '$vbphrase[friday]';
+vbphrase['saturday']  = '$vbphrase[saturday]';
+-->
+</script>
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<thead>
+<tr>
+    <td class="tcat">
+        <span class="smallfont" style="float:$stylevar[right]">
+            <a href="#top" onclick="return toggle_collapse('usercp_pmfilter')"><img id="collapseimg_usercp_pmfilter" src="$stylevar[imgdir_button]/collapse_tcat$vbcollapse[collapseimg_usercp_pmfilter].gif" alt="" border="0" /></a>
+        </span>
+        $vbphrase[display_options]
+    </td>
+</tr>
+</thead>
+<tbody id="collapseobj_usercp_pmfilter" style="$vbcollapse[collapseobj_usercp_pmfilter]">
+<tr valign="top">
+    <td class="alt1" style="text-align:center" nowrap="nowrap">
+        <if condition="$show['popups']">
+        <script type="text/javascript" src="clientscript/vbulletin_ajax_namesugg.js?v=$vboptions[simpleversion]"></script>
+        </if>
+        <div>
+        <div class="smallfont">
+            <label for="searchuser">$vbphrase[sender]</label>
+            <span id="searchuser"><input type="text" name="searchuser" id="searchuser_txt" value="$search[searchuser]" class="bginput smallfont" ng-non-bindable/></span>
+
+            <if condition="$show['popups']">
+            <div class="vbmenu_popup" id="searchuser_menu" style="display:none; z-index:50"></div>
+            <script type="text/javascript">
+            <!--
+            vbmenu_register('searchuser', true);
+            searchuser_sugg = new vB_AJAX_NameSuggest('searchuser_sugg', 'searchuser_txt', 'searchuser');
+            //-->
+            </script>
+            </if>
+            <label for="searchtitle">$vbphrase[title]</label>
+            <input type="text" name="searchtitle" id="searchtitle" value="$search[searchtitle]" class="bginput smallfont" ng-non-bindable/>
+            <label for="search_read">$vbphrase[read]</label>
+            <select name="searchread" id="search_read">
+                <option value="0" $readselection[0]>$vbphrase[all_messages]</option>
+                <option value="1" $readselection[1]>$vbphrase[unread_messages]</option>
+                <option value="2" $readselection[2]>$vbphrase[read_messages]</option>
+                <option value="3" $readselection[2]>$vbphrase[not_replied_to]</option>
+                <option value="4" $readselection[2]>$vbphrase[replied_to]</option>
+            </select>
+        </div>
+
+        <div class="floatcontainer smallfont" style="padding-top:$stylevar[cellpadding]px;width:100%;white-space:nowrap;">
+            <div>
+                <label for="startdate_month">$vbphrase[from]</label>
+                <select name="startdate[month]" id="startdate_month">
+                    <option value="1" $startmonth[1]>$vbphrase[january]</option>
+                    <option value="2" $startmonth[2]>$vbphrase[february]</option>
+                    <option value="3" $startmonth[3]>$vbphrase[march]</option>
+                    <option value="4" $startmonth[4]>$vbphrase[april]</option>
+                    <option value="5" $startmonth[5]>$vbphrase[may]</option>
+                    <option value="6" $startmonth[6]>$vbphrase[june]</option>
+                    <option value="7" $startmonth[7]>$vbphrase[july]</option>
+                    <option value="8" $startmonth[8]>$vbphrase[august]</option>
+                    <option value="9" $startmonth[9]>$vbphrase[september]</option>
+                    <option value="10" $startmonth[10]>$vbphrase[october]</option>
+                    <option value="11" $startmonth[11]>$vbphrase[november]</option>
+                    <option value="12" $startmonth[12]>$vbphrase[december]</option>
+                </select>
+                <input type="text" name="startdate[day]" id="startdate_date" value="$startdate[day]" size="2" maxlength="2" class="bginput smallfont" ng-non-bindable/>
+                <input type="text" name="startdate[year]" id="startdate_year" value="$startdate[year]" size="4" maxlength="4" class="bginput smallfont" ng-non-bindable ng-non-bindable/>
+
+                <script type="text/javascript">
+                    <!--
+                    vBulletin.register_control("vB_DatePicker", "startdate_year", "startdate_", "$bbuserinfo[startofweek]");
+                    vBulletin.register_control("vB_DatePicker", "enddate_year", "enddate_", "$bbuserinfo[startofweek]");
+                    //-->
+                </script>
+            <!-- </div>
+
+            <div style="padding-$stylevar[left]:$stylevar[cellpadding]px"> -->
+                <label for="enddate_month">$vbphrase[to]</label>
+                <select name="enddate[month]" id="enddate_month">
+                    <option value="1" $endmonth[1]>$vbphrase[january]</option>
+                    <option value="2" $endmonth[2]>$vbphrase[february]</option>
+                    <option value="3" $endmonth[3]>$vbphrase[march]</option>
+                    <option value="4" $endmonth[4]>$vbphrase[april]</option>
+                    <option value="5" $endmonth[5]>$vbphrase[may]</option>
+                    <option value="6" $endmonth[6]>$vbphrase[june]</option>
+                    <option value="7" $endmonth[7]>$vbphrase[july]</option>
+                    <option value="8" $endmonth[8]>$vbphrase[august]</option>
+                    <option value="9" $endmonth[9]>$vbphrase[september]</option>
+                    <option value="10" $endmonth[10]>$vbphrase[october]</option>
+                    <option value="11" $endmonth[11]>$vbphrase[november]</option>
+                    <option value="12" $endmonth[12]>$vbphrase[december]</option>
+                </select>
+                <input type="text" name="enddate[day]" id="enddate_date" value="$enddate[day]" size="2" maxlength="2" class="bginput smallfont" ng-non-bindable/>
+                <input type="text" name="enddate[year]" id="enddate_year" value="$enddate[year]" size="4" maxlength="4" class="bginput smallfont" ng-non-bindable/>
+                <input type="submit" name="filter" value="$vbphrase[filter]" class="button" ng-non-bindable/>
+            </div>
+        </div>
+        </div>
+
+    </td>
+</tr>
+</tbody>
+</table>
+
+</form>
+
+<if condition="$show[openfilter]">
+    <script type="text/javascript">
+        <!--
+        toggle_collapse('usercp_pmfilter', 'open');
+        //-->
+    </script>
+</if>

@@ -1,0 +1,10 @@
+<div class="smallfont" style="margin-bottom:$stylevar[cellpadding]px; padding-bottom:2px; border-bottom:1px dotted">
+	<if condition="$show['holiday']">
+		<!--<strong>&raquo;</strong>--> <a href="calendar.php?$session[sessionurl]do=getinfo&amp;day=$year-$month-$day&amp;c=$calendarid" title="$event[preview]"><strong>$event[title]</strong></a>
+	<else />
+		<if condition="$show['subscribed']">
+			<img class="inlineimg" src="$stylevar[imgdir_misc]/subscribed_event.gif" alt="$vbphrase[event_notification]" />
+		</if>
+		<a href="calendar.php?$session[sessionurl]do=getinfo&amp;e=$event[eventid]&amp;day=$year-$month-$day&amp;c=$calendarid" title="$event[preview]">$event[title]</a>
+	</if>
+</div>

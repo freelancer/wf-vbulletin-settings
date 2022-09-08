@@ -1,0 +1,22 @@
+Dear $touser[username],
+
+$username has posted a new entry in their blog: $blogtitle blog of $vboptions[bbtitle] titled '$entrytitle'
+
+This entry is located at:
+$vboptions[bburl]/blog.php?blogid=$blogid
+
+Here is the message that has just been posted:
+***************
+$pagetext
+***************
+
+There may also be other comments, but you will not receive any more notifications until you visit the forum or blog again.
+
+All the best,
+$vboptions[bbtitle]
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unsubscription information:
+
+To unsubscribe from this user's blog, please visit this page:
+$vboptions[bburl]/blog_subscription.php?do=unsubscribe&blogsubscribeuserid=$touser[blogsubscribeuserid]&auth=$touser[auth]

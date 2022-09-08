@@ -1,0 +1,10 @@
+
+		<tr class="$bgclass">
+			<td class="smallfont" align="center" nowrap="nowrap">$cybareguser_rowid</td>
+			<td class="smallfont" align="$stylevar[left]" nowrap="nowrap">$cybareg_inviter</td>
+			<td class="smallfont" align="$stylevar[left]" nowrap="nowrap">$cybareguser[email]</td>
+			<td class="smallfont" align="$stylevar[left]" nowrap="nowrap"><a href="online.php?$session[sessionurl]do=resolveip&amp;ipaddress=$cybareguser[ipaddress]" target="_blank">$cybareguser[ipaddress]</a></td>
+			<td class="smallfont" align="$stylevar[left]" nowrap="nowrap">$cybareguser_userjoin</td>
+			<td class="smallfont" align="center" nowrap="nowrap"><a href="$admincpdir/user.php?do=edit&amp;u=$cybareguser[userid]" target="_blank">$vbphrase[edit]</a></td>
+			<td class="smallfont" align="center" nowrap="nowrap"><input type="checkbox" name="armultibitu[$cybareguser_userid]" value="$cybareguser[userid]" /></td>
+		</tr>

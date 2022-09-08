@@ -1,0 +1,4 @@
+if (defined('VB_API') AND VB_API === true)
+{
+	$vbulletin->options['usecoppa'] = false;
+}

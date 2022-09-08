@@ -1,0 +1,11 @@
+New banner uploaded at $vboptions[bbtitle].
+			
+Uploader: $bannerInfo[username]
+
+Current Status: $bannerInfo[statustext]			
+
+Go to $vboptions[bburl]/paidbanners.php page to moderate the banner.
+
+Best Regards
+$vboptions[bbtitle]
+			

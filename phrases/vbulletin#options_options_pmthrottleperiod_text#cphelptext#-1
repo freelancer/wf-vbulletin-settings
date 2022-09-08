@@ -1,0 +1,1 @@
+This is the period of time of which throttle checking is performed.  The amount of messages that a user can send within this period is defined by their Message Throttle Quantity usergroup permission.  If this is set to 0 then private messages will not be throttled.

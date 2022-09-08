@@ -1,0 +1,7 @@
+If this is set to yes, users will be able to manage the comments that users have posted to their pictures. Specifically, this allows users to:
+<ul>
+<li>Unapprove comments</li>
+<li>Approve comments</li>
+<li>Delete comments (soft-delete only)</li>
+</ul>
+This permission also affects comments the user has posted on his/her own picture. This may allow a user to delete his/her own comment without the 'Can Delete Own Picture Comments' permission.

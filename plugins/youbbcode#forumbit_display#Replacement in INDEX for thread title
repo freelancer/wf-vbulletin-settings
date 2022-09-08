@@ -1,0 +1,2 @@
+$forum['lastpostinfo'] = str_replace("[you]", $vbulletin->userinfo[username], $forum['lastpostinfo']);
+$forum['lastpostinfo'] = str_replace("[YOU]", $vbulletin->userinfo[username], $forum['lastpostinfo']);

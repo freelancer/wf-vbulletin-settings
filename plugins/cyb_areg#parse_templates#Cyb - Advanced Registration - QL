@@ -1,0 +1,16 @@
+
+		if ($vbulletin->options['cybareg_enable'] AND is_member_of($vbulletin->userinfo,6))
+		{
+			$cybareg_buddylink = ('$vbphrase[miscellaneous]</td></tr>');
+			$insert_cybareg = '<tr><td class=\"vbmenu_option\"><a href=\"'.$vbulletin->options['bburl'].'/misc.php?do=cybaregman\">'.$vbphrase['cybareg_manage_areg'].'</a></td></tr>';
+			$vbulletin->templatecache['navbar'] = str_replace($cybareg_buddylink,$cybareg_buddylink.$insert_cybareg,$vbulletin->templatecache['navbar']);
+		}
+
+		if ($vbulletin->options['cybareg_enable'] AND $vbulletin->options['cybareg_enable_invite'] AND $vbulletin->userinfo['userid'])
+		{
+			$cybareg_navbarlink = "<a href=\"misc.php?do=cybareginv\">".$vbphrase['cybareg_invitation_invite']."</a>";
+			if ($vbulletin->options['cybareg_enable_link'])
+			{
+				$vbulletin->templatecache['navbar'] = str_replace('vbphrase[faq]</a></td>','vbphrase[faq]</a></td><td class=\"vbmenu_control\">$cybareg_navbarlink</td>',$vbulletin->templatecache['navbar']);
+			}
+		}

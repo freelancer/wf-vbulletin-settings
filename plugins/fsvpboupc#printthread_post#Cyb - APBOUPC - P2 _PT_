@@ -1,0 +1,17 @@
+
+		if ($vbulletin->options['apboupc_global_enable'] AND $vbulletin->options['apboupc_viewlinks'])
+		{
+			if ($vbulletin->userinfo[userid])
+			{
+				$cyb_apboupc_viewlinks_userpostsnr = $vbulletin->userinfo['posts'];
+			}
+			else
+			{
+				$cyb_apboupc_viewlinks_userpostsnr = '0';
+			}
+				
+			if (($foruminfo[linkview_nb] !='0') AND ($foruminfo[linkview_nb] > $vbulletin->userinfo[posts]) AND (!is_member_of($vbulletin->userinfo, split(',', $vbulletin->options['apboupc_viewlinks_excl_groups']))))
+			{
+				$post['message'] = preg_replace('!(\\[url(\\[img)?|\\[email|\\[img)(.*)((\\[\/img\\])?\\[\/url\\]|\\[\/email\\]|\\[\/img\\])|<a[^>]*(http|www|mailto)(.*)</a>|(http:\/\/)?www(.*)[\s]\b|<img[^>]*(src|border|title)(.*)(</img>|\/>)|[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,4}\b!siU', construct_phrase('<br /><span class="smallfont"><i>'.$vbphrase['error_postcount_too_low_viewlinks'].'</i></span><br />', $foruminfo[linkview_nb], $cyb_apboupc_viewlinks_userpostsnr), $post['message'].' ');
+			}
+		}

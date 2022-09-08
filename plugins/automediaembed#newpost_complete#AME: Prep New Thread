@@ -1,0 +1,13 @@
+if ($post['message'])
+{
+require_once(DIR . '/includes/ame_bbcode.php');
+$value = ame_prep_text($post['message']);
+        if ($value == 1)
+        {
+                $vbulletin->db->query_write("UPDATE " . TABLE_PREFIX . "post SET pagetext ='" . $vbulletin->db->escape_string($post['message']) . "', ame_flag=1 WHERE postid=$post[postid]");
+        }
+        else if ($value == 2)
+        {
+                $vbulletin->db->query_write("UPDATE " . TABLE_PREFIX . "post SET ame_flag=2 WHERE postid=$post[postid]");
+        }
+}

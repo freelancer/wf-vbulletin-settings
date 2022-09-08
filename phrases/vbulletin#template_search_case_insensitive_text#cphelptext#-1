@@ -1,0 +1,7 @@
+A "case-<b>in</b>sensitive" search will match the search phrase regardless of case.  For example, this search string:<br /><br />
+
+<i>search string</i><br /><br />
+
+...would also match:<br /><br />
+
+<i>sEarcH STRING</i>

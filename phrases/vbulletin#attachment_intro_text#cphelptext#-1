@@ -1,0 +1,14 @@
+On this screen you have several different options for searching attachments. (see <a href="help.php?do=answer&amp;page=attachment&amp;pageaction=search">Results of Searching Attachments</a>)<br /><br />
+
+At the top are several links to common searches. These are:<br />
+<b>Largest Attachments</b>: This searches attachments, ordering them by size, largest first.<br /><br />
+
+<b>Most Popular Attachments</b>: This sorts a search of attachments by number of downloads, most downloads first.<br /><br />
+
+<b>Newest Attachments</b>: This searches attachments and sorts them by date, newest first.<br /><br />
+
+<b>Oldest Attachments</b>: Selecting this shows all attachments, sorted by date with oldest first.<br /><br /><br />
+
+Attachment Pruning finds attachments older than a certain date, with 30 days being the default. Enter the desired age and press View Results.<br /><br />
+
+Under Advanced Attachment Search, you can use specific criteria to do a custom search. The criteria entry boxes are described below.

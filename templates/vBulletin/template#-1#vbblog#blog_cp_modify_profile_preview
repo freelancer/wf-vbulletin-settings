@@ -1,0 +1,33 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">
+		<if condition="$show['errors']">
+			$vbphrase[errors_occured_when_submitted]:
+		<else />
+			$vbphrase[preview]
+		</if>
+	</td>
+</tr>
+<tr>
+	<td class="alt1">
+		<if condition="$show['errors']">
+			<!--POSTERROR do not remove this comment-->
+			<ol>$errorlist</ol>
+			<!--/POSTERROR do not remove this comment-->
+		<else />
+
+			<if condition="$newpost['title']">
+				<!-- icon and title -->
+				<div class="smallfont">
+					<strong>$newpost[title]</strong>
+				</div>
+				<hr size="1" style="color:$stylevar[tborder_bgcolor]" />
+				<!-- / icon and title -->
+			</if>
+			$previewmessage
+		</if>
+	</td>
+</tr>
+</table>
+
+<br />

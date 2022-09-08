@@ -1,0 +1,1 @@
+Cost rules defined per forum bases. Use forumid=>thread_cost=>promotion_cost=>sticky_cost=>thread_clickbank_id=>promotion_clickbank_id format. Place each rule on a new line. If no entry found for current forum, general rules will be used.<br /><b>Example:</b><br />10=>40=>20=>20=>1=>2<br />11=>30=>15=>20=>3=>4

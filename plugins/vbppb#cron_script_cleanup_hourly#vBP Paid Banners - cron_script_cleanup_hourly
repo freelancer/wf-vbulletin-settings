@@ -1,0 +1,5 @@
+
+$vbppb_lasthook='cron_script_cleanup_hourly';
+include(DIR.'/includes/vbppb_hooks.php');
+			
+			

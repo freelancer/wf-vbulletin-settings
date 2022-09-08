@@ -1,0 +1,5 @@
+This permission allows members of this group to view the <a href="../online.php" target="_blank">online.php</a> page.  This page shows a detailed list of currently active users, their locations, etc.  This permission only applies to online.php, not the "Currently Active Users" list on the <a href="../{$vbulletin->options[forumhome]}.php" target="_blank">forumhome</a> page.<br /><br />
+
+Reported locations <b>do</b> take forum permissions into consideration.  For example, if a user in the online list is viewing a forum that the current logged in user doesn't have access to, then online.php will only report that they are viewing a forum and not give the name of the forum.<br /><br />
+
+Who's online must be enabled in your <a href="options.php?dogroup=online&amp;do=options" target="_blank">vBulletin options</a> for this permission to have any effect.  Additionally, there are several Who's online settings on that page in your vBulletin options.

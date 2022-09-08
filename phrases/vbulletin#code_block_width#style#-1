@@ -1,0 +1,2 @@
+Code Block Width (pixels)
+<dfn>(This value controls the width of [code], [php] and [html] BB code blocks. You may set this value to 'auto', but if you do, Internet Explorer will stretch the width of the block rather than inserting a scrollbar.)</dfn>

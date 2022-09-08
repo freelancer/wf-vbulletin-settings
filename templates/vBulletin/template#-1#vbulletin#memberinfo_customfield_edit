@@ -1,0 +1,16 @@
+<form>
+<fieldset class="fieldset">
+	<div style="padding:$stylevar[cellpadding]px">
+		$custom_field_holder
+		<div id="field_edit_error_container" style="display:none">
+			<img class="inlineimg" src="$stylevar[imgdir_statusicon]/wol_error.gif" alt="$vbphrase[errors]" />
+			<span id="field_edit_errors"></span>
+		</div>
+		<div align="$stylevar[right]" style="margin-top:$stylevar[cellpadding]px">
+			<img class="inlineimg" style="display: none" id="field_edit_progress" src="$stylevar[imgdir_misc]/progress.gif" alt="" />
+			<input type="submit" id="submitbutton" class="button" value="  $vbphrase[save]  " />
+			<input type="reset" id="cancelbutton" class="button" value="$vbphrase[cancel]" />
+		</div>
+	</div>
+</fieldset>
+</form>

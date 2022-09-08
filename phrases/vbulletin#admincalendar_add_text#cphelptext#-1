@@ -1,0 +1,3 @@
+Each calendar you add shows events that are only assigned to it. Holidays and birthdays are shown on all calendars unless specifically selected otherwise. Each calendar can have different permissions and different moderators.<br /><br />
+An example of usage of this would be if you have a forum for multiple high school sports teams, and each team is a different usergroup. You could have a calendar for each team, and each calendar could be configured to allow only those who are in the usergroup that corresponds to that team to add events while allowing everyone to view it.<br /><br />
+The options on this screen are described below.

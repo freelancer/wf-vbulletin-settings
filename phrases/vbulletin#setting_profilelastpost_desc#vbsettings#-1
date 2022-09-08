@@ -1,0 +1,1 @@
+Showing the last post on a member profile can cause large table scans which leads to table locking. This may increase load time on your forums as well as the load of your server. This option should only be enabled for smaller forums.

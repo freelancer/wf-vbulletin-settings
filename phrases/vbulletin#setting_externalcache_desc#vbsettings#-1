@@ -1,0 +1,1 @@
+This setting controls how long thread content will be cached (in minutes). Valid settings are 1 to 1440, anything else will be treated as the default value of 60. The higher this value is, the less resources will be used by the External Data Provider system.

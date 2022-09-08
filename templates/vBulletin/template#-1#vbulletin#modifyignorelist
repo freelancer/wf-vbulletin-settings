@@ -1,0 +1,72 @@
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat">$vbphrase[ignore_list]</td>
+</tr>
+<tr>
+	<td class="panelsurround" align="center">
+	<div class="panel">
+		<div align="$stylevar[left]">
+
+			<fieldset class="fieldset">
+				<legend>$vbphrase[ignore_list]</legend>
+				<form action="profile.php?do=updatelist&amp;userlist=ignore" method="post" id="ignorelist_change_form" <if condition="!$show['ignorelist']">style="display: none"</if>>
+					<input type="hidden" name="s" value="$session[sessionhash]" />
+					<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+					<input type="hidden" name="do" value="updatelist" />
+					<input type="hidden" name="userlist" value="ignore" />
+					<if condition="$ignorelist">
+					<ul class="userlist floatcontainer" id="ignorelist">
+						$ignorelist
+					</ul>
+					</if>
+					<div class="submitrow smallfont">
+						<label class="check_all_ctrl shade"><input type="checkbox" id="ignorelist_checkall" checked="checked" />$vbphrase[check_uncheck_all]</label>
+						<img src="$stylevar[imgdir_misc]/progress.gif" id="ignorelist_change_progress" class="inlineimg" style="display:none" alt="" />
+						<input type="submit" class="button" id="submit_save" value="$vbphrase[save_changes]" />
+					</div>
+					<hr />
+				</form>
+				<form action="profile.php?do=updatelist&amp;userlist=ignore" method="post" id="ignorelist_add_form">
+					<input type="hidden" name="s" value="$session[sessionhash]" />
+					<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+					<input type="hidden" name="do" value="updatelist" />
+					<input type="hidden" name="userlist" value="ignore" />
+					<div id="ignorelist_error" class="userlist_error floatcontainer"><img src="$stylevar[imgdir_statusicon]/wol_error.gif" id="ignorelist_error_image" class="userlist_error_image" alt="" /> <span id="ignorelist_error_message"></span></div>
+					<div class="userlist_form_controls">
+						<label for="ignorelist_add_txt">$vbphrase[add_member_to_your_list]</label>
+						<div>
+							<span id="ignorelist_add"><input type="text" class="bginput" name="username" id="ignorelist_add_txt" size="40" value="$ignore_username" /></span>
+							<div id="ignorelist_add_menu" class="vbmenu_popup" style="display:none"></div>
+							<input type="submit" class="button" value="$vbphrase[okay]" />
+						</div>
+					</div>
+					<hr />
+				</form>
+				<div class="fieldsetpad">
+					<div class="userlist_form_controls">$vbphrase[ignorelist_instructions]</div>
+				</div>
+			</fieldset>
+
+		</div>
+	</div>
+	</td>
+</tr>
+</table>
+
+
+<if condition="$show['popups']">
+<script type="text/javascript" src="clientscript/vbulletin_ajax_namesugg.js?v=$vboptions[simpleversion]"></script>
+</if>
+<script type="text/javascript" src="clientscript/vbulletin_ajax_userlist.js?v=$vboptions[simpleversion]"></script>
+<script type="text/javascript">
+<!--
+<if condition="$show['popups']">
+vBmenu.register("ignorelist_add", true);
+snc_ignorelist = new vB_AJAX_NameSuggest("snc_ignorelist", "ignorelist_add_txt", "ignorelist_add");
+</if>
+// ajax saver
+vBulletin.register_control("vB_UserList_Saver", "ignorelist");
+// img-label handler
+vBulletin.register_control("vB_UserList_Highlighter", "ignorelist");
+//-->
+</script>

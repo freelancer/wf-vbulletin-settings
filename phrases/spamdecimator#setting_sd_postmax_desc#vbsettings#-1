@@ -1,0 +1,1 @@
+If a user has more than the maximum number of posts, the Decimator button isn't displayed and the user can't be decimated. Enter 0 to disable.

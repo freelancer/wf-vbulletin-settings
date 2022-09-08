@@ -1,0 +1,51 @@
+<!-- blog_bloglistbit -->
+<div style="padding: 0px 0px $stylevar[cellpadding]px 0px">
+<table class="tborder" id="blog$blog[blogid]" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr valign="top">
+	<td class="thead" align="center" width="12" rowspan="2"><img src="$stylevar[imgdir_statusicon]/post_old.gif" alt="" /></td>
+	<td class="alt1" id="td_blog_$blog[blogid]">
+
+		<a href="blog.php?$session[sessionurl]u=$blog[userid]">$blog[title]</a>
+		<if condition="$show['status']">
+			<img class="inlineimg" src="$status[image]" alt="$status[phrase]" border="0" />
+		</if>
+
+	</td>
+
+</tr>
+<tr>
+	<td class="alt2 smallfont">
+		<phrase 1="$blog[username]" 2="$session[sessionurl]">$vbphrase[entry_is_hidden_x_y]</phrase>
+	</td>
+</tr>
+</table>
+</div>
+
+<!-- blog $blog[blogid] popup menu -->
+<div class="vbmenu_popup" id="blogusermenu$blog[blogid]_menu" style="display:none;">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">$blog[username]</td>
+	</tr>
+	<if condition="$blog['userid']">
+		<tr><td class="vbmenu_option"><a href="member.php?$session[sessionurl]u=$blog[userid]">$vbphrase[view_public_profile]</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="blog.php?$session[sessionurl]u=$blog[userid]"><phrase 1="$blog[username]">$vbphrase[view_all_blog_entries_by_user]</phrase></a></td></tr>
+	</if>
+	<if condition="$show['pmlink']">
+		<tr><td class="vbmenu_option"><a href="private.php?$session[sessionurl]do=newpm&amp;username=$blog[username]" rel="nofollow"><phrase 1="$blog[username]">$vbphrase[send_private_message_to_x]</phrase></a></td></tr>
+	</if>
+	<if condition="$show['emaillink']">
+		<tr><td class="vbmenu_option"><a href="sendmessage.php?$session[sessionurl]do=mailmember&amp;u=$blog[userid]" rel="nofollow"><phrase 1="$blog[username]">$vbphrase[send_email_to_x]</phrase></a></td></tr>
+	</if>
+	<if condition="$show['homepage']">
+		<tr><td class="vbmenu_option"><a href="$blog[homepage]"><phrase 1="$blog[username]">$vbphrase[visit_xs_homepage]</phrase></a></td></tr>
+	</if>
+	<if condition="$blog['userid']">
+		<tr><td class="vbmenu_option"><a href="search.php?$session[sessionurl]do=finduser&amp;u=$blog[userid]" rel="nofollow"><phrase 1="$blog[username]">$vbphrase[find_all_posts_by_x]</phrase></a></td></tr>
+	</if>
+	<if condition="$blog['userid'] AND $show['member']">
+	<tr><td class="vbmenu_option"><a href="profile.php?$session[sessionurl]do=addlist&amp;userlist=buddy&amp;u=$blog[userid]"><phrase 1="$blog[username]">$vbphrase[add_x_to_contacts]</phrase></a></td></tr>
+	</if>
+	</table>
+</div>
+<!-- / blog $blog[blogid] popup menu -->

@@ -1,0 +1,3 @@
+<td class="alt1" style="border:1px inset; padding:$stylevar[cellpadding]px">
+	<span class="smallfont">$vbphrase[no_avatar_specified]</span>
+</td>

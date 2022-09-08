@@ -1,0 +1,15 @@
+<div style="margin:20px; margin-top:5px; clear:both">
+	<div class="smallfont" style="margin-bottom:2px">$vbphrase[php_code]:</div>
+	<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: $stylevar[cellpadding]px;
+		border: 1px inset;
+		width: $stylevar[codeblockwidth_blog];
+		height: {$blockheight}px;
+		text-align: left;
+		overflow: auto">
+		<code style="white-space:nowrap">
+			<!-- php buffer start -->$code<!-- php buffer end -->
+		</code>
+	</div>
+</div>

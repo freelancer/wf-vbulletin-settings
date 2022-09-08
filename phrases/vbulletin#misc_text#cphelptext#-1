@@ -1,0 +1,11 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=backup&amp;pageaction=&amp;option=">Database Backup</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=repair&amp;pageaction=&amp;option=">Repair / Optimize</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=misc&amp;pageaction=&amp;option=">Update Counters</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=diagnostic&amp;pageaction=&amp;option=">Diagnostics</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=queries&amp;pageaction=&amp;option=">Execute SQL Query</a><br /><br />
+
+<b>Update Counters:</b><br />
+This page allows you to update several vBulletin counters.  Not all information that is displayed on vBulletin forum pages is dynamically generated.  "Counters" are used instead of some costly queries in order to reduce the server load associated with retrieving information.<br /><br />
+
+User post counts are a good example of a counter.  vBulletin doesn't count the number of posts a user has every time their post count is displayed on the forums.  Instead the user has a post counter that is incremented every time they make a post.  This way when vBulletin wants to display a user's post count it only has to read a number instead of all of the records in the post table.

@@ -1,0 +1,26 @@
+<if condition="$show['lastpostinfo']">
+<div class="smallfont" align="$stylevar[left]">
+	<div>
+		<span style="white-space:nowrap">
+		<if condition="$show['icon']"><img class="inlineimg" src="$icon[iconpath]" alt="$icon[title]" border="0" /></if>
+		<if condition="$lastpostinfo['prefix']">
+			$lastpostinfo[prefix]
+			</span><if condition="is_browser('safari')"><!--bug#24775-->&nbsp;</if>
+			<span style="white-space:nowrap">
+		</if>
+		<a href="showthread.php?$session[sessionurl]goto=newpost&amp;t=$lastpostinfo[lastthreadid]" style="white-space:nowrap" title="<phrase 1="$lastpostinfo[lastthread]">$vbphrase[go_first_unread_in_thread_x]</phrase>"><strong>$lastpostinfo[trimthread]</strong></a></span>
+	</div>
+	<div style="white-space:nowrap<if condition="is_browser('ie', 6)">; float:$stylevar[left]</if>">
+		<phrase 1="member.php?$session[sessionurl]find=lastposter&amp;f=$lastpostinfo[forumid]" 2="$lastpostinfo[lastposter]">$vbphrase[by_x]</phrase>
+	</div>
+	<div align="$stylevar[right]" style="white-space:nowrap">
+		$lastpostinfo[lastpostdate] <if condition="!$show['detailedtime']"><span class="time">$lastpostinfo[lastposttime]</span></if>
+		<a href="showthread.php?$session[sessionurl]p=$lastpostinfo[lastpostid]#post$lastpostinfo[lastpostid]"><img class="inlineimg" src="$stylevar[imgdir_button]/lastpost.gif" alt="$vbphrase[go_to_last_post]" border="0" /></a>
+	</div>
+</div>
+<else />
+<div class="smallfont" align="$stylevar[right]">
+	$lastpostinfo[lastpostdate] <if condition="!$show['detailedtime']"><span class="time">$lastpostinfo[lastposttime]</span></if>
+	<a href="showthread.php?$session[sessionurl]p=$lastpostinfo[lastpostid]"><img class="inlineimg" src="$stylevar[imgdir_button]/lastpost.gif" alt="$vbphrase[go_to_last_post]" border="0" /></a>
+</div>
+</if>

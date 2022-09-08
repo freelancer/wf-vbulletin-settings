@@ -1,0 +1,40 @@
+if (VB_API === true)
+{
+	// got to parse the message to be displayed from bbcode into HTML
+	if ($text !== '')
+	{
+		require_once(DIR . '/includes/functions_wysiwyg.php');
+		$newpost['message'] = parse_wysiwyg_html($text, $ishtml, $forumid, iif($allowsmilie AND $parsesmilie, 1, 0));
+	}
+	else
+	{
+		$newpost['message'] = '';
+	}
+
+	$newpost['message'] = htmlspecialchars($newpost['message']);
+
+	if ($ishtml)
+	{
+		$newpost['message_bbcode'] = convert_wysiwyg_html_to_bbcode($text);
+	}
+	else
+	{
+		$newpost['message_bbcode'] = $text;
+	}
+}
+
+// check that $editor_css has been built
+if (!isset($GLOBALS['editor_css']))
+{
+	eval('$GLOBALS[\'editor_css\'] = "' . fetch_template('editor_css') . '";');
+	$GLOBALS['headinclude'] .= "<!-- Editor CSS automatically added by " . substr(strrchr(__FILE__, DIRECTORY_SEPARATOR), 1) . " at line " . __LINE__ . " -->\n" . $GLOBALS['editor_css'];
+}
+
+eval('$vBeditTemplate[\'clientscript\'] = "' . fetch_template('editor_clientscript') . '";');
+
+$ajax_extra = addslashes_js($ajax_extra);
+$editortype = ($toolbartype == 2 ? 1 : 0);
+$show['is_wysiwyg_editor'] = intval($editortype);
+eval('$messagearea = "' . fetch_template($editor_template_name, 0, true, false, array('newpost.message_bbcode')) . '";');
+
+return $editorid;

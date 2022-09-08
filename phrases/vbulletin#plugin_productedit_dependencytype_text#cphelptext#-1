@@ -1,0 +1,13 @@
+The product dependency system allows you to specify specific requirements for your product. If a user does not meet one or more of your requirements, he/she will not be able to install your product.<br />
+<br />
+This option controls what the required item is. You may select from:
+<ol>
+<li>PHP Version</li>
+<li>MySQL Version</li>
+<li>vBulletin Version</li>
+<li>Product ID - this option allows you to specify the ID of another product that must be installed <em>and enabled</em> before this product can be installed</li>
+</ol>
+
+Using the <em>Compatibility Starts With Version</em> and <em>Incompatible With Version</em> options, you may specify a range of versions that are compatible with your product.<br />
+<br />
+<strong>Note:</strong>. If you specify multiple entries for a specific dependency type, the person installing your product must only meet one dependency per type. For example, if you require PHP to be less than 4.2.0 and PHP to be greater than or equal to 4.3.0, as long as the user meets one of those two requirements, the install will continue.

@@ -1,0 +1,5 @@
+A comma seperated list of user defined useragent strings. Be careful! eg: Firefox<br />
+<br/>
+This area can also be used for testing devices which are currently not detected by the main script.  Just enter in a unique snippet of the devices useragent string in the area provided and set the Style to be the same as for Mobile Device users.<br />
+<br />
+Please report any undetected devices int the appropriate thread on vBulletin.org.

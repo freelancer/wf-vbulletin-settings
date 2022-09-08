@@ -1,0 +1,42 @@
+<tr>
+	<td class="alt2"><img src="$stylevar[imgdir_misc]/{$card}_small.gif" border="0" alt="" /></td>
+	<td class="alt1 smallfont">
+		<div class="infraction_post">
+			<if condition="$infraction[postid]">
+				<if condition="$show['postdeleted']">
+					<em>$vbphrase[n_a]</em>
+				<else /><if condition="$show['threadtitle']">
+					<a  href="showthread.php?$session[sessionurl]p=$infraction[postid]#post$infraction[postid]">$infraction[title]</a>
+				<else />
+					<em>$vbphrase[private]</em>
+				</if></if>
+			<else />
+				<if condition="$infraction['points']">
+					$vbphrase[profile_infraction]
+				<else />
+					$vbphrase[profile_warning]
+				</if>
+			</if>
+		</div>
+		<div class="infraction_reason"><span class="shade">$vbphrase[reason]:</span> <em>$infraction[reason]</em></div>
+	</td>
+	<td class="alt2 smallfont">
+		$infraction[dateline] <span class="time">$infraction[timeline]</span>
+		<phrase 1="member.php?$session[sessionurl]u=$infraction[whoadded]" 2="$infraction[username]">$vbphrase[by_x]</phrase>
+	</td>
+	<td class="alt1 smallfont">
+		$infraction[points] /
+		<if condition="$show['reversed']">
+			$vbphrase[reversed]
+		<else /><if condition="$show['expired']">
+			$vbphrase[expired]
+		<else /><if condition="$show['neverexpires']">
+			$vbphrase[never]
+		<else />
+			$infraction[expires_dateline] <span class="time">$infraction[expires_timeline]</span>
+		</if></if></if>
+	</td>
+	<if condition="$show['reverse']">
+		<td class="alt2 smallfont"><a href="infraction.php?$session[sessionurl]do=view&amp;infractionid=$infraction[infractionid]">$vbphrase[view]</a></td>
+	</if>
+</tr>

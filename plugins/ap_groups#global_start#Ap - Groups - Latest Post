@@ -1,0 +1,40 @@
+if (THIS_SCRIPT == "group")
+{
+$ap_grupmesajlari_limit = $vbulletin->options['ap_grupmesajlari_limit'];
+$ap_grupmesajlari_kes_limit = $vbulletin->options['ap_grupmesajlari_kes_limit'];
+$ap_grupmesajlari_nkes_limit = $vbulletin->options['ap_grupmesajlari_nkes_limit'];
+$ap_grupmesajlari_sorgu = $db->query_read("SELECT g.dateline AS sonmesajtarih, g.gmid, s.description, g.pagetext, g.postuserid, g.postusername, s.groupid, s.dateline, s.name, s.lastposter, s.lastposterid, g.state, s.visible, s.lastgmid, s.lastpost, user.username, user.usergroupid,
+     IF(displaygroupid=0, user.usergroupid, displaygroupid) AS displaygroupid 
+     FROM " . TABLE_PREFIX . "groupmessage AS g
+     LEFT JOIN " . TABLE_PREFIX . "socialgroup AS s ON (g.gmid = s.lastgmid)
+     LEFT JOIN " . TABLE_PREFIX . "user AS user ON(user.username = g.postusername)
+     WHERE g.state = 'visible' AND s.visible > '0'
+        ORDER BY g.dateline DESC 
+        LIMIT 0, $ap_grupmesajlari_limit");
+
+while($ap_grupsonmesaj = $db->fetch_array($ap_grupmesajlari_sorgu))
+{
+
+
+$ap_grupsonmesaj['musername'] = fetch_musername($ap_grupsonmesaj); 
+$ap_grupsonmesajmarkupuye = $ap_grupsonmesaj['musername'];
+
+if(strlen($ap_grupsonmesaj[pagetext]) > $ap_grupmesajlari_kes_limit) 
+            { 
+                $ap_grupsonmesaj[pagetext] = substr($ap_grupsonmesaj[pagetext], 0, $ap_grupmesajlari_kes_limit) . '...'; 
+            } 
+
+
+if(strlen($ap_grupsonmesaj[name]) > $ap_grupmesajlari_nkes_limit) 
+            { 
+                $ap_grupsonmesaj[name] = substr($ap_grupsonmesaj[name], 0, $ap_grupmesajlari_nkes_limit) . '...'; 
+            } 
+
+$grupdate = vbdate($vbulletin->options['dateformat'], $ap_grupsonmesaj['sonmesajtarih'], true);
+
+$i++; 
+if($i%2 == 0) { $ap_g_class = 'alt2'; } else { $ap_g_class = 'alt1'; } 
+eval("\$ap_grupmesajlarbit .= \"".fetch_template('ap_groupmessage_bit')."\";");
+
+}
+}

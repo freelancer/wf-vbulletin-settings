@@ -1,0 +1,9 @@
+Format in which the date is presented on vBulletin pages:<br />
+<br />
+See: <a href="http://www.php.net/manual-lookup.php?function=date" target="_blank">http://www.php.net/manual-lookup.php?function=date</a><br />
+<br />
+<b>Examples:</b><br />
+US Format (e.g., 04-25-98): m-d-y<br />
+Expanded US Format (e.g., April 25th, 1998): F jS, Y<br />
+European Format (e.g., 25-04-98): d-m-y<br />
+Expanded European Format (e.g., 25th April 1998): jS F Y

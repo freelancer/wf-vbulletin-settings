@@ -1,0 +1,8 @@
+
+		<tr class="$bgclass">
+			<td class="smallfont" align="center" nowrap="nowrap">$cybareg_rowid</td>
+			<td class="smallfont" align="$stylevar[left]" nowrap="nowrap"><if condition="($cybareg[active]=='1')"><img border="0" class="inlineimg" src="images/statusicon/user_online.gif" title="$vbphrase[cybareg_active]" alt="$vbphrase[cybareg_active]" /><else /><img border="0" class="inlineimg" src="images/statusicon/user_offline.gif" title="$vbphrase[cybareg_inactive]" alt="$vbphrase[cybareg_inactive]" /></if> $cybareg[question]</td>
+			<td class="smallfont" align="$stylevar[left]" nowrap="nowrap">$cybareg[answer]</td>
+			<td class="smallfont" align="center" nowrap="nowrap"><a href="misc.php?do=cybaregedit&amp;aregid=$cybareg[id]">$vbphrase[edit]</a></td>
+			<td class="smallfont" align="center" nowrap="nowrap"><input type="checkbox" name="armultibit[$cybareg_itemid]" value="$cybareg[id]" /></td>
+		</tr>

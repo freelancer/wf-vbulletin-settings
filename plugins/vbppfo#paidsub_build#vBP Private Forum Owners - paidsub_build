@@ -1,0 +1,5 @@
+
+				$vbppfo_lasthook='paidsub_build';
+				include(DIR.'/includes/vbppfo_hooks.php');
+			
+			

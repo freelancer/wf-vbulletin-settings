@@ -1,0 +1,2 @@
+<label for="rb_pattern_3"><input type="radio" name="recur[pattern]" value="3" id="rb_pattern_3" tabindex="1" {1} />Every</label>
+						<input type="text" class="bginput" style="font-size:11px" name="recur[weeklybox]" size="3" maxlength="2" value="{2}" tabindex="1" /> week(s) on

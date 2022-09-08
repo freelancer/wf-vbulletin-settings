@@ -1,0 +1,3 @@
+print_stylevar_row($vbphrase['blog_form_width'], 'formwidth_blog');
+print_stylevar_row($vbphrase['blog_code_block_width'], 'codeblockwidth_blog');
+print_stylevar_row($vbphrase['message_width_blog'], 'messagewidth_blog');

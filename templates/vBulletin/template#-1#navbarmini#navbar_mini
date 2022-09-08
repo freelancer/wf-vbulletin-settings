@@ -1,0 +1,25 @@
+ 
+<!-- navbar mini: inline -->
+<br />
+<table class="tborder" align="center" border="0" cellpadding="6" cellspacing="1" width="100%">
+<tbody><tr>
+		<td class="alt1">
+			<!-- breadcrumb -->
+			<table cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%">
+			<tr>
+				<td>
+					<table cellpadding="0" cellspacing="0" border="0" width="100%">
+					<tr valign="bottom">
+						<td>&nbsp;</td>
+						<td width="100%"><span class="navbar"><a href="$vboptions[forumhome].php?$session[sessionurl]" accesskey="1">$vboptions[bbtitle]</a></span> $navbits[breadcrumb]</td>
+					</tr>
+					</table>			
+				</td>	
+			</tr>
+			</table>
+			<!-- / breadcrumb -->
+		</td>
+</tr></tbody>
+</table>
+<!-- / navbar mini: inline -->
+  

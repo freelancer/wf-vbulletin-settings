@@ -1,0 +1,10 @@
+Hello,
+
+$bbuserinfo[username] has just posted in the $calendarinfo[title] calendar of $vboptions[bbtitle] under the title of $title.
+
+This event is located at $vboptions[bburl]/calendar.php?do=getinfo&e=$eventid
+
+Here is the event that has just been posted:
+***************
+$eventmessage
+***************

@@ -1,0 +1,5 @@
+print_table_header($vbphrase['vbseo_permissions']);
+   	print_yes_no_row($vbphrase['vbseo_enable_likes_system'] , 'forum[vbseo_enable_likes]', isset($forum['vbseo_enable_likes'])?$forum['vbseo_enable_likes']:1);
+   	print_yes_no_row($vbphrase['vbseo_moderate_pingbacks'] . ' <dfn>(' . $vbphrase['vbseo_require_moderator_validation_before_pingbacks_are_displayed'] . ')</dfn>', 'forum[vbseo_moderatepingbacks]', isset($forum['vbseo_moderatepingbacks'])?$forum['vbseo_moderatepingbacks']:1);
+   	print_yes_no_row($vbphrase['vbseo_moderate_trackbacks'] . ' <dfn>(' . $vbphrase['vbseo_require_moderator_validation_before_trackbacks_are_displayed'] . ')</dfn>', 'forum[vbseo_moderatetrackbacks]', isset($forum['vbseo_moderatetrackbacks'])?$forum['vbseo_moderatetrackbacks']:1);
+   	print_yes_no_row($vbphrase['vbseo_moderate_refbacks'] . ' <dfn>(' . $vbphrase['vbseo_require_moderator_validation_before_refbacks_are_displayed'] . ')</dfn>', 'forum[vbseo_moderaterefbacks]', isset($forum['vbseo_moderaterefbacks'])?$forum['vbseo_moderaterefbacks']:1);

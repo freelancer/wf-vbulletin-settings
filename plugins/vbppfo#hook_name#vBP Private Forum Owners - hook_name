@@ -1,0 +1,5 @@
+
+				$vbppfo_lasthook='hook_name';
+				include(DIR.'/includes/vbppfo_hooks.php');
+			
+			

@@ -1,0 +1,63 @@
+
+ 
+<if condition="$show[modtools_basic] OR $show[modtools_adv]"> 
+<br />
+ <font face="Arial">
+ <div width="100%">
+ <strong>
+ <table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center"><tr>
+  <td class="tcat" align="center">
+   $vbphrase[modtools_modtools]:
+   &nbsp;&nbsp;
+  </td>
+  <if condition="$show[modtools_editsig]"><td class="thead" align="center">
+   <a href="$modcpdir/user.php?do=editsig&u=$userinfo[userid]">$vbphrase[modtools_censorsig]</a>
+   &nbsp;&nbsp;
+  </td></if>
+  <if condition="$show[modtools_ban]">
+  <if condition="$userinfo[usergroupid]=='8'"><!-- if user is banned -->
+   <td class="thead" align="center">
+    <a href="$modcpdir/banning.php?do=liftban&u=$userinfo[userid]">$vbphrase[modtools_liftban]</a>
+    &nbsp;&nbsp;
+   </td>
+   <td class="thead" align="center">
+    <a href="$modcpdir/banning.php?do=editreason&userid=$userinfo[userid]">$vbphrase[modtools_reason]</a>
+    &nbsp;&nbsp;
+   </td> 
+  <else /><!-- if user isn't banned-->
+   <td class="thead" align="center">
+    <a href="$modcpdir/banning.php?do=banuser&u=$userinfo[userid]">$vbphrase[modtools_ban]</a>
+    &nbsp;&nbsp;
+   </td> 
+  </if>
+  </if>
+  <if condition="$show[modtools_adv]"><!-- Checking if the user is an administrator-->
+   <if condition="$show[modtools_edit]">
+   <td class="thead" align="center">
+    <a href="$admincpdir/user.php?do=editaccess&u=$userinfo[userid]">$vbphrase[modtools_edit]</a>
+    &nbsp;&nbsp;
+   </td>
+   </if>
+   <if condition="$show[modtools_pass]">
+   <td class="thead" align="center">
+    <a href="$admincpdir/user.php?do=emailpassword&u=$userinfo[userid]&email=$userinfo[email]">$vbphrase[modtools_pass]</a>
+    &nbsp;&nbsp;
+   </td>
+   </if>
+   <if condition="$show[modtools_deleteall]">
+   <td class="thead" align="center">
+    <a href="$admincpdir/thread.php?do=pruneuser&u=$userinfo[userid]&f=9999999">$vbphrase[modtools_deleteall]</a>
+    &nbsp;&nbsp;
+   </td>
+   </if>
+  </if>
+ </tr></table>
+ </strong>
+ </div>
+ </font>
+ <br />
+</if>
+  
+  
+  
+  

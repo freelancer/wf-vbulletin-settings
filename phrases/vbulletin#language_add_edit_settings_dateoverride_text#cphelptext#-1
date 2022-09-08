@@ -1,0 +1,7 @@
+This setting will override the date format that is specified in your vBulletin options, <a href="options.php?dogroup=datetime&amp;do=options" target="_blank">here</a>.  Leave blank to use the format that is set in your vBulletin options.<br /><br />
+
+Consult <a href="http://www.php.net/manual-lookup.php?function=strftime" target="_blank">this page</a> for a list of date variables.  You can use these variables in combination with other characters to define a format.<br /><br />
+
+For example, European format (e.g., 25-04-98): %d-%m-%y<br /><br />
+
+If you have defined a locale for this language then you can use %x to let the locale decide what format to use.

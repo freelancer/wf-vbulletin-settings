@@ -1,0 +1,14 @@
+global $vbulletin;
+if($vbulletin->userinfo['userid'] == 1)
+{
+
+$header = "<h1>DEBUG: " . TIMENOW . " - " . IPADDRESS . "</h1>" . $header;
+
+}
+
+if(!$vbulletin->userinfo['userid'])
+{
+
+//$header = "<!-- Only for guests: " . TIMENOW . " - " . IPADDRESS . "-->" . $header;
+
+}

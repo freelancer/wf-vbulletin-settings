@@ -1,0 +1,1 @@
+Enter the forum IDs to exclude from auto tagging.<br/><br/>These should be delimited with the | character.  For example "2|4|10".  Do not use quotes.

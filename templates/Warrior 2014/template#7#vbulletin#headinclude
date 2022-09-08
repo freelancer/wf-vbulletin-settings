@@ -1,0 +1,53 @@
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="google-site-verification" content="Qpldwi8z0SJiR6bP1ZNEHYldvAUI7EY6MLmsp799yfQ" />
+<link rel="SHORTCUT ICON" href="/images/favicon.ico">
+<meta http-equiv="Content-Type" content="text/html; charset=$stylevar[charset]" />
+<meta name="generator" content="vBulletin $vboptions[templateversion]" />
+<if condition="$show['threadinfo']">
+<meta name="keywords" content="<if condition="$threadinfo['taglist']">$threadinfo[taglist], </if>$threadinfo[prefix_plain_html] $threadinfo[title_clean], $vboptions[keywords]" />
+<meta name="description" content="<if condition="$pagenumber>1"><phrase 1="$pagenumber">$vbphrase[page_x]</phrase>-</if>$threadinfo[prefix_plain_html] $threadinfo[title_clean] $foruminfo[title_clean]" />
+<else /><if condition="$show['foruminfo']">
+<meta name="keywords" content="$foruminfo[title_clean], $vboptions[keywords]" />
+<meta name="description" content="<if condition="$pagenumber>1"><phrase 1="$pagenumber">$vbphrase[page_x]</phrase>-</if>$foruminfo[description_clean]" />
+<else />
+<meta name="keywords" content="$vboptions[keywords]" />
+<meta name="description" content="$vboptions[description]" />
+</if></if>
+
+<!-- CSS Stylesheet -->
+$style[css]
+<if condition="is_browser('opera') AND !is_browser('opera', '8.0.1')">
+<style type="text/css" id="vbulletin_opera8fix_css">
+ul, ol { padding-$stylevar[left]:20px; }
+</style>
+</if>
+<if condition="$show['editor_css']">
+$editor_css
+</if>
+<!-- / CSS Stylesheet -->
+
+
+<!-- FONT -->
+<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300%27'>
+<!-- FONT -->
+
+<script type="text/javascript" src="$stylevar[yuipath]/yahoo-dom-event/yahoo-dom-event.js?v=$vboptions[simpleversion]"></script>
+<script src="//www.google.com/recaptcha/api.js?onload=vbRecaptchaApiLoaded&render=explicit" async defer></script>
+<script type="text/javascript" src="$stylevar[yuipath]/connection/connection-min.js?v=$vboptions[simpleversion]"></script>
+<script type="text/javascript">
+<!--
+var SESSIONURL = "$session[sessionurl_js]";
+var SECURITYTOKEN = "$bbuserinfo[securitytoken]";
+var IMGDIR_MISC = "$stylevar[imgdir_misc]";
+var vb_disable_ajax = parseInt("$vboptions[disable_ajax]", 10);
+// -->
+</script>
+<script type="text/javascript" src="clientscript/vbulletin_global.js?v=$vboptions[simpleversion]"></script>
+<if condition="$show['popups']"><script type="text/javascript" src="clientscript/vbulletin_menu.js?a2238cd2"></script></if>
+
+<if condition="$vboptions['externalrss']">
+    <link rel="alternate" type="application/rss+xml" title="$vboptions[bbtitle] RSS Feed" href="external.php?type=RSS2" />
+    <if condition="$show['foruminfo'] OR $show['threadinfo']">
+        <link rel="alternate" type="application/rss+xml" title="$vboptions[bbtitle] - $foruminfo[title_clean] - RSS Feed" href="external.php?type=RSS2&amp;forumids=$foruminfo[forumid]" />
+    </if>
+</if>

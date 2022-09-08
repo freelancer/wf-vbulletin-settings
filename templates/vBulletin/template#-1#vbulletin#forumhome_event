@@ -1,0 +1,7 @@
+<div>
+<if condition="!$vboptions['showeventtype']">
+	$callink: $eventdates
+<else />
+	$eventdate: $daysevents
+</if>
+</div>

@@ -1,0 +1,105 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+$usercss
+<title>$vboptions[bbtitle] - <if condition="$albuminfo['albumid']">$vbphrase[edit_album]<else />$vbphrase[add_album]</if></title>
+</head>
+<body>
+$header
+$navbar
+
+<div id="usercss">
+
+<if condition="$show['delete_option']">
+<form action="album.php?do=killalbum&amp;albumid=$albuminfo[albumid]" method="post">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="killalbum" />
+<input type="hidden" name="albumid" value="$albuminfo[albumid]" />
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+    <td class="tcat">
+        $vbphrase[delete_album]
+    </td>
+</tr>
+<tr>
+    <td class="panelsurround" align="center">
+    <div class="panel">
+        <div style="width:$stylevar[formwidth]" align="$stylevar[left]">
+            <div class="smallfont">
+                <span style="float: $stylevar[right]"><input type="submit" class="button" value="$vbphrase[delete_album]" accesskey="d" tabindex="1" /></span>
+                <input type="checkbox" name="delete" id="cb_delete" value="1" /><label for="cb_delete">$vbphrase[to_delete_this_album]</label></div>
+            </div>
+        </div>
+    </div>
+    </td>
+</tr>
+</table>
+</form>
+
+<br />
+</if>
+
+$errortable
+
+<form action="album.php?do=updatealbum&amp;u=$userinfo[userid]&amp;albumid=$formdata[albumid]" method="post">
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+    <td class="tcat">
+        <if condition="$albuminfo['title']">
+            <span class="smallfont normal" style="float: $stylevar[right]"><b>$vbphrase[album]</b>: <a href="album.php?$session[sessionurl]albumid=$albuminfo[albumid]">$albuminfo[title_html]</a></span>
+        </if>
+        <if condition="$albuminfo['albumid']">$vbphrase[edit_album]<else />$vbphrase[add_album]</if>
+    </td>
+</tr>
+<tr>
+    <td class="panelsurround" align="center">
+    <div class="panel">
+        <div style="width:$stylevar[formwidth]">
+            <table><tr><td align="$stylevar[left]">
+            <if condition="$show['album_used_in_css']">
+                <fieldset style="margin-bottom: $stylevar[cellpadding]px" class="fieldset">
+                    <div class="smallfont" style="margin: $stylevar[cellpadding]px">
+                        $vbphrase[album_pictures_used_profile_styling]
+                    </div>
+                </fieldset>
+            </if>
+
+            <div class="smallfont">
+                $vbphrase[title]:
+                <div><input type="text" class="bginput" name="title" value="$formdata[title]" size="50" tabindex="1" ng-non-bindable/></div>
+            </div>
+
+            <div style="margin-top: $stylevar[cellpadding]px" class="smallfont">
+                $vbphrase[description]: <span class="shade">($vbphrase[bbcode_not_allowed])</span>
+                <div><textarea name="description" rows="5" cols="50" tabindex="1"n ng-non-bindable>$formdata[description]</textarea></div>
+            </div>
+
+            <div style="margin-top: $stylevar[cellpadding]px" class="smallfont">
+                $vbphrase[album_type]:
+                <div><label for="rb_albumtype_public"><input type="radio" name="albumtype" value="public"  id="rb_albumtype_public" $formdata[albumtype_public] />$vbphrase[public]</label></div>
+                <div><label for="rb_albumtype_private"><input type="radio" name="albumtype" value="private" id="rb_albumtype_private" $formdata[albumtype_private] />$vbphrase[private_only_visible_contacts_moderators]</label></div>
+                <if condition="$show['albumtype_profile']"><div><label for="rb_albumtype_profile"><input type="radio" name="albumtype" value="profile" id="rb_albumtype_profile" $formdata[albumtype_profile] />$vbphrase[profile_pictures_modify_profile_style]</label></div></if>
+            </div>
+            </td></tr></table>
+        </div>
+    </div>
+
+    <div style="margin-top:$stylevar[cellpadding]px">
+        <input type="hidden" name="s" value="$session[sessionhash]" />
+        <input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+        <input type="hidden" name="do" value="updatealbum" />
+        <input type="hidden" name="albumid" value="$formdata[albumid]" />
+        <input type="submit" class="button" value="$vbphrase[submit]" accesskey="s" tabindex="1" />
+    </div>
+    </td>
+</tr>
+</table>
+</form>
+
+</div>
+
+$footer
+</body>
+</html>

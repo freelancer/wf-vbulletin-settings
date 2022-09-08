@@ -1,0 +1,6 @@
+<b>Related General Help Topics:</b><br />
+<a href="help.php?s=&amp;do=answer&amp;page=subscriptions&amp;pageaction=&amp;option=">Subscriptions</a><br />
+<a href="help.php?s=&amp;do=answer&amp;page=subscriptionpermission&amp;pageaction=&amp;option=">Subscription Permissions</a><br /><br />
+
+<b>Subscription Permissions:</b><br />
+By default, users will have the permission to purchase any of your available subscriptions (see the <a href="subscriptions.php?do=modify" target="_blank">Subscription Manager</a>).  However, you might not want users of a particular usergroup to have access to purchase a subscription.  In that case, vBulletin allows you to deny any subscription for any usergroup.  The user must not have the denied usergroup as their primary usergroup or as one of their secondary groups.

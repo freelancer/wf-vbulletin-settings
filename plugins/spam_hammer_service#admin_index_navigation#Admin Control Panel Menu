@@ -1,0 +1,25 @@
+$navigation[10][$vbphrase['spam_hammer_service_menu']] = array(
+	'options' => array(
+		10 => array(
+			$vbphrase['vbulletin_options'] => array(
+				'displayorder' => 10,
+				'link' => 'options.php?dogroup=spam_hammer_service',
+				'text' => $vbphrase['vbulletin_options']
+			),
+			$vbphrase['spam_hammer_service_report_index'] => array(
+				'displayorder' => 20,
+				'link' => '../login.php?spam_hammer_cross_site_auth&action=reports',
+				'text' => $vbphrase['spam_hammer_service_report_index']
+			),
+			$vbphrase['spam_hammer_service_contact_us'] => array(
+				'displayorder' => 30,
+				'link' => 'index.php?do=spam_hammer_contact_us',
+				'text' => $vbphrase['spam_hammer_service_contact_us']
+			)
+		)
+	),
+	'group' => array(
+		'permissions' => 'canadminsettings',
+		'text' => $vbphrase['spam_hammer_service_menu']
+	)
+);

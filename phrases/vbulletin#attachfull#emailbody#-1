@@ -1,0 +1,6 @@
+$bbuserinfo[username] has just tried to attach a file that would exceed the $vboptions[attachtotalspace] byte quota you setup by $overage.
+
+In order to allow users to continue attaching files, we recommend you delete some attachments. You can perform attachment management on the following pages:
+
+$vboptions[bburl]/$admincpdir/attachment.php?do=intro
+$vboptions[bburl]/$admincpdir/attachment.php?do=stats

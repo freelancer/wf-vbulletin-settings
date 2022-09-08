@@ -1,0 +1,6 @@
+<tr class="$bgclass">
+	<td>$stat[date]</td>
+	<td align="center">$stat[entrytotal]</td>
+	<td align="center">$stat[commenttotal]</td>
+	<td align="center">$stat[usertotal]</td>
+</tr>

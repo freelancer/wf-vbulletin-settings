@@ -1,0 +1,3 @@
+This permission determines how many private messages members of this group can have in their private message folders.  If a user reaches this limit then they will need to delete some PMs before they can receive anymore.<br /><br />
+
+Private Messaging must be enabled in your <a href="options.php?dogroup=pm&amp;do=options" target="_blank">vBulletin options</a> for this permission to have any effect.  Additionally, there are other private message settings on that page in your vBulletin options.

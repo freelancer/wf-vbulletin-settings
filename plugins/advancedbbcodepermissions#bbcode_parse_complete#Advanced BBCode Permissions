@@ -1,0 +1,1 @@
+$this->tag_list = $this->bbcode_tag_list;

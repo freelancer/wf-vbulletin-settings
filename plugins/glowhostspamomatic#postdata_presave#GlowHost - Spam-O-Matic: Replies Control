@@ -1,0 +1,14 @@
+
+				if ($this->registry->options['glowhostspamomatic_automodenabled'] == 1) { //automod enabled
+					if (($this->registry->userinfo['posts'] < $this->registry->options['glowhostspamomatic_automodpostcount']) || ($this->registry->options['glowhostspamomatic_automodpostcount'] == 0)) { // check for postcount is lower than specified in settings
+						$keywords = explode("\n", $this->registry->options['glowhostspamomatic_automodkeywords']);
+						$keywords = array_map('trim', $keywords);
+
+						if (str_replace($keywords, '', strtolower($this->fetch_field('pagetext', 'post'))) != strtolower($this->fetch_field('pagetext', 'post')) AND !can_moderate()) {
+							$this->set('visible', 0);
+						} else if ((substr_count($this->fetch_field('pagetext', 'post'), 'http:') > $this->registry->options['glowhostspamomatic_automodurls']) && !can_moderate()) {
+							$this->set('visible', 0);
+						}
+					}
+				}
+			

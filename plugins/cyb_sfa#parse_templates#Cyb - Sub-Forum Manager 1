@@ -1,0 +1,29 @@
+
+		if ($vbulletin->options['cybsfa_enable'] AND (THIS_SCRIPT=='index' OR THIS_SCRIPT=='forumdisplay'))
+		{
+			switch ($vbulletin->options['cybsfa_subfcommas'])
+			{
+				case 0: $cybsfm_comst = ''; break;
+				case 1: $cybsfm_comst = ','; break;
+				case 2: $cybsfm_comst = '<span style=\"text-transform:none;'.$vbulletin->options['cybsfa_countscss'].'\">,</span>'; break;
+			}
+
+			$vbulletin->templatecache['forumhome_subforumseparator_post'] = str_replace(',', $cybsfm_comst.'&nbsp;',$vbulletin->templatecache['forumhome_subforumseparator_nopost']);
+			$vbulletin->templatecache['forumhome_subforumseparator_nopost'] = str_replace(',', $cybsfm_comst.'&nbsp;',$vbulletin->templatecache['forumhome_subforumseparator_nopost']);
+
+			if ($vbulletin->options['cybsfa_subphrase'])
+			{
+				$cyb_sfm_subph = ('<strong>$vbphrase[subforums]</strong>:');
+				$vbulletin->templatecache['forumhome_forumbit_level1_nopost'] = str_replace($cyb_sfm_subph, '',$vbulletin->templatecache['forumhome_forumbit_level1_nopost']);
+				$vbulletin->templatecache['forumhome_forumbit_level1_post'] = str_replace($cyb_sfm_subph, '',$vbulletin->templatecache['forumhome_forumbit_level1_post']);
+				$vbulletin->templatecache['forumhome_forumbit_level2_nopost'] = str_replace($cyb_sfm_subph, '',$vbulletin->templatecache['forumhome_forumbit_level2_nopost']);
+				$vbulletin->templatecache['forumhome_forumbit_level2_post'] = str_replace($cyb_sfm_subph, '',$vbulletin->templatecache['forumhome_forumbit_level2_post']);
+			}
+
+			if (($vbulletin->options['cybsfa_tr_counts']!='0') OR ($vbulletin->options['cybsfa_blankline_subs']!=''))
+			{
+				$cybsfa_titlesrch = ('$forum[title]</a>');
+				$vbulletin->templatecache['forumhome_subforumbit_post'] = str_replace($cybsfa_titlesrch,$cybsfa_titlesrch.$vbulletin->templatecache['cyb_subforummanager'],$vbulletin->templatecache['forumhome_subforumbit_post']);
+				$vbulletin->templatecache['forumhome_subforumbit_nopost'] = str_replace($cybsfa_titlesrch,$cybsfa_titlesrch.$vbulletin->templatecache['cyb_subforummanager'],$vbulletin->templatecache['forumhome_subforumbit_nopost']);
+			}
+		}

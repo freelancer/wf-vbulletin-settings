@@ -1,0 +1,25 @@
+<if condition="$blogbits">
+	<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="thead" nowrap="nowrap">
+			<span style="float:$stylevar[right]"><a href="$sorturl&amp;order=desc&amp;sort=rating">$vbphrase[rating]</a> $sortarrow[rating]</span>
+			<a href="$sorturl&amp;order=asc&amp;sort=title">$vbphrase[title]</a> $sortarrow[title] /
+			<a href="$sorturl&amp;order=asc&amp;sort=username">$vbphrase[user]</a> $sortarrow[username]
+		</td>
+		<td class="thead" align="center" nowrap="nowrap"><a href="$sorturl&amp;order=desc&amp;sort=entries">$vbphrase[entries]</a> $sortarrow[entries]</td>
+		<td class="thead" align="center" nowrap="nowrap"><a href="$sorturl&amp;order=desc&amp;sort=comments">$vbphrase[comments]</a> $sortarrow[comments]</td>
+		<td class="thead" align="center" nowrap="nowrap"><a href="$sorturl&amp;order=desc&amp;sort=lastblog">$vbphrase[last_post]</a> $sortarrow[lastblog]</td>
+	</tr>
+	$blogbits
+	</table>
+
+	<if condition="$pagenav">
+		<div style="padding-top: $stylevar[cellpadding]px">$pagenav</div>
+	</if>
+<else />
+	<div class="tborder" style="padding: $stylevar[cellspacing]px; margin-bottom: $stylevar[cellpadding]px">
+		<div class="alt1" style="padding: $stylevar[cellpadding]px">
+			$vbphrase[there_are_no_blogs]
+		</div>
+	</div>
+</if>

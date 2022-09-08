@@ -1,0 +1,9 @@
+
+				function can_administer_angadver()
+				{
+					global $db, $vbulletin;
+					
+					$adminangularadvertisements = $db->query_first("SELECT canadminangularadver FROM " . TABLE_PREFIX . "administrator WHERE userid = " . $vbulletin->userinfo['userid']);
+					return (($vbulletin->userinfo['usergroupid'] == 6 || $adminangularadvertisements['canadminangularadver']) ? true : false); 
+				}
+			

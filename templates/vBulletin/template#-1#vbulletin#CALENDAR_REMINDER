@@ -1,0 +1,80 @@
+<if condition="$show['pagenav']">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tr valign="bottom">
+	<td align="$stylevar[right]">$pagenav</td>
+</tr>
+</table>
+</if>
+
+<!-- topic table -->
+<form action="calendar.php?do=dostuff&amp;calendarid=$calendarid" method="post" name="form">
+<input type="hidden" name="s" value="$session[sessionhash]" />
+<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+<input type="hidden" name="do" value="dostuff" />
+<input type="hidden" name="calendarid" value="$calendarid" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+<tr>
+	<td class="tcat" colspan="5">
+		<span class="smallfont" style="float:$stylevar[right]"><strong>$vbphrase[events]</strong>: $totalevents</span>
+		$vbphrase[event_reminders]
+	</td>
+</tr>
+<if condition="$show['haveevents']">
+<tr>
+	<td class="thead">
+		<a href="$sorturl&amp;order=asc&amp;sort=title">$vbphrase[event]</a> $sortarrow[title] /
+		<a href="$sorturl&amp;order=asc&amp;sort=username">$vbphrase[event_poster]</a> $sortarrow[username]
+	</td>
+	<td class="thead" align="center" nowrap="nowrap"><a href="$sorturl&amp;order=desc&amp;sort=fromdate">$vbphrase[date]</a> $sortarrow[fromdate]</td>
+	<td class="thead" nowrap="nowrap"><a href="$sorturl&amp;order=asc&amp;sort=reminder">$vbphrase[reminder]</a> $sortarrow[reminder]</td>
+	<td class="thead" align="center"><input name="allbox" type="checkbox" value="Check All" title="$vbphrase[check_uncheck_all]" onclick="checkall(this.form);" /></td>
+</tr>
+$eventbits
+<tr>
+	<td class="tfoot" colspan="5" align="$stylevar[right]"><div class="smallfont">
+
+		$vbphrase[selected_events]
+		<select name="what">
+			<optgroup label="$vbphrase[delete_reminders]">
+				<option value="delete">$vbphrase[delete]</option>
+			</optgroup>
+			<optgroup label="$vbphrase[update_reminders]">
+				<option value="3600">$vbphrase[one_hour]</option>
+				<option value="7200">$vbphrase[two_hours]</option>
+				<option value="10800">$vbphrase[three_hours]</option>
+				<option value="14400">$vbphrase[four_hours]</option>
+				<option value="21600">$vbphrase[six_hours]</option>
+				<option value="28800">$vbphrase[eight_hours]</option>
+				<option value="43200">$vbphrase[twelve_hours]</option>
+				<option value="64800">$vbphrase[eighteen_hours]</option>
+				<option value="86400">$vbphrase[one_day]</option>
+				<option value="172800">$vbphrase[two_days]</option>
+				<option value="259200">$vbphrase[three_days]</option>
+			</optgroup>
+		</select>$gobutton
+
+	</div></td>
+</tr>
+<else />
+	<tr>
+		<td class="alt1" align="center" colspan="5">
+			<br />
+			$vbphrase[you_have_no_event_reminders]
+			<br />
+			<br />
+		</td>
+	</tr>
+</if>
+</table>
+
+</form>
+<!-- / topic table -->
+
+<if condition="$show['pagenav']">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:3px">
+<tr valign="top">
+	<td align="$stylevar[right]">$pagenav</td>
+</tr>
+</table>
+</if>

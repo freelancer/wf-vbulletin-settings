@@ -1,0 +1,23 @@
+<fieldset class="fieldset">
+	<legend>$vbphrase[image_verification]</legend>
+	<table cellpadding="0" cellspacing="$stylevar[formspacer]"  border="0" width="100%">
+	<tr>
+		<td width="100%" valign="top">
+			$vbphrase[please_enter_the_text]<br /><br />
+			<img id="progress_imagereg" style="display: none; float:$stylevar[right]" src="$stylevar[imgdir_misc]/progress.gif" alt="" />
+			<input type="text" class="bginput" name="${var_prefix}[input]" size="10" maxlength="6" />
+			<input id="hash" type="hidden" name="${var_prefix}[hash]" value="$humanverify[hash]" />
+		</td>
+		<td valign="bottom" align="center">
+			<img id="imagereg" src="image.php?$session[sessionurl]type=hv&amp;hash=$humanverify[hash]" alt="$vbphrase[registration_image]" width="201" height="61" border="0" />
+			<span id="refresh_imagereg" style="display:none"><a href="#">$vbphrase[refresh_image]</a></span>
+		</td>
+	</tr>
+	</table>
+</fieldset>
+<script type="text/javascript" src="clientscript/vbulletin_ajax_imagereg.js?v=$vboptions[simpleversion]"></script>
+<script type="text/javascript">
+<!--
+vB_AJAX_ImageReg_Init();
+//-->
+</script>

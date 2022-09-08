@@ -1,0 +1,21 @@
+<p><b>How do I use albums?</b></p>
+
+<p>As a member, you can create Albums of images that are linked to your public profile. Albums can be created by visiting the <a href="usercp.php$session[sessionurl_q]">User Control Panel</a>, and clicking on the 'Pictures &amp; Albums' link, and then clicking on 'Add Album'.</p>
+
+<p>Each album can have a title ('Joe's Holiday to Nepal'), a description ('A bunch of photos from my recent adventure') and can be of three different types: Public, Private or Profile.</p>
+
+<ul>
+<li><b>Public albums</b> can be viewed by anyone</li>
+<li><b>Private albums</b> can only be viewed by site staff (moderators, administrators) and your Friends and Contacts (<a href="faq.php?$session[sessionurl]faq=vb3_user_profile#faq_vb3_friends_contacts">info</a>)</li>
+<li><b>Profile albums</b> are viewable only by you. However, you can use the images to customize your public profile (<a href="faq.php?$session[sessionurl]faq=vb3_user_profile#faq_vb3_profile_custom">info</a>)</li>
+</ul>
+
+<p><b>How do I upload pictures?</b></p>
+
+<p>Once you've created an album you can upload images to it. Simply view the album and click on 'Upload Pictures'.</p>
+
+<p>You'll have the option to give each picture a caption, and to set one image as the Album cover, which will be displayed on the public profile. To delete an album or edit the title, description or album type, click on 'Edit Album'. To delete an image, or to edit a caption or change the album cover, click on 'Edit Pictures'.</p>
+
+<p>All members who have access to your album images can comment on them, in a similar way to Visitor Messages (<a href="faq.php?$session[sessionurl]faq=vb3_user_profile#faq_vb3_public_profile">more info</a>). You can delete any image comments from your albums, and report inappropriate messages to moderators.</p>
+
+<p>When you have uploaded a picture, you can place it in your posts by using the BB code text that is displayed below the image when you view it at full size.</p>

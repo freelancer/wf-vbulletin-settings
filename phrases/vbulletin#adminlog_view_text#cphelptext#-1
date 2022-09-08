@@ -1,0 +1,20 @@
+This screen shows you a portion of the log entries that have been made by you and/or your co-administrators (if applicable) while performing administrative duties. From left to right, the columns tell you:<br /><br />
+<b>Log ID</b>: This is simply an internal ID used for cataloging.<br /><br />
+
+<b>Username</b>: This is the person who performed the action.<br /><br />
+
+<b>Date</b>: This is the date and time the action was performed.<br /><br />
+
+<b>Script</b>: This is the script involved. Most scripts' names are self-explanatory. For example, viewing the admin log would generate a log item with the script "adminlog.php".<br /><br />
+
+<b>Action</b>: This is the action that the user performed. This may not always be easily understood, as it is the internal action name, not necessarily a verbose description of the action.<br /><br />
+
+<b>Extra Info</b>: For some actions, this records extra bits, such as what userid was being modified, or which template was being edited.<br /><br />
+
+<b>IP Address</b>: This is the IP address that was logged while the user was performing the action. Clicking on the address will attempt to resolve the IP address; that is, put it into an actual machine name and/or domain name. Sometimes this is not possible to do; see <a href="help.php?do=answer&amp;page=adminlog.php&amp;pageaction=resolveip">Reasons for an IP address not resolving</a>.<br /><br />
+
+At the bottom of the page, if there are more entries than could be displayed on one screen, you will find links to view the first page, previous page, next page, and last page. These buttons appear as necessary. For example if you are on the first page, the First Page and Previous Page buttons will not appear.<br /><br />
+
+To return to the main screen, choose Restart from the bottom of any page.<br /><br />
+
+You can restrict access to this script, or just to the pruning function or just to the viewing function. See <a href="help.php?do=answer&amp;page=adminlog.php&amp;pageaction=restrict">Restricting Access to Admin Log</a>.

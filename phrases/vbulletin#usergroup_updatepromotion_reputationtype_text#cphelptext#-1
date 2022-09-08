@@ -1,0 +1,5 @@
+This is the comparison operator that is used for the reputation value entered above.<br /><br />
+
+For example, if you want to promote based on reputation level then you would set a reputation level in the field above and set the comparison operator to "Greater or Equal to."  Then when a user reaches the specified minimum reputation level they will be promoted.  On the other hand, if you want to demote based on reputation level then you would set a low reputation level in the field above and set the comparison operator to "Less Than."  Then when a user loses enough reputation points to have a reputation level below the number specified they will be demoted.
+
+This does not demote based on post count.

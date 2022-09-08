@@ -1,0 +1,1 @@
+MySQL is running in strict mode. While you may proceed, some areas of vBulletin may not function properly. It is <em>strongly recommended</em> that you set <code>$config['Database']['force_sql_mode']</code> to <code>true</code> in your includes/config.php file!

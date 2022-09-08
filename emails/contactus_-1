@@ -1,0 +1,13 @@
+The following message was sent to you via the $vboptions[bbtitle] Contact Us form by $name ( mailto:$email ).
+
+--------------------------------
+
+$message
+
+--------------------------------
+
+Referring Page: $url
+IP Address: $ip
+User Name: $bbuserinfo[username]
+User ID: $bbuserinfo[userid]
+Email: $email

@@ -1,0 +1,7 @@
+To view the existing FAQ sets, select Modify under FAQ Sets &amp; Entries from the left navigation bar.<br /><br />
+
+You start at the top level of the FAQ. At the very top it says "FAQ" - this will expand to become a navigation bar as you drill down into the FAQ levels. Below this is a list of the top two levels of your FAQ structure. To view lower levels, click the parent of the level you wish to view. For example, under vBulletin FAQ, click User Maintenance to view all entries associated with that topic, and child sets (if any). Or, click vBulletin FAQ to view the entries associated with all three children of vBulletin FAQ.<br /><br />
+
+You can edit the properties of a a set or entry from here by clicking edit across from the item name. (see <a href="help.php?do=answer&amp;page=faq&amp;pageaction=edit">Editing FAQ Entries and Sets</a>)<br /><br />
+
+You can add additional sets or sub-sets. To do so, click Add in the left nav bar, or click Add Child across from the item you wish to add an item under. (see <a href="help.php?do=answer&amp;page=faq&amp;pageaction=add">Adding FAQ Entries and Sets</a>)

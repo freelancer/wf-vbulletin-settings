@@ -1,0 +1,13 @@
+<if condition="$show['cangetattachment']">
+	<a href="blog_attachment.php?$session[sessionurl]attachmentid=$attachment[attachmentid]&amp;d=$attachment[dateline]" target="attachment" rel="Lightbox" id="attachment$attachment[attachmentid]"><img class="thumbnail" src="blog_attachment.php?$session[sessionurl]attachmentid=$attachment[attachmentid]&amp;stc=1&amp;thumb=1&amp;d=$attachment[thumbnail_dateline]" border="0" alt="<phrase 1="$attachment[filename]" 2="$attachment[counter]" 3="$attachment[filesize]" 4="$attachment[attachmentid]">$vbphrase[image_larger_version_x_y_z]</phrase>" /></a>
+	&nbsp;
+	<if condition="$show['br']">
+		<br /><br />
+	</if>
+<else />
+	<a href="blog_attachment.php?$session[sessionurl]attachmentid=$attachment[attachmentid]&amp;d=$attachment[dateline]" rel="nofollow" id="attach$attachment[attachmentid]"><img class="thumbnail" src="blog_attachment.php?$session[sessionurl]attachmentid=$attachment[attachmentid]&amp;stc=1&amp;thumb=1&amp;d=$attachment[thumbnail_dateline]" border="0" alt="$attachment[filename]" /></a>
+	&nbsp;
+	<if condition="$show['br']">
+		<br /><br />
+	</if>
+</if>

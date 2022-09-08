@@ -1,0 +1,27 @@
+
+$allowed_usergroups=unserialize($vbulletin->options['youbbcode_usergroups']);
+$user_usergroups=array($vbulletin->userinfo['usergroupid']);
+
+$user_usergroups=array_merge($user_usergroups, explode(',', $vbulletin->userinfo['membergroupids']));
+
+$youbbcode_allowed=false;
+foreach ($user_usergroups AS $usergroupid)
+{
+	if(trim($usergroupid)=='')
+	{
+		continue;
+	}
+	
+	if(in_array($usergroupid, $allowed_usergroups))
+	{
+		$youbbcode_allowed=true;
+		break;
+	}
+}
+
+if($youbbcode_allowed==false)
+{
+	$post['message']=str_replace(array('/you', '[you]', '[YOU]'), ' ', $post['message']);
+	$post['title']=str_replace(array('/you', '[you]', '[YOU]'), ' ', $post['title']);
+}
+			

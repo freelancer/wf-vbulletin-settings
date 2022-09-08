@@ -1,0 +1,1 @@
+Enable API log for administrator to track client behaviors or debug purpose. The log will be stored into database, so enable it only if you really need it.

@@ -1,0 +1,5 @@
+
+				$vbppt_lasthook='mod_global';
+				include(DIR.'/includes/vbppt_hooks.php');
+			
+			

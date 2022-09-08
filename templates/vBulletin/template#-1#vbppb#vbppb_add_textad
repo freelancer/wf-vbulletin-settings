@@ -1,0 +1,89 @@
+
+			
+<form action="$filename.php?pageid=textads&amp;do=update" enctype="multipart/form-data" method="post" name="vbform">			
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" align="center">
+	<tr>
+		<td class="tcat" colspan="2">$vbphrase[vbppb_add_textad]</td>
+	</tr>
+	<tr>
+		<td class="alt1" valign="top">
+			$vbphrase[vbppb_title]
+			<div class="smallfont">
+				<phrase 1="$vboptions[vbppb_max_title_length]">$vbphrase[vbppb_title_desc]</phrase>
+			</div>
+			$errors[title]
+		</td>
+		<td class="alt1" valign="top">
+			<input type="text" class="bginput" name="title" id="title" value="$data[title]" size="60" />
+		</td>
+	</tr>
+	<tr>
+		<td class="alt1" valign="top">
+			$vbphrase[vbppb_url]
+			<div class="smallfont">
+				$vbphrase[vbppb_url_desc]</phrase>
+			</div>
+			$errors[url]
+		</td>
+		<td class="alt1" valign="top">
+			<input type="text" class="bginput" name="url" id="url" value="$data[url]" size="60" />
+		</td>
+	</tr>
+	<tr>
+		<td class="alt1" valign="top">
+			$vbphrase[vbppb_lines]
+			<div class="smallfont">
+				<phrase 1="$vboptions[vbppb_max_line_length]" 2="$vboptions[vbppb_max_line_count]">$vbphrase[vbppb_textad_rules]</phrase>
+			</div>
+			$errors[lines]
+		</td>
+		<td class="alt1" valign="top">
+			<textarea name="lines" cols="80" rows="4">$data[lines]</textarea>
+		</td>
+	</tr>
+	<tr>
+		<td class="alt1" valign="top">
+			$vbphrase[vbppb_subscription_terms]
+			$errors[slotid]
+		</td>
+		<td class="alt1" valign="top">
+			<select name="slotid">
+				$slotOptions
+			</select>
+		</td>
+	</tr>
+	<if condition="$isAdmin">
+		<tr>
+			<td class="alt1" valign="top">
+				$vbphrase[vbppb_status]
+			</td>
+			<td class="alt1" valign="top">
+				<select name="status">
+					$statusOptions
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="alt1" valign="top">
+				$vbphrase[vbppb_approved_status]
+			</td>
+			<td class="alt1" valign="top">
+				<select name="approved">
+					$approvedOptions
+				</select>
+			</td>
+		</tr>
+	</if>
+	<tr>
+		<td class="tfoot" colspan="2" align="center">
+			<input type="submit" class="button" value="$vbphrase[vbppb_save]" tabindex="1" accesskey="s" />
+			<input type="reset" class="button" value="$vbphrase[vbppb_reset]" tabindex="1" accesskey="r" />
+			<input type="hidden" name="s" value="$session[sessionhash]" />
+			<input type="hidden" name="securitytoken" value="$bbuserinfo[securitytoken]" />
+			<input type="hidden" name="do" value="update" />
+			$hiddenCode
+		</td>
+	</tr>
+</table>
+			
+		

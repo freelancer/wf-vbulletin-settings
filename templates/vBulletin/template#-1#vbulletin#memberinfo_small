@@ -1,0 +1,32 @@
+<li id="friend_mini_$user[userid]" class="memberinfo_small">
+	<table cellpadding="0" cellspacing="0" border="0">
+	<tr valign="top">
+		<td rowspan="2">
+			<div class="fixed_width_avatar"><a href="member.php?$session[sessionurl]u=$user[userid]"><img src="$user[avatarurl]" alt="$user[username]"<if condition="$user['avatarwidth']"> width="$user[avatarwidth]"</if><if condition="$user['avatarheight']"> height="$user[avatarheight]"</if> border="0" class="alt2" /></a></div>
+		</td>
+		<td width="100%">
+			<div class="tborder info_bar">
+				<ul class="alt2 list_no_decoration">
+					<li><a href="member.php?$session[sessionurl]u=$user[userid]" class="bigusername">$user[musername]</a></li>
+					<li class="smallfont">$user[usertitle]</li>
+				</ul>
+			</div>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td>
+			<if condition="$show['breakfriendship']"><span class="smallfont" style="float:$stylevar[right]"><a href="profile.php?$session[sessionurl]do=removelist&amp;userlist=friend&amp;u=$remove[userid]&amp;r=$remove[return]">$vbphrase[break_friendship]</a></span></if>
+			<ul class="list_no_decoration friend_im_list">
+				<if condition="$user['onlinestatus']"><li>$user[onlinestatus]</li></if>
+				<if condition="$vboptions['showimicons']">
+					<if condition="$user['showicq']"><li>$user[icqicon]</li></if>
+					<if condition="$user['showmsn']"><li>$user[msnicon]</li></if>
+					<if condition="$user['showaim']"><li>$user[aimicon]</li></if>
+					<if condition="$user['showyahoo']"><li>$user[yahooicon]</li></if>
+					<if condition="$user['showskype']"><li>$user[skypeicon]</li></if>
+				</if>
+			</ul>
+		</td>
+	</tr>
+	</table>
+</li>

@@ -1,0 +1,22 @@
+if (defined('VBBLOG_CACHED_TEMPLATES'))
+{
+	if ($post['entries'] > 0)
+	{
+		eval('$template_hook[\'postbit_userinfo_right_after_posts\'] .= "' . fetch_template('blog_postbit_entries_link') . '";');
+		eval('$template_hook[\'postbit_user_popup\'] .= "' . fetch_template('blog_postbit_blog_link') . '";');
+	}
+	if (
+		$this->registry->options['vbblog_blogthispost']
+			AND
+		strtolower(get_class($this)) == 'vb_postbit_post'
+			AND
+		$this->registry->userinfo['permissions']['vbblog_general_permissions'] & $this->registry->bf_ugp_vbblog_general_permissions['blog_canviewown']
+			AND
+		$this->registry->userinfo['permissions']['vbblog_entry_permissions'] & $this->registry->bf_ugp_vbblog_entry_permissions['blog_canpost']
+			AND
+		$this->registry->userinfo['userid']
+	)
+	{
+		eval('$template_hook[\'postbit_controls\'] .= "' . fetch_template('blog_postbit_blog_this_post') . '";');
+	}
+}

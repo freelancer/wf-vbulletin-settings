@@ -1,0 +1,1 @@
+<a href="member.php?$session[sessionurl]u=$thank[userid]" rel="nofollow">$thank[username]</a><if condition="$date_thank">&nbsp;($date_thank)</if>$virg

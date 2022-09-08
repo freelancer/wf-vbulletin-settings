@@ -1,0 +1,1 @@
+After copying the file into the specified "Safe Mode Temp Directory", it became readable. Uploads will function, but only when uploading in safe mode is enable.

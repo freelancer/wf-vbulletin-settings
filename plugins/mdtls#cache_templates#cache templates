@@ -1,0 +1,12 @@
+
+ 
+if (THIS_SCRIPT == 'member')
+{
+    $globaltemplates = array_merge($globaltemplates, array('memberinfo_ModTools'));
+}
+if (THIS_SCRIPT == 'showthread')
+	{
+		$globaltemplates = array_merge($globaltemplates, array('postbit_modtools'));
+	}
+   
+  

@@ -1,0 +1,9 @@
+
+global $vbulletin;
+if ($vbulletin->options['autotag_enabled'] AND $vbulletin->options['autotag_enabled_all'])
+{
+	require_once(DIR . '/includes/functions_autotagger.php');
+	ProcessThread($threadinfo);
+}
+
+			

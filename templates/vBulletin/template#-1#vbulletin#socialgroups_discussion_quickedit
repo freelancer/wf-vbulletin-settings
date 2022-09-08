@@ -1,0 +1,130 @@
+<if condition="$show['quick_edit_form_tag']"><form></if>
+
+<table cellpadding="0" cellspacing="0" border="1" align="center" width="95%" id="{$editorid}_editor">
+<tr>
+	<td class="vBulletin_editor">
+	<if condition="$show['editor_toolbar']">
+	<div id="{$editorid}_controls" class="controlbar">
+		<table cellpadding="0" cellspacing="0" border="0">
+		<tr>
+			<td><div class="imagebutton" id="{$editorid}_cmd_removeformat"><img src="$stylevar[imgdir_editor]/removeformat.gif" width="21" height="20" alt="$vbphrase[remove_text_formatting]" /></div></td>
+		<if condition="$show['basic_bbcode']">
+			<td><img src="$stylevar[imgdir_editor]/separator.gif" width="6" height="20" alt="" /></td>
+			<td><div class="imagebutton" id="{$editorid}_cmd_bold"><img src="$stylevar[imgdir_editor]/bold.gif" width="21" height="20" alt="$vbphrase[bold]" /></div></td>
+			<td><div class="imagebutton" id="{$editorid}_cmd_italic"><img src="$stylevar[imgdir_editor]/italic.gif" width="21" height="20" alt="$vbphrase[italic]" /></div></td>
+			<td><div class="imagebutton" id="{$editorid}_cmd_underline"><img src="$stylevar[imgdir_editor]/underline.gif" width="21" height="20" alt="$vbphrase[underline]" /></div></td>
+		</if>
+		<if condition="$show['color_bbcode']">
+			<td><img src="$stylevar[imgdir_editor]/separator.gif" width="6" height="20" alt="" /></td>
+			<td><div class="imagebutton" id="{$editorid}_popup_forecolor" title="$vbphrase[colors]">
+				<table cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<td id="{$editorid}_color_out"><img src="$stylevar[imgdir_editor]/color.gif" width="21" height="16" alt="" /><br /><img src="$vboptions[cleargifurl]" id="{$editorid}_color_bar" alt="" style="background-color:black" width="21" height="4" /></td>
+					<td class="alt_pickbutton"><img src="$stylevar[imgdir_editor]/menupop.gif" alt="" width="11" height="16" /></td>
+				</tr>
+				</table>
+			</div></td>
+		</if>
+		<if condition="$show['url_bbcode'] OR $show['img_bbcode']">
+			<td><img src="$stylevar[imgdir_editor]/separator.gif" width="6" height="20" alt="" /></td>
+		</if>
+		<if condition="$show['url_bbcode']">
+			<td><div class="imagebutton" id="{$editorid}_cmd_createlink"><img src="$stylevar[imgdir_editor]/createlink.gif" width="21" height="20" alt="$vbphrase[insert_link]" /></div></td>
+		</if>
+		<if condition="$show['img_bbcode']">
+			<td><div class="imagebutton" id="{$editorid}_cmd_insertimage"><img src="$stylevar[imgdir_editor]/insertimage.gif" width="21" height="20" alt="$vbphrase[insert_image]" /></div></td>
+		</if>
+		<if condition="$show['quote_bbcode']">
+			<td><img src="$stylevar[imgdir_editor]/separator.gif" width="6" height="20" alt="" /></td>
+			<td><div class="imagebutton" id="{$editorid}_cmd_wrap0_quote"><img src="$stylevar[imgdir_editor]/quote.gif" width="21" height="20" alt="$vbphrase[wrap_quote_tags]" /></div></td>
+		</if>
+		<if condition="!is_browser('opera')">
+			<td width="100%">&nbsp;</td>
+		</if>
+		<if condition="is_browser('ie')">
+			<td><img src="$stylevar[imgdir_editor]/separator.gif" width="6" height="20" alt="" /></td>
+			<td><div class="imagebutton" id="{$editorid}_cmd_spelling"><img src="$stylevar[imgdir_editor]/spelling.gif" width="21" height="20" alt="$vbphrase[check_spelling]" /></div></td>
+		</if>
+			<td>
+				<div class="imagebutton" id="{$editorid}_cmd_resize_0_99"><img src="$stylevar[imgdir_editor]/resize_0.gif" width="21" height="9" alt="" /></div>
+				<div class="imagebutton" id="{$editorid}_cmd_resize_1_99"><img src="$stylevar[imgdir_editor]/resize_1.gif" width="21" height="9" alt="" /></div>
+			</td>
+		<if condition="$show['wysiwyg_compatible']">
+			<td><img src="$stylevar[imgdir_editor]/separator.gif" width="6" height="20" alt="" /></td>
+			<td><div class="imagebutton" id="{$editorid}_cmd_switchmode"><img src="$stylevar[imgdir_editor]/switchmode.gif" width="21" height="20" alt="$vbphrase[switch_editor_mode]" /></div></td>
+		</if>
+		</tr>
+		</table>
+	</div>
+	</if>
+
+	<div class="controlbar">
+		<div class="fieldset" style="margin-top:$stylevar[formspacer]px">
+			<div>$vbphrase[reason_for_editing]:</div>
+			<div><input type="text" class="bginput" name="reason" id="{$editorid}_edit_reason" value="" size="50" maxlength="125" tabindex="1" title="$vbphrase[optional]" /></div>
+		</div>
+		<div><textarea name="message" id="{$editorid}_textarea" rows="10" cols="60" style="width:500px; height:{$editor_height}px" tabindex="1" dir="$stylevar[textdirection]">$newpost[message]</textarea></div>
+	</div>
+
+	<div align="$stylevar[right]">
+		<img style="vertical-align:middle; display: none" id="{$editorid}_posting_msg" src="$stylevar[imgdir_misc]/progress.gif" alt="$vbphrase[posting_message_please_wait]" />
+		<input type="button" class="button" tabindex="1" accesskey="s" value="$vbphrase[save]" id="{$editorid}_save" />
+		<input type="button" class="button" tabindex="1" accesskey="r" value="$vbphrase[go_advanced]" id="{$editorid}_adv" />
+		<if condition="$show['deletepostoption']">
+		<input type="button" class="button" tabindex="1" value="$vbphrase[delete]" id="{$editorid}_delete" />
+		</if>
+		<input type="button" class="button" tabindex="1" accesskey="r" value="$vbphrase[cancel]" id="{$editorid}_abort" />
+	</div>
+
+	<input type="hidden" name="wysiwyg" id="{$editorid}_mode" value="$editortype" />
+
+	<if condition="$show['deletepostoption']">
+	<div id="quickedit_delete" style="display:none">
+
+		<hr />
+
+		<div class="fieldset">
+			<div>$vbphrase[delete_message_check_appropriate_option]</div>
+			<if condition="$show['firstpostnote']">
+				<div>$vbphrase[deleting_message_deletion_of_thread]</div>
+			</if>
+		</div>
+
+		<fieldset class="fieldset">
+			<legend>$vbphrase[deletion_options]</legend>
+			<div style="padding:$stylevar[formspacer]px">
+				<div>
+					<label for="rb_del_leave"><input type="radio" name="deletepost" value="" id="rb_del_leave" tabindex="1" checked="checked" />$vbphrase[do_not_delete_message]</label>
+				</div>
+				<if condition="$show['softdeleteoption']">
+				<div>
+					<label for="rb_del_soft"><input type="radio" name="deletepost" value="delete" id="rb_del_soft" tabindex="1" />$vbphrase[delete_message]</label>
+					<if condition="$show['physicaldeleteoption'] AND $show['keepattachmentsoption']">(<label for="cb_keepattachments"><input type="checkbox" name="keepattachments" value="1" id="cb_keepattachments" tabindex="1" />$vbphrase[keep_attachments]</label>)</if>
+				</div>
+				</if>
+				<if condition="$show['physicaldeleteoption']">
+				<div>
+					<label for="rb_del_hard"><input type="radio" name="deletepost" value="remove" id="rb_del_hard" tabindex="1" />$vbphrase[physically_remove_message]</label>
+				</div>
+				</if>
+			</div>
+		</fieldset>
+
+		<table cellpadding="0" cellspacing="0" border="0" width="100%">
+		<tr valign="bottom">
+			<td class="smallfont">
+				<div>$vbphrase[reason_for_deletion]:</div>
+				<input type="text" class="bginput" name="reason" id="del_reason" size="50" tabindex="1" title="$vbphrase[optional]" />
+			</td>
+			<td align="$stylevar[right]"><input type="button" class="button" value="$vbphrase[delete_this_message]" tabindex="1" id="quickedit_dodelete" /></td>
+		</tr>
+		</table>
+
+	</div>
+	</if>
+
+	</td>
+</tr>
+</table>
+
+<if condition="$show['quick_edit_form_tag']"></form></if>

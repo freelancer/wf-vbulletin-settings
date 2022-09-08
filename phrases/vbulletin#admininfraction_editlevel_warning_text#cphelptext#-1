@@ -1,0 +1,3 @@
+Infraction Levels can have the option of allowing a warning to be given.  If an infraction allows warnings, the user giving the infraction will have the choice of giving a warning or giving the infraction's allotted points.
+
+Warnings do not add any points to a user and have no effect on the user's infraction groups.

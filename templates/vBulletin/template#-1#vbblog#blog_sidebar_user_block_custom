@@ -1,0 +1,14 @@
+<li id="block_custom_$blockname">
+<div class="tborder" style="margin-top:$stylevar[cellpadding]px; padding:$stylevar[cellspacing]px" id="block_custom_{$blockname}_div">
+	<div class="thead" style="padding:$stylevar[cellpadding]px" id="block_custom_{$blockname}_handle">
+		<a style="float:$stylevar[right]; padding-$stylevar[left]:$stylevar[cellspacing]px" href="#top" onclick="return toggle_collapse('blog_block_$blockname')"><img id="collapseimg_blog_block_$blockname" src="$stylevar[imgdir_button]/collapse_generic$collapseimg.gif" alt="" border="0" /></a>
+		<if condition="$show['editblock']"><a style="float:$stylevar[right]" href="blog_usercp.php?$session[sessionurl]do=modifyblock&amp;customblockid=$block[customblockid]"><img src="$stylevar[imgdir_misc]/blog/edit_generic.gif" alt="$vbphrase[edit_custom_block]" border="0" /></a></if>
+		$block[title]
+	</div>
+	<div class="alt1" style="padding:$stylevar[cellpadding]px; margin-top:$stylevar[cellspacing]px; $collapseobj" id="collapseobj_blog_block_$blockname">
+		<div class="sidebar_custom_block">
+			$block[message]
+		</div>
+	</div>
+</div>
+</li>

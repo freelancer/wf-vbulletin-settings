@@ -1,0 +1,45 @@
+<div class="social_group_message">
+	<div id="gmessage$message[gmid]" class="floatcontainer alt1 tborder">
+	<div class="tborder info_bar">
+		<div class="alt2 smallfont">
+			<if condition="$show['inlinemod']"><input type="checkbox" class="inlinemod_checkbox" name="gmessagelist[$message[gmid]]" id="gmessagelist_$message[gmid]" value="$message[checkbox_value]" title="$vbphrase[select_this_item_for_inline_moderation]"  /></if>
+			<div class="group_message_date">$message[date]<if condition="!$show['detailedtime']"> <span class="time">$message[time]</span></if></div>
+			<if condition="$message['postuserid']">
+				<a href="member.php?$session[sessionurl]u=$message[postuserid]" class="smallfont username">$message[musername]</a>
+			<else />
+				<span class="smallfont username">$message[musername]</span>
+			</if>
+
+			<if condition="$show['group'] OR $show['discussion']">
+			<div>
+			<if condition="$show['group']">
+				<span><phrase 1="group.php?$session[sessionurl]gmid=$message[gmid]#gmessage$message[gmid]" 2="$message[groupname]">$vbphrase[group_x]</phrase></span>
+			</if>
+			<if condition="$show['discussion']">
+				<span><phrase 1="group.php?$session[sessionurl]gmid=$message[gmid]#gmessage$message[gmid]" 2="$message[discussiontitle]">$vbphrase[discussion_x]</phrase></span>
+			</if>
+			</div>
+			</if>
+		</div>
+	</div>
+
+		<div class="social_group_message_body">
+			<if condition="$show['deleted']">
+				$message[message]<br />
+			</if>
+	<div class="smallfont deletedmessage">
+		<phrase 1="member.php?$session[sessionurl]u=$message[del_userid]" 2="$message[del_username]">$vbphrase[message_deleted_by_x]</phrase>
+		<if condition="$message['del_reason']"><span class="shade">$vbphrase[reason]</span> <em>$message[del_reason]</em></if>
+	</div>
+	
+		<ul class="list_no_decoration controls">
+			<if condition="$show['edit']">
+					<li class="smallfont"><a class="smallfont" href="group.php?$session[sessionurl]do=message&amp;gmid=$message[gmid]&amp;page=$show[pagenumber]">$vbphrase[edit]</a></li>
+			</if>
+			<if condition="$show['reportlink']">
+				<li class="smallfont"><a class="smallfont" href="group.php?$session[sessionurl]do=report&amp;gmid=$message[gmid]">$vbphrase[report]</a></li>
+			</if>
+		</ul>
+		</div>
+	</div>
+</div>

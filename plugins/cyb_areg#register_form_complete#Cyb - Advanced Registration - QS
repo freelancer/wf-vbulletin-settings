@@ -1,0 +1,26 @@
+
+		if ($vbulletin->options['cybareg_enable'] AND $vbulletin->options['cybareg_enable_questions'])
+		{
+			$db->hide_errors();
+			$cybareg_qinfo = $vbulletin->db->query_first("
+				SELECT id, question, answer, active
+				FROM " . TABLE_PREFIX . "cyb_advreg AS cyb_advreg
+				WHERE active=1
+				ORDER BY rand()
+			");
+
+			if ($cybareg_qinfo['question'])
+			{
+				$cyb_areg_question = "<fieldset class=\"fieldset\"><legend>$vbphrase[cybareg_random_question]</legend>$cybareg_qinfo[question]<br /><input type=\"hidden\" class=\"bginput\" name=\"cybareg_id\" size=\"25\" maxlength=\"50\" value=\"$cybareg_qinfo[id]\" dir=\"ltr\" /><input type=\"text\" class=\"bginput\" name=\"cybareg_answer\" size=\"25\" maxlength=\"50\" value=\"\" dir=\"ltr\" /></fieldset>";
+				$vbulletin->templatecache['register'] = str_replace('$human_verify','$human_verify $cyb_areg_question',$vbulletin->templatecache['register']);
+			}
+			$db->show_errors();
+		}
+
+		if ($vbulletin->options['cybareg_enable'] AND $vbulletin->options['cybareg_enable_invite_only'])
+		{
+			$vbulletin->options['usereferrer'] = 0;
+			$show['referrer'] = 0;
+			$cyb_areg_invcode = "<fieldset class=\"fieldset\"><legend>$vbphrase[cybareg_invitation_code]</legend>$vbphrase[cybareg_enter_invitation_code]<br /><input type=\"text\" class=\"bginput\" name=\"cybareg_code\" size=\"25\" maxlength=\"50\" value=\"\" dir=\"ltr\" /></fieldset>";
+			$vbulletin->templatecache['register'] = str_replace('$human_verify','$human_verify $cyb_areg_invcode',$vbulletin->templatecache['register']);
+		}

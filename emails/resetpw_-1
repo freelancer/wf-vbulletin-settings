@@ -1,0 +1,11 @@
+Dear $userinfo[username],
+
+As you requested, your password has now been reset. Your new details are as follows:
+
+Username: $userinfo[username]
+Password: $newpassword
+
+To change your password, please visit this page: $vboptions[bburl]/profile.php?do=editpassword
+
+All the best,
+$vboptions[bbtitle]

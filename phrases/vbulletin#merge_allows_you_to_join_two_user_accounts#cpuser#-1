@@ -1,0 +1,9 @@
+Merge allows you to join two user accounts into one single account.
+The source account will be combined into the destination account.<br />
+<br />
+Posts, threads, calendar events, private messages, post count, reputation, contacts, friends and ignore list will be combined.<br />
+<br />
+The combined user will still have the same permissions that the destination user had to begin with.
+Any access masks or moderator ability that the source user had will not be transferred.<br />
+<br />
+<b>This process cannot be reversed</b>.

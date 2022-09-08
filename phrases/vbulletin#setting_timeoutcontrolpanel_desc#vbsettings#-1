@@ -1,0 +1,2 @@
+After a period of inactivity, Administrators are logged out of the Admin Control Panel.  If this option is set to yes, the inactivity period will be the same as the Cookie Timeout setting found in vBulletin Options -> Help Cookies and HTTP Header Options (defaults to 15 minutes).  If this option is disabled, then the period will be one hour.
+<br /><br />Logins to the admincp are more secure with this enabled.

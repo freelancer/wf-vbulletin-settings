@@ -1,0 +1,4 @@
+
+$vbpua_lasthook='calendar_start';
+include(DIR.'/includes/vbvua_hooks.php');
+             

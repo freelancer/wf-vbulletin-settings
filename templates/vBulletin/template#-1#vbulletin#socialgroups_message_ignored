@@ -1,0 +1,31 @@
+<div class="social_group_message">
+	<div id="gmessage$message[gmid]" class="floatcontainer alt1 tborder">
+	<div class="tborder info_bar">
+		<div class="alt2 smallfont">
+			<if condition="$show['inlinemod']"><input type="checkbox" class="inlinemod_checkbox" name="gmessagelist[$message[gmid]]" id="gmessagelist_$message[gmid]" value="$message[checkbox_value]" title="$vbphrase[select_this_item_for_inline_moderation]" /></if>
+			<div class="group_message_date">$message[date]<if condition="!$show['detailedtime']"> <span class="time">$message[time]</span></if></div>
+				<a href="member.php?$session[sessionurl]u=$message[postuserid]" class="username">$message[musername]</a>
+
+			<if condition="$show['group'] OR $show['discussion']">
+			<div>
+			<if condition="$show['group']">
+				<span><phrase 1="group.php?$session[sessionurl]gmid=$message[gmid]#gmessage$message[gmid]" 2="$message[groupname]">$vbphrase[group_x]</phrase></span>
+			</if>
+			<if condition="$show['discussion']">
+				<span><phrase 1="group.php?$session[sessionurl]gmid=$message[gmid]#gmessage$message[gmid]" 2="$message[discussiontitle]">$vbphrase[discussion_x]</phrase></span>
+			</if>
+			</div>
+			</if>
+		</div>
+	</div>
+		
+		<div class="social_group_message_body smallfont">
+			<if condition="$show['moderation']"><div class="shade smallfont">$vbphrase[this_message_is_moderated]</div></if>
+		<phrase 1="$message[username]" 2="profile.php?$session[sessionurl]do=ignorelist">$vbphrase[message_hidden_x_on_ignore_list]</phrase>
+			
+			<ul class="list_no_decoration controls">
+				<li class="smallfont"><a href="group.php?$session[sessionurl]groupid=$group[groupid]&amp;gmid=$message[gmid]&amp;&amp;do=discuss&amp;showignored=1#gmessage$message[gmid]">$vbphrase[show_message_text]</a></li>
+			</ul>
+	</div>
+	</div>
+</div>

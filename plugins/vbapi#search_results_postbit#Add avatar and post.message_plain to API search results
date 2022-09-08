@@ -1,0 +1,5 @@
+if ((defined('VB_API') AND VB_API === true) AND $vbulletin->options['avatarenabled'])
+{
+	require_once DIR . '/includes/functions_user.php';
+	$avatar = fetch_avatar_url($post['userid']);
+}

@@ -1,0 +1,5 @@
+<tr>
+	<td class="alt1"><a href="member.php?$session[sessionurl]u=$buddy[userid]" target="_blank"><img src="$stylevar[imgdir_statusicon]/user_$buddy[statusicon].gif" alt="" title="<phrase 1="$buddy[username]" 2="$buddy[statusicon]">$vbphrase[x_is_y]</phrase>" border="0" /></a></td>
+	<td class="alt2" width="100%"><label class="smallfont" for="buddy_$buddy[userid]"><if condition="$show['highlightuser']"><span class="highlight">$buddy[username]</span><else />$buddy[username]</if></label></td>
+	<td class="alt1"><input type="checkbox" name="userid[]" id="buddy_$buddy[userid]" value="$buddy[userid]" /></td>
+</tr>

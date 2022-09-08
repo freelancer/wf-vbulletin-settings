@@ -1,0 +1,1 @@
+<a href="$address<if condition="$curpage != 1">&amp;page=$curpage</if>$address2" style="display: inline;">$curpage</a>

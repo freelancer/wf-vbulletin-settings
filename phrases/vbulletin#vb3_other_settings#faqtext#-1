@@ -1,0 +1,46 @@
+<p><b>What do the other settings do?</b></p>
+
+<p>In your <a href="usercp.php$session[sessionurl_q]">User CP</a>, there is a section under Settings &amp; Options named '<a href="profile.php?$session[sessionurl]do=editoptions">Edit Options</a>'.</p>
+
+<ul>
+	<li><b>Login &amp; Privacy:</b> set your
+		<ul>
+			<li>'Invisible Mode' - sets whether or not other members can see if you are online and what page you are viewing</li>
+			<li>'Show Reputation Level' - shows your reputation level on posts if this option is enabled by the administrator</li>
+			<li>'Allow vCard Download' - sets whether or not to allow other members to download a vCard containing your email address and username.</li>
+		</ul>
+	</li>
+	
+	<li><b>Messaging &amp; Notification</b> - options include:
+		<ul>
+			<li>'Receive Email' - whether or not you want to receive emails from other Members and administrators</li>
+			<li>'Default Thread Subscription Mode' - how you want to be notified about new posts in threads to which you have subscribed</li>
+			<li>'Private Messaging' - control how you want Private Messaging to work for your account</li>
+			<li>'Visitor Messaging' - control how you want Visitor Messaging to work for your account</li>
+		</ul>
+	</li>
+	
+	<li><b>Thread Display Options</b> - these include:
+		<ul>
+			<li>'Visible Post Elements' - whether or not you want to be able to see Signatures, Avatars and Images in posts</li>
+			<li>'Thread Display Mode' - how you want to view threads by default (more info available <a href="faq.php?$session[sessionurl]faq=vb3_board_usage#faq_vb3_thread_display">here</a>)</li>
+			<li>'Number of Posts to Show Per Page'</li>
+			<li>'Default Thread Age Cut Off' - the time period for threads to be displayed - threads older than this age will be hidden</li>
+		</ul>
+	</li>
+	
+	<li><b>Date &amp; Time Options</b> - these include:
+		<ul>
+			<li>'Time Zone' - your local geographical time zone offset from GMT/UTC</li>
+			<li>'Start of the Week' - for the Calendar.</li>
+		</ul>
+	</li>
+	
+	<li><b>Miscellaneous Options</b> include:
+		<ul>
+			<li>'Message Editor Interface' - This option allows you choose what kind of editor you will use when posting messages. Your choices include a basic text-only editor, a standard editor with clickable formatting controls, or a full WYSIWYG (what you see is what you get) editor that will show your formatting as you type.</li>
+			<li>'Forum Style' - only available if there is more than one style (or 'skin') available and the administrator has enabled this selection</li>
+			<li>'Forum Language' - only available if there is more than one Language enabled. This will change the language in which all controls and board messages will be shown. It will not translate members' posts</li>
+		</ul>
+	</li>
+</ul>

@@ -1,0 +1,11 @@
+On this page you can view several quick stats about your forums and server as well as use the quick admin features which include: Quick User Finder, PHP Function Lookup, MySQL Language Lookup, and Useful Links.  At the bottom of this page are the vBulletin credits.<br /><br />
+
+If you have permission to run the "top" command on your server then you will see your server load averages under the "Quick Administration Links" section on this page.  <a href="http://www.vbulletin.com/forum/showpost.php?p=291831&amp;postcount=9" target="_blank">Click here</a> for a detailed explanation of load averages.<br /><br />
+
+The Quick User Finder allows you to quickly search for users based on a partial or exact username match.<br /><br />
+
+The PHP Function Lookup will search the functions on the PHP site for the search string you enter.  The results will be displayed in this frame.<br /><br />
+
+The MySQL Language Lookup will search the documentation on the MySQL site for the search string you enter.  The results will be displayed in this frame.<br /><br />
+
+The Useful Links menu contains several useful vBulletin, PHP, and MySQL links that will open in a new window when you select their menu item.

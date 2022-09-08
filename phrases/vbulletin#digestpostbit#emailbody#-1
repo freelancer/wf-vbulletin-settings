@@ -1,0 +1,7 @@
+************
+$post[title]
+$vboptions[bburl]/showthread.php?p=$post[postid]#post$post[postid]
+Posted by: $post[postusername]
+On: $post[postdate] $post[posttime]
+
+$post[pagetext]

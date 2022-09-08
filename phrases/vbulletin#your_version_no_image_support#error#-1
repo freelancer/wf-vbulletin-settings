@@ -1,0 +1,1 @@
+Your version of PHP does not have image support. Please make sure you have enabled GD if your server does support it by going to Options -> vBulletin Options -> Image Settings

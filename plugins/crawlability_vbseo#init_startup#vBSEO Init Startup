@@ -1,0 +1,2 @@
+if(@include_once(DIR . '/vbseo/includes/functions_vbseo.php'))	
+vbseo_complete_sec('init_startup');

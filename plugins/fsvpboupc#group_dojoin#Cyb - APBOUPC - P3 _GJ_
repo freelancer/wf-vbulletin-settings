@@ -1,0 +1,8 @@
+
+		 if (($vbulletin->options['apboupc_groups_joingroups']>0) AND !is_member_of($vbulletin->userinfo, split(',', $vbulletin->options['apboupc_groups_excl_groups'])))
+		 {
+			if ($vbulletin->userinfo[posts] < $vbulletin->options['apboupc_groups_joingroups'])
+			{
+				eval(standard_error(fetch_error('error_postcount_too_low_join_groups', intval($vbulletin->options['apboupc_groups_joingroups']), intval($vbulletin->userinfo['posts']))));
+			}
+		 }

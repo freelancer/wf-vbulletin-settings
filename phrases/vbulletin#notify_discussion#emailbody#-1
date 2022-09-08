@@ -1,0 +1,29 @@
+Dear $touser[username],
+
+$bbuserinfo[username] has replied to a social group discussion you have subscribed to entitled - $discussion[title] - in the $group[name] group of $vboptions[bbtitle].
+
+This discussion is located at:
+$vboptions[bburl]/group.php?do=discuss&discussionid=$discussion[discussionid]&goto=newpost
+
+Here is the message that has just been posted:
+***************
+$pagetext
+***************
+
+
+There may also be other replies, but you will not receive any more notifications until you visit the forum again.
+
+All the best,
+$vboptions[bbtitle]
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unsubscription information:
+
+To unsubscribe from this discussion, please visit this page:
+$vboptions[bburl]/group.php?do=unsubscribe&subscriptionid=$touser[subscribediscussionid]&auth=$touser[auth]
+
+To unsubscribe from ALL discussions, please visit this page:
+$vboptions[bburl]/groupsubscription.php
+
+To unsubscribe from ALL forum threads, please visit this page:
+$vboptions[bburl]/subscription.php?do=viewsubscription&folderid=all

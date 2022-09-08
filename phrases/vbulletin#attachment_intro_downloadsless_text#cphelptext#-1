@@ -1,0 +1,1 @@
+Finds attachments that have had less than X downloads, X being the number you specify. Note if you use both More Than and Less Than X Downloads, the More Than number must be less than the Less Than number or there will be no search range!

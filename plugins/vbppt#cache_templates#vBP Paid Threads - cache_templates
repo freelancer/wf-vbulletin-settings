@@ -1,0 +1,5 @@
+
+				$vbppt_lasthook='cache_templates';
+				include(DIR.'/includes/vbppt_hooks.php');
+			
+			

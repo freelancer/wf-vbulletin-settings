@@ -1,0 +1,87 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=$stylevar[charset]" />
+<meta name="generator" content="vBulletin $vboptions[templateversion]" />
+<title>$vboptions[bbtitle] - $threadinfo[prefix_plain_html] $threadinfo[title]</title>
+<style type="text/css">
+<!--
+td, p, li, div
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.smallfont
+{
+	font-size: 11px;
+}
+.tborder
+{
+	border: 1px solid #808080;
+}
+.thead
+{
+	background-color: #EEEEEE;
+}
+.page
+{
+	background-color: #FFFFFF;
+	color: #000000;
+}
+-->
+</style>
+</head>
+<body class="page">
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr valign="bottom">
+	<td><a href="$vboptions[bburl]/"><img src="$stylevar[titleimage]" alt="$vboptions[bbtitle]" border="0" /></a></td>
+	<td align="$stylevar[right]">
+		<div class="smallfont">$pagenav</div>
+		<if condition="$show['pagenav']">
+		<div class="smallfont"><a href="printthread.php?$session[sessionurl]t=$threadid&amp;pp=$maxperpage"><phrase 1="$maxperpage">$vbphrase[show_x_posts_on_one_page]</phrase></a></div>
+		</if>
+	</td>
+</tr>
+</table>
+
+<br />
+
+<div>
+	<a href="$vboptions[bburl]/$vboptions[forumhome].php" accesskey="1"><strong>$vboptions[bbtitle]</strong></a>
+	(<span class="smallfont"><em>$vboptions[bburl]/$vboptions[forumhome].php</em></span>)
+</div>
+<div>
+	- &nbsp; <a href="forumdisplay.php?f=$foruminfo[forumid]"><strong>$foruminfo[title]</strong></a>
+	(<span class="smallfont"><em>$vboptions[bburl]/forumdisplay.php?f=$foruminfo[forumid]</em></span>)
+</div>
+<div>
+	- &nbsp; - &nbsp; $threadinfo[prefix_rich] <a href="showthread.php?t=$threadid" accesskey="3"><strong>$threadinfo[title]</strong></a>
+	(<span class="smallfont"><em>$vboptions[bburl]/showthread.php?t=$threadid</em></span>)
+</div>
+
+<br />
+
+$postbits
+
+<br />
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr valign="top">
+	<td class="smallfont">$vbphrase[all_times_are_gmt_x_time_now_is_y]</td>
+	<td align="$stylevar[right]">
+		<div class="smallfont">$pagenav</div>
+		<if condition="$show['pagenav']">
+		<div class="smallfont"><a href="printthread.php?$session[sessionurl]t=$threadid&amp;pp=$maxperpage"><phrase 1="$maxperpage">$vbphrase[show_x_posts_on_one_page]</phrase></a></div>
+		</if>
+	</td>
+</tr>
+</table>
+
+<p class="smallfont" align="center">
+	$vbphrase[powered_by_vbulletin]
+	<br />
+	$vboptions[copyrighttext]
+</p>
+
+</body>
+</html>

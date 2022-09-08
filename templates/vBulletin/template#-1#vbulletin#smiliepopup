@@ -1,0 +1,35 @@
+$stylevar[htmldoctype]
+<html xmlns="http://www.w3.org/1999/xhtml" dir="$stylevar[textdirection]" lang="$stylevar[languagecode]">
+<head>
+$headinclude
+	<title>$vbphrase[smilie_list] - $vboptions[bbtitle]</title>
+</head>
+<body style="margin:0px" onload="self.focus()">
+
+<form action="misc.php" method="get">
+<input type="hidden" name="do" value="$getsmilies" />
+<input type="hidden" name="wysiwyg" value="$wysiwyg" />
+
+<table class="tborder" cellpadding="$stylevar[cellpadding]" cellspacing="$stylevar[cellspacing]" border="0" width="100%" id="smilietable">
+<tr>
+	<td class="tcat" colspan="4">
+		$vbphrase[smilie_list]
+		<div class="smallfont">$vbphrase[click_a_smilie_to_insert_it_into_your_message]</div>
+	</td>
+</tr>
+$smiliebits
+<tr>
+	<td class="tfoot" colspan="4" align="center"><input type="button" class="button" value="$vbphrase[close_this_window]" onclick="self.close()" /></td>
+</tr>
+</table>
+
+</form>
+
+<script type="text/javascript">
+<!--
+window.opener.vB_Editor['$editorid'].init_smilies(fetch_object('smilietable'));
+//-->
+</script>
+
+</body>
+</html>

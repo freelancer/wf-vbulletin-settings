@@ -1,0 +1,5 @@
+This setting controls the path scope of your forum cookies. If you have multiple cookies interacting on your site, then it may be necessary to restrict the scope of your forum cookies.<br /><br />
+
+If you want your forum cookie to work in every directory on your site, then use "/" for the path (no quotes).  This means your forum cookie will work at "yoursite.com/forum", "yoursite.com/contact", and any other directory.  You might need your forum cookie to work in any directory if you have external scripts that tie into vBulletin, like portals or other external pages.<br /><br />
+
+If you want your forum cookie to work in a single directory (your forum directory), then use "/forum/" (insert the name of your forum directory).  The path should always start and end with a "/".

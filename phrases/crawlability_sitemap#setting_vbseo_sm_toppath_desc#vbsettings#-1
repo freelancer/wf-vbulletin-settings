@@ -1,0 +1,3 @@
+By default the vBSEO Sitemap files will be located in your forum root. Use this field to specify a different location, for example, your site root: <em>http://www.yourdomain.com</em>
+<br /><br />
+<strong>NOTE:</strong> You must edit the .htaccess file of the folder in which you want to locate your sitemap files. More information <a href="http://www.vbseo.com/wiki/Sitemap:FAQ" target="_new">here</a>. Leave this setting empty to use default vB url.

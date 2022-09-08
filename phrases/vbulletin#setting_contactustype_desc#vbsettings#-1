@@ -1,0 +1,1 @@
+The last option only applies if you specify 'sendmessage.php' in the previous option. You may require guests to pass <strong>Human Verification</strong> in order to use this form by enabling the option found in the <em><a href="options.php?do=options&amp;dogroup=humanverification">Human Verification Options</a></em>.

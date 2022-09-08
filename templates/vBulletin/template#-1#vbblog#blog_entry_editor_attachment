@@ -1,0 +1,5 @@
+<div style="margin:2px">
+	<img class="inlineimg" src="$attach[imgpath]" alt="" border="0" />
+	<a href="blog_attachment.php?$session[sessionurl]attachmentid=$attach[attachmentid]&amp;stc=1&amp;d=$attach[dateline]" target="_blank">$attach[filename]</a>
+	($attach[filesize])
+</div>

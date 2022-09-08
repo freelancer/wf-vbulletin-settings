@@ -1,0 +1,1 @@
+Choose the image processing library that vBulletin will use for processing thumbnails and avatars.  GD is more widely available but ImageMagick is more robust, supporting more image types. ImageMagick must have a valid path chosen below.

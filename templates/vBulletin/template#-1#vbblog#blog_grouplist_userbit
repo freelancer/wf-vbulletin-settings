@@ -1,0 +1,9 @@
+<li class="alt1" id="member$member[userid]">
+	<div class="username">
+			<label class="avatar_label" for="userlist_usercheck_$member[userid]">
+				<img src="$member[avatarurl]"<if condition="$member['avatarwidth']"> width="$member[avatarwidth]"</if><if condition="$member['avatarheight']"> height="$member[avatarheight]"</if> id="userlist_avatar_$member[userid]" alt="<phrase 1="$member[username]">$vbphrase[xs_avatar]</phrase>" border="0" />
+			</label>
+			<a href="member.php?$session[sessionurl]u=$member[userid]" title="$vbphrase[view_profile]">$member[username]</a>
+	</div>
+	<hr />
+</li>

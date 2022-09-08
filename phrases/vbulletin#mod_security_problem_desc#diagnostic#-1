@@ -1,0 +1,1 @@
+The above setting will indicate if mod_security is preventing some AJAX requests from being submitted to vBulletin. If this shows Yes then you either need to disable mod_security or change the AJAX settings with the vBulletin Options and disable Problematic features.

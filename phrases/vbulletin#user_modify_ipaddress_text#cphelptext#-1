@@ -1,0 +1,1 @@
+Enter a number in this field to search by IP address. It can be a full IP address (such as 24.23.120.15) or a partial (such as 24.23.120). In the case of a partial, it would match users with any number(s) for the last block.

@@ -1,0 +1,1 @@
+Setting any of the options will require users with the usergroup permission <strong>Require Human Verification on Configured Actions</strong> to pass the Human Verification test when performing the selected actions.

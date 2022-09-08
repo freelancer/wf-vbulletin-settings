@@ -1,0 +1,1 @@
+Extract destination data<dfn>Set this to yes to try and extract information for the URL (i.e. title and embed code if applicable) at post/edit time. Setting this to no will globally disable the individual settings for this.</dfn>

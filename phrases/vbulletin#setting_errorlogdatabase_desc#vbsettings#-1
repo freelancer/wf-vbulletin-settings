@@ -1,0 +1,5 @@
+If you would like to log all database errors to a file, enter the path to the file here. The file will be saved as {filename}.log.<br />
+<br />
+Errors connecting to the database server will not be logged.<br />
+<br />
+<u>Please note</u> that the directory in which this file is to be created <b>must</b> be writable by the web server.

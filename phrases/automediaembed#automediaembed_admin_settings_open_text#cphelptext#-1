@@ -1,0 +1,3 @@
+This is the HTML that opens the AME for items using the container feature.<p>You can place a couple of different variables in here for processing<ul><li>$url - is the full URL being passed</li><li>$title - is either the title of the URL (if it exists) or the title of the entry</li><li>$p1, $p2, $p3, $p4 and $p5 are all backreferences that represent different parts of your regular expression</li></ul></p>
+
+Note that changes to this setting may not be seen until after rebuilding posts or editing a post.
